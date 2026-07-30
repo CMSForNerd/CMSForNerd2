@@ -1,0 +1,16 @@
+# CMSForNerd2
+
+CMSForNerd2 is the modern, database-free, statically served asset version of CmsForNerd, utilising Astro SSG, HTML5, and CSS3 to deliver lightning-fast static assets.
+
+## Core Navigation
+- [README.md](README.md) - Project overview and quickstart.
+- [START-HERE.md](START-HERE.md) - Multi-layer onboarding map for developers and agents.
+- [SUMMARY.md](SUMMARY.md) - Compiled table of contents for documentation builders.
+- [AGENTS.md](AGENTS.md) - Gateway AI guidelines and DSOM standards.
+
+## Documentation
+- [docs/migration-guide.md](docs/migration-guide.md) - Comprehensive human-readable guide detailing framework selection (Astro) and the step-by-step transition from PHP to HTML5/CSS3 static assets.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
