@@ -10,6 +10,7 @@ CMSForNerd2 is the modern, database-free, statically served asset version of Cms
 
 ## Documentation
 - [docs/migration-guide.md](docs/migration-guide.md) - Comprehensive human-readable guide detailing framework selection (Astro) and the step-by-step transition from PHP to HTML5/CSS3 static assets.
+- [docs/context7-integration.md](docs/context7-integration.md) - Extensive documentation manual detailing configuration configurations for Context7 services, GitLab CI, and GitHub Actions environments.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*

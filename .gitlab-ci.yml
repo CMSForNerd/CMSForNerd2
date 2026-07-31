@@ -1,0 +1,14 @@
+stages:
+  - notify
+
+refresh-context7-docs:
+  stage: notify
+  image: curlimages/curl:latest
+  only:
+    - master
+  script:
+    - |
+      curl -s -X POST https://context7.com/api/v1/refresh \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${CONTEXT7_API_KEY}" \
+        -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'

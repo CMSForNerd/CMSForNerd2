@@ -3,7 +3,7 @@ okf_version: 0.1
 type: documentation
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
-timestamp: "2026-07-30T12:00:00Z"
+timestamp: "2026-07-31T07:20:00Z"
 topics: [summary, index, navigation]
 ---
 
@@ -14,6 +14,7 @@ topics: [summary, index, navigation]
 
 ## 📘 Migration Manuals
 * [Static Migration Guide](docs/migration-guide.md)
+* [Context7 Service Integration Guide](docs/context7-integration.md)
 
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)
