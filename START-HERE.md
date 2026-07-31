@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: documentation
 title: "CMSForNerd2 Master Onboarding Map"
-timestamp: "2026-07-30T12:00:00Z"
+timestamp: "2026-07-31T07:21:00Z"
 description: "Master entry-point and mapping directory for developers and AI agents onboarding onto CMSForNerd2."
 topics: [onboarding, navigation, structure, dsom]
 ---
@@ -21,13 +21,14 @@ To prevent orphaned assets and guarantee immediate discovery across all platform
 | :--- | :--- | :--- |
 | **Project Entrance** | Root introduction and development quickstart. | [README.md](README.md) |
 | **Migration Protocol** | Comprehensive architectural blueprint and SSG comparison. | [docs/migration-guide.md](docs/migration-guide.md) |
+| **Context7 Service** | Comprehensive integration, setup and configuration for Context7 services. | [docs/context7-integration.md](docs/context7-integration.md) |
 | **GitBook Summary** | Linear table of contents for documentation pipelines. | [SUMMARY.md](SUMMARY.md) |
-| **AI Crawler Sitemap** | High-density context document optimized for LLMs. | [llms.txt](llms.txt) |
+| **AI Crawler Sitemap** | High-density context document optimised for LLMs. | [llms.txt](llms.txt) |
 | **Agent Rulebook** | Digital Sovereignty Operational Model (DSOM) constitution. | [AGENTS.md](AGENTS.md) / [.agents/AGENTS.md](.agents/AGENTS.md) |
 
 ---
 
-## 🏛️ Spatial Organization
+## 🏛️ Spatial Organisation
 
 By keeping the repository root immaculately clean, we preserve architectural purity.
 
@@ -37,7 +38,8 @@ CMSForNerd2/
 │   ├── AGENTS.md               # Full DSOM rulebook constitution
 │   └── brain/                  # Cognitive state (tasks, active context)
 ├── docs/                       # Project documentation
-│   └── migration-guide.md      # The master PHP-to-Static migration guide
+│   ├── migration-guide.md      # The master PHP-to-Static migration guide
+│   └── context7-integration.md # Context7 integration and CI manual
 ├── README.md                   # Project landing page
 ├── START-HERE.md               # This onboarding map
 ├── SUMMARY.md                  # Compilation registry
