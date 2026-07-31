@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: task_list
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-07-31T07:25:00Z"
+timestamp: "2026-07-31T09:45:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
 topics: [tasks, track, progress]
 ---
@@ -19,6 +19,7 @@ topics: [tasks, track, progress]
 - [x] Refactor rendering logic in `src/pages/[...slug].astro` and `src/pages/[...slug]/amp.astro` to use Astro v6 content collection rendering API (`render`).
 - [x] Verify complete local build and render/screenshot correctness of the home page via Playwright visual verification.
 - [x] Complete pre-commit checks and verification.
+- [x] Upgrade CMSForNerd2 to Astro 7.1 (specifically "^7.1.6") and verify local build correctness.
 - [ ] Submit changes.
 
 ---
