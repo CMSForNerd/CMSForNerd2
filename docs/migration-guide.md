@@ -61,7 +61,7 @@ By selecting **Astro**, the project gains several critical advantages:
 Through this modernisation, CMSForNerd2 will leverage the latest web technologies:
 
 *   **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
-*   **Core Framework**: Astro (latest version, using static output configuration).
+*   **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
 *   **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
 *   **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
 *   **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
