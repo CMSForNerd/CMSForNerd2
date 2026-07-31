@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: documentation
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
-timestamp: "2026-07-30T12:00:00Z"
+timestamp: "2026-07-31T10:00:00Z"
 description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
 topics: [migration, astro, static, php, architecture]
 ---
@@ -229,7 +229,7 @@ With Astro's client-side capabilities, the custom AJAX routing logic is modernis
 
 ## 6. Build & Deployment Architecture
 
-By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration (e.g., Podman/Ansible) is replaced or augmented by GitOps-driven deployment.
+By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration is replaced or augmented by GitOps-driven deployment.
 
 ### Build Step
 Execute the production build to compile static assets:
@@ -238,27 +238,104 @@ npm run build
 ```
 This writes all HTML, CSS, and JS files to the `dist/` directory, completely self-contained.
 
-### Deploying with Nginx
-For local, on-premise, or VM-based hosting, standardise on an unprivileged, highly-hardened Nginx container config:
+### Deploying to Render.com with NGINX
+To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.
+
+The deployment infrastructure is defined via three root-level files:
+1.  **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
+2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:20-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
+3.  **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
+
+### Hardened NGINX Container Configuration
+To satisfy unprivileged execution rules and defend against host compromise, standardise on our hardened `./nginx/nginx.conf`:
 ```nginx
-server {
-    listen 8080 default_server;
-    server_name localhost;
-    root /usr/share/nginx/html;
-    index index.html;
+worker_processes auto;
+pid /tmp/nginx.pid;
 
-    # GZIP Compression
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Logging settings
+    access_log /dev/stdout;
+    error_log /dev/stderr warn;
+
+    # Performance optimisation
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+
+    # Gzip compression configuration
     gzip on;
-    gzip_types text/plain text/css application/json application/javascript text/xml;
+    gzip_disable "msie6";
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_buffers 16 8k;
+    gzip_http_version 1.1;
+    gzip_min_length 256;
+    gzip_types
+        text/plain
+        text/css
+        application/json
+        application/javascript
+        application/x-javascript
+        text/xml
+        application/xml
+        application/xml+rss
+        text/javascript
+        image/svg+xml;
 
-    # Hardened Security Headers
-    add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self';" always;
-    add_header X-Frame-Options "DENY" always;
-    add_header X-Content-Type-Options "nosniff" always;
-    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+    server {
+        # Port 8080 for unprivileged operation
+        listen 8080 default_server;
+        listen [::]:8080 default_server;
+        server_name _;
 
-    location / {
-        try_files $uri $uri/ /index.html;
+        root /usr/share/nginx/html;
+        index index.html;
+
+        # Custom security headers
+        add_header X-Frame-Options "DENY" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+        add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*; connect-src 'self' https://*;" always;
+
+        # Healthcheck location
+        location = /healthz {
+            access_log off;
+            add_header Content-Type text/plain;
+            return 200 "OK";
+        }
+
+        # Handling static assets with caching
+        location /assets/ {
+            expires 1y;
+            add_header Cache-Control "public, no-transform";
+            try_files $uri =404;
+        }
+
+        # Clean URLs routing for Astro static pages
+        location / {
+            try_files $uri $uri/ $uri.html /index.html =404;
+        }
+
+        # Error handling
+        error_page 404 /404.html;
+        location = /404.html {
+            internal;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            internal;
+        }
     }
 }
 ```
