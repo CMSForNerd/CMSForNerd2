@@ -238,6 +238,15 @@ npm run build
 ```
 This writes all HTML, CSS, and JS files to the `dist/` directory, completely self-contained.
 
+### Deploying to Render.com as a Static Site (Recommended / Free Tier)
+By deploying CMSForNerd2 directly as a Static Site on Render, you can leverage completely free static hosting without the need to maintain or run a containerised server.
+
+To configure this in the Render Dashboard:
+1.  **Build Command**: Set this to `npm run build`
+2.  **Publish Directory**: Set this to `dist/` or `dist`
+
+If deploying via our Blueprint specification, the `render.yaml` file automatically configures a static service named `cmsfornerd2-static` alongside the Nginx container, ensuring seamless, zero-config builds.
+
 ### Deploying to Render.com with NGINX
 To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.
 
