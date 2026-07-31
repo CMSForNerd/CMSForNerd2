@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentAbortController = new AbortController();
 
         try {
-            // Include a custom header to trigger our new index.php Hydration block
+            // Include a custom header (retained from legacy PHP index.php Hydration block for compatibility)
             const response = await fetch(url, {
                 signal: currentAbortController.signal,
                 headers: {

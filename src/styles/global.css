@@ -355,7 +355,7 @@ body {
  * [8. RESPONSIVE BRIDGE]
  * Collapses the 3-column grid into a mobile-first stacked view.
  * Educational Note: We change the 'grid-template-areas' and 'grid-template-columns'
- * to reorder content without touching the PHP/HTML source.
+ * to reorder content without touching the Astro/HTML source.
  */
 @media (max-width: 992px) {
     #container {
