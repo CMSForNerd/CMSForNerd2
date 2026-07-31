@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: walkthrough
 title: "CMSForNerd2 Active Walkthrough"
-timestamp: "2026-07-31T14:30:00Z"
+timestamp: "2026-07-31T22:30:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
 topics: [walkthrough, history, brain]
 ---
@@ -18,3 +18,4 @@ topics: [walkthrough, history, brain]
 5.  **Astro v6 Content Collections Refactor**: Migrated `src/content/config.ts` to `src/content.config.ts` with the new glob loader, and refactored `[...slug].astro` and `amp.astro` to call `render(page)` instead of `page.render()`.
 6.  **Visual Verification**: Successfully ran a preview server on port 4321 and used Playwright to generate and inspect a pixel-perfect full-page screenshot of the homepage.
 7.  **Render Deployment Configuration**: Fixed Render deployment issue ("Publish directory dist/ does not exist!" due to skipped build) by adding a static service type configuration in `render.yaml` and documenting the static site deployment steps in `docs/migration-guide.md`.
+8.  **Enhancing Repository Onboarding (README)**: Added clear manual static site deployment instructions in the root `README.md` so that users deploying manually through the Render Dashboard can see how to resolve the empty build command issue immediately.
