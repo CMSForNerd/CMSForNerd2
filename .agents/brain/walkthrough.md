@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: walkthrough
 title: "CMSForNerd2 Active Walkthrough"
-timestamp: "2026-07-30T12:00:00Z"
+timestamp: "2026-07-31T07:25:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
 topics: [walkthrough, history, brain]
 ---
@@ -15,6 +15,8 @@ topics: [walkthrough, history, brain]
 2.  **SSG Framework Selection**: Selected Astro as the target framework due to its lightweight zero-JS output, support for modern CSS3/HTML5, robust content collections, and native View Transitions replacing legacy ajax routers.
 3.  **Migration Guide Compilation**: Created `docs/migration-guide.md` summarizing the exact transition playbook for the development team.
 4.  **Spatial Environment Configuration**: Set up root navigation and AI registries complying with DSOM rules.
+5.  **Astro v6 Content Collections Refactor**: Migrated `src/content/config.ts` to `src/content.config.ts` with the new glob loader, and refactored `[...slug].astro` and `amp.astro` to call `render(page)` instead of `page.render()`.
+6.  **Visual Verification**: Successfully ran a preview server on port 4321 and used Playwright to generate and inspect a pixel-perfect full-page screenshot of the homepage.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
