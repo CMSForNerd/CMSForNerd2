@@ -61,6 +61,18 @@ npm run build
 ```
 This writes the fully optimised production-ready HTML5, CSS3, and JavaScript files to the dist/ directory, which can be served by any static host or unprivileged web server.
 
+### Deploying to Render.com
+
+CMSForNerd2 can be deployed on **Render.com** either as a containerised service or as a free Static Site.
+
+#### 1. Free Static Site Deployment (Recommended)
+To prevent build failures (such as `Publish directory dist/ does not exist!` due to skipped builds), ensure the following parameters are explicitly configured in the Render Dashboard under your Static Site settings:
+*   **Build Command**: `npm run build`
+*   **Publish Directory**: `dist`
+
+#### 2. Containerised Web Service
+Alternatively, you can deploy using our pre-configured multi-stage Dockerfile and unprivileged NginX server. This can be launched instantly using our Blueprint specification (`render.yaml`).
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
