@@ -21,3 +21,8 @@ services:
     envVars:
       - key: TZ
         value: Asia/Kuala_Lumpur
+
+  - type: static
+    name: cmsfornerd2-static
+    buildCommand: npm run build
+    publishPath: dist

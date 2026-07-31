@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: walkthrough
 title: "CMSForNerd2 Active Walkthrough"
-timestamp: "2026-07-31T07:25:00Z"
+timestamp: "2026-07-31T14:30:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
 topics: [walkthrough, history, brain]
 ---
@@ -17,7 +17,4 @@ topics: [walkthrough, history, brain]
 4.  **Spatial Environment Configuration**: Set up root navigation and AI registries complying with DSOM rules.
 5.  **Astro v6 Content Collections Refactor**: Migrated `src/content/config.ts` to `src/content.config.ts` with the new glob loader, and refactored `[...slug].astro` and `amp.astro` to call `render(page)` instead of `page.render()`.
 6.  **Visual Verification**: Successfully ran a preview server on port 4321 and used Playwright to generate and inspect a pixel-perfect full-page screenshot of the homepage.
-
----
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
-*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+7.  **Render Deployment Configuration**: Fixed Render deployment issue ("Publish directory dist/ does not exist!" due to skipped build) by adding a static service type configuration in `render.yaml` and documenting the static site deployment steps in `docs/migration-guide.md`.
