@@ -1,1 +1,5 @@
 temp_cmsfornerd/
+node_modules/
+dist/
+.astro/
+.npm/

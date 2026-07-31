@@ -1,0 +1,383 @@
+/**
+ * ==========================================================================
+ * THEME: Lab_v3 (CMSForNerd v3.5)
+ * FILE: themes/CmsForNerd/style.css
+ * AUTHOR: Harisfazillah Jamel
+ * * PHILOSOPHY: "Zero-Debt" Architecture
+ * This stylesheet serves as a training tool to demonstrate how to build
+ * high-end professional UIs using native CSS features (Grid, Flex, Variables)
+ * without the overhead of external frameworks.
+ * ==========================================================================
+ */
+
+/**
+ * [1. CONFIGURATION LAYER - DESIGN TOKENS]
+ * We use the :root pseudo-class to define CSS Variables.
+ * Educational Note: This implements a "Single Source of Truth." If you change
+ * the --lab-purple here, every purple element in the CMS updates instantly.
+ */
+:root {
+    /* -- PALETTE: High Contrast "Sterile Lab" Aesthetic -- */
+    --lab-bg: #f8f9fa;        /* Sterile laboratory floor (Slate 50) */
+    --lab-surface: #ffffff;   /* Clean white work surfaces */
+    --lab-text: #1e293b;      /* Sharp slate for maximum readability */
+    --lab-muted: #64748b;     /* Slate 500: Metadata and non-critical info */
+    --lab-border: #e2e8f0;    /* Subtle structural boundaries */
+
+    /* -- BRANDING & ACCENTS -- */
+    --lab-primary: #0f172a;   /* Navy: Infrastructure and Header */
+    --lab-purple: #8e44ad; /* Purple: "Nerd-Stack" Laboratory Accent */
+    --lab-highlight: var(--lab-purple); /* Legacy Alias for v3.6 compatibility */
+    --lab-success: #27ae60;   /* Green: Compliance and Passed Tests */
+    --lab-heading: var(--lab-primary);
+
+    /* -- TYPOGRAPHY -- */
+    --f-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --f-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+
+    /* -- LAYOUT TOKENS -- */
+    --radius: 12px;
+    --gap: 20px;
+
+    /* -- ADAPTIVE COMPONENT TOKENS (v4.0.0 High Contrast Parity) -- */
+    --lab-section-bg: #ffffff;
+    --lab-box-bg: #f9f9f9;
+    --lab-alert-bg: #e6f7ff;
+    --lab-warning-bg: #fff3cd;
+    --lab-vulnerable-bg: #ffffff;
+    --lab-secure-bg: #ffffff;
+    --lab-cta-bg: #fffbeb;
+    --lab-code-bg: #2d2d2d;
+    --lab-code-text: #ccc;
+}
+
+/* Force dark theme via class on root or HTML */
+.theme-dark, :root.theme-dark {
+    --lab-bg: #0f172a;
+    --lab-surface: #1e293b;
+    --lab-text: #f8fafc;
+    --lab-muted: #94a3b8;
+    --lab-border: #334155;
+    --lab-primary: #020617;
+    --lab-purple: #a855f7;
+    --lab-heading: #f8fafc;
+
+    /* -- ADAPTIVE COMPONENT TOKENS FOR DARK THEME -- */
+    --lab-section-bg: #1e293b;
+    --lab-box-bg: #0f172a;
+    --lab-alert-bg: #032b45;
+    --lab-warning-bg: #40300a;
+    --lab-vulnerable-bg: #2d1316;
+    --lab-secure-bg: #0d2818;
+    --lab-cta-bg: #2a2408;
+    --lab-code-bg: #0d1117;
+    --lab-code-text: #f0f6fc;
+}
+
+/* Force light theme via class on root or HTML */
+.theme-light, :root.theme-light {
+    --lab-bg: #f8f9fa;
+    --lab-surface: #ffffff;
+    --lab-text: #1e293b;
+    --lab-muted: #64748b;
+    --lab-border: #e2e8f0;
+    --lab-primary: #0f172a;
+    --lab-purple: #8e44ad;
+    --lab-heading: var(--lab-primary);
+
+    /* -- ADAPTIVE COMPONENT TOKENS FOR LIGHT THEME -- */
+    --lab-section-bg: #ffffff;
+    --lab-box-bg: #f9f9f9;
+    --lab-alert-bg: #e6f7ff;
+    --lab-warning-bg: #fff3cd;
+    --lab-vulnerable-bg: #ffffff;
+    --lab-secure-bg: #ffffff;
+    --lab-cta-bg: #fffbeb;
+    --lab-code-bg: #2d2d2d;
+    --lab-code-text: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Only apply system dark mode if light mode class is not explicitly present */
+    :root:not(.theme-light) {
+        --lab-bg: #0f172a;        /* Deep slate background */
+        --lab-surface: #1e293b;   /* Slightly lighter surface */
+        --lab-text: #f8fafc;      /* Off-white text */
+        --lab-muted: #94a3b8;     /* Slate 400 */
+        --lab-border: #334155;    /* Slate 700 */
+        --lab-primary: #020617;   /* Extra dark navy */
+        --lab-purple: #a855f7; /* Lighter Purple for contrast */
+        --lab-heading: #f8fafc;
+
+        /* -- ADAPTIVE COMPONENT TOKENS FOR PREFER DARK -- */
+        --lab-section-bg: #1e293b;
+        --lab-box-bg: #0f172a;
+        --lab-alert-bg: #032b45;
+        --lab-warning-bg: #40300a;
+        --lab-vulnerable-bg: #2d1316;
+        --lab-secure-bg: #0d2818;
+        --lab-cta-bg: #2a2408;
+        --lab-code-bg: #0d1117;
+        --lab-code-text: #f0f6fc;
+    }
+}
+
+/**
+ * [2. BASE STYLES]
+ * Resetting defaults to ensure a consistent cross-browser experience.
+ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--f-sans);
+    background-color: var(--lab-bg);
+    color: var(--lab-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/**
+ * [3. ARCHITECTURAL GRID]
+ * Use CSS Grid for the 3-column "Master Pair" structure.
+ * Educational Note: grid-template-areas allows us to name zones,
+ * making the layout self-documenting.
+ */
+#container {
+    display: grid;
+    width: 98%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    /* Grid Definition: Sidebar (220px) | Content (Flexible) | Sidebar (220px) */
+    grid-template-columns: 220px 1fr 220px;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "header header header"
+        "left   main   right"
+        "footer footer footer";
+    gap: var(--gap);
+    padding-top: 10px;
+}
+
+/**
+ * [4. HEADER COMPONENT]
+ * The "Instrument Panel" of the CMS.
+ */
+#top {
+    grid-area: header;
+    background-color: var(--lab-primary);
+    color: #ffffff;
+    padding: 0;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+    color: var(--lab-text);
+}
+
+/**
+ * [5. NAVIGATION SIDEBARS]
+ */
+#left { grid-area: left; }
+#right { grid-area: right; }
+
+#left, #right {
+    background: var(--lab-surface);
+    border: 1px solid var(--lab-border);
+    padding: 15px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+}
+
+/* Sidebar Titles: Technical Documentation style */
+#left h3, #right h3 {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--lab-muted);
+    border-bottom: 2px solid var(--lab-border);
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Sidebar Links: Subtle hover interactions */
+#left a, #right a {
+    display: block;
+    color: var(--lab-text);
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--lab-border);
+    transition: all 0.2s ease;
+}
+
+#left a:hover, #right a:hover {
+    color: var(--lab-purple);
+    background-color: #f3f0ff; /* Light purple tint */
+    padding-left: 8px;
+    border-bottom-style: solid;
+}
+
+/**
+ * [6. MAIN CONTENT "SPECIMEN" AREA]
+ * Where the -body.inc fragments are rendered.
+ */
+#content {
+    grid-area: main;
+    background: var(--lab-surface);
+    border: 1px solid var(--lab-border);
+    padding: 35px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border: 1px solid var(--lab-glass-border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Typography Refinement for Content Body */
+.content-body {
+    max-width: 75ch; /* Educational Note: Prevents lines from becoming too long for the eye */
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--lab-text);
+}
+
+.content-body h1, .content-body h2 {
+    color: var(--lab-heading);
+    border-bottom: 1px solid var(--lab-border);
+    padding-bottom: 10px;
+}
+
+/**
+ * [9. HIGH SPECIFICITY ADAPTIVE OVERRIDES]
+ * Resolves dark theme readability on legacy body templates with hardcoded colors.
+ */
+#content section,
+#content .module,
+#content .lab-section,
+#content .version-block {
+    background-color: var(--lab-section-bg) !important;
+    color: var(--lab-text) !important;
+    border-color: var(--lab-border) !important;
+}
+
+#content .exercise,
+#content .lab-box,
+#content .cmd-item,
+#content .proc-card,
+#content .tool-card,
+#content .architect-card,
+#content .threat-card {
+    background-color: var(--lab-box-bg) !important;
+    color: var(--lab-text) !important;
+    border-color: var(--lab-border) !important;
+}
+
+#content .intro,
+#content .kit-intro,
+#content .guide-intro,
+#content .intro-box {
+    background-color: var(--lab-alert-bg) !important;
+    color: var(--lab-text) !important;
+}
+
+#content .question-box,
+#content .standards-warning,
+#content .rule-box,
+#content .warning-box,
+#content .requirement-alert,
+#content .next-steps,
+#content .grading-rubric,
+#content .template-guide .security-check {
+    background-color: var(--lab-warning-bg) !important;
+    color: var(--lab-text) !important;
+}
+
+#content .vulnerable-code {
+    background-color: var(--lab-vulnerable-bg) !important;
+    color: var(--lab-text) !important;
+}
+
+#content .secure-code {
+    background-color: var(--lab-secure-bg) !important;
+    color: var(--lab-text) !important;
+}
+
+#content .graduation-cta {
+    background-color: var(--lab-cta-bg) !important;
+    color: var(--lab-text) !important;
+}
+
+#content .code-block,
+#content .terminal-block,
+#content .console-output,
+#content .code-snippet,
+#content .code-example {
+    background-color: var(--lab-code-bg) !important;
+    color: var(--lab-code-text) !important;
+}
+
+/**
+ * [7. FOOTER & INLINE DEBT OVERRIDES]
+ * Educational Note: !important is used here specifically to sanitize
+ * legacy inline styles and ensure the "Sterile Lab" look remains enforced.
+ */
+#footer {
+    grid-area: footer;
+    margin-top: 20px;
+    padding: 20px 0;
+    color: var(--lab-muted);
+    background-color: var(--lab-bg) !important;
+    text-align: center;
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+}
+
+.lab-footer-wrap {
+    background-color: var(--lab-bg) !important;
+    border-top: 1px solid var(--lab-border) !important;
+}
+
+/**
+ * [8. RESPONSIVE BRIDGE]
+ * Collapses the 3-column grid into a mobile-first stacked view.
+ * Educational Note: We change the 'grid-template-areas' and 'grid-template-columns'
+ * to reorder content without touching the PHP/HTML source.
+ */
+@media (max-width: 992px) {
+    #container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "left"
+            "right"
+            "footer";
+        width: 100%;
+        padding: 0;
+        gap: 0;
+    }
+
+    #top, #content, #left, #right {
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid var(--lab-border);
+    }
+
+    #content {
+        padding: 20px;
+    }
+}
