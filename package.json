@@ -1,0 +1,18 @@
+{
+  "name": "cmsfornerd2",
+  "version": "2.0.0",
+  "description": "CMSForNerd2 Static Site Generator (Astro SSG)",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.8",
+    "@vite-pwa/astro": "^1.2.0",
+    "astro": "^5.2.3"
+  }
+}

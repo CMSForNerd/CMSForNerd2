@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => {
+    // Strip file extensions to match clean slug structure
+    const cleanId = page.id.replace(/\.[^/.]+$/, "");
+    const slug = cleanId === 'index' ? undefined : cleanId;
+    return {
+      params: { slug },
+      props: { page }
+    };
+  });
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+const slugValue = page.id.replace(/\.[^/.]+$/, "");
+---
+
+<Layout
+  title={page.data.title}
+  description={page.data.description}
+  schemaType={page.data.schemaType}
+  slug={slugValue === 'index' ? '' : slugValue}
+>
+  <Content />
+</Layout>

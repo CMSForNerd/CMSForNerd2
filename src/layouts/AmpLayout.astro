@@ -1,0 +1,128 @@
+---
+// src/layouts/AmpLayout.astro
+import { getCollection } from 'astro:content';
+import ampCss from '../styles/amp.css?raw';
+
+interface Props {
+  title?: string;
+  description?: string;
+  slug?: string;
+}
+
+const {
+  title = "CMSForNerd2 | The Developer's Laboratory",
+  description = "A static modernisation of the lightweight flat-file CMS.",
+  slug = ""
+} = Astro.props;
+
+// Fetch pages for AMP sidebar navigation, excluding index
+const allPages = await getCollection('pages');
+const ampPages = allPages
+  .map(p => {
+    const cleanId = p.id.replace(/\.[^/.]+$/, "");
+    return { ...p, cleanId };
+  })
+  .filter(p => p.cleanId !== 'index')
+  .map(p => {
+    let label = p.data.title.split('|')[0].trim();
+    return {
+      id: p.cleanId,
+      url: `/${p.cleanId}/amp`,
+      label: label
+    };
+  });
+---
+
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+    <title>{title} (AMP)</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={slug === "" || slug === "index" ? "/" : `/${slug}`} />
+
+    <link rel="dns-prefetch" href="https://cdn.ampproject.org" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+    <!-- PWA Foundation -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0d6efd" />
+
+    <style amp-boilerplate is:inline>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style>
+    <noscript>
+      <style amp-boilerplate is:inline>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style>
+    </noscript>
+
+    <style amp-custom is:inline set:html={ampCss} />
+  </head>
+  <body [class]="themeState">
+    <amp-state id="themeState">
+      <script type="application/json">"theme-light"</script>
+    </amp-state>
+
+    <!-- AMP Sidebar -->
+    <amp-sidebar id="sidebar" layout="nodisplay" side="left">
+      <div class="sidebar-header">
+        <span>LABORATORY</span>
+        <button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);">
+              <button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">
+                Dimmer Switch 🌓
+              </button>
+            </div>
+          </li>
+          <li>
+            <a href="/amp" class={slug === "" || slug === "index" ? "active" : ""}>
+              🏠 Home
+            </a>
+          </li>
+          {ampPages.map(page => (
+            <li>
+              <a href={page.url} class={slug === page.id ? "active" : ""}>
+                {page.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </amp-sidebar>
+
+    <!-- AMP Header -->
+    <header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;">
+      <button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button>
+      <a href="/amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">
+        🏠 Laboratory Home
+      </a>
+      <span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">
+        [ AMP ]
+      </span>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding:20px;">
+      <slot />
+    </main>
+
+    <!-- AMP Footer -->
+    <footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);">
+      <p>&copy; 2026 CmsForNerd2 Laboratory</p>
+      <p>
+        <a href={slug === "" || slug === "index" ? "/" : `/${slug}`} style="color:var(--lab-purple);">
+          Switch to Standard Desktop View
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
