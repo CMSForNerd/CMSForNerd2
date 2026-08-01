@@ -5,6 +5,7 @@ import { unified } from '@astrojs/markdown-remark';
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 
+// Custom Rehype plugin to prefix absolute links in Markdown files when deploying to GitHub Pages
 // Custom Rehype plugin to prefix raw root-relative links in Markdown files during the compilation step
 function rehypeAddBase() {
   const base = isGitHubPages ? '/CMSForNerd2' : '';
