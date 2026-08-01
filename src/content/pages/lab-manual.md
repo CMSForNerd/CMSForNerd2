@@ -124,6 +124,16 @@ is an interactive lesson in professional web standards using Astro 7.1.
 </div>
 </section>
 
+<section class="module">
+<h2>🛡️ Laboratory Module 7: Static Security Whitelisting & Performance Hardening</h2>
+<p>In this module, students learn to apply OWASP Web Security guidelines and performance optimisations to static site architectures (Astro 7.1 and Nginx).</p>
+<div class="exercise">
+<h3>Exercise 7.1: Cryptographic CSP Hashes</h3>
+<p>Learn how to whitelist essential inline scripts using SHA-256 hashes inside Nginx Content-Security-Policy header rules, and extract interactive logic into cached bundles.</p>
+<p><a href="/lab-module7" class="btn">📝 Open Student Worksheet: Module 7</a></p>
+</div>
+</section>
+
 <section class="module exam-module">
 <h2>🚩 The Final Exam: Break-Fix Challenge</h2>
 <p>The ultimate test of a static front-end engineer. Repair a broken configuration or schema mapping to pass the compilation test.</p>
