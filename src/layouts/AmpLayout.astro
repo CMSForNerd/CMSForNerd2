@@ -15,6 +15,8 @@ const {
   slug = ""
 } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 // Fetch pages for AMP sidebar navigation, excluding index
 const allPages = await getCollection('pages');
 const ampPages = allPages
@@ -27,7 +29,7 @@ const ampPages = allPages
     let label = p.data.title.split('|')[0].trim();
     return {
       id: p.cleanId,
-      url: `/${p.cleanId}/amp`,
+      url: `${base}${p.cleanId}/amp`,
       label: label
     };
   });
@@ -40,7 +42,7 @@ const ampPages = allPages
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
     <title>{title} (AMP)</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={slug === "" || slug === "index" ? "/" : `/${slug}`} />
+    <link rel="canonical" href={slug === "" || slug === "index" ? base : `${base}${slug}`} />
 
     <link rel="dns-prefetch" href="https://cdn.ampproject.org" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -48,7 +50,7 @@ const ampPages = allPages
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 
     <!-- PWA Foundation -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href={`${base}manifest.json`} />
     <meta name="theme-color" content="#0d6efd" />
 
     <style amp-boilerplate is:inline>
@@ -84,7 +86,7 @@ const ampPages = allPages
             </div>
           </li>
           <li>
-            <a href="/amp" class={slug === "" || slug === "index" ? "active" : ""}>
+            <a href={`${base}amp`} class={slug === "" || slug === "index" ? "active" : ""}>
               🏠 Home
             </a>
           </li>
@@ -102,7 +104,7 @@ const ampPages = allPages
     <!-- AMP Header -->
     <header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;">
       <button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button>
-      <a href="/amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">
+      <a href={`${base}amp`} style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">
         🏠 Laboratory Home
       </a>
       <span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">
@@ -119,7 +121,7 @@ const ampPages = allPages
     <footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);">
       <p>&copy; 2026 CmsForNerd2 Laboratory</p>
       <p>
-        <a href={slug === "" || slug === "index" ? "/" : `/${slug}`} style="color:var(--lab-purple);">
+        <a href={slug === "" || slug === "index" ? base : `${base}${slug}`} style="color:var(--lab-purple);">
           Switch to Standard Desktop View
         </a>
       </p>

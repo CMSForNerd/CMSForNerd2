@@ -20,6 +20,8 @@ const {
   slug = ""
 } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 // Fetch pages for dynamic footer navigation, excluding index and some other helper files
 const allPages = await getCollection('pages');
 const footerPages = allPages
@@ -32,7 +34,7 @@ const footerPages = allPages
     let label = p.data.title.split('|')[0].trim();
     return {
       id: p.cleanId,
-      url: `/${p.cleanId}`,
+      url: `${base}${p.cleanId}`,
       label: label
     };
   });
@@ -46,8 +48,8 @@ const footerPages = allPages
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0d6efd" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href={`${base}manifest.json`} />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
 
     <!-- Schema.org JSON-LD structured data -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
@@ -129,7 +131,7 @@ const footerPages = allPages
             </p>
 
             <div style="display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 10px;">
-              <a href="/" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 700;">Home</a>
+              <a href={base} style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 700;">Home</a>
               {footerPages.map(page => (
                 <a href={page.url} style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">{page.label}</a>
               ))}
@@ -139,7 +141,7 @@ const footerPages = allPages
           <hr style="width: 60px; border: 0; border-top: 3px solid var(--lab-highlight, #8e44ad); margin: 25px auto; opacity: 0.6;" />
 
           <div style="margin-bottom: 20px;">
-            <a href={slug === "" || slug === "index" ? "/amp" : `/${slug}/amp`}
+            <a href={slug === "" || slug === "index" ? `${base}amp` : `${base}${slug}/amp`}
                style="display: inline-block; padding: 5px 12px; border: 1px solid var(--lab-highlight, #8e44ad); border-radius: 4px; color: var(--lab-highlight, #8e44ad); text-decoration: none; font-size: 0.75rem; font-family: 'SF Mono', monospace; font-weight: bold;">
                ⚡ SWITCH TO AMP MOBILE VIEW
             </a>
@@ -160,7 +162,7 @@ const footerPages = allPages
         </div>
 
         <div class="sitemap-link" style="margin-top:10px;">
-          <a href="/sitemap.xml" target="_blank">[XML Sitemap]</a>
+          <a href={`${base}sitemap.xml`} target="_blank">[XML Sitemap]</a>
         </div>
 
         <div style="margin-top: 5px; font-size: 0.7em; opacity: 0.5;">
