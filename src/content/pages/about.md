@@ -1,12 +1,12 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "About CMSForNerd | The Human-AI Project"
-description: "Discover the philosophy behind CMSForNerd: A project dedicated to educational empowerment through radical simplicity."
+title: "About CMSForNerd2 | The Human-AI Project"
+description: "Discover the philosophy behind CMSForNerd2: A project dedicated to educational empowerment through Astro 7.1 static site modernization."
 schemaType: "AboutPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="about-page">
@@ -19,14 +19,14 @@ topics: ["modernisation", "astro", "static", "php", "architecture"]
 <div class="mission-card">
 <h2>The Mission: "Transparent Intelligence"</h2>
 <p>
-CMSForNerd is more than a Content Management System—it is a live proving ground for
+CMSForNerd2 is more than a Content Management System—it is a live proving ground for
 <strong>AI-Agentic Workflows</strong>. In an era of black-box code generation, we champion
 the "Transparent Codebase."
 </p>
 <p>
-Our goal is to demonstrate how Human Architects and AI Agents (like Google Gemini) can
-maintain a shared <strong>"State of Mind"</strong> across sessions. By stripping away databases
-and frameworks, we expose the raw PHP 8.4 structure, making the collaboration visible, auditible, and teachable.
+Our goal is to demonstrate how Human Architects and AI Agents (like Google Jules) can
+maintain a shared <strong>"State of Mind"</strong> across sessions. By stripping away dynamic backends
+and dynamic templates, we expose the raw Astro 7.1 structure, making the collaboration visible, auditible, and teachable.
 </p>
 </div>
 </section>
@@ -47,12 +47,12 @@ ensuring that technology serves educational empowerment.
 
 <div class="architect-card">
 <div class="avatar">🧠</div>
-<h3>Google Antigravity</h3>
+<h3>Google Jules</h3>
 <p class="role">Agentic Intelligence</p>
 <p>
 More than a chatbot, the Agent acts as a long-term partner. Through
-<strong>Persistent State Artifacts</strong> (Brain/Task lists), it fights "Context Decay,"
-remembering architectural nuances like the <em>Global-Free</em> refactor long after the session ends.
+<strong>Persistent State Artifacts</strong> (Brain/Task lists under <code>.agents/brain/</code>), it fights "Context Decay,"
+remembering architectural rules and spatial memories long after the session ends.
 </p>
 </div>
 </div>
@@ -69,30 +69,28 @@ Brain artifacts to align its internal model with the physical codebase.
 </p>
 </div>
 <div class="philo-item">
-<h3>2. Zero-Global Arch</h3>
+<h3>2. Type-Safe Collections</h3>
 <p>
-We reject hidden state. Every dependency (like <code>$ctx</code>) is passed
-explicitly via Factory Methods, ensuring total testability.
+We reject dynamic databases. Every content page is loaded explicitly via Astro's Content Collections, ensuring total compile-time safety.
 </p>
 </div>
 <div class="philo-item">
 <h3>3. Defense in Depth</h3>
 <p>
-Security isn't an addon. From <strong>CSP Nonces</strong> to
-<strong>Cloudflare Turnstile</strong>, protection is woven into the chassis.
+Security isn't an addon. From <strong>unprivileged containers</strong> to
+<strong>static security policies</strong>, protection is woven into the chassis.
 </p>
 </div>
 </div>
 <blockquote>
-"Standardized code is good. Standardized <strong>intelligence</strong> is better.
+"Standardised code is good. Standardised <strong>intelligence</strong> is better.
 We don't just manage content; we manage the shared memory between Man and Machine."
 </blockquote>
 </section>
 
 <footer class="about-footer">
 <p>
-Explore the results of this symbiosis. Read the <a href="docs/blog-state-sync.md">State Sync Manifesto</a>
-or review the <a href="/history">Project History</a>.
+Explore the results of this symbiosis. Review the <a href="/history">Project History</a>.
 </p>
 </footer>
 </article>

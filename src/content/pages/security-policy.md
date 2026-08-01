@@ -1,26 +1,25 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Security Policy & Disclosure | CMSForNerd Laboratory"
-description: "The formal security policy for responsible disclosure and ethical vulnerability reporting in the CMSForNerd project."
+title: "Security Policy & Disclosure | CMSForNerd2"
+description: "The formal security policy for responsible disclosure and ethical vulnerability reporting in the CMSForNerd2 static site project."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="security-policy" itemscope itemtype="https://schema.org/WebPage">
 <header class="policy-header">
 <h1 itemprop="headline">🛡️ Security Policy & Disclosure</h1>
 <p class="intro">
-At <strong>CMSForNerd</strong>, we take the security of our users seriously. We follow a "Defense-in-Depth"
-strategy and appreciate the assistance of security researchers in keeping our laboratory safe.
+At <strong>CMSForNerd2</strong>, we take the security of our users seriously. By transitioning to a pre-compiled static architecture, we enforce a strict "Defense-in-Depth" strategy and appreciate the assistance of security researchers in keeping our static deployment safe.
 </p>
 </header>
 
 <section class="policy-section">
 <h2>1. Reporting a Vulnerability</h2>
-<p>Please do not use public GitHub issues for security reports. Instead, email your findings to <strong>security@cmsfornerd.test</strong>.</p>
+<p>Please do not use public GitHub issues for security reports. Instead, email your findings to <strong>security@cmsfornerd2.test</strong>.</p>
 
 <div class="requirements-box">
 <ul>
@@ -54,17 +53,16 @@ strategy and appreciate the assistance of security researchers in keeping our la
 <h2>3. Prohibited Actions</h2>
 <p>To remain in "Good Faith" status, researchers <strong>MUST NOT</strong>:</p>
 <ul class="danger-list">
-<li>Attempt Denial of Service (DoS/DDoS) attacks.</li>
-<li>Access, modify, or delete data not belonging to your test account.</li>
-<li>Use Social Engineering or Phishing against laboratory students.</li>
-<li>Exfiltrate data beyond what is necessary to prove the vulnerability.</li>
+<li>Attempt Denial of Service (DoS/DDoS) attacks against our build pipelines or hosts.</li>
+<li>Access, modify, or delete deployment containers not belonging to your environment.</li>
+<li>Use Social Engineering or Phishing against laboratory students or operators.</li>
 </ul>
 </section>
 
 <nav class="footer-nav">
 <p>Review our technical security guides:</p>
 <div class="btn-group">
-<a href="/csp-nonce-guide" class="btn btn-secondary">🛡️ CSP Nonce Guide</a>
+<a href="/csp-nonce-guide" class="btn btn-secondary">🛡️ CSP Guide</a>
 <a href="/lab-manual" class="btn btn-primary">Return to Lab Manual</a>
 </div>
 </nav>
@@ -72,7 +70,7 @@ strategy and appreciate the assistance of security researchers in keeping our la
 
 <style>
 :root { --policy-red: #d9534f; --policy-green: #2e7d32; --policy-gray: #f8f9fa; }
-.security-policy { max-width: 850px; margin: 0 auto; line-height: 1.7; }
+.security-policy { max-width: 850px; margin: 0 auto; line-height: 1.7; color: #333; }
 .policy-header h1 { color: var(--policy-red); border-bottom: 3px solid var(--policy-red); padding-bottom: 10px; }
 .intro { background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 5px solid #ffc107; margin: 20px 0; }
 .policy-section { margin-bottom: 40px; }

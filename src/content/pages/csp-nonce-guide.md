@@ -1,68 +1,63 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "CSP Nonce Implementation Guide | CMSForNerd Security"
-description: "Comprehensive guide to implementing Content Security Policy nonces for XSS protection in PHP 8.4."
+title: "Static CSP Implementation Guide | CMSForNerd2 Security"
+description: "Comprehensive guide to implementing Content Security Policy (CSP) and Subresource Integrity on static Astro 7.1 sites."
 schemaType: "TechArticle"
-author: "CMSForNerd Security Team"
+author: "CMSForNerd2 Security Team"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="csp-guide" itemscope itemtype="https://schema.org/TechArticle">
 <header class="guide-header">
-<h1 itemprop="headline">🛡️ CSP Nonce Implementation Guide</h1>
+<h1 itemprop="headline">🛡️ Static CSP Implementation Guide</h1>
 <p class="intro">
-Implementing a <strong>Content Security Policy (CSP) Nonce</strong> is the gold standard for stopping
-<strong>Cross-Site Scripting (XSS)</strong> while allowing verified inline scripts to execute.
+Enforcing a strict <strong>Content Security Policy (CSP)</strong> is the gold standard for stopping
+<strong>Cross-Site Scripting (XSS)</strong>. On static architectures like Astro 7.1, we achieve this through server-level header definitions and static meta tags.
 </p>
 </header>
 
 <section class="overview">
-<h2>What is a CSP Nonce?</h2>
+<h2>CSP on Static Architectures</h2>
 <p>
-A <strong>nonce</strong> (number used once) is a cryptographically random string generated per page load.
-Only scripts with this exact token are permitted to run by the browser.
+Unlike dynamic PHP sites where a random <strong>nonce</strong> can be generated on every single page request, a static site compiles to pre-rendered HTML files. Thus, we utilize two primary mechanisms for secure asset verification:
 </p>
 <div class="highlight-box">
-<p><strong>Key Concept:</strong> We replace <code>'unsafe-inline'</code> with a unique 128-bit token.
-Since an attacker cannot predict the token, their injected scripts are ignored.</p>
+<p><strong>1. Strict Domain Restrictions:</strong> Directing the web server (e.g., NGINX) to append strict HTTP headers that permit script execution only from <code>'self'</code> and specific pre-authorized domains.</p>
+<p><strong>2. Subresource Integrity (SRI):</strong> Generating hashes for external assets so the browser blocks execution if an asset is modified downstream.</p>
 </div>
 </section>
 
 <section class="implementation">
-<h2>Step 1: The Verification Logic</h2>
-<p>In <strong>CMSForNerd v3.3</strong>, we use the <code>SecurityUtils</code> class to generate a secure base64 string.</p>
+<h2>Step 1: NGINX Headers Configuration</h2>
+<p>In <strong>CMSForNerd2</strong>, our security policy is configured inside the static web server setup (<code>nginx/default.conf</code>).</p>
 
 <div class="code-block">
-<pre><code>// SecurityUtils::generateNonce() logic
-return base64_encode(random_bytes(16));</code></pre>
+<pre><code># Enforcing security headers directly from NGINX
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self';" always;</code></pre>
 </div>
 
-<p>This is then applied to your <code>common-headertag.inc</code>:</p>
-<div class="code-block">
-<pre><code>&lt;meta http-equiv="Content-Security-Policy"
-content="script-src 'self' 'nonce-<?= $ctx->cspNonce -->';"&gt;</code></pre>
-</div>
+<p>This meta directive instructs the browser to only evaluate inline scripts and resources that are hosted on the same origin (<code>'self'</code>) or Cloudflare's verified widgets.</p>
 </section>
 
 <section class="comparison-section">
 <h2>XSS Protection in Action</h2>
 <div class="comparison-grid">
 <div class="card before">
-<h3>❌ Legacy (Vulnerable)</h3>
+<h3>❌ Legacy (Unsafe Inline)</h3>
 <pre><code>&lt;script&gt;
+  // Dynamic inline without server-level checks
   alert(document.cookie);
 &lt;/script&gt;</code></pre>
-<p class="danger">Browser executes the malicious code.</p>
+<p class="danger">Browser executes untrusted scripts without restriction.</p>
 </div>
 
 <div class="card after">
-<h3>✅ v3.3 Standard (Secure)</h3>
-<pre><code>&lt;script nonce="XYZ123..."&gt;
-  // This is safe
-&lt;/script&gt;</code></pre>
-<p class="success">Only matched nonces are allowed.</p>
+<h3>✅ Statically Secure</h3>
+<pre><code>&lt;script src="/assets/main.js"&gt;&lt;/script&gt;
+&lt;!-- Pre-compiled static script file --&gt;</code></pre>
+<p class="success">Only matched sources and pre-authorized paths are allowed.</p>
 </div>
 </div>
 </section>
@@ -70,7 +65,7 @@ content="script-src 'self' 'nonce-<?= $ctx->cspNonce -->';"&gt;</code></pre>
 <section class="lab-challenge">
 <div class="try-it">
 <h3>🧪 Lab Challenge: Manual Injection</h3>
-<p>Open your console (F12) and try to run a dynamic script. Notice the <strong>CSP Refusal</strong> error. This is the "Green Bar" of security testing.</p>
+<p>Open your console (F12) and try to run a dynamic script from an external origin. Notice the <strong>CSP Refusal</strong> error. This is the "Green Bar" of static security testing.</p>
 </div>
 </section>
 

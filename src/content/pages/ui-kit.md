@@ -1,18 +1,18 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "UI Diagnostic Kit | CMSForNerd"
-description: "Technical audit of the CmsForNerd UI kit, including typography, colors, and interactive components."
+title: "UI Diagnostic Kit | CMSForNerd2"
+description: "Technical audit of the CMSForNerd2 UI kit, including typography, colors, and interactive Astro components."
 schemaType: "TechArticle"
 author: "CMSForNerd Team"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="ui-lab">
 <header class="lab-header">
 <h1>🧪 Laboratory UI Audit Kit</h1>
-<p class="lead">Technical verification of theme tokens, glassmorphism, and component accessibility for CMSForNerd v3.6.</p>
+<p class="lead">Technical verification of theme tokens, glassmorphism, and component accessibility for CMSForNerd2.</p>
 </header>
 
 <section class="ui-section">
@@ -50,12 +50,12 @@ topics: ["modernisation", "astro", "static", "php", "architecture"]
 <p>Tertiary level for content snippets and small details.</p>
 
 <code>// Monospaced Code Block Output
-printf("CMSForNerd v3.5 Stable\n");</code>
+printf("CMSForNerd2 Astro 7.1 Static Stable\n");</code>
 </div>
 </section>
 
 <section class="ui-section">
-<h2>✨ Glassmorphism & Surface Effects (v4.0 Concept)</h2>
+<h2>✨ Glassmorphism & Surface Effects (Astro 7.1 Concept)</h2>
 <div class="glass-container">
 <div class="glass-card">
 <h3>Glass Card (Standard)</h3>
@@ -69,8 +69,8 @@ printf("CMSForNerd v3.5 Stable\n");</code>
 <h2>🛠️ Components: Buttons & Badges</h2>
 <div class="component-demo">
 <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
-<span class="badge php-version">PHP 8.4</span>
-<span class="badge status-strict">Strict Mode</span>
+<span class="badge astro-version">Astro 7.1</span>
+<span class="badge status-strict">TypeScript Strict</span>
 <span class="badge status-check">Verified</span>
 <span class="badge status-sec">Secure</span>
 </div>
@@ -101,14 +101,14 @@ printf("CMSForNerd v3.5 Stable\n");</code>
 <tbody>
 <tr>
 <td><strong>Load Time</strong></td>
-<td>< 200ms</td>
-<td>< 100ms</td>
-<td>✅ Optimized</td>
+<td>&lt; 100ms</td>
+<td>&lt; 50ms</td>
+<td>✅ Statically Optimised</td>
 </tr>
 <tr>
 <td><strong>Interactivity</strong></td>
-<td>Full (JS/PWA)</td>
-<td>Limited (AMP)</td>
+<td>Full (TypeScript/PWA)</td>
+<td>Limited (AMP HTML)</td>
 <td>⚖️ Verified</td>
 </tr>
 </tbody>
@@ -117,16 +117,16 @@ printf("CMSForNerd v3.5 Stable\n");</code>
 </section>
 
 <footer class="audit-footer">
-<p>End of UI Audit. If components appear broken, verify <code>themes/CmsForNerd/style.css</code> variables.</p>
+<p>End of UI Audit. If components appear broken, verify <code>src/styles/global.css</code> variables.</p>
 </footer>
 </article>
 
 <style>
 .ui-lab { max-width: 900px; margin: 0 auto; line-height: 1.6; }
 .ui-section { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--lab-border); }
-.color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-.color-swatch { padding: 25px; border-radius: 8px; display: flex; flex-direction: column; font-weight: bold; }
-.color-swatch code { font-size: 0.8rem; margin-top: 5px; opacity: 0.8; }
+.colour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.colour-swatch { padding: 25px; border-radius: 8px; display: flex; flex-direction: column; font-weight: bold; }
+.colour-swatch code { font-size: 0.8rem; margin-top: 5px; opacity: 0.8; }
 .typography-sample { padding: 20px; background: var(--lab-border); border-radius: 8px; }
 .glass-container { background: var(--lab-vibrant-bg); padding: 50px; border-radius: 12px; margin: 20px 0; min-height: 200px; }
 .glass-card { background: var(--lab-glass-bg); backdrop-filter: blur(var(--lab-blur)); -webkit-backdrop-filter: blur(var(--lab-blur)); border: 1px solid var(--lab-glass-border); padding: 35px; border-radius: 20px; color: #ffffff; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); }
@@ -136,6 +136,6 @@ printf("CMSForNerd v3.5 Stable\n");</code>
 .table-scroll { overflow-x: auto; }
 .audit-footer { text-align: center; font-style: italic; color: var(--lab-muted); margin-top: 2rem; }
 @media (max-width: 600px) {
-.color-grid { grid-template-columns: 1fr; }
+.colour-grid { grid-template-columns: 1fr; }
 }
 </style>

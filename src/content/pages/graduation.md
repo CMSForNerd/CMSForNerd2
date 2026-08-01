@@ -1,20 +1,20 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Graduation: PHP 8.4+ Mastery - CmsForNerd v3.5"
-description: "Official Certificate of Completion for the CmsForNerd Modernization Curriculum."
+title: "Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2"
+description: "Official Certificate of Completion for the CMSForNerd2 Static Modernisation Curriculum."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="graduation-page">
 <header class="graduation-header no-print">
 <h1>🏁 Curriculum Complete</h1>
 <p class="congrats">
-You have successfully transformed a legacy script into a secure,
-standards-compliant PHP 8.4 application.
+You have successfully transformed a dynamic legacy application into a high-performance,
+standards-compliant Astro 7.1 static site with complete offline capabilities.
 </p>
 </header>
 
@@ -25,7 +25,7 @@ standards-compliant PHP 8.4 application.
 <div class="cert-content">
 <span class="cert-seal">🎓</span>
 <h2 class="cert-title">Certificate of Completion</h2>
-<h3 class="cert-subtitle">PHP 8.4+ Modernization Mastery</h3>
+<h3 class="cert-subtitle">Astro 7.1 Static Modernisation Mastery</h3>
 
 <div class="cert-award">
 <p>This certifies that</p>
@@ -35,9 +35,9 @@ standards-compliant PHP 8.4 application.
 </div>
 
 <p class="cert-text">
-Has demonstrated professional proficiency in <strong>Modern PHP Architecture</strong>,
-<strong>Defensive Engineering</strong>, and <strong>Automated Testing</strong>
-within the CMSForNerd v3.3 Lab environment.
+Has demonstrated professional proficiency in <strong>Astro 7.1 Architecture</strong>,
+<strong>Defensive Static Engineering</strong>, and <strong>Automated Build Verification</strong>
+within the CMSForNerd2 Static Modernisation Lab environment.
 </p>
 
 <table class="competency-table">
@@ -48,9 +48,9 @@ within the CMSForNerd v3.3 Lab environment.
 </tr>
 </thead>
 <tbody>
-<tr><td>Modern Architecture</td><td>PHP 8.4 Property Hooks & Hooks</td></tr>
-<tr><td>Security Hygiene</td><td>Level 2 CSP & Nonce Implementation</td></tr>
-<tr><td>Quality Assurance</td><td>PHPUnit 11 & >90% Code Coverage</td></tr>
+<tr><td>Static Architecture</td><td>Astro 7.1 Frontmatter & Layout Components</td></tr>
+<tr><td>Defensive Engineering</td><td>Unprivileged NGINX Hosting & Pure Static CSP</td></tr>
+<tr><td>Build Quality Assurance</td><td>Playwright E2E Integration & PWA Caching</td></tr>
 </tbody>
 </table>
 
@@ -58,7 +58,7 @@ within the CMSForNerd v3.3 Lab environment.
 <div class="signature">
 <div class="sig-line"></div>
 <p>Harisfazillah Jamel</p>
-<span>Lead Developer, CMSForNerd</span>
+<span>Lead Developer, CMSForNerd2</span>
 </div>
 <div class="signature">
 <div class="sig-line"></div>
@@ -81,7 +81,7 @@ within the CMSForNerd v3.3 Lab environment.
 <h2>🛠️ Teacher's Instructions</h2>
 <div class="instruction-box">
 <ul>
-<li><strong>To Issue:</strong> Send students the link: <code>graduation.php?student=Full+Name</code></li>
+<li><strong>To Issue:</strong> Send students the link: <code>graduation/index.html?student=Full+Name</code></li>
 <li><strong>To Print:</strong> Press <kbd>Ctrl + P</kbd>. The layout is optimised to hide UI elements and print only the certificate.</li>
 </ul>
 </div>

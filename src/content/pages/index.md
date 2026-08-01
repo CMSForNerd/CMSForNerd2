@@ -1,30 +1,30 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "CmsForNerd v3.5 | The Developer’s Laboratory"
-description: "A lightweight flat-file CMS modernized for PHP 8.4+ and strict security standards."
+title: "CMSForNerd2 | The Static Modernisation Laboratory"
+description: "A lightweight, database-free CMS modernised using Astro 7.1 Static Site Generator (SSG) with strict TypeScript standards."
 schemaType: "WebApplication"
 author: "Harisfazillah Jamel"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-home">
 <header class="hero-section">
-<h1>Welcome to CMSForNerd v3.5: The Secure Coding Laboratory</h1>
+<h1>Welcome to CMSForNerd2: The Astro 7.1 Static Modernisation Laboratory</h1>
 <div class="runtime-status">
-<span class="badge php-version">PHP 8.4</span>
-<span class="badge status-strict">Strict Mode: Active</span>
-<span class="badge status-check">PHPStan: Level 8</span>
-<span class="badge status-sec">CSP: Nonce-Enforced</span>
+<span class="badge astro-version">Astro 7.1</span>
+<span class="badge status-strict">TypeScript: Strict</span>
+<span class="badge status-check">Vite: v6/v8</span>
+<span class="badge status-sec">PWA: Enabled</span>
 </div>
 </header>
 
 <div class="intro-box">
 <p>
-<strong>CMSForNerd</strong> is a lightweight, "Zero-Debt" PHP 8.4 Flat-File CMS designed for the modern security environment.
-While frameworks hide complexity, we expose it—teaching you to write code that is fast, immutable, and impenetrable.
-Master the "Pair Logic" workflow used in high-security infrastructure development.
+<strong>CMSForNerd2</strong> is a state-of-the-art static modernisation of the legacy database-free PHP CMS.
+By utilizing <strong>Astro 7.1 Static Site Generator (SSG)</strong>, this workspace compiles your content to purely static, high-performance HTML5, CSS3, and ES6+ JavaScript.
+While frameworks often hide complexity, we expose it—teaching you to master modern static workflows, type-safe content collections, and zero-JS-by-default architecture.
 </p>
 <div class="quick-links">
 <a href="/welcome-kit" class="btn welcome-btn">🚀 Welcome Kit</a>
@@ -36,80 +36,77 @@ Master the "Pair Logic" workflow used in high-security infrastructure developmen
 
 <section class="grid-features">
 <div class="feature-card">
-<h3>🛡️ Security Engineering</h3>
+<h3>🛡️ Static Security Engineering</h3>
 <ul>
-<li><strong>Hybrid SecurityUtils:</strong> Native path sanitization preventing LFI and Directory Traversal.</li>
-<li><strong>CSP Engine:</strong> Automatic Nonce generation for every request to block XSS.</li>
-<li><strong>Immutable State:</strong> Use of <code>readonly</code> classes and <code>createCmsContext()</code>.</li>
-<li><strong>Directory Privacy:</strong> 403 Forbidden gateways on all core and theme folders.</li>
+<li><strong>No Server-Side Vulnerabilities:</strong> Absolute immunity to LFI, Directory Traversal, and SQL injection since there is no server execution.</li>
+<li><strong>Static Content Security Policy:</strong> Build-time CSP header definitions and Subresource Integrity (SRI) to neutralize XSS.</li>
+<li><strong>Immutable State:</strong> Type-safe data schema structures validated at compile-time by Zod.</li>
+<li><strong>Hardened Container:</strong> Production-ready unprivileged NGINX server Alpine container.</li>
 </ul>
 </div>
 
 <div class="feature-card">
-<h3>🚀 Training Standards</h3>
+<h3>🚀 Modern SSG Standards</h3>
 <ul>
-<li><strong>"Pair Logic" Architecture:</strong> Separation of Controller (Master) and Fragment (Slave).</li>
-<li><strong>Modern Control:</strong> Strict <code>match()</code> expressions and Type Hinting throughout.</li>
-<li><strong>Compliance Ready:</strong> Aligned with <strong>RFC 9116</strong> (Security.txt) and PSR-12.</li>
-<li><strong>Bot Hardening:</strong> Integrated bot detection and Turnstile support for lab forms.</li>
+<li><strong>"Component Frontmatter" Architecture:</strong> Build-time JS/TS executing solely during compilation to render clean HTML.</li>
+<li><strong>Type-Safe Content:</strong> Rigid frontmatter schemas checked by Astro's Content Collections compiler.</li>
+<li><strong>SEO & AI Ready:</strong> Complete integration with RSS, XML Sitemaps, and Schema.org JSON-LD structured metadata.</li>
+<li><strong>PWA Resiliency:</strong> Instant offline fallback loading via <code>@vite-pwa/astro</code> service worker integration.</li>
 </ul>
 </div>
 </section>
 
-
-
 <section class="lab-workflow">
-<h3>The "Nerd-Stack" Secure Workflow</h3>
+<h3>The Astro 7.1 Secure Static Workflow</h3>
 <div class="workflow-steps">
 <div class="step">
 <span class="step-num">1</span>
-<h4>The Controller</h4>
-<p>Duplicate <code>template.php</code> and update page metadata.</p>
+<h4>The Page</h4>
+<p>Create or duplicate a <code>.md</code> page in <code>src/content/pages/</code>.</p>
 </div>
 <div class="step">
 <span class="step-num">2</span>
-<h4>The Fragment</h4>
-<p>Create a <code>-body.inc</code> file in the <code>contents/</code> folder.</p>
+<h4>The Frontmatter</h4>
+<p>Configure metadata validating against Zod schemas in <code>src/content.config.ts</code>.</p>
 </div>
 <div class="step">
 <span class="step-num">3</span>
-<h4>The Audit</h4>
-<p>Verify compliance via <code>phpstan</code> and the <strong>UI Kit</strong>.</p>
+<h4>The Build</h4>
+<p>Compile static assets using <code>npm run build</code> and preview locally with <code>npm run preview</code>.</p>
 </div>
 </div>
 </section>
 
 <section class="stack-recommendation">
-<h3>Optimized Learning Stack</h3>
+<h3>Optimised Learning Stack</h3>
 <table class="stack-table">
 <tr>
-<td><strong>Runtime</strong></td>
-<td>PHP 8.4+ (Zend OPcache recommended)</td>
+<td><strong>Runtime/Framework</strong></td>
+<td>Astro 7.1 (using Node.js 20+ and static output)</td>
 </tr>
 <tr>
 <td><strong>Standards</strong></td>
-<td>PSR-12, RFC 9116, Strict Types <code>1</code></td>
+<td>Open Knowledge Format (OKF) v0.1, TypeScript, strict schema validation</td>
 </tr>
 <tr>
 <td><strong>OS Support</strong></td>
-<td>Debian/Ubuntu Linux & Windows 11 (via Herd/WSL2)</td>
+<td>Cross-platform (Debian/Ubuntu Linux, Windows 11, macOS)</td>
 </tr>
 <tr>
 <td><strong>Dev Tools</strong></td>
-<td>Composer, Git, PHPStan, VS Code, <strong>Google Antigravity</strong></td>
+<td>npm, Astro CLI, Vite, VS Code, Playwright, Git</td>
 </tr>
 </table>
 </section>
 </article>
 
 <style>
-/* CSS maintained as per previous refinement for consistency */
 .lab-home { max-width: 1000px; margin: 0 auto; line-height: 1.6; font-family: var(--f-sans, sans-serif); }
 .hero-section h1 { color: var(--lab-heading, #2c3e50); border-bottom: 4px solid var(--lab-purple, #8e44ad); padding-bottom: 10px; margin-bottom: 10px; }
 
 .runtime-status { margin-bottom: 25px; }
 .badge { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-right: 5px; }
-.php-version { background: #4F5B93; color: white; }
+.astro-version { background: #FF5D01; color: white; }
 .status-strict { background: #27ae60; color: white; }
 .status-check { background: #f39c12; color: white; }
 .status-sec { background: #8e44ad; color: white; }

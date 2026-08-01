@@ -1,69 +1,58 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Ansible Laboratory Orchestration | CmsForNerd"
-description: "Automated Nginx and PHP 8.4-FPM deployment guide using the CmsForNerd Ansible fabric."
+title: "Ansible Static Orchestration | CMSForNerd2"
+description: "Automated unprivileged NginX and Astro 7.1 static site deployment guide using the CMSForNerd2 Ansible fabric."
 schemaType: "TechArticle"
-author: "CmsForNerd Team"
+author: "CMSForNerd Team"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
-
-<!-- PHP STUB
-/**
-* ==========================================================================
-* FILE: contents/ansible-lab-body.inc
-* ROLE: Content Fragment for Ansible Laboratory Guide
-* ==========================================================================
-*/
-
-declare(strict_types=1);
--->
 
 <article class="lab-documentation">
 <header class="content-header">
-<h1>🤖 Ansible Laboratory Orchestration</h1>
-<p class="subtitle">Automated Nginx & PHP 8.4-FPM Deployment v3.5.1</p>
+<h1>🤖 Ansible Static Orchestration</h1>
+<p class="subtitle">Automated Nginx & Astro 7.1 Static Deployment</p>
 </header>
 
 <section class="lab-section shadow-sm">
-<h2>🚀 Deployment Fast-Track</h2>
-<p>The CmsForNerd infrastructure uses a "Zero-Debt" deployment gateway. This ensures every server rollout is verified for PHP 8.4 compliance and PSR-12 formatting before deployment.</p>
+<h2>🚀 Static Deployment Fast-Track</h2>
+<p>The CMSForNerd2 infrastructure uses a "Zero-Execution" static deployment gateway. This ensures every server rollout is pre-built, optimized, and verified for Astro 7.1 compilation correctness and TypeScript strict standards before assets are pushed to production web servers.</p>
 
 <div class="code-block-wrapper">
-<label>The Secure Gateway Command:</label>
-<pre><code>bash tools/deploy-lab.sh</code></pre>
-<p class="hint">Recommended for all laboratory staging and production updates.</p>
+<label>The Static Deployment Command:</label>
+<pre><code>bash tools/deploy-static.sh</code></pre>
+<p class="hint">Recommended for all staging and production static server updates.</p>
 </div>
 </section>
 
 <section class="lab-section bg-light-purple">
 <h2>🛠️ What Ansible Installs & Configures</h2>
-<p>Our automation fabric handles the entire stack setup autonomously across Ubuntu, Debian, AlmaLinux, and RHEL:</p>
+<p>Our automation playbook configures a hardened, static web-serving environment across Linux distributions:</p>
 
 <div class="proc-grid">
 <div class="proc-card">
-<h3>🌐 Nginx (Secure Proxy)</h3>
+<h3>🌐 Hardened Nginx</h3>
 <ul>
-<li>Automated package installation & service hardening.</li>
-<li>VHost generation with <code>.git</code> and <code>.inc</code> blocking.</li>
-<li>Automatic 80-to-443 redirection logic.</li>
+<li>Automated package installation & unprivileged user configuration.</li>
+<li>Clean URLs routing for Astro static subdirectories.</li>
+<li>Strict Content-Security-Policy (CSP) headers configuration.</li>
 </ul>
 </div>
 <div class="proc-card">
-<h3>🐘 PHP 8.4-FPM</h3>
+<h3>🟢 Node.js & npm</h3>
 <ul>
-<li>Installation of PHP 8.4, MBString, XML, and CLI.</li>
-<li>Pool tuning (<code>www.conf</code>) based on OS family.</li>
-<li>Optimized socket communication (<code>run/php/</code>).</li>
+<li>Secure installation of Node.js v20+ and npm runtime.</li>
+<li>Build cache optimizations to speed up compilation.</li>
+<li>TypeScript support for compile-time Zod validations.</li>
 </ul>
 </div>
 <div class="proc-card">
-<h3>📦 CmsForNerd</h3>
+<h3>📦 Astro Static Build</h3>
 <ul>
-<li>Automated Git synchronization (v3.5 master).</li>
-<li><strong><code>composer install</code></strong> execution with optimisations.</li>
-<li>Strict ownership mapping (<code>www-data</code> vs <code>nginx</code>).</li>
+<li>Automated Git synchronization.</li>
+<li><strong><code>npm install</code></strong> and <strong><code>npm run build</code></strong> execution.</li>
+<li>Static assets deployment (publishing `dist/` contents).</li>
 </ul>
 </div>
 </div>
@@ -71,12 +60,12 @@ declare(strict_types=1);
 
 <section class="lab-section">
 <h2>📂 Orchestration File Hierarchy</h2>
-<p>The core deployment files are located in the laboratory root:</p>
+<p>The core deployment configurations are organized systematically within our automation repository:</p>
 <ul class="file-list">
 <li><code>ansible.cfg</code>: Optimized SSH and YAML output settings.</li>
-<li><code>deploy.yml</code>: The Master Playbook orchestrating the lab.</li>
-<li><code>inventory/hosts.staging.yml</code>: Target node definitions.</li>
-<li><code>playbooks/roles/</code>: Modular logic for Common, Web, PHP, and CMS.</li>
+<li><code>deploy-static.yml</code>: The Master Playbook orchestrating static build pipelines.</li>
+<li><code>inventory/hosts.staging.yml</code>: Target web server definitions.</li>
+<li><code>playbooks/roles/</code>: Modular static server configuration roles.</li>
 </ul>
 </section>
 
@@ -91,20 +80,20 @@ declare(strict_types=1);
 </thead>
 <tbody>
 <tr>
-<td><strong>Full Deployment</strong></td>
-<td><code>ansible-playbook deploy.yml -i inventory/hosts.staging.yml</code></td>
+<td><strong>Full Deploy</strong></td>
+<td><code>ansible-playbook deploy-static.yml -i inventory/hosts.staging.yml</code></td>
 </tr>
 <tr>
-<td><strong>Just Update Code</strong></td>
-<td><code>ansible-playbook deploy.yml --tags codebase</code></td>
+<td><strong>Re-compile Code</strong></td>
+<td><code>ansible-playbook deploy-static.yml --tags compilation</code></td>
 </tr>
 <tr>
 <td><strong>Harden Firewall</strong></td>
-<td><code>ansible-playbook deploy.yml --tags foundation</code></td>
+<td><code>ansible-playbook deploy-static.yml --tags foundation</code></td>
 </tr>
 <tr>
-<td><strong>Nginx & PHP Setup</strong></td>
-<td><code>ansible-playbook deploy.yml --tags web,php</code></td>
+<td><strong>Nginx Setup Only</strong></td>
+<td><code>ansible-playbook deploy-static.yml --tags webserver</code></td>
 </tr>
 </tbody>
 </table>

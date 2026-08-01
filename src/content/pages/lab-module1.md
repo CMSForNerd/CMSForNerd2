@@ -1,116 +1,136 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Lab Worksheet: Module 1 - CmsForNerd v3.5"
-description: "Student Lab Worksheet: Master Constructor Promotion and Property Hooks in PHP 8.4."
+title: "Lab Worksheet: Module 1 - CMSForNerd2"
+description: "Module 1: Master Astro 7.1 Component Frontmatter, Layouts, and strict TypeScript compilation."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">
 <h1>Student Lab Worksheet: Module 1</h1>
-<p class="subtitle">Topic: Modern PHP 8.4+ Architecture & PHP 9 Readiness</p>
+<p class="subtitle">Topic: Astro 7.1 Component Architecture & Type-Safety</p>
 
 <div class="requirement-alert">
-<strong>Requirement Level:</strong> Students <strong>MUST</strong> implement Constructor Promotion and Property Hooks to pass the "Code Elegance" audit.
+<strong>Requirement Level:</strong> Students <strong>MUST</strong> implement strict component frontmatter properties and validate them against strict TypeScript definitions to pass the "Code Elegance" audit.
 </div>
 
 <section class="objectives">
 <h2>🎯 Learning Objectives</h2>
 <ul>
-<li>Eliminate boilerplate using <strong>Constructor Property Promotion</strong>.</li>
-<li>Master <strong>Property Hooks</strong> to replace traditional Getters/Setters.</li>
-<li>Understand <strong>Asymmetric Visibility</strong> for secure data encapsulation.</li>
+<li>Eliminate runtime processing using **Build-Time Component Frontmatter** (code fences).</li>
+<li>Master **Astro Layouts** and static slot injection to maintain clean, modular templates.</li>
+<li>Understand **Strict TypeScript Type-Safety** for frontmatter parameters.</li>
 </ul>
 </section>
 
 <section class="step">
-<h2>🛠️ Step 1: Constructor Property Promotion</h2>
-<p>In legacy PHP, you had to declare a property, define it in the constructor, and then assign it. In PHP 8.4, we do all three in one line.</p>
-<p><strong>Task:</strong> Refactor the <code>User</code> class in <code>includes/User.php</code>.</p>
+<h2>🛠️ Step 1: Component Frontmatter (Code Fences)</h2>
+<p>In legacy PHP, variables had to be declared and initialized during every page load. In Astro 7.1, we define a code fence (<code>---</code>) containing JS/TS that runs <strong>exclusively at build-time</strong> to compile static pages.</p>
+<p><strong>Task:</strong> Refactor a metadata assignment. Observe how Astro executes this logic at compilation time, generating pure, static HTML with zero client-side overhead.</p>
 <div class="code-compare">
 <div class="old">
-<h3>Old Way</h3>
-<pre><code>final class User {
-public readonly string $username;
-public string $role;
-
-public function __construct(string $username, string $role = 'student') {
-$this->username = $username;
-$this->role = $role;
-}
-}</code></pre>
+<h3>Legacy PHP Controller</h3>
+<pre><code>&lt;?php
+declare(strict_types=1);
+$pageTitle = "About Us";
+$theme = "dark";
+include "themes/header.php";
+?&gt;</code></pre>
 </div>
 <div class="new">
-<h3>New Way (PHP 8.4)</h3>
-<pre><code>final class User {
-public function __construct(
-public readonly string $username,
-public private(set) string $role = 'student'
-) {}
-}</code></pre>
+<h3>Astro 7.1 Frontmatter</h3>
+<pre><code>---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+const pageTitle = "About Us";
+const theme = "dark";
+---
+&lt;Layout title={pageTitle} theme={theme}&gt;
+  &lt;p&gt;Static content rendered directly.&lt;/p&gt;
+&lt;/Layout&gt;</code></pre>
 </div>
 </div>
 </section>
 
 <section class="step">
-<h2>🧪 Step 2: Implementing Property Hooks</h2>
-<p>Property hooks allow you to intercept the "Get" or "Set" action on a property. This is perfect for data that needs to be formatted or validated on the fly.</p>
+<h2>🧪 Step 2: Astro Layouts and Slot Injection</h2>
+<p>Astro separates top-level templates from content pages using Layout components and the special <code>&lt;slot /&gt;</code> element.</p>
 <div class="exercise">
-<h3>Exercise 1.1: The Auto-Title Hook</h3>
-<p>Update your <code>CmsContext</code> to automatically capitalize page titles when they are accessed.</p>
+<h3>Exercise 1.1: Standard Layout Integration</h3>
+<p>Inspect <code>src/layouts/Layout.astro</code> and notice how page elements are rendered around the slot placeholder:</p>
 <div class="code-block modern">
-<pre><code>public string $pageTitle {
-// The 'get' hook acts like a virtual getter
-get => ucfirst($this->pageTitle);
-
-// The 'set' hook can sanitize data before it hits the property
-set => $this->pageTitle = trim($value);
-}</code></pre>
+<pre><code>---
+// src/layouts/Layout.astro
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;{title}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Header&lt;/header&gt;
+    &lt;main&gt;
+      &lt;slot /&gt; &lt;!-- Page content is injected here --&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
 </div>
 </div>
 </section>
 
 <section class="step">
-<h2>🔐 Step 3: Asymmetric Visibility</h2>
-<p>This is a "Game Changer" for education. It allows a property to be <strong>Publicly Readable</strong> but <strong>Privately Writable</strong>.</p>
+<h2>🔐 Step 3: TypeScript and Schema Validation</h2>
+<p>This is a major upgrade for static reliability. In Astro 7.1, page schemas are defined using **Zod validation schemas** inside <code>src/content.config.ts</code>.</p>
 <div class="exercise">
-<h3>Exercise 1.2: The Counter Challenge</h3>
+<h3>Exercise 1.2: Content Collections Schema Challenge</h3>
 <ul>
-<li>Create a property called <code>$viewCount</code>.</li>
-<li>Set its visibility to <code>public private(set)</code>.</li>
-<li><strong>The Test:</strong> Try to change the count from <code>index.php</code> (it should fail). Only a method inside the class should be able to increment it.</li>
+<li>Explore your content schema definition. It mandates that every page have a <code>title</code>, <code>description</code>, <code>timestamp</code>, and <code>topics</code>.</li>
+<li><strong>The Test:</strong> Try deleting a required property from a page's frontmatter and run the compiler. It will block compilation, safeguarding against broken structures!</li>
 </ul>
 <div class="code-block modern">
-<pre><code>public private(set) int $viewCount = 0;
+<pre><code>// src/content.config.ts
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
-public function incrementViews(): void {
-$this->viewCount++; // This works!
-}</code></pre>
+const pages = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/pages" }),
+  schema: z.object({
+    okf_version: z.string(),
+    type: z.string(),
+    title: z.string(),
+    description: z.string(),
+    timestamp: z.string(),
+    topics: z.array(z.string())
+  })
+});</code></pre>
 </div>
 </div>
 </section>
 
 <section class="step">
-<h2>✅ Step 4: Verification (The "Architect" Audit)</h2>
-<p>Run your compliance tool to ensure your new architecture follows PSR-12:</p>
+<h2>✅ Step 4: Verification (The Static Compiler Audit)</h2>
+<p>Run the Astro static build check to confirm type-safety across all compiled files:</p>
 <div class="terminal-block">
-<code>composer check-style</code>
+<code>npm run build</code>
 </div>
 <div class="question-box">
-<p><strong>Question for the Student:</strong> If a property is marked as <code>readonly</code>, can it also have a <code>set</code> hook?</p>
-<p class="hint">(Hint: Think about why 'Readonly' and 'Setting a value' might conflict).</p>
+<p><strong>Question for the Student:</strong> Why does build-time schema validation provide a safer environment than legacy run-time checks?</p>
+<p class="hint">(Hint: Think about when a schema mistake is caught by developers versus when it affects an active website visitor).</p>
 </div>
 </section>
 
 <footer class="standards-summary">
 <h2>🎓 Summary of RFC 2119 Standards for Module 1</h2>
 <ul>
-<li><strong>MUST:</strong> Use <code>readonly</code> for any data that should never change after the object is created.</li>
-<li><strong>SHOULD:</strong> Use Constructor Promotion for all Data Transfer Objects (DTOs).</li>
-<li><strong>MAY:</strong> Use Property Hooks to replace complex getter methods for better readability.</li>
+<li><strong>MUST:</strong> Every page Markdown file carried in content collections **MUST** match the Zod schema configuration.</li>
+<li><strong>SHOULD:</strong> Define explicit interface properties (<code>Props</code>) for all Astro layout files.</li>
+<li><strong>MAY:</strong> Utilise custom TS types to support advanced helper components.</li>
 </ul>
 </footer>
 

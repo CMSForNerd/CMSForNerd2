@@ -1,29 +1,29 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Student Welcome Kit: Essential Cheat Sheet - CMSForNerd v3.5"
-description: "The one-stop reference guide for every student entering the CmsForNerd v3.5 Laboratory."
+title: "Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2"
+description: "The one-stop reference guide for every student entering the CMSForNerd2 Astro 7.1 Laboratory."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="welcome-kit">
 <header class="kit-header">
-<h1>🚀 CMSForNerd v3.1: Student Welcome Kit</h1>
-<p class="quote">"Modernization without loss of simplicity."</p>
+<h1>🚀 CMSForNerd2: Student Welcome Kit</h1>
+<p class="quote">"Static modernisation without loss of simplicity."</p>
 </header>
 
 <div class="kit-intro">
 <p>
-Welcome to the lab. This document contains everything you need to manage your environment and pass your modules.
+Welcome to the laboratory. This document contains everything you need to manage your environment and pass your modules.
 Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
 </p>
 </div>
 
 <section class="kit-section">
-<h2>🛠️ The Essential "Nerd Stack"</h2>
+<h2>🛠️ The Essential Astro 7.1 "Nerd Stack"</h2>
 <table class="stack-table">
 <thead>
 <tr>
@@ -34,19 +34,19 @@ Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
 </thead>
 <tbody>
 <tr>
-<td><strong>Laravel Herd</strong></td>
-<td>PHP 8.4+ Runtime & Server</td>
-<td><code>php -v</code> (Must be 8.4+)</td>
+<td><strong>Node.js & npm</strong></td>
+<td>Astro 7.1 Runtime & Dependency Manager</td>
+<td><code>node -v</code> (Must be 20.0+) / <code>npm -v</code></td>
 </tr>
 <tr>
-<td><strong>Git for Windows</strong></td>
+<td><strong>Git</strong></td>
 <td>Version Control & Cloning</td>
 <td><code>git --version</code></td>
 </tr>
 <tr>
-<td><strong>Antigravity</strong></td>
-<td>High-Performance Terminal</td>
-<td>(Open App)</td>
+<td><strong>Astro 7.1 CLI</strong></td>
+<td>Astro Local Dev & Compilation Engine</td>
+<td><code>npx astro --version</code></td>
 </tr>
 <tr>
 <td><strong>VS Code</strong></td>
@@ -59,27 +59,27 @@ Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
 
 <section class="kit-section">
 <h2>📂 Quick Start Commands</h2>
-<p>Run these inside your <code>C:\Users\YourName\Herd\CmsForNerd</code> folder:</p>
+<p>Run these inside your project workspace root folder:</p>
 <div class="command-grid">
 <div class="cmd-item">
-<strong>Initialize Project:</strong>
-<code>composer install</code>
+<strong>Initialize Dependencies:</strong>
+<code>npm install</code>
 </div>
 <div class="cmd-item">
-<strong>Run All Audits:</strong>
-<code>composer compliance</code>
+<strong>Run Development Server:</strong>
+<code>npm run dev</code>
 </div>
 <div class="cmd-item">
-<strong>Check Style Only:</strong>
-<code>composer check-style</code>
+<strong>Compile Static Build:</strong>
+<code>npm run build</code>
 </div>
 <div class="cmd-item">
-<strong>Fix Style Automatically:</strong>
-<code>composer fix-style</code>
+<strong>Preview Production Build:</strong>
+<code>npm run preview</code>
 </div>
 <div class="cmd-item">
-<strong>Run Security Tests:</strong>
-<code>composer test</code>
+<strong>Verify Type Safety:</strong>
+<code>npx tsc --noEmit</code>
 </div>
 </div>
 </section>
@@ -88,32 +88,32 @@ Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
 <h2>⚖️ Our RFC 2119 Standards</h2>
 <p>As a student of this laboratory, your code must adhere to these requirement levels:</p>
 <ul class="standard-list">
-<li><span class="must">MUST:</span> Every file begins with <code>declare(strict_types=1);</code>.</li>
-<li><span class="must">MUST:</span> Opening braces for classes/methods are on a new line.</li>
-<li><span class="must-not">MUST NOT:</span> Use <code>global</code> variables. Use <code>CmsContext</code> instead.</li>
-<li><span class="should">SHOULD:</span> Aim for 90% code coverage in your logic.</li>
-<li><span class="may">MAY:</span> Use Property Hooks for simple data transformations.</li>
+<li><span class="must">MUST:</span> Every page file carries OKF v0.1 YAML frontmatter with correct schema fields.</li>
+<li><span class="must">MUST:</span> Compile with zero errors during <code>npm run build</code>.</li>
+<li><span class="must-not">MUST NOT:</span> Hardcode page routes. Rely on Astro's Content Collections routing structure.</li>
+<li><span class="should">SHOULD:</span> Customise your styles within Astro scoped layout styles.</li>
+<li><span class="may">MAY:</span> Implement custom MDX elements for interactive laboratory exercises.</li>
 </ul>
 </section>
 
 <section class="kit-section">
-<h2>🛡️ Security Laws</h2>
+<h2>🛡️ Static Security Laws</h2>
 <div class="security-grid">
 <div class="law">
-<h3>1. Never Trust User Input</h3>
-<p>Always run <code>$_GET</code> or <code>$_POST</code> data through <code>SecurityUtils::sanitizePageName()</code>.</p>
+<h3>1. Validate Schema Metadata</h3>
+<p>Verify that your page frontmatter strictly adheres to the schema defined in <code>src/content.config.ts</code>.</p>
 </div>
 <div class="law">
 <h3>2. Escape Output</h3>
-<p>Use <code>SecurityUtils::escapeHtml()</code> for all variables rendered in the theme.</p>
+<p>Astro automatically escapes text variables rendered inside brackets, eliminating XSS injection by default.</p>
 </div>
 <div class="law">
-<h3>3. Strict Routing</h3>
-<p>Only include files that exist in the <code>contents/</code> directory.</p>
+<h3>3. Pure Static Execution</h3>
+<p>There is zero server execution, making server-side paths completely immutable and safe from injection attacks.</p>
 </div>
 <div class="law rfc-law">
 <h3>4. Be Reachable (RFC 9116)</h3>
-<p>Maintain your <code>security.txt</code> and <a href="/security-policy">Security Policy</a>. This is the "Front Door" for ethical hackers to report bugs safely.</p>
+<p>Maintain your <code>security.txt</code> and <a href="/security-policy">Security Policy</a> statically inside your <code>public/.well-known/</code> folder.</p>
 </div>
 </div>
 </section>
@@ -121,25 +121,25 @@ Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
 <section class="kit-section troubleshooting">
 <h2>🆘 Troubleshooting</h2>
 <dl>
-<dt>404 Error?</dt>
-<dd>Ensure the file exists in <code>contents/</code> and has no special characters in the filename.</dd>
+<dt>Astro Build Failure?</dt>
+<dd>Ensure that your newly added page has correct YAML formatting in the frontmatter blocks.</dd>
 
-<dt>PHP Version Error?</dt>
-<dd>Open Laravel Herd Settings and ensure <strong>"PHP 8.4"</strong> is selected and "Nginx" is running.</dd>
+<dt>Node.js Version Error?</dt>
+<dd>Verify that your Node environment is on version 20 or higher. Run <code>node -v</code> to verify.</dd>
 
-<dt>Terminal Permissions?</dt>
-<dd>If Windows blocks your scripts, run: <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code>.</dd>
+<dt>Port Already In Use?</dt>
+<dd>If port 4321 is blocked, kill the existing process: <code>kill $(lsof -t -i :4321) 2>/dev/null || true</code>.</dd>
 </dl>
 </section>
 
 <footer class="path-to-cert">
 <h2>🎓 Path to Certification</h2>
 <div class="roadmap">
-<div class="step"><strong>1. Setup:</strong> Install tools & clone repo.</div>
-<div class="step"><strong>2. Modules 1-3:</strong> Architecture, Standards, Security.</div>
-<div class="step"><strong>3. Modules 4-5:</strong> Write Unit Tests & Coverage.</div>
-<div class="step"><strong>4. Final Exam:</strong> Fix the "Broken Lab" code.</div>
-<div class="step"><strong>5. Certification:</strong> Claim your digital certificate!</div>
+<div class="step"><strong>1. Setup:</strong> Install tools & run <code>npm install</code>.</div>
+<div class="step"><strong>2. Modules 1-3:</strong> Astro Architecture, Standards, and Static Security.</div>
+<div class="step"><strong>3. Modules 4-5:</strong> Write automated checks and build QA verification.</div>
+<div class="step"><strong>4. Final Exam:</strong> Fix the "Broken Build" configuration.</div>
+<div class="step"><strong>5. Certification:</strong> Claim your Astro Modernisation Certificate!</div>
 </div>
 <div class="cta">
 <a href="/lab-manual" class="btn welcome-btn">🚀 Start Laboratory Module 1</a>

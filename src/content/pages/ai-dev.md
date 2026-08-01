@@ -1,88 +1,84 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "AI-Assisted Development | CMSForNerd v3.5"
-description: "Master the synergy between Google Gemini AI and Google Antigravity to build, refactor, and modernize your CMS."
+title: "AI-Assisted Development | CMSForNerd2"
+description: "Master the synergy between AI Architects and static compilers to build, refactor, and modernize your Astro 7.1 static site."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="ai-dev-guide" itemscope itemtype="https://schema.org/TechArticle">
 <header class="guide-header">
-<h1 itemprop="headline">🤖 AI-Assisted Development: Gemini + Antigravity</h1>
-<p class="subtitle">The Modern Workflow: "From Prompt to Production"</p>
+<h1 itemprop="headline">🤖 AI-Assisted Development: Gemini + Jules</h1>
+<p class="subtitle">The Modern Workflow: "From Prompt to Static Production"</p>
 </header>
 
 <div class="intro-box" itemprop="description">
 <p>
-In the modern era of backend engineering, you are no longer coding in isolation.
-<strong>CMSForNerd v3.3</strong> was architected using a high-speed synergy between
-<strong>Google Gemini</strong> (The Architect) and <strong>Google Antigravity</strong> (The Agent).
+In the modern era of static front-end engineering, you are no longer coding in isolation.
+<strong>CMSForNerd2</strong> was architected using a high-speed synergy between
+<strong>Google Gemini</strong> (The Architect) and <strong>Google Jules</strong> (The Developer Twin).
 </p>
 </div>
-
-
 
 <section class="workflow-grid">
 <div class="workflow-card gemini">
 <h2>🧠 Google Gemini</h2>
 <p class="role">The Architect & Strategist</p>
 <ul>
-<li><strong>Logic & Design:</strong> Plans class hierarchies and Property Hooks.</li>
-<li><strong>RFC Compliance:</strong> Validates code against RFC 2119 and PSR-12.</li>
-<li><strong>Theory:</strong> Explains the "Why" behind CmsContext vs. Global variables.</li>
+<li><strong>Layout & Design:</strong> Plans component structures and custom styles.</li>
+<li><strong>Schema Compliance:</strong> Validates content collections against Zod schemas.</li>
+<li><strong>Theory:</strong> Explains the "Why" behind static immunity and zero-JS-by-default performance.</li>
 </ul>
 </div>
 
 <div class="workflow-card antigravity">
-<h2>🚀 Google Antigravity</h2>
-<p class="role">The Agentic Executioner</p>
+<h2>🚀 Google Jules</h2>
+<p class="role">The Agentic Developer Twin</p>
 <ul>
-<li><strong>File Operations:</strong> Writes <code>.php</code> and <code>.inc</code> files to disk.</li>
-<li><strong>Terminal Control:</strong> Runs <code>composer compliance</code> and <code>phpunit</code>.</li>
-<li><strong>Git Mastery:</strong> Handles staging and commits once code is verified.</li>
+<li><strong>File Operations:</strong> Writes <code>.md</code>, <code>.mdx</code>, and <code>.astro</code> files.</li>
+<li><strong>Build Controls:</strong> Runs <code>npm run build</code> and type check scripts.</li>
+<li><strong>Git Mastery:</strong> Handles staging and commits once static assets are verified.</li>
 </ul>
 </div>
 </section>
 
 <section class="semantic-strategy">
 <h2>🌐 The "Triple Threat" Discovery Strategy</h2>
-<p>We use three layers to ensure AI tools accurately categorize your CMS content:</p>
+<p>We use three layers to ensure search engines and AI crawlers accurately index your static pages:</p>
 
 <div class="threat-grid">
 <div class="threat-card">
 <h3>1️⃣ Microdata</h3>
 <p class="tech-detail">HTML tag attributes</p>
 <code class="code-snippet">&lt;article itemscope itemtype="..."&gt;</code>
-<p>Ensures immediate classification by LLM scrapers.</p>
+<p>Ensures immediate semantic classification by web crawlers.</p>
 </div>
 
 <div class="threat-card">
 <h3>2️⃣ JSON-LD</h3>
 <p class="tech-detail">Structured Scripting</p>
 <code class="code-snippet">"@type": "TechArticle"</code>
-<p>Enables Google Rich Results and Knowledge Graphs.</p>
+<p>Enables Google Rich Results and structured search indexing.</p>
 </div>
 
 <div class="threat-card">
-<h3>3️⃣ RDF/Dublin Core</h3>
-<p class="tech-detail">Formal Metadata</p>
-<code class="code-snippet">&lt;dc:creator&gt;Harisfazillah&lt;/dc:creator&gt;</code>
-<p>W3C-compliant semantic web relationships.</p>
+<h3>3️⃣ OKF Frontmatter</h3>
+<p class="tech-detail">Structured Metadata</p>
+<code class="code-snippet">okf_version: 0.1</code>
+<p>W3C-compliant semantic metadata checked by Zod at compile time.</p>
 </div>
 </div>
 </section>
 
-
-
 <section class="standards-warning">
 <h2>⚖️ The "Good AI Citizen" Rules</h2>
 <ul>
-<li><strong>MUST:</strong> Verify <code>declare(strict_types=1);</code> exists on every AI-generated file.</li>
-<li><strong>MUST NOT:</strong> Bypass <code>composer compliance</code>. If tests fail, the AI's code is rejected.</li>
-<li><strong>SHOULD:</strong> Ask Gemini to generate a Unit Test for every new logic block it writes.</li>
+<li><strong>MUST:</strong> Verify all Markdown/MDX page frontmatter parameters adhere strictly to schema validation.</li>
+<li><strong>MUST NOT:</strong> Bypass build checks. If <code>npm run build</code> fails, the AI's code is rejected.</li>
+<li><strong>SHOULD:</strong> Ask your AI partner to structure new pages cleanly using semantic sections.</li>
 </ul>
 </section>
 
