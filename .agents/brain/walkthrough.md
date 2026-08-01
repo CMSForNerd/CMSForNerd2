@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: walkthrough
 title: "CMSForNerd2 Active Walkthrough"
-timestamp: "2026-07-31T22:30:00Z"
+timestamp: "2026-08-01T01:10:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
 topics: [walkthrough, history, brain]
 ---
@@ -19,3 +19,4 @@ topics: [walkthrough, history, brain]
 6.  **Visual Verification**: Successfully ran a preview server on port 4321 and used Playwright to generate and inspect a pixel-perfect full-page screenshot of the homepage.
 7.  **Render Deployment Configuration**: Fixed Render deployment issue ("Publish directory dist/ does not exist!" due to skipped build) by adding a static service type configuration in `render.yaml` and documenting the static site deployment steps in `docs/migration-guide.md`.
 8.  **Enhancing Repository Onboarding (README)**: Added clear manual static site deployment instructions in the root `README.md` so that users deploying manually through the Render Dashboard can see how to resolve the empty build command issue immediately.
+9.  **Windows 11 Setup Navigation Link Typo Rectification**: Corrected the typo "(Herd)" to "(Nerd)" in the Windows 11 Setup navigation item within `src/components/Navigation.astro` to ensure brand consistency and layout professionalism.

@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: task_list
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-07-31T22:30:00Z"
+timestamp: "2026-08-01T01:10:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
 topics: [tasks, track, progress]
 ---
@@ -22,4 +22,5 @@ topics: [tasks, track, progress]
 - [x] Upgrade CMSForNerd2 to Astro 7.1 (specifically "^7.1.6") and verify local build correctness.
 - [x] Resolve Render deployment failure regarding "Publish directory dist/ does not exist!" by adding blueprint configurations and documentation for static site deployments.
 - [x] Document manual static site settings in root README.md to assist users with dashboard configuration.
+- [x] Fix typo "(Herd)" to "(Nerd)" in Windows 11 Setup navigation link within `src/components/Navigation.astro`.
 - [ ] Submit changes.
