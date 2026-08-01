@@ -1,74 +1,95 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Official Answer Key: Final Exam | CMSForNerd v3.5"
-description: "Instructor grading rubric and official logic solutions for the CMSForNerd v3.5 Final Exam."
+title: "Official Answer Key: Final Exam | CMSForNerd2"
+description: "Instructor grading rubric and official static build solutions for the CMSForNerd2 Final Exam."
 schemaType: "EducationalOccupationalCredential"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="exam-answers">
 <header class="answers-header">
 <h1>✅ Official Answer Key: Final Exam</h1>
-<p class="subtitle">CMSForNerd v3.3 Modernization Curriculum</p>
+<p class="subtitle">CMSForNerd2 Static Modernisation Curriculum</p>
 </header>
 
 <div class="answers-intro">
 <p>
 Use this <strong>Official Answer Key</strong> to verify student submissions.
-Solutions MUST utilize <strong>PHP 8.4 Property Hooks</strong> and maintain
-<strong>Strict Type Safety</strong> as defined in RFC 2119.
+Solutions MUST resolve static compile-time conflicts, satisfy Zod metadata validation, and maintain
+<strong>Strict Type Safety</strong>.
 </p>
 </div>
 
 <section class="answer-section">
-<h2>✅ Answer 1: Security Breach (Path Traversal)</h2>
-<p><strong>Requirement:</strong> Utilize <code>SecurityUtils</code> for allow-list validation.</p>
+<h2>✅ Answer 1: Zod Schema Frontmatter Validation</h2>
+<p><strong>Requirement:</strong> Add the missing mandatory <code>okf_version</code> to restore schema compliance.</p>
 <div class="code-block fixed">
-<pre><code>// v3.3 Standard Fix
-$requested = $_GET['page'] ?? 'index';
-$safePage = \CmsForNerd\SecurityUtils::sanitizePageName($requested);
-$contentPath = __DIR__ . "/contents/{$safePage}.inc";
-
-include file_exists($contentPath) ? $contentPath : "contents/404.inc";</code></pre>
+<pre><code>---
+okf_version: "0.1" # Fixed: Added the missing mandatory OKF version
+type: content_page
+title: "New Student Article"
+description: "Short guide."
+timestamp: "2026-07-30T12:00:00Z"
+topics: ["modernisation"]
+---</code></pre>
 </div>
 </section>
 
 <section class="answer-section">
-<h2>✅ Answer 2: Logic Error (Property Hooks)</h2>
-<p><strong>Requirement:</strong> Implement PHP 8.4 Property Hooks with implicit returns.</p>
+<h2>✅ Answer 2: YAML Compliant Indentation</h2>
+<p><strong>Requirement:</strong> Replace illegal tab characters with standard YAML spaces.</p>
 <div class="code-block fixed">
-<pre><code>class Project {
-public string $author {
-set => $this->author = trim($value);
-get => strtoupper($this->author); // Implicit return
-}
-}</code></pre>
+<pre><code>---
+okf_version: 0.1
+type: content_page
+title: "Windows Guides"
+topics:
+  - "modernisation" # Fixed: Indented with 2 spaces instead of tabs
+  - "setup"
+---</code></pre>
 </div>
 </section>
 
 <section class="answer-section">
-<h2>✅ Answer 3: PSR-12 Compliance</h2>
-<p><strong>Requirement:</strong> Proper brace placement and strict visibility.</p>
+<h2>✅ Answer 3: Enforcing Strict Content Security Policy</h2>
+<p><strong>Requirement:</strong> Restrict script directives to avoid open script execution.</p>
 <div class="code-block fixed">
-<pre><code>class Checker
-{
-public function validate(string $data): bool
-{
-return $data === "valid";
-}
-}</code></pre>
+<pre><code># Fixed NGINX Security Configuration
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline';" always;</code></pre>
+</div>
+</section>
+
+<section class="answer-section">
+<h2>✅ Answer 4: TypeScript Props Typing</h2>
+<p><strong>Requirement:</strong> Pass a string title instead of a number to comply with standard layout TS interfaces.</p>
+<div class="code-block fixed">
+<pre><code>&lt;Layout title="2026"&gt;
+  &lt;p&gt;Static page content.&lt;/p&gt;
+&lt;/Layout&gt;</code></pre>
+</div>
+</section>
+
+<section class="answer-section">
+<h2>✅ Answer 5: PWA Service Worker Route Falling</h2>
+<p><strong>Requirement:</strong> Configure workbox navigation fallbacks to reference the compiled static offline path.</p>
+<div class="code-block fixed">
+<pre><code>AstroPWA({
+  workbox: {
+    navigateFallback: '/offline/index.html' # Fixed: Configured the correct offline target
+  }
+})</code></pre>
 </div>
 </section>
 
 <footer class="grading-rubric">
 <h2>🎓 Certification Rubric</h2>
 <ul>
-<li><strong>MUST:</strong> Pass <code>composer compliance</code> (Green Bar).</li>
-<li><strong>MUST:</strong> Pass <code>composer test</code> with 100% coverage.</li>
-<li><strong>SHOULD:</strong> Demonstrate use of Constructor Property Promotion.</li>
+<li><strong>MUST:</strong> Pass compilation with zero errors under <code>npm run build</code>.</li>
+<li><strong>MUST:</strong> Register a valid service worker with offline fallback support.</li>
+<li><strong>SHOULD:</strong> Leverage OKF v0.1 compliant frontmatter on all newly authored pages.</li>
 </ul>
 </footer>
 </article>

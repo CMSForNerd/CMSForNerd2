@@ -1,112 +1,74 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Installation Guide | CMSForNerd v3.5 Laboratory"
-description: "Official deployment steps for CMSForNerd v3.5. Learn how to install the flat-file core on modern PHP 8.4 environments."
+title: "Installation Guide | CMSForNerd2"
+description: "Official installation steps for CMSForNerd2. Learn how to configure the Astro 7.1 environment, run the dev server, and compile static builds."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Gemini AI"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <h1>Introduction</h1>
 <p>
-<strong>CMSForNerd</strong> is a lightweight, flat-file Content Management System geared towards developers and enthusiasts who want full control over their code.
-Unlike complex database-driven CMS platforms (like WordPress or Joomla), CMSForNerd stores all content in simple text files.
-This makes it incredibly fast, secure, and easy to backup—just copy the files!
+<strong>CMSForNerd2</strong> is a lightweight, database-free static modernization of the legacy dynamic PHP CMS.
+By leveraging <strong>Astro 7.1 Static Site Generator (SSG)</strong>, the workspace compiles layout components, Markdown documents, and stylesheets into purely static files.
+This makes the compiled output incredibly fast, zero-cost to scale, and completely secure—just deploy the static <code>dist/</code> directory!
 </p>
 <p>
-We built <strong>CMSForNerd framework</strong> to help users learn the fundamentals of <strong>HTML5, CSS3, and Modern PHP (8.4+)</strong>.
-The v3.4 modernization ensures full <strong>cross-platform compatibility</strong> (Windows, Linux, Unix, FreeBSD) achieved through <strong>AI-Assisted Coding</strong> using <strong>Google Antigravity</strong>.
+We designed this framework to teach users modern web standards, including <strong>HTML5, CSS3, TypeScript, and Astro 7.1 Content Collections</strong>.
+The modernization ensures full cross-platform compatibility across Windows, Linux, and macOS development environments.
 </p>
-
-
 
 <h3>Requirements</h3>
 <ul>
-<li><strong>Web Server:</strong> Nginx (Recommended), Apache, IIS, or LiteSpeed.</li>
-<li><strong>PHP Engine:</strong> PHP 8.4+ (Required for v3.4 strict typing features).</li>
-<li><strong>PHP Modules:</strong> <code>mbstring</code> (string handling), <code>openssl</code> (security), and <code>zip</code> (archives).</li>
-<li><strong>OS:</strong> Windows, Linux, Unix, or FreeBSD (Tested).</li>
-<li><strong>Dependency Manager:</strong> <a href="https://getcomposer.org/" target="_blank">Composer</a> (Required for Laboratory check scripts).</li>
-<li><strong>No Database required!</strong></li>
+<li><strong>Runtime Environment:</strong> Node.js v20+ (LTS recommended).</li>
+<li><strong>Dependency Manager:</strong> npm (v10+).</li>
+<li><strong>Version Control:</strong> Git.</li>
+<li><strong>No Database or PHP runtime required at all!</strong></li>
 </ul>
 
 <h3>Installation</h3>
 <ol>
-<li>Download the latest release zip/tarball from our <a href="https://github.com/CMSForNerd/CmsForNerd" target="_blank">GitHub Repository</a>.</li>
-<li>Extract the contents to your web server's public directory (e.g., <code>public_html</code> or <code>www</code>).</li>
-<li>Ensure permissions are set correctly (typically 755 for directories, 644 for files).</li>
-<li>Open <code>includes/global-control.inc.php</code> to configure your site name and theme.</li>
+<li>Clone the latest repository from GitHub.</li>
+<li>Open your terminal inside the root workspace folder.</li>
+<li>Run <code>npm install</code> to initialize all packages and dependencies.</li>
+<li>Start the local development server: <code>npm run dev</code>.</li>
 </ol>
 
-<h3>Step 1: Dependency Management (Composer)</h3>
+<h3>Step 1: Dependency Management (npm)</h3>
 <p>
-CMSForNerd v3.4 uses Composer to manage the PSR-4 Autoloader and technical tools. After extracting your files, open your terminal in the root directory and run:
+CMSForNerd2 manages its build integrations and support packages using <code>package.json</code> and standard npm packages:
 </p>
 <div class="code-box" style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 8px;">
-<pre><code># Install the "Nerd-Stack" and generate the Autoloader
-composer install
+<pre><code># Install modern Astro 7.1 support packages
+npm install
 
-# If you add new classes later, run:
-composer dump-autoload</code></pre>
+# Resolve potential peer-dependency conflicts with legacy integrations
+npm install --legacy-peer-deps</code></pre>
 </div>
 
-<h3>Step 2: Security Audit (PHPStan)</h3>
+<h3>Step 2: Compile Static Builds</h3>
 <p>
-To ensure your code is secure and free of "Undefined Variable" errors, we use <strong>PHPStan Level 8</strong>. Run this check before every deployment:
+Before shipping your site, run the Astro compiler to compile all layouts, markdown pages, and stylesheets into static files under the <code>dist/</code> directory:
 </p>
 <div class="code-box" style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 8px;">
-<pre><code># Run the Static Analysis engine
-vendor/bin/phpstan analyze</code></pre>
+<pre><code># Compile the static assets
+npm run build</code></pre>
 </div>
-<p><em>Note: For a "Safe Build," the output must return <strong>[OK] No errors</strong>.</em></p>
-
-
+<p><em>Note: A successful, safe build will output <strong>Complete!</strong> and report the list of generated routes.</em></p>
 
 <h3>How to Create Pages</h3>
 <p>
-CMSForNerd uses a unique <strong>"Pair Logic"</strong> system. To create a new page (e.g., <em>About Us</em>), you need two files:
+CMSForNerd2 utilizes Astro Content Collections. To author a page, navigate to <code>src/content/pages/</code> and create a new Markdown (<code>.md</code>) or MDX (<code>.mdx</code>) file carrying standard OKF YAML frontmatter.
 </p>
-<ol>
-<li>
-<strong>The Entry Point (<code>about.php</code>):</strong>
-Copy <code>template.php</code> to the root directory and rename it to <code>about.php</code>.
-</li>
-<li>
-<strong>The Content Body (<code>contents/about-body.inc</code>):</strong>
-Create a file inside the <code>contents/</code> folder named <code>about-body.inc</code>.
-Put your raw HTML content here (just the part inside the <code>&lt;body&gt;</code> tags).
-</li>
-</ol>
 
 <h3>Recommended Tools</h3>
-<p>Coding and maintaining a flat-file site is easier with the right tools:</p>
 <ul>
-<li><strong>Code Editor:</strong> <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>, <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>, or Google Antigravity.</li>
-<li><strong>File Transfer:</strong> <a href="https://filezilla-project.org/" target="_blank">FileZilla</a> or <a href="https://winscp.net/" target="_blank">WinSCP</a>.</li>
-<li><strong>Local Server:</strong> <a href="https://herd.laravel.com/" target="_blank">Laravel Herd</a> (Recommended), <a href="https://www.apachefriends.org/" target="_blank">XAMPP</a>, or <a href="https://laragon.org/" target="_blank">Laragon</a>.</li>
-<li><strong>Debugging:</strong> <a href="https://www.mozilla.org/firefox/developer/" target="_blank">Mozilla Firefox Developer Tools</a> for CSP auditing and CSS Grid debugging.</li>
+<li><strong>Code Editor:</strong> <a href="https://code.visualstudio.com/" target="_blank">VS Code</a> with the Astro and MDX extensions.</li>
+<li><strong>Static Hosting:</strong> Render.com, Cloudflare Pages, Netlify, or unprivileged NGINX Alpine containers.</li>
+<li><strong>Browsers:</strong> Google Chrome or Firefox Developer Tools for checking static CSS Grid layouts and service worker pre-caches.</li>
 </ul>
-
-<h3>Security Features (v3.4)</h3>
-<p>
-<strong>CMSForNerd v3.4</strong> includes strict input validation, <strong>Content Security Policy (CSP)</strong> nonces, and <strong>Cloudflare Turnstile</strong> support.
-To enable Bot Protection on your forms, edit <code>includes/turnstile.php</code> and add your API keys.
-</p>
-
-<h3>Advanced: Theme Development (PHP 8.4)</h3>
-<p>
-When building themes, we now use the <strong>Context Object</strong> pattern and <strong>Constructor Property Promotion</strong> for clean, object-oriented inclusions:
-</p>
-<pre><code>// NEW (PHP 8.4 with Context Object)
-include "themes/{$ctx->themeName}/header.tpl";
-</code></pre>
-
-<h3>Maintenance Note</h3>
-<p>
-Remember to run <code>composer install</code> if you move the project to a new machine to ensure the autoloader and static analysis tools are ready to go.
-</p>
 
 <div class="next-steps" style="background: #fff3cd; border: 2px solid #ffeeba; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center;">
 <h3>✅ Installation Complete?</h3>
@@ -115,7 +77,7 @@ Remember to run <code>composer install</code> if you move the project to a new m
 </div>
 
 <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
-All changes have been committed and pushed to your GitHub repository. It has been a pleasure modernizing this "Radically Simple" CMS using <strong>Google Antigravity</strong>!
+Your project workspace is fully modernized to Astro 7.1!
 </p>
 
 <style>

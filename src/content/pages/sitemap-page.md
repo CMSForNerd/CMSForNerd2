@@ -1,12 +1,12 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Sitemap For CmsForNerd"
-description: "HTML Sitemap for CmsForNerd - A lightweight, flat-file content management software."
+title: "Sitemap For CMSForNerd2"
+description: "HTML Sitemap for CMSForNerd2 - A lightweight static content management system modernised in Astro 7.1."
 schemaType: "WebPage"
 author: "Harisfazillah Jamel"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 
@@ -37,11 +37,11 @@ const a = document.createElement('a');
 a.href = link.href;
 a.textContent = link.textContent;
 a.style.fontWeight = 'bold';
-a.style.colour = '#8e44ad';
+a.style.color = '#8e44ad';
 li.appendChild(a);
 
 const span = document.createElement('span');
-span.style.colour = '#999';
+span.style.color = '#999';
 span.style.fontSize = '0.8rem';
 span.textContent = ' (Statically Modernised)';
 li.appendChild(span);

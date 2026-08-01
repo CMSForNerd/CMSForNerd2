@@ -1,111 +1,102 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "New Lab Specimen | CmsForNerd v3.5"
-description: "A lightweight flat-file CMS modernized for PHP 8.4+ and PHP 9 readiness."
+title: "New Page Creation Guide | CMSForNerd2"
+description: "A step-by-step guide to authoring new content pages using Markdown/MDX and Astro 7.1 Content Collections."
 schemaType: "WebPage"
 author: "Harisfazillah Jamel"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="template-guide">
-<h1>🎨 CmsForNerd v3.5 Laboratory Guide</h1>
-<p class="subtitle">Mastering the "Pair Logic" & Context Engine</p>
+<h1>🎨 CMSForNerd2 Page Creation Guide</h1>
+<p class="subtitle">Mastering Content Collections & Frontmatter Validation</p>
 
 <div class="intro-box">
 <p>
-The <code>template.php</code> file acts as the <strong>Master Controller</strong>. In v3.4, you don't need to write new PHP logic for every page. You simply <strong>duplicate</strong> the template and pair it with a content fragment.
+In CMSForNerd2, page creation is completely declarative. Instead of managing complex controller files or PHP scripts, you simply write **Markdown (.md) or MDX (.mdx) files** inside our content collection folder. Astro's compiler reads your frontmatter metadata and renders pages statically through a unified layout wrapper.
 </p>
 </div>
 
 <section class="guide-step">
 <h2>📂 Step 1: Locate the Folders</h2>
-<p>Focus on these key areas in the Laboratory environment:</p>
+<p>Focus on these key areas in the Astro development environment:</p>
 <ul>
-<li><strong>Root Directory:</strong> Public <code>.php</code> entry points (e.g., <code>index.php</code>, <code>about.php</code>).</li>
-<li><strong>contents/ Directory:</strong> Raw "body" fragments (<code>-body.inc</code> files).</li>
-<li><strong>src/ & includes/:</strong> The core engine, security utilities, and bootstrap logic.</li>
+<li><strong>Content Collection:</strong> <code>src/content/pages/</code> — Place all page files here.</li>
+<li><strong>Page Routing:</strong> <code>src/pages/[...slug].astro</code> — Astro's routing loader that automatically discovers your markdown files.</li>
+<li><strong>Zod Config:</strong> <code>src/content.config.ts</code> — Configures the schema schemas that validate your frontmatter.</li>
 </ul>
 </section>
 
 <section class="guide-step">
-<h2>📝 Step 2: Create Your Content (.inc file)</h2>
-<p>Code only the internal HTML structure for your page body.</p>
+<h2>📝 Step 2: Create Your Content (.md or .mdx file)</h2>
+<p>Write your page content using semantic HTML or Markdown elements.</p>
 <ol>
-<li>Create a new file inside <code>contents/</code>.</li>
-<li><strong>Naming Rule:</strong> It must end in <code>-body.inc</code> (e.g., <code>contact-body.inc</code>).</li>
-<li>Use semantic HTML5 tags for structure. Do not include <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> tags here.</li>
+<li>Create a new file inside <code>src/content/pages/</code> (e.g., <code>contact.md</code>).</li>
+<li><strong>Naming Rule:</strong> Filenames should be lowercase and hyphen-separated (e.g., <code>contact-us.md</code>).</li>
+<li>Write your content using standard Markdown syntax, semantic headings, tables, or inline blocks.</li>
 </ol>
 <div class="code-example">
-<h3>Example: <code>contents/contact-body.inc</code></h3>
-<pre><code>&lt;section class="contact-page"&gt;
-&lt;h1&gt;Contact Us&lt;/h1&gt;
-&lt;p&gt;Send a message to the lab administrators.&lt;/p&gt;
+<h3>Example: <code>src/content/pages/contact.md</code></h3>
+<pre><code>---
+okf_version: 0.1
+type: content_page
+title: "Contact Us | CMSForNerd2"
+description: "Reach out to the Astro modernisation laboratory admins."
+timestamp: "2026-07-30T12:00:00Z"
+topics: ["modernisation", "contact"]
+---
+
+&lt;section class="contact-page"&gt;
+# Contact Us
+Send a message to our static development team.
 &lt;/section&gt;</code></pre>
 </div>
 </section>
 
 <section class="guide-step">
-<h2>🚀 Step 3: Create Your Page (.php file)</h2>
-<p>In CMSForNerd, you never write new engine code. You simply <strong>copy, rename, and adjust metadata</strong>.</p>
+<h2>🚀 Step 3: Frontmatter Schema Properties</h2>
+<p>In CMSForNerd2, the compiler validates frontmatter variables at build time to prevent broken pages or missing SEO attributes.</p>
 
 <div class="instruction-box">
-<ol>
-<li><strong>Copy:</strong> Duplicate <code>template.php</code> in the root folder.</li>
-<li><strong>Rename:</strong> Change the copy to match your content (e.g., <code>contact.php</code>).</li>
-<li><strong>Adjust:</strong> Update only the <code>$content</code> array metadata.</li>
-</ol>
+<p><strong>Required YAML Fields:</strong></p>
+<ul>
+<li><code>okf_version</code>: Open Knowledge Format specification (MUST be <code>"0.1"</code> or <code>0.1</code>).</li>
+<li><code>type</code>: Document class type (e.g., <code>content_page</code>).</li>
+<li><code>title</code>: SEO-friendly title string.</li>
+<li><code>description</code>: Meta description tag for search engines.</li>
+<li><code>timestamp</code>: Iso Date String (e.g., <code>"2026-07-30T12:00:00Z"</code>).</li>
+<li><code>topics</code>: Array list of keywords (e.g., <code>["modernisation", "setup"]</code>).</li>
+</ul>
 </div>
-
-<div class="code-example">
-<h3>Metadata Adjustment in <code>contact.php</code>:</h3>
-<pre><code>/**
-* 3. [SEO] Metadata - CUSTOMIZE THESE FOR EVERY NEW PAGE
-*/
-$content = [
-'title'       => "Contact Us | CmsForNerd",
-'author'      => "Harisfazillah Jamel",
-'description' => "Get in touch with the laboratory team.",
-'keywords'    => "Contact, PHP 8.4, CmsForNerd",
-];
-
-/**
-* 4. [LAB] ROUTING LOGIC (Body-Partial Rule)
-* DO NOT MODIFY: This automatically finds 'contact-body.inc'
-*/
-$baseName = pathinfo(basename(__FILE__), PATHINFO_FILENAME);
-$pageName = "{$baseName}-body";
-$content['data'] = $pageName;</code></pre>
-</div>
-<p><em>The rest of the file (GZIP, Security, and Theme Execution) remains exactly as copied.</em></p>
 </section>
 
 <section class="guide-step security-check">
 <h2>🛡️ Step 4: Verify Safety & Compliance</h2>
-<p>Before moving to production, perform these three laboratory checks:</p>
+<p>Before submitting your new page, perform these three static compilation checks:</p>
 <div class="check-grid">
 <div class="check-item">
-<h3>1. Static Analysis</h3>
-<p>Run <code>composer analyze</code>. Your new page must show 0 errors at PHPStan Level 8.</p>
+<h3>1. Type Check</h3>
+<p>Run <code>npx tsc --noEmit</code>. Ensure TypeScript throws zero type warnings or property errors.</p>
 </div>
 <div class="check-item">
-<h3>2. CSP Nonce Verification</h3>
-<p>If you add inline <code>&lt;script&gt;</code>, you must use <code>$ctx->cspNonce</code> to pass the security policy.</p>
+<h3>2. Compiles Clean</h3>
+<p>Execute <code>npm run build</code>. Check that your new route compiles successfully to static files under <code>dist/</code>.</p>
 </div>
 <div class="check-item">
-<h3>3. Sanitization</h3>
-<p>Ensure your page name is valid and safe using <code>SecurityUtils::isValidPageName()</code>.</p>
+<h3>3. Local Preview</h3>
+<p>Run <code>npm run preview</code> and visit the generated page in your local browser to confirm layout correctness.</p>
 </div>
 </div>
 </section>
 
 <section class="standards-box">
-<h2>⚖️ Laboratory Standards (v3.5 Update)</h2>
+<h2>⚖️ Laboratory Standards</h2>
 <ul>
-<li><strong>MUST:</strong> Keep <code>declare(strict_types=1);</code> at the top of all <code>.php</code> files.</li>
-<li><strong>MUST NOT:</strong> Modify the Routing Logic or Theme Execution blocks in copied files.</li>
-<li><strong>REQUIRED:</strong> Use the <code>$ctx</code> object to access any page data within your theme.</li>
+<li><strong>MUST:</strong> Author YAML blocks using strict spacing; avoid using tab characters.</li>
+<li><strong>MUST NOT:</strong> Include raw dynamic runtime server scripts. Keep elements static.</li>
+<li><strong>REQUIRED:</strong> Align frontmatter structures exactly with <code>src/content.config.ts</code> Zod validations.</li>
 </ul>
 </section>
 </article>

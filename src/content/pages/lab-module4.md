@@ -1,88 +1,77 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Lab Worksheet: Module 4 - CmsForNerd v3.5"
-description: "Student Lab Worksheet for Module 4: Automated Testing with PHPUnit 11. Master the AAA pattern."
+title: "Lab Worksheet: Module 4 - CMSForNerd2"
+description: "Student Lab Worksheet for Module 4: Automated Testing with Playwright. Learn to test static Astro 7.1 layouts and components."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">
 <h1>Student Lab Worksheet: Module 4</h1>
-<p class="subtitle">Topic: Automated Testing with PHPUnit 11</p>
+<p class="subtitle">Topic: Automated End-to-End Testing with Playwright</p>
 
 <div class="requirement-alert">
-<strong>Requirement Level:</strong> Students <strong>MUST</strong> pass all assertions to achieve "Certified Nerd" status.
+<strong>Requirement Level:</strong> Students <strong>MUST</strong> pass all static visual assertions to achieve "Certified Developer" status.
 </div>
 
 <section class="objectives">
 <h2>🎯 Learning Objectives</h2>
 <ul>
-<li>Understand the <strong>Arrange-Act-Assert (AAA)</strong> pattern.</li>
-<li>Write a unit test for the <code>SecurityUtils</code> class.</li>
-<li>Master the terminal-based test runner.</li>
+<li>Understand the **Arrange-Act-Assert (AAA)** pattern in front-end browser testing.</li>
+<li>Write a Playwright browser test to verify static page integrity.</li>
+<li>Master terminal-based testing for static web applications.</li>
 </ul>
 </section>
 
 <section class="step">
 <h2>📂 Step 1: The Test Anatomy</h2>
-<p>In PHPUnit, every test file <strong>MUST</strong> end with the suffix <code>Test.php</code> and its class <strong>MUST</strong> extend <code>TestCase</code>.</p>
+<p>For statically built sites, unit tests on individual functions are often replaced by integration and End-to-End (E2E) tests. We verify that pages render correctly in real browsers.</p>
 
-<h3>The AAA Pattern:</h3>
+<h3>The AAA Pattern in E2E Testing:</h3>
 <ul>
-<li><strong>Arrange:</strong> Set up the objects and data needed for the test.</li>
-<li><strong>Act:</strong> Execute the specific function you want to test.</li>
-<li><strong>Assert:</strong> Check if the result matches your expectations.</li>
+<li><strong>Arrange:</strong> Start the local preview server and set up the browser viewport.</li>
+<li><strong>Act:</strong> Navigate the browser to the target static URL (e.g., <code>/about</code>).</li>
+<li><strong>Assert:</strong> Check if elements, classes, and styles render as expected.</li>
 </ul>
 </section>
 
 <section class="step">
-<h2>🛠️ Step 2: Writing Your First Test</h2>
-<p>You will write a test for the <code>SecurityUtils::escapeHtml</code> method to ensure it correctly prevents XSS (Cross-Site Scripting).</p>
-<p><strong>Task:</strong> Create <code>tests/SecurityUtilsTest.php</code> and enter this code:</p>
+<h2>🛠️ Step 2: Writing Your First Browser Test</h2>
+<p>You will write a test to ensure that the layout, navigation menu, and CSS classes render correctly without broken styles.</p>
+<p><strong>Task:</strong> Create a standard browser test file (e.g., <code>tests/layout.test.ts</code>):</p>
 <div class="code-block modern">
-<pre><code>&lt;?php
+<pre><code>import { test, expect } from '@playwright/test';
 
-declare(strict_types=1);
+test.describe('CMSForNerd2 Layout Integrity', () => {
+  test('should load the home page and render hero section correctly', async ({ page }) => {
+    // 1. Arrange & Act - Navigate to local preview
+    await page.goto('http://localhost:4321/');
 
-namespace CmsForNerd\Tests;
+    // 2. Assert - Validate that the main elements render
+    const heading = page.locator('h1');
+    await expect(heading).toContainText('Welcome to CMSForNerd2');
 
-use PHPUnit\Framework\TestCase;
-use CmsForNerd\SecurityUtils;
-
-final class SecurityUtilsTest extends TestCase
-{
-/**
-* Requirement: HTML special characters MUST be converted to entities.
-*/
-public function testEscapesHtmlSpecialCharacters(): void
-{
-// 1. Arrange
-$input = '&lt;script&gt;alert("hack");&lt;/script&gt;';
-$expected = '&amp;lt;script&amp;gt;alert(&amp;quot;hack&amp;quot;);&amp;lt;/script&amp;gt;';
-
-// 2. Act
-$result = SecurityUtils::escapeHtml($input);
-
-// 3. Assert
-$this->assertSame($expected, $result, "The HTML was not escaped correctly!");
-}
-}</code></pre>
+    // Confirm that the CSS grid and runtime badges exist
+    const badge = page.locator('.badge.astro-version');
+    await expect(badge).toBeVisible();
+  });
+});</code></pre>
 </div>
 </section>
 
 <section class="step">
-<h2>🚀 Step 3: Running the Lab</h2>
-<p>Open your Antigravity Terminal and execute the test suite:</p>
+<h2>🚀 Step 3: Running the Test Suite</h2>
+<p>Ensure that your local preview server is running, and launch the headless browser tests:</p>
 <div class="terminal-block">
-<code>./vendor/bin/phpunit tests/SecurityUtilsTest.php</code>
+<code>npx playwright test</code>
 </div>
 <p><strong>What to look for:</strong></p>
 <ul>
-<li><strong>. (Dot):</strong> This means your test passed!</li>
-<li><strong>F (Failure):</strong> Something went wrong. PHPUnit will show you exactly what it expected vs. what it got.</li>
+<li><strong>Success message:</strong> Playwright will show "all tests passed" with a green checkmark.</li>
+<li><strong>Errors/Failures:</strong> If an assertion fails, Playwright will capture a screenshot and trace report showing the exact layout mismatch.</li>
 </ul>
 </section>
 
@@ -90,23 +79,23 @@ $this->assertSame($expected, $result, "The HTML was not escaped correctly!");
 <h2>🧪 Step 4: The "Breaking" Exercise</h2>
 <p>To truly understand testing, you must see a failure.</p>
 <ol>
-<li>Open <code>includes/SecurityUtils.php</code>.</li>
-<li>Temporarily change the <code>escapeHtml</code> function to just <code>return $content;</code> (breaking the security).</li>
+<li>Open <code>src/content/pages/index.md</code>.</li>
+<li>Temporarily change the main heading to something else, or remove the <code>astro-version</code> class from the badge.</li>
 <li>Run the test again.</li>
-<li><strong>Observe:</strong> Watch how PHPUnit catches your mistake instantly. This is why we test!</li>
+<li><strong>Observe:</strong> Watch how the browser test identifies the broken selector instantly, preventing deployment of incorrect pages!</li>
 </ol>
 
 <div class="question-box">
-<p><strong>Question for the Student:</strong> Why is it better to test small units of code (Unit Testing) before testing the entire website (Integration Testing)?</p>
+<p><strong>Question for the Student:</strong> Why are E2E browser tests particularly valuable for static sites generated via Markdown/MDX collections?</p>
 </div>
 </section>
 
 <footer class="standards-summary">
-<h2>🎓 Summary of RFC 2119 Standards for Module 4</h2>
+<h2>🎓 Summary of Standards for Module 4</h2>
 <ul>
-<li><strong>MUST:</strong> Every test method name <strong>MUST</strong> start with the word <code>test</code> (e.g., <code>testAddition</code>).</li>
-<li><strong>MUST:</strong> Test classes <strong>MUST</strong> be marked as <code>final</code> to prevent unnecessary inheritance.</li>
-<li><strong>SHOULD:</strong> You <strong>SHOULD</strong> use <code>assertSame()</code> instead of <code>assertEquals()</code> to check both value and type (strict comparison).</li>
+<li><strong>MUST:</strong> Assert that critical SEO meta elements (title, description) exist on every page.</li>
+<li><strong>MUST:</strong> Test responsive designs by executing assertions against both desktop and mobile viewports.</li>
+<li><strong>SHOULD:</strong> Assert that PWA service workers and offline fallback targets are discoverable.</li>
 </ul>
 </footer>
 

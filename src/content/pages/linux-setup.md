@@ -1,77 +1,79 @@
 ---
 okf_version: 0.1
 type: content_page
-title: "Linux Setup Guide (PHP 8.4+) | CMSForNerd Lab"
-description: "Official laboratory guide for ensuring PHP 8.4+ compatibility on Debian, Ubuntu LTS, and AlmaLinux."
+title: "Linux Setup Guide (Node.js & Astro) | CMSForNerd2 Lab"
+description: "Official laboratory guide for installing Node.js 20+ and Astro 7.1 on Debian, Ubuntu LTS, and AlmaLinux."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "php", "architecture"]
+topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet linux-setup" itemscope itemtype="https://schema.org/HowTo">
 <header class="setup-header">
 <h1 itemprop="name">🐧 Linux Setup Guide: Laboratory Readiness</h1>
-<p class="subtitle">Ensuring PHP 8.4+ Compatibility on Debian, Ubuntu LTS & AlmaLinux</p>
+<p class="subtitle">Ensuring Node.js 20+ & Astro 7.1 Compatibility on Debian, Ubuntu LTS & AlmaLinux</p>
 </header>
 
 <div class="requirement-alert" role="alert">
-<strong>RFC 2119 REQUIRED:</strong> To complete the laboratory modules, your server <strong>MUST</strong> run <strong>PHP 8.4</strong> or higher to support Property Hooks.
+<strong>RFC 2119 REQUIRED:</strong> To complete the laboratory modules, your development environment <strong>MUST</strong> run <strong>Node.js 20.0</strong> or higher to compile Astro 7.1.
 </div>
 
 <section class="os-selector">
 <div class="os-block debian" itemprop="step">
 <h2>📦 Option A: Debian & Ubuntu</h2>
-<p>Using the <strong>Ondřej Surý</strong> repository—the industry standard for modern PHP on Apt systems.</p>
+<p>Using the official <strong>NodeSource</strong> repository to install the latest LTS version of Node.js.</p>
 
 <div class="terminal-block">
 <code># Install dependencies
-sudo apt update && sudo apt install -y curl ca-certificates
-# Add GPG Key
-curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
-# Add Repo
-echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
-# Install PHP 8.4 Stack
-sudo apt update && sudo apt install -y php8.4 php8.4-cli php8.4-mbstring php8.4-xml php8.4-curl php8.4-zip php8.4-xdebug</code>
+sudo apt update && sudo apt install -y curl ca-certificates gnupg git
+# Add NodeSource GPG Key and Repo
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# Install Node.js
+sudo apt update && sudo apt install -y nodejs
+# Verify installations
+node -v && npm -v</code>
 </div>
 </div>
 
 <div class="os-block almalinux" itemprop="step">
 <h2>📦 Option B: AlmaLinux (9+)</h2>
-<p>Using the <strong>Remi Repository</strong> to enable DNF module streams for RHEL-based systems.</p>
+<p>Using the official DNF module streams to enable Node.js 20 on Red Hat-based environments.</p>
 
 <div class="terminal-block">
-<code># Install Remi Repo
-sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-# Reset and Enable PHP 8.4 Stream
-sudo dnf module reset php
-sudo dnf module enable php:remi-8.4 -y
-# Install PHP 8.4 Stack
-sudo dnf install -y php php-cli php-mbstring php-xml php-curl php-zip php-xdebug
-# Verify
-php -v</code>
+<code># Enable Node.js 20 stream
+sudo dnf module reset nodejs -y
+sudo dnf module enable nodejs:20 -y
+# Install Node.js, npm, and git
+sudo dnf install -y nodejs npm git
+# Verify installations
+node -v && npm -v</code>
 </div>
 </div>
 </section>
 
 <section class="permissions" itemprop="step">
-<h2>📂 Directory Permissions</h2>
-<p>Linux is strict about ownership. The web user <strong>MUST</strong> have read access to the CMS core.</p>
+<h2>📂 Workspace Initialization</h2>
+<p>Initialize the repository and install project-level node modules:</p>
 <div class="terminal-block">
-<code># Set ownership (Ubuntu/Debian)
-sudo chown -R www-data:www-data /var/www/cmsfornerd
-# Standard Lab Permissions
-sudo find /var/www/cmsfornerd -type d -exec chmod 755 {} \;
-sudo find /var/www/cmsfornerd -type f -exec chmod 644 {} \;</code>
+<code># Clone the workspace and enter directory
+git clone https://github.com/CMSForNerd/CMSForNerd2.git
+cd CMSForNerd2
+
+# Install local dependencies
+npm install --legacy-peer-deps
+
+# Start Astro 7.1 dev server
+npm run dev</code>
 </div>
 </section>
 
 <footer class="standards-summary">
 <h2>🎓 Linux Compliance Summary</h2>
 <ul>
-<li><strong>MUST:</strong> Use <code>https://</code> for all repository and GPG key downloads.</li>
-<li><strong>REQUIRED:</strong> Install <code>php-mbstring</code> for international text support.</li>
-<li><strong>SHOULD:</strong> Enable <code>Xdebug</code> for Module 5 code coverage testing.</li>
+<li><strong>MUST:</strong> Deliver all package updates and npm commands via secure channels.</li>
+<li><strong>REQUIRED:</strong> Run Node.js v20.0 or higher.</li>
+<li><strong>SHOULD:</strong> Leverage Visual Studio Code with official Astro language extension support.</li>
 </ul>
 </footer>
 
