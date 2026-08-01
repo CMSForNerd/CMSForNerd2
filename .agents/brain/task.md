@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: task_list
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-08-01T01:10:00Z"
+timestamp: "2026-08-01T05:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
 topics: [tasks, track, progress]
 ---
@@ -11,7 +11,7 @@ topics: [tasks, track, progress]
 
 ## Session Tasks:
 
-- [x] Research and analyze legacy PHP CmsForNerd architecture.
+- [x] Research and analyse legacy PHP CmsForNerd architecture.
 - [x] Evaluate and compare static site generator (SSG) frameworks (selected Astro).
 - [x] Author comprehensive static migration guide in `docs/migration-guide.md`.
 - [x] Set up supporting repository structures (`README.md`, `START-HERE.md`, `SUMMARY.md`, `llms.txt`, `AGENTS.md`, and `.agents/AGENTS.md`).
@@ -23,4 +23,5 @@ topics: [tasks, track, progress]
 - [x] Resolve Render deployment failure regarding "Publish directory dist/ does not exist!" by adding blueprint configurations and documentation for static site deployments.
 - [x] Document manual static site settings in root README.md to assist users with dashboard configuration.
 - [x] Fix typo "(Herd)" to "(Nerd)" in Windows 11 Setup navigation link within `src/components/Navigation.astro`.
-- [ ] Submit changes.
+- [x] Modernise the GitHub Pages deployment pipeline and code architecture for CMSForNerd2 (Astro 7.1 SSG).
+- [x] Submit changes.
