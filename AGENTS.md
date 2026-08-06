@@ -29,6 +29,26 @@ This file describes the agents and tools in our codebase, outlining their operat
     *   Obtain human consensus if local knowledge is stale.
     *   Execute physical terminal commands only when necessary.
 5.  **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
+6.  **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
+
+---
+
+## Google Jules Sandbox & Environment Limitations
+
+When creating, editing, or using automation playbooks, shell scripts, or deployment tools in this workspace, AI agents must respect the specific constraints of the Google Jules environment:
+
+### 1. Key Sandbox Constraints
+*   **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
+*   **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
+*   **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
+*   **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
+
+### 2. Dual-Pathway Branching Rule (Ansible & Shell Code)
+To prevent build failures and environment blocks, all automation scripts, Ansible playbooks, and shell scripts **must** dynamically detect whether they are running in a limited environment (like Google Jules) or on a real OS:
+*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualization types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
+*   **Branching Pathways**:
+    *   *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
+    *   *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
 
 ---
 

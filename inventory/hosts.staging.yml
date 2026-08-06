@@ -1,0 +1,15 @@
+---
+# inventory/hosts.staging.yml
+# Target Staging Web Servers definition for CMSForNerd2
+
+all:
+  hosts:
+    staging-server-01:
+      ansible_host: 192.168.56.101
+      ansible_user: deployer
+    staging-server-02:
+      ansible_host: 192.168.56.102
+      ansible_user: deployer
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

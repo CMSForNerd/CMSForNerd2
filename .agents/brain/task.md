@@ -24,4 +24,7 @@ topics: [tasks, track, progress]
 - [x] Document manual static site settings in root README.md to assist users with dashboard configuration.
 - [x] Fix typo "(Herd)" to "(Nerd)" in Windows 11 Setup navigation link within `src/components/Navigation.astro`.
 - [x] Modernise the GitHub Pages deployment pipeline and code architecture for CMSForNerd2 (Astro 7.1 SSG).
+- [x] Document Google Jules sandbox environment limitations in `AGENTS.md` and `.agents/AGENTS.md`.
+- [x] Implement Ansible Static Orchestration suite with dual environment branching logic (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, `tools/deploy-static.sh`).
+- [x] Complete pre-commit checks and verification.
 - [x] Submit changes.
