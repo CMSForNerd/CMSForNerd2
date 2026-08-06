@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "AMP Acceleration | CMSForNerd2"
 description: "Technical guide on how CMSForNerd2 leverages Accelerated Mobile Pages (AMP) for mobile-first performance via Astro 7.1 build-time generation."
 schemaType: "TechArticle"

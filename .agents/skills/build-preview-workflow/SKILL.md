@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Build and Preview Workflow Skill"
-name: build-preview-workflow
+name: "build-preview-workflow"
 description: "Guides local compilation, testing, and preview workflows for Astro 7.1 static site generator."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [build, preview, astro, static, workflow]
+topics: ["build", "preview", "astro", "static", "workflow"]
 ---
 
 # Build and Preview Workflow Skill

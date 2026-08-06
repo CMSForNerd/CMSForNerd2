@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: walkthrough
+type: "walkthrough"
 title: "CMSForNerd2 Active Walkthrough"
 timestamp: "2026-08-01T01:10:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
-topics: [walkthrough, history, brain]
+topics: ["walkthrough", "history", "brain"]
 ---
 
 # CMSForNerd2 Modernisation Session Walkthrough

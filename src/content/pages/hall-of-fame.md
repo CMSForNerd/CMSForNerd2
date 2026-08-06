@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Nerd Hall of Fame | CMSForNerd Recognition"
 description: "Celebrating the researchers and students who have helped secure and modernize the CMSForNerd Laboratory."
 schemaType: "SpecialAnnouncement"

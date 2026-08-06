@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Sitemap For CMSForNerd2"
 description: "HTML Sitemap for CMSForNerd2 - A lightweight static content management system modernised in Astro 7.1."
 schemaType: "WebPage"

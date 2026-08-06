@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Lab Worksheet: Module 2 - CMSForNerd2"
 description: "Module 2: Code Standards and Frontmatter Compliance. Learn to use Prettier, TypeScript validation, and OKF format rules."
 schemaType: "WebPage"

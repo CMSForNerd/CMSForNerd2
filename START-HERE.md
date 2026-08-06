@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: documentation
+type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
 timestamp: "2026-07-31T07:21:00Z"
 description: "Master entry-point and mapping directory for developers and AI agents onboarding onto CMSForNerd2."
-topics: [onboarding, navigation, structure, dsom]
+topics: ["onboarding", "navigation", "structure", "dsom"]
 ---
 
 # 🗺️ CMSForNerd2: Master Onboarding Map

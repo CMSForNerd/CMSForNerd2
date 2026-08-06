@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "DSOM Cognitive Protocol Skill"
-name: dsom-cognitive-protocol
+name: "dsom-cognitive-protocol"
 description: "Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [dsom, spatial-memory, gateway, discovery-flow, rules]
+topics: ["dsom", "spatial-memory", "gateway", "discovery-flow", "rules"]
 ---
 
 # DSOM Cognitive Protocol Skill

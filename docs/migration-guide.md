@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: documentation
+type: "documentation"
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
 timestamp: "2026-07-31T10:00:00Z"
 description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
-topics: [migration, astro, static, php, architecture]
+topics: ["migration", "astro", "static", "php", "architecture"]
 ---
 
 # 🚀 CMSForNerd to CMSForNerd2: Static Migration Guide

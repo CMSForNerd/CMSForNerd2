@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "AI-Assisted Development | CMSForNerd2"
 description: "Master the synergy between AI Architects and static compilers to build, refactor, and modernize your Astro 7.1 static site."
 schemaType: "WebPage"

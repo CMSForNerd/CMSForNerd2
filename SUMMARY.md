@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: documentation
+type: "documentation"
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
 timestamp: "2026-07-31T07:20:00Z"
-topics: [summary, index, navigation]
+topics: ["summary", "index", "navigation"]
 ---
 
 # Summary

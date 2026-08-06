@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Render Deployment Skill"
-name: render-deployment
+name: "render-deployment"
 description: "Configures and manages Render.com deployments via Docker containerisation or native Free Static Site pathways."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [render, deployment, docker, static-site, blueprint]
+topics: ["render", "deployment", "docker", "static-site", "blueprint"]
 ---
 
 # Render Deployment Skill

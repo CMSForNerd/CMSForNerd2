@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "About CMSForNerd2 | The Human-AI Project"
 description: "Discover the philosophy behind CMSForNerd2: A project dedicated to educational empowerment through Astro 7.1 static site modernization."
 schemaType: "AboutPage"

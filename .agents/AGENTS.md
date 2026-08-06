@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: documentation
+type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [agents, dsom, rulebook, constitution, skills]
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # The Core AI Rulebook (DSOM) - CMSForNerd2
@@ -79,6 +79,23 @@ By using the open standard for extending agent capabilities, our workspace publi
 | **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, testing, and preview workflows for Astro 7.1 static site generator. |
 | **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, and prevents orphaned pages in the documentation hierarchy. |
 | **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
+
+---
+
+## Open Knowledge Format (OKF) v0.1 Compliance Guidelines
+
+To prevent parsing anomalies and ensure absolute compatibility across different rendering platforms (including GitHub web view and automated SSG compilation), all Markdown (`.md`) files in the repository must adhere strictly to the following YAML frontmatter rules:
+
+1. **Exact Structure**: The YAML frontmatter block MUST start on line 1, column 1 with exactly three hyphens `---` and conclude with exactly three hyphens `---` on its own line.
+2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
+3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
+4. **Required Field Schema**: Every document must carry a complete set of five required fields:
+   - `okf_version`: `0.1` (unquoted number).
+   - `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
+   - `title`: Human-readable display title (double-quoted if containing special characters).
+   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-08-01T12:00:00Z"`).
+   - `topics`: An array of associated category tags.
+5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Context7 Integration Skill"
-name: context7-integration
+name: "context7-integration"
 description: "Maintains automated documentation indexing and updates utilizing Context7 services across CI workflows."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [context7, documentation, index, gitlab-ci, github-actions]
+topics: ["context7", "documentation", "index", "gitlab-ci", "github-actions"]
 ---
 
 # Context7 Integration Skill
