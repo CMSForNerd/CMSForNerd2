@@ -44,8 +44,8 @@ function formatValue(key, value) {
       if ((unwrapped.startsWith('"') && unwrapped.endsWith('"')) || (unwrapped.startsWith("'") && unwrapped.endsWith("'"))) {
         unwrapped = unwrapped.substring(1, unwrapped.length - 1);
       }
-      // Escape any nested double quotes
-      const escaped = unwrapped.replace(/\\"/g, '"').replace(/"/g, '\\"');
+      // Escape backslashes and nested double quotes
+      const escaped = unwrapped.replace(/\\"/g, '"').replace(/\\/g, "\\\\").replace(/"/g, '\\"');
       return `"${escaped}"`;
     });
     return `[${quoted.join(", ")}]`;
@@ -62,8 +62,8 @@ function formatValue(key, value) {
     unwrapped = unwrapped.substring(1, unwrapped.length - 1);
   }
 
-  // Escape nested quotes
-  const escaped = unwrapped.replace(/\\"/g, '"').replace(/"/g, '\\"');
+  // Escape backslashes and nested quotes
+  const escaped = unwrapped.replace(/\\"/g, '"').replace(/\\/g, "\\\\").replace(/"/g, '\\"');
   return `"${escaped}"`;
 }
 
