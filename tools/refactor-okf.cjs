@@ -29,7 +29,7 @@ function formatValue(key, value) {
     if (cleaned === "0.1") {
       return "0.1";
     }
-    return `"${cleaned}"`;
+    return JSON.stringify(cleaned);
   }
 
   // Format arrays: topics, tags, etc.
@@ -44,9 +44,7 @@ function formatValue(key, value) {
       if ((unwrapped.startsWith('"') && unwrapped.endsWith('"')) || (unwrapped.startsWith("'") && unwrapped.endsWith("'"))) {
         unwrapped = unwrapped.substring(1, unwrapped.length - 1);
       }
-      // Escape backslashes and nested double quotes
-      const escaped = unwrapped.replace(/\\"/g, '"').replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-      return `"${escaped}"`;
+      return JSON.stringify(unwrapped);
     });
     return `[${quoted.join(", ")}]`;
   }
@@ -56,15 +54,13 @@ function formatValue(key, value) {
     return value;
   }
 
-  // Otherwise, wrap string value in double quotes
+  // Otherwise, wrap string value in double quotes securely using JSON.stringify
   let unwrapped = value;
   if ((unwrapped.startsWith('"') && unwrapped.endsWith('"')) || (unwrapped.startsWith("'") && unwrapped.endsWith("'"))) {
     unwrapped = unwrapped.substring(1, unwrapped.length - 1);
   }
 
-  // Escape backslashes and nested quotes
-  const escaped = unwrapped.replace(/\\"/g, '"').replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-  return `"${escaped}"`;
+  return JSON.stringify(unwrapped);
 }
 
 function processFile(filePath) {
