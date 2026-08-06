@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Linux Setup Guide (Node.js & Astro) | CMSForNerd2 Lab"
 description: "Official laboratory guide for installing Node.js 20+ and Astro 7.1 on Debian, Ubuntu LTS, and AlmaLinux."
 schemaType: "HowTo"

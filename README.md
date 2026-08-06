@@ -1,3 +1,11 @@
+---
+okf_version: 0.1
+type: "documentation"
+title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
+timestamp: "2026-07-30T12:00:00Z"
+topics: ["modernisation", "astro", "static", "architecture"]
+---
+
 # 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)
 
 **CMSForNerd2** is the next-generation, high-performance static modernisation of the legacy database-free PHP CMS.

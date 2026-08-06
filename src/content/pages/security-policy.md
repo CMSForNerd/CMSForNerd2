@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Security Policy & Disclosure | CMSForNerd2"
 description: "The formal security policy for responsible disclosure and ethical vulnerability reporting in the CMSForNerd2 static site project."
 schemaType: "WebPage"

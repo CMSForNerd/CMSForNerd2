@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Lab Worksheet: Module 4 - CMSForNerd2"
 description: "Student Lab Worksheet for Module 4: Automated Testing with Playwright. Learn to test static Astro 7.1 layouts and components."
 schemaType: "WebPage"

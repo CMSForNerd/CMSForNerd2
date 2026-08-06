@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Documentation Governance Skill"
-name: documentation-governance
+name: "documentation-governance"
 description: "Enforces strict OKF standards, UK English conventions, and prevents orphaned pages in the documentation hierarchy."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [documentation, governance, okf, uk-english, navigation]
+topics: ["documentation", "governance", "okf", "uk-english", "navigation"]
 ---
 
 # Documentation Governance Skill

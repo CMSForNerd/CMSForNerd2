@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Windows 11 Setup Guide: Node.js & Astro 7.1 | CMSForNerd2"
 description: "Step-by-step guide to setting up Node.js, Git, and VS Code for Astro 7.1 development on Windows 11."
 schemaType: "HowTo"

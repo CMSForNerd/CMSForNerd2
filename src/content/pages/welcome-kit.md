@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2"
 description: "The one-stop reference guide for every student entering the CMSForNerd2 Astro 7.1 Laboratory."
 schemaType: "WebPage"

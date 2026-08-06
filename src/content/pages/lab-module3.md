@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "Lab Worksheet: Module 3 - CMSForNerd2"
 description: "Module 3: Defensive Engineering in Static Architectures. Learn how Astro 7.1 and unprivileged containers eliminate runtime security risks."
 schemaType: "WebPage"

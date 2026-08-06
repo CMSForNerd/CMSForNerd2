@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "SOP: Ethical AI Integration | CMSForNerd2 Laboratory"
 description: "Standard Operating Procedure for responsible AI usage in the CMSForNerd2 developer workspace."
 schemaType: "CreativeWork"

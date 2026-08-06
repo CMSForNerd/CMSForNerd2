@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Dependency Management Skill"
-name: dependency-management
+name: "dependency-management"
 description: "Maintains pinned dependency determinism and resolves peer-dependency conflicts across all runtime environments."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [dependencies, npm, peer-deps, node, lockfile]
+topics: ["dependencies", "npm", "peer-deps", "node", "lockfile"]
 ---
 
 # Dependency Management Skill

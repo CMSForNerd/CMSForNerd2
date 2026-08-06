@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "PWA Architecture | CMSForNerd2"
 description: "Explore the technical details of progressive enhancements in CMSForNerd2, including Service Workers, bfcache, and local first strategies."
 schemaType: "TechArticle"

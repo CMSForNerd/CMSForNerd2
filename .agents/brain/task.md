@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: task_list
+type: "task_list"
 title: "CMSForNerd2 Active Tasks"
 timestamp: "2026-08-01T05:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
-topics: [tasks, track, progress]
+topics: ["tasks", "track", "progress"]
 ---
 
 # CMSForNerd2 Tasks

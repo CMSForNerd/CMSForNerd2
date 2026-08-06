@@ -1,6 +1,6 @@
 ---
 okf_version: 0.1
-type: content_page
+type: "content_page"
 title: "CMSForNerd2 | The Static Modernisation Laboratory"
 description: "A lightweight, database-free CMS modernised using Astro 7.1 Static Site Generator (SSG) with strict TypeScript standards."
 schemaType: "WebApplication"

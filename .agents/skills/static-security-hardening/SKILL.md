@@ -1,11 +1,11 @@
 ---
 okf_version: 0.1
-type: skill
+type: "skill"
 title: "Static Security Hardening Skill"
-name: static-security-hardening
+name: "static-security-hardening"
 description: "Applies static security whitelisting, cryptographic CSP hashes, OWASP standard defensive headers, and static performance caching."
 timestamp: "2026-08-01T12:00:00Z"
-topics: [security, hardening, csp, nginx, owasp]
+topics: ["security", "hardening", "csp", "nginx", "owasp"]
 ---
 
 # Static Security Hardening Skill

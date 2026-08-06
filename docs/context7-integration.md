@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
-type: documentation
+type: "documentation"
 title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
 timestamp: "2026-07-31T07:15:00Z"
-topics: [context7, integrations, gitlab-ci, github-actions, api, documentation]
+topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 ---
 
 # Context7 Service Integration Guide
