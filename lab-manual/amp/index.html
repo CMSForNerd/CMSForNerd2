@@ -1,0 +1,453 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2 (AMP)</title><meta name="description" content="Welcome to the CMSForNerd2 educational suite. A transparent laboratory for learning modern Astro 7.1 static site architectures."><link rel="canonical" href="/CMSForNerd2lab-manual"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style></head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class="active">The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><article class="lab-manual">
+<h1>🎓 CMSForNerd2: The Developer’s Lab Manual</h1>
+<p class="intro">
+Welcome to the CMSForNerd2 educational suite. This workspace is designed to be a <strong>transparent laboratory</strong>.
+Every file is fully accessible, every static choice is documented, and every security/PWA feature
+is an interactive lesson in professional web standards using Astro 7.1.
+</p>
+<section class="module">
+<h2>📚 Laboratory Module 1: Astro 7.1 Architecture &#x26; TypeScript</h2>
+<p>In this module, students explore the transition from server-side PHP to modern Astro Static Site Generator (SSG) patterns, optimised for Astro 7.1 with strict TypeScript and code-fence structures.</p>
+<div class="exercise">
+<h3>Exercise 1.1: Component Frontmatter</h3>
+<p>Observe how Astro's code fence (<code>---</code>) executes strictly at build-time to establish variables, query content collections, and pass metadata to layout wrappers.</p>
+<p><a href="/lab-module1" class="btn">📝 Open Student Worksheet: Module 1</a></p>
+</div>
+<div class="exercise">
+<h3>Exercise 1.2: Astro Layouts</h3>
+<p>See how standard layouts (<code>src/layouts/Layout.astro</code>) handle top-level page structures and styles, using the <code>&#x3C;slot /></code> tag as the injection target for pages.</p>
+</div>
+<div class="exercise">
+<h3>Exercise 1.3: Content Collections &#x26; Zod</h3>
+<p>Learn to use strict TypeScript schemas via Zod to validate and structure page metadata, eliminating runtime database and data retrieval overhead.</p>
+</div>
+</section>
+<section class="module">
+<h2>⚖️ Laboratory Module 2: Standards &#x26; Compliance</h2>
+<p>Students learn that high-quality static code is defined by its adherence to global schema standards and formatting specifications.</p>
+<p><a href="/lab-module2" class="btn">📝 Open Student Worksheet: Module 2</a></p>
+<ul>
+<li><strong>Requirement Level (RFC 2119):</strong> We use <em>MUST</em>, <em>SHOULD</em>, and <em>MAY</em> to define project boundaries.
+<ul>
+<li>Rule: All generated pages <strong>MUST</strong> be HTML5 compliant.</li>
+<li>Rule: Page frontmatter metadata <strong>MUST</strong> pass Zod schema validation.</li>
+</ul>
+</li>
+<li><strong>Prettier &#x26; Linter:</strong> Use the integrated linter and type check tools to maintain a zero-error development workspace.</li>
+</ul>
+<div class="exercise">
+<h3>Exercise 2.3: Semantic Metadata &#x26; Sitemaps</h3>
+<p>Understand how <strong>JSON-LD</strong> and XML Sitemaps help AI agents and crawlers parse your static contents.</p>
+<ul>
+<li>Examine layout tags to see dynamic JSON-LD generation based on schema.org specifications.</li>
+<li>Observe the statically compiled <code>dist/sitemap.xml</code> file.</li>
+<li><strong>Verification:</strong> Validate JSON-LD structures using <a href="https://validator.schema.org/" target="_blank">Google's Structured Data Testing Tool</a>.</li>
+</ul>
+</div>
+</section>
+<section class="module">
+<h2>🛡️ Laboratory Module 3: Defensive Static Engineering</h2>
+<p>Security is a key pillar of CMSForNerd2. Learn how static-site compilation provides absolute defense-in-depth against legacy web vulnerabilities.</p>
+<div class="lab-box">
+<h3>Lab: Elimination of Server Vulnerabilities</h3>
+<p>Students examine how static site generation completely eliminates runtime injection types like LFI, Directory Traversal, and SQL injection.</p>
+<p><a href="/lab-module3" class="btn">📝 Open Student Worksheet: Module 3</a></p>
+</div>
+<div class="lab-box">
+<h3>Lab 3.2: Content Security Policy (CSP) &#x26; SRI</h3>
+<p>Learn to configure NGINX headers and static meta elements to enforce strict Content Security Policies and Subresource Integrity (SRI) on your compiled assets.</p>
+<ul>
+<li><strong>Concept:</strong> CSP instructs browsers on exactly which scripts, styles, and assets are permitted to execute.</li>
+<li><strong>Exercise:</strong> Inspect the static NGINX server configuration (<code>nginx/default.conf</code>) to see how clean URL redirects and CSP directives are enforced.</li>
+</ul>
+</div>
+<div class="lab-box security-disclosure">
+<h3>Module 3.5: Responsible Disclosure (RFC 9116)</h3>
+<p>Understand how to communicate with security researchers using the <code>security.txt</code> standard on static sites.</p>
+<ul>
+<li><strong>Objective:</strong> Learn to establish a secure, machine-readable protocol for reporting bugs.</li>
+<li><strong>Exercise:</strong> Access the statically compiled <code>/.well-known/security.txt</code> file in your browser to verify configuration.</li>
+</ul>
+</div>
+</section>
+<section class="module">
+<h2>🧪 Laboratory Module 4: Automated Testing &#x26; Verification</h2>
+<p>Master automated verification of your static Astro pages using <strong>Playwright</strong> visual verification and headless integration tests.</p>
+<div class="exercise">
+<h3>Exercise: Visual Regressions</h3>
+<p>Run end-to-end integration assertions to verify that all pages render correctly and layout grids are perfectly preserved across viewports.</p>
+<p><a href="/lab-module4" class="btn">📝 Open Student Worksheet: Module 4</a></p>
+</div>
+<p><strong>Concept: "Automated Peace of Mind"</strong>—if the build or integration assertions fail, the code is not ready for deployment.</p>
+</section>
+<section class="module">
+<h2>📊 Laboratory Module 5: Test Coverage and Build QA</h2>
+<p>Learn to validate the compiled output directory (<code>dist/</code>) and verify Progressive Web App (PWA) cache readiness.</p>
+<div class="exercise">
+<h3>Exercise: PWA Offline Auditing</h3>
+<p>Verify that your `@vite-pwa/astro` integration generates a proper service worker and offline fallback assets.</p>
+<p><a href="/lab-module5" class="btn">📝 Open Student Worksheet: Module 5</a></p>
+</div>
+</section>
+<section class="module ai-module">
+<h2>🤖 Laboratory Module 6: AI-Assisted Static Workflows</h2>
+<p>Learn to guide an AI agent (such as Google Jules) as your development partner. Master prompt-to-product static engineering.</p>
+<div class="exercise">
+<h3>Exercise 6.1: The Agentic Challenge</h3>
+<p>Instruct an AI agent to build a new page. Review its implementation plan, verify compiled output, and run static compliance checks.</p>
+<p><a href="/ai-dev" class="btn">🚀 Open AI Dev Guide</a></p>
+</div>
+<div class="exercise">
+<h3>Exercise 6.2: AI Ethics &#x26; Responsible Usage</h3>
+<p>Study the standard operating procedures for ethical AI development within static workspaces.</p>
+<ul>
+<li>Read the <a href="/ai-sop">📜 AI Ethics SOP</a> to understand cognitive rules and the "Trust but Verify" paradigm.</li>
+<li><strong>Verification Loop:</strong> Always run a static compiler check (<code>npm run build</code>) on any AI-generated adjustments before merging.</li>
+</ul>
+</div>
+</section>
+<section class="module">
+<h2>🛡️ Laboratory Module 7: Static Security Whitelisting &#x26; Performance Hardening</h2>
+<p>In this module, students learn to apply OWASP Web Security guidelines and performance optimisations to static site architectures (Astro 7.1 and Nginx).</p>
+<div class="exercise">
+<h3>Exercise 7.1: Cryptographic CSP Hashes</h3>
+<p>Learn how to whitelist essential inline scripts using SHA-256 hashes inside Nginx Content-Security-Policy header rules, and extract interactive logic into cached bundles.</p>
+<p><a href="/lab-module7" class="btn">📝 Open Student Worksheet: Module 7</a></p>
+</div>
+</section>
+<section class="module exam-module">
+<h2>🚩 The Final Exam: Break-Fix Challenge</h2>
+<p>The ultimate test of a static front-end engineer. Repair a broken configuration or schema mapping to pass the compilation test.</p>
+<div class="exercise">
+<h3>Challenge: Repair the Static Build</h3>
+<p>You must fix schema violations and layout configurations to allow the static site to compile successfully.</p>
+<p><a href="/final-exam" class="btn">🚀 Start the Final Exam</a></p>
+</div>
+</section>
+<hr>
+<section class="case-study">
+<h2>📝 The History of CMSForNerd2: A Modernisation Case Study</h2>
+<p>CMSForNerd2 represents a complete <strong>Modernisation Journey</strong>.</p>
+<ol>
+<li><strong>Phase 1:</strong> Transitioned the 2005 database-free procedural PHP codebase into an Astro Static Site Generator (SSG) framework.</li>
+<li><strong>Phase 2:</strong> Ported the layout files into clean, scoped <code>Layout.astro</code> components utilizing modern CSS Grid and custom variables.</li>
+<li><strong>Phase 3:</strong> Modernised flat-file content fragments into type-safe Markdown/MDX Content Collections under Zod schema rules.</li>
+<li><strong>Phase 4:</strong> Replaced the legacy dynamic AJAX PHP router with client-side routing and PWA caching via `@vite-pwa/astro`.</li>
+<li><strong>Phase 5:</strong> Enforced static containerisation and unprivileged NGINX serving configurations.</li>
+</ol>
+<div class="graduation-cta">
+<h3>🎓 Ready to Graduate?</h3>
+<p>If you have completed all modules and passed the static compilation and QA audits, you are ready to claim your certificate.</p>
+<p><a href="/graduation" class="btn graduation-btn">🏁 Claim Your Certificate of Completion</a></p>
+</div>
+<p class="motto"><strong>Educational Motto:</strong> "Static modernisation without loss of simplicity." — Harisfazillah Jamel &#x26; Gemini, 2026.</p>
+</section>
+</article>
+<style>
+.graduation-cta { background: #fffbeb; border: 2px solid #fde68a; padding: 2rem; border-radius: 8px; text-align: center; margin: 2rem 0; }
+.graduation-cta h3 { color: #92400e; margin-top: 0; }
+.graduation-btn { background: #10b981; color: #fff; font-size: 1.2rem; padding: 1rem 2rem; }
+.graduation-btn:hover { background: #059669; }
+</style>
+<style>
+.lab-manual h1 { color: #004d00; border-bottom: 2px solid #004d00; padding-bottom: 0.5rem; }
+.lab-manual h2 { color: #006600; margin-top: 2rem; border-left: 5px solid #006600; padding-left: 10px; }
+.lab-manual section { margin-bottom: 3rem; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.lab-manual .intro { font-size: 1.1rem; color: #333; line-height: 1.6; background: #e6f7ff; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #007bff; }
+.lab-manual .exercise, .lab-manual .lab-box { background: #f9f9f9; padding: 1rem; border-radius: 4px; border: 1px solid #ddd; margin: 1rem 0; }
+.lab-manual .exercise h3, .lab-manual .lab-box h3 { margin-top: 0; color: #d9534f; }
+.lab-manual .motto { text-align: center; font-style: italic; font-size: 1.2rem; color: #555; margin-top: 2rem; }
+.lab-manual hr { border: 0; border-top: 2px dashed #ccc; margin: 3rem 0; }
+</style></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2lab-manual" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>

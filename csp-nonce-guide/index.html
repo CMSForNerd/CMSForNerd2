@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Static CSP Implementation Guide | CMSForNerd2 Security</title><meta name="description" content="Comprehensive guide to implementing Content Security Policy (CSP) and Subresource Integrity on static Astro 7.1 sites."><meta name="theme-color" content="#0d6efd"><link rel="manifest" href="/CMSForNerd2manifest.json"><link rel="icon" type="image/x-icon" href="/CMSForNerd2favicon.ico"><!-- Schema.org JSON-LD structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"Static CSP Implementation Guide | CMSForNerd2 Security","description":"Comprehensive guide to implementing Content Security Policy (CSP) and Subresource Integrity on static Astro 7.1 sites.","author":{"@type":"Person","name":"Harisfazillah Jamel"}}</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/CMSForNerd2/_astro/ClientRouter.astro_astro_type_script_index_0_lang.jmhnZfFy.js"></script><script>
+      // Initialize theme early to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+      })();
+    </script><style>.astro-route-announcer{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;position:absolute;top:0;left:0;overflow:hidden}
+</style><link rel="stylesheet" href="/CMSForNerd2/_astro/global.C3FkoyhT.css"></head><body><div id="container"><!-- GRID AREA: HEADER --><div id="top"><table class="header-table"><tr><td style="text-align: left;"><div style="font-family: 'SF Mono', monospace; font-weight: 900; font-size: 24px;">CMSForNerd <span style="color: var(--lab-highlight)">::</span> LAB</div><div style="font-size: 12px; opacity: 0.8; letter-spacing: 1px;">STATIC ASTRO 7.1 LABORATORY // STRICT MODE</div></td><td style="text-align: right; vertical-align: middle;"><div class="theme-switcher-container" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'SF Mono', monospace; font-size: 11px;"><span style="opacity: 0.7; font-weight: bold; text-transform: uppercase; color: var(--lab-text);">MODE:</span><div class="theme-btn-group" style="display: inline-flex; border: 1px solid var(--lab-border); border-radius: 6px; overflow: hidden; background: var(--lab-bg);"><button id="theme-btn-light" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; transition: background 0.2s;">☀️ LIGHT</button><button id="theme-btn-dark" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">🌙 DARK</button><button id="theme-btn-auto" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">💻 AUTO</button></div></div></td></tr></table></div><!-- GRID AREA: LEFT NAV --><div id="left"><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2">Home</a><a href="https://www.linuxmalaysia.com">CmsForNerd</a><a href="https://github.com/CMSForNerd/CmsForNerd/archive/refs/heads/master.zip">Download</a><a href="/CMSForNerd2template">🎨 Template Guide</a><a href="/CMSForNerd2sitemap-page">CmsForNerd Sitemap</a><a href="/CMSForNerd2installation">CmsForNerd Installation</a><a href="/CMSForNerd2windows-setup">🪟 Windows 11 Setup (Nerd)</a><a href="/CMSForNerd2welcome-kit">🚀 Student Welcome Kit</a><a href="/CMSForNerd2history">Modernisation History</a><a href="/CMSForNerd2lab-manual">🎓 Lab Manual</a><a href="/CMSForNerd2ai-dev">🤖 AI Development</a><a href="/CMSForNerd2ai-sop">📜 AI Ethics SOP</a><a href="/CMSForNerd2csp-nonce-guide">🛡️ CSP Nonce Guide</a><a href="/CMSForNerd2final-exam">🚩 Final Exam</a><a href="/CMSForNerd2graduation">🏁 Graduation</a><a href="/CMSForNerd2pwa-architecture">📱 PWA Implementation</a><a href="/CMSForNerd2amp-acceleration">⚡ AMP Acceleration</a><a href="https://www.linuxmalaysia.com">CmsForNerd Blog</a></div></div><br><h3>E-Mail</h3><p style="font-size: 0.8em; color: var(--lab-muted); margin-top: 5px;">contact@linuxmalaysia.com</p><br><h3>Join Us</h3><aside class="group-box"><span class="group-title">Community</span><p style="font-size: 0.8em; color: var(--lab-muted);">Join the <strong>cmsfornerd</strong> discussion group.</p><a href="https://groups.google.com/group/cmsfornerd" target="_blank" rel="noopener noreferrer" class="btn-google-group">Visit Group</a></aside><h3>Get Updates</h3></div><!-- GRID AREA: RIGHT NAV --><div id="right"><!-- Search Google --><div class="search-container" style="text-align: center; padding: 10px;"><form method="get" action="https://www.google.com/custom" target="_blank"><a href="https://www.google.com/"><img src="https://www.google.com/logos/Logo_25wht.gif" alt="Google" style="border:0; vertical-align: middle; width: 120px;"></a><br><input type="text" name="q" size="17" maxlength="255" placeholder="Search..."><input type="submit" name="sa" value="Search"><input type="hidden" name="client" value="pub-9240760101409835"><input type="hidden" name="forid" value="1"><input type="hidden" name="ie" value="UTF-8"><input type="hidden" name="oe" value="UTF-8"><input type="hidden" name="hl" value="en"></form></div><!-- Search Google --><br><a href="https://github.com/htacg/tidy-html5" target="_blank" rel="noopener noreferrer"><img src="/images/tidy.png" alt="Validated by HTML Validator (based on Tidy)" style="height: 16px; width: 39px; border: 0;"></a><br></div><!-- GRID AREA: MAIN CONTENT --><div id="content"><main class="content-body"><article class="csp-guide" itemscope itemtype="https://schema.org/TechArticle">
+<header class="guide-header">
+<h1 itemprop="headline">🛡️ Static CSP Implementation Guide</h1>
+<p class="intro">
+Enforcing a strict <strong>Content Security Policy (CSP)</strong> is the gold standard for stopping
+<strong>Cross-Site Scripting (XSS)</strong>. On static architectures like Astro 7.1, we achieve this through server-level header definitions and static meta tags.
+</p>
+</header>
+<section class="overview">
+<h2>CSP on Static Architectures</h2>
+<p>
+Unlike dynamic PHP sites where a random <strong>nonce</strong> can be generated on every single page request, a static site compiles to pre-rendered HTML files. Thus, we utilize two primary mechanisms for secure asset verification:
+</p>
+<div class="highlight-box">
+<p><strong>1. Strict Domain Restrictions:</strong> Directing the web server (e.g., NGINX) to append strict HTTP headers that permit script execution only from <code>'self'</code> and specific pre-authorized domains.</p>
+<p><strong>2. Subresource Integrity (SRI):</strong> Generating hashes for external assets so the browser blocks execution if an asset is modified downstream.</p>
+</div>
+</section>
+<section class="implementation">
+<h2>Step 1: NGINX Headers Configuration</h2>
+<p>In <strong>CMSForNerd2</strong>, our security policy is configured inside the static web server setup (<code>nginx/default.conf</code>).</p>
+<div class="code-block">
+<pre><code># Enforcing security headers directly from NGINX
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self';" always;</code></pre>
+</div>
+<p>This meta directive instructs the browser to only evaluate inline scripts and resources that are hosted on the same origin (<code>'self'</code>) or Cloudflare's verified widgets.</p>
+</section>
+<section class="comparison-section">
+<h2>XSS Protection in Action</h2>
+<div class="comparison-grid">
+<div class="card before">
+<h3>❌ Legacy (Unsafe Inline)</h3>
+<pre><code>&#x3C;script>
+  // Dynamic inline without server-level checks
+  alert(document.cookie);
+&#x3C;/script></code></pre>
+<p class="danger">Browser executes untrusted scripts without restriction.</p>
+</div>
+<div class="card after">
+<h3>✅ Statically Secure</h3>
+<pre><code>&#x3C;script src="/assets/main.js">&#x3C;/script>
+&#x3C;!-- Pre-compiled static script file --></code></pre>
+<p class="success">Only matched sources and pre-authorized paths are allowed.</p>
+</div>
+</div>
+</section>
+<section class="lab-challenge">
+<div class="try-it">
+<h3>🧪 Lab Challenge: Manual Injection</h3>
+<p>Open your console (F12) and try to run a dynamic script from an external origin. Notice the <strong>CSP Refusal</strong> error. This is the "Green Bar" of static security testing.</p>
+</div>
+</section>
+<nav class="footer-nav">
+<a href="/lab-manual" class="btn btn-secondary">← Back to Lab</a>
+<a href="/security-policy" class="btn btn-primary">View Security Policy →</a>
+</nav>
+</article>
+<style>
+:root { --csp-red: #c7254e; --csp-green: #5cb85c; --csp-blue: #0066cc; }
+.csp-guide { max-width: 900px; margin: 0 auto; line-height: 1.6; }
+.guide-header h1 { color: var(--csp-red); border-bottom: 3px solid var(--csp-red); }
+.intro { background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 5px solid #ffc107; }
+.code-block { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: monospace; margin: 15px 0; }
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.card { padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+.before { border-top: 5px solid var(--csp-red); }
+.after { border-top: 5px solid var(--csp-green); }
+.danger { color: var(--csp-red); font-weight: bold; }
+.success { color: var(--csp-green); font-weight: bold; }
+.try-it { background: #f0f8ff; border: 2px dashed var(--csp-blue); padding: 20px; border-radius: 10px; }
+.btn { padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold; }
+.btn-primary { background: var(--csp-red); color: white; }
+.btn-secondary { background: #eee; color: #333; }
+@media (max-width: 600px) { .comparison-grid { grid-template-columns: 1fr; } }
+</style></main></div><!-- GRID AREA: FOOTER --><div id="footer"><div class="lab-footer-wrap" style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--lab-border, #e2e8f0); background-color: var(--lab-bg, #f1f5f9); color: var(--lab-text, #1e293b);"><nav style="margin-bottom: 25px;"><p style="font-family: 'SF Mono', 'Cascadia Code', 'Source Code Pro', monospace; font-size: 0.7rem; text-transform: uppercase; color: #64748b; letter-spacing: 2px; margin-bottom: 15px; opacity: 0.8;"><strong>&lt; Laboratory_Modules /&gt;</strong></p><div style="display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 10px;"><a href="/CMSForNerd2" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 700;">Home</a><a href="/CMSForNerd2about" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">About CMSForNerd2</a><a href="/CMSForNerd2ai-dev" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AI-Assisted Development</a><a href="/CMSForNerd2ai-sop" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">SOP: Ethical AI Integration</a><a href="/CMSForNerd2amp-acceleration" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AMP Acceleration</a><a href="/CMSForNerd2ansible-lab" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible Static Orchestration</a><a href="/CMSForNerd2csp-nonce-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Static CSP Implementation Guide</a><a href="/CMSForNerd2exam-answers" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Official Answer Key: Final Exam</a><a href="/CMSForNerd2final-exam" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Final Exam: Break-Fix Challenge - CMSForNerd2</a><a href="/CMSForNerd2graduation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a><a href="/CMSForNerd2hall-of-fame" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Nerd Hall of Fame</a><a href="/CMSForNerd2history" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Modernisation History</a><a href="/CMSForNerd2installation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Installation Guide</a><a href="/CMSForNerd2lab-manual" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a><a href="/CMSForNerd2lab-module1" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 1 - CMSForNerd2</a><a href="/CMSForNerd2lab-module2" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 2 - CMSForNerd2</a><a href="/CMSForNerd2lab-module3" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 3 - CMSForNerd2</a><a href="/CMSForNerd2lab-module4" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 4 - CMSForNerd2</a><a href="/CMSForNerd2lab-module5" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 5 - CMSForNerd2</a><a href="/CMSForNerd2lab-module7" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 7 Worksheet</a><a href="/CMSForNerd2linux-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Linux Setup Guide (Node.js &amp; Astro)</a><a href="/CMSForNerd2pwa-architecture" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">PWA Architecture</a><a href="/CMSForNerd2security-policy" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Security Policy &amp; Disclosure</a><a href="/CMSForNerd2sitemap-page" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sitemap For CMSForNerd2</a><a href="/CMSForNerd2template" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">New Page Creation Guide</a><a href="/CMSForNerd2ui-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">UI Diagnostic Kit</a><a href="/CMSForNerd2welcome-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a><a href="/CMSForNerd2windows-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></div></nav><hr style="width: 60px; border: 0; border-top: 3px solid var(--lab-highlight, #8e44ad); margin: 25px auto; opacity: 0.6;"><div style="margin-bottom: 20px;"><a href="/CMSForNerd2csp-nonce-guide/amp" style="display: inline-block; padding: 5px 12px; border: 1px solid var(--lab-highlight, #8e44ad); border-radius: 4px; color: var(--lab-highlight, #8e44ad); text-decoration: none; font-size: 0.75rem; font-family: 'SF Mono', monospace; font-weight: bold;">⚡ SWITCH TO AMP MOBILE VIEW</a></div><div style="font-size: 0.85rem; line-height: 1.8;"><span style="opacity: 0.7;">CmsForNerd Infrastructure:</span><a href="https://www.linuxmalaysia.com" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 600;">linuxmalaysia.com</a><br><span style="font-family: 'SF Mono', monospace; font-size: 0.8rem;">Copyright &copy; 2005 - 2026 Harisfazillah Jamel</span></div><div style="font-family: 'SF Mono', monospace; font-size: 0.65rem; color: #94a3b8; margin-top: 30px; letter-spacing: 0.5px;">[ REL: 3.5.1 ] | [ STD: RFC_9116 ] | [ ENV: ASTRO_7 ] | [ VIEW: STANDARD ]</div></div><div class="sitemap-link" style="margin-top:10px;"><a href="/CMSForNerd2sitemap.xml" target="_blank">[XML Sitemap]</a></div><div style="margin-top: 5px; font-size: 0.7em; opacity: 0.5;">Rendered: Statically Compiled at Build-time | MEM: 0 KB (Zero-runtime database-free)</div></div></div><!-- Theme switcher script --><script>
+      function setLaboratoryTheme(theme) {
+        document.documentElement.classList.remove('theme-light', 'theme-dark');
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+          localStorage.setItem('theme', 'dark');
+        } else if (theme === 'light') {
+          document.documentElement.classList.add('theme-light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.removeItem('theme');
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('theme-dark');
+          } else {
+            document.documentElement.classList.add('theme-light');
+          }
+        }
+
+        updateActiveThemeButtons(theme);
+      }
+
+      function updateActiveThemeButtons(theme) {
+        if (!theme) {
+          theme = localStorage.getItem('theme') || 'auto';
+        }
+
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (!btnLight || !btnDark || !btnAuto) return;
+
+        [btnLight, btnDark, btnAuto].forEach(btn => {
+          btn.style.background = 'none';
+          btn.style.color = 'var(--lab-text)';
+          btn.style.opacity = '0.6';
+        });
+
+        let activeBtn;
+        if (theme === 'dark') {
+          activeBtn = btnDark;
+        } else if (theme === 'light') {
+          activeBtn = btnLight;
+        } else {
+          activeBtn = btnAuto;
+        }
+
+        if (activeBtn) {
+          activeBtn.style.background = 'var(--lab-purple)';
+          activeBtn.style.color = '#ffffff';
+          activeBtn.style.opacity = '1';
+        }
+      }
+
+      function initThemeSwitcher() {
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (btnLight) {
+          btnLight.addEventListener('click', function() { setLaboratoryTheme('light'); });
+        }
+        if (btnDark) {
+          btnDark.addEventListener('click', function() { setLaboratoryTheme('dark'); });
+        }
+        if (btnAuto) {
+          btnAuto.addEventListener('click', function() { setLaboratoryTheme('auto'); });
+        }
+
+        updateActiveThemeButtons();
+      }
+
+      // Initial setup
+      initThemeSwitcher();
+
+      // Setup theme switcher on page transition (Astro View Transitions)
+      document.addEventListener('astro:after-swap', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+        initThemeSwitcher();
+      });
+    </script></body></html>
