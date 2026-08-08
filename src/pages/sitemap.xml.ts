@@ -1,11 +1,12 @@
 import { getCollection } from 'astro:content';
+import { getCleanSlug } from '../utils/navigation';
 
 export async function GET() {
   const pages = await getCollection('pages');
   const baseUrl = 'https://cmsfornerd2.netlify.app'; // Fallback base URL
 
   const urlElements = pages.map(page => {
-    const cleanId = page.id.replace(/\.[^/.]+$/, "");
+    const cleanId = getCleanSlug(page.id);
     const slugPath = cleanId === 'index' ? '' : `${cleanId}`;
     const standardUrl = `${baseUrl}/${slugPath}`;
     const ampUrl = `${baseUrl}/${cleanId === 'index' ? 'amp' : `${cleanId}/amp`}`;
