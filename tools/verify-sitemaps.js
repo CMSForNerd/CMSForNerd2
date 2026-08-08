@@ -102,35 +102,44 @@ if (fs.existsSync(distPath)) {
       process.exit(1);
     }
 
-    // Check if GitBook, Netlify and GitHub Pages URLs are present in xml
-    const locMatches = [...xmlContent.matchAll(/<loc>([^<]+)<\/loc>/g)];
-    const sitemapUrls = locMatches
-      .map((m) => m[1].trim())
-      .map((u) => {
-        try {
-          return new URL(u);
-        } catch {
-          return null;
+    // Parse all <loc> elements from the sitemap.xml
+    const locRegex = /<loc>(https:\/\/[^<]+)<\/loc>/g;
+    const xmlUrls = [];
+    let match;
+    while ((match = locRegex.exec(xmlContent)) !== null) {
+      xmlUrls.push(match[1]);
+    }
+
+    let hasGitBook = false;
+    let hasGitHubPages = false;
+    let hasNetlify = false;
+
+    for (const xmlUrl of xmlUrls) {
+      try {
+        const parsed = new URL(xmlUrl);
+        if (parsed.hostname === 'cmsfornerd.gitbook.io' && parsed.pathname.startsWith('/cmsfornerd2')) {
+          hasGitBook = true;
         }
-      })
-      .filter(Boolean);
+        if (parsed.hostname === 'cmsfornerd.github.io' && parsed.pathname.startsWith('/CMSForNerd2')) {
+          hasGitHubPages = true;
+        }
+        if (parsed.hostname === 'cmsfornerd2.netlify.app') {
+          hasNetlify = true;
+        }
+      } catch (e) {
+        // Ignored
+      }
+    }
 
-    const hasUrlWithBase = (origin, basePath) =>
-      sitemapUrls.some((u) => {
-        const normalizedPath = u.pathname.endsWith('/') ? u.pathname : `${u.pathname}/`;
-        const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
-        return u.origin === origin && (normalizedPath === normalizedBase || normalizedPath.startsWith(normalizedBase));
-      });
-
-    if (!hasUrlWithBase('https://cmsfornerd.gitbook.io', '/cmsfornerd2')) {
+    if (!hasGitBook) {
       console.error('❌ Error: Built sitemap.xml is missing GitBook URLs.');
       process.exit(1);
     }
-    if (!hasUrlWithBase('https://cmsfornerd.github.io', '/CMSForNerd2')) {
+    if (!hasGitHubPages) {
       console.error('❌ Error: Built sitemap.xml is missing GitHub Pages URLs.');
       process.exit(1);
     }
-    if (!hasUrlWithBase('https://cmsfornerd2.netlify.app', '/')) {
+    if (!hasNetlify) {
       console.error('❌ Error: Built sitemap.xml is missing Netlify URLs.');
       process.exit(1);
     }
