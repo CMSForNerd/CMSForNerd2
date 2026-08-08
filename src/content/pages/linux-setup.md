@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: "content_page"
 title: "Linux Setup Guide (Node.js & Astro) | CMSForNerd2 Lab"
-description: "Official laboratory guide for installing Node.js 20+ and Astro 7.1 on Debian, Ubuntu LTS, and AlmaLinux."
+description: "Official laboratory guide for installing Node.js 22+ and Astro 7.1 on Debian, Ubuntu LTS, and AlmaLinux."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Google Gemini"
 timestamp: "2026-07-30T12:00:00Z"
@@ -12,11 +12,11 @@ topics: ["modernisation", "astro", "static", "architecture"]
 <article class="lab-worksheet linux-setup" itemscope itemtype="https://schema.org/HowTo">
 <header class="setup-header">
 <h1 itemprop="name">🐧 Linux Setup Guide: Laboratory Readiness</h1>
-<p class="subtitle">Ensuring Node.js 20+ & Astro 7.1 Compatibility on Debian, Ubuntu LTS & AlmaLinux</p>
+<p class="subtitle">Ensuring Node.js 22+ & Astro 7.1 Compatibility on Debian, Ubuntu LTS & AlmaLinux</p>
 </header>
 
 <div class="requirement-alert" role="alert">
-<strong>RFC 2119 REQUIRED:</strong> To complete the laboratory modules, your development environment <strong>MUST</strong> run <strong>Node.js 20.0</strong> or higher to compile Astro 7.1.
+<strong>RFC 2119 REQUIRED:</strong> To complete the laboratory modules, your development environment <strong>MUST</strong> run <strong>Node.js 22.0</strong> or higher to compile Astro 7.1.
 </div>
 
 <section class="os-selector">
@@ -28,7 +28,7 @@ topics: ["modernisation", "astro", "static", "architecture"]
 <code># Install dependencies
 sudo apt update && sudo apt install -y curl ca-certificates gnupg git
 # Add NodeSource GPG Key and Repo
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 # Install Node.js
 sudo apt update && sudo apt install -y nodejs
 # Verify installations
@@ -38,12 +38,12 @@ node -v && npm -v</code>
 
 <div class="os-block almalinux" itemprop="step">
 <h2>📦 Option B: AlmaLinux (9+)</h2>
-<p>Using the official DNF module streams to enable Node.js 20 on Red Hat-based environments.</p>
+<p>Using the official DNF module streams to enable Node.js 22 on Red Hat-based environments.</p>
 
 <div class="terminal-block">
-<code># Enable Node.js 20 stream
+<code># Enable Node.js 22 stream
 sudo dnf module reset nodejs -y
-sudo dnf module enable nodejs:20 -y
+sudo dnf module enable nodejs:22 -y
 # Install Node.js, npm, and git
 sudo dnf install -y nodejs npm git
 # Verify installations
@@ -72,7 +72,7 @@ npm run dev</code>
 <h2>🎓 Linux Compliance Summary</h2>
 <ul>
 <li><strong>MUST:</strong> Deliver all package updates and npm commands via secure channels.</li>
-<li><strong>REQUIRED:</strong> Run Node.js v20.0 or higher.</li>
+<li><strong>REQUIRED:</strong> Run Node.js v22.0 or higher.</li>
 <li><strong>SHOULD:</strong> Leverage Visual Studio Code with official Astro language extension support.</li>
 </ul>
 </footer>

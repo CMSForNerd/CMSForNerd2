@@ -30,7 +30,7 @@ modern TypeScript and unprivileged container standards. By focusing on static op
 <h3>1. Node.js (The Static Compilation Engine)</h3>
 <p>Node.js is the preferred runtime environment because it executes the Astro compiler locally to render pages.</p>
 <ul>
-<li><strong>Download:</strong> Visit <a href="https://nodejs.org" target="_blank">nodejs.org</a> and download the v20 LTS installer.</li>
+<li><strong>Download:</strong> Visit <a href="https://nodejs.org" target="_blank">nodejs.org</a> and download the v22 LTS installer.</li>
 <li><strong>Version Selection:</strong> During setup, ensure you select the standard LTS package.</li>
 <li><strong>npm integration:</strong> The installer automatically bundles <code>npm</code>, our package and integration manager.</li>
 </ul>
@@ -76,7 +76,7 @@ modern TypeScript and unprivileged container standards. By focusing on static op
 </li>
 <li>Verify Node Version:
 <div class="terminal-block"><code>node -v</code></div>
-<p>Ensure it says <strong>v20.x.x</strong> or higher.</p>
+<p>Ensure it says <strong>v22.x.x</strong> or higher.</p>
 </li>
 </ol>
 </section>
