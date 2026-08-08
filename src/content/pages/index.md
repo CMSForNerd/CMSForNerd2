@@ -82,7 +82,7 @@ While frameworks often hide complexity, we expose it—teaching you to master mo
 <table class="stack-table">
 <tr>
 <td><strong>Runtime/Framework</strong></td>
-<td>Astro 7.1 (using Node.js 20+ and static output)</td>
+<td>Astro 7.1 (using Node.js 22+ and static output)</td>
 </tr>
 <tr>
 <td><strong>Standards</strong></td>

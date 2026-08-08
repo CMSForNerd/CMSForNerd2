@@ -77,7 +77,7 @@ add_header Referrer-Policy "strict-origin-when-cross-origin" always;</code></pre
 <p>Notice how our build process compiling Astro 7.1 separates the build tools from the final NGINX container:</p>
 <div class="code-block modern">
 <pre><code># Stage 1: Build the static files
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps

@@ -42,7 +42,7 @@ topics: ["modernisation", "astro", "static", "architecture"]
 <div class="proc-card">
 <h3>🟢 Node.js & npm</h3>
 <ul>
-<li>Secure installation of Node.js v20+ and npm runtime.</li>
+<li>Secure installation of Node.js v22+ and npm runtime.</li>
 <li>Build cache optimizations to speed up compilation.</li>
 <li>TypeScript support for compile-time Zod validations.</li>
 </ul>

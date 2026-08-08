@@ -252,7 +252,7 @@ To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker buil
 
 The deployment infrastructure is defined via three root-level files:
 1.  **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
-2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:20-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
+2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
 3.  **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
 
 ### Hardened NGINX Container Configuration

@@ -22,7 +22,7 @@ The modernization ensures full cross-platform compatibility across Windows, Linu
 
 <h3>Requirements</h3>
 <ul>
-<li><strong>Runtime Environment:</strong> Node.js v20+ (LTS recommended).</li>
+<li><strong>Runtime Environment:</strong> Node.js v22+ (LTS recommended).</li>
 <li><strong>Dependency Manager:</strong> npm (v10+).</li>
 <li><strong>Version Control:</strong> Git.</li>
 <li><strong>No Database or PHP runtime required at all!</strong></li>
