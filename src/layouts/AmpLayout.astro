@@ -1,7 +1,7 @@
 ---
 // src/layouts/AmpLayout.astro
-import { getCollection } from 'astro:content';
 import ampCss from '../styles/amp.css?raw';
+import { getNavigationPages } from '../utils/navigation';
 
 interface Props {
   title?: string;
@@ -17,22 +17,8 @@ const {
 
 const base = import.meta.env.BASE_URL;
 
-// Fetch pages for AMP sidebar navigation, excluding index
-const allPages = await getCollection('pages');
-const ampPages = allPages
-  .map(p => {
-    const cleanId = p.id.replace(/\.[^/.]+$/, "");
-    return { ...p, cleanId };
-  })
-  .filter(p => p.cleanId !== 'index')
-  .map(p => {
-    let label = p.data.title.split('|')[0].trim();
-    return {
-      id: p.cleanId,
-      url: `${base}${p.cleanId}/amp`,
-      label: label
-    };
-  });
+// Fetch cleanly formatted pages for AMP sidebar navigation using central helper
+const ampPages = await getNavigationPages(base, true);
 ---
 
 <!doctype html>

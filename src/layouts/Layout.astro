@@ -1,9 +1,9 @@
 ---
 // src/layouts/Layout.astro
-import { getCollection } from 'astro:content';
 import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Widgets from '../components/Widgets.astro';
+import { getNavigationPages } from '../utils/navigation';
 import '../styles/global.css';
 
 interface Props {
@@ -22,22 +22,8 @@ const {
 
 const base = import.meta.env.BASE_URL;
 
-// Fetch pages for dynamic footer navigation, excluding index and some other helper files
-const allPages = await getCollection('pages');
-const footerPages = allPages
-  .map(p => {
-    const cleanId = p.id.replace(/\.[^/.]+$/, "");
-    return { ...p, cleanId };
-  })
-  .filter(p => p.cleanId !== 'index')
-  .map(p => {
-    let label = p.data.title.split('|')[0].trim();
-    return {
-      id: p.cleanId,
-      url: `${base}${p.cleanId}`,
-      label: label
-    };
-  });
+// Fetch cleanly formatted pages for dynamic footer navigation using central helper
+const footerPages = await getNavigationPages(base, false);
 ---
 
 <!doctype html>
