@@ -103,15 +103,34 @@ if (fs.existsSync(distPath)) {
     }
 
     // Check if GitBook, Netlify and GitHub Pages URLs are present in xml
-    if (!xmlContent.includes('https://cmsfornerd.gitbook.io/cmsfornerd2')) {
+    const locMatches = [...xmlContent.matchAll(/<loc>([^<]+)<\/loc>/g)];
+    const sitemapUrls = locMatches
+      .map((m) => m[1].trim())
+      .map((u) => {
+        try {
+          return new URL(u);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean);
+
+    const hasUrlWithBase = (origin, basePath) =>
+      sitemapUrls.some((u) => {
+        const normalizedPath = u.pathname.endsWith('/') ? u.pathname : `${u.pathname}/`;
+        const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+        return u.origin === origin && (normalizedPath === normalizedBase || normalizedPath.startsWith(normalizedBase));
+      });
+
+    if (!hasUrlWithBase('https://cmsfornerd.gitbook.io', '/cmsfornerd2')) {
       console.error('❌ Error: Built sitemap.xml is missing GitBook URLs.');
       process.exit(1);
     }
-    if (!xmlContent.includes('https://cmsfornerd.github.io/CMSForNerd2')) {
+    if (!hasUrlWithBase('https://cmsfornerd.github.io', '/CMSForNerd2')) {
       console.error('❌ Error: Built sitemap.xml is missing GitHub Pages URLs.');
       process.exit(1);
     }
-    if (!xmlContent.includes('https://cmsfornerd2.netlify.app')) {
+    if (!hasUrlWithBase('https://cmsfornerd2.netlify.app', '/')) {
       console.error('❌ Error: Built sitemap.xml is missing Netlify URLs.');
       process.exit(1);
     }
