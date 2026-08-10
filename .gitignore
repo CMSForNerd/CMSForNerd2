@@ -3,3 +3,5 @@ node_modules/
 dist/
 .astro/
 .npm/
+__pycache__/
+.pytest_cache/
