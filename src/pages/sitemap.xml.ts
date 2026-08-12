@@ -1,6 +1,19 @@
 import { getCollection } from 'astro:content';
 import { getCleanSlug } from '../utils/navigation';
 
+/**
+ * Astro endpoint handler for generating a dynamically populated multi-host XML sitemap.
+ *
+ * This endpoint compiles sitemap URLs mapped to multiple deployment/publishing hosts:
+ * 1. Netlify Production Host (https://cmsfornerd2.netlify.app/)
+ * 2. GitHub Pages Subpath Deployment Host (https://cmsfornerd.github.io/CMSForNerd2/)
+ * 3. GitBook Educational Host (https://cmsfornerd.gitbook.io/cmsfornerd2/)
+ *
+ * It generates standard URL sets as well as specific Accelerated Mobile Page (AMP)
+ * routes corresponding to each migrated content document.
+ *
+ * @returns {Promise<Response>} An HTTP Response object containing the compiled XML sitemap payload.
+ */
 export async function GET() {
   const pages = await getCollection('pages');
   const netlifyBaseUrl = 'https://cmsfornerd2.netlify.app';

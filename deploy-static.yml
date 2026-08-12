@@ -6,7 +6,7 @@
 - name: CMSForNerd2 Static Site Deployment
   hosts: all
   connection: local
-  gather_facts: yes
+  gather_facts: true
   vars:
     # Default variables
     build_dir: "{{ playbook_dir }}/dist"
@@ -15,11 +15,15 @@
 
   tasks:
     - name: 🔍 Detect limited or Google Jules sandbox environment
-      set_fact:
-        is_limited_environment: "{{ ansible_env.USER == 'jules' or ansible_env.JULES_ENV is defined or (ansible_virtualization_type is defined and ansible_virtualization_type in ['docker', 'container', 'lxc']) }}"
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
 
     - name: 📋 Display detected environment status
-      debug:
+      ansible.builtin.debug:
         msg: >
           Detected environment is {% if is_limited_environment %}LIMITED/SANDBOX (e.g., Google Jules){% else %}REAL OS{% endif %}.
           User: {{ ansible_env.USER }}. Virtualization Type: {{ ansible_virtualization_type | default('unknown') }}.
@@ -28,53 +32,53 @@
     # PATHWAY A: Real OS Only (Unrestricted Actions)
     # ==========================================
     - name: 🧱 [Real OS Only] Install system-wide dependencies
-      apt:
+      ansible.builtin.apt:
         name:
           - nginx
           - git
           - curl
         state: present
-        update_cache: yes
-      become: yes
+        update_cache: true
+      become: true
       when: not is_limited_environment
       tags: foundation
 
     - name: 🧱 [Real OS Only] Apply Nginx system hardening configurations
-      copy:
+      ansible.builtin.copy:
         src: "{{ src_dir }}/nginx/nginx.conf"
         dest: "/etc/nginx/nginx.conf"
         owner: root
         group: root
         mode: '0644'
-      become: yes
+      become: true
       when: not is_limited_environment
       tags: webserver
 
     - name: 🧱 [Real OS Only] Create production deployment web root
-      file:
+      ansible.builtin.file:
         path: "{{ nginx_web_root }}"
         state: directory
         owner: www-data
         group: www-data
         mode: '0755'
-      become: yes
+      become: true
       when: not is_limited_environment
       tags: webserver
 
     - name: 🧱 [Real OS Only] Configure firewall (allow HTTP/HTTPS)
-      ufw:
+      community.general.ufw:
         rule: allow
         name: 'Nginx Full'
-      become: yes
+      become: true
       when: not is_limited_environment
       tags: foundation
 
     - name: 🧱 [Real OS Only] Reload systemd and Nginx daemon
-      systemd:
+      ansible.builtin.systemd:
         name: nginx
         state: reloaded
-        daemon_reload: yes
-      become: yes
+        daemon_reload: true
+      become: true
       when: not is_limited_environment
       tags: webserver
 
@@ -82,28 +86,30 @@
     # PATHWAY B: Dual Support Actions (Conditional execution)
     # ==========================================
     - name: 📦 [Dual] Install workspace local npm packages
-      command: npm install --legacy-peer-deps
+      ansible.builtin.command: npm install --legacy-peer-deps
       args:
         chdir: "{{ src_dir }}"
+      changed_when: false
       tags: compilation
 
     - name: 🏗️ [Dual] Compile Astro static site (SSG build)
-      command: npm run build
+      ansible.builtin.command: npm run build
       args:
         chdir: "{{ src_dir }}"
+      changed_when: false
       tags: compilation
 
     - name: 🚀 [Real OS] Deploy static assets to production web root
-      synchronize:
+      ansible.posix.synchronize:
         src: "{{ build_dir }}/"
         dest: "{{ nginx_web_root }}/"
-        delete: yes
-      become: yes
+        delete: true
+      become: true
       when: not is_limited_environment
       tags: deployment
 
     - name: 🚀 [Limited Sandbox] Mock deployment task for Jules/ephemeral VM
-      debug:
+      ansible.builtin.debug:
         msg: >
           Successfully completed compilation in limited sandbox environment.
           Static assets have been verified and built in local '{{ build_dir }}' directory.
