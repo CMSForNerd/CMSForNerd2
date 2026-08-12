@@ -1,7 +1,21 @@
+/**
+ * @file refactor-okf.cjs
+ * @description Node.js utility script to recursively crawl all markdown files in the workspace,
+ * parse, format, validate, and refactor their YAML frontmatter blocks to be 100% compliant
+ * with the strict Open Knowledge Format (OKF) v0.1 schema.
+ */
+
 const fs = require("fs");
 const path = require("path");
 
-// Recursively find all markdown files
+/**
+ * Recursively scans directories to discover all Markdown (.md) files.
+ * Bypasses node_modules, git directories, and other build artifacts.
+ *
+ * @param {string} dir - The path of the directory to scan.
+ * @param {string[]} [files=[]] - Accumulator array for discovered filepaths.
+ * @returns {string[]} An array of relative filepaths to Markdown files.
+ */
 function getMarkdownFiles(dir, files = []) {
   const list = fs.readdirSync(dir);
   for (const file of list) {
@@ -19,7 +33,15 @@ function getMarkdownFiles(dir, files = []) {
   return files;
 }
 
-// Quote value if it contains any special characters or if it is a string
+/**
+ * Safely parses and securely formats key-value frontmatter parameters to adhere to
+ * OKF v0.1 guidelines. This includes formatting arrays, boolean values, strings containing special
+ * characters enclosed in double-quotes, and maintaining unquoted numeric version formats.
+ *
+ * @param {string} key - The frontmatter attribute key.
+ * @param {string} value - The raw frontmatter value string.
+ * @returns {string} The fully formatted and escaped value string.
+ */
 function formatValue(key, value) {
   const lowerKey = key.toLowerCase();
 
@@ -63,6 +85,13 @@ function formatValue(key, value) {
   return JSON.stringify(unwrapped);
 }
 
+/**
+ * Analyzes and processes a single Markdown file to parse, validate, repair, and overwrite
+ * its content with compliant OKF frontmatter syntax. Injecting missing parameters where necessary.
+ *
+ * @param {string} filePath - Path to the target Markdown file.
+ * @returns {void}
+ */
 function processFile(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
 
@@ -167,6 +196,11 @@ ${cleanFM}
   console.log(`Refactored frontmatter: ${filePath}`);
 }
 
+/**
+ * Entry point execution function for the OKF frontmatter crawler utility.
+ *
+ * @returns {void}
+ */
 function main() {
   const mdFiles = getMarkdownFiles(".");
   console.log(`Found ${mdFiles.length} markdown files.`);
