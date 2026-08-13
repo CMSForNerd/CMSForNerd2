@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 """build_llms_full.py
 
-Automatically generates llms-full.txt by scanning llms.txt and appending the full contents
-of all referenced markdown files under a unified structure.
+This module contains the automation utility for generating the consolidated llms-full.txt file.
+It parses markdown link targets defined in llms.txt, resolves them to physical files in the
+workspace, and appends their entire contents under a unified structure for LLM ingestion.
 """
 
 import os
 import re
 
-def main():
+def main() -> None:
+    """Main execution handler to compile and format llms-full.txt.
+
+    This function reads reference targets from the plain-text llms.txt, crawls
+    corresponding files across the docs/ directory and workspace root, consolidates
+    the content sections with clear Markdown dividers, and writes the output file.
+
+    Returns:
+        None
+    """
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     llms_txt_path = os.path.join(root_dir, "llms.txt")
     llms_full_path = os.path.join(root_dir, "llms-full.txt")
