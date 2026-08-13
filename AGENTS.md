@@ -21,6 +21,7 @@ This file describes the agents and tools in our codebase, outlining their operat
 2.  **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
     *   `task.md` — Active and completed task list (present state).
     *   `walkthrough.md` — Session history and Mental Anchors (past state).
+    *   `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
 3.  **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
 4.  **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
     *   Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
@@ -45,26 +46,28 @@ When creating, editing, or using automation playbooks, shell scripts, or deploym
 
 ### 2. Dual-Pathway Branching Rule (Ansible & Shell Code)
 To prevent build failures and environment blocks, all automation scripts, Ansible playbooks, and shell scripts **must** dynamically detect whether they are running in a limited environment (like Google Jules) or on a real OS:
-*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualization types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
+*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
 *   **Branching Pathways**:
     *   *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
     *   *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
 
 ---
 
-## Google Antigravity Agent Skills
+## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 8 specialized skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities:
+By using the open standard for extending agent capabilities, our workspace publishes 8 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+
+Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
 | Skill | Folder Path | Description |
 | :--- | :--- | :--- |
-| **Static Security Hardening** | `.agents/skills/static-security-hardening/` | Applies static security whitelisting, cryptographic CSP hashes, OWASP standard defensive headers, and static performance caching. |
-| **GitHub Pages Deployment** | `.agents/skills/github-pages-deployment/` | Manages and automates subpath static deployments to GitHub Pages without breaking root-relative cloud or local development. |
-| **Render Deployment** | `.agents/skills/render-deployment/` | Configures and manages Render.com deployments via Docker containerisation or native Free Static Site pathways. |
-| **Dependency Management** | `.agents/skills/dependency-management/` | Maintains pinned dependency determinism and resolves peer-dependency conflicts across all runtime environments. |
-| **Context7 Integration** | `.agents/skills/context7-integration/` | Maintains automated documentation indexing and updates utilizing Context7 services across CI workflows. |
-| **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, testing, and preview workflows for Astro 7.1 static site generator. |
-| **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, and prevents orphaned pages in the documentation hierarchy. |
+| **Static Security Hardening** | `.agents/skills/static-security-hardening/` | Applies static security whitelisting, cryptographic CSP hashes, OWASP standard defensive headers, sitemap/robots mapping, and static performance caching. |
+| **GitHub Pages Deployment** | `.agents/skills/github-pages-deployment/` | Manages and automates subpath static deployments to GitHub Pages, excluding Jekyll collision files without breaking root-relative cloud or local development. |
+| **Render Deployment** | `.agents/skills/render-deployment/` | Configures and manages Render.com deployments via Docker containerisation or native Free Static Site pathways, and handles Ansible-based staging setups. |
+| **Dependency Management** | `.agents/skills/dependency-management/` | Maintains pinned dependency determinism (Astro 7.1.6, Node 22), and resolves peer-dependency conflicts via .npmrc legacy options across all runtime environments. |
+| **Context7 Integration** | `.agents/skills/context7-integration/` | Maintains automated documentation indexing and updates utilising Context7 services across CI workflows. |
+| **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, visual and regression testing, sitemap validation, and preview workflows for Astro 7.1 static site generator. |
+| **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, navigation/mapping integrity, comments standards (Google docstrings, JSDoc), and prevents orphaned pages in the documentation hierarchy. |
 | **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
 
 ---
@@ -78,7 +81,7 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 | **Zero-Global / Spatial Memory** | No global mutable state. Operational memory lives in `.agents/brain/`. |
 | **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.1 YAML frontmatter with explicit timestamps. |
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
-| **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, and `llms.txt`. |
+| **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
 | **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
 
 ---

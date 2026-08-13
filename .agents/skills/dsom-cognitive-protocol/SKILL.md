@@ -24,17 +24,21 @@ This skill governs the integration and execution of the Deep State of Mind (DSOM
 To prevent pollution of the global repository namespace with ephemeral session state:
 - The workspace implements the Deep State of Mind (DSOM) cognitive protocol, which requires tracking spatial memory strictly within `.agents/brain/` (including `task.md` and `walkthrough.md`).
 
-### 2. Dual Rulebook Synchronisation
-Ensure the operational guidelines remain aligned across the gateways:
-- Maintain synchronised AI agent rules in root-level `AGENTS.md` and `.agents/AGENTS.md`. Both files must carry similar core rules and cognitive profiles.
+### 2. Dual Rulebook Synchronisation & Antigravity Agent Skills
+Ensure the operational guidelines remain aligned across the gateways and skills are clearly catalogued:
+- Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF v0.1 compliance rules.
+- The workspace defines a comprehensive suite of 8 Google Antigravity-compatible Agent Skills located under `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`). Each skill contains a `SKILL.md` file featuring a combined OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
 ### 3. The 5-Step Knowledge-First Discovery Flow
-Before executing terminal commands or probing external resources:
+Before executing terminal commands or probing external resources, agents must follow the discovery flow:
 1. Search OKF frontmatter in local documentation.
 2. Target specific line ranges via read tools.
 3. Verify the OKF timestamp for context.
 4. Obtain human consensus if information is stale.
 5. Execute physical terminal commands only when necessary.
+
+### 4. Static Modernisation Core Objective
+- Understand that CMSForNerd2 is a static modernisation of the legacy database-free PHP CMS, utilising Astro Static Site Generator (SSG) to produce purely statically served assets (HTML5, CSS3, ES6+ JS).
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

@@ -31,6 +31,12 @@ By utilising standard Node Package Manager options, avoid manual peer dependency
 - The development environment is configured via a root-level `.npmrc` file specifying `legacy-peer-deps=true`.
 - This automatically resolves peer-dependency conflicts (such as between `@vite-pwa/astro` and newer Astro versions like `astro@7.1.6`) across any local, containerised, or cloud deployment environments (including Render.com host environments).
 
+### 3. Node.js Environment Determinism
+To align compilation across local, dockerised, and CI/CD environments:
+- The project requires Node.js v22 (>=22.12.0) for Astro 7.1 compatibility.
+- The GitHub Actions deployment workflow (`deploy-gh-pages.yml`) utilises Node.js version 22.
+- Both the `Dockerfile` and `Containerfile` configure their builder stage using the standard `node:22-alpine` base image.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
