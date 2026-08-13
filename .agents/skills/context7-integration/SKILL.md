@@ -21,7 +21,7 @@ This skill governs the integration, setup, and execution of Context7 services us
 ## Operational Standards & Procedures
 
 ### 1. Root Configuration Registry
-Maintain the configuration parameters of Context7 services in a standardized location:
+Maintain the configuration parameters of Context7 services in a standardised location:
 - The repository integrates Context7 services using the `context7.json` file located at the repository root.
 
 ### 2. CI/CD Workflow Automation

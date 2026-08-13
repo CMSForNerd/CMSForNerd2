@@ -2,7 +2,7 @@
 okf_version: 0.1
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
-timestamp: "2026-07-30T12:00:00Z"
+timestamp: "2026-08-01T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
 ---
 
@@ -39,6 +39,7 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 - [START-HERE.md](START-HERE.md) — Master onboarding map for human developers and AI agents.
 - [SUMMARY.md](SUMMARY.md) — Structural index for documentation compilation and GitBook integration.
 - [llms.txt](llms.txt) — High-density directory map optimised for external AI crawlers.
+- [.agents/brain/knowledge.md](.agents/brain/knowledge.md) — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
 
 ---
 
@@ -82,5 +83,5 @@ To prevent build failures (such as `Publish directory dist/ does not exist!` due
 Alternatively, you can deploy using our pre-configured multi-stage Dockerfile and unprivileged NginX server. This can be launched instantly using our Blueprint specification (`render.yaml`).
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
