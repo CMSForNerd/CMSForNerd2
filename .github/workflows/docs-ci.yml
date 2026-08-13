@@ -1,0 +1,46 @@
+name: Documentation CI Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate-docs:
+    name: Validate Documentation System
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js v22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-with-version: '3.12'
+
+      - name: Install Node.js Dependencies
+        run: npm ci
+
+      - name: Install Python Dependencies
+        run: pip install pytest pyyaml requests
+
+      - name: Compile Static Site (Astro SSG Build)
+        run: npm run build
+
+      - name: Validate OKF v0.1 Frontmatter Compliances
+        run: node tools/refactor-okf.cjs
+
+      - name: Verify Sitemaps and Asset Links
+        run: node tools/verify-sitemaps.js
+
+      - name: Execute Python Validation Unit Tests
+        run: python3 -m pytest tests/test_unit.py -v
