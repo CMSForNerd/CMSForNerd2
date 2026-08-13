@@ -5,6 +5,8 @@ title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
 timestamp: "2026-07-31T07:15:00Z"
 topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
+
+nav_order: 1
 ---
 
 # Context7 Service Integration Guide

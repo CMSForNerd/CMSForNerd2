@@ -76,6 +76,11 @@ function formatValue(key, value) {
     return value;
   }
 
+  // Keep nav_order unquoted
+  if (lowerKey === "nav_order" || lowerKey === "nav-order") {
+    return value.replace(/['"]/g, "").trim();
+  }
+
   // Otherwise, wrap string value in double quotes securely using JSON.stringify
   let unwrapped = value;
   if ((unwrapped.startsWith('"') && unwrapped.endsWith('"')) || (unwrapped.startsWith("'") && unwrapped.endsWith("'"))) {
@@ -183,6 +188,11 @@ topics: ["modernisation", "astro", "static", "architecture"]
   if (!parsedKeys.has("topics") && !parsedKeys.has("tags")) {
     console.log(`Injecting missing topics in ${filePath}`);
     updatedLines.push('topics: ["documentation"]');
+  }
+
+  if (!parsedKeys.has("nav_order") && filePath.includes("docs/")) {
+    console.log(`Injecting missing nav_order in ${filePath}`);
+    updatedLines.push("nav_order: 1");
   }
 
   // Build new file contents
