@@ -30,18 +30,17 @@ def main() -> None:
     with open(llms_txt_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Find all Markdown links
+    # Extract unique Markdown link targets in a single O(N) pass with set-based deduplication
     link_pat = r'\[(?P<title>[^\]]+)\]\((?P<url>[^\)]+\.md)\)'
-    urls = []
+    unique_urls = []
+    seen = set()
+
     for line in content.splitlines():
         for m in re.finditer(link_pat, line):
-            urls.append(m.group('url'))
-
-    # Filter unique URLs
-    unique_urls = []
-    for url in urls:
-        if url not in unique_urls:
-            unique_urls.append(url)
+            target_url = m.group('url')
+            if target_url not in seen:
+                seen.add(target_url)
+                unique_urls.append(target_url)
 
     print(f"Found {len(unique_urls)} markdown files to consolidate.")
 

@@ -26,24 +26,26 @@ interface NavigationPage {
  */
 export async function getNavigationPages(base: string, isAmp = false): Promise<NavigationPage[]> {
   const allPages = await getCollection('pages');
+  const result: NavigationPage[] = [];
+  const suffix = isAmp ? '/amp' : '';
 
-  return allPages
-    .map(page => {
-      const cleanId = getCleanSlug(page.id);
-      return { ...page, cleanId };
-    })
-    .filter(page => page.cleanId !== 'index')
-    .map(page => {
+  // Single-pass O(N) traversal avoiding redundant array allocations and traversals
+  for (let i = 0; i < allPages.length; i++) {
+    const page = allPages[i];
+    const cleanId = getCleanSlug(page.id);
+
+    if (cleanId !== 'index') {
       // Split on '|' to extract the human-readable display title, e.g. "About | CmsForNerd" -> "About"
       const label = page.data.title.split('|')[0].trim();
+      const url = `${base}${cleanId}${suffix}`;
 
-      const suffix = isAmp ? '/amp' : '';
-      const url = `${base}${page.cleanId}${suffix}`;
-
-      return {
-        id: page.cleanId,
+      result.push({
+        id: cleanId,
         url,
         label
-      };
-    });
+      });
+    }
+  }
+
+  return result;
 }
