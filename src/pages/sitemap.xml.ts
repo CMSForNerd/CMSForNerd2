@@ -19,49 +19,50 @@ export async function GET() {
   const netlifyBaseUrl = 'https://cmsfornerd2.netlify.app';
   const githubPagesBaseUrl = 'https://cmsfornerd.github.io/CMSForNerd2';
 
-  // Dynamic Astro content routes for Netlify
-  const netlifyElements = pages.map(page => {
-    const cleanId = getCleanSlug(page.id);
-    const slugPath = cleanId === 'index' ? '' : `${cleanId}`;
-    const standardUrl = `${netlifyBaseUrl}/${slugPath}`;
-    const ampUrl = `${netlifyBaseUrl}/${cleanId === 'index' ? 'amp' : `${cleanId}/amp`}`;
+  // Dynamic Astro content routes computed in a single O(N) pass for both Netlify and GitHub Pages
+  let netlifyElements = '';
+  let githubPagesElements = '';
 
-    return `
+  for (let i = 0; i < pages.length; i++) {
+    const cleanId = getCleanSlug(pages[i].id);
+    const isIndex = cleanId === 'index';
+    const slugPath = isIndex ? '' : `${cleanId}`;
+    const priority = isIndex ? '1.0' : '0.8';
+
+    const netlifyStd = `${netlifyBaseUrl}/${slugPath}`;
+    const netlifyAmp = `${netlifyBaseUrl}/${isIndex ? 'amp' : `${cleanId}/amp`}`;
+
+    netlifyElements += `
   <url>
-    <loc>${standardUrl}</loc>
+    <loc>${netlifyStd}</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${cleanId === 'index' ? '1.0' : '0.8'}</priority>
+    <priority>${priority}</priority>
   </url>
   <url>
-    <loc>${ampUrl}</loc>
+    <loc>${netlifyAmp}</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>`;
-  }).join('');
 
-  // Dynamic Astro content routes for GitHub Pages
-  const githubPagesElements = pages.map(page => {
-    const cleanId = getCleanSlug(page.id);
-    const slugPath = cleanId === 'index' ? '' : `${cleanId}`;
-    const standardUrl = `${githubPagesBaseUrl}/${slugPath}`;
-    const ampUrl = `${githubPagesBaseUrl}/${cleanId === 'index' ? 'amp' : `${cleanId}/amp`}`;
+    const githubStd = `${githubPagesBaseUrl}/${slugPath}`;
+    const githubAmp = `${githubPagesBaseUrl}/${isIndex ? 'amp' : `${cleanId}/amp`}`;
 
-    return `
+    githubPagesElements += `
   <url>
-    <loc>${standardUrl}</loc>
+    <loc>${githubStd}</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${cleanId === 'index' ? '1.0' : '0.8'}</priority>
+    <priority>${priority}</priority>
   </url>
   <url>
-    <loc>${ampUrl}</loc>
+    <loc>${githubAmp}</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>`;
-  }).join('');
+  }
 
   // Static GitBook elements based on SUMMARY.md mapping
   const gitbookBaseUrl = 'https://cmsfornerd.gitbook.io/cmsfornerd2';

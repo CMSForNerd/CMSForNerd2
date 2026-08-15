@@ -50,10 +50,19 @@ function verifySitemaps() {
 
   console.log(`✅ Root and public TXT sitemaps are identical and contain ${rootTxtContent.length} URLs.`);
 
-  // 2. Validate URLs in sitemap.txt do not have broken patterns or protocols
-  const invalidUrls = rootTxtContent.filter(url => {
-    return !url.startsWith('https://') || url.includes('//undefined') || url.includes('[object');
-  });
+  // 2. Single-pass O(N) validation and extraction of Netlify URLs
+  const invalidUrls = [];
+  const netlifyUrls = [];
+
+  for (let i = 0; i < rootTxtContent.length; i++) {
+    const url = rootTxtContent[i];
+    if (!url.startsWith('https://') || url.includes('//undefined') || url.includes('[object')) {
+      invalidUrls.push(url);
+    }
+    if (url.startsWith('https://cmsfornerd2.netlify.app/')) {
+      netlifyUrls.push(url);
+    }
+  }
 
   if (invalidUrls.length > 0) {
     console.error('❌ Error: Invalid URL patterns found in sitemap:', invalidUrls);
@@ -65,7 +74,6 @@ function verifySitemaps() {
   const distPath = path.resolve('dist');
   if (fs.existsSync(distPath)) {
     console.log('🔍 Validating Netlify URLs against compiled static assets in dist/...');
-    const netlifyUrls = rootTxtContent.filter(url => url.startsWith('https://cmsfornerd2.netlify.app/'));
 
     let missingFilesCount = 0;
     for (const url of netlifyUrls) {
