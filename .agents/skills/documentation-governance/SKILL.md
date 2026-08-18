@@ -28,6 +28,9 @@ Linguistic accuracy must be maintained at all times:
 ### 2. Orphan Prevention & Navigation Mapping
 To prevent orphaned documentation:
 - Any new governance, architecture, or instructional documents must be explicitly mapped into navigation files: `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and the project `README.md`.
+- The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
+- An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
+- The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
 
 ### 3. Open Knowledge Format (OKF) Compliance & Automation
 All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1:

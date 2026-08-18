@@ -38,7 +38,7 @@ To maintain high SEO performance and prevent broken links:
 
 ### 4. Comprehensive Unit and Integration Testing Suites
 Testing is an integral component of the development lifecycle:
-- **Unit Testing**: The repository includes a comprehensive unit testing suite in `tests/test_unit.py` (executed via Pytest) that validates Ansible playbook FQCN syntax/idempotency, Dockerfile and Containerfile properties (node:22-alpine base, USER nginx, EXPOSE 8080), Markdown OKF frontmatter and DSOM footer standards, strict UK English spellings, and sitemap/context7.json structures.
+- **Unit Testing**: The repository includes a unit testing suite modularised into domain submodules inside `tests/unit/` (`ansible.py`, `containers.py`, `markdown.py`, `sitemaps.py`, `llms.py`), with `tests/test_unit.py` acting as a backward-compatible top-level facade module re-exporting test functions for Pytest execution.
 - **Integration Testing**: An automated integration testing suite is located at `tests/test_cms.py` using Pytest. It runs `npm run build`, starts the Astro preview server on port 4321, and dynamically checks sitemaps (`tools/verify-sitemaps.js`), frontmatter compliance (`tools/refactor-okf.cjs`), and the HTTP status and DOM elements of all Markdown content pages. Run it with: `python3 -m pytest -v tests/test_cms.py` (requires `pytest` and `requests`).
 - **Visual Verification**: Visual verification of frontend modifications requires launching the local preview server (`npm run preview` on port 4321) and running Playwright in a Python execution environment to capture and review screenshot outputs.
 
