@@ -106,63 +106,114 @@ okf_version: 0.1
 type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
 timestamp: "2026-08-01T12:00:00Z"
-description: "Master entry-point and mapping directory for developers and AI agents onboarding onto CMSForNerd2."
-topics: ["onboarding", "navigation", "structure", "dsom"]
+description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
+topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 ---
 
-# 🗺️ CMSForNerd2: Master Onboarding Map
+# 🎯 START HERE: CMSForNerd2 Master Onboarding Standard
 
-Welcome to the **CMSForNerd2** static workspace. This document serves as the spatial registry and onboarding guide for human architects and AI agents (such as Google Jules).
-
----
-
-## 🧭 Navigational Layer Directory
-
-To prevent orphaned assets and guarantee immediate discovery across all platforms, the workspace is partitioned into several key layers:
-
-| Target Layer | Purpose | File/Directory Path |
-| :--- | :--- | :--- |
-| **Project Entrance** | Root introduction and development quickstart. | [README.md](README.md) |
-| **Migration Protocol** | Comprehensive architectural blueprint and SSG comparison. | [docs/migration-guide.md](docs/migration-guide.md) |
-| **Context7 Service** | Comprehensive integration, setup and configuration for Context7 services. | [docs/context7-integration.md](docs/context7-integration.md) |
-| **GitBook Summary** | Linear table of contents for documentation pipelines. | [SUMMARY.md](SUMMARY.md) |
-| **AI Crawler Sitemap** | High-density context document optimised for LLMs. | [llms.txt](llms.txt) |
-| **Agent Rulebook** | Digital Sovereignty Operational Model (DSOM) constitution. | [AGENTS.md](AGENTS.md) / [.agents/AGENTS.md](.agents/AGENTS.md) |
-| **Agent Knowledge Base** | Sovereign AI Agent Knowledge Base containing all Jules knowledge. | [.agents/brain/knowledge.md](.agents/brain/knowledge.md) |
+> *"You do not need to read everything in this repository to make sense of CMSForNerd2, or to start contributing in practice. In fact, we recommend that you do not. The best way to get started with CMSForNerd2 is by applying it — to something, however small."*
+>
+> — *Adapted from the Diátaxis Principle (Daniele Procida)*
 
 ---
 
-## 🏛️ Spatial Organisation
+## 🏛️ Onboarding Philosophy & Dual-Interface Objective
 
-By keeping the repository root immaculately clean, we preserve architectural purity.
+Welcome to **CMSForNerd2**, a modern, database-free, statically served asset site powered by Astro SSG, HTML5, and CSS3.
 
+Traditional software documentation forces engineers and AI agents to ingest exhaustive knowledge bases before executing a single action. In high-velocity software engineering, this approach creates cognitive overload for human operators and wastes precious context window capacity for autonomous agents.
+
+This onboarding guide adapts the **Diátaxis learn-by-doing ethos** into a **Dual-Interface Standard**. It provides equal operational clarity for two distinct classes of contributors:
+
+1. **Human Engineers**: Pragmatic developers seeking rapid local bootstrapping, structured contribution guidelines, and clear review protocols.
+2. **Autonomous AI Agents**: Autonomous agents (including Google Jules, Google Antigravity, and sub-agents) requiring machine-parseable manifests, deterministic execution paths, and bounded context windows.
+
+---
+
+## 🧭 Dual-Audience Entry Matrix (Diátaxis Navigation Grid)
+
+The documentation hierarchy is partitioned into four distinct Diátaxis quadrants. Choose your pathway based on your operational goal and user class:
+
+| Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
+| :--- | :--- | :--- | :--- |
+| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
+| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
+| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+
+---
+
+## ⚡ Immediate Action: "The Smallest Viable Task"
+
+Do not attempt to read the entire codebase. Begin immediately with the smallest viable verification task.
+
+### 👤 Human Developer Pathway
+To verify your local setup in under 60 seconds, run this 3-step command chain:
+
+```bash
+# 1. Install pinned dependencies with legacy peer dependency support
+npm ci
+
+# 2. Audit and refactor Open Knowledge Format (OKF) v0.1 frontmatter
+node tools/refactor-okf.cjs
+
+# 3. Build static assets and preview locally
+npm run build && npm run preview
 ```
-CMSForNerd2/
-├── .agents/                    # Sovereign AI Agent spatial memory
-│   ├── AGENTS.md               # Full DSOM rulebook constitution
-│   ├── brain/                  # Cognitive state (tasks, active context)
-│   │   ├── task.md             # Active and completed task list
-│   │   ├── walkthrough.md      # History walkthrough of the project
-│   │   └── knowledge.md        # Compiled Jules operational and domain-specific knowledge
-│   └── skills/                 # Google Antigravity-compatible Agent Skills
-├── docs/                       # Project documentation
-│   ├── migration-guide.md      # The master PHP-to-Static migration guide
-│   └── context7-integration.md # Context7 integration and CI manual
-├── README.md                   # Project landing page
-├── START-HERE.md               # This onboarding map
-├── SUMMARY.md                  # Compilation registry
-└── llms.txt                    # LLM-specific crawler sitemap
-```
+
+### 🤖 Autonomous AI Agent Pathway
+When an issue or task is assigned to an AI agent, execute the following standardized task ingestion protocol:
+
+1. **State Ingestion**: Inspect `.agents/AGENTS.md` and `.agents/brain/task.md` to establish current operational parameters and active context.
+2. **Context Bounding**: Locate task-relevant files in `src/` or `docs/`. Read only specific target line ranges using read tools; do not load unreferenced directories into the context window.
+3. **Execution & Verification**: Apply targeted code modifications and run verification scripts (`node tools/refactor-okf.cjs`, `npm run build`, and `node tools/verify-sitemaps.js`).
+4. **Structured Output**: Format final changes as precise Git merge diffs and submit updates with standard UK English commit messages.
 
 ---
 
-## 🧠 Running in DSOM Mode
+## 🛡️ Agent Context Governance (DSOM & OKF Integration)
 
-With this framework active, both human operators and AI agents operate under the **Deep State of Mind (DSOM)** protocols:
+To guarantee operational stability across multi-agent workflows, all autonomous systems MUST comply with the following context governance principles:
 
-1.  **Read Rulebook first**: Before executing any code logic, read `.agents/AGENTS.md` and `AGENTS.md`.
-2.  **Maintain OKF Frontmatter**: All newly created markdown documents MUST carry OKF v0.1 YAML frontmatter headers.
-3.  **Strict UK English**: All documentation, comments, and commit messages must strictly conform to UK English standards (e.g., *colour*, *customise*, *optimisation*).
+### 1. Minimal Context Window Ingestion
+AI agents must maintain context hygiene. Loading the full repository into context windows causes hallucination and degrades reasoning accuracy. Agents must read `.agents/AGENTS.md` for gateway rules, parse `.agents/brain/` for active state, and selectively load target files on demand.
+
+### 2. Deep State of Mind (DSOM) Spatial Memory
+All operational memory is zero-global and spatial. Spatial state lives strictly within `.agents/brain/`:
+* `task.md`: Tracks active and completed execution steps.
+* `walkthrough.md`: Retains historical session anchors.
+* `knowledge.md`: Stores domain-specific operational knowledge.
+
+### 3. Multi-Agent Interoperability
+CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 8 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`).
+
+### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
+Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
+
+```yaml
+---
+okf_version: 0.1
+type: "documentation"
+title: "Document Display Title"
+timestamp: "2026-08-01T12:00:00Z"
+topics: ["topic1", "topic2"]
+---
+```
+*Note: Any string value containing emojis, colons, or brackets must be double-quoted.*
+
+### 5. Standard UK English Rule
+All documentation, code comments, commit messages, and cognitive logs MUST strictly adhere to Standard UK English spelling conventions (e.g. *optimisation*, *synchronise*, *behaviour*, *modularise*, *colour*).
+
+---
+
+## 🔗 Core Repository Map
+
+- [README.md](README.md) — Executive project summary and architectural overview.
+- [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
+- [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
+- [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+- [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
@@ -211,10 +262,10 @@ topics: ["summary", "index", "navigation"]
 ---
 okf_version: 0.1
 type: "documentation"
-title: "The Agent Registry & DSOM Gateway (CMSForNerd2)"
-description: "Sovereign entry point instructing AI Agents to look up rules, skills, and memory under .agents/."
+title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
+description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
 timestamp: "2026-08-01T12:00:00Z"
-topics: ["agents", "dsom", "gateway", "constitution", "skills"]
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # AI Agent Registry & Sovereign Gateway
@@ -342,7 +393,16 @@ This document contains a comprehensive record of all Google Jules operational, s
    The Ansible playbook `deploy-static.yml` is 100% compliant with `ansible-lint`. It strictly utilises Fully Qualified Collection Names (FQCN) for all module actions and specifies `changed_when` parameters on commands to maintain idempotency.
 
 2. **Comprehensive Unit Testing Suite**
-   The repository includes a comprehensive unit testing suite in `tests/test_unit.py` (executed via Pytest) that validates Ansible playbook FQCN syntax/idempotency, Dockerfile and Containerfile properties (`node:22-alpine` base, `USER nginx`, `EXPOSE 8080`), Markdown OKF frontmatter and DSOM footer standards, strict UK English spellings, and sitemap/`context7.json` structures.
+   The repository includes a unit testing suite modularised into domain submodules inside `tests/unit/` (`ansible.py`, `containers.py`, `markdown.py`, `sitemaps.py`, `llms.py`), with `tests/test_unit.py` acting as a backward-compatible top-level facade module re-exporting test functions for Pytest execution.
+
+33. **LLMs Context & Full Asset Compilation Utilities**
+    The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
+
+34. **Diátaxis Documentation Framework Layout**
+    The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
+
+35. **Automated Documentation CI Workflow**
+    An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
 
 3. **Code Comments and Docstrings Standards**
    Google-style docstrings are implemented in Python test suites (`tests/test_cms.py` and `tests/test_unit.py`), and JSDoc comments are strictly maintained in TS/JS configs and utility scripts (`src/utils/navigation.ts`, `src/pages/sitemap.xml.ts`, `tools/verify-sitemaps.js`, `tools/refactor-okf.cjs`, `astro.config.mjs`, `src/content.config.ts`) to maximise documentation standards across the project.

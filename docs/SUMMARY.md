@@ -12,6 +12,7 @@ nav_order: 1
 # Summary
 
 * [Introduction](README.md)
+* [Master Onboarding Standard](start-here.md)
 
 ## 🎓 Tutorials
 * [Local Development Quickstart](tutorials/local-development.md)
