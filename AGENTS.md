@@ -1,10 +1,10 @@
 ---
 okf_version: 0.1
 type: "documentation"
-title: "The Agent Registry & DSOM Gateway (CMSForNerd2)"
-description: "Sovereign entry point instructing AI Agents to look up rules, skills, and memory under .agents/."
+title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
+description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
 timestamp: "2026-08-01T12:00:00Z"
-topics: ["agents", "dsom", "gateway", "constitution", "skills"]
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # AI Agent Registry & Sovereign Gateway

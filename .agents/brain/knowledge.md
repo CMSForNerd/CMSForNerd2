@@ -19,7 +19,16 @@ This document contains a comprehensive record of all Google Jules operational, s
    The Ansible playbook `deploy-static.yml` is 100% compliant with `ansible-lint`. It strictly utilises Fully Qualified Collection Names (FQCN) for all module actions and specifies `changed_when` parameters on commands to maintain idempotency.
 
 2. **Comprehensive Unit Testing Suite**
-   The repository includes a comprehensive unit testing suite in `tests/test_unit.py` (executed via Pytest) that validates Ansible playbook FQCN syntax/idempotency, Dockerfile and Containerfile properties (`node:22-alpine` base, `USER nginx`, `EXPOSE 8080`), Markdown OKF frontmatter and DSOM footer standards, strict UK English spellings, and sitemap/`context7.json` structures.
+   The repository includes a unit testing suite modularised into domain submodules inside `tests/unit/` (`ansible.py`, `containers.py`, `markdown.py`, `sitemaps.py`, `llms.py`), with `tests/test_unit.py` acting as a backward-compatible top-level facade module re-exporting test functions for Pytest execution.
+
+33. **LLMs Context & Full Asset Compilation Utilities**
+    The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
+
+34. **Diátaxis Documentation Framework Layout**
+    The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
+
+35. **Automated Documentation CI Workflow**
+    An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
 
 3. **Code Comments and Docstrings Standards**
    Google-style docstrings are implemented in Python test suites (`tests/test_cms.py` and `tests/test_unit.py`), and JSDoc comments are strictly maintained in TS/JS configs and utility scripts (`src/utils/navigation.ts`, `src/pages/sitemap.xml.ts`, `tools/verify-sitemaps.js`, `tools/refactor-okf.cjs`, `astro.config.mjs`, `src/content.config.ts`) to maximise documentation standards across the project.
