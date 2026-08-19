@@ -29,6 +29,7 @@ To satisfy the requirements of a database-free, lightweight, and modern tech sta
 
 We have compiled comprehensive, human-readable blueprint guides detailing the research, framework evaluation, and step-by-step transition plan:
 
+*   **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
 *   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
 *   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
 

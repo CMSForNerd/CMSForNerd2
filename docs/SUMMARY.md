@@ -30,6 +30,7 @@ nav_order: 1
 * [llms_txt2ctx.py CLI](reference/llms-txt2ctx.md)
 
 ## 🧠 Explanation
+* [Autonomous AI Operations & Google Jules](jules-platform-guide.md)
 * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
 

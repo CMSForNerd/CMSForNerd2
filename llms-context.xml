@@ -1,0 +1,29 @@
+<project title="CMSForNerd2" summary="CMSForNerd2 is the modern, database-free, statically served asset version of CmsForNerd, utilising Astro SSG, HTML5, and CSS3 to deliver lightning-fast static assets.">
+<section name="Core Navigation">
+  <link title="README.md" url="README.md" description="Project overview and quickstart." />
+  <link title="START-HERE.md" url="START-HERE.md" description="Multi-layer onboarding map for developers and agents." />
+  <link title="SUMMARY.md" url="SUMMARY.md" description="Compiled table of contents for documentation builders." />
+  <link title="AGENTS.md" url="AGENTS.md" description="Gateway AI guidelines and DSOM standards." />
+  <link title=".agents/brain/knowledge.md" url=".agents/brain/knowledge.md" description="Sovereign AI Agent Knowledge Base (compiled Jules knowledge)." />
+</section>
+<section name="Tutorials">
+  <link title="docs/tutorials/local-development.md" url="docs/tutorials/local-development.md" description="Guided step-by-step development setup and local static previewing." />
+  <link title="docs/tutorials/static-site-deployment.md" url="docs/tutorials/static-site-deployment.md" description="Standard cloud (Render) and subpath (GitHub Pages) static deployment workflows." />
+</section>
+<section name="How-To Guides">
+  <link title="docs/how-to/okf-refactoring.md" url="docs/how-to/okf-refactoring.md" description="How to scan, validate, and automatically repair YAML frontmatter." />
+  <link title="docs/how-to/sitemap-verification.md" url="docs/how-to/sitemap-verification.md" description="How to run sitemap testing against built HTML assets." />
+  <link title="docs/how-to/ansible-deployment.md" url="docs/how-to/ansible-deployment.md" description="How to configure and run the Ansible dual-pathway orchestration." />
+</section>
+<section name="Reference Material">
+  <link title="docs/reference/refactor-okf.md" url="docs/reference/refactor-okf.md" description="Technical specifications and function signatures for the OKF validation crawler." />
+  <link title="docs/reference/verify-sitemaps.md" url="docs/reference/verify-sitemaps.md" description="Specifications, inputs, and outputs for the sitemap verification utility." />
+  <link title="docs/reference/deploy-static.md" url="docs/reference/deploy-static.md" description="Operational pathways and CLI parameters for the bash orchestrator." />
+  <link title="docs/reference/llms-txt2ctx.md" url="docs/reference/llms-txt2ctx.md" description="CLI options and programmatic Python API for the `llms.txt` parser." />
+</section>
+<section name="Explanation">
+  <link title="docs/jules-platform-guide.md" url="docs/jules-platform-guide.md" description="Technical guide for autonomous AI pair-programming, OpenTofu, Ansible, PR comments, and Google Antigravity operations." />
+  <link title="docs/explanation/modernisation-philosophy.md" url="docs/explanation/modernisation-philosophy.md" description="Conceptual context on choosing Astro SSG over PHP." />
+  <link title="docs/explanation/spatial-memory-and-sandbox.md" url="docs/explanation/spatial-memory-and-sandbox.md" description="Deep-dive into DSOM protocols and unprivileged sandbox boundaries." />
+</section>
+</project>

@@ -12,7 +12,8 @@ topics: ["summary", "index", "navigation"]
 * [Introduction](README.md)
 * [Onboarding Map](START-HERE.md)
 
-## 📘 Migration Manuals
+## 📘 Migration Manuals & Platform Guides
+* [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 
