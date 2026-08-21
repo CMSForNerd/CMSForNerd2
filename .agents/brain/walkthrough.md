@@ -2,9 +2,9 @@
 okf_version: 0.1
 type: "walkthrough"
 title: "CMSForNerd2 Active Walkthrough"
-timestamp: "2026-08-01T01:10:00Z"
+timestamp: "2026-08-22T00:00:00Z"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
-topics: ["walkthrough", "history", "brain"]
+topics: ["walkthrough", "history", "brain", "dsom"]
 ---
 
 # CMSForNerd2 Modernisation Session Walkthrough
@@ -21,3 +21,4 @@ topics: ["walkthrough", "history", "brain"]
 8.  **Enhancing Repository Onboarding (README)**: Added clear manual static site deployment instructions in the root `README.md` so that users deploying manually through the Render Dashboard can see how to resolve the empty build command issue immediately.
 9.  **Windows 11 Setup Navigation Link Typo Rectification**: Corrected the typo "(Herd)" to "(Nerd)" in the Windows 11 Setup navigation item within `src/components/Navigation.astro` to ensure brand consistency and layout professionalism.
 10. **Google Jules Sandbox Limitations & Ansible Orchestration Dual-Pathway**: Researched and documented key sandbox limitations in root and agent registries. Created complete Ansible static orchestration files (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, `tools/deploy-static.sh`) implementing environment detection and fallback branching options.
+11. **Deep State of Mind (DSOM) Adoption**: Performed deep research on the DSOM framework from the live documentation (`https://linuxmalaysia.github.io/deep-state-of-mind-for-my-ai/START-HERE/`). Updated `.agents/brain/knowledge.md` with master knowledge items 36–41 cataloguing the 19 Entry Points, Tri-Phasic Mind architecture, opportunistic OKF v0.2 migration, FastMCP integration, and Episodic Resume Protocol. Synchronised active spatial memory in `.agents/brain/task.md` and `.agents/brain/walkthrough.md`.

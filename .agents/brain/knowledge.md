@@ -21,15 +21,6 @@ This document contains a comprehensive record of all Google Jules operational, s
 2. **Comprehensive Unit Testing Suite**
    The repository includes a unit testing suite modularised into domain submodules inside `tests/unit/` (`ansible.py`, `containers.py`, `markdown.py`, `sitemaps.py`, `llms.py`), with `tests/test_unit.py` acting as a backward-compatible top-level facade module re-exporting test functions for Pytest execution.
 
-33. **LLMs Context & Full Asset Compilation Utilities**
-    The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
-
-34. **Diátaxis Documentation Framework Layout**
-    The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
-
-35. **Automated Documentation CI Workflow**
-    An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
-
 3. **Code Comments and Docstrings Standards**
    Google-style docstrings are implemented in Python test suites (`tests/test_cms.py` and `tests/test_unit.py`), and JSDoc comments are strictly maintained in TS/JS configs and utility scripts (`src/utils/navigation.ts`, `src/pages/sitemap.xml.ts`, `tools/verify-sitemaps.js`, `tools/refactor-okf.cjs`, `astro.config.mjs`, `src/content.config.ts`) to maximise documentation standards across the project.
 
@@ -60,7 +51,7 @@ This document contains a comprehensive record of all Google Jules operational, s
 12. **Strict OKF Frontmatter Schema**
     All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
 
-13. **OKF frontmatter Validator Utility**
+13. **OKF Frontmatter Validator Utility**
     The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF v0.1 schema.
 
 14. **Dual Rulebook Synchronisation**
@@ -72,7 +63,7 @@ This document contains a comprehensive record of all Google Jules operational, s
 16. **Google Antigravity Agent Skills**
     The workspace defines a comprehensive suite of 8 Google Antigravity-compatible Agent Skills located under `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`). Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
-17. **Static Security Lab manual Integration**
+17. **Static Security Lab Manual Integration**
     The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
 
 18. **Asset Bundling and Theme-Switching**
@@ -119,6 +110,33 @@ This document contains a comprehensive record of all Google Jules operational, s
 
 32. **Pure Static SSG Modernisation**
     CMSForNerd2 is a static modernisation of the legacy database-free PHP CMS, utilising Astro Static Site Generator (SSG) to produce purely statically served assets (HTML5, CSS3, ES6+ JS).
+
+33. **LLMs Context & Full Asset Compilation Utilities**
+    The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
+
+34. **Diátaxis Documentation Framework Layout**
+    The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
+
+35. **Automated Documentation CI Workflow**
+    An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
+
+36. **DSOM Modular Sovereign AI Framework & 19 Defined Entry Points**
+    The Deep State of Mind (DSOM) framework provides 19 specialized Entry Points targeting distinct user roles (Human Engineers, AI Crawlers, Swarm Subagents, Maintenance Operators). Instead of randomly traversing the codebase, AI agents select specific entry paths (e.g. Gateway AGENTS.md, .agents/AGENTS.md Constitution, START-HERE map, llms.txt crawler sitemap, FastMCP integration) to achieve 98%+ token efficiency and zero context loss.
+
+37. **Tri-Phasic Cognitive Mind Architecture**
+    DSOM structures AI cognition across three phases: Active State (FastMCP tool execution and prompt handling), Twilight State (AST/regex interception, blocking unsafe commands and secret leaks), and Deep State (automated CI/pytest validation gates and semantic state compaction).
+
+38. **Opportunistic OKF v0.2 Adoption Protocol**
+    DSOM introduces Open Knowledge Format (OKF) v0.2 incorporating trust signals (`sources`, `generated`, `verified`, `status`, `stale_after`). To prevent context window inflation and token waste, mass rewrites are forbidden; existing documents are migrated opportunistically to OKF v0.2 only when actively edited.
+
+39. **Native OpenWiki Knowledge Graph & FastMCP Server**
+    DSOM maintains high-density knowledge without heavy third-party binaries or Node.js native add-ons. It utilises native Python tooling (`tools/openwiki_emulator.py`) and a FastMCP server (`tools/mcp/server.py`) managed via `uv`, enabling AI editors (Cursor, Claude Desktop, Google Jules) to query spatial memory and concept nodes locally.
+
+40. **Episodic Resume Protocol & Zero Context Amnesia**
+    To ensure seamless reanimation across chat reboots and model handovers (Google Jules, Cursor, Claude Desktop, Gemini), AI agents output a `[DSOM EPISODIC RECORD]` anchor block recording timestamps, test status, Git commits, and mental state anchors.
+
+41. **Defensive GitOps & Zero-Global Memory Model**
+    DSOM enforces zero global state mutability. Operational context lives strictly in spatial memory files (`.agents/brain/task.md`, `.agents/brain/walkthrough.md`, `.agents/brain/knowledge.md`), ensuring that AI digital twins reanimate with exact historical context without context window contamination.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
