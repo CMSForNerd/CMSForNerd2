@@ -2,9 +2,9 @@
 okf_version: 0.1
 type: "task_list"
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-08-01T05:00:00Z"
+timestamp: "2026-08-22T00:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
-topics: ["tasks", "track", "progress"]
+topics: ["tasks", "track", "progress", "dsom"]
 ---
 
 # CMSForNerd2 Tasks
@@ -26,5 +26,6 @@ topics: ["tasks", "track", "progress"]
 - [x] Modernise the GitHub Pages deployment pipeline and code architecture for CMSForNerd2 (Astro 7.1 SSG).
 - [x] Document Google Jules sandbox environment limitations in `AGENTS.md` and `.agents/AGENTS.md`.
 - [x] Implement Ansible Static Orchestration suite with dual environment branching logic (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, `tools/deploy-static.sh`).
-- [x] Complete pre-commit checks and verification.
-- [x] Submit changes.
+- [x] Adopt Deep State of Mind (DSOM) framework, conducting deep research on DSOM START-HERE specification and entry points.
+- [x] Update Jules Knowledge Base in `.agents/brain/knowledge.md` with records 36-41 covering DSOM protocols, 19 Entry Points, Tri-Phasic Mind architecture, and OKF v0.2 opportunistic adoption.
+- [x] Update active tasks and walkthrough anchors in `.agents/brain/`.
