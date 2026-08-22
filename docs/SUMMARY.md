@@ -22,6 +22,7 @@ nav_order: 1
 * [OKF Frontmatter Refactoring](how-to/okf-refactoring.md)
 * [Sitemap Verification](how-to/sitemap-verification.md)
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)
+* [GitHub Pages Deployment & Troubleshooting](how-to/github-pages-deployment-troubleshooting.md)
 
 ## 🏗️ Reference
 * [refactor-okf.cjs API](reference/refactor-okf.md)

@@ -16,6 +16,7 @@ topics: ["summary", "index", "navigation"]
 * [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
+* [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
 
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)

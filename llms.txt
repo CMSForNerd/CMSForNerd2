@@ -20,6 +20,7 @@
 - [docs/how-to/okf-refactoring.md](docs/how-to/okf-refactoring.md): How to scan, validate, and automatically repair YAML frontmatter.
 - [docs/how-to/sitemap-verification.md](docs/how-to/sitemap-verification.md): How to run sitemap testing against built HTML assets.
 - [docs/how-to/ansible-deployment.md](docs/how-to/ansible-deployment.md): How to configure and run the Ansible dual-pathway orchestration.
+- [docs/how-to/github-pages-deployment-troubleshooting.md](docs/how-to/github-pages-deployment-troubleshooting.md): How to manage and troubleshoot GitHub Pages Astro deployments.
 
 ## Reference Material
 
