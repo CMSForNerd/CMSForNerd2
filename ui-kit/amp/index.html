@@ -1,0 +1,411 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>UI Diagnostic Kit | CMSForNerd2 (AMP)</title><meta name="description" content="Technical audit of the CMSForNerd2 UI kit, including typography, colors, and interactive Astro components."><link rel="canonical" href="/CMSForNerd2ui-kit"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style></head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class="active">UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><article class="ui-lab">
+<header class="lab-header">
+<h1>🧪 Laboratory UI Audit Kit</h1>
+<p class="lead">Technical verification of theme tokens, glassmorphism, and component accessibility for CMSForNerd2.</p>
+</header>
+<section class="ui-section">
+<h2>🎨 Design System: Color Palette</h2>
+<div class="colour-grid">
+<div class="colour-swatch" style="background: var(--lab-purple); color: white;">
+<span>--lab-purple</span>
+<code>#8e44ad / #a855f7</code>
+</div>
+<div class="colour-swatch" style="background: var(--lab-bg); color: var(--lab-text); border: 1px solid var(--lab-border);">
+<span>--lab-bg</span>
+<code>Background Color</code>
+</div>
+<div class="colour-swatch" style="background: var(--lab-border); color: var(--lab-text);">
+<span>--lab-border</span>
+<code>#ecf0f1 / #333333</code>
+</div>
+<div class="colour-swatch" style="background: var(--lab-text); color: var(--lab-bg);">
+<span>--lab-text</span>
+<code>System Text Color</code>
+</div>
+</div>
+</section>
+<section class="ui-section">
+<h2>🖋️ Typography &#x26; Hierarchy</h2>
+<div class="typography-sample">
+<h1>Heading Level 1 (Lab Master)</h1>
+<p>Fundamental body text for technical documentation. Uses system-native stacks for high performance.</p>
+<h2>Heading Level 2 (Section Admin)</h2>
+<p>Secondary level for module categorization.</p>
+<h3>Heading Level 3 (Fragment Slave)</h3>
+<p>Tertiary level for content snippets and small details.</p>
+<p><code>// Monospaced Code Block Output
+printf(“CMSForNerd2 Astro 7.1 Static Stable\n”);</code></p>
+</div>
+</section>
+<section class="ui-section">
+<h2>✨ Glassmorphism &#x26; Surface Effects (Astro 7.1 Concept)</h2>
+<div class="glass-container">
+<div class="glass-card">
+<h3>Glass Card (Standard)</h3>
+<p>Verify that the blur effect and border-stroke remain visible against dark and light gradients.</p>
+<a href="#" class="btn glass-btn">Glass Button</a>
+</div>
+</div>
+</section>
+<section class="ui-section">
+<h2>🛠️ Components: Buttons &#x26; Badges</h2>
+<div class="component-demo">
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+<span class="badge astro-version">Astro 7.1</span>
+<span class="badge status-strict">TypeScript Strict</span>
+<span class="badge status-check">Verified</span>
+<span class="badge status-sec">Secure</span>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+<div>
+<a href="#" class="btn">Primary Action Button</a>
+</div>
+<div>
+<button class="btn" style="opacity: 0.7;">Secondary/Disabled State</button>
+</div>
+</div>
+</div>
+</section>
+<section class="ui-section">
+<h2>📊 Data Visualization: Tables</h2>
+<div class="table-scroll">
+<table class="stack-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Standard View</th>
+<th>AMP View</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load Time</strong></td>
+<td>&#x3C; 100ms</td>
+<td>&#x3C; 50ms</td>
+<td>✅ Statically Optimised</td>
+</tr>
+<tr>
+<td><strong>Interactivity</strong></td>
+<td>Full (TypeScript/PWA)</td>
+<td>Limited (AMP HTML)</td>
+<td>⚖️ Verified</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<footer class="audit-footer">
+<p>End of UI Audit. If components appear broken, verify <code>src/styles/global.css</code> variables.</p>
+</footer>
+</article>
+<style>
+.ui-lab { max-width: 900px; margin: 0 auto; line-height: 1.6; }
+.ui-section { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--lab-border); }
+.colour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.colour-swatch { padding: 25px; border-radius: 8px; display: flex; flex-direction: column; font-weight: bold; }
+.colour-swatch code { font-size: 0.8rem; margin-top: 5px; opacity: 0.8; }
+.typography-sample { padding: 20px; background: var(--lab-border); border-radius: 8px; }
+.glass-container { background: var(--lab-vibrant-bg); padding: 50px; border-radius: 12px; margin: 20px 0; min-height: 200px; }
+.glass-card { background: var(--lab-glass-bg); backdrop-filter: blur(var(--lab-blur)); -webkit-backdrop-filter: blur(var(--lab-blur)); border: 1px solid var(--lab-glass-border); padding: 35px; border-radius: 20px; color: #ffffff; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); }
+.glass-card h3 { color: #ffffff; margin-top: 0; }
+.glass-card p { color: #f7fafc; }
+.glass-btn { background: #ffffff !important; color: #4a5568 !important; }
+.table-scroll { overflow-x: auto; }
+.audit-footer { text-align: center; font-style: italic; color: var(--lab-muted); margin-top: 2rem; }
+@media (max-width: 600px) {
+.colour-grid { grid-template-columns: 1fr; }
+}
+</style></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2ui-kit" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>

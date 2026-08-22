@@ -1,0 +1,449 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2 (AMP)</title><meta name="description" content="The one-stop reference guide for every student entering the CMSForNerd2 Astro 7.1 Laboratory."><link rel="canonical" href="/CMSForNerd2welcome-kit"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style></head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class="active">Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><article class="welcome-kit">
+<header class="kit-header">
+<h1>🚀 CMSForNerd2: Student Welcome Kit</h1>
+<p class="quote">"Static modernisation without loss of simplicity."</p>
+</header>
+<div class="kit-intro">
+<p>
+Welcome to the laboratory. This document contains everything you need to manage your environment and pass your modules.
+Keep this <strong>Cheat Sheet</strong> open as you work through the curriculum.
+</p>
+</div>
+<section class="kit-section">
+<h2>🛠️ The Essential Astro 7.1 "Nerd Stack"</h2>
+<table class="stack-table">
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Status Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Node.js &#x26; npm</strong></td>
+<td>Astro 7.1 Runtime &#x26; Dependency Manager</td>
+<td><code>node -v</code> (Must be 20.0+) / <code>npm -v</code></td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>Version Control &#x26; Cloning</td>
+<td><code>git --version</code></td>
+</tr>
+<tr>
+<td><strong>Astro 7.1 CLI</strong></td>
+<td>Astro Local Dev &#x26; Compilation Engine</td>
+<td><code>npx astro --version</code></td>
+</tr>
+<tr>
+<td><strong>VS Code</strong></td>
+<td>Code Editor / IDE</td>
+<td><code>code .</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="kit-section">
+<h2>📂 Quick Start Commands</h2>
+<p>Run these inside your project workspace root folder:</p>
+<div class="command-grid">
+<div class="cmd-item">
+<strong>Initialize Dependencies:</strong>
+<code>npm install</code>
+</div>
+<div class="cmd-item">
+<strong>Run Development Server:</strong>
+<code>npm run dev</code>
+</div>
+<div class="cmd-item">
+<strong>Compile Static Build:</strong>
+<code>npm run build</code>
+</div>
+<div class="cmd-item">
+<strong>Preview Production Build:</strong>
+<code>npm run preview</code>
+</div>
+<div class="cmd-item">
+<strong>Verify Type Safety:</strong>
+<code>npx tsc --noEmit</code>
+</div>
+</div>
+</section>
+<section class="kit-section">
+<h2>⚖️ Our RFC 2119 Standards</h2>
+<p>As a student of this laboratory, your code must adhere to these requirement levels:</p>
+<ul class="standard-list">
+<li><span class="must">MUST:</span> Every page file carries OKF v0.1 YAML frontmatter with correct schema fields.</li>
+<li><span class="must">MUST:</span> Compile with zero errors during <code>npm run build</code>.</li>
+<li><span class="must-not">MUST NOT:</span> Hardcode page routes. Rely on Astro's Content Collections routing structure.</li>
+<li><span class="should">SHOULD:</span> Customise your styles within Astro scoped layout styles.</li>
+<li><span class="may">MAY:</span> Implement custom MDX elements for interactive laboratory exercises.</li>
+</ul>
+</section>
+<section class="kit-section">
+<h2>🛡️ Static Security Laws</h2>
+<div class="security-grid">
+<div class="law">
+<h3>1. Validate Schema Metadata</h3>
+<p>Verify that your page frontmatter strictly adheres to the schema defined in <code>src/content.config.ts</code>.</p>
+</div>
+<div class="law">
+<h3>2. Escape Output</h3>
+<p>Astro automatically escapes text variables rendered inside brackets, eliminating XSS injection by default.</p>
+</div>
+<div class="law">
+<h3>3. Pure Static Execution</h3>
+<p>There is zero server execution, making server-side paths completely immutable and safe from injection attacks.</p>
+</div>
+<div class="law rfc-law">
+<h3>4. Be Reachable (RFC 9116)</h3>
+<p>Maintain your <code>security.txt</code> and <a href="/security-policy">Security Policy</a> statically inside your <code>public/.well-known/</code> folder.</p>
+</div>
+</div>
+</section>
+<section class="kit-section troubleshooting">
+<h2>🆘 Troubleshooting</h2>
+<dl>
+<dt>Astro Build Failure?</dt>
+<dd>Ensure that your newly added page has correct YAML formatting in the frontmatter blocks.</dd>
+<dt>Node.js Version Error?</dt>
+<dd>Verify that your Node environment is on version 20 or higher. Run <code>node -v</code> to verify.</dd>
+<dt>Port Already In Use?</dt>
+<dd>If port 4321 is blocked, kill the existing process: <code>kill $(lsof -t -i :4321) 2>/dev/null || true</code>.</dd>
+</dl>
+</section>
+<footer class="path-to-cert">
+<h2>🎓 Path to Certification</h2>
+<div class="roadmap">
+<div class="step"><strong>1. Setup:</strong> Install tools &#x26; run <code>npm install</code>.</div>
+<div class="step"><strong>2. Modules 1-3:</strong> Astro Architecture, Standards, and Static Security.</div>
+<div class="step"><strong>3. Modules 4-5:</strong> Write automated checks and build QA verification.</div>
+<div class="step"><strong>4. Final Exam:</strong> Fix the "Broken Build" configuration.</div>
+<div class="step"><strong>5. Certification:</strong> Claim your Astro Modernisation Certificate!</div>
+</div>
+<div class="cta">
+<a href="/lab-manual" class="btn welcome-btn">🚀 Start Laboratory Module 1</a>
+</div>
+</footer>
+</article>
+<style>
+.welcome-kit h1 { color: #004085; border-bottom: 2px solid #004085; padding-bottom: 0.5rem; margin-top: 0; }
+.welcome-kit .kit-header { text-align: center; margin-bottom: 2rem; }
+.welcome-kit .quote { font-style: italic; color: #666; font-size: 1.1rem; }
+.welcome-kit .kit-intro { background: #e2f3f5; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #004085; margin-bottom: 2rem; }
+.welcome-kit h2 { color: #333; margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+.welcome-kit .stack-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.welcome-kit .stack-table th, .welcome-kit .stack-table td { text-align: left; padding: 0.75rem; border: 1px solid #dee2e6; }
+.welcome-kit .stack-table th { background: #f8f9fa; }
+.welcome-kit .command-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.welcome-kit .cmd-item { background: #fff; border: 1px solid #ddd; padding: 1rem; border-radius: 4px; }
+.welcome-kit .cmd-item code { display: block; margin-top: 0.5rem; background: #212529; color: #f8f9fa; padding: 0.5rem; border-radius: 4px; white-space: pre-wrap; word-break: break-all; }
+.welcome-kit .standard-list { list-style: none; padding: 0; }
+.welcome-kit .standard-list li { margin-bottom: 0.75rem; }
+.welcome-kit .must { color: #d9534f; font-weight: bold; }
+.welcome-kit .must-not { color: #d9534f; font-weight: bold; text-decoration: underline; }
+.welcome-kit .should { color: #f0ad4e; font-weight: bold; }
+.welcome-kit .may { color: #5bc0de; font-weight: bold; }
+.welcome-kit .security-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.welcome-kit .law { background: #fff9f9; border: 1px solid #ffeeba; padding: 1rem; border-radius: 4px; }
+.welcome-kit .law h3 { margin-top: 0; font-size: 1rem; color: #856404; }
+.welcome-kit .troubleshooting dl { margin: 1rem 0; }
+.welcome-kit .troubleshooting dt { font-weight: bold; color: #c82333; margin-top: 1rem; }
+.welcome-kit .path-to-cert { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center; }
+.welcome-kit .roadmap { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+.welcome-kit .step { border-left: 3px solid #004085; padding-left: 1rem; }
+.welcome-kit .welcome-btn { background: #004085; color: #fff; padding: 1rem 2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+.welcome-kit .welcome-btn:hover { background: #002752; }
+</style></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2welcome-kit" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>

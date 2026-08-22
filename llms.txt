@@ -1,0 +1,45 @@
+# CMSForNerd2
+
+> CMSForNerd2 is the modern, database-free, statically served asset version of CmsForNerd, utilising Astro SSG, HTML5, and CSS3 to deliver lightning-fast static assets.
+
+## Core Navigation
+
+- [README.md](README.md): Project overview and quickstart.
+- [START-HERE.md](START-HERE.md): Multi-layer onboarding map for developers and agents.
+- [SUMMARY.md](SUMMARY.md): Compiled table of contents for documentation builders.
+- [AGENTS.md](AGENTS.md): Gateway AI guidelines and DSOM standards.
+- [.agents/brain/knowledge.md](.agents/brain/knowledge.md): Sovereign AI Agent Knowledge Base (compiled Jules knowledge).
+
+## Tutorials
+
+- [docs/tutorials/local-development.md](docs/tutorials/local-development.md): Guided step-by-step development setup and local static previewing.
+- [docs/tutorials/static-site-deployment.md](docs/tutorials/static-site-deployment.md): Standard cloud (Render) and subpath (GitHub Pages) static deployment workflows.
+
+## How-To Guides
+
+- [docs/how-to/okf-refactoring.md](docs/how-to/okf-refactoring.md): How to scan, validate, and automatically repair YAML frontmatter.
+- [docs/how-to/sitemap-verification.md](docs/how-to/sitemap-verification.md): How to run sitemap testing against built HTML assets.
+- [docs/how-to/ansible-deployment.md](docs/how-to/ansible-deployment.md): How to configure and run the Ansible dual-pathway orchestration.
+- [docs/how-to/github-pages-deployment-troubleshooting.md](docs/how-to/github-pages-deployment-troubleshooting.md): How to manage and troubleshoot GitHub Pages Astro deployments.
+
+## Reference Material
+
+- [docs/reference/refactor-okf.md](docs/reference/refactor-okf.md): Technical specifications and function signatures for the OKF validation crawler.
+- [docs/reference/verify-sitemaps.md](docs/reference/verify-sitemaps.md): Specifications, inputs, and outputs for the sitemap verification utility.
+- [docs/reference/deploy-static.md](docs/reference/deploy-static.md): Operational pathways and CLI parameters for the bash orchestrator.
+- [docs/reference/llms-txt2ctx.md](docs/reference/llms-txt2ctx.md): CLI options and programmatic Python API for the `llms.txt` parser.
+
+## Explanation
+
+- [docs/jules-platform-guide.md](docs/jules-platform-guide.md): Technical guide for autonomous AI pair-programming, OpenTofu, Ansible, PR comments, and Google Antigravity operations.
+- [docs/explanation/modernisation-philosophy.md](docs/explanation/modernisation-philosophy.md): Conceptual context on choosing Astro SSG over PHP.
+- [docs/explanation/spatial-memory-and-sandbox.md](docs/explanation/spatial-memory-and-sandbox.md): Deep-dive into DSOM protocols and unprivileged sandbox boundaries.
+
+## Optional
+
+- [docs/migration-guide.md](docs/migration-guide.md): The full PHP-to-Static detailed migration blueprint and checklist.
+- [docs/context7-integration.md](docs/context7-integration.md): Details on Context7 service pipelines for GitLab CI and GitHub Actions.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

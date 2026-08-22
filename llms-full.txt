@@ -1,0 +1,2495 @@
+# CMSForNerd2 Complete Documentation (llms-full.txt)
+
+> This single document consolidates the entire documentation suite for CMSForNerd2.
+
+---
+
+## File: README.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
+timestamp: "2026-08-01T12:00:00Z"
+topics: ["modernisation", "astro", "static", "architecture"]
+---
+
+# 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)
+
+**CMSForNerd2** is the next-generation, high-performance static modernisation of the legacy database-free PHP CMS.
+
+By migrating from server-side PHP to a purely statically served asset architecture (HTML5, CSS3, and ES6+ JavaScript), CMSForNerd2 delivers ultra-fast rendering speeds, zero-cost scaling, absolute security (no backend execution vulnerability surface), and complete offline capability.
+
+---
+
+## 🏛️ Architectural Transition: Astro SSG
+
+To satisfy the requirements of a database-free, lightweight, and modern tech stack, the architecture has transitioned to **Astro (Static Site Generator)**.
+
+- **Zero-JS by Default**: Standard pages compile to raw, semantic HTML5 and modern CSS3, with zero client-side JavaScript overhead.
+- **Modern CSS3**: Built with native CSS variables, flexbox/grid layouts, and scoped modular stylesheets.
+- **Type-Safe Content Collections**: Replaces flat-file `.inc` pairs with validated Markdown/MDX content collections.
+- **Dual-View Support**: Generates both Desktop and Google-validated Accelerated Mobile Pages (AMP) at build time, completely offline.
+
+---
+
+## 📘 Migration & Integration Documentation
+
+We have compiled comprehensive, human-readable blueprint guides detailing the research, framework evaluation, and step-by-step transition plan:
+
+*   **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
+*   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
+*   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
+
+---
+
+## 🗺️ Project Navigation
+
+- [START-HERE.md](START-HERE.md) — Master onboarding map for human developers and AI agents.
+- [SUMMARY.md](SUMMARY.md) — Structural index for documentation compilation and GitBook integration.
+- [llms.txt](llms.txt) — High-density directory map optimised for external AI crawlers.
+- [.agents/brain/knowledge.md](.agents/brain/knowledge.md) — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
+
+---
+
+## 🛠️ Getting Started with CMSForNerd2
+
+### Installation
+
+To bootstrap the workspace locally:
+
+```bash
+# Clone this repository
+git clone https://github.com/CMSForNerd/CMSForNerd2.git
+cd CMSForNerd2
+
+# Initialize the Astro workspace
+npm create astro@latest -- --template minimal --install --git false
+
+# Start the local development server
+npm run dev &
+```
+
+### Production Build
+
+To compile the entire website into statically served assets:
+
+```bash
+npm run build
+```
+This writes the fully optimised production-ready HTML5, CSS3, and JavaScript files to the dist/ directory, which can be served by any static host or unprivileged web server.
+
+### Deploying to Render.com
+
+CMSForNerd2 can be deployed on **Render.com** either as a containerised service or as a free Static Site.
+
+#### 1. Free Static Site Deployment (Recommended)
+To prevent build failures (such as `Publish directory dist/ does not exist!` due to skipped builds), ensure the following parameters are explicitly configured in the Render Dashboard under your Static Site settings:
+*   **Build Command**: `npm run build`
+*   **Publish Directory**: `dist`
+
+#### 2. Containerised Web Service
+Alternatively, you can deploy using our pre-configured multi-stage Dockerfile and unprivileged NginX server. This can be launched instantly using our Blueprint specification (`render.yaml`).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: START-HERE.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "CMSForNerd2 Master Onboarding Map"
+timestamp: "2026-08-01T12:00:00Z"
+description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
+topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
+---
+
+# 🎯 START HERE: CMSForNerd2 Master Onboarding Standard
+
+> *"You do not need to read everything in this repository to make sense of CMSForNerd2, or to start contributing in practice. In fact, we recommend that you do not. The best way to get started with CMSForNerd2 is by applying it — to something, however small."*
+>
+> — *Adapted from the Diátaxis Principle (Daniele Procida)*
+
+---
+
+## 🏛️ Onboarding Philosophy & Dual-Interface Objective
+
+Welcome to **CMSForNerd2**, a modern, database-free, statically served asset site powered by Astro SSG, HTML5, and CSS3.
+
+Traditional software documentation forces engineers and AI agents to ingest exhaustive knowledge bases before executing a single action. In high-velocity software engineering, this approach creates cognitive overload for human operators and wastes precious context window capacity for autonomous agents.
+
+This onboarding guide adapts the **Diátaxis learn-by-doing ethos** into a **Dual-Interface Standard**. It provides equal operational clarity for two distinct classes of contributors:
+
+1. **Human Engineers**: Pragmatic developers seeking rapid local bootstrapping, structured contribution guidelines, and clear review protocols.
+2. **Autonomous AI Agents**: Autonomous agents (including Google Jules, Google Antigravity, and sub-agents) requiring machine-parseable manifests, deterministic execution paths, and bounded context windows.
+
+---
+
+## 🧭 Dual-Audience Entry Matrix (Diátaxis Navigation Grid)
+
+The documentation hierarchy is partitioned into four distinct Diátaxis quadrants. Choose your pathway based on your operational goal and user class:
+
+| Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
+| :--- | :--- | :--- | :--- |
+| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
+| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
+| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+
+---
+
+## ⚡ Immediate Action: "The Smallest Viable Task"
+
+Do not attempt to read the entire codebase. Begin immediately with the smallest viable verification task.
+
+### 👤 Human Developer Pathway
+To verify your local setup in under 60 seconds, run this 3-step command chain:
+
+```bash
+# 1. Install pinned dependencies with legacy peer dependency support
+npm ci
+
+# 2. Audit and refactor Open Knowledge Format (OKF) v0.1 frontmatter
+node tools/refactor-okf.cjs
+
+# 3. Build static assets and preview locally
+npm run build && npm run preview
+```
+
+### 🤖 Autonomous AI Agent Pathway
+When an issue or task is assigned to an AI agent, execute the following standardized task ingestion protocol:
+
+1. **State Ingestion**: Inspect `.agents/AGENTS.md` and `.agents/brain/task.md` to establish current operational parameters and active context.
+2. **Context Bounding**: Locate task-relevant files in `src/` or `docs/`. Read only specific target line ranges using read tools; do not load unreferenced directories into the context window.
+3. **Execution & Verification**: Apply targeted code modifications and run verification scripts (`node tools/refactor-okf.cjs`, `npm run build`, and `node tools/verify-sitemaps.js`).
+4. **Structured Output**: Format final changes as precise Git merge diffs and submit updates with standard UK English commit messages.
+
+---
+
+## 🛡️ Agent Context Governance (DSOM & OKF Integration)
+
+To guarantee operational stability across multi-agent workflows, all autonomous systems MUST comply with the following context governance principles:
+
+### 1. Minimal Context Window Ingestion
+AI agents must maintain context hygiene. Loading the full repository into context windows causes hallucination and degrades reasoning accuracy. Agents must read `.agents/AGENTS.md` for gateway rules, parse `.agents/brain/` for active state, and selectively load target files on demand.
+
+### 2. Deep State of Mind (DSOM) Spatial Memory
+All operational memory is zero-global and spatial. Spatial state lives strictly within `.agents/brain/`:
+* `task.md`: Tracks active and completed execution steps.
+* `walkthrough.md`: Retains historical session anchors.
+* `knowledge.md`: Stores domain-specific operational knowledge.
+
+### 3. Multi-Agent Interoperability
+CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 8 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`).
+
+### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
+Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
+
+```yaml
+---
+okf_version: 0.1
+type: "documentation"
+title: "Document Display Title"
+timestamp: "2026-08-01T12:00:00Z"
+topics: ["topic1", "topic2"]
+---
+```
+*Note: Any string value containing emojis, colons, or brackets must be double-quoted.*
+
+### 5. Standard UK English Rule
+All documentation, code comments, commit messages, and cognitive logs MUST strictly adhere to Standard UK English spelling conventions (e.g. *optimisation*, *synchronise*, *behaviour*, *modularise*, *colour*).
+
+---
+
+## 🔗 Core Repository Map
+
+- [README.md](README.md) — Executive project summary and architectural overview.
+- [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
+- [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
+- [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+- [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: SUMMARY.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "CMSForNerd2 Summary Index"
+description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
+timestamp: "2026-08-01T12:00:00Z"
+topics: ["summary", "index", "navigation"]
+---
+
+# Summary
+
+* [Introduction](README.md)
+* [Onboarding Map](START-HERE.md)
+
+## 📘 Migration Manuals & Platform Guides
+* [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
+* [Static Migration Guide](docs/migration-guide.md)
+* [Context7 Service Integration Guide](docs/context7-integration.md)
+* [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
+
+## 🏛️ Project Governance & Protocols
+* [AI Onboarding Rulebook](AGENTS.md)
+
+## 🧠 Spatial Memory & Agent Skills
+* [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: AGENTS.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
+description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
+timestamp: "2026-08-01T12:00:00Z"
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
+---
+
+# AI Agent Registry & Sovereign Gateway
+
+This file describes the agents and tools in our codebase, outlining their operational roles, interaction protocols, and input/output conventions. AI agents (such as Google Jules and Google Antigravity) use this file to understand the codebase and formulate contextually aligned execution plans.
+
+> **Entry Point:** This is the root-level gateway file. The **full cognitive rulebook**, **agent skills**, and all spatial memory reside in `.agents/AGENTS.md`, `.agents/skills/`, and `.agents/brain/`. You MUST navigate there immediately to establish alignment.
+
+---
+
+## Critical Instructions for AI Agents
+
+1.  **Read the Full Rulebook**: Navigate immediately to [`.agents/AGENTS.md`](.agents/AGENTS.md) to parse the operational persona, writing styles, and detailed rules governing this project.
+2.  **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
+    *   `task.md` — Active and completed task list (present state).
+    *   `walkthrough.md` — Session history and Mental Anchors (past state).
+    *   `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
+3.  **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
+4.  **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
+    *   Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
+    *   Target specific line ranges via read tools.
+    *   Verify the OKF `timestamp` for contextual relevance.
+    *   Obtain human consensus if local knowledge is stale.
+    *   Execute physical terminal commands only when necessary.
+5.  **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
+6.  **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
+
+---
+
+## Google Jules Sandbox & Environment Limitations
+
+When creating, editing, or using automation playbooks, shell scripts, or deployment tools in this workspace, AI agents must respect the specific constraints of the Google Jules environment:
+
+### 1. Key Sandbox Constraints
+*   **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
+*   **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
+*   **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
+*   **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
+
+### 2. Dual-Pathway Branching Rule (Ansible & Shell Code)
+To prevent build failures and environment blocks, all automation scripts, Ansible playbooks, and shell scripts **must** dynamically detect whether they are running in a limited environment (like Google Jules) or on a real OS:
+*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
+*   **Branching Pathways**:
+    *   *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
+    *   *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
+
+---
+
+## Google Antigravity & AgentSkills.io Agent Skills
+
+By using the open standard for extending agent capabilities, our workspace publishes 8 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+
+Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
+
+| Skill | Folder Path | Description |
+| :--- | :--- | :--- |
+| **Static Security Hardening** | `.agents/skills/static-security-hardening/` | Applies static security whitelisting, cryptographic CSP hashes, OWASP standard defensive headers, sitemap/robots mapping, and static performance caching. |
+| **GitHub Pages Deployment** | `.agents/skills/github-pages-deployment/` | Manages and automates subpath static deployments to GitHub Pages, excluding Jekyll collision files without breaking root-relative cloud or local development. |
+| **Render Deployment** | `.agents/skills/render-deployment/` | Configures and manages Render.com deployments via Docker containerisation or native Free Static Site pathways, and handles Ansible-based staging setups. |
+| **Dependency Management** | `.agents/skills/dependency-management/` | Maintains pinned dependency determinism (Astro 7.1.6, Node 22), and resolves peer-dependency conflicts via .npmrc legacy options across all runtime environments. |
+| **Context7 Integration** | `.agents/skills/context7-integration/` | Maintains automated documentation indexing and updates utilising Context7 services across CI workflows. |
+| **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, visual and regression testing, sitemap validation, and preview workflows for Astro 7.1 static site generator. |
+| **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, navigation/mapping integrity, comments standards (Google docstrings, JSDoc), and prevents orphaned pages in the documentation hierarchy. |
+| **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
+
+---
+
+## Deep State of Mind (DSOM) Core Principles
+
+The DSOM framework operates on digital sovereignty, structured metacognition, and Git-native operational management:
+
+| Principle | Description |
+| :--- | :--- |
+| **Zero-Global / Spatial Memory** | No global mutable state. Operational memory lives in `.agents/brain/`. |
+| **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.1 YAML frontmatter with explicit timestamps. |
+| **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
+| **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
+| **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
+
+---
+
+## Open Knowledge Format (OKF) v0.1 Compliance Guidelines
+
+To prevent parsing anomalies and ensure absolute compatibility across different rendering platforms (including GitHub web view and automated SSG compilation), all Markdown (`.md`) files in the repository must adhere strictly to the following YAML frontmatter rules:
+
+1. **Exact Structure**: The YAML frontmatter block MUST start on line 1, column 1 with exactly three hyphens `---` and conclude with exactly three hyphens `---` on its own line.
+2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
+3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
+4. **Required Field Schema**: Every document must carry a complete set of five required fields:
+   - `okf_version`: `0.1` (unquoted number).
+   - `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
+   - `title`: Human-readable display title (double-quoted if containing special characters).
+   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-08-01T12:00:00Z"`).
+   - `topics`: An array of associated category tags.
+5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: .agents/brain/knowledge.md
+
+
+---
+okf_version: 0.1
+type: "knowledge_base"
+title: "Sovereign AI Agent Knowledge Base"
+timestamp: "2026-08-01T12:00:00Z"
+description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
+topics: ["knowledge", "jules", "brain", "dsom"]
+---
+
+# Sovereign AI Agent Knowledge Base (CMSForNerd2)
+
+This document contains a comprehensive record of all Google Jules operational, spatial, and domain-specific knowledge compiled from Day 0 to the present. This establishes a shared cognitive layer between Google Jules and Google Antigravity, fully compliant with the Deep State of Mind (DSOM) AI Protocol.
+
+---
+
+## Master Knowledge Records
+
+1. **Ansible Idempotency Compliance**
+   The Ansible playbook `deploy-static.yml` is 100% compliant with `ansible-lint`. It strictly utilises Fully Qualified Collection Names (FQCN) for all module actions and specifies `changed_when` parameters on commands to maintain idempotency.
+
+2. **Comprehensive Unit Testing Suite**
+   The repository includes a unit testing suite modularised into domain submodules inside `tests/unit/` (`ansible.py`, `containers.py`, `markdown.py`, `sitemaps.py`, `llms.py`), with `tests/test_unit.py` acting as a backward-compatible top-level facade module re-exporting test functions for Pytest execution.
+
+3. **Code Comments and Docstrings Standards**
+   Google-style docstrings are implemented in Python test suites (`tests/test_cms.py` and `tests/test_unit.py`), and JSDoc comments are strictly maintained in TS/JS configs and utility scripts (`src/utils/navigation.ts`, `src/pages/sitemap.xml.ts`, `tools/verify-sitemaps.js`, `tools/refactor-okf.cjs`, `astro.config.mjs`, `src/content.config.ts`) to maximise documentation standards across the project.
+
+4. **Automated Integration Testing Suite**
+   An automated integration testing suite is located at `tests/test_cms.py` using Pytest. It runs `npm run build`, starts the Astro preview server on port 4321, and dynamically checks sitemaps (`tools/verify-sitemaps.js`), frontmatter compliance (`tools/refactor-okf.cjs`), and the HTTP status and DOM elements of all Markdown content pages. Run it with `python3 -m pytest -v tests/test_cms.py` (requires `pytest` and `requests`).
+
+5. **SEO Sitemap Architecture**
+   The repository utilises standard SEO sitemap assets including plain-text files `sitemap.txt` (located at both repository root and `public/sitemap.txt`) and a dynamically built multi-host XML sitemap produced via the Astro endpoint `src/pages/sitemap.xml.ts` that includes Netlify, GitHub Pages, and GitBook publishing platforms.
+
+6. **Sitemap Validation Utility**
+   A Node.js validation utility is maintained at `tools/verify-sitemaps.js` to systematically check for formatting anomalies, validate multi-host URL structures, and verify that compiled sitemap links have corresponding physical HTML assets inside the built `dist/` folder to prevent broken links.
+
+7. **Public Meta-Files Configuration**
+   The repository contains an RFC 9116 compliant security contact file at `public/.well-known/security.txt` and a modernised sitemap crawler index path mapped in `public/robots.txt` to point explicitly to `/sitemap.xml` and `/sitemap.txt` instead of `/sitemap.php`.
+
+8. **Frontend Visual Verification**
+   Visual verification of frontend modifications requires launching the local preview server (`npm run preview` on port 4321) and running Playwright in a Python execution environment to capture and review screenshot outputs.
+
+9. **Node.js Compatibility Requirements**
+   The project requires Node.js v22 (>=22.12.0) for Astro 7.1 compatibility. The GitHub Actions deployment workflow (`deploy-gh-pages.yml`) utilises Node.js version 22, and both the `Dockerfile` and `Containerfile` configure their builder stage using `node:22-alpine`.
+
+10. **GitHub Actions Collision Prevention**
+    To avoid deployment collisions on the `master` branch, any Jekyll-based GitHub Actions workflows are excluded to ensure only the Astro-specific `deploy-gh-pages.yml` pipeline manages GitHub Pages deployments.
+
+11. **Centralised Navigation Utility**
+    The codebase uses a centralised content and navigation utility (`src/utils/navigation.ts`) containing `getCleanSlug` and `getNavigationPages` to handle page ID-to-slug cleaning and menu list generation, eliminating duplicated parsing logic in layout files (`Layout.astro`, `AmpLayout.astro`), page routes (`[...slug].astro`, `amp.astro`), and `sitemap.xml.ts`.
+
+12. **Strict OKF Frontmatter Schema**
+    All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
+
+13. **OKF Frontmatter Validator Utility**
+    The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF v0.1 schema.
+
+14. **Dual Rulebook Synchronisation**
+    Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF v0.1 compliance rules.
+
+15. **Dual-Pathway Sandbox Branching Rule**
+    All automation scripts, deployment pipelines, and Ansible playbooks in the repository must explicitly check for limited sandbox environments (such as the Google Jules container, typically by checking for username 'jules', custom environment variables, or virtualisation types) and implement a dual-pathway branching logic. Limited sandbox environments must bypass system-level modifications (such as systemd configurations, global packages installations, or firewall rule adjustments) to focus strictly on unprivileged workspace operations (e.g. local dependencies and compilation), whereas real OS environments are permitted to execute full administrative configurations with no limitations. An Ansible orchestration suite (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, and `tools/deploy-static.sh`) is configured to demonstrate and enforce this rule.
+
+16. **Google Antigravity Agent Skills**
+    The workspace defines a comprehensive suite of 8 Google Antigravity-compatible Agent Skills located under `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`). Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
+
+17. **Static Security Lab Manual Integration**
+    The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
+
+18. **Asset Bundling and Theme-Switching**
+    The main theme-switching logic in `src/layouts/Layout.astro` has had its `is:inline` attribute removed, allowing Astro to compile and bundle it as a cacheable static asset. Early flash prevention remains inline in the `<head>` with its SHA-256 hash whitelisted in Nginx.
+
+19. **Nginx OWASP Defensive Hardening**
+    The Nginx configuration (`nginx/nginx.conf`) implements strict OWASP-aligned security headers, including Strict-Transport-Security (HSTS), a Permissions-Policy, and a hardened Content Security Policy (CSP) that whitelists only specific SHA-256 hashes of essential inline scripts (e.g., early theme switcher in `Layout.astro`, graduation signature in `graduation.md`, sitemap in `sitemap-page.md`) and trusted script origins like `https://cdn.ampproject.org`.
+
+20. **Subpath Deployments Support**
+    To support subpath deployments on GitHub Pages (`/CMSForNerd2`) without breaking local development or root-relative cloud environments, `astro.config.mjs` dynamically adjusts the `site` and `base` settings depending on whether `process.env.GITHUB_ACTIONS` is `true`. Layouts (`Layout.astro`, `AmpLayout.astro`) and components (`Navigation.astro`) construct all root-relative paths by dynamically prefixing them with `import.meta.env.BASE_URL`.
+
+21. **Custom Rehype Base Rewriter**
+    A custom Rehype post-processing plugin `rehypeAddBase` is registered inside Astro's markdown processor configuration using `unified` from `@astrojs/markdown-remark` in `astro.config.mjs`. This plugin dynamically rewrites root-relative links within Markdown files during the production build for GitHub Pages, preserving original content files.
+
+22. **GitHub Pages Continuous Deployment Pipeline**
+    The project's GitHub Pages deployment is automated via a GitHub Actions workflow (`.github/workflows/deploy-gh-pages.yml`) that runs on pushes to the `master` branch. It installs dependencies with `npm ci`, compiles the static assets using `npm run build`, and publishes the resulting `dist/` directory to the `gh-pages` branch using `peaceiris/actions-gh-pages@v4` with `force_orphan: true`.
+
+23. **Render Blueprint Pathways**
+    The repository is configured for deployment to Render.com via a root-level `render.yaml` Blueprint Specification supporting two pathways: (1) a containerised Web Service using a multi-stage Dockerfile that packages the Astro site in a hardened, unprivileged Nginx server listening on port 8080 with a `/healthz` health check, and (2) a native free Static Site service ('cmsfornerd2-static') configured to run `npm run build` and publish the `dist` directory. For manual dashboard deployments on Render, the Build Command must be set to `npm run build` and the Publish Directory to `dist` to prevent 'Publish directory dist/ does not exist!' failures, as documented in `README.md` and `docs/migration-guide.md`.
+
+24. **Environment Package Configuration (.npmrc)**
+    The development environment is configured via a root-level `.npmrc` file specifying `legacy-peer-deps=true` to automatically resolve peer-dependency conflicts (such as between `@vite-pwa/astro` and newer Astro versions like `astro@7.1.6`) across any local, containerised, or cloud deployment environments (e.g., Render.com host environments).
+
+25. **PHP Reference Removal & Lab Content Preservation**
+    Active, non-historical references to PHP in style comments, routing code, and offline fallback messages are updated or removed to align fully with Astro 7.1. However, all legacy educational laboratory pages and guides in `src/content/pages/` are preserved unchanged to maintain the historical context of the project's origin from the database-free `cmsfornerd` PHP CMS.
+
+26. **Deterministic Build Dependencies**
+    To guarantee build determinism and handle peer-dependency constraints with legacy packages like `@vite-pwa/astro`, dependencies in `package.json` (such as `astro`, `@astrojs/mdx`, and `@vite-pwa/astro`) are strictly pinned to exact versions (e.g., `astro@7.1.6`).
+
+27. **Context7 Documentation Synchronization**
+    The repository integrates Context7 services using `context7.json` at the root. Automated documentation refreshes are configured via both GitLab CI (`.gitlab-ci.yml`) and GitHub Actions (`.github/workflows/context7-refresh.yml`), requiring the `CONTEXT7_API_KEY` environment variable/secret to execute.
+
+28. **Static Assets Local Compilation**
+    The project is compiled to static assets in the `dist/` directory using `npm run build`, and can be locally previewed on port 4321 using `npm run preview`.
+
+29. **UK English Documentation Standard**
+    Documentation and cognitive logs must be authored using Strict Standard UK English spelling and grammar conventions.
+
+30. **Orphan Prevention Navigation Rules**
+    To prevent orphaned documentation, any new governance, architecture, or instructional documents must be explicitly mapped into navigation files: `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and the project `README.md`.
+
+31. **DSOM Cognitive Protocol Integration**
+    The workspace implements the Deep State of Mind (DSOM) cognitive protocol, which requires maintaining synchronised AI agent rules in root-level `AGENTS.md` and `.agents/AGENTS.md`, and tracking spatial memory within `.agents/brain/`.
+
+32. **Pure Static SSG Modernisation**
+    CMSForNerd2 is a static modernisation of the legacy database-free PHP CMS, utilising Astro Static Site Generator (SSG) to produce purely statically served assets (HTML5, CSS3, ES6+ JS).
+
+33. **LLMs Context & Full Asset Compilation Utilities**
+    The Python utility `tools/llms_txt2ctx.py` parses standard `llms.txt` files and compiles them into structured, standard-compliant XML context documents for AI model ingestion. An associated script `tools/build_llms_full.py` dynamically consolidates all Markdown documentation references inside `llms.txt` to compile a unified, complete `llms-full.txt` asset. Both files are automatically copied and kept synchronised within the `public/` folder.
+
+34. **Diátaxis Documentation Framework Layout**
+    The repository implements a robust documentation system organised inside `docs/` according to the Diátaxis framework, containing Tutorials (`docs/tutorials/`), How-To Guides (`docs/how-to/`), Reference (`docs/reference/`), and Explanation (`docs/explanation/`) quadrants, coupled with a GitBook-compatible index file `docs/SUMMARY.md` and detailed guidelines in `docs/README.md`.
+
+35. **Automated Documentation CI Workflow**
+    An automated documentation CI workflow is located at `.github/workflows/docs-ci.yml` that triggers on master push/PRs. It validates Markdown file structure and frontmatter compliance (via `tools/refactor-okf.cjs`), sitemap integrity (via `tools/verify-sitemaps.js`), compiles the Astro SSG site, and executes the Pytest validation suites.
+
+36. **DSOM Modular Sovereign AI Framework & 19 Defined Entry Points**
+    The Deep State of Mind (DSOM) framework provides 19 specialized Entry Points targeting distinct user roles (Human Engineers, AI Crawlers, Swarm Subagents, Maintenance Operators). Instead of randomly traversing the codebase, AI agents select specific entry paths (e.g. Gateway AGENTS.md, .agents/AGENTS.md Constitution, START-HERE map, llms.txt crawler sitemap, FastMCP integration) to achieve 98%+ token efficiency and zero context loss.
+
+37. **Tri-Phasic Cognitive Mind Architecture**
+    DSOM structures AI cognition across three phases: Active State (FastMCP tool execution and prompt handling), Twilight State (AST/regex interception, blocking unsafe commands and secret leaks), and Deep State (automated CI/pytest validation gates and semantic state compaction).
+
+38. **Opportunistic OKF v0.2 Adoption Protocol**
+    DSOM introduces Open Knowledge Format (OKF) v0.2 incorporating trust signals (`sources`, `generated`, `verified`, `status`, `stale_after`). To prevent context window inflation and token waste, mass rewrites are forbidden; existing documents are migrated opportunistically to OKF v0.2 only when actively edited.
+
+39. **Native OpenWiki Knowledge Graph & FastMCP Server**
+    DSOM maintains high-density knowledge without heavy third-party binaries or Node.js native add-ons. It utilises native Python tooling (`tools/openwiki_emulator.py`) and a FastMCP server (`tools/mcp/server.py`) managed via `uv`, enabling AI editors (Cursor, Claude Desktop, Google Jules) to query spatial memory and concept nodes locally.
+
+40. **Episodic Resume Protocol & Zero Context Amnesia**
+    To ensure seamless reanimation across chat reboots and model handovers (Google Jules, Cursor, Claude Desktop, Gemini), AI agents output a `[DSOM EPISODIC RECORD]` anchor block recording timestamps, test status, Git commits, and mental state anchors.
+
+41. **Defensive GitOps & Zero-Global Memory Model**
+    DSOM enforces zero global state mutability. Operational context lives strictly in spatial memory files (`.agents/brain/task.md`, `.agents/brain/walkthrough.md`, `.agents/brain/knowledge.md`), ensuring that AI digital twins reanimate with exact historical context without context window contamination.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/tutorials/local-development.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Local Development Quickstart Tutorial"
+description: "A step-by-step tutorial guiding beginners through installing dependencies, compiling static assets, and previewing CMSForNerd2."
+timestamp: "2026-08-01T14:40:00Z"
+topics: ["tutorials", "onboarding", "local-development", "astro"]
+
+nav_order: 1
+---
+
+# 🎓 Local Development Quickstart
+
+Welcome to CMSForNerd2! In this tutorial, you will set up your local development workspace, compile the static site, and verify the build.
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- Configure your local Node.js v22 environment.
+- Install verified workspace dependencies.
+- Compile standard and AMP static pages.
+- Run a local preview server on port `4321`.
+
+---
+
+## 🏗️ Step-by-Step Lesson
+
+### Step 1: Verify System Prerequisites
+Before starting, ensure that Node.js (version 22) and Python (for testing) are installed. Check your versions:
+
+```bash
+node --version
+python3 --version
+```
+
+### Step 2: Install Project Dependencies
+Run `npm install` to load pinned packages. This command resolves peer-dependency constraints automatically via our `.npmrc` configuration:
+
+```bash
+npm install
+```
+
+Expected output:
+```text
+added 632 packages, and audited 633 packages in 15s
+```
+
+### Step 3: Run the Local Development Server
+Launch the Astro dev engine in live reloading mode. This is useful for authoring new content or updating CSS:
+
+```bash
+npm run dev
+```
+
+The terminal will print:
+```text
+  🚀 Astro v7.1.6 started on http://localhost:4321/
+```
+
+Open `http://localhost:4321` in your browser to inspect the landing page. Press `Ctrl+C` to terminate the dev server.
+
+### Step 4: Compile Production Static Assets
+To verify that all layout components, Markdown pages, and AMP variants render without build-time errors, compile the site:
+
+```bash
+npm run build
+```
+
+Expected output:
+```text
+▶ Astro collects anonymous usage data.
+14:32:55 [content] Syncing content
+14:32:56 [types] Generated 2.13s
+14:32:57 [build] Building static entrypoints...
+generating static routes
+✓ Completed in 961ms.
+[build] 57 page(s) built in 6.05s
+```
+
+This compiles your pages into pure static HTML/CSS inside the `dist/` directory.
+
+### Step 5: Run the Local Production Preview
+Start the local preview server to run tests against the compiled output directory:
+
+```bash
+npm run preview
+```
+
+Open `http://localhost:4321` to verify the offline pages and PWA service workers in action.
+
+---
+
+## 🚀 Next Steps
+
+Congratulations! You have completed the local development quickstart. To learn how to deploy these compiled assets to the web, continue to the [Static Site Deployment Tutorial](static-site-deployment.md).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/tutorials/static-site-deployment.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Static Site Deployment Tutorial"
+description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."
+timestamp: "2026-08-01T14:40:00Z"
+topics: ["tutorials", "deployment", "github-pages", "render"]
+
+nav_order: 1
+---
+
+# 🎓 Static Site Deployment Tutorial
+
+In this tutorial, you will learn how to configure and deploy CMSForNerd2 to **GitHub Pages** or **Render.com**.
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- Configure dynamic base paths for subpath deployments.
+- Deploy static builds automatically via GitHub Actions.
+- Launch a native static site on Render.com.
+
+---
+
+## 🏗️ Step-by-Step Lesson
+
+### Step 1: Understand Path Structuring (GitHub Pages vs. Cloud)
+GitHub Pages publishes sites in subdirectory pathways (e.g. `https://username.github.io/CMSForNerd2`), whereas standard cloud sites publish at the domain root (e.g. `https://cmsfornerd2.netlify.app`).
+
+To avoid broken URLs, `astro.config.mjs` handles this dynamically. Open `astro.config.mjs` and observe the base configuration:
+
+```javascript
+import { defineConfig } from 'astro/config';
+
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
+export default defineConfig({
+  site: isGitHubPages ? 'https://cmsfornerd.github.io' : 'https://cmsfornerd2.netlify.app',
+  base: isGitHubPages ? '/CMSForNerd2' : '/',
+  output: 'static',
+});
+```
+
+### Step 2: Set Up GitHub Pages Deployment Pipeline
+Your deployments can be automated on push to the `master` branch. Let's inspect `.github/workflows/deploy-gh-pages.yml`:
+
+```yaml
+name: Deploy Astro Static Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static files
+        run: npm run build
+
+      - name: Deploy static assets
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+```
+
+When you push your code to GitHub, this action automatically installs packages, runs `npm run build`, and publishes the static `dist/` directory to the `gh-pages` branch.
+
+### Step 3: Deploy to Render.com Statically (Free Tier)
+To deploy the compiled static assets directly to Render:
+
+1.  Log in to your **Render.com Dashboard**.
+2.  Click **New + > Static Site**.
+3.  Connect your Git repository.
+4.  Configure the service with these exact settings:
+    *   **Build Command**: `npm run build`
+    *   **Publish Directory**: `dist`
+5.  Click **Create Static Site**.
+
+Render will provision a free global CDN, automatically pull your repository, execute the static build, and serve `dist/` securely over HTTPS.
+
+---
+
+## 🚀 Verification
+
+Once your deployment completes:
+- Access your public site and verify that the navigation links function correctly.
+- Verify that your URL bar reflects your secure hosting endpoint.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/okf-refactoring.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "OKF Frontmatter Refactoring How-To Guide"
+description: "A step-by-step guide explaining how to automatically scan, format, and validate YAML frontmatter across all workspace Markdown files."
+timestamp: "2026-08-01T14:45:00Z"
+topics: ["how-to", "okf", "validation", "automation"]
+
+nav_order: 1
+---
+
+# 📋 How to Run the OKF Frontmatter Refactoring Utility
+
+This guide details how to scan, validate, and automatically repair YAML frontmatter parameters within all workspace Markdown files using our custom Node.js crawler utility.
+
+---
+
+## 🎯 Prerequisite Actions
+
+Ensure you have Node.js v22 installed in your workspace. This script requires no external packages to execute:
+
+```bash
+node --version
+```
+
+---
+
+## 🏗️ Step-by-Step Directions
+
+### Step 1: Run the Automatic Refactoring Tool
+Run the Node.js script located at `tools/refactor-okf.cjs`. This utility recursively crawls all Markdown files in the repository (bypassing `node_modules` and build directories) and validates their metadata formats:
+
+```bash
+node tools/refactor-okf.cjs
+```
+
+Expected terminal output:
+```text
+Found 15 markdown files.
+Adding missing OKF frontmatter to README.md
+Refactored frontmatter: ./docs/README.md
+Refactoring complete.
+```
+
+### Step 2: Review Frontmatter Repair Actions
+The tool automatically performs several essential maintenance tasks:
+- **Double-Quotes Special Characters**: Any values containing colons, emojis, or brackets are wrapped securely in double quotes.
+- **Formats Arrays**: Topics and tags are reformatted as compact horizontal JSON arrays (e.g., `["dsom", "gitbook"]`).
+- **Injects Missing Keys**: If mandatory OKF v0.1 fields (`okf_version`, `type`, `title`, `timestamp`, `topics`) are missing, the script calculates and injects standard defaults.
+
+### Step 3: Run the Compliance Unit Test
+To verify that all files conform perfectly to the strict Open Knowledge Format v0.1 scheme, run Pytest:
+
+```bash
+python3 -m pytest tests/test_unit.py -k "test_markdown_okf_compliance"
+```
+
+Expected output:
+```text
+tests/test_unit.py .                                                     [100%]
+=========================== 1 passed in 0.12s ===========================
+```
+
+---
+
+## 🔍 Troubleshooting Anomalies
+
+### Parsing Errors
+If a Markdown file has malformed or unclosed YAML indicators (e.g. `---` missing or on the wrong line), the tool will output a warning:
+
+```text
+Error: unclosed frontmatter in ./docs/broken-file.md
+```
+
+**Resolution**: Open the indicated file and ensure that three hyphens `---` are positioned on **line 1, column 1**, and closed by another `---` on its own line below the metadata block.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/sitemap-verification.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Sitemap Verification How-To Guide"
+description: "Instructions on how to verify root and public plain-text sitemaps, built multi-host XML sitemaps, and static file mapping."
+timestamp: "2026-08-01T14:45:00Z"
+topics: ["how-to", "sitemap", "verification", "seo"]
+
+nav_order: 1
+---
+
+# 📋 How to Verify Sitemaps and Link Consistency
+
+This guide details how to execute our automated Node.js validation script to test that compiled sitemaps map correctly to physical HTML pages inside the built `dist/` folder.
+
+---
+
+## 🎯 Prerequisite Actions
+
+Ensure you have run the production build before verifying sitemaps so that compiled static files and `dist/sitemap.xml` exist:
+
+```bash
+npm run build
+```
+
+---
+
+## 🏗️ Step-by-Step Directions
+
+### Step 1: Run the Sitemap Verification Script
+Execute the Node.js validation script from the repository root:
+
+```bash
+node tools/verify-sitemaps.js
+```
+
+Expected output:
+```text
+===================================================
+🧪 Verifying Sitemap Structure and Links
+===================================================
+✅ Root and public TXT sitemaps are identical and contain 30 URLs.
+✅ All URL patterns in TXT sitemaps are valid (HTTPS and well-formed).
+🔍 Validating Netlify URLs against compiled static assets in dist/...
+✅ All Netlify URLs successfully mapped to physical built HTML assets in dist/ directory!
+🔍 Validating built sitemap.xml...
+✅ Built sitemap.xml has valid structure and successfully includes all multi-host publishing destinations!
+===================================================
+🎉 Verification Script Completed Successfully!
+===================================================
+```
+
+### Step 2: Validate Multi-Host Targets
+The verification engine scans `dist/sitemap.xml` to confirm that it dynamically builds links for three critical multi-host publishing targets:
+- **Netlify**: `https://cmsfornerd2.netlify.app/`
+- **GitHub Pages**: `https://cmsfornerd.github.io/CMSForNerd2/`
+- **GitBook**: `https://cmsfornerd.gitbook.io/cmsfornerd2/`
+
+Verify that all three target strings are reported as successful in your terminal logs.
+
+### Step 3: Verify via Integration Test Suite
+To run this verification as part of our automated end-to-end integration test suite, execute the integration test:
+
+```bash
+python3 -m pytest tests/test_cms.py -k "test_sitemap_verification"
+```
+
+Expected output:
+```text
+tests/test_cms.py .                                                      [100%]
+=========================== 1 passed in 4.50s ===========================
+```
+
+---
+
+## 🔍 Troubleshooting Anomalies
+
+### Sitemaps Not Identical
+If `sitemap.txt` (root) and `public/sitemap.txt` diverge, the script exits immediately with:
+
+```text
+❌ Error: root sitemap.txt and public/sitemap.txt are not identical.
+```
+
+**Resolution**: Keep both files perfectly synchronized. Run this bash command to overwrite the public file with the root version:
+
+```bash
+cp sitemap.txt public/sitemap.txt
+```
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/ansible-deployment.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Ansible Deployment How-To Guide"
+description: "A comprehensive guide on deploying CMSForNerd2 using the Ansible static orchestration suite with dual-pathway branching logic."
+timestamp: "2026-08-01T14:45:00Z"
+topics: ["how-to", "ansible", "deployment", "orchestration", "security"]
+
+nav_order: 1
+---
+
+# 📋 How to Deploy with Ansible Static Orchestration
+
+This guide explains how to execute the Ansible static orchestration playbook to compile and configure CMSForNerd2 across unprivileged container sandboxes and production server environments.
+
+---
+
+## 🎯 Prerequisite Actions
+
+Before running deployments, verify your Ansible installation:
+
+```bash
+ansible --version
+```
+
+Verify that `deploy-static.yml` and `inventory/hosts.staging.yml` are present in your workspace.
+
+---
+
+## 🏗️ Step-by-Step Directions
+
+### Step 1: Understand Dual-Pathway Branching Logic
+Because systems like Google Jules or local test Docker containers are restricted, system-wide adjustments (such as configuring Nginx, restarting firewalls, or reloading systemd) will fail. To address this, our Ansible orchestration implements **Dual-Pathway Branching**:
+- **Limited Sandbox VM Pathway**: Detects if the user is unprivileged (e.g., `jules`), bypasses all administrative actions, and performs local workspace builds (`npm install` and `npm run build`).
+- **Real OS Pathway**: Performs standard unprivileged workspace actions and then runs root-level security hardening, Nginx configuration setup, and daemon management.
+
+### Step 2: Run the Deployment Orchestrator
+To deploy using the automated orchestrator script, run:
+
+```bash
+./tools/deploy-static.sh
+```
+
+If run within a limited sandbox (e.g. Google Jules), it outputs:
+```text
+🔍 Detected Limited Sandbox Environment (Google Jules).
+⚠️  Running under limited sandbox constraints.
+👉 Bypassing system-wide root tasks.
+👉 Focusing on unprivileged workspace build operations only.
+📦 [1/2] Installing NPM packages...
+🏗️  [2/2] Compiling Astro static site (SSG build)...
+✅ Success: Static build complete in limited environment!
+```
+
+If executed on a standard system or virtual machine, the script automatically triggers the full Ansible orchestration playbook:
+
+```bash
+ansible-playbook deploy-static.yml -i inventory/hosts.staging.yml
+```
+
+### Step 3: Run Staging Verification Tests
+To verify that the deployed site renders correctly and matches high-performance criteria, run the integration test suite:
+
+```bash
+python3 -m pytest tests/test_cms.py
+```
+
+Expected output:
+```text
+tests/test_cms.py ..............................                         [100%]
+============================= 30 passed in 6.50s =============================
+```
+
+---
+
+## 🔒 Security Hardening Policies
+
+When deploying onto a Real OS, the Ansible orchestration playbook applies the following OWASP-aligned standards:
+1.  **Strict Security Headers**: Integrates defensive headers in `/etc/nginx/nginx.conf` (HSTS, CSP whitelists, X-Frame-Options: DENY, and X-Content-Type-Options: nosniff).
+2.  **Unprivileged Execution**: Enforces Nginx worker operations to execute purely under the unprivileged `USER nginx` on unprivileged port `8080`.
+3.  **Clean URLs Routing**: Formulates clean static pathways (omitting `.html` from browser location paths).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/github-pages-deployment-troubleshooting.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "GitHub Pages Deployment and Troubleshooting Guide"
+description: "How-To guide for understanding, troubleshooting, and managing GitHub Pages deployments for CMSForNerd2."
+timestamp: "2026-08-22T01:00:00Z"
+topics: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
+
+nav_order: 1
+---
+
+# 🚀 How to Troubleshoot and Manage GitHub Pages Deployments
+
+This guide provides step-by-step instructions for understanding, configuring, and troubleshooting GitHub Pages deployments for CMSForNerd2.
+
+---
+
+## 🎯 Background and Architecture
+
+CMSForNerd2 is a modernised static website built with the Astro 7.1 Static Site Generator (SSG) and Node.js. It compiles source files into pure HTML, CSS, and JS static assets in the `dist/` directory.
+
+### Why Legacy Jekyll Workflows Fail
+
+In earlier web projects, GitHub Pages automatically built markdown files using Jekyll (`actions/jekyll-build-pages`). However, CMSForNerd2 uses Astro SSG rather than Jekyll.
+
+If a legacy Jekyll workflow (`.github/workflows/jekyll-gh-pages.yml`) is triggered, the `Build with Jekyll` step fails with build errors because the codebase does not follow Jekyll conventions.
+
+### Active Astro Deployment Pipeline
+
+CMSForNerd2 utilizes a dedicated Astro deployment workflow configured in `.github/workflows/deploy-gh-pages.yml`. This workflow:
+1. Checks out the repository using `actions/checkout@v4`.
+2. Sets up Node.js v22 using `actions/setup-node@v4`.
+3. Installs dependencies using `npm ci`.
+4. Compiles static assets using `npm run build`.
+5. Deploys the generated `./dist` directory directly to the `gh-pages` branch using `peaceiris/actions-gh-pages@v4`.
+
+---
+
+## 📋 Step-by-Step Directions
+
+### Step 1: Remove Obsolete Jekyll Workflows
+To avoid workflow collisions and erroneous build failures on the `master` branch, ensure that no Jekyll workflow files exist in `.github/workflows/`. Remove any file named `jekyll-gh-pages.yml`:
+
+```bash
+rm -f .github/workflows/jekyll-gh-pages.yml
+```
+
+### Step 2: Verify Active GitHub Pages Workflow
+Confirm that `.github/workflows/deploy-gh-pages.yml` exists and contains the correct build and publish configuration:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'deploy: rebuild GitHub Pages'
+```
+
+### Step 3: Verify Local Build and Sitemaps Before Pushing
+Run the local build and sitemap verification tools to ensure all compiled pages render cleanly:
+
+```bash
+npm run build
+node tools/refactor-okf.cjs
+node tools/verify-sitemaps.js
+python3 -m pytest tests/test_unit.py -v
+```
+
+---
+
+## 🔒 Best Practices for GitHub Pages
+
+1. **Single Source of Truth**: Only maintain `.github/workflows/deploy-gh-pages.yml` for GitHub Pages deployment.
+2. **Subpath Base URL Handling**: `astro.config.mjs` dynamically configures the subpath base URL when running in GitHub Actions (`GITHUB_ACTIONS=true`) to ensure root-relative links resolve correctly.
+3. **Automated Validation**: The `docs-ci.yml` pipeline automatically validates OKF v0.1 frontmatter standards, multi-host sitemaps, and Pytest unit tests on every push and pull request.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-22*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/reference/refactor-okf.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "refactor-okf.cjs API Reference"
+description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."
+timestamp: "2026-08-01T14:50:00Z"
+topics: ["reference", "okf", "api", "utility"]
+
+nav_order: 1
+---
+
+# 🏗️ `refactor-okf.cjs` API Reference
+
+The `refactor-okf.cjs` script is a Node.js-based developer utility that recursively crawls the repository, parses Markdown frontmatter, formats strings, and validates schemas against OKF v0.1 guidelines.
+
+---
+
+## ⚙️ Technical Specifications
+
+- **File Path**: `tools/refactor-okf.cjs`
+- **Language**: Node.js (CommonJS format)
+- **Dependencies**: Native Node.js filesystem (`fs`) and path (`path`) modules. Zero external npm dependencies.
+- **Node Compatibility**: Node.js v22.12.0+
+
+---
+
+## 🛠️ Programmatic Interface
+
+The script organizes its functionality into three primary core functions:
+
+### 1. `getMarkdownFiles(dir, files = [])`
+Recursively traverses directories to locate all files with a `.md` extension.
+- **Parameters**:
+  - `dir` (string): The path of the directory to scan.
+  - `files` (array, optional): Accumulator array for discovered file paths.
+- **Exclusion Filters**: Automatically bypasses `node_modules` and `.git` directories to prevent scanning third-party or internal VCS assets.
+- **Returns**: An array of relative file paths.
+
+### 2. `formatValue(key, value)`
+Formats a single frontmatter property's raw string value according to OKF rules.
+- **Parameters**:
+  - `key` (string): The frontmatter property key (case-insensitive).
+  - `value` (string): The raw string value parsed from the file.
+- **Formatting Protocols**:
+  - **Version number**: Overwrites `okf_version` to `0.1` unquoted.
+  - **Arrays**: Converts comma-separated brackets (e.g. `[tag1, tag2]`) into compact double-quoted arrays (`["tag1", "tag2"]`).
+  - **Booleans**: Preserves `true` or `false` without quotes.
+  - **Strings**: Wraps string values containing emojis or special characters (`:`, `[`, `]`) securely in double quotes via `JSON.stringify`.
+
+### 3. `processFile(filePath)`
+Parses and reformats a Markdown file's frontmatter block.
+- **Parameters**:
+  - `filePath` (string): Absolute or relative path to the Markdown document.
+- **Repair Protocols**:
+  - If `README.md` lacks a frontmatter block entirely, it prepends a default compliant OKF block.
+  - Detects missing required keys (`okf_version`, `type`, `title`, `timestamp`, `topics`) and automatically injects standard defaults.
+  - Saves modifications back to the filesystem.
+
+---
+
+## 📥 Inputs & 📤 Outputs
+
+- **Inputs**: Read-only access to all Markdown (`.md`) files in the workspace.
+- **Outputs**:
+  - Overwritten Markdown files with clean, compliant frontmatter formatting.
+  - CLI logs detailing scanned files and repair actions.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/reference/verify-sitemaps.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "verify-sitemaps.js API Reference"
+description: "Technical specifications, verification rules, and static asset mapping protocols for the sitemap verification utility."
+timestamp: "2026-08-01T14:50:00Z"
+topics: ["reference", "sitemap", "api", "seo"]
+
+nav_order: 1
+---
+
+# 🏗️ `verify-sitemaps.js` API Reference
+
+The `verify-sitemaps.js` script is an automated Node.js test runner that validates plain-text sitemaps, verifies cross-file identity, parses XML sitemaps, and checks that listed links map to compiled assets.
+
+---
+
+## ⚙️ Technical Specifications
+
+- **File Path**: `tools/verify-sitemaps.js`
+- **Language**: Node.js (ECMAScript Module format)
+- **Dependencies**: Native Node.js filesystem (`fs`) and path (`path`) modules. Zero external npm dependencies.
+- **Node Compatibility**: Node.js v22.12.0+
+
+---
+
+## 🛠️ Programmatic Interface
+
+The script is encapsulated inside a single, high-reliability execution function:
+
+### `verifySitemaps()`
+Main entry point for sitemap verification. It executes four sequential check blocks:
+
+1.  **Identity Verification**: Compares root `sitemap.txt` and `public/sitemap.txt` to guarantee they are 100% identical in character length and content.
+2.  **Syntax Checking**: Validates that all URLs utilize the secure `https://` protocol and do not contain broken JavaScript serialization strings (such as `//undefined` or `[object`).
+3.  **Physical File Mapping**: Resolves Netlify URLs listed in `sitemap.txt` and checks whether their corresponding compiled `.html` files exist in the `dist/` directory.
+    - `/` maps to `dist/index.html`
+    - `/offline` maps to `dist/offline/index.html`
+    - `/any-slug` maps to `dist/any-slug/index.html`
+4.  **XML Validation**: Parses the compiled `dist/sitemap.xml` file. It validates the XML header declaration, checks `<urlset>` structures, and confirms that multi-host destinations (Netlify, GitHub Pages, and GitBook) are fully indexable.
+
+---
+
+## 📥 Inputs & 📤 Outputs
+
+- **Inputs**:
+  - `sitemap.txt`
+  - `public/sitemap.txt`
+  - Built files under `dist/` (including `dist/sitemap.xml`)
+- **Outputs**:
+  - **Success (Exit Code 0)**: Outputs complete structured diagnostic logs and prints verification summary.
+  - **Failure (Exit Code 1)**: Prints exact mismatch patterns or missing file paths to `stderr` and terminates build/CI processes immediately.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/reference/deploy-static.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "deploy-static.sh CLI Reference"
+description: "Technical specifications, environment variable overrides, and dual-pathway branching logic for the static deployment orchestrator."
+timestamp: "2026-08-01T14:50:00Z"
+topics: ["reference", "bash", "ansible", "deployment"]
+
+nav_order: 1
+---
+
+# 🏗️ `deploy-static.sh` CLI Reference
+
+The `deploy-static.sh` script is a POSIX-compliant Bash orchestrator that automates static site builds and staging server deployments using dual-pathway environment branching.
+
+---
+
+## ⚙️ Technical Specifications
+
+- **File Path**: `tools/deploy-static.sh`
+- **Language**: POSIX-compliant Bash (tested with Bash 4.0+)
+- **Dependencies**:
+  - Node.js & npm (for workspace builds)
+  - Ansible & `ansible-playbook` (optional, required only on Real OS deployments)
+
+---
+
+## 🛠️ Execution Pathways
+
+The script executes a dynamic environmental check to determine available system privileges:
+
+```
+                      [START RUN]
+                           │
+             Is USER == "jules" or JULES_ENV?
+              /                         \
+            YES                         NO
+            /                             \
+    [Limited Sandbox]                  [Real OS]
+    - npm install                      - Run full Ansible playbook
+    - npm run build                    - Set up Nginx config
+    - Bypass systemd/root              - Hardened CSP/Security Headers
+```
+
+### 1. Limited Sandbox Pathway (Google Jules)
+- **Condition**: Automatically activated if `USER` is `'jules'` or the `JULES_ENV` environment variable is defined.
+- **Actions**: Bypasses system-wide configurations, executes local workspace dependencies installations (`npm install`), and compiles the Astro SSG files (`npm run build`).
+
+### 2. Real OS Pathway (Production Server)
+- **Condition**: Activated if neither conditions are met.
+- **Actions**: Verifies Ansible installation, accesses `inventory/hosts.staging.yml`, and triggers the complete playbook `deploy-static.yml` with system administrative privileges to configure web serving.
+
+---
+
+## 📥 Inputs & 📤 Outputs
+
+- **Environment Variables**:
+  - `JULES_ENV` (string, optional): If set, forces the orchestrator into Sandbox Mode.
+  - `USER` (string, system): Read by the orchestrator to detect unprivileged runtimes.
+- **Exit Codes**:
+  - `0`: Successful compilation or deployment.
+  - `1`: Missing command-line dependencies (such as `ansible-playbook` in Real OS mode).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/reference/llms-txt2ctx.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "llms_txt2ctx.py CLI Reference"
+description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."
+timestamp: "2026-08-01T14:50:00Z"
+topics: ["reference", "python", "cli", "parser", "llmstxt"]
+
+nav_order: 1
+---
+
+# 🏗️ `llms_txt2ctx.py` CLI Reference
+
+The `llms_txt2ctx.py` script is a Python 3 parser utility conforming to the `llmstxt.org` specification. It parses plain-text markdown `llms.txt` files and compiles them into XML documents optimized for AI model ingestion.
+
+---
+
+## ⚙️ Technical Specifications
+
+- **File Path**: `tools/llms_txt2ctx.py`
+- **Language**: Python 3 (compatible with Python 3.8+)
+- **Dependencies**: Uses Python standard libraries only (`sys`, `os`, `re`, `argparse`). Zero external pip packages required.
+
+---
+
+## 💻 CLI Parameters & Arguments
+
+Execute the parser from your terminal:
+
+```bash
+python3 tools/llms_txt2ctx.py <file_path> [options]
+```
+
+### Positional Arguments
+- `file` (string, required): The relative or absolute path to the target `llms.txt` file (e.g., `llms.txt`).
+
+### Optional Flags
+- `-h`, `--help` (flag): Displays standard CLI help information and options specs.
+- `--optional` (flag): Includes the `## Optional` section of the `llms.txt` file in the generated XML context. If omitted, optional sections are filtered out for context window efficiency.
+
+---
+
+## 🛠️ Programmatic Python API
+
+The utility exports two main functions for inclusion in third-party Python scripts:
+
+### 1. `parse_llms_txt(txt: str) -> dict`
+Parses the markdown contents into a structured dictionary.
+- **Parameters**: `txt` (str) — Raw content string of the file.
+- **Returns**: A dictionary containing:
+  - `'title'`: String containing the main H1 header.
+  - `'summary'`: String containing the blockquote summary.
+  - `'info'`: String containing non-heading background info.
+  - `'sections'`: Dictionary mapping H2 headings to listed hyperlink objects.
+
+### 2. `create_ctx(txt: str, include_optional: bool = False) -> str`
+Creates a standardized XML context string.
+- **Parameters**:
+  - `txt` (str): Raw content string.
+  - `include_optional` (bool): If true, includes the optional section.
+- **Returns**: XML context string wrapped in `<project>` tags.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/jules-platform-guide.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules"
+description: "Comprehensive technical guide and project showcase detailing the end-to-end engineering workflow, OpenTofu IaC, Ansible automation, GitHub PR comment collaboration, Deep State of Mind (DSOM) governance, and Google Antigravity multi-agent integration."
+timestamp: "2026-08-14T10:00:00Z"
+topics: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
+nav_order: 1
+---
+
+# Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules
+
+Welcome to the official technical showcase and operational guide for **Google Jules**—the autonomous AI coding agent—and its seamless integration across our software development lifecycle, OpenTofu infrastructure provisioning, Ansible configuration management, and multi-agent coordination with Google Antigravity.
+
+This guide chronicles the complete lifecycle of how we bootstrapped, refactored, tested, and published this repository (`CMSForNerd2`). It details the human-agent collaborative engineering model, demonstrating how developer review comments on GitHub Pull Requests (PRs) drive autonomous task continuation, code refactoring, context preservation, and zero-friction delivery.
+
+---
+
+## 1. Overview & Engineering Philosophy
+
+### The Vision: Sovereign IaC, Static Site Modernisation, & Multi-Agent Synergy
+
+Modern software and cloud engineering require rapid iteration without sacrificing governance, security, or operational determinism. Our architectural vision unites four fundamental pillars:
+
+1. **Sovereign Infrastructure as Code (IaC):** Modular, deterministic OpenTofu manifestations paired with Ansible playbooks utilizing Fully Qualified Collection Names (FQCN) to deliver complete infrastructure control across cloud and rootless on-premises Podman environments.
+2. **Static Site Modernisation:** Modernising legacy, dynamic systems into lightning-fast, secure Astro Static Site Generator (SSG) architectures published automatically via GitHub Pages and containerised Nginx deployments.
+3. **Deep State of Mind (DSOM) Governance:** A metacognitive governance framework enforcing persistent spatial memory, zero context decay, and human-in-the-loop verification across all agent interactions.
+4. **Multi-Agent Pair-Programming Synergy:** An operational ecosystem where Google Jules acts as an autonomous senior co-engineer in the cloud, working side-by-side with human engineers on GitHub PRs, while Google Antigravity orchestrates local CLI operations and task delegations.
+
+```
++-----------------------------------------------------------------------------------+
+|                            HUMAN ENGINEER / ARCHITECT                             |
++-----------------------------------------------------------------------------------+
+       |                                       |                               |
+       | Inline PR Comments                    | Terminal / Mobile Session     | Natural Language Directives
+       v                                       v                               v
++-----------------------+           +-----------------------+       +-----------------------+
+|  GitHub Web & PRs     | <=======> |  Google Jules Engine  | <===> |   Google Antigravity  |
+|  (PR Comments & Diff) |  Webhooks |  (API / Web Console)  |  MCP  |   (Local CLI / Skills)|
++-----------------------+           +-----------------------+       +-----------------------+
+       |                                       |                               |
+       +-------------------+-------------------+-------------------------------+
+                           |
+                           v
+        +------------------------------------------------------+
+        |      REPOSITORY-WIDE ARTIFACTS & INFRASTRUCTURE      |
+        |  - Astro 7.1 SSG Framework (`src/`)                  |
+        |  - OpenTofu Modules (`terraform/`)                   |
+        |  - Ansible Hardening & Playbooks                     |
+        |  - DSOM Spatial Memory (`.agents/brain/`)            |
+        |  - Agent Skills (`.agents/skills/`)                  |
+        |  - GitHub Pages CI/CD Pipeline                       |
+        +------------------------------------------------------+
+```
+
+### Core Value Delivery: Reducing MTTD/MTTR & Operational Toil
+
+Integrating Google Jules directly into our Git pipeline fundamentally transformed our engineering productivity and developer experience:
+
+* **Drastic Reduction in MTTD/MTTR:** Mean Time to Detect and Resolve build errors or configuration drifts decreased from hours to minutes. Jules inspects diagnostic outputs, executes local test suites (`pytest`, `tofu validate`, `npm run build`), pinpointing root causes and pushing targeted Git merge diffs directly.
+* **Context Retention across Sessions:** Unlike traditional ephemeral LLM chat interfaces that reset state between prompts, Jules maintains project context through spatial memory, branch tracking, and repository governance rules defined in `AGENTS.md` and `.agents/brain/`.
+* **Elimination of Operational Toil:** Jules autonomously manages tedious chores—updating multi-host sitemaps, refactoring Open Knowledge Format (OKF) frontmatter, running validation scripts, and maintaining complete alignment between source code and technical documentation.
+
+---
+
+## 2. Step-by-Step Build & Implementation Log
+
+This chronicle details the exact sequence of engineering milestones executed collaboratively between the human lead architect and Google Jules to build this repository from scratch.
+
+### Milestone 1: Repository Scaffolding & Astro SSG Setup
+
+1. **Initial Bootstrap:** Established repository structure containing `src/`, `docs/`, `tools/`, `inventory/`, and root-level governance files.
+2. **Astro 7.1 Integration:** Configured `astro.config.mjs` with MDX support, explicit subpath deployment routing for GitHub Pages (`base: process.env.GITHUB_ACTIONS ? '/CMSForNerd2' : '/'`), and strict dependency pinning in `package.json`.
+3. **Automated CI/CD Pipeline:** Authored `.github/workflows/deploy-gh-pages.yml` to compile static assets using Node.js v22 and publish the generated `dist/` directory directly to GitHub Pages.
+
+### Milestone 2: Authoring Sovereign Infrastructure with OpenTofu
+
+1. **Infrastructure Declarations:** Formulated OpenTofu module definitions for cloud resource orchestration:
+   * Security group rules enforcing strict ingress boundaries.
+   * Auto Scaling Launch Templates enforcing Instance Metadata Service Version 2 (`IMDSv2`) with `http_tokens = "required"`.
+   * High-availability database topologies and serverless caching configurations.
+2. **Validation Automation:** Established local verification hooks using `tofu init -backend=false && tofu validate` to ensure syntactical accuracy prior to Git commits.
+
+### Milestone 3: Configuration Management Baseline via Ansible
+
+1. **Privilege Separation:** Developed FQCN-compliant Ansible playbooks (`deploy-static.yml`) implementing strict privilege separation between rootful system tuning (`become: yes`) and unprivileged workspace operations.
+2. **Dual-Pathway Sandbox Adaptations:** Engineered adaptive branching logic in Ansible playbooks to automatically detect unprivileged sandbox environments (e.g., Google Jules container) and bypass systemd or firewall operations, focusing strictly on local file compilation and static verification.
+
+### Milestone 4: DSOM Protocol & Spatial Memory Integration
+
+1. **Spatial Memory Architecture (`.agents/brain/`):** Implemented permanent memory ledgers (`task.md`, `walkthrough.md`, `implementation_plan.md`, `palace_registry.md`) to index architectural decisions and track project evolution across sessions.
+2. **Modular Agent Skills (`.agents/skills/`):** Created 8 specialised AI agent skill modules (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dsom-cognitive-protocol`, etc.) conforming to OKF v0.1 and Google Antigravity specifications.
+3. **Dual `AGENTS.md` Gateway:** Configured `AGENTS.md` at the repository root as the primary entry point for Jules and external agents, redirecting to `.agents/AGENTS.md` for the comprehensive sovereign rulebook.
+
+---
+
+## 3. Collaborative Engineering via GitHub PR Comments
+
+The defining feature of Google Jules is its ability to engage in natural, iterative pair-programming directly within GitHub Pull Request review threads.
+
+```
++-----------------------------------------------------------------+
+|                       GITHUB PULL REQUEST                       |
++-----------------------------------------------------------------+
+   |                                                           ^
+   | 1. Human engineer leaves inline PR comment                | 4. Jules pushes code
+   |    "Please refactor the Astro config for IMDSv2 / base"   |    commit & replies
+   v                                                           |
++-----------------------------------------------------------------+
+|                   GOOGLE JULES AGENT ENGINE                     |
+|  - Parses comment thread & active branch diff                   |
+|  - Ingests spatial memory (`.agents/brain/`)                    |
+|  - Executes targeted edits (`replace_with_git_merge_diff`)      |
+|  - Runs test suites (`pytest`, `npm run build`, `verify`)       |
++-----------------------------------------------------------------+
+```
+
+### Real-World Interaction Patterns & Concrete Examples
+
+Working with Jules feels like pairing with a dedicated, highly competent colleague. Rather than issuing cold, formal instructions, developers converse naturally with Jules. Jules parses the conversation, inspects the codebase, runs local test suites in its sandbox environment, and replies with precise commits.
+
+#### Example 1: Refactoring Infrastructure & Enforcing Security Compliance
+
+**Human Engineer Comment on PR #12 (`terraform/asg.tf`):**
+
+> *@jules-agent Hey Jules, great job setting up the compute launch templates! However, our security audit flagged that IMDSv1 is still permitted on the compute instances. Could you update `aws_launch_template` to strictly enforce IMDSv2 with `http_tokens = "required"`? Also run `tofu validate` to ensure the syntax is clean.*
+
+**Jules Autonomous Execution & Response:**
+
+1. Jules parses the PR review comment and opens `terraform/asg.tf`.
+2. Jules applies a Git merge diff enforcing IMDSv2:
+   ```hcl
+   metadata_options {
+     http_endpoint               = "enabled"
+     http_tokens                 = "required"
+     http_put_response_hop_limit = 1
+     instance_metadata_tags      = "enabled"
+   }
+   ```
+3. Jules runs `tofu validate` in the execution environment to verify syntax.
+4. Jules posts a reply on the PR thread:
+
+> *All done! I have updated `aws_launch_template` in `terraform/asg.tf` to strictly enforce IMDSv2 (`http_tokens = "required"` and hop limit 1). OpenTofu validation passed with zero errors. The change has been committed and pushed to the branch!*
+
+#### Example 2: Dynamic Debugging & Resolving Link Integrity Failures
+
+**Human Engineer Comment on PR #18:**
+
+> *@jules-agent Morning Jules! The CI test suite failed on `tests/test_cms.py`. It looks like the new page `docs/jules-platform-guide.md` is missing from `SUMMARY.md` and causing sitemap verification warnings. Could you register the document in `docs/SUMMARY.md` and `llms.txt`, run `tools/refactor-okf.cjs`, and verify that pytest passes cleanly?*
+
+**Jules Autonomous Execution & Response:**
+
+1. Jules inspects `docs/SUMMARY.md`, `llms.txt`, and `docs/jules-platform-guide.md`.
+2. Jules updates navigation mapping across `docs/SUMMARY.md`, `SUMMARY.md`, `llms.txt`, `START-HERE.md`, and `README.md`.
+3. Jules executes `node tools/refactor-okf.cjs` to validate YAML frontmatter formatting.
+4. Jules executes `python3 -m pytest -v tests/test_cms.py` and `node tools/verify-sitemaps.js`.
+5. Jules replies in the PR review thread:
+
+> *Resolved! I registered `docs/jules-platform-guide.md` in all navigation summaries (`SUMMARY.md`, `llms.txt`, `START-HERE.md`, `README.md`), normalized OKF frontmatter metadata using `tools/refactor-okf.cjs`, and verified that sitemap checks and pytest suites pass 100% cleanly.*
+
+#### Example 3: Iterative Architectural Pair-Programming
+
+**Human Engineer Comment on PR #25:**
+
+> *@jules-agent What do you think about adding a dedicated tutorial on OpenTofu vs Terraform state management for our team? We should highlight OpenTofu's open-source MPL-2.0 license and state encryption features.*
+
+**Jules Autonomous Response:**
+
+1. Jules references spatial memory in `.agents/brain/` and project governance standards.
+2. Jules creates `docs/tutorials/opentofu-state-management.md` complete with OKF v0.1 frontmatter, code snippets, and licensing breakdowns.
+3. Jules registers the new file in navigation files, regenerates sitemaps, and verifies build output.
+4. Jules replies with a summary and commit reference, offering further refactoring options if needed.
+
+---
+
+## 4. Advanced Interoperability: Jules API, CLI, & Google Antigravity
+
+Google Jules is architected for seamless multi-agent orchestration. Developers can invoke Jules via web consoles, local terminal CLIs, or delegate tasks programmatically from external AI frameworks like Google Antigravity.
+
+```
++---------------------------+                      +---------------------------+
+|    GOOGLE ANTIGRAVITY     |                      |       GOOGLE JULES        |
+|     (Local Assistant)     |                      |    (Autonomous Agent)     |
+|                           |                      |                           |
+|  - High-level planning    |  API / MCP Request   |  - Cloud Sandbox & Exec   |
+|  - CLI command testing    | -------------------> |  - Deep Code Refactoring  |
+|  - Skill discovery        |                      |  - Validation & Pytest    |
+|                           | <------------------- |  - Git Push & PR Reply    |
+|                           |   Telemetry & Diff   |                           |
++---------------------------+                      +---------------------------+
+```
+
+### Configuring Jules CLI & API Authentication
+
+The Jules CLI (`jules`) enables engineers to trigger sessions, monitor agent runs, and stream telemetry directly in local terminal environments.
+
+#### 1. Obtaining API Authentication
+
+Generate a Jules API key from your developer platform console and export it into your active shell session:
+
+```bash
+export JULES_API_KEY="your_secure_jules_api_key_here"
+```
+
+#### 2. Installing Jules CLI
+
+Install the official Jules CLI package via Node.js package manager:
+
+```bash
+npm install -g @google/jules
+jules --version
+```
+
+#### 3. Mobile-First & Android Termux Terminal Execution
+
+Engineers working remotely or on mobile hardware can manage workflows and dispatch Jules sessions directly using Android Termux:
+
+```bash
+# Update Termux packages & install dependencies
+pkg update && pkg upgrade -y
+pkg install nodejs-lts git openssh -y
+
+# Export API authentication
+export JULES_API_KEY="your_secure_jules_api_key_here"
+
+# Dispatch a remote session to Jules
+jules remote new \
+  --repo "songketmail/CMSForNerd2" \
+  --session "Refactor Astro navigation components to support BASE_URL dynamic prefixing."
+```
+
+```
++--------------------------------------------------------------------+
+|                  TERMUX MOBILE TERMINAL INTERFACE                  |
++--------------------------------------------------------------------+
+ $ jules remote status --id session_992104
+ [STATUS]: IN_PROGRESS
+ [ACTION]: Inspecting src/components/Navigation.astro...
+ [ACTION]: Applying Git merge diff for BASE_URL prefixing...
+ [STATUS]: COMPLETED
+ [COMMIT]: f82a19c - "refactor: apply dynamic BASE_URL in navigation"
++--------------------------------------------------------------------+
+```
+
+### Programmatic Task Delegation: Google Antigravity to Jules REST API
+
+When operating within Google Antigravity (CLI: `agy`), Antigravity can hand off complex coding tasks, infrastructure refactoring, or documentation generation to Google Jules via the Jules REST API.
+
+#### Delegation Script Example (`tools/antigravity_to_jules.py`)
+
+```python
+#!/usr/bin/env python3
+"""Programmatic task delegation script from Google Antigravity to Google Jules API."""
+
+import os
+import requests
+
+JULES_SESSIONS_URL = "https://jules.googleapis.com/v1/sessions"
+JULES_SOURCES_URL = "https://jules.googleapis.com/v1/sources"
+
+api_key = os.getenv("JULES_API_KEY")
+if not api_key:
+    raise ValueError("JULES_API_KEY environment variable is required.")
+
+headers = {
+    "X-Goog-Api-Key": api_key,
+    "Content-Type": "application/json"
+}
+
+# 1. Resolve source repository reference
+sources_resp = requests.get(JULES_SOURCES_URL, headers=headers, timeout=30)
+sources_resp.raise_for_status()
+sources_data = sources_resp.json()
+
+target_repo = "songketmail/CMSForNerd2"
+source_name = None
+
+for src in sources_data.get("sources", []):
+    if target_repo in src.get("githubRepository", {}).get("repository", ""):
+        source_name = src.get("name")
+        break
+
+if not source_name:
+    source_name = f"sources/github-{target_repo.replace('/', '-')}"
+
+# 2. Dispatch session prompt to Jules
+payload = {
+    "prompt": (
+        "1. Check all Astro page layouts for base URL prefixing compliance.\n"
+        "2. Execute 'node tools/refactor-okf.cjs' to normalize frontmatter.\n"
+        "3. Run 'python3 -m pytest -v tests/test_cms.py' to confirm zero regressions."
+    ),
+    "sourceContext": {
+        "source": source_name,
+        "githubRepoContext": {
+            "startingBranch": "master"
+        }
+    }
+}
+
+response = requests.post(JULES_SESSIONS_URL, headers=headers, json=payload, timeout=30)
+response.raise_for_status()
+res_json = response.json()
+
+session_id = res_json.get("name") or res_json.get("id")
+print(f"Task successfully delegated to Jules. Session ID: {session_id}")
+```
+
+### Multi-Agent Cross-Team PR Collaboration Patterns
+
+In modern engineering organizations, multiple human developers and AI agents collaborate on the same Pull Request:
+
+1. **Strategic Planning:** Google Antigravity generates architectural blueprints and records intent in `.agents/brain/implementation_plan.md`.
+2. **Autonomous Execution:** Antigravity dispatches a session to Jules via API to implement code changes across the codebase.
+3. **Human Peer Review:** The human lead architect reviews Jules' PR, adding inline review comments on specific code blocks.
+4. **Iterative Refinement:** Jules parses feedback, refactors code, executes validation suites, and pushes updated commits until final PR approval and merge.
+
+---
+
+## 5. Deep State of Mind (DSOM) Governance & Spatial Memory
+
+To guarantee that AI models produce deterministic, policy-compliant outputs without context decay, we integrated the **Deep State of Mind (DSOM) for My AI** framework into this repository.
+
+### The Three Pillars of DSOM
+
+```
+┌─────────────────────────────────────────────────────┐
+│                 DSOM OPERATING MODEL                │
+│                                                     │
+│  ┌──────────┐   ┌──────────┐   ┌─────────────────┐  │
+│  │  AIOps   │──▶│  GitOps  │──▶│  The Executor   │  │
+│  │  (Mind)  │   │ (Record) │   │     (Hand)      │  │
+│  └──────────┘   └──────────┘   └─────────────────┘  │
+│       │               │                 │           │
+│  AI proposes    Git records     Executor runs       │
+│  & analyses     all state       on target nodes     │
+│       ▲               │                 │           │
+│       └───────────────┴─── AI verifies ─┘           │
+└─────────────────────────────────────────────────────┘
+```
+
+1. **AIOps (Mind):** Jules analyzes codebase context, formulates execution plans, and proposes code changes.
+2. **GitOps (Record):** Every decision, plan update, and code modification is versioned in Git.
+3. **The Executor (Hand):** Automated tools (`npm run build`, `pytest`, `tofu validate`, `ansible-playbook`) execute code safely in controlled environments.
+
+### Spatial Memory Ledger (`.agents/brain/`)
+
+Rather than losing context when chat windows close, Jules reads and updates permanent Markdown memory anchors:
+
+* `task.md`: Real-time active task checklist.
+* `walkthrough.md`: Historical decision log and Mental Anchors tracking session progress.
+* `implementation_plan.md`: Long-term engineering roadmap.
+* `palace_registry.md`: Spatial memory map indexing repository knowledge rooms.
+
+---
+
+## 6. Why Engineers Fall in Love with Google Jules
+
+Google Jules represents a paradigm shift in AI-assisted software engineering. It is not merely an inline autocomplete widget or isolated chat window—it is an autonomous, context-aware co-engineer embedded directly in your Git workflow.
+
+### Key Operational Advantages
+
+* **Complete Repository Context:** Jules understands your entire codebase structure, honoring `AGENTS.md` rules, spatial memory in `.agents/brain/`, and custom agent skills in `.agents/skills/`.
+* **Self-Healing Execution:** Jules does not write unverified code. It runs local builds and tests (`npm run build`, `pytest`), inspects diagnostic logs, self-corrects bugs, and verifies clean execution before requesting human review.
+* **Frictionless Collaboration:** Interacting with Jules through GitHub PR comments creates a transparent, friendly, and empowering engineering experience that feels like working with a trusted senior peer.
+* **Multi-Platform Interoperability:** Whether invoked via GitHub web interface, command-line CLI, mobile Termux, or Google Antigravity API calls, Jules delivers consistent, high-fidelity results.
+
+---
+
+## 7. Verification & Quality Gates
+
+To verify this guide and ensure codebase integrity:
+
+```bash
+# 1. Format and normalize OKF YAML frontmatter
+node tools/refactor-okf.cjs
+
+# 2. Build Astro SSG static site
+npm run build
+
+# 3. Verify sitemap and internal link integrity
+node tools/verify-sitemaps.js
+
+# 4. Execute Pytest suite
+python3 -m pytest -v tests/test_cms.py
+```
+
+---
+
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-14*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/explanation/modernisation-philosophy.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "PHP-to-Static Modernisation Philosophy"
+description: "Architectural concepts, performance impacts, and design decisions behind modernising CMSForNerd to Astro SSG."
+timestamp: "2026-08-01T15:00:00Z"
+topics: ["explanation", "architecture", "migration", "static", "php"]
+
+nav_order: 1
+---
+
+# 🧠 PHP-to-Static Modernisation Philosophy
+
+This document explains the core architectural reasoning, conceptual principles, and technical design decisions behind the transition from the legacy database-free PHP CMS (**CMSForNerd**) to the modern static-site generator architecture (**CMSForNerd2**).
+
+---
+
+## 🏛️ Context & Origins
+
+The legacy **CMSForNerd** was created to address the overhead of database-driven systems (such as WordPress). It relied on flat-file JSON and HTML fragment files compiled dynamically at runtime by PHP 8.4. While this approach eliminated database vulnerabilities (like SQL injection) and reduced server complexity, it still required:
+1.  **Dynamic Runtime Compute**: Every page view forced the PHP-FPM worker engine to reconstruct components and templates, placing an execution load on server CPUs.
+2.  **Server Security Concerns**: Hosting PHP-FPM opens vectors for common runtime exploits, such as Local File Inclusion (LFI), command injection, or directory traversal.
+3.  **Complex Dual Rendering**: Managing separate mobile layouts (AMP) and desktop layouts at runtime required custom PHP router query parsing (`?view=amp`).
+
+---
+
+## 🏗️ Astro Static Site Generator (SSG) Design
+
+To eliminate runtime execution compute while preserving the database-free, content-first philosophy, **CMSForNerd2** standardizes on **Astro SSG (Static Site Generator)**.
+
+### 1. Zero Runtime JS Footprint
+Astro acts as a compiler rather than a heavy client-side framework. By default, it strips all JavaScript from the final output, producing only pure, pre-rendered HTML5 and CSS3. JavaScript is only bundled if client hydration is explicitly requested, maximizing responsiveness and lowering payload size.
+
+### 2. Pair Logic Replicated via Component-Frontmatter
+The legacy PHP CMS used a custom controller pattern where metadata was declared first, loading HTML body fragments next. Astro mirrors this cleanly via **component frontmatter**:
+
+```astro
+---
+// Build-time execution only
+const title = "Clean Architecture";
+---
+<html lang="en">
+  <h1>{title}</h1>
+</html>
+```
+
+Variables inside the frontmatter code block `---` run purely at build time. The client receives static compiled elements, avoiding any runtime server-side execution.
+
+### 3. Dynamic Dual-View Generation (Standard & AMP)
+Rather than executing complex runtime query strings, Astro builds dual outputs statically at compile time:
+- Standard desktop files are generated at `dist/[slug]/index.html`.
+- Mobile-optimized, strictly-validated Accelerated Mobile Pages (AMP) are compiled to `dist/[slug]/amp/index.html`.
+
+This structure keeps all routes statically accessible offline and allows deployment to zero-compute environments (such as free static CDNs).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/explanation/spatial-memory-and-sandbox.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Spatial Memory & Dual-Pathway Design"
+description: "Conceptual overview explaining Deep State of Mind spatial memory boundaries, Google Jules sandbox environment limits, and dual-pathway Ansible orchestration."
+timestamp: "2026-08-01T15:00:00Z"
+topics: ["explanation", "dsom", "sandbox", "jules", "ansible"]
+
+nav_order: 1
+---
+
+# 🧠 Spatial Memory & Dual-Pathway Design
+
+This document describes the architectural theory and conceptual principles governing **Sovereign AI Agent Memory**, **Google Jules Sandbox Limitations**, and **Dual-Pathway Automation** within the CMSForNerd2 project.
+
+---
+
+## 🏛️ Deep State of Mind (DSOM) Spatial Memory
+
+Unlike traditional software development where operational rules and context exist only in the human mind, the CMSForNerd2 project uses the **Deep State of Mind (DSOM)** cognitive protocol.
+
+Under DSOM, AI agents (like Google Jules) and human developers share a synchronized, Git-native memory model:
+1.  **Rulebook Synchronization**: Core rules are fully synchronized between `AGENTS.md` and `.agents/AGENTS.md`. These rulebooks act as the "constitution" of the repository, setting coding standards, language rules, and verification pathways.
+2.  **Zero-Global Operational Memory**: Active context, tasks, and historical mental anchors are recorded in Markdown format inside `.agents/brain/` (`task.md`, `walkthrough.md`, `knowledge.md`).
+3.  **Self-Contained Discovery**: By establishing spatial memories within the repository, agents can instantly restore context on subsequent runs without relying on external, stateful API databases.
+
+---
+
+## 🔒 Google Jules Sandbox Constraints
+
+When executing inside the Google Jules workspace, automation tasks run under specialized unprivileged virtual machine constraints:
+- **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no persistent init/systemd system. Changes made outside the workspace directory are discarded when the container finishes running.
+- **Headless Execution**: No physical or virtual display server exists, meaning visual validation (like Playwright browser tests) must run in strict headless mode.
+- **Transient VM Lifecycle**: The sandbox environment is transient.
+
+---
+
+## 🚀 Dual-Pathway Automation Principle
+
+To prevent build failures and environment blocks under restricted sandboxes, all shell scripts, deployment tools, and Ansible orchestration playbooks follow the **Dual-Pathway Automation Principle**.
+
+Instead of assuming full OS privileges, the automation engine performs dynamic detection:
+
+```
+                  [AUTOMATION TRIGGER]
+                           │
+             Check if $USER is "jules" or JULES_ENV?
+              /                         \
+            YES                         NO
+            /                             \
+     [Pathway A: Sandbox]         [Pathway B: Production]
+     - Run in local workspace     - Trigger full playbook execution
+     - npm install & build        - Update system Nginx servers
+     - Skip system modifications  - Run full security hardening
+```
+
+### Pathway A: Sandbox-Safe Unprivileged Builds
+If the execution user is detected as `jules` (or `JULES_ENV` is present), the tool skips system-level alterations (such as modifying firewalls, copying system files, or running administrative package managers). It runs local workspace builds inside the unprivileged directory using standard user commands.
+
+### Pathway B: Production System Orchestration
+When executing on a persistent staging or production server, the engine launches the full Ansible playbook (`deploy-static.yml`), allowing administrative system configurations, secure Nginx reverse proxy routing, and cryptographic whitelisting.
+
+By separating unprivileged compilation from server provisioning, we guarantee that the build pipeline remains portable, robust, and safe across different running environments.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/migration-guide.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
+timestamp: "2026-07-31T10:00:00Z"
+description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
+topics: ["migration", "astro", "static", "php", "architecture"]
+
+nav_order: 1
+---
+
+# 🚀 CMSForNerd to CMSForNerd2: Static Migration Guide
+## *From Database-Free PHP to Modern Static Site Generator (Astro SSG)*
+
+---
+
+## 1. Executive Summary & Migration Context
+
+With the rapid progression of web technologies, legacy server-rendered frameworks are increasingly being succeeded by modern Static Site Generators (SSGs) that deliver maximum performance, enhanced security, and simplified deployment models. In this context, the migration of **CMSForNerd** from its flat-file PHP 8.4 implementation to **CMSForNerd2**—a purely static, client-facing architecture—presents a major leap forward.
+
+By removing PHP, the runtime surface area is compressed to zero, eliminating server-side vulnerabilities such as Local File Inclusion (LFI), Directory Traversal, and PHP-FPM misconfiguration exploits. Through the deployment of an SSG-based pipeline, all layout processing is executed at build time. The final output consists entirely of statically served HTML5, CSS3, and JavaScript, deployable to high-availability Content Delivery Networks (CDNs) or simple Nginx web servers.
+
+This document serves as the human-readable architectural blueprint and implementation playbook for migrating CMSForNerd to CMSForNerd2.
+
+---
+
+## 2. Legacy PHP Architecture Analysis
+
+To ensure architectural fidelity during the migration, the fundamental pillars of the legacy PHP CmsForNerd system must be thoroughly understood:
+
+*   **"Pair Logic" Architecture**: Layouts are strictly separated from content. Each controller file (e.g., `index.php`) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the `contents/` directory (e.g., `contents/index-body.inc`).
+*   **Dual-View Engine (Standard / AMP)**: The central router (`themes/CmsForNerd/pager.php`) parses the query parameter `?view=amp` to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.
+*   **PWA and SPA-like Hydration Router**: A lightweight vanilla JavaScript router (`router.js`) overrides internal link clicks. By appending the `X-Requested-With: XMLHttpRequest` header, it fetches purely the raw content fragments from PHP and dynamically updates the `<main>` element to provide instantaneous transitions.
+*   **Zero-Global Mutable State**: The application runs without global variables, relying entirely on an immutable `CmsContext` object injected into templates to enforce strict functional isolation.
+
+---
+
+## 3. Evaluation of Static Site Frameworks
+
+During the discovery phase, multiple static site generators were evaluated against the core design principles of CMSForNerd (database-free, content-first, zero-JS capability, and high performance):
+
+| Criteria / Feature | Astro 🚀 (Recommended) | Eleventy (11ty) | Hugo | Next.js (Static Export) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Default JS footprint** | **Zero JS by default** | Zero JS by default | Zero JS by default | Full React runtime bundle |
+| **"Pair Logic" Mapping** | **Perfect** (Frontmatter + Layouts) | Moderate (Frontmatter + Markdown) | Moderate (Go templates) | High complexity |
+| **Modern Tech Stack** | **HTML5, CSS3, Vite, TS** | HTML5, Node.js | Go templating engine | React, Webpack |
+| **Content Security** | Excellent (Static build removes XSS risk) | Good (Static) | Good (Static) | Good (Static) |
+| **PWA & SPA Transitions** | **Built-in (View Transitions)** | Manual integration | Manual integration | Built-in |
+| **AMP Support** | Excellent (Via custom static paths) | Complex templates | Complex templates | Highly complex |
+
+### Why Astro is the Ultimate Fit
+
+By selecting **Astro**, the project gains several critical advantages:
+1.  **Component Frontmatter (Build-Time Pair Logic)**: Astro uses an HTML-like component format (`.astro`) featuring a JS/TS frontmatter block (`---`). This executes solely during the build process, mapping 1-to-1 to the PHP "Pair Logic" pattern where meta-variables are initialised prior to UI rendering.
+2.  **Islands Architecture**: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the "Zero-Debt" and high-performance philosophy.
+3.  **Built-in SPA Routing**: Astro's `<ViewTransitions />` component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone `router.js` fragment.
+4.  **Static View Differentiation**: Rather than using dynamic query strings (`?view=amp`), Astro's build engine can compile dual outputs statically (e.g., `dist/index.html` and `dist/amp/index.html`), preserving 100% offline and static compatibility.
+
+---
+
+## 4. Target Architecture for CMSForNerd2
+
+Through this modernisation, CMSForNerd2 will leverage the latest web technologies:
+
+*   **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
+*   **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
+*   **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
+*   **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
+*   **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
+
+---
+
+## 5. Step-by-Step Migration Process
+
+To perform a structured and bug-free migration, developers should follow this step-by-step playbook:
+
+### Step 5.1: Initialising CMSForNerd2
+In the root directory of the target repository, bootstrap the Astro project:
+```bash
+npm create astro@latest -- --template minimal --install --git false
+```
+*Note: Ensure that the output in `astro.config.mjs` has `output: 'static'` configured:*
+```javascript
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  output: 'static',
+  // Configuration options for pre-rendering, markdown processing, and assets
+});
+```
+
+### Step 5.2: Directory Mapping Strategy
+By restructuring directories, files are mapped from PHP to the SSG standard:
+
+| Legacy PHP Source Directory | New Astro Target Directory | Purpose |
+| :--- | :--- | :--- |
+| `contents/*.inc` | `src/content/pages/` | Contains markdown/MDX page content fragments. |
+| `contents/left-side.inc` | `src/components/Navigation.astro` | Dynamic navigation component. |
+| `contents/right-side.inc` | `src/components/Widgets.astro` | Sidebar widget items. |
+| `themes/CmsForNerd/style.css` | `src/styles/global.css` | Main desktop styles. |
+| `themes/CmsForNerd/*.tpl` | `src/layouts/Layout.astro` | Global layout wrapper. |
+| `assets/pwa/*` | `public/assets/pwa/` | Static static assets and PWA icons. |
+| `robots.txt` / `favicon.ico` | `public/` | Standard root static assets. |
+
+### Step 5.3: Migrating Controllers and Fragments (Pair Logic)
+In Astro, the separation of concerns is maintained via layout components.
+
+For example, a typical legacy controller `about.php` and its content fragment `contents/about-body.inc` are merged and modernised into `src/pages/about.astro`:
+
+```astro
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+import SidebarLeft from '../components/SidebarLeft.astro';
+import SidebarRight from '../components/SidebarRight.astro';
+
+// Initialize the Immutable build context (replicating CmsContext)
+const pageContext = {
+  title: "About Us | The Developer's Laboratory",
+  description: "A static modernization of the lightweight flat-file CMS.",
+  schemaType: "AboutPage"
+};
+---
+
+<Layout context={pageContext}>
+  <div class="layout-grid">
+    <aside id="left">
+      <SidebarLeft />
+    </aside>
+
+    <main id="content">
+      <article class="modernized-page">
+        <h1>About the Laboratory</h1>
+        <p>
+          This is a static content page migrated from the PHP flat-file contents.
+          All content is fully compiled to static HTML during the build process.
+        </p>
+      </article>
+    </main>
+
+    <aside id="right">
+      <SidebarRight />
+    </aside>
+  </div>
+</Layout>
+```
+
+### Step 5.4: Migrating Content via Markdown & Content Collections
+To simplify long-term editing, page fragments should be migrated from raw `.inc` files to `.md` files under `src/content/pages/`.
+
+Define the type-safe schema in `src/content/config.ts`:
+```typescript
+import { defineCollection, z } from 'astro:content';
+
+const pagesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    schemaType: z.string().default('WebPage'),
+    author: z.string().default('Harisfazillah Jamel')
+  })
+});
+
+export const collections = {
+  'pages': pagesCollection,
+};
+```
+Through this validation pattern, compile-time checks are executed to ensure content metadata matches strict rules, providing the same safety guarantees as PHPStan Level 8 did for PHP code.
+
+### Step 5.5: Static Dual-View Generation (AMP View)
+To preserve Accelerated Mobile Pages (AMP) support without runtime PHP, Astro leverages its dynamic static path generation.
+
+Create `src/pages/[pageName]/amp.astro` or `src/pages/amp/[pageName].astro`:
+```astro
+---
+import { getCollection } from 'astro:content';
+import AmpLayout from '../../layouts/AmpLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => ({
+    params: { pageName: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<AmpLayout title={page.data.title} description={page.data.description}>
+  <article>
+    <h1>{page.data.title}</h1>
+    <Content />
+  </article>
+</AmpLayout>
+```
+During the build step, Astro compiles both the standard layout and the stripped-down, AMP-validated `<amp-img>` and AMP CSS layout automatically.
+
+### Step 5.6: PWA Service Worker & SPA Client-Side Routing
+With Astro's client-side capabilities, the custom AJAX routing logic is modernised:
+*   **Routing**: Incorporate the `<ViewTransitions />` component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.
+*   **Service Worker**: Install the `@vite-pwa/astro` integration to manage caching, background syncing, and full offline support. Configure it in `astro.config.mjs`:
+    ```javascript
+    import { defineConfig } from 'astro/config';
+    import AstroPWA from '@vite-pwa/astro';
+
+    export default defineConfig({
+      integrations: [
+        AstroPWA({
+          registerType: 'autoUpdate',
+          manifest: {
+            name: 'CMSForNerd2',
+            short_name: 'CFN2',
+            theme_color: '#0d6efd',
+            background_color: '#ffffff',
+            display: 'standalone',
+            start_url: '/',
+            icons: [
+              { src: 'assets/pwa/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+              { src: 'assets/pwa/icon-512x512.png', sizes: '512x512', type: 'image/png' }
+            ]
+          }
+        })
+      ]
+    });
+    ```
+
+---
+
+## 6. Build & Deployment Architecture
+
+By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration is replaced or augmented by GitOps-driven deployment.
+
+### Build Step
+Execute the production build to compile static assets:
+```bash
+npm run build
+```
+This writes all HTML, CSS, and JS files to the `dist/` directory, completely self-contained.
+
+### Deploying to Render.com as a Static Site (Recommended / Free Tier)
+By deploying CMSForNerd2 directly as a Static Site on Render, you can leverage completely free static hosting without the need to maintain or run a containerised server.
+
+To configure this in the Render Dashboard:
+1.  **Build Command**: Set this to `npm run build`
+2.  **Publish Directory**: Set this to `dist/` or `dist`
+
+If deploying via our Blueprint specification, the `render.yaml` file automatically configures a static service named `cmsfornerd2-static` alongside the Nginx container, ensuring seamless, zero-config builds.
+
+### Deploying to Render.com with NGINX
+To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.
+
+The deployment infrastructure is defined via three root-level files:
+1.  **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
+2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
+3.  **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
+
+### Hardened NGINX Container Configuration
+To satisfy unprivileged execution rules and defend against host compromise, standardise on our hardened `./nginx/nginx.conf`:
+```nginx
+worker_processes auto;
+pid /tmp/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Logging settings
+    access_log /dev/stdout;
+    error_log /dev/stderr warn;
+
+    # Performance optimisation
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+
+    # Gzip compression configuration
+    gzip on;
+    gzip_disable "msie6";
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_buffers 16 8k;
+    gzip_http_version 1.1;
+    gzip_min_length 256;
+    gzip_types
+        text/plain
+        text/css
+        application/json
+        application/javascript
+        application/x-javascript
+        text/xml
+        application/xml
+        application/xml+rss
+        text/javascript
+        image/svg+xml;
+
+    server {
+        # Port 8080 for unprivileged operation
+        listen 8080 default_server;
+        listen [::]:8080 default_server;
+        server_name _;
+
+        root /usr/share/nginx/html;
+        index index.html;
+
+        # Custom security headers
+        add_header X-Frame-Options "DENY" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+        add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*; connect-src 'self' https://*;" always;
+
+        # Healthcheck location
+        location = /healthz {
+            access_log off;
+            add_header Content-Type text/plain;
+            return 200 "OK";
+        }
+
+        # Handling static assets with caching
+        location /assets/ {
+            expires 1y;
+            add_header Cache-Control "public, no-transform";
+            try_files $uri =404;
+        }
+
+        # Clean URLs routing for Astro static pages
+        location / {
+            try_files $uri $uri/ $uri.html /index.html =404;
+        }
+
+        # Error handling
+        error_page 404 /404.html;
+        location = /404.html {
+            internal;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            internal;
+        }
+    }
+}
+```
+
+---
+
+## 7. Migration Timeline & Checklist
+
+To coordinate the team's operational efforts, follow this milestone progression:
+
+1.  **Phase 1: Project Bootstrapping** (Days 1–2)
+    *   [ ] Bootstrapping the Astro framework in CMSForNerd2.
+    *   [ ] Migrating global stylesheet and static icons.
+2.  **Phase 2: Content Remapping** (Days 3–5)
+    *   [ ] Remapping PHP layout templates (`bodytop.tpl`, `bodyfooter.tpl`) to Astro components.
+    *   [ ] Converting flat-file pages under `contents/*.inc` to Markdown Content Collections.
+3.  **Phase 3: Dual-View and SEO Calibration** (Days 6–8)
+    *   [ ] Building static paths for standard views and AMP-compliant views.
+    *   [ ] Implementing structured Schema.org JSON-LD generation based on `schemaType`.
+4.  **Phase 4: Service Worker & Performance Audit** (Days 9–10)
+    *   [ ] Implementing `@vite-pwa/astro` for instant offline loading.
+    *   [ ] Compiling files and running Lighthouse audits to achieve 100/100 performance scores.
+
+---
+
+## SOURCES
+- [Astro Documentation](https://docs.astro.build) - Comprehensive specifications for static site building, layouts, content collections, and routing.
+- [Accelerated Mobile Pages (AMP) Specifications](https://amp.dev) - Official layout guidelines, validation rules, and CSS limits for mobile views.
+- [Vite PWA Plugin](https://vite-pwa-org.netlify.app) - Implementation guide for offline service worker registration and caching strategies.
+- [CMSForNerd Legacy Repository](https://github.com/CMSForNerd/CmsForNerd) - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/context7-integration.md
+
+
+---
+okf_version: 0.1
+type: "documentation"
+title: "Context7 Service Integration Guide"
+description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
+timestamp: "2026-07-31T07:15:00Z"
+topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
+
+nav_order: 1
+---
+
+# Context7 Service Integration Guide
+
+This guide establishes the architectural design, configuration, and implementation procedures for integrating Context7 services within the CMSForNerd2 project.
+
+---
+
+## 🏛️ Context7 Service Overview
+
+Context7 provides up-to-date, version-specific developer documentation and code examples directly sourced from official repositories, libraries, and frameworks. By caching and serving documentation dynamically, Context7 eliminates API hallucinations and keeps LLM interactions and developer references highly precise and aligned with current library states.
+
+Within CMSForNerd2, Context7 is utilised to synchronise and refresh statically compiled documentation and layout guidelines directly on push, ensuring that any external or internal documentation libraries are instantly searchable and parsed correctly.
+
+---
+
+## ⚙️ Repository Configuration
+
+To enable the repository context inside Context7, a configuration file named `context7.json` is created at the repository root folder.
+
+### Configuration Format (`context7.json`):
+
+```json
+{
+  "url": "https://context7.com/cmsfornerd/cmsfornerd2",
+  "public_key": "pk_RM2kRjlUE0OlIg21NfvXQ"
+}
+```
+
+This registers the public accessibility link for the repository along with the respective public key, allowing Context7 scanners to access and process public documentation assets safely.
+
+---
+
+## 🚀 Pipeline Integrations (CI/CD)
+
+To automate documentation refreshes upon every successful deployment or push to the master branch, both GitLab CI and GitHub Actions pipelines have been integrated.
+
+### 1. GitLab CI Setup (`.gitlab-ci.yml`)
+
+```yaml
+stages:
+  - notify
+
+refresh-context7-docs:
+  stage: notify
+  image: curlimages/curl:latest
+  only:
+    - master
+  script:
+    - |
+      curl -s -X POST https://context7.com/api/v1/refresh \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${CONTEXT7_API_KEY}" \
+        -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
+```
+
+#### Setup Instructions for GitLab CI Variables:
+
+1.  Navigate to the GitLab project settings page: **Settings > CI/CD > Variables**.
+2.  Click **Add Variable**.
+3.  Add the key: `CONTEXT7_API_KEY`.
+4.  Paste the secure access token in the Value field: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+5.  Set the variable type as `Variable`.
+6.  Check **Mask variable** to ensure security in build logs.
+7.  Click **Add variable** to save the state.
+
+---
+
+### 2. GitHub Actions Setup (`.github/workflows/context7-refresh.yml`)
+
+```yaml
+name: Refresh Context7 Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Context7 Refresh
+        run: |
+          curl -s -X POST https://context7.com/api/v1/refresh \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.CONTEXT7_API_KEY }}" \
+            -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
+```
+
+#### Setup Instructions for GitHub Secrets:
+
+1.  On GitHub, navigate to your repository landing page.
+2.  Go to **Settings > Secrets and variables > Actions**.
+3.  Click **New repository secret**.
+4.  Add Name: `CONTEXT7_API_KEY`.
+5.  Add Secret: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+6.  Click **Add secret** to persist the variable.
+
+With this dual-platform pipeline configuration, pushing modifications to the master branch triggers automatic documentation refreshes regardless of whether GitLab or GitHub is deployed as the primary CI environment.
+
+---
+
+## 🔍 API Integration Best Practices
+
+By implementing the following standards, developers can maximise the efficiency of documentation synchronisation:
+
+- **Endpoint Isolation**: Always call `/api/v1/refresh` as an asynchronous background notification task. Pipeline duration should not be blocked by the documentation parsing lifecycle.
+- **Access Token Sovereignty**: Never hardcode API keys or secret tokens within code repositories, configuration manifests, or build scripts. Utilise secure environment variables or secret managers (e.g., HashiCorp Vault, GitLab/GitHub secrets).
+- **UK English Standard**: All generated documentation files, logs, and metadata comments must be written in Standard UK English to preserve uniformity across files and documentation indices.
+
+---
+
+## 📜 Sources
+- [Context7 Official Integrations Guide](https://context7.com/docs/integrations/github-actions) - Configuration workflows for automatic refreshes.
+- [Context7 API Reference documentation](https://context7.com/docs/api-reference) - Endpoint parameters and authorisation guides.
+
+
+---
+
+
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
