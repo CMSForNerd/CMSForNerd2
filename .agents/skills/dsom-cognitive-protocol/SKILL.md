@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "skill"
 title: "DSOM Cognitive Protocol Skill"
 name: "dsom-cognitive-protocol"

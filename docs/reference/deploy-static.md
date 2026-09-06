@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "deploy-static.sh CLI Reference"
 description: "Technical specifications, environment variable overrides, and dual-pathway branching logic for the static deployment orchestrator."

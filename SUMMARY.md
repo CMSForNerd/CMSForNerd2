@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."

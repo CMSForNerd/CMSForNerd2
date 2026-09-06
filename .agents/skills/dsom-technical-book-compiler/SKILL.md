@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "skill"
 title: "Technical Ebook & Handbook Compiler (Pandoc / Print & Terminal Theme)"
 timestamp: "2026-09-03T07:30:00Z"

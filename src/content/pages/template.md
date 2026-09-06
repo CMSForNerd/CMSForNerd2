@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "New Page Creation Guide | CMSForNerd2"
 description: "A step-by-step guide to authoring new content pages using Markdown/MDX and Astro 7.1 Content Collections."

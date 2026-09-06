@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
@@ -55,7 +55,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 10 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes 14 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -71,6 +71,10 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
 | **DSOM Technical Book Compiler** | `.agents/skills/dsom-technical-book-compiler/` | Compiles documentation suites into publication-grade handbooks (PDF, HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design system. |
 | **Project Technical Book Compiler** | `.agents/skills/project-technical-book-compiler/` | Autonomously synthesizes repository code, Diataxis documentation, and telemetry into print-ready PDF and HTML handbooks. |
+| **Code Health & Static Analysis** | `.agents/skills/code-health-linting/` | Governs static analysis, type checking (mypy/tsc), and linter rules (ruff/markdownlint) across the project. |
+| **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
+| **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
+| **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
 
 ---
 

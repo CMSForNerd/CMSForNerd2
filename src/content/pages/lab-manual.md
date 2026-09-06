@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2"
 description: "Welcome to the CMSForNerd2 educational suite. A transparent laboratory for learning modern Astro 7.1 static site architectures."

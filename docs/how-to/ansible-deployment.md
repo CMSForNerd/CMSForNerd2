@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "Ansible Deployment How-To Guide"
 description: "A comprehensive guide on deploying CMSForNerd2 using the Ansible static orchestration suite with dual-pathway branching logic."

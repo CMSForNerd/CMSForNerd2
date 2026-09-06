@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Module 7 Worksheet | CMSForNerd2 Static Security & Performance"
 description: "Interactive lab worksheet for configuring Content Security Policy whitelists, unprivileged server headers, and static performance caching."

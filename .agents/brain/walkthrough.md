@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "walkthrough"
 title: "CMSForNerd2 Active Walkthrough"
 timestamp: "2026-08-22T00:00:00Z"

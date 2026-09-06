@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "OKF Frontmatter Refactoring How-To Guide"
 description: "A step-by-step guide explaining how to automatically scan, format, and validate YAML frontmatter across all workspace Markdown files."

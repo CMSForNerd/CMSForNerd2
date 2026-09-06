@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Final Exam: Break-Fix Challenge - CMSForNerd2"
 description: "Final Certification Exam. Repair 5 deliberate static site and Astro 7.1 errors to prove mastery of SSG compilation and layout safety."

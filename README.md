@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
 timestamp: "2026-08-01T12:00:00Z"

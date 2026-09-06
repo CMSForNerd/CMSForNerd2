@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
 timestamp: "2026-08-01T12:00:00Z"

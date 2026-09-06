@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "how-to"
 title: "How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint"
 timestamp: "2026-09-05T05:00:00Z"

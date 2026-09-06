@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "refactor-okf.cjs API Reference"
 description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."

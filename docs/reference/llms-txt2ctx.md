@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "llms_txt2ctx.py CLI Reference"
 description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."

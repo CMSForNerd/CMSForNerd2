@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "governance"
 title: "Technical Book Design & PDF Compilation Master Prompt Guide"
 timestamp: "2026-09-04T21:15:00Z"

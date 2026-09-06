@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "Static Site Deployment Tutorial"
 description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."

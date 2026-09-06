@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "Local Development Quickstart Tutorial"
 description: "A step-by-step tutorial guiding beginners through installing dependencies, compiling static assets, and previewing CMSForNerd2."
