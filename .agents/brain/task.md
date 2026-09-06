@@ -35,3 +35,7 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Perform End of Day (EOD) Palace Sync as per DSOM Protocol.
 - [x] Adopt all document-related AI Agent Skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`).
 - [x] Synchronise agent gateways (`AGENTS.md`, `.agents/AGENTS.md`) and spatial memory (`.agents/brain/`).
+- [x] Audit dependency security vulnerabilities using `npm audit fix` and verify CSP security headers in `nginx/nginx.conf`.
+- [x] Refactor Python codebase for strict code health (`tests/` and `tools/`), resolving all `ruff` linting issues and adding strict type annotations for `mypy --strict` compliance.
+- [x] Integrate `ruff` and `mypy` static analysis checks into `.github/workflows/docs-ci.yml`.
+- [x] Expand Playwright End-to-End testing (`tests/test_e2e.py`) to cover dynamic light/dark theme switching, route navigation, and PWA service worker/manifest offline caching.

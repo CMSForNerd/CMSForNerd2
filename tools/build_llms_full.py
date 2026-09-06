@@ -9,6 +9,7 @@ workspace, and appends their entire contents under a unified structure for LLM i
 import os
 import re
 
+
 def main() -> None:
     """Main execution handler to compile and format llms-full.txt.
 
@@ -77,7 +78,7 @@ def main() -> None:
     with open(llms_full_path, "w", encoding="utf-8") as f:
         f.write("\n".join(full_text))
 
-    print(f"Successfully compiled: llms-full.txt")
+    print("Successfully compiled: llms-full.txt")
 
 if __name__ == "__main__":
     main()

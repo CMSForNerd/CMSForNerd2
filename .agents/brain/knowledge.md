@@ -144,6 +144,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 43. **Document-Related AI Agent Skills Adoption**
     The repository expands its Google Antigravity & AgentSkills.io ecosystem to 22 skills by incorporating document-related skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`). Each skill adheres strictly to OKF v0.2 / v0.1 frontmatter rules, Standard UK English, Diátaxis framing, and concludes with the standard Deep State of Mind (DSOM) footer.
 
+44. **Strict Code Health & Playwright E2E Test Suite Expansion**
+    The repository enforces strict Python code health via `ruff` linting and `mypy --strict` type annotations across all Python modules (`tests/` and `tools/`), integrated into `.github/workflows/docs-ci.yml`. Additionally, a dedicated Playwright E2E browser test suite (`tests/test_e2e.py`) validates dynamic theme switching (light/dark mode toggle), dynamic content routing, PWA manifest linkage, and service worker asset availability against the Astro SSG preview server on port 4321.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

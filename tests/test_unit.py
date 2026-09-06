@@ -11,28 +11,28 @@ It imports and re-exports test functions across domain submodules:
 
 from tests.unit.ansible import test_ansible_playbook_compliance
 from tests.unit.containers import test_containerfile_security_and_structure
+from tests.unit.llms import (
+    test_build_llms_full_compilation,
+    test_llms_txt2ctx_parser_api,
+)
 from tests.unit.markdown import (
-    test_markdown_okf_compliance,
     test_markdown_governance_footers,
+    test_markdown_okf_compliance,
     test_uk_english_documentation_spellings,
 )
 from tests.unit.sitemaps import (
-    test_sitemaps_consistency,
     test_context7_configuration,
-)
-from tests.unit.llms import (
-    test_llms_txt2ctx_parser_api,
-    test_build_llms_full_compilation,
+    test_sitemaps_consistency,
 )
 
 __all__ = [
     "test_ansible_playbook_compliance",
+    "test_build_llms_full_compilation",
     "test_containerfile_security_and_structure",
-    "test_markdown_okf_compliance",
-    "test_markdown_governance_footers",
-    "test_uk_english_documentation_spellings",
-    "test_sitemaps_consistency",
     "test_context7_configuration",
     "test_llms_txt2ctx_parser_api",
-    "test_build_llms_full_compilation",
+    "test_markdown_governance_footers",
+    "test_markdown_okf_compliance",
+    "test_sitemaps_consistency",
+    "test_uk_english_documentation_spellings",
 ]

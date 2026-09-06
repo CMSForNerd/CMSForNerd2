@@ -34,7 +34,13 @@ jobs:
         run: npm ci
 
       - name: Install Python Dependencies
-        run: pip install pytest pyyaml requests
+        run: pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests
+
+      - name: Run Ruff Static Linting
+        run: ruff check tests/ tools/
+
+      - name: Run Mypy Strict Type Checking
+        run: PYTHONPATH=. mypy --explicit-package-bases --strict tests tools
 
       - name: Compile Static Site (Astro SSG Build)
         run: npm run build
