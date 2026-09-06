@@ -1,6 +1,7 @@
 """Pytest configuration and shared fixtures for CMSForNerd2 test suite."""
 
 import os
+import signal
 import subprocess
 import time
 from collections.abc import Generator
@@ -17,9 +18,6 @@ def preview_server() -> Generator[None, None, None]:
     waits for HTTP 200 on port 4321, and gracefully terminates the server process
     after all test modules complete.
     """
-    # Kill any lingering process using port 4321 before starting
-    subprocess.run(["sh", "-c", "kill $(lsof -t -i :4321) 2>/dev/null || true"], check=False)
-
     # Force base path to '/' for test session execution to ensure consistent root preview serving across environments
     env = os.environ.copy()
     env["GITHUB_ACTIONS"] = "false"
@@ -27,12 +25,13 @@ def preview_server() -> Generator[None, None, None]:
     # Build static site assets
     subprocess.run(["npm", "run", "build"], env=env, check=True)
 
-    # Launch preview server process in background with explicit host 0.0.0.0 and port 4321
+    # Launch preview server process in its own process group (start_new_session=True)
     proc = subprocess.Popen(
         ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4321"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
-        env=env
+        env=env,
+        start_new_session=True,
     )
 
     # Wait for preview server to respond on port 4321
@@ -45,15 +44,22 @@ def preview_server() -> Generator[None, None, None]:
             pass
         time.sleep(0.5)
     else:
-        proc.kill()
+        if proc.poll() is None:
+            try:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            except OSError:
+                pass
         raise RuntimeError("Preview server did not start on port 4321")
 
     yield
 
-    # Cleanly terminate preview server at session teardown
-    proc.terminate()
-    try:
-        proc.wait(timeout=5)
-    except subprocess.TimeoutExpired:
-        proc.kill()
-    subprocess.run(["sh", "-c", "kill $(lsof -t -i :4321) 2>/dev/null || true"], check=False)
+    # Cleanly terminate preview server process group at session teardown
+    if proc.poll() is None:
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+            proc.wait(timeout=5)
+        except (subprocess.TimeoutExpired, OSError):
+            try:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            except OSError:
+                pass
