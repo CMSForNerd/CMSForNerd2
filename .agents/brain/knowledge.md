@@ -147,6 +147,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 44. **Strict Code Health & Playwright E2E Test Suite Expansion**
     The repository enforces strict Python code health via `ruff` linting and `mypy --strict` type annotations across all Python modules (`tests/` and `tools/`), integrated into `.github/workflows/docs-ci.yml`. Additionally, a dedicated Playwright E2E browser test suite (`tests/test_e2e.py`) validates dynamic theme switching (light/dark mode toggle), dynamic content routing, PWA manifest linkage, and service worker asset availability against the Astro SSG preview server on port 4321.
 
+45. **Vercel Web Design Guidelines Skill & LLM WIKI Integration**
+    The repository adopts Vercel's `web-design-guidelines` skill into `skills/` and `.agents/skills/`, and integrates Andrej Karpathy's LLM WIKI Ingest, Query, and Lint protocols into DSOM via `docs/governance/LLM-WIKI-ADOPTION.md`. The Pytest `preview_server` session fixture in `tests/conftest.py` spawns the preview server with `start_new_session=True` and uses `os.killpg` for clean process group teardown.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

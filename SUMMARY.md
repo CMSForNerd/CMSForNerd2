@@ -24,6 +24,7 @@ topics: ["summary", "index", "navigation"]
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)
 * [Technical Book Design & PDF Compilation Master Prompt Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
+* [DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)
 
 ## 🧠 Spatial Memory & Agent Skills
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)

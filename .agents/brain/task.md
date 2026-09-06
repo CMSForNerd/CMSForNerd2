@@ -39,3 +39,9 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Refactor Python codebase for strict code health (`tests/` and `tools/`), resolving all `ruff` linting issues and adding strict type annotations for `mypy --strict` compliance.
 - [x] Integrate `ruff` and `mypy` static analysis checks into `.github/workflows/docs-ci.yml`.
 - [x] Expand Playwright End-to-End testing (`tests/test_e2e.py`) to cover dynamic light/dark theme switching, route navigation, and PWA service worker/manifest offline caching.
+- [x] Adopt Vercel `web-design-guidelines` skill into `skills/` and `.agents/skills/`.
+- [x] Create skill explanation and UI improvements documentation in `docs/explanation/`.
+- [x] Apply UI accessibility and layout stability improvements in `src/components/Widgets.astro`.
+- [x] Adopt LLM WIKI Adoption Strategy into `docs/governance/LLM-WIKI-ADOPTION.md`.
+- [x] Fix preview server process group teardown in `tests/conftest.py` with `start_new_session=True` and `os.killpg`.
+- [x] Complete End of Day (EOD) Palace Brain Sync in `.agents/brain/`.

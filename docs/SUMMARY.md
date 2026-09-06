@@ -37,6 +37,10 @@ nav_order: 1
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 
+## 🏛️ Governance
+* [Technical Book Design & PDF Compiler Guide](governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
+* [DSOM vs. LLM WIKI Adoption Strategy](governance/LLM-WIKI-ADOPTION.md)
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
