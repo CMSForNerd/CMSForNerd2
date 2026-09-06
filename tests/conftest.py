@@ -32,7 +32,7 @@ def preview_server() -> Generator[None, None, None]:
     )
 
     # Wait for preview server to respond on port 4321
-    for _ in range(40):
+    for _ in range(120):
         try:
             res = requests.get("http://127.0.0.1:4321/", timeout=2)
             if res.status_code == 200:
