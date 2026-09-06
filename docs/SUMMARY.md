@@ -34,6 +34,8 @@ nav_order: 1
 * [Autonomous AI Operations & Google Jules](jules-platform-guide.md)
 * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
+* [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
+* [Web Interface Improvements](explanation/web-interface-improvements.md)
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

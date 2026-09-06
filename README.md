@@ -33,6 +33,8 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 *   **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
 *   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
 *   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
+*   **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+*   **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
 

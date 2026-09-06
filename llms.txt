@@ -36,6 +36,8 @@
 - [docs/jules-platform-guide.md](docs/jules-platform-guide.md): Technical guide for autonomous AI pair-programming, OpenTofu, Ansible, PR comments, and Google Antigravity operations.
 - [docs/explanation/modernisation-philosophy.md](docs/explanation/modernisation-philosophy.md): Conceptual context on choosing Astro SSG over PHP.
 - [docs/explanation/spatial-memory-and-sandbox.md](docs/explanation/spatial-memory-and-sandbox.md): Deep-dive into DSOM protocols and unprivileged sandbox boundaries.
+- [docs/explanation/web-design-guidelines-skill.md](docs/explanation/web-design-guidelines-skill.md): Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- [docs/explanation/web-interface-improvements.md](docs/explanation/web-interface-improvements.md): Detailed UI design audit findings and applied enhancements.
 
 ## Optional
 
