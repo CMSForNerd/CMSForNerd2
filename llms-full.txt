@@ -42,6 +42,9 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 *   **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
 *   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
 *   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
+*   **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
+*   **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+*   **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
 
@@ -142,7 +145,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 | **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
 | **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
 | **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
-| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
 ---
 
@@ -246,11 +249,14 @@ topics: ["summary", "index", "navigation"]
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
+* [Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)
+* [Web Interface Improvements](docs/explanation/web-interface-improvements.md)
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)
 * [Technical Book Design & PDF Compilation Master Prompt Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
+* [DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)
 
 ## 🧠 Spatial Memory & Agent Skills
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)
@@ -354,6 +360,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Knowledge Base Templates** | `.agents/skills/knowledge-base-templates/` | Reusable templates and structural protocols for codebase knowledge bases and internal wikis using Diátaxis. |
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
+| **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
 
 ---
 
@@ -777,7 +784,7 @@ Before finalizing any compiled handbook, the AI agent must verify:
 okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
-timestamp: "2026-08-01T12:00:00Z"
+timestamp: "2026-09-06T00:00:00Z"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
 topics: ["knowledge", "jules", "brain", "dsom"]
 ---
@@ -824,19 +831,19 @@ This document contains a comprehensive record of all Google Jules operational, s
     The codebase uses a centralised content and navigation utility (`src/utils/navigation.ts`) containing `getCleanSlug` and `getNavigationPages` to handle page ID-to-slug cleaning and menu list generation, eliminating duplicated parsing logic in layout files (`Layout.astro`, `AmpLayout.astro`), page routes (`[...slug].astro`, `amp.astro`), and `sitemap.xml.ts`.
 
 12. **Strict OKF Frontmatter Schema**
-    All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
+    All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1/v0.2, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
 
 13. **OKF Frontmatter Validator Utility**
-    The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF v0.1 schema.
+    The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF schema.
 
 14. **Dual Rulebook Synchronisation**
-    Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF v0.1 compliance rules.
+    Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF compliance rules.
 
 15. **Dual-Pathway Sandbox Branching Rule**
     All automation scripts, deployment pipelines, and Ansible playbooks in the repository must explicitly check for limited sandbox environments (such as the Google Jules container, typically by checking for username 'jules', custom environment variables, or virtualisation types) and implement a dual-pathway branching logic. Limited sandbox environments must bypass system-level modifications (such as systemd configurations, global packages installations, or firewall rule adjustments) to focus strictly on unprivileged workspace operations (e.g. local dependencies and compilation), whereas real OS environments are permitted to execute full administrative configurations with no limitations. An Ansible orchestration suite (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, and `tools/deploy-static.sh`) is configured to demonstrate and enforce this rule.
 
 16. **Google Antigravity Agent Skills**
-    The workspace defines a comprehensive suite of 8 Google Antigravity-compatible Agent Skills located under `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`). Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
+    The workspace defines a comprehensive suite of 22 Google Antigravity-compatible Agent Skills located under `.agents/skills/`. Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
 17. **Static Security Lab Manual Integration**
     The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
@@ -916,8 +923,17 @@ This document contains a comprehensive record of all Google Jules operational, s
 42. **Technical Book Design & PDF Compilation Master Standard**
     Multi-file Markdown suites and repository code trees can be compiled into publication-grade, print-optimized technical handbooks (PDF, HTML, EPUB, ODT) using Pandoc and Headless Chromium. The pipeline strictly enforces the "Terminal & Cloud" pure white standard (`#FFFFFF` background, `#F8FAFC` light code blocks with `tango` dark syntax highlighting, zero toner waste) and solves 10 critical engineering hurdles including YAML frontmatter stripping, dynamic backtick fence scaling, Mermaid node namespace isolation, sequential DOM rendering in headless browser, 3-tier soft-path internal link normalization, and developer commentary extraction.
 
+43. **Document-Related AI Agent Skills Adoption**
+    The repository expands its Google Antigravity & AgentSkills.io ecosystem to 22 skills by incorporating document-related skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`). Each skill adheres strictly to OKF v0.2 / v0.1 frontmatter rules, Standard UK English, Diátaxis framing, and concludes with the standard Deep State of Mind (DSOM) footer.
+
+44. **Strict Code Health & Playwright E2E Test Suite Expansion**
+    The repository enforces strict Python code health via `ruff` linting and `mypy --strict` type annotations across all Python modules (`tests/` and `tools/`), integrated into `.github/workflows/docs-ci.yml`. Additionally, a dedicated Playwright E2E browser test suite (`tests/test_e2e.py`) validates dynamic theme switching (light/dark mode toggle), dynamic content routing, PWA manifest linkage, and service worker asset availability against the Astro SSG preview server on port 4321.
+
+45. **Vercel Web Design Guidelines Skill & LLM WIKI Integration**
+    The repository adopts Vercel's `web-design-guidelines` skill into `skills/` and `.agents/skills/`, and integrates Andrej Karpathy's LLM WIKI Ingest, Query, and Lint protocols into DSOM via `docs/governance/LLM-WIKI-ADOPTION.md`. The Pytest `preview_server` session fixture in `tests/conftest.py` spawns the preview server with `start_new_session=True` and uses `os.killpg` for clean process group teardown.
+
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -2770,6 +2786,83 @@ This structure keeps all routes statically accessible offline and allows deploym
 
 ---
 
+## File: docs/governance/LLM-WIKI-ADOPTION.md
+
+
+---
+okf_version: "0.2"
+type: "governance"
+title: "DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy"
+timestamp: "2026-09-06T15:00:00Z"
+description: "Sovereign knowledge adoption strategy integrating Andrej Karpathy LLM WIKI Ingest Query and Lint protocols with DSOM Protocol."
+topics:
+  - "llm-wiki"
+  - "dsom-protocol"
+  - "knowledge-governance"
+  - "spatial-memory"
+
+nav_order: 1
+---
+
+# 🧠 DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy
+
+Entry Point 8: This document serves as the Sovereign Knowledge Entry Point. See [START-HERE.md](../../START-HERE.md) for the master onboarding roadmap.
+
+In honour of Andrej Karpathy's "LLM WIKI" vision, which inspired the formalisation of the Ingest, Query, and Lint protocols within the Deep State of Mind (DSOM) framework.
+
+Andrej Karpathy's "LLM WIKI" paradigm shift moves from standard Retrieval-Augmented Generation (RAG) to a persistent, LLM-maintained knowledge base. Instead of parsing raw documents on every query, the LLM continuously reads, synthesises, and cross-references information into a structured Markdown wiki. The human is the curator and the LLM is the tireless maintainer.
+
+Our Deep State of Mind (DSOM) framework implements this vision. This document breaks down the parallels, lists current implementations, and defines how Karpathy's concepts elevate our intelligence architecture.
+
+---
+
+## 1. What We Already Do (The DSOM Baseline)
+
+Karpathy defines three architectural layers and several core operations. Here is how our existing DSOM protocols map to his concepts:
+
+| LLM WIKI Concept | DSOM Implementation | Status |
+| :--- | :--- | :--- |
+| **The Schema** (Instructions on how the LLM maintains the wiki) | `AGENTS.md` (Sovereign Constitution) and `SKILL.md` files setting behavioural guardrails. | Implemented (Highly Mature) |
+| **The Wiki** (LLM-maintained Markdown files) | Sovereign Markdown Palace (`docs/governance/`, `docs/explanation/`, etc.). | Implemented |
+| **`index.md`** (Content catalog for navigation) | `palace_registry.md` and `SUMMARY.md` (spatial memory map). | Implemented |
+| **`log.md`** (Chronological tracking) | `HISTORY.md` (Universal Ledger) and `CHANGELOG.md`. | Implemented |
+| **Chronological State Logging** | `checkpoint_summary.txt`, `task.md`, and `walkthrough.md`. | Implemented |
+
+DSOM provides an advanced, production-grade implementation of the LLM WIKI concept, specifically tuned for software engineering and DevOps infrastructure.
+
+---
+
+## 2. How LLM WIKI Can Make Us Better (The Gaps)
+
+While we have the structure, the LLM WIKI highlights three operational verbs to make the DSOM Palace self-sustaining and compounding: **Ingest**, **Query**, and **Lint**.
+
+### A. The "Ingest" Protocol (Automated Synthesis)
+* **The Concept**: When a new raw source (e.g., an article, a specification, a transcript) is introduced, the AI extracts data, synthesises it, creates concept pages, and links it into the Wiki.
+* **Our Adoption**: We maintain a strict separation between raw sources and the synthesised Palace via the `dsom-knowledge-ingester` skill to extract text, synthesise Markdown pages in the Palace, and update `palace_registry.md` and `SUMMARY.md`.
+
+### B. The "Lint" Ritual (Automated Health Checks)
+* **The Concept**: The AI periodically health-checks the Wiki for contradictions, orphan pages, and stale claims.
+* **Our Adoption**: As the Sovereign Markdown Palace grows, context can rot. The `tools/refactor-okf.cjs` and `tools/verify-sitemaps.js` scripts, alongside the `docs-review` skill, crawl `docs/` and `.agents/` to detect broken links, conflicting rules, and orphan pages.
+
+### C. The "Query" Loop (Compounding Answers)
+* **The Concept**: When the LLM generates a high-value answer, comparison, or analysis, it is filed back into the Wiki rather than disappearing into chat history.
+* **Our Adoption**: Establish the behavioural mandate: *"Any time a complex architectural analysis or troubleshooting guide is generated in session, the AI must proactively propose saving it as a persistent `.md` document in the Palace."*
+
+---
+
+## 3. Proposed Next Steps for Adoption
+
+1. **Maintain Knowledge Compounding in `AGENTS.md`**: Persist valuable session analyses directly into `docs/` or `.agents/brain/`.
+2. **Automate OKF & Sitemap Health Audits**: Execute `tools/refactor-okf.cjs` and `tools/verify-sitemaps.js` during pre-commit workflows.
+3. **Keep `palace_registry.md` and `active_context_manifest.md` Synchronised**: Externalise cognitive state at the end of every engineering session.
+
+---
+
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) & Jules*
+
+
+---
+
 ## File: docs/explanation/spatial-memory-and-sandbox.md
 
 
@@ -2839,6 +2932,143 @@ By separating unprivileged compilation from server provisioning, we guarantee th
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/explanation/web-design-guidelines-skill.md
+
+
+---
+okf_version: "0.1"
+type: "documentation"
+title: "Web Design Guidelines Skill Overview"
+description: "Comprehensive guide to the web-design-guidelines skill, its purpose, guidelines, and execution workflow for human developers and AI agents."
+timestamp: "2026-09-06T00:00:00Z"
+topics: ["skill", "web-design", "accessibility", "ux", "guidelines"]
+nav_order: 10
+---
+
+# Web Design Guidelines Skill Guide
+
+The `web-design-guidelines` skill is designed to assist developers, designers, and autonomous AI agents (such as Google Jules and Google Antigravity) in reviewing web interfaces to ensure they strictly comply with established UI design guidelines, accessibility standards, and UX principles.
+
+## Purpose and Problem Statement
+
+The 'web-design-guidelines' skill solves the problem of checking websites and web applications for adherence to best practices, accessibility standards, and UX principles. It automates the review process, providing developers and designers with a quick and reliable way to evaluate their work against predefined guidelines, helping them improve the overall user experience and accessibility of their sites. By using this skill, users can streamline their design audits and ensure their web interfaces meet industry standards.
+
+---
+
+## Core Guidelines & Rule Categories
+
+### 1. Accessibility (a11y)
+- **Icon-only buttons**: Must carry an explicit `aria-label` attribute.
+- **Form controls**: Must be associated with an explicit `<label>` or carry an `aria-label`.
+- **Keyboard navigation**: Interactive elements must support standard keyboard event handlers (`onKeyDown`/`onKeyUp`).
+- **Semantic HTML**: Prefer `<button>` for actions and `<a>` for navigation over `<div>` or `<span>` click listeners.
+- **Image alt text**: Every `<img>` element must have an `alt` attribute (or `alt=""` if purely decorative).
+- **Decorative icons**: Mark decorative icons with `aria-hidden="true"`.
+- **Async updates**: Dynamic status messages or toasts must use `aria-live="polite"`.
+- **Heading hierarchy**: Enforce hierarchical `<h1>` through `<h6>` tags.
+
+### 2. Focus States
+- Interactive elements must provide visible focus indicators (e.g. `:focus-visible` or focus rings).
+- Never use `outline: none` or `outline-none` without providing a visible focus replacement.
+
+### 3. Forms & Inputs
+- Text inputs must specify explicit `autocomplete` and meaningful `name` attributes.
+- Use appropriate `type` attributes (`email`, `tel`, `url`, `number`) and `inputmode`.
+- Labels must be clickable by sharing an explicit hit target with the form control.
+- Placeholders must end with a single unicode ellipsis `…` and display an example pattern.
+- Non-authentication fields should explicitly use `autocomplete="off"` to prevent unintended browser auto-fill triggers.
+
+### 4. Typography & Copy
+- Use unicode ellipsis `…` (`\u2026`) instead of three full stops `...`.
+- Use curly quotes (`“` `”`) instead of straight double quotes (`"`).
+- Ensure non-breaking spaces before units (`10&nbsp;MB`, `⌘&nbsp;K`).
+- Use heading balancing via `text-wrap: balance` or `text-pretty`.
+
+### 5. Images & Layout Performance
+- Every `<img>` tag must specify explicit `width` and `height` dimensions to eliminate Cumulative Layout Shift (CLS).
+- Below-the-fold assets must specify `loading="lazy"`.
+- Above-the-fold critical assets must specify `fetchpriority="high"`.
+
+---
+
+## Agent and Human Execution Workflow
+
+1. **Audit Phase**: The agent or developer inspects specified source files (`.astro`, `.html`, `.js`, `.css`, `.md`) against the rules.
+2. **Finding Output**: Issues are reported concisely using standard `file:line - description` formatting for rapid navigation.
+3. **Remediation Phase**: Source code is modified directly in accordance with the guidelines.
+4. **Verification**: Automated tests (e.g. Pytest and Playwright E2E suites) confirm visual rendering and functional compliance.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/explanation/web-interface-improvements.md
+
+
+---
+okf_version: "0.1"
+type: "documentation"
+title: "Web Interface Improvements & Design Review"
+description: "Detailed breakdown of UI design audit findings and code improvements applied across CMSForNerd2 in accordance with Web Interface Guidelines."
+timestamp: "2026-09-06T00:00:00Z"
+topics: ["ui", "ux", "accessibility", "design", "enhancements"]
+nav_order: 11
+---
+
+# Web Interface Improvements & Design Review
+
+This document outlines the UI design audit findings, accessibility enhancements, and structural code improvements applied across the CMSForNerd2 codebase following the adoption of the `web-design-guidelines` skill.
+
+---
+
+## Audit Findings & Summary of Modifications
+
+Following a systematic review of layout templates, components, and content pages against the Web Interface Guidelines, several key areas were identified and enhanced:
+
+### 1. Form Inputs & Search Accessibility (`src/components/Widgets.astro`)
+- **Autocomplete Attributes**: Added `autocomplete="q"` to search input fields to provide explicit context to browser auto-fill engines.
+- **Name Attributes**: Maintained clean, standard field naming (`name="q"`, `name="sa"`).
+- **Labels & ARIA**: Associated explicit hidden labels / `aria-label` attributes with search fields and buttons for screen-reader clarity.
+- **Typography Ellipsis**: Replaced ASCII full stops (`...`) in search placeholders with proper unicode ellipsis (`…`).
+- **Explicit Image Dimensions**: Added exact `width` and `height` attributes to Google Search and HTML Tidy brand images to eliminate Cumulative Layout Shift (CLS).
+
+### 2. Navigation & Target Sizing (`src/components/Navigation.astro`)
+- **Semantic Link Elements**: Verified that all navigation controls utilise semantic `<a>` links with clean `import.meta.env.BASE_URL` routing.
+- **Touch Target Padding**: Ensured touch targets adhere to mobile accessibility standards with clean visual hierarchy.
+
+### 3. Layout Focus States & Dark Mode Theming (`src/layouts/Layout.astro`, `src/layouts/AmpLayout.astro`)
+- **Visible Focus Rings**: Verified that interactive buttons and theme switchers carry clear `:focus-visible` outline styles without removing focus indicators.
+- **Color Scheme & Meta Theme Color**: Confirmed `<meta name="theme-color">` dynamically responds to light/dark themes and `color-scheme` properties on root `<html>`.
+
+---
+
+## Technical Code Changes Summary
+
+| Target Component / File | Modified Attributes / Features | Impact |
+| :--- | :--- | :--- |
+| `src/components/Widgets.astro` | `autocomplete="q"`, `aria-label`, unicode `…`, image `width`/`height` | Eliminates CLS, enhances screen reader support, complies with Web Interface Guidelines. |
+| `src/layouts/Layout.astro` | `:focus-visible` styling, theme-color metadata | Ensures robust focus visibility and native dark mode compatibility. |
+| `src/components/Navigation.astro` | Semantic navigation anchors, accessible group labels | Improves screen reader navigation and tap target compliance. |
+
+---
+
+## Verification & Testing Strategy
+
+To ensure these changes maintain full backward compatibility and zero regressions:
+1. **Automated Frontmatter & Sitemap Audits**: Executed `node tools/refactor-okf.cjs` and `node tools/verify-sitemaps.js`.
+2. **Pytest Integration & Unit Suite**: Executed `python3 -m pytest tests/` to confirm all route and server status checks pass.
+3. **Playwright E2E Visual Verification**: Captured screenshots and validated interactive elements against the live preview server.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 

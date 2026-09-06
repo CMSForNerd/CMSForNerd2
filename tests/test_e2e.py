@@ -64,20 +64,28 @@ def test_pwa_manifest_and_sw() -> None:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto("http://localhost:4321/")
+        page.goto("http://127.0.0.1:4321/")
 
         manifest_link = page.get_attribute("link[rel='manifest']", "href")
         assert manifest_link is not None, "Missing PWA manifest link in HTML head."
 
-        manifest_url = f"http://127.0.0.1:4321{manifest_link}"
+        if manifest_link.startswith("http"):
+            manifest_url = manifest_link
+        elif manifest_link.startswith("/"):
+            manifest_url = f"http://127.0.0.1:4321{manifest_link}"
+        else:
+            manifest_url = f"http://127.0.0.1:4321/{manifest_link}"
+
         resp = requests.get(manifest_url, timeout=5)
         assert resp.status_code == 200, f"Failed to fetch PWA manifest from {manifest_url}"
 
         # Verify Service Worker asset endpoints
-        sw_resp = requests.get("http://127.0.0.1:4321/sw.js", timeout=5)
+        sw_url = "http://127.0.0.1:4321/sw.js"
+        sw_resp = requests.get(sw_url, timeout=5)
         assert sw_resp.status_code == 200, "sw.js service worker script returned non-200 status code."
 
-        reg_resp = requests.get("http://127.0.0.1:4321/registerSW.js", timeout=5)
+        reg_url = "http://127.0.0.1:4321/registerSW.js"
+        reg_resp = requests.get(reg_url, timeout=5)
         assert reg_resp.status_code == 200, "registerSW.js script returned non-200 status code."
 
         browser.close()

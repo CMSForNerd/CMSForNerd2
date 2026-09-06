@@ -32,3 +32,9 @@ topics: ["walkthrough", "history", "brain", "dsom"]
     - **Playwright E2E Test Suite**: Introduced `tests/test_e2e.py` verifying light/dark theme toggling (`#theme-btn-dark`, `#theme-btn-light`), dynamic route navigation, and PWA manifest (`manifest.webmanifest`) and service worker asset availability.
     - **Shared Preview Fixture**: Created `tests/conftest.py` with pre-execution port cleanup and a session-scoped `preview_server` fixture to prevent port binding collisions across Pytest runs.
     - **EOD Palace Sync**: Validated OKF v0.1/v0.2 frontmatter across all Markdown documents via `node tools/refactor-okf.cjs`, verified 100% test pass rate (43/43 tests), updated spatial memory (`task.md`, `knowledge.md`, `walkthrough.md`), and performed final Deep State of Mind (DSOM) End of Day Palace Sync.
+15. **Web Design Guidelines Skill Adoption, LLM WIKI Strategy & CI Preview Teardown Fix**:
+    - **Skill Adoption**: Adopted Vercel `web-design-guidelines` skill into `skills/` and `.agents/skills/`.
+    - **UI Improvements**: Updated `src/components/Widgets.astro` with `autocomplete="q"`, visually-hidden `<label>`, `aria-label`, explicit image `width`/`height` attributes, and unicode ellipsis (`…`).
+    - **Governance Adoption**: Authored `docs/governance/LLM-WIKI-ADOPTION.md` integrating Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM. Mapped across navigation files.
+    - **CI Fix**: Hardened `tests/conftest.py` with `start_new_session=True` and `os.killpg` process group SIGTERM/SIGKILL handling for clean preview server teardown in GitHub Actions CI environment.
+    - **EOD Palace Sync**: Created `.agents/brain/palace_registry.md`, `.agents/brain/active_context_manifest.md`, and `.agents/brain/checkpoint_summary.txt`.
