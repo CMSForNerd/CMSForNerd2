@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Documentation SUMMARY"
 description: "GitBook table of contents and navigation summary for the Diátaxis documentation system."

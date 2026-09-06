@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Static CSP Implementation Guide | CMSForNerd2 Security"
 description: "Comprehensive guide to implementing Content Security Policy (CSP) and Subresource Integrity on static Astro 7.1 sites."

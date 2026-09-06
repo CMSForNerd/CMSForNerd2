@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "PHP-to-Static Modernisation Philosophy"
 description: "Architectural concepts, performance impacts, and design decisions behind modernising CMSForNerd to Astro SSG."

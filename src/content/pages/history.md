@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Modernisation History | CMSForNerd2 Evolution"
 description: "Tracking the journey of CmsForNerd from a 2005 dynamic core to a 2026 Astro 7.1 static powerhouse."

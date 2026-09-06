@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Installation Guide | CMSForNerd2"
 description: "Official installation steps for CMSForNerd2. Learn how to configure the Astro 7.1 environment, run the dev server, and compile static builds."

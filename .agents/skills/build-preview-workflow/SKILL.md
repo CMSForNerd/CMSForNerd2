@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "skill"
 title: "Build and Preview Workflow Skill"
 name: "build-preview-workflow"

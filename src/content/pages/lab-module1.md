@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Lab Worksheet: Module 1 - CMSForNerd2"
 description: "Module 1: Master Astro 7.1 Component Frontmatter, Layouts, and strict TypeScript compilation."

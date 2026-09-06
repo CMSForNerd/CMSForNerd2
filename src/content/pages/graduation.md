@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2"
 description: "Official Certificate of Completion for the CMSForNerd2 Static Modernisation Curriculum."

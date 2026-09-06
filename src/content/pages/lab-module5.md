@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Lab Worksheet: Module 5 - CMSForNerd2"
 description: "Module 5: Static Build QA and Service Worker Validation. Learn to audit the compiled dist directory and PWA offline fallback assets."

@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "UI Diagnostic Kit | CMSForNerd2"
 description: "Technical audit of the CMSForNerd2 UI kit, including typography, colors, and interactive Astro components."

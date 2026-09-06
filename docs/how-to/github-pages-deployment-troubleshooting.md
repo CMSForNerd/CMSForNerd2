@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "GitHub Pages Deployment and Troubleshooting Guide"
 description: "How-To guide for understanding, troubleshooting, and managing GitHub Pages deployments for CMSForNerd2."

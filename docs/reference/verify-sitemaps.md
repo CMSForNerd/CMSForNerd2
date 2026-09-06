@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "verify-sitemaps.js API Reference"
 description: "Technical specifications, verification rules, and static asset mapping protocols for the sitemap verification utility."
