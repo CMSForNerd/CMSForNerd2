@@ -1,11 +1,12 @@
 """Containerfile and Dockerfile validation unit tests for CMSForNerd2 project."""
 
 import os
+
 import pytest
 
 
 @pytest.mark.parametrize("container_file", ["Dockerfile", "Containerfile"])
-def test_containerfile_security_and_structure(container_file):
+def test_containerfile_security_and_structure(container_file: str) -> None:
     """Validates Containerfile and Dockerfile for standard-compliant specifications.
 
     Verifies that:

@@ -8,12 +8,14 @@ Usage (CLI):
     python3 tools/llms_txt2ctx.py llms.txt [--optional] > llms-full.txt
 """
 
-import sys
+import argparse
 import os
 import re
-import argparse
+import sys
+from typing import Any
 
-def parse_llms_txt(txt: str) -> dict:
+
+def parse_llms_txt(txt: str) -> dict[str, Any]:
     """Parses an llms.txt file content into a structured dictionary.
 
     Args:
@@ -49,7 +51,7 @@ def parse_llms_txt(txt: str) -> dict:
     info_lines = []
     for line in start.splitlines():
         trimmed = line.strip()
-        if trimmed.startswith('#') or trimmed.startswith('>'):
+        if trimmed.startswith(('#', '>')):
             continue
         info_lines.append(line)
     info = "\n".join(info_lines).strip()
@@ -116,7 +118,7 @@ def create_ctx(txt: str, include_optional: bool = False) -> str:
     xml.append('</project>')
     return "\n".join(xml)
 
-def main():
+def main() -> None:
     """Main CLI entrypoint.
     """
     parser = argparse.ArgumentParser(description="Parse llms.txt and create an XML context document.")

@@ -1,10 +1,11 @@
 """Ansible playbook validation unit tests for CMSForNerd2 project."""
 
 import os
+
 import yaml
 
 
-def test_ansible_playbook_compliance():
+def test_ansible_playbook_compliance() -> None:
     """Validates deploy-static.yml for ansible-lint and dual-pathway compliance.
 
     Verifies that:
@@ -32,7 +33,7 @@ def test_ansible_playbook_compliance():
     has_detection_task = False
     for task in tasks:
         # Check module FQCN
-        for key in task.keys():
+        for key in task:
             # Skip common task meta-parameters
             if key in ["name", "become", "when", "tags", "vars", "args", "changed_when"]:
                 continue
@@ -40,7 +41,8 @@ def test_ansible_playbook_compliance():
             assert "." in key, f"Task '{task.get('name')}' uses non-FQCN action/module: '{key}'"
 
         # Check for user-detection set_fact task
-        if task.get("ansible.builtin.set_fact") and "is_limited_environment" in task.get("ansible.builtin.set_fact", {}):
+        set_fact_data = task.get("ansible.builtin.set_fact")
+        if isinstance(set_fact_data, dict) and "is_limited_environment" in set_fact_data:
             has_detection_task = True
 
         # Check command idempotency
