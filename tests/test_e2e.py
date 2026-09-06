@@ -10,7 +10,11 @@ from collections.abc import Generator
 
 import pytest
 import requests
-from playwright.sync_api import sync_playwright
+
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    sync_playwright = None  # type: ignore[assignment]
 
 
 @pytest.fixture(scope="session", autouse=True)
