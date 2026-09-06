@@ -7,8 +7,6 @@ rendering of all migrated markdown content pages within the Astro 7.1 SSG framew
 
 import os
 import subprocess
-import time
-from collections.abc import Generator
 
 import pytest
 import requests
@@ -16,47 +14,6 @@ import requests
 # Find all markdown files in src/content/pages/
 CONTENT_DIR = "src/content/pages"
 markdown_files = [f for f in os.listdir(CONTENT_DIR) if f.endswith(".md")]
-
-@pytest.fixture(scope="session", autouse=True)
-def run_server() -> Generator[None, None, None]:
-    """Builds the Astro static site and launches the local preview web server.
-
-    This fixture executes 'npm run build' to compile all static pages, starts
-    the Astro preview server in a background process, waits for the server
-    to become responsive on port 4321, and gracefully terminates the server
-    after the test session completes.
-
-    Yields:
-        None: Control is yielded to the active test session.
-
-    Raises:
-        RuntimeError: If the Astro preview server fails to start or become
-            responsive within the allotted timeout period.
-    """
-    # Ensure project is built
-    subprocess.run(["npm", "run", "build"], check=True)
-
-    # Start the preview server in the background on port 4321
-    proc = subprocess.Popen(["npm", "run", "preview"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    # Wait for the server to be up
-    for _ in range(30):
-        try:
-            res = requests.get("http://localhost:4321/", timeout=2)
-            if res.status_code == 200:
-                break
-        except requests.RequestException:
-            pass
-        time.sleep(0.5)
-    else:
-        proc.kill()
-        raise RuntimeError("Preview server did not start on port 4321")
-
-    yield
-
-    # Kill the preview server
-    proc.terminate()
-    proc.wait()
 
 def test_sitemap_verification() -> None:
     """Runs sitemap checks using the custom Node.js verification utility.

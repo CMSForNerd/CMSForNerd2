@@ -4,41 +4,12 @@ Verifies dynamic theme switching (light/dark mode toggle), content page routing,
 PWA service worker/manifest registration, and captures screenshot artifacts.
 """
 
-import subprocess
-import time
-from collections.abc import Generator
-
-import pytest
 import requests
 
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
     sync_playwright = None  # type: ignore[assignment]
-
-
-@pytest.fixture(scope="session", autouse=True)
-def run_preview_server() -> Generator[None, None, None]:
-    """Compiles the Astro SSG site and launches local preview server on port 4321."""
-    subprocess.run(["npm", "run", "build"], check=True)
-    proc = subprocess.Popen(["npm", "run", "preview"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    for _ in range(30):
-        try:
-            res = requests.get("http://localhost:4321/", timeout=2)
-            if res.status_code == 200:
-                break
-        except requests.RequestException:
-            pass
-        time.sleep(0.5)
-    else:
-        proc.kill()
-        raise RuntimeError("Preview server did not start on port 4321")
-
-    yield
-
-    proc.terminate()
-    proc.wait()
 
 
 def test_theme_switching() -> None:
