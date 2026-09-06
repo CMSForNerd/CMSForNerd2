@@ -3,7 +3,7 @@ okf_version: "0.1"
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
-timestamp: "2026-08-01T12:00:00Z"
+timestamp: "2026-09-06T00:00:00Z"
 topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
@@ -55,7 +55,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 14 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes 22 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -72,9 +72,17 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **DSOM Technical Book Compiler** | `.agents/skills/dsom-technical-book-compiler/` | Compiles documentation suites into publication-grade handbooks (PDF, HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design system. |
 | **Project Technical Book Compiler** | `.agents/skills/project-technical-book-compiler/` | Autonomously synthesizes repository code, Diataxis documentation, and telemetry into print-ready PDF and HTML handbooks. |
 | **Code Health & Static Analysis** | `.agents/skills/code-health-linting/` | Governs static analysis, type checking (mypy/tsc), and linter rules (ruff/markdownlint) across the project. |
-| **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
+| **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` & `.agents/skills/docstring/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
 | **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
+| **Documentation Writing** | `.agents/skills/docs-write/` | Guides creating clear, conversational, reader-focused documentation in Standard UK English adhering to Diátaxis principles. |
+| **Documentation Review** | `.agents/skills/docs-review/` | Provides a structured review protocol for verifying technical claims, evidence, and style guide compliance across Markdown docs. |
+| **Document Processing & Conversion** | `.agents/skills/docx/` | Manages professional Word document (.docx) creation, tracked changes redlining, comment extraction, and Pandoc Markdown conversion. |
+| **OpenAPI 3.1 Spec Generation** | `.agents/skills/openapi-spec-generation/` | Drafts, validates, and maintains OpenAPI 3.1+ specifications, contract compliance, and SDK schema documentation. |
+| **AI Hyperparameter Tuning Expert** | `.agents/skills/hyperparameter-tuning-expert/` | Analyzes, optimizes, and debugs deep learning hyperparameters and learning rates across PyTorch and TensorFlow. |
+| **Knowledge Base Templates** | `.agents/skills/knowledge-base-templates/` | Reusable templates and structural protocols for codebase knowledge bases and internal wikis using Diátaxis. |
+| **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
+| **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 
 ---
 
@@ -85,14 +93,14 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 | Principle | Description |
 | :--- | :--- |
 | **Zero-Global / Spatial Memory** | No global mutable state. Operational memory lives in `.agents/brain/`. |
-| **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.1 YAML frontmatter with explicit timestamps. |
+| **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.1/v0.2 YAML frontmatter with explicit timestamps. |
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
 | **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
 | **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
 
 ---
 
-## Open Knowledge Format (OKF) v0.1 Compliance Guidelines
+## Open Knowledge Format (OKF) v0.1 / v0.2 Compliance Guidelines
 
 To prevent parsing anomalies and ensure absolute compatibility across different rendering platforms (including GitHub web view and automated SSG compilation), all Markdown (`.md`) files in the repository must adhere strictly to the following YAML frontmatter rules:
 
@@ -100,13 +108,13 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
 3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
 4. **Required Field Schema**: Every document must carry a complete set of five required fields:
-   - `okf_version`: `0.1` (unquoted number).
+   - `okf_version` / `spec_version`: `0.1` or `"0.2"`.
    - `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
    - `title`: Human-readable display title (double-quoted if containing special characters).
-   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-08-01T12:00:00Z"`).
+   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
    - `topics`: An array of associated category tags.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

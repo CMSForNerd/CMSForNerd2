@@ -2,7 +2,7 @@
 okf_version: "0.1"
 type: "task_list"
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-08-22T00:00:00Z"
+timestamp: "2026-09-06T00:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
 topics: ["tasks", "track", "progress", "dsom"]
 ---
@@ -33,3 +33,5 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Create How-To Guide for Technical Handbook Production in `docs/how-to/`.
 - [x] Implement AI Agent Skills for Technical Book Compiler, Code Health, Docstrings/JSDoc, Unit Testing, and OKF v0.2.
 - [x] Perform End of Day (EOD) Palace Sync as per DSOM Protocol.
+- [x] Adopt all document-related AI Agent Skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`).
+- [x] Synchronise agent gateways (`AGENTS.md`, `.agents/AGENTS.md`) and spatial memory (`.agents/brain/`).
