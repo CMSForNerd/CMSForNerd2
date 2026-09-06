@@ -2,7 +2,7 @@
 okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
-timestamp: "2026-08-01T12:00:00Z"
+timestamp: "2026-09-06T00:00:00Z"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
 topics: ["knowledge", "jules", "brain", "dsom"]
 ---
@@ -49,19 +49,19 @@ This document contains a comprehensive record of all Google Jules operational, s
     The codebase uses a centralised content and navigation utility (`src/utils/navigation.ts`) containing `getCleanSlug` and `getNavigationPages` to handle page ID-to-slug cleaning and menu list generation, eliminating duplicated parsing logic in layout files (`Layout.astro`, `AmpLayout.astro`), page routes (`[...slug].astro`, `amp.astro`), and `sitemap.xml.ts`.
 
 12. **Strict OKF Frontmatter Schema**
-    All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
+    All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1/v0.2, requiring YAML frontmatter starting on line 1, column 1, containing `'okf_version'`, `'type'`, `'title'`, `'timestamp'`, and `'topics'`. All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
 
 13. **OKF Frontmatter Validator Utility**
-    The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF v0.1 schema.
+    The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF schema.
 
 14. **Dual Rulebook Synchronisation**
-    Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF v0.1 compliance rules.
+    Root-level `AGENTS.md` and `.agents/AGENTS.md` rules and configurations are fully synchronised, establishing an AI Agent Gateway, registering all Google Antigravity-compatible Agent Skills, and explicitly documenting the strict OKF compliance rules.
 
 15. **Dual-Pathway Sandbox Branching Rule**
     All automation scripts, deployment pipelines, and Ansible playbooks in the repository must explicitly check for limited sandbox environments (such as the Google Jules container, typically by checking for username 'jules', custom environment variables, or virtualisation types) and implement a dual-pathway branching logic. Limited sandbox environments must bypass system-level modifications (such as systemd configurations, global packages installations, or firewall rule adjustments) to focus strictly on unprivileged workspace operations (e.g. local dependencies and compilation), whereas real OS environments are permitted to execute full administrative configurations with no limitations. An Ansible orchestration suite (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, and `tools/deploy-static.sh`) is configured to demonstrate and enforce this rule.
 
 16. **Google Antigravity Agent Skills**
-    The workspace defines a comprehensive suite of 8 Google Antigravity-compatible Agent Skills located under `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`). Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
+    The workspace defines a comprehensive suite of 22 Google Antigravity-compatible Agent Skills located under `.agents/skills/`. Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
 17. **Static Security Lab Manual Integration**
     The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
@@ -141,6 +141,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 42. **Technical Book Design & PDF Compilation Master Standard**
     Multi-file Markdown suites and repository code trees can be compiled into publication-grade, print-optimized technical handbooks (PDF, HTML, EPUB, ODT) using Pandoc and Headless Chromium. The pipeline strictly enforces the "Terminal & Cloud" pure white standard (`#FFFFFF` background, `#F8FAFC` light code blocks with `tango` dark syntax highlighting, zero toner waste) and solves 10 critical engineering hurdles including YAML frontmatter stripping, dynamic backtick fence scaling, Mermaid node namespace isolation, sequential DOM rendering in headless browser, 3-tier soft-path internal link normalization, and developer commentary extraction.
 
+43. **Document-Related AI Agent Skills Adoption**
+    The repository expands its Google Antigravity & AgentSkills.io ecosystem to 22 skills by incorporating document-related skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`). Each skill adheres strictly to OKF v0.2 / v0.1 frontmatter rules, Standard UK English, Diátaxis framing, and concludes with the standard Deep State of Mind (DSOM) footer.
+
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

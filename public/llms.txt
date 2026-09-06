@@ -8,6 +8,7 @@
 - [START-HERE.md](START-HERE.md): Multi-layer onboarding map for developers and agents.
 - [SUMMARY.md](SUMMARY.md): Compiled table of contents for documentation builders.
 - [AGENTS.md](AGENTS.md): Gateway AI guidelines and DSOM standards.
+- [docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md): Master operational prompt guide for compiling technical handbooks.
 - [.agents/brain/knowledge.md](.agents/brain/knowledge.md): Sovereign AI Agent Knowledge Base (compiled Jules knowledge).
 
 ## Tutorials
@@ -21,6 +22,7 @@
 - [docs/how-to/sitemap-verification.md](docs/how-to/sitemap-verification.md): How to run sitemap testing against built HTML assets.
 - [docs/how-to/ansible-deployment.md](docs/how-to/ansible-deployment.md): How to configure and run the Ansible dual-pathway orchestration.
 - [docs/how-to/github-pages-deployment-troubleshooting.md](docs/how-to/github-pages-deployment-troubleshooting.md): How to manage and troubleshoot GitHub Pages Astro deployments.
+- [docs/how-to/how-to-produce-a-project-technical-handbook.md](docs/how-to/how-to-produce-a-project-technical-handbook.md): AI prompt engineering and skill adoption blueprint for compiling project handbooks.
 
 ## Reference Material
 
