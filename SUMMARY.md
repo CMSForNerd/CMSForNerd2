@@ -17,9 +17,11 @@ topics: ["summary", "index", "navigation"]
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
+* [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)
+* [Technical Book Design & PDF Compilation Master Prompt Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 
 ## 🧠 Spatial Memory & Agent Skills
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)

@@ -139,7 +139,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 | Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
 | :--- | :--- | :--- | :--- |
 | **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
-| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
+| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
 | **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
 | **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
@@ -187,7 +187,7 @@ All operational memory is zero-global and spatial. Spatial state lives strictly 
 * `knowledge.md`: Stores domain-specific operational knowledge.
 
 ### 3. Multi-Agent Interoperability
-CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 8 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, and `dsom-cognitive-protocol`).
+CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 10 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, `dsom-cognitive-protocol`, `dsom-technical-book-compiler`, and `project-technical-book-compiler`).
 
 ### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
 Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
@@ -245,9 +245,11 @@ topics: ["summary", "index", "navigation"]
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
+* [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
 ## 🏛️ Project Governance & Protocols
 * [AI Onboarding Rulebook](AGENTS.md)
+* [Technical Book Design & PDF Compilation Master Prompt Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 
 ## 🧠 Spatial Memory & Agent Skills
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)
@@ -319,7 +321,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 8 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes 10 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -333,6 +335,8 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, visual and regression testing, sitemap validation, and preview workflows for Astro 7.1 static site generator. |
 | **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, navigation/mapping integrity, comments standards (Google docstrings, JSDoc), and prevents orphaned pages in the documentation hierarchy. |
 | **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
+| **DSOM Technical Book Compiler** | `.agents/skills/dsom-technical-book-compiler/` | Compiles documentation suites into publication-grade handbooks (PDF, HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design system. |
+| **Project Technical Book Compiler** | `.agents/skills/project-technical-book-compiler/` | Autonomously synthesizes repository code, Diataxis documentation, and telemetry into print-ready PDF and HTML handbooks. |
 
 ---
 
@@ -368,6 +372,381 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md
+
+
+---
+okf_version: "0.1"
+type: "governance"
+title: "Technical Book Design & PDF Compilation Master Prompt Guide"
+timestamp: "2026-09-04T21:15:00Z"
+topics: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
+description: "Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
+status: "stable"
+stale_after: "2027-09-04"
+sources:
+  - id: "dsom_agents_rulebook"
+    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
+    path: ".agents/AGENTS.md"
+  - id: "dsom_technical_book_compiler_skill"
+    title: "Technical Ebook & Handbook Compiler Skill"
+    path: ".agents/skills/dsom-technical-book-compiler/SKILL.md"
+  - id: "build_mcmc_ansible_book_script"
+    title: "MCMC Ansible Book Compiler Implementation"
+    path: "tools/build_mcmc_ansible_book.py"
+generated:
+  by: "Antigravity Cognitive Digital Twin"
+  timestamp: "2026-09-04T21:15:00Z"
+verified:
+  by: "Harisfazillah Jamel (LinuxMalaysia)"
+  timestamp: "2026-09-04T21:15:00Z"
+---
+
+# Technical Book Design & PDF Compilation Master Prompt Guide
+
+> **Document Type:** Governance Blueprint & Reusable AI Master Prompt
+> **Classification:** Private And Confidential (P&C)
+> **Attribution:** Compile by: Harisfazillah Jamel
+> **Standard:** Terminal & Cloud Technical Ebook & Handbook Standard (DSOM Rule 11 & Rule 22)
+
+---
+
+## 1. Executive Overview & Dual Purpose
+
+This document serves two complementary functions:
+1. **The Reusable AI Master Prompt (Section 2):** A complete, drop-in system prompt that can be provided to any advanced AI coding assistant (Google Antigravity, Google Jules, Claude, Cursor, ChatGPT) to autonomously orchestrate, style, and compile an entire repository of multi-file Markdown (`.md`) documentation and source code into a publication-grade PDF handbook.
+2. **The Architectural Blueprint & Engineering Field Manual (Sections 3–7):** An exhaustive technical record documenting the formatting standards, color palettes, typography pairings, CSS `@page` rules, and the **ten critical engineering hurdles** solved to eliminate syntax crashes, blank pages, link leaks, and ink waste during multi-format compilation (PDF, standalone HTML, EPUB 3, and styled ODT).
+3. **The Embedded Skill SOP (Section 6):** The full operational specification of the `dsom-technical-book-compiler` skill, ensuring complete self-containment.
+
+---
+
+## 2. The Reusable AI Master Prompt
+
+*Copy and paste the entire block below into your AI prompt window or agent instruction set:*
+
+```markdown
+You are a Principal Publication Systems Architect and Pandoc Book Engineering Specialist.
+Your task is to take an entire repository of Markdown (.md) documents and source code trees, assemble them into a cohesive, publication-grade technical handbook, and compile them into a print-optimized PDF, standalone interactive HTML, EPUB 3, and styled OpenDocument Text (ODT).
+
+### MANDATORY DESIGN & STYLING SPECIFICATIONS (TERMINAL & CLOUD STANDARD)
+
+1. PRINT-OPTIMIZED PURE WHITE STANDARD (ZERO TONER WASTE):
+   - For all PDF and print compilations, dark or black container backgrounds are STRICTLY FORBIDDEN.
+   - Base Body Background: Pure White (#FFFFFF !important).
+   - Code Blocks (Preformatted): Light Alabaster/Gray (#F8FAFC) with a subtle slate border (1px solid #CBD5E1), dark charcoal text (#0F172A), and high-contrast dark syntax highlighting (Pandoc 'tango' style: Keywords #1E40AF bold, Strings #047857, Comments #64748B italic, Numbers #B45309, Functions #6D28D9).
+   - Callout & Alert Boxes: Light pastel containers with high-contrast colored left borders:
+     * Critical Warnings & Cautions: Background #FEF2F2, Left Border 5px solid #DC2626, Border 1px solid #FCA5A5, Text #991B1B.
+     * Operational Notes & Information: Background #F0F9FF, Left Border 5px solid #0284C7, Border 1px solid #BAE6FD, Text #075985.
+     * Pro-Tips: Background #F0FDF4, Left Border 5px solid #16A34A, Border 1px solid #BBF7D0, Text #166534.
+     * Chapter Executive Summaries: Background #F8FAFC, Border 1px solid #CBD5E1, Text #334155.
+
+2. TYPOGRAPHY & VISUAL HIERARCHY:
+   - Body Text: Clean sans-serif ('Inter', 'Plus Jakarta Sans', or system-ui fallback), 10pt, line-height 1.55, color #0F172A.
+   - Code & Terminal Elements: Monospace font ('JetBrains Mono', 'Fira Code', or 'Consolas'), 8.5pt, line-height 1.4.
+   - Headings:
+     * Book Title (Cover): 22pt bold, Linux Blue (#1E3A8A).
+     * Part Headers (H1 .part): 22pt bold, Linux Blue (#1E3A8A), shaded banner #F8FAFC with 8px solid #1E3A8A left bar, page-break-before: always.
+     * Chapter Headers (H2): 16pt bold, Linux Blue (#1E3A8A), bottom border 1px solid #E2E8F0.
+     * Section Headers (H3): 13pt bold, Deep Ubuntu (#77216F).
+     * Sub-section Headers (H4): 11pt semibold, Deep Teal (#0D9488).
+
+3. PAGE LAYOUT & RUNNING HEADERS/FOOTERS:
+   - Page Size: A4 (margin: 20mm 15mm 20mm 15mm).
+   - Running Header Top-Left: "<Book Title>" (Inter 8pt, #64748B).
+   - Running Header Top-Right: "PRIVATE AND CONFIDENTIAL (P&C)" (Inter 8pt bold, #DC2626).
+   - Running Footer Bottom-Left: "Compile by: Harisfazillah Jamel" (Inter 8pt, #64748B).
+   - Running Footer Bottom-Right: "Page " counter(page) (Inter 8pt bold, #0F172A).
+
+4. STANDALONE COVER PAGE (SINGLE PAGE FIT):
+   - Passed to Pandoc via '--include-before-body=cover.html'.
+   - Must fit entirely on Page 1 without spilling over.
+   - Contain badges: Private And Confidential (P&C) (#FEE2E2), Technology badges (#EFF6FF), Tooling badges (#F0FDF4).
+   - Metadata grid: 2-column key-value grid (Architect, Compiler, Audience, Classification, Covenant, Edition).
+   - CSS Guard: Hide duplicate Pandoc title header (#title-block-header { display: none !important; }) and prevent cover title page break (.cover-title { break-before: avoid !important; }).
+
+### NON-NEGOTIABLE ENGINEERING PIPELINE CONSTRAINTS
+
+1. FRONTMATTER & FOOTER STRIPPING:
+   - Systematically strip individual YAML frontmatter (lines between leading '---' fences) and individual document signature footers from every ingested .md file to prevent Pandoc YAML parser crashes ('Unknown alias').
+   - Extract 'title' and 'description' from frontmatter: convert description into an executive summary callout box above the chapter body.
+
+2. DYNAMIC BACKTICK SCALING:
+   - When ingesting code files containing triple backticks (```), dynamically scale the outer markdown fence to 4 or 5 backticks (```` or `````) to prevent premature block closure.
+
+3. ANTI-BLANK PAGE DISCIPLINE:
+   - Never combine manual HTML page break tags ('<div class="page-break"></div>') with CSS 'page-break-before: always;'. Use CSS classes exclusively on H1/Part elements.
+
+4. MERMAID MULTI-DIAGRAM ISOLATION PROTOCOL:
+   - Diagram-Scoped Namespaces: Reusing identical node IDs (e.g. NODE1, DB, GATEWAY) across diagrams is strictly prohibited. Prefix all node IDs within each diagram with a unique diagram namespace (e.g. TB_, PA_, PB_, PC_) to eliminate global SVG node collisions.
+   - Sequential DOM Replacement: Never rely on 'mermaid.run()' which causes millisecond timestamp collisions in headless Chromium. Render diagrams sequentially via 'mermaid.render("diagram_svg_" + i, code)' into unique containers.
+   - Entity Unescaping Pipeline: Unescape '&quot;', '&lt;', '&gt;', '&amp;' inside '<pre class="mermaid">' blocks before rendering, and extract 'innerHTML' (not 'textContent') to preserve stacked card line breaks.
+   - Balanced Flowchart Architecture: Prevent tall vertical flowchart towers (height > 600px) that cause blank page overflows. Split complex diagrams into balanced 2-column or orthogonal grid layouts.
+
+5. SOFT-PATH INTERNAL LINK RESOLUTION MANDATE (3-TIER NORMALISATION):
+   - Pre-index all chapters ('#chap-{slug}') and ingested code blocks ('#code-{slug}') into an internal anchor dictionary.
+   - Rewrite all markdown links using a 3-tier normalisation lookup:
+     * Tier 1 (Exact Match): Check raw relative path against dictionary.
+     * Tier 2 (Normalised Match): Strip 'file:///', Windows drive letters ('C:/', 'D:/'), project root prefix, and 'build/' prefix, then check dictionary.
+     * Tier 3 (Basename-Only Match): Strip all parent directories and check dictionary by filename only.
+     * Preserve '#fragment' anchor jumps across all three tiers.
+   - Post-Compile Audit: Assert zero absolute path leaks ('D:/', 'C:/', 'file:///') survive in compiled PDF/HTML links.
+
+6. DEVELOPER COMMENTARY EXTRACTION PROTOCOL:
+   - For every ingested Ansible playbook, shell script, or configuration file, parse the leading '#' comment block (contiguous comments before the first active code key).
+   - Regex Keyword Scan: If comments contain keywords ('BUG', 'FIX', 'Confirmed', 'live', 'vendor', 'NEVER', 'destroy', 'destructive', 'ORA-\d+', 'crash', 'escalation', 'hard way'), render a ⚠️ orange warning callout ('callout-warning', 'Developer Commentary — Read Before Executing') ABOVE the code fence. Otherwise, render a 💡 blue note callout ('callout-note', 'Developer Commentary').
+   - Keep the original '#' comments inside the code block intact.
+
+7. MULTI-FORMAT COMPILATION SUITE:
+   - Step 1: Standalone HTML with embedded Mermaid.js ESM and print CSS.
+   - Step 2: Print-to-PDF via Headless Chromium/Edge with '--headless=new --run-all-compositor-stages-before-draw --virtual-time-budget=8000'.
+   - Step 3: EPUB 3 with clean table of contents metadata.
+   - Step 4: OpenDocument Text (ODT) with custom reference styles for Google Docs/LibreOffice collaboration.
+```
+
+---
+
+## 3. Visual Design System: The "Terminal & Cloud" Framework
+
+### 3.1 Color Palette & Contrast Economics
+
+| Role | HEX Code | Print Rationale | CSS Class / Property |
+| :--- | :--- | :--- | :--- |
+| **Page Background** | `#FFFFFF` | Pure white. Eliminates background shading and toner waste. | `body { background-color: #FFFFFF !important; }` |
+| **Body Text** | `#0F172A` | Deep charcoal slate. Maximum contrast against white without harsh black glare. | `color: #0F172A !important;` |
+| **Primary Headings** | `#1E3A8A` | Linux Blue. Professional, authoritative enterprise header branding. | `h1, h2 { color: #1E3A8A; }` |
+| **Secondary Headings**| `#77216F` | Deep Ubuntu Purple. High-visibility distinction for major subsections. | `h3 { color: #77216F; }` |
+| **Tertiary Headings** | `#0D9488` | Deep Teal. Clear demarcator for low-level runbook procedures. | `h4 { color: #0D9488; }` |
+| **Code Block Background** | `#F8FAFC` | Very light alabaster gray. Visually defines code boundaries without heavy ink deposit. | `div.sourceCode, pre.sourceCode { background-color: #F8FAFC !important; }` |
+| **Code Block Border** | `#CBD5E1` | Slate border. Provides crisp, laser-printer-safe container edges. | `border: 1px solid #CBD5E1 !important;` |
+| **Warning Callout** | `#FEF2F2` / `#DC2626` | Soft red pastel with intense dark red border and text. Immediate visual alert. | `.callout-warning` |
+| **Note Callout** | `#F0F9FF` / `#0284C7` | Soft blue pastel with vivid blue border. High legibility for operational context. | `.callout-note` |
+| **Tip Callout** | `#F0FDF4` / `#16A34A` | Soft green pastel with crisp green border. Architectural pro-tips. | `.callout-tip` |
+
+### 3.2 Typography Pairing
+
+- **Prose:** `font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;`
+  *Characteristics:* Clean geometric sans-serif, high x-height, optimized for both 300 DPI print and high-res displays. Line height is fixed at `1.55` with `10pt` base size.
+- **Code & Configurations:** `font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;`
+  *Characteristics:* Distinct character shaping (disambiguating `0`/`O` and `1`/`l`/`I`), tabular numbers, ligature support. Sized at `8.5pt` with `1.4` line height.
+
+### 3.3 Print Page Budget & Paging Rules (`@page`)
+
+```css
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+    background: #FFFFFF;
+    @top-left {
+        content: "Technical Handbook";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748B;
+        font-weight: 500;
+    }
+    @top-right {
+        content: "PRIVATE AND CONFIDENTIAL (P&C)";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #DC2626;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    @bottom-left {
+        content: "Compile by: Harisfazillah Jamel";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748B;
+    }
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #0F172A;
+        font-weight: 600;
+    }
+}
+```
+
+---
+
+## 4. The 10 Critical Engineering Hurdles Solved
+
+### Hurdle 1: Pandoc YAML Parser Explosions (`Unknown alias`)
+- **Failure Mode:** Stitched multi-document markdowns retain individual OKF frontmatter blocks (`--- ... ---`). Pandoc attempts to parse subsequent frontmatter blocks as YAML document streams, failing with `Unknown alias` or corrupted titles.
+- **Solution:** A pre-processing function (`strip_frontmatter()`) strips leading YAML frontmatter while capturing `title` and `description` to create formatted chapter metadata banners (`.chapter-meta`).
+
+### Hurdle 2: Nested Backtick Fence Collisions
+- **Failure Mode:** Ingested markdown documents or playbook examples already contain triple backticks (```` ``` ````). If the master compiler wraps them in triple backticks, the code block prematurely terminates, leaking raw code into prose.
+- **Solution:** Dynamic backtick scaling. The compiler scans the target code text; if triple backticks exist, it wraps the block in 4 backticks (```` ```` ````); if 4 exist, it scales to 5.
+
+### Hurdle 3: Blank Overflow Pages & Cover Fragmentation
+- **Failure Mode:** Manual page breaks (`<div class="page-break"></div>`) combined with CSS `page-break-before: always;` on H1 elements generate unwanted empty pages. Furthermore, default Pandoc title headers split the cover across Pages 1 and 2.
+- **Solution:**
+  1. Eliminate all manual page break divs.
+  2. Generate a standalone `cover.html` passed via `--include-before-body=cover.html`.
+  3. Enforce `#title-block-header { display: none !important; }` and `.cover-title { break-before: avoid !important; }`.
+  4. Constrain cover page padding and metadata fonts so the entire cover fits inside Page 1.
+
+### Hurdle 4: Mermaid 10 Syntax Bomb Graphics (HTML Escaping)
+- **Failure Mode:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;`, `&gt;`, `--&gt;`). When Mermaid.js runs, it encounters illegal characters, rendering a pink syntax error bomb icon.
+- **Solution:** A dedicated post-pandoc HTML regex unescapes `&quot;`, `&lt;`, `&gt;`, `&amp;` and strips enclosing `<code>` tags before headless browser invocation.
+
+### Hurdle 5: Mermaid Node Collision in Multi-Diagram Handbooks
+- **Failure Mode:** Different diagrams reuse common node identifiers (e.g. `NODE1`, `DB`, `CBE`, `PWP`). Mermaid's internal parser merges identical IDs into the same global SVG graph, corrupting diagram topology.
+- **Solution:** **Mermaid Multi-Diagram Isolation Protocol**. Every diagram must have unique diagram-scoped namespaces prefixed to all nodes (e.g., `TB_` for Master Architecture, `PA_` for Pattern A, `PB_` for Pattern B, `PC_` for Pattern C).
+
+### Hurdle 6: Headless Chromium Millisecond Timestamp Collision
+- **Failure Mode:** Headless Chromium renders all page scripts in milliseconds. Mermaid's default `mermaid.run()` uses `Date.now()` timestamp IDs, causing ID collisions that draw multiple diagrams inside the same container.
+- **Solution:** Sequential DOM replacement. The browser script iterates over `document.querySelectorAll("pre.mermaid")` and calls `mermaid.render("diagram_svg_" + i, code)` sequentially, injecting the returned SVG directly into `el.innerHTML`.
+
+### Hurdle 7: Tall Vertical Flowcharts Splitting Pages
+- **Failure Mode:** Long linear flowcharts (height > 600px) split mid-node across physical page breaks, causing dangling connectors and unreadable diagrams.
+- **Solution:**
+  1. Re-architect flowcharts into balanced 2-column grids (e.g., Phase 1 vs Phase 2).
+  2. Set `pre.mermaid svg { max-width: 100% !important; height: auto !important; }`.
+  3. Extract `innerHTML` rather than `textContent` in the Mermaid pre-pass to preserve `<br/>` tags and card formatting.
+
+### Hurdle 8: Broken Relative Links & Leaked Local Paths (`file:///`)
+- **Failure Mode:** Ingested documentation contains relative links (`../how-to/deploy.md`) or absolute filesystem paths (`file:///D:/Users/...`), which break or leak workstation directories in the compiled PDF.
+- **Solution:** **Soft-Path Link Resolution Mandate (3-Tier Normalisation Pipeline)**:
+  1. Pre-index all chapters (`#chap-{slug}`) and code files (`#code-{slug}`) into an in-memory `link_map`.
+  2. Normalize link targets across 3 tiers:
+     - *Tier 1:* Exact match in `link_map`.
+     - *Tier 2:* Strip `file:///`, Windows drive letters (`C:/`, `D:/`), root directory prefixes, and `build/` prefixes.
+     - *Tier 3:* Basename-only fallback (`os.path.basename(target)`).
+  3. Preserve `#fragment` anchor suffixes across all tiers.
+  4. Run an automated post-assembly audit to verify zero absolute paths survive in PDF links.
+
+### Hurdle 9: Critical Safety Warnings Hidden in Code Comments
+- **Failure Mode:** Production playbooks contain vital operational warnings, vendor bug workarounds, and safety dispatches hidden in `#` comments that SysAdmins miss when skimming compiled books.
+- **Solution:** **Developer Commentary Extraction Protocol**:
+  1. Inspect the leading `#` comment block of every playbook, script, and configuration file.
+  2. Scan for warning keywords (`BUG`, `FIX`, `Confirmed`, `live`, `vendor`, `NEVER`, `destroy`, `destructive`, `ORA-\d+`, `crash`, `escalation`).
+  3. If keywords match, generate a **⚠️ orange warning callout** (`callout-warning`, "Developer Commentary — Read Before Executing") rendered **above** the code fence.
+  4. If standard comments, render a **💡 blue note callout** (`callout-note`).
+  5. Preserve the original `#` comments inside the code block intact.
+
+### Hurdle 10: Headless Browser Print Timeouts & Compositor Stalls
+- **Failure Mode:** Headless Chrome/Edge can hang indefinitely if web fonts or ESM modules fail to trigger draw completion, stalling CI/CD pipelines.
+- **Solution:** Execute Chromium with strict flags:
+  ```bash
+  chromium-browser --headless=new --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=8000 --print-to-pdf=<out.pdf> <file_uri>
+  ```
+  Enforce a hard Python subprocess timeout (45–60s) to gracefully catch draw completion.
+
+---
+
+## 5. Multi-Format Compilation Commands
+
+```bash
+# 1. Compile Standalone Interactive HTML Ebook
+pandoc build/book/master_book.md -o build/book/handbook.html \
+  --standalone --toc --toc-depth=3 --number-sections \
+  --include-before-body=build/book/cover.html \
+  --css=build/book/terminal-theme.css \
+  --highlight-style=tango \
+  --metadata title="Technical Handbook" \
+  --metadata author="Compile by: Harisfazillah Jamel" \
+  --metadata date="September 2026" -V lang=en
+
+# 2. Compile Publication-Grade PDF via Headless Chromium
+chromium-browser --headless=new --disable-gpu \
+  --run-all-compositor-stages-before-draw \
+  --virtual-time-budget=8000 \
+  --print-to-pdf=build/book/handbook.pdf \
+  file:///path/to/build/book/handbook.html
+
+# 3. Compile EPUB 3 Ebook
+pandoc build/book/master_book.md -o build/book/handbook.epub \
+  -t epub3 --toc --toc-depth=3 \
+  --css=build/book/terminal-theme.css \
+  --metadata title="Technical Handbook" \
+  --metadata author="Compile by: Harisfazillah Jamel" \
+  --metadata publisher="Deep State of Mind (DSOM)"
+
+# 4. Compile Styled OpenDocument Text (ODT) for Google Docs
+pandoc build/book/master_book.md -o build/book/handbook.odt \
+  --reference-doc=build/book/custom_reference.odt \
+  --toc --toc-depth=3 \
+  --metadata title="Technical Handbook" \
+  --metadata author="Compile by: Harisfazillah Jamel"
+```
+
+---
+
+## 6. Complete Embedded Skill: `dsom-technical-book-compiler`
+
+Below is the full, unabridged operational specification of the `dsom-technical-book-compiler` skill:
+
+```yaml
+---
+okf_version: "0.1"
+type: "skill"
+title: "Technical Ebook & Handbook Compiler (Pandoc / Print & Terminal Theme)"
+timestamp: "2026-09-03T07:30:00Z"
+description: "Compiles complete Diataxis documentation suites and source code repositories into publication-grade technical handbooks (PDF, standalone HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design framework."
+topics: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
+status: "stable"
+stale_after: "2027-09-03"
+sources:
+  - id: "dsom_agents_rulebook"
+    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
+    path: ".agents/AGENTS.md"
+name: "dsom-technical-book-compiler"
+---
+
+# Technical Ebook & Handbook Compiler
+
+**Purpose:** Standardizes the automated compilation of complex multi-part Diátaxis documentation palaces and complete source code directories into unified, publication-grade technical handbooks (PDF, HTML, EPUB, ODT) tailored for SysAdmins, DevOps Engineers, and SREs.
+
+## Dual-Mode "Terminal & Cloud" Design System
+1. **Interactive / Screen Mode:** Optional dark slate container (#0F172A) for code and off-white (#F8FAFC) reading background.
+2. **Physical Print / PDF Handbook Mode (Zero Ink Waste):**
+   - **Pure White Background:** `@page { background: #FFFFFF; }` and `body { background-color: #FFFFFF !important; }` to eliminate grayish tints and toner waste.
+   - **Light Code Blocks:** Code containers use `#F8FAFC` light gray with `#CBD5E1` border, dark text (`#0F172A`), and high-contrast dark syntax highlighting (Pandoc `tango`). Black or solid dark containers are strictly forbidden.
+   - **Light Pastel Callouts:** Soft pastel backgrounds (`#FEF2F2` for warnings, `#F0F9FF` for notes, `#F0FDF4` for tips) with colored left borders.
+   - **Full Confidentiality Statement:** Must be written as `Private And Confidential (P&C)` (uppercase `PRIVATE AND CONFIDENTIAL (P&C)` in running headers).
+   - **Attribution Standard:** Compilations must be credited as `Compile by: Harisfazillah Jamel`.
+
+## Technical Execution Constraints
+1. **Footer & Frontmatter Stripping:** When assembling 100+ documents, individual OKF frontmatter and DSOM signature footers must be stripped to prevent Pandoc YAML parser collisions (`Unknown alias`).
+2. **Dynamic Backtick Fence Scaling:** When wrapping source code containing triple backticks (` ``` `), the enclosing fence must scale dynamically to 4 or 5 backticks (` ```` `).
+3. **Mermaid HTML Unescaping Protocol:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;br/&gt;`, `--&gt;`). The compilation pipeline must decode these entities before browser rendering to prevent Mermaid 10 syntax error bomb graphics.
+4. **Standalone Cover Body Inclusion:** Never embed raw HTML covers inside Markdown files. Generate a standalone `cover.html` passed via `--include-before-body=cover.html`. Enforce `.cover-title { break-before: avoid !important; }` and `#title-block-header { display: none !important; }` to prevent cover fragmentation.
+5. **Anti-Blank Page Discipline:** Never mix manual `<div class="page-break"></div>` tags with CSS `page-break-before: always;`.
+6. **Headless Browser PDF Timeout:** Headless Chromium/Edge (`--headless=new --print-to-pdf`) renders CSS `@page` layouts, vector SVGs, and web fonts. A process timeout guardrail (45–60s) must be enforced.
+7. **Mermaid Multi-Diagram Isolation Protocol:**
+   - *Diagram-Scoped Namespace:* Prohibit reusing identical node IDs (e.g., `NODE1`, `CBE`, `PWP`) across diagrams. Prefix all node IDs with a unique diagram namespace (e.g., `TB_`, `PA_`, `PB_`, `PC_`) to prevent global symbol collisions.
+   - *Sequential Headless DOM Replacement:* Headless Chromium renders in milliseconds, causing default `mermaid.run()` timestamp IDs (`Date.now()`) to collide and nest diagrams inside one container. Mandate sequential rendering via `mermaid.render(id, code)` with unique IDs (`diagram_svg_${i}`) replacing `<pre class="mermaid">` innerHTML sequentially.
+8. **Soft-Path Link Resolution Mandate (3-Tier Normalisation):** The compilation pipeline must dynamically map all chapters (`#chap-{slug}`) and ingested code blocks (`#code-{slug}`) and rewrite all markdown links via a **3-tier normalisation pipeline**: (1) *Exact match* — look up the raw target in `link_map` as-is; (2) *Normalised match* — strip `file:///`, Windows drive letters (`D:/`, `C:/`), the project root prefix, and the `build/` intermediate directory prefix, then retry; (3) *Basename-only match* — strip all directory components and retry with the filename only. Pre-index basename-only keys into `link_map` before rewriting. Preserve `#fragment` suffixes across all tiers. Run a post-compile link audit asserting zero absolute path leaks (`D:/`, `C:/`, `file:///`, `build/` prefixes) survive in any PDF/HTML link target.
+9. **Full-Spectrum Code Ingestion:** Ingest all production playbooks, Jinja2 templates, inventories, host/group variables, shell scripts, and candidate staging playbooks into dedicated book chapters to produce self-contained handbooks.
+10. **Developer Commentary Extraction Protocol:** For every YAML playbook, shell script, or INI file ingested, extract the leading `#` comment block (all contiguous comment lines before the first YAML key, after the `---` fence) and render it as an HTML callout div above the code fence. Classify by keyword scan: comments containing `BUG`, `FIX`, `Confirmed`, `live`, `vendor`, `NEVER`, `ORA-\d+`, `destroy`, `destructive`, `hard way`, or `escalation` render as `callout-warning` (⚠️ orange, label `Read Before Executing`); all others render as `callout-note` (💡 blue). Preserve original `#` lines inside the code fence unchanged. CSS must define `.callout-warning p`, `.callout-note p`, and `strong` selectors with explicit `padding: 12px 16px` and `page-break-inside: avoid` for clean print rendering.
+
+## Execution Command
+```bash
+python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py
+```
+```
+
+---
+
+## 7. Operational Checklist for AI Agents & Compilers
+
+Before finalizing any compiled handbook, the AI agent must verify:
+- [ ] **Pure White Audit:** No solid black terminal blocks exist in the compiled PDF.
+- [ ] **Blank Page Audit:** Verified total page count has zero empty filler pages between chapters.
+- [ ] **Mermaid Audit:** All diagrams render as clean vector SVGs with zero syntax error bomb icons.
+- [ ] **Link Leak Audit:** Grep search the assembled HTML/PDF links for `file:///` or Windows drive letters (`D:/`, `C:/`) — result must be 0.
+- [ ] **Commentary Audit:** Leading playbook dispatches are rendered as human-readable callouts above the code fences.
+- [ ] **Confidentiality Audit:** Running headers state `PRIVATE AND CONFIDENTIAL (P&C)` and attribution reads `Compile by: Harisfazillah Jamel`.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-04*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | PRIVATE & CONFIDENTIAL (P&C) | All Rights Reserved*
 
 
 ---
@@ -514,6 +893,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 
 41. **Defensive GitOps & Zero-Global Memory Model**
     DSOM enforces zero global state mutability. Operational context lives strictly in spatial memory files (`.agents/brain/task.md`, `.agents/brain/walkthrough.md`, `.agents/brain/knowledge.md`), ensuring that AI digital twins reanimate with exact historical context without context window contamination.
+
+42. **Technical Book Design & PDF Compilation Master Standard**
+    Multi-file Markdown suites and repository code trees can be compiled into publication-grade, print-optimized technical handbooks (PDF, HTML, EPUB, ODT) using Pandoc and Headless Chromium. The pipeline strictly enforces the "Terminal & Cloud" pure white standard (`#FFFFFF` background, `#F8FAFC` light code blocks with `tango` dark syntax highlighting, zero toner waste) and solves 10 critical engineering hurdles including YAML frontmatter stripping, dynamic backtick fence scaling, Mermaid node namespace isolation, sequential DOM rendering in headless browser, 3-tier soft-path internal link normalization, and developer commentary extraction.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
@@ -1141,6 +1523,479 @@ python3 -m pytest tests/test_unit.py -v
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-22*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/how-to-produce-a-project-technical-handbook.md
+
+
+---
+okf_version: "0.1"
+type: "how-to"
+title: "How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint"
+timestamp: "2026-09-05T05:00:00Z"
+topics: ["pandoc", "pdf", "handbook", "prompt-engineering", "print-optimized", "diataxis", "gitops", "aiops", "transferable-skills"]
+description: "Comprehensive operational handbook and transferable AI prompt library for analyzing code repositories, synthesizing Diataxis documentation, baking native vector diagrams, and compiling publication-grade print-ready handbooks (PDF, HTML, EPUB) using Pandoc and Headless Chromium."
+status: "stable"
+stale_after: "2027-09-05"
+sources:
+  - id: "dsom_agents_rulebook"
+    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
+    path: ".agents/AGENTS.md"
+  - id: "dsom_technical_book_compiler_skill"
+    title: "Technical Ebook & Handbook Compiler Skill"
+    path: ".agents/skills/dsom-technical-book-compiler/SKILL.md"
+  - id: "technical_book_compiler_prompt_guide"
+    title: "Technical Book Design & PDF Compilation Master Prompt Guide"
+    path: "docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md"
+---
+
+# How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint
+
+> **Classification:** Technical Standard & Transferable Knowledge Base
+> **Target Audience:** Lead Architects, DevOps/SRE Engineers, and Autonomous AI Coding Assistants
+> **Standard:** Terminal & Cloud Technical Book Standard (DSOM Rule 11 & Rule 22)
+> **Author & Lead Consultant:** Harisfazillah Jamel (LinuxMalaysia)
+> **Compiled By:** Antigravity Cognitive Digital Twin
+
+---
+
+## 1. Executive Overview & Transferability Mandate
+
+Modern software, DevOps, and infrastructure projects frequently suffer from **fragmented documentation**. Architectural intent is split across READMEs, tribal chat logs, wiki pages, runbooks, and inline source code comments. When teams need to present their systems for audits, client handovers, team onboarding, or management reviews, they lack a single, authoritative, publication-grade volume.
+
+This guide provides a **100% transferable blueprint** that enables any engineering repository—whether built on Ansible, Terraform, Kubernetes, Python, Go, or Cloud Native architectures—to synthesize its entire codebase and documentation into a cohesive, print-optimized technical book (PDF, interactive HTML, and EPUB 3).
+
+### What This Blueprint Provides:
+1. **The Prompt Transformation Matrix:** All conversational prompts typically asked by human leads, rewritten into high-fidelity, optimized master prompts that any AI agent can execute without ambiguity.
+2. **The 6-Phase Engineering Pipeline:** Discovery, visual modeling, Diataxis ingestion, narrative storytelling, print formatting, and multi-format compilation.
+3. **The 17 Core Compilation Invariants:** Solutions to every major compilation hurdle (syntax crashes, dark container ink waste, missing covers, unrendered Mermaid blocks, unparsed callout alerts, and browser process timeouts).
+4. **Drop-in Reusable Skill Specification:** An autonomous skill definition that can be copied directly into `.agents/skills/` of any target repository.
+
+---
+
+## 2. The Prompt Transformation Matrix: From Conversational Ask to Production AI Master Prompts
+
+When humans communicate with AI assistants during technical book compilation, their initial requests are often short and intuitive. However, generic AI assistants often misinterpret these asks—generating dark code blocks, omitting cover pages, hardcoding narrative text into compiler scripts, or failing to render diagrams.
+
+Below is the complete **Before & After Matrix**, translating conversational requests into robust, constraint-enforced AI master prompts.
+
+---
+
+### Prompt 1: Project Discovery & Architectural Modeling
+
+#### Conversational Human Ask:
+> *"I need you to produce a book for this project. Start with understanding the project by understanding the ansible playbook and documents that can be related to the ansible playbook. Make sure we have diagram of flow of works and flow of how ansible work."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Principal Technical Author and Systems Architect. Your mission is to analyze this repository and assemble an authoritative, publication-grade Technical Handbook.
+
+PHASE 1: REPOSITORY DISCOVERY & TAXONOMY
+1. Scan the repository inventory, orchestration playbooks/manifests, roles, configuration templates, and documentation suites.
+2. Catalog all operational components into logical tiers (e.g., Command Centres, Orchestration Bridges, Persistence Fabrics, Telemetry Ingestion Workers).
+3. Map every production playbook/code file to its corresponding documentation, runbooks, and Root Cause Analysis (RCA) reports.
+
+PHASE 2: ARCHITECTURAL VISUAL MODELING
+Construct two comprehensive architectural flowcharts:
+1. The End-to-End Command Highway: Visualizing the multi-tier flow of code from local development and GitOps remotes to target nodes.
+2. The Orchestration Execution Engine: Visualizing how automation tasks inspect hardware, apply declarative baselines, enforce zero-trust security, and verify system state.
+
+OUTPUT REQUIREMENTS:
+- Structure the book into clear, hierarchical Parts and Chapters following the Diataxis framework.
+- Ensure every code artifact has a dedicated sub-chapter accompanied by developer operational context and architectural rationale.
+```
+
+---
+
+### Prompt 2: Resolving Diagram Failures (Mermaid to Native SVG)
+
+#### Conversational Human Ask:
+> *"The diagram is not showing in the book."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Graphics & Headless Browser Print Specialist. The Mermaid diagrams in our compiled HTML/PDF are failing to render or displaying syntax error graphics.
+
+ROOT CAUSE ANALYSIS:
+1. Headless Chrome/Edge print engines capture DOM snapshots in milliseconds, outrunning asynchronous client-side Mermaid JavaScript CDN libraries.
+2. Pandoc wraps `<pre class="mermaid">` blocks in `<code>` tags and escapes HTML arrows (`-->` becomes `--&gt;`), corrupting Mermaid syntax.
+
+REMEDIATION MANDATE (NATIVE VECTOR SVG PRE-RENDERING):
+1. Eliminate client-side Mermaid JavaScript rendering entirely for PDF production.
+2. Author a standalone Python script (e.g., `tools/bake_native_svg.py`) that pre-renders or directly substitutes Mermaid code blocks with clean, styled, inline vector `<svg>` markup.
+3. Ensure SVG elements include viewBox definitions, drop-shadow filters, high-contrast text labels (using 'Inter' or system sans-serif), and responsive container wrappers (`<div class="mermaid-svg-container">`).
+4. Execute this transformation directly on the generated `handbook.html` prior to launching the headless browser PDF print step.
+```
+
+---
+
+### Prompt 3: Diátaxis Documentation Enrichment & Ingestion
+
+#### Conversational Human Ask:
+> *"Add into our books, content from md documents that is related to each of our ansible playbooks. Enrich our book."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Technical Documentation Compiler. Your task is to enrich every playbook chapter in the Technical Handbook by dynamically ingesting its accompanying operational runbooks, explanations, and incident reports.
+
+MANDATORY INGESTION & SANITIZATION RULES:
+1. Frontmatter & Signature Stripping: Parse each ingested markdown file and strip all YAML metadata fences (`--- ... ---`) and document signature footers (`*Maintained by...*`) to prevent Pandoc parser collisions (`Unknown alias`).
+2. Heading Level Offsetting: Apply a dynamic heading level offset (+2 levels: `#` becomes `###`, `##` becomes `####`) to ensure ingested document headings nest cleanly beneath the parent Chapter title in the Table of Contents.
+3. Markdown Horizontal Rule Sanitization: Replace all internal standalone horizontal rules (`\n---\n`) with triple asterisks (`\n***\n`) to prevent Pandoc from falsely interpreting them as YAML metadata blocks.
+4. Operational Provenance Banner: Inject an audit pill above each ingested document:
+   `<div class="doc-provenance"><strong>Operational Reference Guide:</strong> <code>path/to/file.md</code></div>`
+5. Developer Commentary Extraction: Scan the leading comment block of each code file for keywords (BUG, FIX, WARNING, CRITICAL, NEVER, escalation). Render matches as high-visibility callouts (`callout-warning` or `callout-note`) above the code fence.
+```
+
+---
+
+### Prompt 4: The Narrative Epic (Heart, Soul, and Sovereign Blood)
+
+#### Conversational Human Ask:
+> *"I need a chapter that's like a story, all about this project and infra from start to end, how it can be built, deployed, and operated. Highlight the use of ansible + semaphoreui + gitea as GitOps, and AIOps with human in the loop. Add about deep state of mind (DSOM) of My AI as the AI memory and brain. This chapter is not technical; it is about the heart, soul, and blood of this project."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Principal Technical Biographer and Systems Philosopher. Author an evocative, inspiring narrative chapter titled:
+"# Prologue: The Story of <Project Name> — Heart, Soul, and Sovereign Blood {.unnumbered}"
+
+NARRATIVE STRUCTURE & THEMES:
+1. The Spark in the Dark (Why This Fabric Was Born):
+   - Paint the operational reality: telemetry deluge, memory exhaustion, swap death spirals, and the painful loss of context when engineers step away from the terminal.
+2. The Trinity of Motion (GitOps, The Control Node, and The Hand):
+   - Explain how Git serves as the immutable source of truth, Semaphore UI acts as the scheduled heartbeat, and Ansible operates as the indomitable physical hand shaping the infrastructure.
+3. The Mind in the Machine (Deep State of Mind & AIOps):
+   - Address the fatal flaw of Large Language Models: Context Decay (cognitive amnesia).
+   - Chronicle the creation of the Sovereign Markdown Palace (`.agents/brain/`, `palace_registry.md`, Start-of-Day reanimation, and End-of-Day hibernation), preserving unbroken historical context across operational shifts.
+4. The Sacred Balance (AIOps with Human-in-the-Loop):
+   - Reject blind, dangerous auto-remediation.
+   - Embed the Sovereign AIOps Integration Loop (ASCII architectural diagram): AI proposes remediation -> Sovereign Human verifies and commits -> Ansible executes -> AI audits and records memory.
+   - Articulate the Three Laws of the Twin: Advisory over Execution, Logic over Operation, and Partnership through Environmental Awareness.
+5. From Raw Metal to Living Shield:
+   - Walk through the 5 foundational phases from genesis virtual machine bootstrapping to hardened security baselines, rootless container pods, threat analytics, and continuous Day-2 operations.
+6. The Heart, Soul, and Blood:
+   - Close with the philosophical trifecta: Sovereignty, Discipline, and Human-AI Symbiosis.
+```
+
+---
+
+### Prompt 5: Clean Architecture Separation (Standalone Markdown Document)
+
+#### Conversational Human Ask:
+> *"I need the story to be in its own md file."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Clean Architecture and Diataxis Specialist. Refactor the narrative story chapter out of inline Python script strings into a dedicated, reusable documentation artifact.
+
+IMPLEMENTATION STEPS:
+1. Author the file `docs/explanation/THE-STORY-OF-<PROJECT>.md` with complete OKF v0.1 YAML frontmatter (`type: "documentation"`, `title: "..."`).
+2. Embed the complete narrative text, ASCII loop diagram, and formal DSOM signature footer.
+3. Register the new document in `SUMMARY.md` under the `explanation` quadrant to ensure GitBook/MkDocs navigation indexing.
+4. Update the book compiler script (`tools/build_book.py`) to dynamically ingest this document using `ingest_doc_file("docs/explanation/THE-STORY-OF-<PROJECT>.md", heading_offset=0, show_provenance=False)` directly into the book's Prologue.
+```
+
+---
+
+### Prompt 6: Print-Optimized Formatting Restoration (Zero Toner Waste & Cover Injection)
+
+#### Conversational Human Ask:
+> *"What happened to my book? We lost the formatting. No cover, black background? That needs to be checked again."*
+
+#### Production-Grade AI Master Prompt:
+```markdown
+You are a Print Production Engineer and CSS Specialist. Diagnose and fix the visual formatting regressions in our compiled PDF and HTML handbook.
+
+SYMPTOMS TO REMEDY:
+1. Missing Cover Page: Re-inject `--include-before-body=build/book/cover.html` in the Pandoc build chain. Ensure `.cover-page` in CSS declares `break-after: page; min-height: 250mm;` so the cover fills Page 1 completely and cleanly page-breaks before the Table of Contents.
+2. Black Background Code Blocks: Replace dark syntax highlighting (e.g. `--highlight-style=espresso`) with `--highlight-style=tango`. Ensure CSS enforces `pre, code, div.sourceCode { background-color: #F8FAFC !important; border: 1px solid #CBD5E1 !important; color: #0F172A !important; }` to eliminate toner waste.
+3. External CSS Linking Failures: Prevent headless browser path resolution failures by reading `terminal-theme.css` and inlining the complete stylesheet directly into `<style>` inside `<head>` of the HTML before PDF generation.
+4. Raw GitHub Alert Syntax: Detect all `> [!NOTE]`, `> [!WARNING]`, `> [!TIP]`, `> [!IMPORTANT]`, and `> [!CAUTION]` syntax in ingested markdown files and transform them into styled pastel HTML callout cards (`<div class="callout callout-note"><strong>💡 Note</strong><p>...</p></div>`).
+5. Asynchronous Process Premature Exit: Execute Chromium print process synchronously and enforce virtual time budgets (`--virtual-time-budget=8000`) to ensure the process does not terminate before the PDF file buffer is completely written.
+```
+
+---
+
+## 3. The 17 Non-Negotiable Technical Book Compilation Invariants
+
+Any automated compilation pipeline must adhere to these 17 strict invariants:
+
+| # | Invariant Name | Failure Mode Addressed | Architectural Rule |
+| :--- | :--- | :--- | :--- |
+| **1** | **Pure White Standard** | Dark gray backgrounds waste ink and look muddy | Force `@page { background: #FFFFFF; }` and `body { background-color: #FFFFFF !important; }`. |
+| **2** | **Light Alabaster Code** | Solid black terminal containers waste ink | Code containers must use `#F8FAFC` background with `#CBD5E1` border and dark charcoal text `#0F172A`. |
+| **3** | **Syntax Theme (`tango`)** | Dark themes (`espresso`, `zenburn`) force black code backgrounds | Strictly enforce `--highlight-style=tango` for light-background compatibility. |
+| **4** | **Standalone Cover Injection** | Raw Markdown covers break page layout and spill over | Author `cover.html` and inject via `--include-before-body=cover.html`. |
+| **5** | **Cover Single-Page Fit** | Cover content spilling into Table of Contents | Enforce `.cover-page { break-after: page; min-height: 250mm; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }`. |
+| **6** | **Frontmatter Stripping** | Pandoc crashes with `Unknown alias` error | Strip `--- ... ---` blocks from all ingested markdown files before concatenation. |
+| **7** | **Horizontal Rule Sanitization** | `\n---\n` parsed by Pandoc as YAML start | Regex replace `\n---\n` with `\n***\n` in all ingested content. |
+| **8** | **GitHub Alert Card Conversion** | `> [!NOTE]` renders as unstyled plain text | Programmatically transform into `<div class="callout callout-note"><strong>💡 Note</strong><p>...</p></div>`. |
+| **9** | **Self-Contained Embedded CSS** | Headless browsers fail to resolve relative CSS links | Read `terminal-theme.css` and inject directly into `<style>` inside `<head>`. |
+| **10** | **Dynamic Backtick Scaling** | Triple backticks inside code blocks close outer fence | Count max backticks in code and scale outer fence to N+1 (e.g. ` ```` `). |
+| **11** | **Heading Offset (+2)** | Embedded guide titles collide with Book H1/H2 | Dynamically increment heading level (`#` to `###`, `##` to `####`). |
+| **12** | **Native Vector SVG Baking** | Client-side Mermaid race conditions in headless PDF | Pre-render diagrams to `<svg>` and inject into HTML before headless PDF execution. |
+| **13** | **Mermaid Namespace Isolation** | Global node ID collisions across multiple diagrams | Prefix node IDs with unique namespace prefixes (`TB_`, `AN_`, `TH_`). |
+| **14** | **Pandoc Code-Tag Wrapping** | Pandoc wraps `<pre class="mermaid"><code>` and escapes HTML | SVG replacement regexes must match both standard and `<code>`-wrapped pre blocks and unescape arrows (`--&gt;`). |
+| **15** | **Isolated Browser Profile** | Headless Chromium crashes if user desktop instances exist | Launch Chromium with isolated temp profiles. |
+| **16** | **Synchronous Execution** | Shell returns before Edge/Chromium finishes writing PDF | Always use synchronous subprocess calls and wait guards. |
+| **17** | **Provenance Audit Banners** | Loss of traceability for ingested runbooks | Inject `<div class="doc-provenance">` detailing the repository source path. |
+
+---
+
+## 4. Reusable Project Book Assembler Template (`tools/build_project_book.py`)
+
+Below is the clean, modular Python assembler that can be copied directly into any repository:
+```python
+#!/usr/bin/env python3
+"""
+Universal Technical Handbook Assembler & Multi-Format Compiler
+Standard: Terminal & Cloud Standard (DSOM Rule 11 & Rule 22)
+"""
+
+import os
+import re
+import sys
+import subprocess
+from pathlib import Path
+
+ROOT_DIR = Path(".").resolve()
+BUILD_DIR = ROOT_DIR / "build" / "book"
+BUILD_DIR.mkdir(parents=True, exist_ok=True)
+
+MASTER_MD = BUILD_DIR / "master_book.md"
+COVER_HTML = BUILD_DIR / "cover.html"
+THEME_CSS = BUILD_DIR / "terminal-theme.css"
+HANDBOOK_HTML = BUILD_DIR / "handbook.html"
+HANDBOOK_PDF = BUILD_DIR / "handbook.pdf"
+HANDBOOK_EPUB = BUILD_DIR / "handbook.epub"
+
+WARNING_KEYWORDS = re.compile(
+    r"\b(BUG|FIX|Confirmed|live|vendor|NEVER|destroy|destructive|ORA-\d+|crash|escalation|hard way|WARNING|CAUTION|CRITICAL)\b",
+    re.IGNORECASE
+)
+
+def strip_frontmatter_and_footer(content: str) -> str:
+    lines = content.splitlines()
+    if lines and lines[0].strip() == "---":
+        end_idx = -1
+        for idx in range(1, len(lines)):
+            if lines[idx].strip() == "---":
+                end_idx = idx
+                break
+        if end_idx != -1:
+            content = "\n".join(lines[end_idx+1:])
+    content = re.sub(r"\n---\s*\n\*.*", "", content, flags=re.DOTALL)
+    content = re.sub(r"\n---\n", "\n***\n", content)
+    return content.strip()
+
+def convert_github_alerts(text: str) -> str:
+    pattern = re.compile(
+        r"^>\s*(?:\*\*)?\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION|SUCCESS)\](?:\*\*)?(?:[ \t]*(.*))?\n((?:^>.*$\n?)*)",
+        re.MULTILINE
+    )
+    def replacer(match):
+        alert_type = match.group(1).upper()
+        first_line = match.group(2) or ""
+        raw_body = match.group(3) or ""
+        lines = []
+        if first_line.strip():
+            lines.append(first_line.strip())
+        for line in raw_body.splitlines():
+            clean_line = re.sub(r"^>\s?", "", line)
+            lines.append(clean_line)
+        body = "\n".join(lines).strip()
+
+        if alert_type in ("WARNING", "CAUTION", "IMPORTANT"):
+            css_class = "callout callout-warning"
+            icon = "⚠️" if alert_type != "CAUTION" else "🛑"
+            title = alert_type.capitalize()
+        elif alert_type in ("TIP", "SUCCESS"):
+            css_class = "callout callout-tip"
+            icon = "💡" if alert_type == "TIP" else "✅"
+            title = alert_type.capitalize()
+        else:
+            css_class = "callout callout-note"
+            icon = "💡"
+            title = "Note"
+
+        return f'\n<div class="{css_class}">\n<strong>{icon} {title}</strong>\n\n{body}\n</div>\n\n'
+
+    return pattern.sub(replacer, text)
+
+def scale_backticks(code_text: str) -> tuple[str, str]:
+    max_ticks = 0
+    matches = re.findall(r"(`{3,})", code_text)
+    for m in matches:
+        if len(m) > max_ticks:
+            max_ticks = len(m)
+    fence = "`" * max(3, max_ticks + 1)
+    return fence, fence
+
+def extract_commentary(code_text: str, lang: str = "yaml"):
+    lines = code_text.splitlines()
+    comment_lines = []
+    start_idx = 1 if lines and lines[0].strip() == "---" else 0
+    for i in range(start_idx, len(lines)):
+        l = lines[i]
+        stripped = l.strip()
+        if not stripped:
+            continue
+        if stripped.startswith("#"):
+            comment_lines.append(stripped.lstrip("#").strip())
+        else:
+            break
+    if not comment_lines:
+        return None
+    comment_text = " ".join(comment_lines)
+    is_warning = bool(WARNING_KEYWORDS.search(comment_text))
+    callout_class = "callout callout-warning" if is_warning else "callout callout-note"
+    callout_title = "Developer Commentary — Read Before Executing" if is_warning else "Developer Operational Context"
+    callout_icon = "⚠️" if is_warning else "💡"
+    body = "\n".join(f"> {cl}" for cl in comment_lines[:15])
+    return f'<div class="{callout_class}">\n<strong>{callout_icon} {callout_title}</strong>\n\n{body}\n</div>\n'
+
+def ingest_code_file(file_path: Path, lang: str, title: str, anchor: str) -> str:
+    if not file_path.exists():
+        return f"\n*File not found: {file_path}*\n"
+    content = file_path.read_text(encoding="utf-8", errors="replace")
+    callout = extract_commentary(content, lang)
+    fence_start, fence_end = scale_backticks(content)
+    md_parts = [f"\n<a id=\"{anchor}\"></a>\n### {title}\n"]
+    md_parts.append(f"**Source File:** `{file_path.relative_to(ROOT_DIR).as_posix()}`\n")
+    if callout:
+        md_parts.append(callout)
+    md_parts.append(f"{fence_start}{lang}\n{content.strip()}\n{fence_end}\n")
+    return "\n".join(md_parts)
+
+def ingest_doc_file(rel_path: str, heading_offset: int = 1, show_provenance: bool = True) -> str:
+    file_path = ROOT_DIR / rel_path
+    if not file_path.exists():
+        return f"\n*Documentation file not found: {rel_path}*\n"
+    raw = file_path.read_text(encoding="utf-8", errors="replace")
+    clean = strip_frontmatter_and_footer(raw)
+    clean = convert_github_alerts(clean)
+
+    out = []
+    for line in clean.splitlines():
+        m = re.match(r"^(#{1,6})\s+(.*)$", line)
+        if m:
+            lvl = min(len(m.group(1)) + heading_offset, 6)
+            hashes = "#" * lvl
+            title = m.group(2)
+            out.append(f"{hashes} {title}")
+        else:
+            out.append(line)
+
+    header = f'\n<div class="doc-provenance"><strong>Operational Reference Guide:</strong> <code>{rel_path}</code></div>\n' if show_provenance else "\n"
+    return header + "\n".join(out) + "\n"
+
+def build_master_book():
+    print("Assembling master book markdown...")
+    parts = []
+
+    # 1. Book Executive Overview
+    parts.append("""# Executive Overview {.unnumbered}
+> **Classification:** Private And Confidential (P&C)
+> **Compiled By:** Autonomous Cognitive Twin
+> **Standard:** Terminal & Cloud Technical Handbook Standard
+""")
+
+    # 2. Prologue Story (Dynamically Ingested from Standalone File)
+    story_path = "docs/explanation/THE-STORY-OF-PROJECT.md"
+    if (ROOT_DIR / story_path).exists():
+        parts.append(ingest_doc_file(story_path, heading_offset=0, show_provenance=False))
+
+    full_text = "\n\n".join(parts)
+    MASTER_MD.write_text(full_text, encoding="utf-8")
+    print(f"Master markdown written: {MASTER_MD} ({len(full_text):,} bytes)")
+
+if __name__ == "__main__":
+    build_master_book()
+```
+
+---
+
+## 5. Standalone Reusable Skill Specification (`project-technical-book-compiler`)
+
+To adopt this capability in another repository, copy the specification below into `.agents/skills/project-technical-book-compiler/SKILL.md`:
+
+```yaml
+---
+okf_version: "0.1"
+type: "skill"
+title: "Project Technical Book & Handbook Compiler"
+timestamp: "2026-09-05T00:00:00Z"
+description: "Autonomously synthesizes repository code, Diataxis documentation, and system telemetry into publication-grade print-ready PDF, standalone HTML, and EPUB handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
+topics: ["pandoc", "pdf", "html", "epub", "print-optimized", "diataxis", "handbook"]
+status: "stable"
+stale_after: "2027-09-05"
+name: "project-technical-book-compiler"
+---
+
+# Project Technical Book & Handbook Compiler
+
+## Purpose
+Standardizes the automated assembly, styling, and multi-format compilation of entire project repositories into unified, publication-grade engineering handbooks.
+
+## Execution Commands
+
+### 1. Build Master Markdown
+```bash
+python3 tools/build_project_book.py
+```
+
+### 2. Compile Standalone Interactive HTML (Pandoc 3.x)
+```bash
+pandoc build/book/master_book.md -o build/book/handbook.html \
+  --standalone --toc --toc-depth=3 --number-sections \
+  --include-before-body=build/book/cover.html \
+  --css=terminal-theme.css \
+  --highlight-style=tango \
+  --metadata title="Project Technical Handbook" \
+  --metadata author="Lead Architect" \
+  --metadata date="September 2026" -V lang=en
+```
+
+### 3. Bake Native Vector SVGs & Inline Theme CSS
+```bash
+python3 tools/bake_native_svg.py
+```
+
+### 4. Compile Publication-Grade PDF (Headless Chromium)
+```bash
+chromium-browser --headless=new --disable-gpu \
+  --run-all-compositor-stages-before-draw --virtual-time-budget=8000 \
+  --print-to-pdf=build/book/handbook.pdf file:///path/to/build/book/handbook.html
+```
+
+### 5. Compile EPUB 3 Ebook
+```bash
+pandoc build/book/master_book.md -o build/book/handbook.epub \
+  -t epub3 --toc --toc-depth=3 \
+  --css=build/book/terminal-theme.css \
+  --metadata title="Project Technical Handbook"
+```
+```
+
+---
+
+## 6. Operational Checklist & Quality Assurance
+
+Before delivering any compiled handbook to stakeholders, execute this audit checklist:
+
+- [ ] **Cover Page Audit:** Page 1 renders as a full-page bordered card with P&C badges and metadata table; breaks cleanly before Table of Contents.
+- [ ] **Zero Toner Waste Audit:** All code containers have `#F8FAFC` light gray backgrounds with dark charcoal text and `tango` syntax colors. Zero black terminal boxes exist.
+- [ ] **Callout Card Audit:** All operational notes, warnings, and tips render as styled pastel cards with icons (`💡 Note`, `⚠️ Warning`, `💡 Tip`). Zero raw `[!NOTE]` markdown syntax leaks survive.
+- [ ] **Vector Diagram Audit:** All architecture and workflow diagrams render as crisp, scalable vector SVGs directly inline.
+- [ ] **Inline CSS Audit:** CSS is embedded directly into `<style>` inside `<head>` to prevent external relative link breakage.
+- [ ] **Soft-Path Link Audit:** All internal cross-references point to clean `#chap-...` or `#code-...` fragments without surviving absolute filesystem paths (`file:///` or drive letters).
+- [ ] **Pagination Audit:** Verified zero empty filler pages exist between chapters.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-05*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 

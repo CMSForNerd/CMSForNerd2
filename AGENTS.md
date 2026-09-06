@@ -55,7 +55,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 8 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes 10 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -69,6 +69,8 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Build and Preview Workflow** | `.agents/skills/build-preview-workflow/` | Guides local compilation, visual and regression testing, sitemap validation, and preview workflows for Astro 7.1 static site generator. |
 | **Documentation Governance** | `.agents/skills/documentation-governance/` | Enforces strict OKF standards, UK English conventions, navigation/mapping integrity, comments standards (Google docstrings, JSDoc), and prevents orphaned pages in the documentation hierarchy. |
 | **DSOM Cognitive Protocol** | `.agents/skills/dsom-cognitive-protocol/` | Manages Zero-Global Spatial Memory, rulebook synchronisation, and 5-step knowledge-first discovery flows. |
+| **DSOM Technical Book Compiler** | `.agents/skills/dsom-technical-book-compiler/` | Compiles documentation suites into publication-grade handbooks (PDF, HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design system. |
+| **Project Technical Book Compiler** | `.agents/skills/project-technical-book-compiler/` | Autonomously synthesizes repository code, Diataxis documentation, and telemetry into print-ready PDF and HTML handbooks. |
 
 ---
 
