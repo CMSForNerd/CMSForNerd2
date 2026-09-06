@@ -28,7 +28,7 @@ jobs:
       - name: Setup Python 3
         uses: actions/setup-python@v5
         with:
-          python-with-version: '3.12'
+          python-version: '3.12'
 
       - name: Install Node.js Dependencies
         run: npm ci

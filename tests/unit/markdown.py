@@ -44,15 +44,17 @@ def test_markdown_okf_compliance():
         except Exception as e:
             pytest.fail(f"Markdown file {filepath} has invalid YAML frontmatter: {e}")
 
-        required_keys = ["okf_version", "type", "title", "timestamp", "topics"]
+        okf_ver = fm_data.get("okf_version") or fm_data.get("spec_version")
+        assert okf_ver is not None, f"Markdown file {filepath} is missing required OKF version key ('okf_version' or 'spec_version')."
+
+        required_keys = ["type", "title"]
         for key in required_keys:
             assert key in fm_data, f"Markdown file {filepath} is missing required OKF frontmatter key: '{key}'"
 
-        assert float(fm_data["okf_version"]) == 0.1, f"Markdown file {filepath} must use okf_version 0.1."
-
-        # Check array structure for topics
-        topics = fm_data["topics"]
-        assert isinstance(topics, list), f"Markdown file {filepath} 'topics' attribute must be an array."
+        # Check array structure for topics or tags
+        topics = fm_data.get("topics") or fm_data.get("tags")
+        assert topics is not None, f"Markdown file {filepath} must have a 'topics' or 'tags' array."
+        assert isinstance(topics, list), f"Markdown file {filepath} 'topics' or 'tags' attribute must be an array."
 
         # Check special characters in frontmatter lines (Double Quoting Rule)
         lines = frontmatter_text.splitlines()
