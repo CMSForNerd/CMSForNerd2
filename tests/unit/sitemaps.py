@@ -1,10 +1,10 @@
 """Sitemaps consistency and context7 configuration unit tests."""
 
-import os
 import json
+import os
 
 
-def test_sitemaps_consistency():
+def test_sitemaps_consistency() -> None:
     """Validates consistency between root sitemap.txt and public/sitemap.txt.
 
     Checks that both files exist, are identical in length and content,
@@ -33,7 +33,7 @@ def test_sitemaps_consistency():
         assert "[object" not in url, f"Sitemap URL '{url}' contains JavaScript object string serialization."
 
 
-def test_context7_configuration():
+def test_context7_configuration() -> None:
     """Validates context7.json format and schema structure.
 
     Checks that the context7.json config exists, is valid JSON, and

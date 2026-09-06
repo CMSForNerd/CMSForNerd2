@@ -2,7 +2,7 @@
 okf_version: "0.1"
 type: "task_list"
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-08-22T00:00:00Z"
+timestamp: "2026-09-06T00:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
 topics: ["tasks", "track", "progress", "dsom"]
 ---
@@ -33,3 +33,9 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Create How-To Guide for Technical Handbook Production in `docs/how-to/`.
 - [x] Implement AI Agent Skills for Technical Book Compiler, Code Health, Docstrings/JSDoc, Unit Testing, and OKF v0.2.
 - [x] Perform End of Day (EOD) Palace Sync as per DSOM Protocol.
+- [x] Adopt all document-related AI Agent Skills (`docs-write`, `docs-review`, `docstring`, `docx`, `openapi-spec-generation`, `hyperparameter-tuning-expert`, `knowledge-base-templates`, `architecture-decision-records`, `changelog-automation`).
+- [x] Synchronise agent gateways (`AGENTS.md`, `.agents/AGENTS.md`) and spatial memory (`.agents/brain/`).
+- [x] Audit dependency security vulnerabilities using `npm audit fix` and verify CSP security headers in `nginx/nginx.conf`.
+- [x] Refactor Python codebase for strict code health (`tests/` and `tools/`), resolving all `ruff` linting issues and adding strict type annotations for `mypy --strict` compliance.
+- [x] Integrate `ruff` and `mypy` static analysis checks into `.github/workflows/docs-ci.yml`.
+- [x] Expand Playwright End-to-End testing (`tests/test_e2e.py`) to cover dynamic light/dark theme switching, route navigation, and PWA service worker/manifest offline caching.

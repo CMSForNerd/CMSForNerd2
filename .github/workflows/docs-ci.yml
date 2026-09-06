@@ -28,13 +28,22 @@ jobs:
       - name: Setup Python 3
         uses: actions/setup-python@v5
         with:
-          python-with-version: '3.12'
+          python-version: '3.12'
 
       - name: Install Node.js Dependencies
         run: npm ci
 
       - name: Install Python Dependencies
-        run: pip install pytest pyyaml requests
+        run: pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests playwright pytest-playwright
+
+      - name: Install Playwright Chromium Browser
+        run: playwright install chromium --with-deps
+
+      - name: Run Ruff Static Linting
+        run: ruff check tests/ tools/
+
+      - name: Run Mypy Strict Type Checking
+        run: PYTHONPATH=. mypy --explicit-package-bases --strict tests tools
 
       - name: Compile Static Site (Astro SSG Build)
         run: npm run build
@@ -45,5 +54,5 @@ jobs:
       - name: Verify Sitemaps and Asset Links
         run: node tools/verify-sitemaps.js
 
-      - name: Execute Python Validation Unit Tests
-        run: python3 -m pytest tests/test_unit.py -v
+      - name: Execute Python Validation Unit and E2E Test Suite
+        run: python3 -m pytest tests/ -v

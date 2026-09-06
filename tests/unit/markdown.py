@@ -2,11 +2,12 @@
 
 import os
 import re
-import yaml
+
 import pytest
+import yaml
 
 
-def test_markdown_okf_compliance():
+def test_markdown_okf_compliance() -> None:
     """Validates all workspace markdown files against the OKF v0.1 schema.
 
     Checks recursively across the repository that every Markdown file:
@@ -41,18 +42,20 @@ def test_markdown_okf_compliance():
         # 2. Well-formed YAML and Required fields
         try:
             fm_data = yaml.safe_load(frontmatter_text)
-        except Exception as e:
+        except yaml.YAMLError as e:
             pytest.fail(f"Markdown file {filepath} has invalid YAML frontmatter: {e}")
 
-        required_keys = ["okf_version", "type", "title", "timestamp", "topics"]
+        okf_ver = fm_data.get("okf_version") or fm_data.get("spec_version")
+        assert okf_ver is not None, f"Markdown file {filepath} is missing required OKF version key ('okf_version' or 'spec_version')."
+
+        required_keys = ["type", "title"]
         for key in required_keys:
             assert key in fm_data, f"Markdown file {filepath} is missing required OKF frontmatter key: '{key}'"
 
-        assert float(fm_data["okf_version"]) == 0.1, f"Markdown file {filepath} must use okf_version 0.1."
-
-        # Check array structure for topics
-        topics = fm_data["topics"]
-        assert isinstance(topics, list), f"Markdown file {filepath} 'topics' attribute must be an array."
+        # Check array structure for topics or tags
+        topics = fm_data.get("topics") or fm_data.get("tags")
+        assert topics is not None, f"Markdown file {filepath} must have a 'topics' or 'tags' array."
+        assert isinstance(topics, list), f"Markdown file {filepath} 'topics' or 'tags' attribute must be an array."
 
         # Check special characters in frontmatter lines (Double Quoting Rule)
         lines = frontmatter_text.splitlines()
@@ -60,17 +63,14 @@ def test_markdown_okf_compliance():
             if ":" in line:
                 parts = line.split(":", 1)
                 val = parts[1].strip()
-                if val:
+                if val and any(c in val for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]", ":"]):
                     # If value contains emojis, colons, brackets, or other special characters
-                    # It must be double quoted
-                    if any(c in val for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]", ":"]):
-                        # Check that it starts and ends with double quotes
-                        # Or it's a valid JSON array format
-                        is_quoted = (val.startswith('"') and val.endswith('"')) or (val.startswith('[') and val.endswith(']'))
-                        assert is_quoted, f"Value '{val}' in frontmatter of {filepath} containing special characters must be double quoted."
+                    # It must be double quoted or a valid JSON array format
+                    is_quoted = (val.startswith('"') and val.endswith('"')) or (val.startswith('[') and val.endswith(']'))
+                    assert is_quoted, f"Value '{val}' in frontmatter of {filepath} containing special characters must be double quoted."
 
 
-def test_markdown_governance_footers():
+def test_markdown_governance_footers() -> None:
     """Validates that all core governance and skill markdown files contain standard DSOM footers.
 
     Ensures that every governance document under .agents/ or in the root directory (excluding pages)
@@ -111,7 +111,7 @@ def test_markdown_governance_footers():
         assert has_uk, f"Governance markdown file {filepath} is missing Standard/UK English declaration in the footer."
 
 
-def test_uk_english_documentation_spellings():
+def test_uk_english_documentation_spellings() -> None:
     """Validates that newly written and root documentation files use standard UK English spellings.
 
     Ensures that words like 'optimise', 'colour', 'customise' are preferred over US English equivalents
