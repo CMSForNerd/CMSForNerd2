@@ -20,15 +20,19 @@ def preview_server() -> Generator[None, None, None]:
     # Kill any lingering process using port 4321 before starting
     subprocess.run(["sh", "-c", "kill $(lsof -t -i :4321) 2>/dev/null || true"], check=False)
 
+    # Force base path to '/' for test session execution to ensure consistent root preview serving across environments
+    env = os.environ.copy()
+    env["GITHUB_ACTIONS"] = "false"
+
     # Build static site assets
-    subprocess.run(["npm", "run", "build"], check=True)
+    subprocess.run(["npm", "run", "build"], env=env, check=True)
 
     # Launch preview server process in background with explicit host 0.0.0.0 and port 4321
     proc = subprocess.Popen(
         ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4321"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
-        env=os.environ.copy()
+        env=env
     )
 
     # Wait for preview server to respond on port 4321
