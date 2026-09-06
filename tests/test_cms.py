@@ -51,9 +51,9 @@ def test_page_renders_correctly(md_file: str) -> None:
     # Determine slug based on file name
     slug = md_file[:-3]
     if slug == "index":
-        url = "http://localhost:4321/"
+        url = "http://127.0.0.1:4321/"
     else:
-        url = f"http://localhost:4321/{slug}/"
+        url = f"http://127.0.0.1:4321/{slug}/"
 
     response = requests.get(url, timeout=5)
     assert response.status_code == 200, f"Page {slug} failed to load."

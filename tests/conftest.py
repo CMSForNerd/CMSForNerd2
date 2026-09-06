@@ -17,21 +17,24 @@ def preview_server() -> Generator[None, None, None]:
     waits for HTTP 200 on port 4321, and gracefully terminates the server process
     after all test modules complete.
     """
+    # Kill any lingering process using port 4321 before starting
+    subprocess.run(["sh", "-c", "kill $(lsof -t -i :4321) 2>/dev/null || true"], check=False)
+
     # Build static site assets
     subprocess.run(["npm", "run", "build"], check=True)
 
-    # Launch preview server process in background
+    # Launch preview server process in background with explicit host 0.0.0.0 and port 4321
     proc = subprocess.Popen(
-        ["npm", "run", "preview"],
+        ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4321"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
         env=os.environ.copy()
     )
 
     # Wait for preview server to respond on port 4321
-    for _ in range(30):
+    for _ in range(40):
         try:
-            res = requests.get("http://localhost:4321/", timeout=2)
+            res = requests.get("http://127.0.0.1:4321/", timeout=2)
             if res.status_code == 200:
                 break
         except requests.RequestException:
@@ -49,3 +52,4 @@ def preview_server() -> Generator[None, None, None]:
         proc.wait(timeout=5)
     except subprocess.TimeoutExpired:
         proc.kill()
+    subprocess.run(["sh", "-c", "kill $(lsof -t -i :4321) 2>/dev/null || true"], check=False)

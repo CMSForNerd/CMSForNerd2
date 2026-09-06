@@ -17,7 +17,7 @@ def test_theme_switching() -> None:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto("http://localhost:4321/")
+        page.goto("http://127.0.0.1:4321/")
 
         # Click Dark mode button
         page.click("#theme-btn-dark")
@@ -49,7 +49,7 @@ def test_route_navigation() -> None:
         page = browser.new_page()
 
         for route in test_routes:
-            response = page.goto(f"http://localhost:4321{route}")
+            response = page.goto(f"http://127.0.0.1:4321{route}")
             assert response is not None
             assert response.status == 200, f"Route {route} failed with status {response.status}"
             assert page.title() != "", f"Page {route} is missing a title."
@@ -69,15 +69,15 @@ def test_pwa_manifest_and_sw() -> None:
         manifest_link = page.get_attribute("link[rel='manifest']", "href")
         assert manifest_link is not None, "Missing PWA manifest link in HTML head."
 
-        manifest_url = f"http://localhost:4321{manifest_link}"
+        manifest_url = f"http://127.0.0.1:4321{manifest_link}"
         resp = requests.get(manifest_url, timeout=5)
         assert resp.status_code == 200, f"Failed to fetch PWA manifest from {manifest_url}"
 
         # Verify Service Worker asset endpoints
-        sw_resp = requests.get("http://localhost:4321/sw.js", timeout=5)
+        sw_resp = requests.get("http://127.0.0.1:4321/sw.js", timeout=5)
         assert sw_resp.status_code == 200, "sw.js service worker script returned non-200 status code."
 
-        reg_resp = requests.get("http://localhost:4321/registerSW.js", timeout=5)
+        reg_resp = requests.get("http://127.0.0.1:4321/registerSW.js", timeout=5)
         assert reg_resp.status_code == 200, "registerSW.js script returned non-200 status code."
 
         browser.close()
