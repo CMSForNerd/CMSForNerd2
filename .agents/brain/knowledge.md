@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
 timestamp: "2026-08-01T12:00:00Z"
@@ -137,6 +137,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 
 41. **Defensive GitOps & Zero-Global Memory Model**
     DSOM enforces zero global state mutability. Operational context lives strictly in spatial memory files (`.agents/brain/task.md`, `.agents/brain/walkthrough.md`, `.agents/brain/knowledge.md`), ensuring that AI digital twins reanimate with exact historical context without context window contamination.
+
+42. **Technical Book Design & PDF Compilation Master Standard**
+    Multi-file Markdown suites and repository code trees can be compiled into publication-grade, print-optimized technical handbooks (PDF, HTML, EPUB, ODT) using Pandoc and Headless Chromium. The pipeline strictly enforces the "Terminal & Cloud" pure white standard (`#FFFFFF` background, `#F8FAFC` light code blocks with `tango` dark syntax highlighting, zero toner waste) and solves 10 critical engineering hurdles including YAML frontmatter stripping, dynamic backtick fence scaling, Mermaid node namespace isolation, sequential DOM rendering in headless browser, 3-tier soft-path internal link normalization, and developer commentary extraction.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

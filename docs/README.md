@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Documentation System"
 description: "High-quality production-ready documentation system adhering to the Diátaxis Framework."

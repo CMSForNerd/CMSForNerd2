@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "content_page"
 title: "Ansible Static Orchestration | CMSForNerd2"
 description: "Automated unprivileged NginX and Astro 7.1 static site deployment guide using the CMSForNerd2 Ansible fabric."

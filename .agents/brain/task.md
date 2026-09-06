@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "task_list"
 title: "CMSForNerd2 Active Tasks"
 timestamp: "2026-08-22T00:00:00Z"
@@ -29,3 +29,7 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Adopt Deep State of Mind (DSOM) framework, conducting deep research on DSOM START-HERE specification and entry points.
 - [x] Update Jules Knowledge Base in `.agents/brain/knowledge.md` with records 36-41 covering DSOM protocols, 19 Entry Points, Tri-Phasic Mind architecture, and OKF v0.2 opportunistic adoption.
 - [x] Update active tasks and walkthrough anchors in `.agents/brain/`.
+- [x] Adopt Technical Book Design & PDF Compilation Master Prompt Guide in `docs/governance/`.
+- [x] Create How-To Guide for Technical Handbook Production in `docs/how-to/`.
+- [x] Implement AI Agent Skills for Technical Book Compiler, Code Health, Docstrings/JSDoc, Unit Testing, and OKF v0.2.
+- [x] Perform End of Day (EOD) Palace Sync as per DSOM Protocol.

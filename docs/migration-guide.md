@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
 timestamp: "2026-07-31T10:00:00Z"

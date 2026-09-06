@@ -45,12 +45,9 @@ function getMarkdownFiles(dir, files = []) {
 function formatValue(key, value) {
   const lowerKey = key.toLowerCase();
 
-  // Do not format version numbers as strings unless they were already strings
+  // Format version numbers as double-quoted strings for YAML standard compliance
   if (lowerKey === "okf_version" || lowerKey === "okf-version") {
     const cleaned = value.replace(/['"]/g, "").trim();
-    if (cleaned === "0.1") {
-      return "0.1";
-    }
     return JSON.stringify(cleaned);
   }
 

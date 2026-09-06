@@ -1,5 +1,5 @@
 ---
-okf_version: 0.1
+okf_version: "0.1"
 type: "skill"
 title: "GitHub Pages Deployment Skill"
 name: "github-pages-deployment"
