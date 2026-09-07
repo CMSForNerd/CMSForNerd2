@@ -36,10 +36,10 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 
 | Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
 | :--- | :--- | :--- | :--- |
-| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
-| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
-| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
-| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](tutorials/local-development.md)<br>• [Static Site Deployment](tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
+| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](how-to/ansible-deployment.md)<br>• [FastMCP & Wasm Guide](how-to/how-to-use-fastmcp-and-wasm.md)<br>• [Project Technical Handbook Production](how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `python3 tools/mcp/server.py` |
+| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](reference/refactor-okf.md)<br>• [Sitemap Engine Spec](reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](reference/deploy-static.md)<br>• [LLMS Context Parser CLI](reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
 ---
 
@@ -108,11 +108,11 @@ All documentation, code comments, commit messages, and cognitive logs MUST stric
 
 ## 🔗 Core Repository Map
 
-- [README.md](README.md) — Executive project summary and architectural overview.
+- [README.md](../README.md) — Executive project summary and architectural overview.
 - [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
-- [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
-- [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
-- [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
+- [docs/README.md](README.md) — Full Diátaxis framework specification and index.
+- [AGENTS.md](../AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+- [llms.txt](../llms.txt) — High-density context document optimised for LLM crawlers.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

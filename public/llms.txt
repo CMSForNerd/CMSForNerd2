@@ -22,6 +22,7 @@
 - [docs/how-to/sitemap-verification.md](docs/how-to/sitemap-verification.md): How to run sitemap testing against built HTML assets.
 - [docs/how-to/ansible-deployment.md](docs/how-to/ansible-deployment.md): How to configure and run the Ansible dual-pathway orchestration.
 - [docs/how-to/github-pages-deployment-troubleshooting.md](docs/how-to/github-pages-deployment-troubleshooting.md): How to manage and troubleshoot GitHub Pages Astro deployments.
+- [docs/how-to/how-to-use-fastmcp-and-wasm.md](docs/how-to/how-to-use-fastmcp-and-wasm.md): How to run the FastMCP SSG server and execute WebAssembly client search and cryptographic tools.
 - [docs/how-to/how-to-produce-a-project-technical-handbook.md](docs/how-to/how-to-produce-a-project-technical-handbook.md): AI prompt engineering and skill adoption blueprint for compiling project handbooks.
 
 ## Reference Material
@@ -39,6 +40,7 @@
 - [docs/explanation/spatial-memory-and-sandbox.md](docs/explanation/spatial-memory-and-sandbox.md): Deep-dive into DSOM protocols and unprivileged sandbox boundaries.
 - [docs/explanation/web-design-guidelines-skill.md](docs/explanation/web-design-guidelines-skill.md): Guide to the web-design-guidelines skill for UI accessibility and design auditing.
 - [docs/explanation/web-interface-improvements.md](docs/explanation/web-interface-improvements.md): Detailed UI design audit findings and applied enhancements.
+- [docs/explanation/fastmcp-wasm-architecture.md](docs/explanation/fastmcp-wasm-architecture.md): Architectural analysis of FastMCP SSG route exposure, Pagefind Wasm search, and client-side cryptographic & document Wasm processing.
 
 ## Optional
 

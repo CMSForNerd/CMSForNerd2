@@ -1,0 +1,53 @@
+---
+// src/pages/wasm-studio.astro
+import Layout from '../layouts/Layout.astro';
+import WasmStudio from '../components/WasmStudio.astro';
+---
+
+<Layout
+  title="⚙️ WebAssembly Cryptographic & Document Processing Studio"
+  description="Client-side WebAssembly suite for cryptographic SHA-256 hash generation, CSP whitelist calculations, and OKF v0.2 document processing."
+  slug="wasm-studio"
+>
+  <h1>⚙️ WebAssembly Cryptographic & Document Processing Studio</h1>
+  <p style="font-size: 1.05rem; color: var(--lab-muted, #64748b); line-height: 1.6;">
+    Welcome to the <strong>CMSForNerd2</strong> client-side WebAssembly (Wasm) studio. This module demonstrates browser-native, zero-server execution of cryptographic hashing, Content Security Policy (CSP) whitelist generation, and Open Knowledge Format (OKF) v0.2 document structure parsing.
+  </p>
+
+  <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
+
+  <section>
+    <h2>🔐 Client-Side Cryptographic Hashing & CSP Whitelisting</h2>
+    <p>
+      In high-security static site deployments, inline scripts and critical assets must be whitelisted using cryptographic SHA-256 digests in HTTP Content Security Policy (<code>Content-Security-Policy</code>) headers.
+    </p>
+    <ul>
+      <li><strong>Zero External API Calls:</strong> Text strings and script contents are hashed locally using hardware-accelerated SHA-256 instructions.</li>
+      <li><strong>Deterministic Whitelisting:</strong> Produces Base64-encoded digests matching Nginx and Cloudflare CSP whitelist formats (<code>'sha256-...'</code>).</li>
+      <li><strong>Integrity Assurance:</strong> Ensures content tamper-proofing before static deployment.</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 1.5rem;">
+    <h2>📄 Client-Side OKF v0.2 Document Processing</h2>
+    <p>
+      The Open Knowledge Format (OKF) v0.2 standard requires machine-readable YAML frontmatter carrying trust and freshness pillars (<code>spec_version</code>, <code>type</code>, <code>title</code>, <code>timestamp</code>, <code>topics</code>).
+    </p>
+    <ul>
+      <li><strong>Schema Validation:</strong> Checks for required frontmatter fields.</li>
+      <li><strong>Word & Line Metrics:</strong> Performs tokenisation and line frequency analysis.</li>
+      <li><strong>Privacy Guaranteed:</strong> Content never leaves your local browser memory space.</li>
+    </ul>
+  </section>
+
+  <WasmStudio />
+
+  <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
+
+  <footer>
+    <p style="font-size: 0.8rem; opacity: 0.7;">
+      <em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06</em><br />
+      <em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em>
+    </p>
+  </footer>
+</Layout>

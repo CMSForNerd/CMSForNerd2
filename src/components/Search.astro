@@ -1,0 +1,57 @@
+---
+// src/components/Search.astro
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="search-container">
+  <link href={`${base}pagefind/pagefind-ui.css`} rel="stylesheet" />
+  <div id="pagefind-search"></div>
+</div>
+
+<script is:inline>
+  function initPagefind() {
+    const searchDiv = document.getElementById('pagefind-search');
+    if (!searchDiv) return;
+
+    // Dynamically load pagefind-ui.js script if not already loaded
+    if (window.PagefindUI) {
+      new window.PagefindUI({
+        element: "#pagefind-search",
+        showSubresults: true,
+        resetFilters: false,
+        highlightParam: "highlight"
+      });
+    } else {
+      const base = document.querySelector('meta[name="base-url"]')?.getAttribute('content') || '/';
+      const script = document.createElement('script');
+      script.src = `${base}pagefind/pagefind-ui.js`;
+      script.onload = () => {
+        if (window.PagefindUI) {
+          new window.PagefindUI({
+            element: "#pagefind-search",
+            showSubresults: true,
+            resetFilters: false,
+            highlightParam: "highlight"
+          });
+        }
+      };
+      document.head.appendChild(script);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPagefind);
+  } else {
+    initPagefind();
+  }
+</script>
+
+<style>
+  .search-container {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: var(--lab-card-bg, #f8f9fa);
+    border: 1px solid var(--lab-border, #dee2e6);
+    border-radius: 8px;
+  }
+</style>

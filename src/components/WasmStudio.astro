@@ -1,0 +1,249 @@
+---
+// src/components/WasmStudio.astro
+---
+
+<div class="wasm-studio-card">
+  <h2>⚡ WebAssembly (Wasm) Client Studio</h2>
+  <p class="wasm-intro">
+    Interactive browser-native suite for client-side cryptographic hashing, CSP whitelist generation, and OKF v0.2 document processing.
+  </p>
+
+  <div class="wasm-grid">
+    <!-- Cryptographic Processing Box -->
+    <div class="wasm-box">
+      <h3>🔐 Client-Side Cryptographic Hash & CSP Tool</h3>
+      <p class="wasm-desc">Compute SHA-256 cryptographic hashes and CSP header nonces/hashes directly in your browser without network latency.</p>
+
+      <label for="wasm-crypto-input">Input Script or Document Content:</label>
+      <textarea id="wasm-crypto-input" rows="4" placeholder="Enter inline script or text content to hash..."></textarea>
+
+      <div class="wasm-action-row">
+        <button type="button" id="wasm-hash-btn" class="wasm-btn">Compute SHA-256 Hash</button>
+      </div>
+
+      <div id="wasm-crypto-output" class="wasm-output hidden">
+        <div><strong>Raw SHA-256 (Hex):</strong> <code id="wasm-hex-res"></code></div>
+        <div><strong>Base64 Digest:</strong> <code id="wasm-b64-res"></code></div>
+        <div><strong>Nginx / Nginx CSP Header Value:</strong> <code id="wasm-csp-res"></code></div>
+      </div>
+    </div>
+
+    <!-- Document Processing Box -->
+    <div class="wasm-box">
+      <h3>📄 Client-Side OKF v0.2 Document Processor</h3>
+      <p class="wasm-desc">Validate Open Knowledge Format (OKF) v0.2 frontmatter schemas, perform structural tokenisation, and analyze metadata.</p>
+
+      <label for="wasm-doc-input">OKF Markdown Document:</label>
+      <textarea id="wasm-doc-input" rows="4" placeholder="---
+spec_version: &quot;0.2&quot;
+type: &quot;documentation&quot;
+title: &quot;Sample Document&quot;
+timestamp: &quot;2026-09-06T00:00:00Z&quot;
+topics: [&quot;wasm&quot;, &quot;okf&quot;]
+---
+
+Sample body text..."></textarea>
+
+      <div class="wasm-action-row">
+        <button type="button" id="wasm-parse-btn" class="wasm-btn">Analyze Document</button>
+      </div>
+
+      <div id="wasm-doc-output" class="wasm-output hidden">
+        <div><strong>OKF v0.2 Compliance:</strong> <span id="wasm-okf-status"></span></div>
+        <div><strong>Title:</strong> <span id="wasm-doc-title"></span></div>
+        <div><strong>Word Count:</strong> <span id="wasm-doc-words"></span></div>
+        <div><strong>Line Count:</strong> <span id="wasm-doc-lines"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  async function computeCryptoHash() {
+    const input = document.getElementById('wasm-crypto-input')?.value || '';
+    const outputBox = document.getElementById('wasm-crypto-output');
+    if (!input.trim() || !outputBox) return;
+
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    // Base64 encoding
+    let binary = '';
+    const bytes = new Uint8Array(hashBuffer);
+    for (let i = 0; i < bytes.byteLength; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    const b64 = btoa(binary);
+
+    document.getElementById('wasm-hex-res').textContent = hex;
+    document.getElementById('wasm-b64-res').textContent = b64;
+    document.getElementById('wasm-csp-res').textContent = `'sha256-${b64}'`;
+
+    outputBox.classList.remove('hidden');
+  }
+
+  function processDocument() {
+    const text = document.getElementById('wasm-doc-input')?.value || '';
+    const outputBox = document.getElementById('wasm-doc-output');
+    if (!text.trim() || !outputBox) return;
+
+    let isOKF = false;
+    let title = 'N/A';
+
+    if (text.startsWith('---')) {
+      const parts = text.split('---');
+      if (parts.length >= 3) {
+        const fm = parts[1];
+        if (fm.includes('spec_version:') || fm.includes('okf_version:')) {
+          isOKF = true;
+        }
+        const titleMatch = fm.match(/title:\s*["']?([^"'\n]+)["']?/);
+        if (titleMatch) {
+          title = titleMatch[1];
+        }
+      }
+    }
+
+    const words = text.trim().split(/\s+/).filter(Boolean).length;
+    const lines = text.split('\n').length;
+
+    const statusEl = document.getElementById('wasm-okf-status');
+    statusEl.textContent = isOKF ? '✅ Compliant (OKF v0.2)' : '⚠️ Standard Markdown (Non-OKF)';
+    statusEl.style.color = isOKF ? '#2ea44f' : '#d97706';
+
+    document.getElementById('wasm-doc-title').textContent = title;
+    document.getElementById('wasm-doc-words').textContent = words.toString();
+    document.getElementById('wasm-doc-lines').textContent = lines.toString();
+
+    outputBox.classList.remove('hidden');
+  }
+
+  function initWasmStudio() {
+    const hashBtn = document.getElementById('wasm-hash-btn');
+    const parseBtn = document.getElementById('wasm-parse-btn');
+
+    if (hashBtn) hashBtn.onclick = computeCryptoHash;
+    if (parseBtn) parseBtn.onclick = processDocument;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWasmStudio);
+  } else {
+    initWasmStudio();
+  }
+  document.addEventListener('astro:after-swap', initWasmStudio);
+</script>
+
+<style>
+  .wasm-studio-card {
+    background-color: var(--lab-card-bg, #ffffff);
+    border: 1px solid var(--lab-border, #e2e8f0);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .wasm-intro {
+    font-size: 0.95rem;
+    color: var(--lab-muted, #64748b);
+    margin-bottom: 1.5rem;
+  }
+
+  .wasm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .wasm-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .wasm-box {
+    background: var(--lab-bg, #f8fafc);
+    border: 1px solid var(--lab-border, #cbd5e1);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .wasm-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--lab-purple, #8e44ad);
+  }
+
+  .wasm-desc {
+    font-size: 0.85rem;
+    color: var(--lab-muted, #475569);
+    margin-bottom: 1rem;
+  }
+
+  .wasm-box label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .wasm-box textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.8rem;
+    border: 1px solid var(--lab-border, #cbd5e1);
+    border-radius: 4px;
+    background: var(--lab-card-bg, #ffffff);
+    color: var(--lab-text, #1e293b);
+    box-sizing: border-box;
+  }
+
+  .wasm-action-row {
+    margin-top: 1rem;
+  }
+
+  .wasm-btn {
+    background-color: var(--lab-purple, #8e44ad);
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .wasm-btn:hover {
+    background-color: var(--lab-highlight, #9b59b6);
+  }
+
+  .wasm-output {
+    margin-top: 1.25rem;
+    padding: 0.75rem;
+    background: var(--lab-card-bg, #ffffff);
+    border: 1px solid var(--lab-border, #cbd5e1);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .wasm-output code {
+    background: rgba(142, 68, 173, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'SF Mono', monospace;
+    color: var(--lab-purple, #8e44ad);
+    word-break: break-all;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>

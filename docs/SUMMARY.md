@@ -23,6 +23,7 @@ nav_order: 1
 * [Sitemap Verification](how-to/sitemap-verification.md)
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)
 * [GitHub Pages Deployment & Troubleshooting](how-to/github-pages-deployment-troubleshooting.md)
+* [FastMCP Server & WebAssembly Tools Usage](how-to/how-to-use-fastmcp-and-wasm.md)
 
 ## 🏗️ Reference
 * [refactor-okf.cjs API](reference/refactor-okf.md)
@@ -36,6 +37,7 @@ nav_order: 1
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
+* [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)
 
 ## 🏛️ Governance
 * [Technical Book Design & PDF Compiler Guide](governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)

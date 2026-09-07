@@ -1,0 +1,47 @@
+---
+// src/pages/search.astro
+import Layout from '../layouts/Layout.astro';
+import Search from '../components/Search.astro';
+---
+
+<Layout
+  title="🔍 WebAssembly Client-Side Search"
+  description="Instant client-side full-text search powered by Pagefind WebAssembly engine."
+  slug="search"
+>
+  <h1>🔍 WebAssembly Client-Side Search Engine</h1>
+  <p style="font-size: 1.05rem; color: var(--lab-muted, #64748b); line-height: 1.6;">
+    Welcome to the <strong>CMSForNerd2</strong> client-side search engine. This search interface is powered by <strong>Pagefind</strong>, a zero-backend, WebAssembly-driven search framework designed for static site architectures.
+  </p>
+
+  <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
+
+  <section>
+    <h2>How Pagefind Wasm Search Works</h2>
+    <ol>
+      <li><strong>Zero Server Footprint:</strong> Search queries execute entirely inside your browser using compiled WebAssembly (Wasm) indices.</li>
+      <li><strong>Bandwidth Efficient:</strong> Search indices are chunked into small static Wasm micro-bundles. The browser loads only the specific index segments required for your query.</li>
+      <li><strong>Instant Full-Text Match:</strong> Fast client-side indexing matches titles, descriptions, code blocks, and body text with term highlighting.</li>
+    </ol>
+  </section>
+
+  <Search />
+
+  <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
+
+  <section>
+    <h2>Technical Specifications</h2>
+    <ul>
+      <li><strong>Engine:</strong> Pagefind v1.5+ (WebAssembly)</li>
+      <li><strong>Index Generation:</strong> Post-build static compilation (<code>astro build && pagefind --site dist</code>)</li>
+      <li><strong>Privacy First:</strong> Zero third-party tracking, zero analytics scripts, and zero cloud server dependencies.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 1.5rem;">
+      <em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06</em><br />
+      <em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em>
+    </p>
+  </footer>
+</Layout>
