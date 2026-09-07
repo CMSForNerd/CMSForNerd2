@@ -133,17 +133,21 @@ def search_ssg_routes(query: str) -> list[dict[str, Any]]:
 
         title = str(frontmatter.get("title", ""))
         desc = str(frontmatter.get("description", ""))
-        topics = " ".join(frontmatter.get("topics", []))
+        raw_topics = frontmatter.get("topics") or []
+        topics = " ".join(str(t) for t in raw_topics if t)
 
-        searchable_text = f"{title} {desc} {topics} {body}".lower()
+        body_lower = body.lower()
+        searchable_text = f"{title} {desc} {topics} {body_lower}"
         if query_lower in searchable_text:
-            # Extract snippet
+            # Extract snippet from body
             snippet = ""
-            pos = searchable_text.find(query_lower)
+            pos = body_lower.find(query_lower)
             if pos >= 0:
                 start = max(0, pos - 40)
                 end = min(len(body), pos + 100)
                 snippet = body[start:end].replace("\n", " ").strip()
+            elif desc:
+                snippet = desc
 
             results.append(
                 {

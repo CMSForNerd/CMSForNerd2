@@ -1577,7 +1577,7 @@ description: "Step-by-step guide for running the FastMCP SSG server, querying li
 timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
 
-okf_version: 0.1
+okf_version: "0.1"
 nav_order: 1
 ---
 
@@ -3186,7 +3186,7 @@ description: "In-depth architectural analysis of FastMCP SSG route exposure, Pag
 timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
 
-okf_version: 0.1
+okf_version: "0.1"
 nav_order: 1
 ---
 
