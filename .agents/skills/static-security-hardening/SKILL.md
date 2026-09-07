@@ -3,28 +3,18 @@ type: "skill"
 title: "Static Security Hardening Skill"
 name: "static-security-hardening"
 description: "Applies static security whitelisting, cryptographic CSP hashes, OWASP standard defensive headers, and static performance caching."
-topics:
-- security
-- hardening
-- csp
-- nginx
-- owasp
+topics: ["security", "hardening", "csp", "nginx", "owasp"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/static-security-hardening/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- security
-- hardening
-- csp
-- nginx
-- owasp
+tags: ["security", "hardening", "csp", "nginx", "owasp"]
 ---
 
 # Static Security Hardening Skill

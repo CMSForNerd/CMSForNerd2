@@ -2,29 +2,19 @@
 type: "documentation"
 title: "llms_txt2ctx.py CLI Reference"
 description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."
-topics:
-- reference
-- python
-- cli
-- parser
-- llmstxt
+topics: ["reference", "python", "cli", "parser", "llmstxt"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: llms-txt2ctx.md
   url: docs/reference/llms-txt2ctx.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- python
-- cli
-- parser
-- llmstxt
+tags: ["reference", "python", "cli", "parser", "llmstxt"]
 ---
 
 # 🏗️ `llms_txt2ctx.py` CLI Reference

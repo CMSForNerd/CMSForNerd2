@@ -3,15 +3,10 @@ type: "skill"
 title: "OKF v0.2 Migration & Compliance Standard Skill"
 name: "okf-v02-migration"
 description: "Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols."
-topics:
-- okf
-- okf-v02
-- frontmatter
-- trust-signals
-- schema-validation
+topics: ["okf", "okf-v02", "frontmatter", "trust-signals", "schema-validation"]
 status: "stable"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM)
   path: .agents/AGENTS.md
 spec_version: "0.2"
@@ -19,12 +14,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-05T08:00:00Z'
-tags:
-- okf
-- okf-v02
-- frontmatter
-- trust-signals
-- schema-validation
+tags: ["okf", "okf-v02", "frontmatter", "trust-signals", "schema-validation"]
 ---
 
 # OKF v0.2 Migration & Compliance Standard Skill

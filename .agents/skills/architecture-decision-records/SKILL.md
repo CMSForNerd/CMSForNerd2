@@ -7,18 +7,13 @@ title: "Architecture Decision Records (ADR) Skill"
 description: "Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards for technical decision tracking."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- adr
-- madr
-- architecture
-- technical-decisions
-- governance
+tags: ["adr", "madr", "architecture", "technical-decisions", "governance"]
 status: "stable"
 sources:
-- id: "wshobson_adr"
+- id: wshobson_adr
   title: Architecture Decision Records Skill
   url: https://github.com/wshobson/agents
-- id: "madr_template"
+- id: madr_template
   title: Markdown Architectural Decision Records (MADR)
   url: https://adr.github.io/madr/
 inputs:
@@ -33,12 +28,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- adr
-- madr
-- architecture
-- technical-decisions
-- governance
+topics: ["adr", "madr", "architecture", "technical-decisions", "governance"]
 ---
 
 # Architecture Decision Records Skill (`architecture-decision-records`)

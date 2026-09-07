@@ -2,29 +2,19 @@
 type: "documentation"
 title: "Web Interface Improvements & Design Review"
 description: "Detailed breakdown of UI design audit findings and code improvements applied across CMSForNerd2 in accordance with Web Interface Guidelines."
-topics:
-- ui
-- ux
-- accessibility
-- design
-- enhancements
+topics: ["ui", "ux", "accessibility", "design", "enhancements"]
 nav_order: 11
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: web-interface-improvements.md
   url: docs/explanation/web-interface-improvements.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- ui
-- ux
-- accessibility
-- design
-- enhancements
+tags: ["ui", "ux", "accessibility", "design", "enhancements"]
 ---
 
 # Web Interface Improvements & Design Review

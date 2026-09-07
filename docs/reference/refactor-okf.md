@@ -2,27 +2,19 @@
 type: "documentation"
 title: "refactor-okf.cjs API Reference"
 description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."
-topics:
-- reference
-- okf
-- api
-- utility
+topics: ["reference", "okf", "api", "utility"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: refactor-okf.md
   url: docs/reference/refactor-okf.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- okf
-- api
-- utility
+tags: ["reference", "okf", "api", "utility"]
 ---
 
 # 🏗️ `refactor-okf.cjs` API Reference

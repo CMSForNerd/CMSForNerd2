@@ -7,18 +7,13 @@ title: "Knowledge Base Structure & Templates Skill"
 description: "Provides reusable templates and structural protocols for codebase knowledge bases and internal wikis using Diátaxis."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- knowledge-base
-- diataxis
-- wiki
-- templates
-- documentation
+tags: ["knowledge-base", "diataxis", "wiki", "templates", "documentation"]
 status: "stable"
 sources:
-- id: "rp1_kb_templates"
+- id: rp1_kb_templates
   title: RP1 Knowledge Base Templates
   url: https://github.com/rp1-run/rp1
-- id: "diataxis_framework"
+- id: diataxis_framework
   title: "Di\xE1taxis Documentation Framework"
   url: https://diataxis.fr
 inputs:
@@ -33,12 +28,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- knowledge-base
-- diataxis
-- wiki
-- templates
-- documentation
+topics: ["knowledge-base", "diataxis", "wiki", "templates", "documentation"]
 ---
 
 # Knowledge Base Structure & Templates Skill (`knowledge-base-templates`)

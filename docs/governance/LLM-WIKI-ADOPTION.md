@@ -2,27 +2,19 @@
 type: "governance"
 title: "DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy"
 description: "Sovereign knowledge adoption strategy integrating Andrej Karpathy LLM WIKI Ingest Query and Lint protocols with DSOM Protocol."
-topics:
-- llm-wiki
-- dsom-protocol
-- knowledge-governance
-- spatial-memory
+topics: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: LLM-WIKI-ADOPTION.md
   url: docs/governance/LLM-WIKI-ADOPTION.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T15:00:00Z'
-tags:
-- llm-wiki
-- dsom-protocol
-- knowledge-governance
-- spatial-memory
+tags: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 ---
 
 # 🧠 DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy

@@ -4,26 +4,18 @@ title: "Modernisation History | CMSForNerd2 Evolution"
 description: "Tracking the journey of CmsForNerd from a 2005 dynamic core to a 2026 Astro 7.1 static powerhouse."
 schemaType: "ArchiveComponent"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: history.md
   url: src/content/pages/history.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="modernization-history">

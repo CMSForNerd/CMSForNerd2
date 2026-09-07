@@ -2,27 +2,19 @@
 type: "documentation"
 title: "verify-sitemaps.js API Reference"
 description: "Technical specifications, verification rules, and static asset mapping protocols for the sitemap verification utility."
-topics:
-- reference
-- sitemap
-- api
-- seo
+topics: ["reference", "sitemap", "api", "seo"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: verify-sitemaps.md
   url: docs/reference/verify-sitemaps.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- sitemap
-- api
-- seo
+tags: ["reference", "sitemap", "api", "seo"]
 ---
 
 # 🏗️ `verify-sitemaps.js` API Reference

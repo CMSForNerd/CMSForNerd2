@@ -4,26 +4,18 @@ title: "Security Policy & Disclosure | CMSForNerd2"
 description: "The formal security policy for responsible disclosure and ethical vulnerability reporting in the CMSForNerd2 static site project."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: security-policy.md
   url: src/content/pages/security-policy.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="security-policy" itemscope itemtype="https://schema.org/WebPage">

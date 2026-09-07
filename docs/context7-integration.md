@@ -2,31 +2,19 @@
 type: "documentation"
 title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
-topics:
-- context7
-- integrations
-- gitlab-ci
-- github-actions
-- api
-- documentation
+topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: context7-integration.md
   url: docs/context7-integration.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-31T07:15:00Z'
-tags:
-- context7
-- integrations
-- gitlab-ci
-- github-actions
-- api
-- documentation
+tags: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 ---
 
 # Context7 Service Integration Guide

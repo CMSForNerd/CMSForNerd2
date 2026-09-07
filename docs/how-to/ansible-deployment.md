@@ -2,29 +2,19 @@
 type: "documentation"
 title: "Ansible Deployment How-To Guide"
 description: "A comprehensive guide on deploying CMSForNerd2 using the Ansible static orchestration suite with dual-pathway branching logic."
-topics:
-- how-to
-- ansible
-- deployment
-- orchestration
-- security
+topics: ["how-to", "ansible", "deployment", "orchestration", "security"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: ansible-deployment.md
   url: docs/how-to/ansible-deployment.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- ansible
-- deployment
-- orchestration
-- security
+tags: ["how-to", "ansible", "deployment", "orchestration", "security"]
 ---
 
 # 📋 How to Deploy with Ansible Static Orchestration

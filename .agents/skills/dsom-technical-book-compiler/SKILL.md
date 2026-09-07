@@ -2,17 +2,11 @@
 type: "skill"
 title: "Technical Ebook & Handbook Compiler (Pandoc / Print & Terminal Theme)"
 description: "Compiles complete Diataxis documentation suites and source code repositories into publication-grade technical handbooks (PDF, standalone HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design framework."
-topics:
-- pandoc
-- ebook
-- pdf
-- html
-- epub
-- terminal-theme
+topics: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
 status: "stable"
 stale_after: "2027-09-03"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
   path: .agents/AGENTS.md
 name: "dsom-technical-book-compiler"
@@ -20,13 +14,7 @@ spec_version: "0.2"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-03T07:30:00Z'
-tags:
-- pandoc
-- ebook
-- pdf
-- html
-- epub
-- terminal-theme
+tags: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
 ---
 
 # Technical Ebook & Handbook Compiler

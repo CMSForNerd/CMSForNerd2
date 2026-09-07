@@ -2,26 +2,18 @@
 type: "walkthrough"
 title: "CMSForNerd2 Active Walkthrough"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
-topics:
-- walkthrough
-- history
-- brain
-- dsom
+topics: ["walkthrough", "history", "brain", "dsom"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: walkthrough.md
   url: .agents/brain/walkthrough.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- walkthrough
-- history
-- brain
-- dsom
+tags: ["walkthrough", "history", "brain", "dsom"]
 ---
 
 # CMSForNerd2 Modernisation Session Walkthrough

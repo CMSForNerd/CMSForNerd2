@@ -4,26 +4,18 @@ title: "CMSForNerd2 | The Static Modernisation Laboratory"
 description: "A lightweight, database-free CMS modernised using Astro 7.1 Static Site Generator (SSG) with strict TypeScript standards."
 schemaType: "WebApplication"
 author: "Harisfazillah Jamel"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: index.md
   url: src/content/pages/index.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-home">

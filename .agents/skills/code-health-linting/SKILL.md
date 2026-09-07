@@ -3,15 +3,10 @@ type: "skill"
 title: "Code Health and Static Analysis Skill"
 name: "code-health-linting"
 description: "Governs code health, static analysis, type checking (mypy/tsc), and linter rules (ruff/markdownlint) across the project."
-topics:
-- code-health
-- linting
-- static-analysis
-- ruff
-- markdownlint
+topics: ["code-health", "linting", "static-analysis", "ruff", "markdownlint"]
 status: "stable"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM)
   path: .agents/AGENTS.md
 spec_version: "0.2"
@@ -19,12 +14,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-05T08:00:00Z'
-tags:
-- code-health
-- linting
-- static-analysis
-- ruff
-- markdownlint
+tags: ["code-health", "linting", "static-analysis", "ruff", "markdownlint"]
 ---
 
 # Code Health and Static Analysis Skill

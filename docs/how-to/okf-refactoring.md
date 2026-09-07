@@ -2,27 +2,19 @@
 type: "documentation"
 title: "OKF Frontmatter Refactoring How-To Guide"
 description: "A step-by-step guide explaining how to automatically scan, format, and validate YAML frontmatter across all workspace Markdown files."
-topics:
-- how-to
-- okf
-- validation
-- automation
+topics: ["how-to", "okf", "validation", "automation"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: okf-refactoring.md
   url: docs/how-to/okf-refactoring.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- okf
-- validation
-- automation
+tags: ["how-to", "okf", "validation", "automation"]
 ---
 
 # 📋 How to Run the OKF Frontmatter Refactoring Utility

@@ -2,26 +2,18 @@
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
-topics:
-- knowledge
-- jules
-- brain
-- dsom
+topics: ["knowledge", "jules", "brain", "dsom"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: knowledge.md
   url: .agents/brain/knowledge.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- knowledge
-- jules
-- brain
-- dsom
+tags: ["knowledge", "jules", "brain", "dsom"]
 ---
 
 # Sovereign AI Agent Knowledge Base (CMSForNerd2)

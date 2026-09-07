@@ -2,29 +2,19 @@
 type: "documentation"
 title: "PHP-to-Static Modernisation Philosophy"
 description: "Architectural concepts, performance impacts, and design decisions behind modernising CMSForNerd to Astro SSG."
-topics:
-- explanation
-- architecture
-- migration
-- static
-- php
+topics: ["explanation", "architecture", "migration", "static", "php"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: modernisation-philosophy.md
   url: docs/explanation/modernisation-philosophy.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T15:00:00Z'
-tags:
-- explanation
-- architecture
-- migration
-- static
-- php
+tags: ["explanation", "architecture", "migration", "static", "php"]
 ---
 
 # 🧠 PHP-to-Static Modernisation Philosophy

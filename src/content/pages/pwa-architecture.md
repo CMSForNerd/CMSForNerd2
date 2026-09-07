@@ -4,26 +4,18 @@ title: "PWA Architecture | CMSForNerd2"
 description: "Explore the technical details of progressive enhancements in CMSForNerd2, including Service Workers, bfcache, and local first strategies."
 schemaType: "TechArticle"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: pwa-architecture.md
   url: src/content/pages/pwa-architecture.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <div class="content-body">

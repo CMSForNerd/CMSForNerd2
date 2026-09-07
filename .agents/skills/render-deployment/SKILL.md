@@ -3,28 +3,18 @@ type: "skill"
 title: "Render Deployment Skill"
 name: "render-deployment"
 description: "Configures and manages Render.com deployments via Docker containerisation or native Free Static Site pathways."
-topics:
-- render
-- deployment
-- docker
-- static-site
-- blueprint
+topics: ["render", "deployment", "docker", "static-site", "blueprint"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/render-deployment/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- render
-- deployment
-- docker
-- static-site
-- blueprint
+tags: ["render", "deployment", "docker", "static-site", "blueprint"]
 ---
 
 # Render Deployment Skill

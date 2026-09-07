@@ -3,16 +3,10 @@ type: "skill"
 title: "Unit and Integration Testing Suite Skill"
 name: "unit-testing-suite"
 description: "Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter validation, and Playwright E2E suites."
-topics:
-- testing
-- unit-tests
-- pytest
-- ansible
-- podman
-- playwright
+topics: ["testing", "unit-tests", "pytest", "ansible", "podman", "playwright"]
 status: "stable"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM)
   path: .agents/AGENTS.md
 spec_version: "0.2"
@@ -20,13 +14,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-05T08:00:00Z'
-tags:
-- testing
-- unit-tests
-- pytest
-- ansible
-- podman
-- playwright
+tags: ["testing", "unit-tests", "pytest", "ansible", "podman", "playwright"]
 ---
 
 # Unit and Integration Testing Suite Skill

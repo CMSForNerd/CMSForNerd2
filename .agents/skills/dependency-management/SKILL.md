@@ -3,28 +3,18 @@ type: "skill"
 title: "Dependency Management Skill"
 name: "dependency-management"
 description: "Maintains pinned dependency determinism and resolves peer-dependency conflicts across all runtime environments."
-topics:
-- dependencies
-- npm
-- peer-deps
-- node
-- lockfile
+topics: ["dependencies", "npm", "peer-deps", "node", "lockfile"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/dependency-management/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- dependencies
-- npm
-- peer-deps
-- node
-- lockfile
+tags: ["dependencies", "npm", "peer-deps", "node", "lockfile"]
 ---
 
 # Dependency Management Skill

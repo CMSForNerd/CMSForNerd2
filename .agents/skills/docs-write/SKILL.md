@@ -7,18 +7,13 @@ title: "Documentation Writing Skill"
 description: "Assists users in creating and editing documentation adhering to clear, conversational, and user-focused writing standards."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- documentation
-- writing
-- markdown
-- diataxis
-- user-focused
+tags: ["documentation", "writing", "markdown", "diataxis", "user-focused"]
 status: "stable"
 sources:
-- id: "metabase_docs_write"
+- id: metabase_docs_write
   title: Metabase Documentation Writing Guide
   url: https://github.com/metabase/metabase
-- id: "google_developer_docs_style_guide"
+- id: google_developer_docs_style_guide
   title: Google Developer Documentation Style Guide
   url: https://developers.google.com/style
 inputs:
@@ -37,12 +32,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- documentation
-- writing
-- markdown
-- diataxis
-- user-focused
+topics: ["documentation", "writing", "markdown", "diataxis", "user-focused"]
 ---
 
 # Documentation Writing Skill (`docs-write`)

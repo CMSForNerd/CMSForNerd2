@@ -7,15 +7,10 @@ title: "AI Hyperparameter Optimization Expert Skill"
 description: "Analyzes, optimizes, and debugs deep learning hyperparameters including learning rates across PyTorch and TensorFlow."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- machine-learning
-- hyperparameters
-- optimization
-- pytorch
-- tensorflow
+tags: ["machine-learning", "hyperparameters", "optimization", "pytorch", "tensorflow"]
 status: "stable"
 sources:
-- id: "deep_learning_optimization_standards"
+- id: deep_learning_optimization_standards
   title: Deep Learning Model Tuning Best Practices
   author: AI Workspace Guild
 inputs:
@@ -38,12 +33,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- machine-learning
-- hyperparameters
-- optimization
-- pytorch
-- tensorflow
+topics: ["machine-learning", "hyperparameters", "optimization", "pytorch", "tensorflow"]
 ---
 
 # AI Hyperparameter Optimization Expert Skill (`hyperparameter-tuning-expert`)

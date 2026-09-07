@@ -1,26 +1,18 @@
 ---
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: README.md
   url: README.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 # 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)

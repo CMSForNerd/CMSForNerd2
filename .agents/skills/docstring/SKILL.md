@@ -7,19 +7,13 @@ title: "Docstring and API Reference Standard Skill"
 description: "Provides structured guidelines for writing PEP-257 Google-style Python docstrings and detailed JSDoc comments."
 version: "1.1.0"
 author: "AI Workspace Assistant"
-tags:
-- docstring
-- jsdoc
-- pep257
-- google-style
-- python
-- typescript
+tags: ["docstring", "jsdoc", "pep257", "google-style", "python", "typescript"]
 status: "stable"
 sources:
-- id: "pytorch_docstring"
+- id: pytorch_docstring
   title: PyTorch Docstring Guidelines
   url: https://github.com/pytorch/pytorch
-- id: "google_python_styleguide"
+- id: google_python_styleguide
   title: Google Python Style Guide
   url: https://google.github.io/styleguide/pyguide.html
 inputs:
@@ -34,13 +28,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- docstring
-- jsdoc
-- pep257
-- google-style
-- python
-- typescript
+topics: ["docstring", "jsdoc", "pep257", "google-style", "python", "typescript"]
 ---
 
 # Docstring & API Reference Standard Skill (`docstring`)

@@ -2,29 +2,19 @@
 type: "documentation"
 title: "Web Design Guidelines Skill Overview"
 description: "Comprehensive guide to the web-design-guidelines skill, its purpose, guidelines, and execution workflow for human developers and AI agents."
-topics:
-- skill
-- web-design
-- accessibility
-- ux
-- guidelines
+topics: ["skill", "web-design", "accessibility", "ux", "guidelines"]
 nav_order: 10
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: web-design-guidelines-skill.md
   url: docs/explanation/web-design-guidelines-skill.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- skill
-- web-design
-- accessibility
-- ux
-- guidelines
+tags: ["skill", "web-design", "accessibility", "ux", "guidelines"]
 ---
 
 # Web Design Guidelines Skill Guide

@@ -3,28 +3,18 @@ type: "skill"
 title: "GitHub Pages Deployment Skill"
 name: "github-pages-deployment"
 description: "Manages and automates subpath static deployments to GitHub Pages without breaking root-relative cloud or local development."
-topics:
-- github-pages
-- deployment
-- base-url
-- subpath
-- ssg
+topics: ["github-pages", "deployment", "base-url", "subpath", "ssg"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/github-pages-deployment/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- github-pages
-- deployment
-- base-url
-- subpath
-- ssg
+tags: ["github-pages", "deployment", "base-url", "subpath", "ssg"]
 ---
 
 # GitHub Pages Deployment Skill

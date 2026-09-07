@@ -4,26 +4,18 @@ title: "Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2"
 description: "Official Certificate of Completion for the CMSForNerd2 Static Modernisation Curriculum."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: graduation.md
   url: src/content/pages/graduation.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="graduation-page">
@@ -121,7 +113,7 @@ const elDate = document.getElementById('cert-verification-date');
 if (elDate) elDate.textContent = todayStr;
 
 // Generate simple deterministic SHA256 signature
-const dateStamp = new Date().toISOString().split('T')[0];
+const dateStamp = new Date().toISOString().split['T'](0);
 const signaturePlain = student + dateStamp;
 
 // Use Web Crypto API if available, else a mock SHA256-like hash

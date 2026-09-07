@@ -2,24 +2,18 @@
 type: "documentation"
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
-topics:
-- summary
-- index
-- navigation
+topics: ["summary", "index", "navigation"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SUMMARY.md
   url: SUMMARY.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- summary
-- index
-- navigation
+tags: ["summary", "index", "navigation"]
 ---
 
 # Summary

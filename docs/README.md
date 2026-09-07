@@ -2,27 +2,19 @@
 type: "documentation"
 title: "CMSForNerd2 Documentation System"
 description: "High-quality production-ready documentation system adhering to the Diátaxis Framework."
-topics:
-- diataxis
-- documentation
-- framework
-- architecture
+topics: ["diataxis", "documentation", "framework", "architecture"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: README.md
   url: docs/README.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:35:00Z'
-tags:
-- diataxis
-- documentation
-- framework
-- architecture
+tags: ["diataxis", "documentation", "framework", "architecture"]
 ---
 
 # 📚 CMSForNerd2 Documentation System

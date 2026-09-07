@@ -2,27 +2,19 @@
 type: "documentation"
 title: "Static Site Deployment Tutorial"
 description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."
-topics:
-- tutorials
-- deployment
-- github-pages
-- render
+topics: ["tutorials", "deployment", "github-pages", "render"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: static-site-deployment.md
   url: docs/tutorials/static-site-deployment.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:40:00Z'
-tags:
-- tutorials
-- deployment
-- github-pages
-- render
+tags: ["tutorials", "deployment", "github-pages", "render"]
 ---
 
 # 🎓 Static Site Deployment Tutorial

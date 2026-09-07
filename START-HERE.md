@@ -2,28 +2,18 @@
 type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
 description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
-topics:
-- onboarding
-- diataxis
-- navigation
-- dsom
-- agents
+topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: START-HERE.md
   url: START-HERE.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- onboarding
-- diataxis
-- navigation
-- dsom
-- agents
+tags: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 ---
 
 # 🎯 START HERE: CMSForNerd2 Master Onboarding Standard

@@ -2,18 +2,11 @@
 type: "skill"
 title: "Project Technical Book & Handbook Compiler"
 description: "Autonomously synthesizes repository code, Diataxis documentation, and system telemetry into publication-grade print-ready PDF, standalone HTML, and EPUB handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
-topics:
-- pandoc
-- pdf
-- html
-- epub
-- print-optimized
-- diataxis
-- handbook
+topics: ["pandoc", "pdf", "html", "epub", "print-optimized", "diataxis", "handbook"]
 status: "stable"
 stale_after: "2027-09-05"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
   path: .agents/AGENTS.md
 name: "project-technical-book-compiler"
@@ -21,14 +14,7 @@ spec_version: "0.2"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-05T00:00:00Z'
-tags:
-- pandoc
-- pdf
-- html
-- epub
-- print-optimized
-- diataxis
-- handbook
+tags: ["pandoc", "pdf", "html", "epub", "print-optimized", "diataxis", "handbook"]
 ---
 
 # Project Technical Book & Handbook Compiler

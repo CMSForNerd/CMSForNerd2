@@ -5,25 +5,15 @@ title: "Google Deep Research & Search Skill"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "google_deep_research_spec"
+- id: google_deep_research_spec
   title: Google Deep Research & Search Specification
   author: Google Cloud / Agent Architecture Guild
   url: https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T23:00:00Z'
-tags:
-- deep-search
-- okf-v02
-- research
-- learn-protocol
-- token-optimisation
-topics:
-- deep-search
-- okf-v02
-- research
-- learn-protocol
-- token-optimisation
+tags: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
+topics: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
 ---
 
 # Skill: Google Deep Research & Search

@@ -4,26 +4,18 @@ title: "Sitemap For CMSForNerd2"
 description: "HTML Sitemap for CMSForNerd2 - A lightweight static content management system modernised in Astro 7.1."
 schemaType: "WebPage"
 author: "Harisfazillah Jamel"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: sitemap-page.md
   url: src/content/pages/sitemap-page.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 

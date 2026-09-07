@@ -3,28 +3,18 @@ type: "skill"
 title: "Build and Preview Workflow Skill"
 name: "build-preview-workflow"
 description: "Guides local compilation, testing, and preview workflows for Astro 7.1 static site generator."
-topics:
-- build
-- preview
-- astro
-- static
-- workflow
+topics: ["build", "preview", "astro", "static", "workflow"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/build-preview-workflow/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- build
-- preview
-- astro
-- static
-- workflow
+tags: ["build", "preview", "astro", "static", "workflow"]
 ---
 
 # Build and Preview Workflow Skill

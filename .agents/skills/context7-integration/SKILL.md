@@ -3,28 +3,18 @@ type: "skill"
 title: "Context7 Integration Skill"
 name: "context7-integration"
 description: "Maintains automated documentation indexing and updates utilizing Context7 services across CI workflows."
-topics:
-- context7
-- documentation
-- index
-- gitlab-ci
-- github-actions
+topics: ["context7", "documentation", "index", "gitlab-ci", "github-actions"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/context7-integration/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- context7
-- documentation
-- index
-- gitlab-ci
-- github-actions
+tags: ["context7", "documentation", "index", "gitlab-ci", "github-actions"]
 ---
 
 # Context7 Integration Skill

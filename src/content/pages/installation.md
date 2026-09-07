@@ -4,26 +4,18 @@ title: "Installation Guide | CMSForNerd2"
 description: "Official installation steps for CMSForNerd2. Learn how to configure the Astro 7.1 environment, run the dev server, and compile static builds."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Gemini AI"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: installation.md
   url: src/content/pages/installation.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <h1>Introduction</h1>

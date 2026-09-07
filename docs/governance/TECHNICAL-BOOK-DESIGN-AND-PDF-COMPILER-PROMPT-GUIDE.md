@@ -1,26 +1,18 @@
 ---
 type: "governance"
 title: "Technical Book Design & PDF Compilation Master Prompt Guide"
-topics:
-- pandoc
-- pdf
-- handbook
-- prompt
-- print-optimized
-- mermaid
-- ebook
-- diataxis
+topics: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 description: "Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
 status: "stable"
 stale_after: "2027-09-04"
 sources:
-- id: "dsom_agents_rulebook"
+- id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
   path: .agents/AGENTS.md
-- id: "dsom_technical_book_compiler_skill"
+- id: dsom_technical_book_compiler_skill
   title: Technical Ebook & Handbook Compiler Skill
   path: .agents/skills/dsom-technical-book-compiler/SKILL.md
-- id: "build_mcmc_ansible_book_script"
+- id: build_mcmc_ansible_book_script
   title: MCMC Ansible Book Compiler Implementation
   path: tools/build_mcmc_ansible_book.py
 generated:
@@ -31,15 +23,7 @@ verified:
   timestamp: '2026-09-04T21:15:00Z'
 nav_order: 1
 spec_version: "0.2"
-tags:
-- pandoc
-- pdf
-- handbook
-- prompt
-- print-optimized
-- mermaid
-- ebook
-- diataxis
+tags: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 ---
 
 # Technical Book Design & PDF Compilation Master Prompt Guide

@@ -7,18 +7,13 @@ title: "Documentation Review Skill"
 description: "Facilitates structured reviews of documentation changes to ensure accuracy, style guide compliance, and maintainability."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- documentation
-- review
-- quality-assurance
-- okf
-- diataxis
+tags: ["documentation", "review", "quality-assurance", "okf", "diataxis"]
 status: "stable"
 sources:
-- id: "metabase_docs_review"
+- id: metabase_docs_review
   title: Metabase Documentation Review Skill
   url: https://github.com/metabase/metabase
-- id: "microsoft_writing_style_guide"
+- id: microsoft_writing_style_guide
   title: Microsoft Writing Style Guide
   url: https://learn.microsoft.com/en-us/style-guide/welcome/
 inputs:
@@ -33,12 +28,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- documentation
-- review
-- quality-assurance
-- okf
-- diataxis
+topics: ["documentation", "review", "quality-assurance", "okf", "diataxis"]
 ---
 
 # Documentation Review Skill (`docs-review`)

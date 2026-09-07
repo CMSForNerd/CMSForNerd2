@@ -2,33 +2,19 @@
 type: "documentation"
 title: "Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules"
 description: "Comprehensive technical guide and project showcase detailing the end-to-end engineering workflow, OpenTofu IaC, Ansible automation, GitHub PR comment collaboration, Deep State of Mind (DSOM) governance, and Google Antigravity multi-agent integration."
-topics:
-- jules
-- opentofu
-- ansible
-- dsom
-- antigravity
-- github-pages
-- pair-programming
+topics: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: jules-platform-guide.md
   url: docs/jules-platform-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-14T10:00:00Z'
-tags:
-- jules
-- opentofu
-- ansible
-- dsom
-- antigravity
-- github-pages
-- pair-programming
+tags: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 ---
 
 # Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules

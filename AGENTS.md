@@ -2,28 +2,18 @@
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
-topics:
-- agents
-- dsom
-- rulebook
-- constitution
-- skills
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: AGENTS.md
   url: AGENTS.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- agents
-- dsom
-- rulebook
-- constitution
-- skills
+tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # AI Agent Registry & Sovereign Gateway

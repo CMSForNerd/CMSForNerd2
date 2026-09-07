@@ -4,26 +4,18 @@ title: "Lab Worksheet: Module 5 - CMSForNerd2"
 description: "Module 5: Static Build QA and Service Worker Validation. Learn to audit the compiled dist directory and PWA offline fallback assets."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: lab-module5.md
   url: src/content/pages/lab-module5.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">

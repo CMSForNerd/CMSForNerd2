@@ -4,28 +4,18 @@ title: "Nerd Hall of Fame | CMSForNerd Recognition"
 description: "Celebrating the researchers and students who have helped secure and modernize the CMSForNerd Laboratory."
 schemaType: "SpecialAnnouncement"
 author: "CMSForNerd Team & Google Gemini"
-topics:
-- modernisation
-- astro
-- static
-- php
-- architecture
+topics: ["modernisation", "astro", "static", "php", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: hall-of-fame.md
   url: src/content/pages/hall-of-fame.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- php
-- architecture
+tags: ["modernisation", "astro", "static", "php", "architecture"]
 ---
 
 

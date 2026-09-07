@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
+# /// script
+# dependencies = [
+#   "pyyaml",
+# ]
+# ///
 """OKF v0.2 Migration and Refactoring Utility.
 
 Deeply scans all Markdown (.md) files across the project workspace, migrates legacy
 OKF v0.1 frontmatter to OKF v0.2 standard (`spec_version: "0.2"`), populates the five trust
 and freshness pillars (`status`, `stale_after`, `sources`, `generated`), wraps special character
-strings in double quotes, and invokes markdownlint for Workspace Quality Enforcement.
+strings in double quotes, formats array parameters in compact single-line JSON format, and invokes markdownlint.
 """
 
-from pathlib import Path
+import json
 import subprocess
+from pathlib import Path
+
 import yaml
 
 EXCLUDE_DIRS = {"node_modules", ".git", "dist", ".astro", ".pytest_cache"}
@@ -22,11 +29,17 @@ def get_markdown_files(root_dir: Path) -> list[Path]:
     return md_files
 
 
+def format_array_single_line(lst: list[object]) -> str:
+    """Formats a list of strings as a compact JSON-style single-line list [\"a\", \"b\"]."""
+    items = [json.dumps(str(x)) for x in lst]
+    return f"[{', '.join(items)}]"
+
+
 def migrate_file(filepath: Path) -> bool:
     """Migrates a single markdown file to OKF v0.2 compliance. Returns True if modified."""
     try:
         content = filepath.read_text(encoding="utf-8")
-    except Exception as e:
+    except OSError as e:
         print(f"Error reading {filepath}: {e}")
         return False
 
@@ -34,7 +47,7 @@ def migrate_file(filepath: Path) -> bool:
     if not content.startswith("---"):
         print(f"Adding OKF v0.2 frontmatter to {filepath}")
         stem = filepath.stem.replace("-", " ").replace("_", " ").title()
-        frontmatter = f'---\nspec_version: "0.2"\ntype: "documentation"\ntitle: "{stem}"\nstatus: "stable"\nstale_after: "2027-03-06"\nsources:\n  - id: "workspace_root"\n    title: "{filepath.name}"\n    url: "{filepath.name}"\ngenerated:\n  by: "Repository Architect & OKF v0.2 Migration Agent"\n  timestamp: "2026-09-06T23:00:00Z"\ntags: ["documentation"]\n---\n\n'
+        frontmatter = f'---\nspec_version: "0.2"\ntype: "documentation"\ntitle: "{stem}"\nstatus: "stable"\nstale_after: "2027-03-06"\nsources:\n  - id: "workspace_root"\n    title: "{filepath.name}"\n    url: "{filepath.name}"\ngenerated:\n  by: "Repository Architect & OKF v0.2 Migration Agent"\n  timestamp: "2026-09-06T23:00:00Z"\ntags: ["documentation"]\ntopics: ["documentation"]\n---\n\n'
         filepath.write_text(frontmatter + content, encoding="utf-8")
         return True
 
@@ -116,6 +129,8 @@ def migrate_file(filepath: Path) -> bool:
     for k, v in fm_data.items():
         if k == "spec_version":
             yaml_lines.append('spec_version: "0.2"')
+        elif k in ["topics", "tags"] and isinstance(v, list):
+            yaml_lines.append(f"{k}: {format_array_single_line(v)}")
         elif isinstance(v, (dict, list)):
             dumped = yaml.safe_dump({k: v}, sort_keys=False).strip()
             yaml_lines.append(dumped)
@@ -149,7 +164,7 @@ def run_markdownlint(files: list[Path]) -> None:
     print("Executing Workspace Quality Enforcement via markdownlint-cli...")
     file_args = [str(f) for f in files]
     cmd = ["npx", "--no-install", "markdownlint-cli", "--fix"] + file_args
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    res = subprocess.run(cmd, capture_output=True, text=True, check=False)
     if res.returncode == 0:
         print("markdownlint passed cleanly.")
     else:

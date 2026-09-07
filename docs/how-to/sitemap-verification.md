@@ -2,27 +2,19 @@
 type: "documentation"
 title: "Sitemap Verification How-To Guide"
 description: "Instructions on how to verify root and public plain-text sitemaps, built multi-host XML sitemaps, and static file mapping."
-topics:
-- how-to
-- sitemap
-- verification
-- seo
+topics: ["how-to", "sitemap", "verification", "seo"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: sitemap-verification.md
   url: docs/how-to/sitemap-verification.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- sitemap
-- verification
-- seo
+tags: ["how-to", "sitemap", "verification", "seo"]
 ---
 
 # 📋 How to Verify Sitemaps and Link Consistency

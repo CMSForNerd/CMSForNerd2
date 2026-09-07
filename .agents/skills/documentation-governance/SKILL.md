@@ -3,28 +3,18 @@ type: "skill"
 title: "Documentation Governance Skill"
 name: "documentation-governance"
 description: "Enforces strict OKF standards, UK English conventions, and prevents orphaned pages in the documentation hierarchy."
-topics:
-- documentation
-- governance
-- okf
-- uk-english
-- navigation
+topics: ["documentation", "governance", "okf", "uk-english", "navigation"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/documentation-governance/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- documentation
-- governance
-- okf
-- uk-english
-- navigation
+tags: ["documentation", "governance", "okf", "uk-english", "navigation"]
 ---
 
 # Documentation Governance Skill

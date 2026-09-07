@@ -2,29 +2,19 @@
 type: "documentation"
 title: "Spatial Memory & Dual-Pathway Design"
 description: "Conceptual overview explaining Deep State of Mind spatial memory boundaries, Google Jules sandbox environment limits, and dual-pathway Ansible orchestration."
-topics:
-- explanation
-- dsom
-- sandbox
-- jules
-- ansible
+topics: ["explanation", "dsom", "sandbox", "jules", "ansible"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: spatial-memory-and-sandbox.md
   url: docs/explanation/spatial-memory-and-sandbox.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T15:00:00Z'
-tags:
-- explanation
-- dsom
-- sandbox
-- jules
-- ansible
+tags: ["explanation", "dsom", "sandbox", "jules", "ansible"]
 ---
 
 # 🧠 Spatial Memory & Dual-Pathway Design

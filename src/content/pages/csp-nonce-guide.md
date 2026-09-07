@@ -4,26 +4,18 @@ title: "Static CSP Implementation Guide | CMSForNerd2 Security"
 description: "Comprehensive guide to implementing Content Security Policy (CSP) and Subresource Integrity on static Astro 7.1 sites."
 schemaType: "TechArticle"
 author: "CMSForNerd2 Security Team"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: csp-nonce-guide.md
   url: src/content/pages/csp-nonce-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-30T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="csp-guide" itemscope itemtype="https://schema.org/TechArticle">

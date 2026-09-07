@@ -3,30 +3,20 @@ type: "skill"
 title: "Web Design Guidelines Skill"
 name: "web-design-guidelines"
 description: "Review UI code for Web Interface Guidelines compliance including accessibility, typography, form attributes, and performance."
-topics:
-- web-design
-- ui
-- ux
-- accessibility
-- guidelines
+topics: ["web-design", "ui", "ux", "accessibility", "guidelines"]
 status: "stable"
 author: "vercel"
 version: "1.0.0"
 spec_version: "0.2"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SKILL.md
   url: .agents/skills/web-design-guidelines/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- web-design
-- ui
-- ux
-- accessibility
-- guidelines
+tags: ["web-design", "ui", "ux", "accessibility", "guidelines"]
 ---
 
 # Web Design Guidelines Skill

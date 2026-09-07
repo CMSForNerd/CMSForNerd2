@@ -7,15 +7,10 @@ title: "Document Creation, Editing & Conversion Skill"
 description: "Handles professional Word document (.docx) creation, redlining, tracked changes, comment extraction, and Pandoc Markdown conversion."
 version: "1.0.0"
 author: "AI Workspace Assistant"
-tags:
-- docx
-- pandoc
-- document-processing
-- redlining
-- markdown-conversion
+tags: ["docx", "pandoc", "document-processing", "redlining", "markdown-conversion"]
 status: "stable"
 sources:
-- id: "anthropics_docx"
+- id: anthropics_docx
   title: Anthropic Skills - Docx
   url: https://github.com/anthropics/skills
 inputs:
@@ -30,12 +25,7 @@ stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-topics:
-- docx
-- pandoc
-- document-processing
-- redlining
-- markdown-conversion
+topics: ["docx", "pandoc", "document-processing", "redlining", "markdown-conversion"]
 ---
 
 # Document Creation, Editing & Conversion Skill (`docx`)

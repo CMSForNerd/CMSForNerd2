@@ -2,27 +2,19 @@
 type: "documentation"
 title: "Local Development Quickstart Tutorial"
 description: "A step-by-step tutorial guiding beginners through installing dependencies, compiling static assets, and previewing CMSForNerd2."
-topics:
-- tutorials
-- onboarding
-- local-development
-- astro
+topics: ["tutorials", "onboarding", "local-development", "astro"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: local-development.md
   url: docs/tutorials/local-development.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:40:00Z'
-tags:
-- tutorials
-- onboarding
-- local-development
-- astro
+tags: ["tutorials", "onboarding", "local-development", "astro"]
 ---
 
 # 🎓 Local Development Quickstart

@@ -35,7 +35,7 @@ def test_okf_compliance() -> None:
     """
     res = subprocess.run(["node", "tools/refactor-okf.cjs"], capture_output=True, text=True, check=False)
     assert res.returncode == 0
-    assert "Refactoring complete" in res.stdout
+    assert "OKF v0.2 migration complete" in res.stdout
 
 @pytest.mark.parametrize("md_file", markdown_files)
 def test_page_renders_correctly(md_file: str) -> None:

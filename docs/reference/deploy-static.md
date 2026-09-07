@@ -2,27 +2,19 @@
 type: "documentation"
 title: "deploy-static.sh CLI Reference"
 description: "Technical specifications, environment variable overrides, and dual-pathway branching logic for the static deployment orchestrator."
-topics:
-- reference
-- bash
-- ansible
-- deployment
+topics: ["reference", "bash", "ansible", "deployment"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: deploy-static.md
   url: docs/reference/deploy-static.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- bash
-- ansible
-- deployment
+tags: ["reference", "bash", "ansible", "deployment"]
 ---
 
 # 🏗️ `deploy-static.sh` CLI Reference

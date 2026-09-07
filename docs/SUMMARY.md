@@ -2,27 +2,19 @@
 type: "documentation"
 title: "CMSForNerd2 Documentation SUMMARY"
 description: "GitBook table of contents and navigation summary for the Diátaxis documentation system."
-topics:
-- summary
-- index
-- gitbook
-- diataxis
+topics: ["summary", "index", "gitbook", "diataxis"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
-- id: "workspace_file"
+- id: workspace_file
   title: SUMMARY.md
   url: docs/SUMMARY.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:35:00Z'
-tags:
-- summary
-- index
-- gitbook
-- diataxis
+tags: ["summary", "index", "gitbook", "diataxis"]
 ---
 
 # Summary
