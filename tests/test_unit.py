@@ -20,6 +20,13 @@ from tests.unit.markdown import (
     test_markdown_okf_compliance,
     test_uk_english_documentation_spellings,
 )
+from tests.unit.mcp import (
+    test_get_openwiki_concept,
+    test_get_route_content,
+    test_get_sitemap_routes,
+    test_list_ssg_routes,
+    test_search_ssg_routes,
+)
 from tests.unit.sitemaps import (
     test_context7_configuration,
     test_sitemaps_consistency,
@@ -30,9 +37,14 @@ __all__ = [
     "test_build_llms_full_compilation",
     "test_containerfile_security_and_structure",
     "test_context7_configuration",
+    "test_get_openwiki_concept",
+    "test_get_route_content",
+    "test_get_sitemap_routes",
+    "test_list_ssg_routes",
     "test_llms_txt2ctx_parser_api",
     "test_markdown_governance_footers",
     "test_markdown_okf_compliance",
+    "test_search_ssg_routes",
     "test_sitemaps_consistency",
     "test_uk_english_documentation_spellings",
 ]

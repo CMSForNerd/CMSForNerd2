@@ -34,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Install Python Dependencies
-        run: pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests playwright pytest-playwright
+        run: pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests playwright pytest-playwright fastmcp
 
       - name: Install Playwright Chromium Browser
         run: playwright install chromium --with-deps

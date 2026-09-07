@@ -159,6 +159,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 45. **Vercel Web Design Guidelines Skill & LLM WIKI Integration**
     The repository adopts Vercel's `web-design-guidelines` skill into `skills/` and `.agents/skills/`, and integrates Andrej Karpathy's LLM WIKI Ingest, Query, and Lint protocols into DSOM via `docs/governance/LLM-WIKI-ADOPTION.md`. The Pytest `preview_server` session fixture in `tests/conftest.py` spawns the preview server with `start_new_session=True` and uses `os.killpg` for clean process group teardown.
 
+46. **FastMCP Server Adoption & WebAssembly (Wasm) Search and Processing**
+    The repository adopts a FastMCP (Model Context Protocol) server (`tools/mcp/server.py`) to expose live Astro SSG routes (`list_ssg_routes`), route content (`get_route_content`), full-text search (`search_ssg_routes`), sitemaps (`get_sitemap_routes`), and spatial memory (`get_openwiki_concept`) directly to AI agents. It integrates Pagefind Wasm client-side search (`astro build && pagefind --site dist`) with a client search UI at `/search`, and implements a browser-native WebAssembly Cryptographic & OKF v0.2 Document Processing Studio at `/wasm-studio`.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
