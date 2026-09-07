@@ -1,12 +1,21 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Windows 11 Setup Guide: Node.js & Astro 7.1 | CMSForNerd2"
 description: "Step-by-step guide to setting up Node.js, Git, and VS Code for Astro 7.1 development on Windows 11."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: windows-setup.md
+  url: src/content/pages/windows-setup.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="setup-guide">

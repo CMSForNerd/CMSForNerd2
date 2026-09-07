@@ -1,12 +1,21 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Lab Worksheet: Module 4 - CMSForNerd2"
 description: "Student Lab Worksheet for Module 4: Automated Testing with Playwright. Learn to test static Astro 7.1 layouts and components."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: lab-module4.md
+  url: src/content/pages/lab-module4.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="lab-worksheet">
@@ -48,7 +57,7 @@ topics: ["modernisation", "astro", "static", "architecture"]
 test.describe('CMSForNerd2 Layout Integrity', () => {
   test('should load the home page and render hero section correctly', async ({ page }) => {
     // 1. Arrange & Act - Navigate to local preview
-    await page.goto('http://localhost:4321/');
+    await page.goto('<http://localhost:4321/>');
 
     // 2. Assert - Validate that the main elements render
     const heading = page.locator('h1');

@@ -1,12 +1,20 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "GitHub Pages Deployment and Troubleshooting Guide"
 description: "How-To guide for understanding, troubleshooting, and managing GitHub Pages deployments for CMSForNerd2."
-timestamp: "2026-08-22T01:00:00Z"
 topics: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
-
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: github-pages-deployment-troubleshooting.md
+  url: docs/how-to/github-pages-deployment-troubleshooting.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-22T01:00:00Z'
+tags: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
 ---
 
 # 🚀 How to Troubleshoot and Manage GitHub Pages Deployments
@@ -28,6 +36,7 @@ If a legacy Jekyll workflow (`.github/workflows/jekyll-gh-pages.yml`) is trigger
 ### Active Astro Deployment Pipeline
 
 CMSForNerd2 utilizes a dedicated Astro deployment workflow configured in `.github/workflows/deploy-gh-pages.yml`. This workflow:
+
 1. Checks out the repository using `actions/checkout@v4`.
 2. Sets up Node.js v22 using `actions/setup-node@v4`.
 3. Installs dependencies using `npm ci`.
@@ -39,6 +48,7 @@ CMSForNerd2 utilizes a dedicated Astro deployment workflow configured in `.githu
 ## 📋 Step-by-Step Directions
 
 ### Step 1: Remove Obsolete Jekyll Workflows
+
 To avoid workflow collisions and erroneous build failures on the `master` branch, ensure that no Jekyll workflow files exist in `.github/workflows/`. Remove any file named `jekyll-gh-pages.yml`:
 
 ```bash
@@ -46,6 +56,7 @@ rm -f .github/workflows/jekyll-gh-pages.yml
 ```
 
 ### Step 2: Verify Active GitHub Pages Workflow
+
 Confirm that `.github/workflows/deploy-gh-pages.yml` exists and contains the correct build and publish configuration:
 
 ```yaml
@@ -91,6 +102,7 @@ jobs:
 ```
 
 ### Step 3: Verify Local Build and Sitemaps Before Pushing
+
 Run the local build and sitemap verification tools to ensure all compiled pages render cleanly:
 
 ```bash

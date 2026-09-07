@@ -1,12 +1,21 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "New Page Creation Guide | CMSForNerd2"
 description: "A step-by-step guide to authoring new content pages using Markdown/MDX and Astro 7.1 Content Collections."
 schemaType: "WebPage"
 author: "Harisfazillah Jamel"
-timestamp: "2026-07-30T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: template.md
+  url: src/content/pages/template.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="template-guide">
@@ -49,7 +58,9 @@ topics: ["modernisation", "contact"]
 ---
 
 &lt;section class="contact-page"&gt;
+
 # Contact Us
+
 Send a message to our static development team.
 &lt;/section&gt;</code></pre>
 </div>

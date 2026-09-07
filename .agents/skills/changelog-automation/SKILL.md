@@ -6,27 +6,29 @@ name: "changelog-automation"
 title: "Changelog Automation & Release Notes Skill"
 description: "Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits."
 version: "1.0.0"
-timestamp: "2026-09-06T00:00:00Z"
 author: "AI Workspace Assistant"
 tags: ["changelog", "release-notes", "conventional-commits", "keep-a-changelog", "automation"]
 status: "stable"
 sources:
-  - id: "wshobson_changelog"
-    title: "Changelog Automation Skill"
-    url: "https://github.com/wshobson/agents"
-  - id: "keep_a_changelog"
-    title: "Keep a Changelog 1.1.0 Specification"
-    url: "https://keepachangelog.com/en/1.1.0/"
+- id: wshobson_changelog
+  title: Changelog Automation Skill
+  url: https://github.com/wshobson/agents
+- id: keep_a_changelog
+  title: Keep a Changelog 1.1.0 Specification
+  url: https://keepachangelog.com/en/1.1.0/
 inputs:
   commit_range:
-    type: "string"
-    description: "Git commit range or release tag."
+    type: string
+    description: Git commit range or release tag.
 outputs:
   changelog_markdown:
-    type: "string"
-    description: "Structured release notes categorized by user and technical impact."
-
-okf_version: "0.1"
+    type: string
+    description: Structured release notes categorized by user and technical impact.
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+topics: ["changelog", "release-notes", "conventional-commits", "keep-a-changelog", "automation"]
 ---
 
 # Changelog Automation & Release Notes Skill (`changelog-automation`)
@@ -53,6 +55,7 @@ The `changelog-automation` skill structures change histories, release notes, and
 ## FAQs
 
 ### What tools integrate with this skill?
+
 Standard release tools like `@commitlint`, `standard-version`, `semantic-release`, and GitHub/GitLab release workflows.
 
 ---

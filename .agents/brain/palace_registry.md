@@ -1,13 +1,19 @@
 ---
-okf_version: "0.2"
 type: "brain"
 title: "Palace Spatial Registry"
-timestamp: "2026-09-06T15:05:00Z"
 description: "Spatial registry indexing wings, halls, and rooms within the Sovereign Markdown Palace for CMSForNerd2."
-topics:
-  - "palace-registry"
-  - "dsom-protocol"
-  - "spatial-memory"
+topics: ["palace-registry", "dsom-protocol", "spatial-memory"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: palace_registry.md
+  url: .agents/brain/palace_registry.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T15:05:00Z'
+tags: ["palace-registry", "dsom-protocol", "spatial-memory"]
 ---
 
 # 🏰 Palace Spatial Registry

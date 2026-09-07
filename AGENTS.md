@@ -1,10 +1,19 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
-timestamp: "2026-09-06T00:00:00Z"
 topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: AGENTS.md
+  url: AGENTS.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # AI Agent Registry & Sovereign Gateway
@@ -17,20 +26,20 @@ This file describes the agents and tools in our codebase, outlining their operat
 
 ## Critical Instructions for AI Agents
 
-1.  **Read the Full Rulebook**: Navigate immediately to [`.agents/AGENTS.md`](.agents/AGENTS.md) to parse the operational persona, writing styles, and detailed rules governing this project.
-2.  **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
-    *   `task.md` — Active and completed task list (present state).
-    *   `walkthrough.md` — Session history and Mental Anchors (past state).
-    *   `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
-3.  **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
-4.  **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
-    *   Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
-    *   Target specific line ranges via read tools.
-    *   Verify the OKF `timestamp` for contextual relevance.
-    *   Obtain human consensus if local knowledge is stale.
-    *   Execute physical terminal commands only when necessary.
-5.  **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
-6.  **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
+1. **Read the Full Rulebook**: Navigate immediately to [`.agents/AGENTS.md`](.agents/AGENTS.md) to parse the operational persona, writing styles, and detailed rules governing this project.
+2. **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
+    * `task.md` — Active and completed task list (present state).
+    * `walkthrough.md` — Session history and Mental Anchors (past state).
+    * `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
+3. **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
+4. **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
+    * Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
+    * Target specific line ranges via read tools.
+    * Verify the OKF `timestamp` for contextual relevance.
+    * Obtain human consensus if local knowledge is stale.
+    * Execute physical terminal commands only when necessary.
+5. **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
+6. **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
 
 ---
 
@@ -39,17 +48,20 @@ This file describes the agents and tools in our codebase, outlining their operat
 When creating, editing, or using automation playbooks, shell scripts, or deployment tools in this workspace, AI agents must respect the specific constraints of the Google Jules environment:
 
 ### 1. Key Sandbox Constraints
-*   **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
-*   **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
-*   **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
-*   **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
+
+* **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
+* **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
+* **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
+* **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
 
 ### 2. Dual-Pathway Branching Rule (Ansible & Shell Code)
+
 To prevent build failures and environment blocks, all automation scripts, Ansible playbooks, and shell scripts **must** dynamically detect whether they are running in a limited environment (like Google Jules) or on a real OS:
-*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
-*   **Branching Pathways**:
-    *   *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
-    *   *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
+
+* **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
+* **Branching Pathways**:
+  * *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
+  * *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
 
 ---
 
@@ -75,6 +87,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Code Health & Static Analysis** | `.agents/skills/code-health-linting/` | Governs static analysis, type checking (mypy/tsc), and linter rules (ruff/markdownlint) across the project. |
 | **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
+| **Google Deep Research & Search** | `.agents/skills/google-deep-research/` | Iterative deep web research, `/learn` knowledge ingestion, and OKF v0.2 trust signal generation with `uv python` token optimisation. |
 | **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
 | **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` & `.agents/skills/docstring/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
@@ -113,11 +126,11 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
 3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
 4. **Required Field Schema**: Every document must carry a complete set of five required fields:
-   - `okf_version` / `spec_version`: `0.1` or `"0.2"`.
-   - `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
-   - `title`: Human-readable display title (double-quoted if containing special characters).
-   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
-   - `topics`: An array of associated category tags.
+   * `okf_version` / `spec_version`: `0.1` or `"0.2"`.
+   * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
+   * `title`: Human-readable display title (double-quoted if containing special characters).
+   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
+   * `topics`: An array of associated category tags.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---

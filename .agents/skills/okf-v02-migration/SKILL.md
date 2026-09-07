@@ -1,16 +1,20 @@
 ---
-okf_version: "0.1"
 type: "skill"
 title: "OKF v0.2 Migration & Compliance Standard Skill"
 name: "okf-v02-migration"
 description: "Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols."
-timestamp: "2026-09-05T08:00:00Z"
 topics: ["okf", "okf-v02", "frontmatter", "trust-signals", "schema-validation"]
 status: "stable"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM)"
-    path: ".agents/AGENTS.md"
+- id: dsom_agents_rulebook
+  title: The Core AI Rulebook (DSOM)
+  path: .agents/AGENTS.md
+spec_version: "0.2"
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-05T08:00:00Z'
+tags: ["okf", "okf-v02", "frontmatter", "trust-signals", "schema-validation"]
 ---
 
 # OKF v0.2 Migration & Compliance Standard Skill
@@ -32,6 +36,7 @@ This skill governs the adoption, validation, and maintenance of Open Knowledge F
      - `stale_after`: Expiration ISO date string.
 
 3. **Validation Command**:
+
    ```bash
    node tools/refactor-okf.cjs
    ```

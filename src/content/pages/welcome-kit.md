@@ -1,12 +1,21 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2"
 description: "The one-stop reference guide for every student entering the CMSForNerd2 Astro 7.1 Laboratory."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: welcome-kit.md
+  url: src/content/pages/welcome-kit.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="welcome-kit">

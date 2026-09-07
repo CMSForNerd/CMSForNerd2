@@ -1,13 +1,19 @@
 ---
-okf_version: "0.2"
 type: "brain"
 title: "Active Context Manifest"
-timestamp: "2026-09-06T15:05:00Z"
 description: "Live tracking manifest of active engineering scope files for CMSForNerd2."
-topics:
-  - "context-manifest"
-  - "dsom-protocol"
-  - "active-scope"
+topics: ["context-manifest", "dsom-protocol", "active-scope"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: active_context_manifest.md
+  url: .agents/brain/active_context_manifest.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T15:05:00Z'
+tags: ["context-manifest", "dsom-protocol", "active-scope"]
 ---
 
 # 📑 Active Context Manifest

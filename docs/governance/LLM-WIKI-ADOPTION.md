@@ -1,16 +1,20 @@
 ---
-okf_version: "0.2"
 type: "governance"
 title: "DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy"
-timestamp: "2026-09-06T15:00:00Z"
 description: "Sovereign knowledge adoption strategy integrating Andrej Karpathy LLM WIKI Ingest Query and Lint protocols with DSOM Protocol."
-topics:
-  - "llm-wiki"
-  - "dsom-protocol"
-  - "knowledge-governance"
-  - "spatial-memory"
-
+topics: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: LLM-WIKI-ADOPTION.md
+  url: docs/governance/LLM-WIKI-ADOPTION.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T15:00:00Z'
+tags: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 ---
 
 # 🧠 DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy
@@ -46,14 +50,17 @@ DSOM provides an advanced, production-grade implementation of the LLM WIKI conce
 While we have the structure, the LLM WIKI highlights three operational verbs to make the DSOM Palace self-sustaining and compounding: **Ingest**, **Query**, and **Lint**.
 
 ### A. The "Ingest" Protocol (Automated Synthesis)
+
 * **The Concept**: When a new raw source (e.g., an article, a specification, a transcript) is introduced, the AI extracts data, synthesises it, creates concept pages, and links it into the Wiki.
 * **Our Adoption**: We maintain a strict separation between raw sources and the synthesised Palace via the `dsom-knowledge-ingester` skill to extract text, synthesise Markdown pages in the Palace, and update `palace_registry.md` and `SUMMARY.md`.
 
 ### B. The "Lint" Ritual (Automated Health Checks)
+
 * **The Concept**: The AI periodically health-checks the Wiki for contradictions, orphan pages, and stale claims.
 * **Our Adoption**: As the Sovereign Markdown Palace grows, context can rot. The `tools/refactor-okf.cjs` and `tools/verify-sitemaps.js` scripts, alongside the `docs-review` skill, crawl `docs/` and `.agents/` to detect broken links, conflicting rules, and orphan pages.
 
 ### C. The "Query" Loop (Compounding Answers)
+
 * **The Concept**: When the LLM generates a high-value answer, comparison, or analysis, it is filed back into the Wiki rather than disappearing into chat history.
 * **Our Adoption**: Establish the behavioural mandate: *"Any time a complex architectural analysis or troubleshooting guide is generated in session, the AI must proactively propose saving it as a persistent `.md` document in the Palace."*
 

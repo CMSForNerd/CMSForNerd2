@@ -1,12 +1,21 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "AI-Assisted Development | CMSForNerd2"
 description: "Master the synergy between AI Architects and static compilers to build, refactor, and modernize your Astro 7.1 static site."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
 topics: ["modernisation", "astro", "static", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: ai-dev.md
+  url: src/content/pages/ai-dev.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 <article class="ai-dev-guide" itemscope itemtype="https://schema.org/TechArticle">

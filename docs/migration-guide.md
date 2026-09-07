@@ -1,15 +1,24 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
-timestamp: "2026-07-31T10:00:00Z"
 description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
 topics: ["migration", "astro", "static", "php", "architecture"]
-
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: migration-guide.md
+  url: docs/migration-guide.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-31T10:00:00Z'
+tags: ["migration", "astro", "static", "php", "architecture"]
 ---
 
 # 🚀 CMSForNerd to CMSForNerd2: Static Migration Guide
+
 ## *From Database-Free PHP to Modern Static Site Generator (Astro SSG)*
 
 ---
@@ -28,10 +37,10 @@ This document serves as the human-readable architectural blueprint and implement
 
 To ensure architectural fidelity during the migration, the fundamental pillars of the legacy PHP CmsForNerd system must be thoroughly understood:
 
-*   **"Pair Logic" Architecture**: Layouts are strictly separated from content. Each controller file (e.g., `index.php`) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the `contents/` directory (e.g., `contents/index-body.inc`).
-*   **Dual-View Engine (Standard / AMP)**: The central router (`themes/CmsForNerd/pager.php`) parses the query parameter `?view=amp` to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.
-*   **PWA and SPA-like Hydration Router**: A lightweight vanilla JavaScript router (`router.js`) overrides internal link clicks. By appending the `X-Requested-With: XMLHttpRequest` header, it fetches purely the raw content fragments from PHP and dynamically updates the `<main>` element to provide instantaneous transitions.
-*   **Zero-Global Mutable State**: The application runs without global variables, relying entirely on an immutable `CmsContext` object injected into templates to enforce strict functional isolation.
+* **"Pair Logic" Architecture**: Layouts are strictly separated from content. Each controller file (e.g., `index.php`) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the `contents/` directory (e.g., `contents/index-body.inc`).
+* **Dual-View Engine (Standard / AMP)**: The central router (`themes/CmsForNerd/pager.php`) parses the query parameter `?view=amp` to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.
+* **PWA and SPA-like Hydration Router**: A lightweight vanilla JavaScript router (`router.js`) overrides internal link clicks. By appending the `X-Requested-With: XMLHttpRequest` header, it fetches purely the raw content fragments from PHP and dynamically updates the `<main>` element to provide instantaneous transitions.
+* **Zero-Global Mutable State**: The application runs without global variables, relying entirely on an immutable `CmsContext` object injected into templates to enforce strict functional isolation.
 
 ---
 
@@ -51,10 +60,11 @@ During the discovery phase, multiple static site generators were evaluated again
 ### Why Astro is the Ultimate Fit
 
 By selecting **Astro**, the project gains several critical advantages:
-1.  **Component Frontmatter (Build-Time Pair Logic)**: Astro uses an HTML-like component format (`.astro`) featuring a JS/TS frontmatter block (`---`). This executes solely during the build process, mapping 1-to-1 to the PHP "Pair Logic" pattern where meta-variables are initialised prior to UI rendering.
-2.  **Islands Architecture**: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the "Zero-Debt" and high-performance philosophy.
-3.  **Built-in SPA Routing**: Astro's `<ViewTransitions />` component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone `router.js` fragment.
-4.  **Static View Differentiation**: Rather than using dynamic query strings (`?view=amp`), Astro's build engine can compile dual outputs statically (e.g., `dist/index.html` and `dist/amp/index.html`), preserving 100% offline and static compatibility.
+
+1. **Component Frontmatter (Build-Time Pair Logic)**: Astro uses an HTML-like component format (`.astro`) featuring a JS/TS frontmatter block (`---`). This executes solely during the build process, mapping 1-to-1 to the PHP "Pair Logic" pattern where meta-variables are initialised prior to UI rendering.
+2. **Islands Architecture**: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the "Zero-Debt" and high-performance philosophy.
+3. **Built-in SPA Routing**: Astro's `<ViewTransitions />` component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone `router.js` fragment.
+4. **Static View Differentiation**: Rather than using dynamic query strings (`?view=amp`), Astro's build engine can compile dual outputs statically (e.g., `dist/index.html` and `dist/amp/index.html`), preserving 100% offline and static compatibility.
 
 ---
 
@@ -62,11 +72,11 @@ By selecting **Astro**, the project gains several critical advantages:
 
 Through this modernisation, CMSForNerd2 will leverage the latest web technologies:
 
-*   **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
-*   **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
-*   **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
-*   **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
-*   **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
+* **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
+* **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
+* **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
+* **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
+* **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
 
 ---
 
@@ -75,11 +85,15 @@ Through this modernisation, CMSForNerd2 will leverage the latest web technologie
 To perform a structured and bug-free migration, developers should follow this step-by-step playbook:
 
 ### Step 5.1: Initialising CMSForNerd2
+
 In the root directory of the target repository, bootstrap the Astro project:
+
 ```bash
 npm create astro@latest -- --template minimal --install --git false
 ```
+
 *Note: Ensure that the output in `astro.config.mjs` has `output: 'static'` configured:*
+
 ```javascript
 import { defineConfig } from 'astro/config';
 
@@ -90,6 +104,7 @@ export default defineConfig({
 ```
 
 ### Step 5.2: Directory Mapping Strategy
+
 By restructuring directories, files are mapped from PHP to the SSG standard:
 
 | Legacy PHP Source Directory | New Astro Target Directory | Purpose |
@@ -103,6 +118,7 @@ By restructuring directories, files are mapped from PHP to the SSG standard:
 | `robots.txt` / `favicon.ico` | `public/` | Standard root static assets. |
 
 ### Step 5.3: Migrating Controllers and Fragments (Pair Logic)
+
 In Astro, the separation of concerns is maintained via layout components.
 
 For example, a typical legacy controller `about.php` and its content fragment `contents/about-body.inc` are merged and modernised into `src/pages/about.astro`:
@@ -146,9 +162,11 @@ const pageContext = {
 ```
 
 ### Step 5.4: Migrating Content via Markdown & Content Collections
+
 To simplify long-term editing, page fragments should be migrated from raw `.inc` files to `.md` files under `src/content/pages/`.
 
 Define the type-safe schema in `src/content/config.ts`:
+
 ```typescript
 import { defineCollection, z } from 'astro:content';
 
@@ -166,12 +184,15 @@ export const collections = {
   'pages': pagesCollection,
 };
 ```
+
 Through this validation pattern, compile-time checks are executed to ensure content metadata matches strict rules, providing the same safety guarantees as PHPStan Level 8 did for PHP code.
 
 ### Step 5.5: Static Dual-View Generation (AMP View)
+
 To preserve Accelerated Mobile Pages (AMP) support without runtime PHP, Astro leverages its dynamic static path generation.
 
 Create `src/pages/[pageName]/amp.astro` or `src/pages/amp/[pageName].astro`:
+
 ```astro
 ---
 import { getCollection } from 'astro:content';
@@ -196,12 +217,16 @@ const { Content } = await page.render();
   </article>
 </AmpLayout>
 ```
+
 During the build step, Astro compiles both the standard layout and the stripped-down, AMP-validated `<amp-img>` and AMP CSS layout automatically.
 
 ### Step 5.6: PWA Service Worker & SPA Client-Side Routing
+
 With Astro's client-side capabilities, the custom AJAX routing logic is modernised:
-*   **Routing**: Incorporate the `<ViewTransitions />` component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.
-*   **Service Worker**: Install the `@vite-pwa/astro` integration to manage caching, background syncing, and full offline support. Configure it in `astro.config.mjs`:
+
+* **Routing**: Incorporate the `<ViewTransitions />` component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.
+* **Service Worker**: Install the `@vite-pwa/astro` integration to manage caching, background syncing, and full offline support. Configure it in `astro.config.mjs`:
+
     ```javascript
     import { defineConfig } from 'astro/config';
     import AstroPWA from '@vite-pwa/astro';
@@ -234,31 +259,40 @@ With Astro's client-side capabilities, the custom AJAX routing logic is modernis
 By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration is replaced or augmented by GitOps-driven deployment.
 
 ### Build Step
+
 Execute the production build to compile static assets:
+
 ```bash
 npm run build
 ```
+
 This writes all HTML, CSS, and JS files to the `dist/` directory, completely self-contained.
 
 ### Deploying to Render.com as a Static Site (Recommended / Free Tier)
+
 By deploying CMSForNerd2 directly as a Static Site on Render, you can leverage completely free static hosting without the need to maintain or run a containerised server.
 
 To configure this in the Render Dashboard:
-1.  **Build Command**: Set this to `npm run build`
-2.  **Publish Directory**: Set this to `dist/` or `dist`
+
+1. **Build Command**: Set this to `npm run build`
+2. **Publish Directory**: Set this to `dist/` or `dist`
 
 If deploying via our Blueprint specification, the `render.yaml` file automatically configures a static service named `cmsfornerd2-static` alongside the Nginx container, ensuring seamless, zero-config builds.
 
 ### Deploying to Render.com with NGINX
+
 To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.
 
 The deployment infrastructure is defined via three root-level files:
-1.  **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
-2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
-3.  **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
+
+1. **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
+2. **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
+3. **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
 
 ### Hardened NGINX Container Configuration
+
 To satisfy unprivileged execution rules and defend against host compromise, standardise on our hardened `./nginx/nginx.conf`:
+
 ```nginx
 worker_processes auto;
 pid /tmp/nginx.pid;
@@ -357,26 +391,27 @@ http {
 
 To coordinate the team's operational efforts, follow this milestone progression:
 
-1.  **Phase 1: Project Bootstrapping** (Days 1–2)
-    *   [ ] Bootstrapping the Astro framework in CMSForNerd2.
-    *   [ ] Migrating global stylesheet and static icons.
-2.  **Phase 2: Content Remapping** (Days 3–5)
-    *   [ ] Remapping PHP layout templates (`bodytop.tpl`, `bodyfooter.tpl`) to Astro components.
-    *   [ ] Converting flat-file pages under `contents/*.inc` to Markdown Content Collections.
-3.  **Phase 3: Dual-View and SEO Calibration** (Days 6–8)
-    *   [ ] Building static paths for standard views and AMP-compliant views.
-    *   [ ] Implementing structured Schema.org JSON-LD generation based on `schemaType`.
-4.  **Phase 4: Service Worker & Performance Audit** (Days 9–10)
-    *   [ ] Implementing `@vite-pwa/astro` for instant offline loading.
-    *   [ ] Compiling files and running Lighthouse audits to achieve 100/100 performance scores.
+1. **Phase 1: Project Bootstrapping** (Days 1–2)
+    * [ ] Bootstrapping the Astro framework in CMSForNerd2.
+    * [ ] Migrating global stylesheet and static icons.
+2. **Phase 2: Content Remapping** (Days 3–5)
+    * [ ] Remapping PHP layout templates (`bodytop.tpl`, `bodyfooter.tpl`) to Astro components.
+    * [ ] Converting flat-file pages under `contents/*.inc` to Markdown Content Collections.
+3. **Phase 3: Dual-View and SEO Calibration** (Days 6–8)
+    * [ ] Building static paths for standard views and AMP-compliant views.
+    * [ ] Implementing structured Schema.org JSON-LD generation based on `schemaType`.
+4. **Phase 4: Service Worker & Performance Audit** (Days 9–10)
+    * [ ] Implementing `@vite-pwa/astro` for instant offline loading.
+    * [ ] Compiling files and running Lighthouse audits to achieve 100/100 performance scores.
 
 ---
 
 ## SOURCES
-- [Astro Documentation](https://docs.astro.build) - Comprehensive specifications for static site building, layouts, content collections, and routing.
-- [Accelerated Mobile Pages (AMP) Specifications](https://amp.dev) - Official layout guidelines, validation rules, and CSS limits for mobile views.
-- [Vite PWA Plugin](https://vite-pwa-org.netlify.app) - Implementation guide for offline service worker registration and caching strategies.
-- [CMSForNerd Legacy Repository](https://github.com/CMSForNerd/CmsForNerd) - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.
+
+* [Astro Documentation](https://docs.astro.build) - Comprehensive specifications for static site building, layouts, content collections, and routing.
+* [Accelerated Mobile Pages (AMP) Specifications](https://amp.dev) - Official layout guidelines, validation rules, and CSS limits for mobile views.
+* [Vite PWA Plugin](https://vite-pwa-org.netlify.app) - Implementation guide for offline service worker registration and caching strategies.
+* [CMSForNerd Legacy Repository](https://github.com/CMSForNerd/CmsForNerd) - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*

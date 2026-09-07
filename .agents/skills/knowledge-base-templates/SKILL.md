@@ -6,27 +6,29 @@ name: "knowledge-base-templates"
 title: "Knowledge Base Structure & Templates Skill"
 description: "Provides reusable templates and structural protocols for codebase knowledge bases and internal wikis using Diátaxis."
 version: "1.0.0"
-timestamp: "2026-09-06T00:00:00Z"
 author: "AI Workspace Assistant"
 tags: ["knowledge-base", "diataxis", "wiki", "templates", "documentation"]
 status: "stable"
 sources:
-  - id: "rp1_kb_templates"
-    title: "RP1 Knowledge Base Templates"
-    url: "https://github.com/rp1-run/rp1"
-  - id: "diataxis_framework"
-    title: "Diátaxis Documentation Framework"
-    url: "https://diataxis.fr"
+- id: rp1_kb_templates
+  title: RP1 Knowledge Base Templates
+  url: https://github.com/rp1-run/rp1
+- id: diataxis_framework
+  title: "Di\xE1taxis Documentation Framework"
+  url: https://diataxis.fr
 inputs:
   document_type:
-    type: "string"
-    description: "Diátaxis quadrant type (tutorial, how-to, reference, explanation)."
+    type: string
+    description: "Di\xE1taxis quadrant type (tutorial, how-to, reference, explanation)."
 outputs:
   template_markdown:
-    type: "string"
-    description: "Structured OKF-compliant Markdown document template."
-
-okf_version: "0.1"
+    type: string
+    description: Structured OKF-compliant Markdown document template.
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+topics: ["knowledge-base", "diataxis", "wiki", "templates", "documentation"]
 ---
 
 # Knowledge Base Structure & Templates Skill (`knowledge-base-templates`)
@@ -48,6 +50,7 @@ The `knowledge-base-templates` skill governs the creation, structural organizati
 ## FAQs
 
 ### How are orphaned pages prevented?
+
 Map every new knowledge base page into `docs/SUMMARY.md`, `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`.
 
 ---

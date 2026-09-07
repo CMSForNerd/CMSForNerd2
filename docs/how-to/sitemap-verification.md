@@ -1,12 +1,20 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Sitemap Verification How-To Guide"
 description: "Instructions on how to verify root and public plain-text sitemaps, built multi-host XML sitemaps, and static file mapping."
-timestamp: "2026-08-01T14:45:00Z"
 topics: ["how-to", "sitemap", "verification", "seo"]
-
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: sitemap-verification.md
+  url: docs/how-to/sitemap-verification.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:45:00Z'
+tags: ["how-to", "sitemap", "verification", "seo"]
 ---
 
 # 📋 How to Verify Sitemaps and Link Consistency
@@ -28,6 +36,7 @@ npm run build
 ## 🏗️ Step-by-Step Directions
 
 ### Step 1: Run the Sitemap Verification Script
+
 Execute the Node.js validation script from the repository root:
 
 ```bash
@@ -35,6 +44,7 @@ node tools/verify-sitemaps.js
 ```
 
 Expected output:
+
 ```text
 ===================================================
 🧪 Verifying Sitemap Structure and Links
@@ -51,7 +61,9 @@ Expected output:
 ```
 
 ### Step 2: Validate Multi-Host Targets
+
 The verification engine scans `dist/sitemap.xml` to confirm that it dynamically builds links for three critical multi-host publishing targets:
+
 - **Netlify**: `https://cmsfornerd2.netlify.app/`
 - **GitHub Pages**: `https://cmsfornerd.github.io/CMSForNerd2/`
 - **GitBook**: `https://cmsfornerd.gitbook.io/cmsfornerd2/`
@@ -59,6 +71,7 @@ The verification engine scans `dist/sitemap.xml` to confirm that it dynamically 
 Verify that all three target strings are reported as successful in your terminal logs.
 
 ### Step 3: Verify via Integration Test Suite
+
 To run this verification as part of our automated end-to-end integration test suite, execute the integration test:
 
 ```bash
@@ -66,6 +79,7 @@ python3 -m pytest tests/test_cms.py -k "test_sitemap_verification"
 ```
 
 Expected output:
+
 ```text
 tests/test_cms.py .                                                      [100%]
 =========================== 1 passed in 4.50s ===========================
@@ -76,6 +90,7 @@ tests/test_cms.py .                                                      [100%]
 ## 🔍 Troubleshooting Anomalies
 
 ### Sitemaps Not Identical
+
 If `sitemap.txt` (root) and `public/sitemap.txt` diverge, the script exits immediately with:
 
 ```text

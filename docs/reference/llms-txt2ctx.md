@@ -1,12 +1,20 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "llms_txt2ctx.py CLI Reference"
 description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."
-timestamp: "2026-08-01T14:50:00Z"
 topics: ["reference", "python", "cli", "parser", "llmstxt"]
-
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: llms-txt2ctx.md
+  url: docs/reference/llms-txt2ctx.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags: ["reference", "python", "cli", "parser", "llmstxt"]
 ---
 
 # 🏗️ `llms_txt2ctx.py` CLI Reference
@@ -32,9 +40,11 @@ python3 tools/llms_txt2ctx.py <file_path> [options]
 ```
 
 ### Positional Arguments
+
 - `file` (string, required): The relative or absolute path to the target `llms.txt` file (e.g., `llms.txt`).
 
 ### Optional Flags
+
 - `-h`, `--help` (flag): Displays standard CLI help information and options specs.
 - `--optional` (flag): Includes the `## Optional` section of the `llms.txt` file in the generated XML context. If omitted, optional sections are filtered out for context window efficiency.
 
@@ -45,7 +55,9 @@ python3 tools/llms_txt2ctx.py <file_path> [options]
 The utility exports two main functions for inclusion in third-party Python scripts:
 
 ### 1. `parse_llms_txt(txt: str) -> dict`
+
 Parses the markdown contents into a structured dictionary.
+
 - **Parameters**: `txt` (str) — Raw content string of the file.
 - **Returns**: A dictionary containing:
   - `'title'`: String containing the main H1 header.
@@ -54,7 +66,9 @@ Parses the markdown contents into a structured dictionary.
   - `'sections'`: Dictionary mapping H2 headings to listed hyperlink objects.
 
 ### 2. `create_ctx(txt: str, include_optional: bool = False) -> str`
+
 Creates a standardized XML context string.
+
 - **Parameters**:
   - `txt` (str): Raw content string.
   - `include_optional` (bool): If true, includes the optional section.

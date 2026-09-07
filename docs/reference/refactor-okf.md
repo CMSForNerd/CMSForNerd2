@@ -1,12 +1,20 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "refactor-okf.cjs API Reference"
 description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."
-timestamp: "2026-08-01T14:50:00Z"
 topics: ["reference", "okf", "api", "utility"]
-
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: refactor-okf.md
+  url: docs/reference/refactor-okf.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags: ["reference", "okf", "api", "utility"]
 ---
 
 # 🏗️ `refactor-okf.cjs` API Reference
@@ -29,7 +37,9 @@ The `refactor-okf.cjs` script is a Node.js-based developer utility that recursiv
 The script organizes its functionality into three primary core functions:
 
 ### 1. `getMarkdownFiles(dir, files = [])`
+
 Recursively traverses directories to locate all files with a `.md` extension.
+
 - **Parameters**:
   - `dir` (string): The path of the directory to scan.
   - `files` (array, optional): Accumulator array for discovered file paths.
@@ -37,7 +47,9 @@ Recursively traverses directories to locate all files with a `.md` extension.
 - **Returns**: An array of relative file paths.
 
 ### 2. `formatValue(key, value)`
+
 Formats a single frontmatter property's raw string value according to OKF rules.
+
 - **Parameters**:
   - `key` (string): The frontmatter property key (case-insensitive).
   - `value` (string): The raw string value parsed from the file.
@@ -48,7 +60,9 @@ Formats a single frontmatter property's raw string value according to OKF rules.
   - **Strings**: Wraps string values containing emojis or special characters (`:`, `[`, `]`) securely in double quotes via `JSON.stringify`.
 
 ### 3. `processFile(filePath)`
+
 Parses and reformats a Markdown file's frontmatter block.
+
 - **Parameters**:
   - `filePath` (string): Absolute or relative path to the Markdown document.
 - **Repair Protocols**:

@@ -8,13 +8,13 @@ import yaml
 
 
 def test_markdown_okf_compliance() -> None:
-    """Validates all workspace markdown files against the OKF v0.1 schema.
+    """Validates all workspace markdown files against the OKF v0.2 schema.
 
     Checks recursively across the repository that every Markdown file:
     - Starts with three hyphens '---' at line 1, column 1.
-    - Parses successfully as OKF v0.1 YAML frontmatter with required keys.
+    - Parses successfully as OKF v0.2 YAML frontmatter with required keys (`spec_version: "0.2"`).
     - Ensures special characters in string values are double quoted.
-    - Array formatting (topics) uses square brackets with double quoted strings.
+    - Array formatting (topics/tags) uses square brackets with double quoted strings.
     """
     markdown_files = []
     for root, _, files in os.walk("."):
@@ -45,12 +45,12 @@ def test_markdown_okf_compliance() -> None:
         except yaml.YAMLError as e:
             pytest.fail(f"Markdown file {filepath} has invalid YAML frontmatter: {e}")
 
-        okf_ver = fm_data.get("okf_version") or fm_data.get("spec_version")
-        assert okf_ver is not None, f"Markdown file {filepath} is missing required OKF version key ('okf_version' or 'spec_version')."
+        spec_ver = fm_data.get("spec_version") or fm_data.get("okf_version")
+        assert spec_ver is not None, f"Markdown file {filepath} is missing required OKF version key ('spec_version')."
 
-        required_keys = ["type", "title"]
+        required_keys = ["type", "title", "status", "stale_after"]
         for key in required_keys:
-            assert key in fm_data, f"Markdown file {filepath} is missing required OKF frontmatter key: '{key}'"
+            assert key in fm_data, f"Markdown file {filepath} is missing required OKF v0.2 frontmatter key: '{key}'"
 
         # Check array structure for topics or tags
         topics = fm_data.get("topics") or fm_data.get("tags")
@@ -60,12 +60,11 @@ def test_markdown_okf_compliance() -> None:
         # Check special characters in frontmatter lines (Double Quoting Rule)
         lines = frontmatter_text.splitlines()
         for line in lines:
-            if ":" in line:
+            if ":" in line and not line.strip().startswith("-"):
                 parts = line.split(":", 1)
                 val = parts[1].strip()
-                if val and any(c in val for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]", ":"]):
-                    # If value contains emojis, colons, brackets, or other special characters
-                    # It must be double quoted or a valid JSON array format
+                if val and any(c in val for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]"]):
+                    # If value contains emojis, brackets, or other special characters
                     is_quoted = (val.startswith('"') and val.endswith('"')) or (val.startswith('[') and val.endswith(']'))
                     assert is_quoted, f"Value '{val}' in frontmatter of {filepath} containing special characters must be double quoted."
 

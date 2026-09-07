@@ -1,10 +1,19 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
-timestamp: "2026-08-01T12:00:00Z"
 description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
 topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: START-HERE.md
+  url: START-HERE.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 ---
 
 # 🎯 START HERE: CMSForNerd2 Master Onboarding Standard
@@ -46,6 +55,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 Do not attempt to read the entire codebase. Begin immediately with the smallest viable verification task.
 
 ### 👤 Human Developer Pathway
+
 To verify your local setup in under 60 seconds, run this 3-step command chain:
 
 ```bash
@@ -60,6 +70,7 @@ npm run build && npm run preview
 ```
 
 ### 🤖 Autonomous AI Agent Pathway
+
 When an issue or task is assigned to an AI agent, execute the following standardized task ingestion protocol:
 
 1. **State Ingestion**: Inspect `.agents/AGENTS.md` and `.agents/brain/task.md` to establish current operational parameters and active context.
@@ -74,18 +85,23 @@ When an issue or task is assigned to an AI agent, execute the following standard
 To guarantee operational stability across multi-agent workflows, all autonomous systems MUST comply with the following context governance principles:
 
 ### 1. Minimal Context Window Ingestion
+
 AI agents must maintain context hygiene. Loading the full repository into context windows causes hallucination and degrades reasoning accuracy. Agents must read `.agents/AGENTS.md` for gateway rules, parse `.agents/brain/` for active state, and selectively load target files on demand.
 
 ### 2. Deep State of Mind (DSOM) Spatial Memory
+
 All operational memory is zero-global and spatial. Spatial state lives strictly within `.agents/brain/`:
+
 * `task.md`: Tracks active and completed execution steps.
 * `walkthrough.md`: Retains historical session anchors.
 * `knowledge.md`: Stores domain-specific operational knowledge.
 
 ### 3. Multi-Agent Interoperability
+
 CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 10 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, `dsom-cognitive-protocol`, `dsom-technical-book-compiler`, and `project-technical-book-compiler`).
 
 ### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
+
 Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
 
 ```yaml
@@ -97,20 +113,22 @@ timestamp: "2026-08-01T12:00:00Z"
 topics: ["topic1", "topic2"]
 ---
 ```
+
 *Note: Any string value containing emojis, colons, or brackets must be double-quoted.*
 
 ### 5. Standard UK English Rule
+
 All documentation, code comments, commit messages, and cognitive logs MUST strictly adhere to Standard UK English spelling conventions (e.g. *optimisation*, *synchronise*, *behaviour*, *modularise*, *colour*).
 
 ---
 
 ## 🔗 Core Repository Map
 
-- [README.md](README.md) — Executive project summary and architectural overview.
-- [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
-- [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
-- [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
-- [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
+* [README.md](README.md) — Executive project summary and architectural overview.
+* [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
+* [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
+* [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+* [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

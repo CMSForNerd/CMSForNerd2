@@ -1,30 +1,29 @@
 ---
-okf_version: "0.1"
 type: "governance"
 title: "Technical Book Design & PDF Compilation Master Prompt Guide"
-timestamp: "2026-09-04T21:15:00Z"
 topics: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 description: "Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
 status: "stable"
 stale_after: "2027-09-04"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
-    path: ".agents/AGENTS.md"
-  - id: "dsom_technical_book_compiler_skill"
-    title: "Technical Ebook & Handbook Compiler Skill"
-    path: ".agents/skills/dsom-technical-book-compiler/SKILL.md"
-  - id: "build_mcmc_ansible_book_script"
-    title: "MCMC Ansible Book Compiler Implementation"
-    path: "tools/build_mcmc_ansible_book.py"
+- id: dsom_agents_rulebook
+  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  path: .agents/AGENTS.md
+- id: dsom_technical_book_compiler_skill
+  title: Technical Ebook & Handbook Compiler Skill
+  path: .agents/skills/dsom-technical-book-compiler/SKILL.md
+- id: build_mcmc_ansible_book_script
+  title: MCMC Ansible Book Compiler Implementation
+  path: tools/build_mcmc_ansible_book.py
 generated:
-  by: "Antigravity Cognitive Digital Twin"
-  timestamp: "2026-09-04T21:15:00Z"
+  by: Antigravity Cognitive Digital Twin
+  timestamp: '2026-09-04T21:15:00Z'
 verified:
-  by: "Harisfazillah Jamel (LinuxMalaysia)"
-  timestamp: "2026-09-04T21:15:00Z"
-
+  by: Harisfazillah Jamel (LinuxMalaysia)
+  timestamp: '2026-09-04T21:15:00Z'
 nav_order: 1
+spec_version: "0.2"
+tags: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 ---
 
 # Technical Book Design & PDF Compilation Master Prompt Guide
@@ -39,6 +38,7 @@ nav_order: 1
 ## 1. Executive Overview & Dual Purpose
 
 This document serves two complementary functions:
+
 1. **The Reusable AI Master Prompt (Section 2):** A complete, drop-in system prompt that can be provided to any advanced AI coding assistant (Google Antigravity, Google Jules, Claude, Cursor, ChatGPT) to autonomously orchestrate, style, and compile an entire repository of multi-file Markdown (`.md`) documentation and source code into a publication-grade PDF handbook.
 2. **The Architectural Blueprint & Engineering Field Manual (Sections 3–7):** An exhaustive technical record documenting the formatting standards, color palettes, typography pairings, CSS `@page` rules, and the **ten critical engineering hurdles** solved to eliminate syntax crashes, blank pages, link leaks, and ink waste during multi-format compilation (PDF, standalone HTML, EPUB 3, and styled ODT).
 3. **The Embedded Skill SOP (Section 6):** The full operational specification of the `dsom-technical-book-compiler` skill, ensuring complete self-containment.
@@ -139,7 +139,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
 | **Page Background** | `#FFFFFF` | Pure white. Eliminates background shading and toner waste. | `body { background-color: #FFFFFF !important; }` |
 | **Body Text** | `#0F172A` | Deep charcoal slate. Maximum contrast against white without harsh black glare. | `color: #0F172A !important;` |
 | **Primary Headings** | `#1E3A8A` | Linux Blue. Professional, authoritative enterprise header branding. | `h1, h2 { color: #1E3A8A; }` |
-| **Secondary Headings**| `#77216F` | Deep Ubuntu Purple. High-visibility distinction for major subsections. | `h3 { color: #77216F; }` |
+| **Secondary Headings** | `#77216F` | Deep Ubuntu Purple. High-visibility distinction for major subsections. | `h3 { color: #77216F; }` |
 | **Tertiary Headings** | `#0D9488` | Deep Teal. Clear demarcator for low-level runbook procedures. | `h4 { color: #0D9488; }` |
 | **Code Block Background** | `#F8FAFC` | Very light alabaster gray. Visually defines code boundaries without heavy ink deposit. | `div.sourceCode, pre.sourceCode { background-color: #F8FAFC !important; }` |
 | **Code Block Border** | `#CBD5E1` | Slate border. Provides crisp, laser-printer-safe container edges. | `border: 1px solid #CBD5E1 !important;` |
@@ -197,14 +197,17 @@ Your task is to take an entire repository of Markdown (.md) documents and source
 ## 4. The 10 Critical Engineering Hurdles Solved
 
 ### Hurdle 1: Pandoc YAML Parser Explosions (`Unknown alias`)
+
 - **Failure Mode:** Stitched multi-document markdowns retain individual OKF frontmatter blocks (`--- ... ---`). Pandoc attempts to parse subsequent frontmatter blocks as YAML document streams, failing with `Unknown alias` or corrupted titles.
 - **Solution:** A pre-processing function (`strip_frontmatter()`) strips leading YAML frontmatter while capturing `title` and `description` to create formatted chapter metadata banners (`.chapter-meta`).
 
 ### Hurdle 2: Nested Backtick Fence Collisions
+
 - **Failure Mode:** Ingested markdown documents or playbook examples already contain triple backticks (```` ``` ````). If the master compiler wraps them in triple backticks, the code block prematurely terminates, leaking raw code into prose.
 - **Solution:** Dynamic backtick scaling. The compiler scans the target code text; if triple backticks exist, it wraps the block in 4 backticks (```` ```` ````); if 4 exist, it scales to 5.
 
 ### Hurdle 3: Blank Overflow Pages & Cover Fragmentation
+
 - **Failure Mode:** Manual page breaks (`<div class="page-break"></div>`) combined with CSS `page-break-before: always;` on H1 elements generate unwanted empty pages. Furthermore, default Pandoc title headers split the cover across Pages 1 and 2.
 - **Solution:**
   1. Eliminate all manual page break divs.
@@ -213,18 +216,22 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   4. Constrain cover page padding and metadata fonts so the entire cover fits inside Page 1.
 
 ### Hurdle 4: Mermaid 10 Syntax Bomb Graphics (HTML Escaping)
+
 - **Failure Mode:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;`, `&gt;`, `--&gt;`). When Mermaid.js runs, it encounters illegal characters, rendering a pink syntax error bomb icon.
 - **Solution:** A dedicated post-pandoc HTML regex unescapes `&quot;`, `&lt;`, `&gt;`, `&amp;` and strips enclosing `<code>` tags before headless browser invocation.
 
 ### Hurdle 5: Mermaid Node Collision in Multi-Diagram Handbooks
+
 - **Failure Mode:** Different diagrams reuse common node identifiers (e.g. `NODE1`, `DB`, `CBE`, `PWP`). Mermaid's internal parser merges identical IDs into the same global SVG graph, corrupting diagram topology.
 - **Solution:** **Mermaid Multi-Diagram Isolation Protocol**. Every diagram must have unique diagram-scoped namespaces prefixed to all nodes (e.g., `TB_` for Master Architecture, `PA_` for Pattern A, `PB_` for Pattern B, `PC_` for Pattern C).
 
 ### Hurdle 6: Headless Chromium Millisecond Timestamp Collision
+
 - **Failure Mode:** Headless Chromium renders all page scripts in milliseconds. Mermaid's default `mermaid.run()` uses `Date.now()` timestamp IDs, causing ID collisions that draw multiple diagrams inside the same container.
 - **Solution:** Sequential DOM replacement. The browser script iterates over `document.querySelectorAll("pre.mermaid")` and calls `mermaid.render("diagram_svg_" + i, code)` sequentially, injecting the returned SVG directly into `el.innerHTML`.
 
 ### Hurdle 7: Tall Vertical Flowcharts Splitting Pages
+
 - **Failure Mode:** Long linear flowcharts (height > 600px) split mid-node across physical page breaks, causing dangling connectors and unreadable diagrams.
 - **Solution:**
   1. Re-architect flowcharts into balanced 2-column grids (e.g., Phase 1 vs Phase 2).
@@ -232,6 +239,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   3. Extract `innerHTML` rather than `textContent` in the Mermaid pre-pass to preserve `<br/>` tags and card formatting.
 
 ### Hurdle 8: Broken Relative Links & Leaked Local Paths (`file:///`)
+
 - **Failure Mode:** Ingested documentation contains relative links (`../how-to/deploy.md`) or absolute filesystem paths (`file:///D:/Users/...`), which break or leak workstation directories in the compiled PDF.
 - **Solution:** **Soft-Path Link Resolution Mandate (3-Tier Normalisation Pipeline)**:
   1. Pre-index all chapters (`#chap-{slug}`) and code files (`#code-{slug}`) into an in-memory `link_map`.
@@ -243,6 +251,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   4. Run an automated post-assembly audit to verify zero absolute paths survive in PDF links.
 
 ### Hurdle 9: Critical Safety Warnings Hidden in Code Comments
+
 - **Failure Mode:** Production playbooks contain vital operational warnings, vendor bug workarounds, and safety dispatches hidden in `#` comments that SysAdmins miss when skimming compiled books.
 - **Solution:** **Developer Commentary Extraction Protocol**:
   1. Inspect the leading `#` comment block of every playbook, script, and configuration file.
@@ -252,11 +261,14 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   5. Preserve the original `#` comments inside the code block intact.
 
 ### Hurdle 10: Headless Browser Print Timeouts & Compositor Stalls
+
 - **Failure Mode:** Headless Chrome/Edge can hang indefinitely if web fonts or ESM modules fail to trigger draw completion, stalling CI/CD pipelines.
 - **Solution:** Execute Chromium with strict flags:
+
   ```bash
   chromium-browser --headless=new --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=8000 --print-to-pdf=<out.pdf> <file_uri>
   ```
+
   Enforce a hard Python subprocess timeout (45–60s) to gracefully catch draw completion.
 
 ---
@@ -351,6 +363,7 @@ name: "dsom-technical-book-compiler"
 ```bash
 python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py
 ```
+
 ```
 
 ---

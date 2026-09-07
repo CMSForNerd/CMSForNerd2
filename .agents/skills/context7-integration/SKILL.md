@@ -1,11 +1,20 @@
 ---
-okf_version: "0.1"
 type: "skill"
 title: "Context7 Integration Skill"
 name: "context7-integration"
 description: "Maintains automated documentation indexing and updates utilizing Context7 services across CI workflows."
-timestamp: "2026-08-01T12:00:00Z"
 topics: ["context7", "documentation", "index", "gitlab-ci", "github-actions"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/context7-integration/SKILL.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags: ["context7", "documentation", "index", "gitlab-ci", "github-actions"]
 ---
 
 # Context7 Integration Skill
@@ -21,11 +30,15 @@ This skill governs the integration, setup, and execution of Context7 services us
 ## Operational Standards & Procedures
 
 ### 1. Root Configuration Registry
+
 Maintain the configuration parameters of Context7 services in a standardised location:
+
 - The repository integrates Context7 services using the `context7.json` file located at the repository root.
 
 ### 2. CI/CD Workflow Automation
+
 By utilising automated pipelines, ensure documentation updates are processed after changes:
+
 - Automated documentation refreshes are configured via both GitLab CI (`.gitlab-ci.yml`) and GitHub Actions (`.github/workflows/context7-refresh.yml`).
 - These pipelines require the `CONTEXT7_API_KEY` environment variable/secret to be successfully configured and executed.
 

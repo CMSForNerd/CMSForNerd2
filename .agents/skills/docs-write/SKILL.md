@@ -6,31 +6,33 @@ name: "docs-write"
 title: "Documentation Writing Skill"
 description: "Assists users in creating and editing documentation adhering to clear, conversational, and user-focused writing standards."
 version: "1.0.0"
-timestamp: "2026-09-06T00:00:00Z"
 author: "AI Workspace Assistant"
 tags: ["documentation", "writing", "markdown", "diataxis", "user-focused"]
 status: "stable"
 sources:
-  - id: "metabase_docs_write"
-    title: "Metabase Documentation Writing Guide"
-    url: "https://github.com/metabase/metabase"
-  - id: "google_developer_docs_style_guide"
-    title: "Google Developer Documentation Style Guide"
-    url: "https://developers.google.com/style"
+- id: metabase_docs_write
+  title: Metabase Documentation Writing Guide
+  url: https://github.com/metabase/metabase
+- id: google_developer_docs_style_guide
+  title: Google Developer Documentation Style Guide
+  url: https://developers.google.com/style
 inputs:
   reader_intent:
-    type: "string"
-    description: "The targeted audience and what they are attempting to accomplish."
+    type: string
+    description: The targeted audience and what they are attempting to accomplish.
   format:
-    type: "string"
-    description: "Document format (Markdown, MDX, HTML)."
-    default: "Markdown"
+    type: string
+    description: Document format (Markdown, MDX, HTML).
+    default: Markdown
 outputs:
   documentation:
-    type: "string"
-    description: "Clear, user-focused documentation written in Standard UK English."
-
-okf_version: "0.1"
+    type: string
+    description: Clear, user-focused documentation written in Standard UK English.
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+topics: ["documentation", "writing", "markdown", "diataxis", "user-focused"]
 ---
 
 # Documentation Writing Skill (`docs-write`)
@@ -56,9 +58,11 @@ The `docs-write` skill assists users and agents in creating, updating, and struc
 ## FAQs
 
 ### How do I start using the `docs-write` skill?
+
 Begin by defining the reader's intent and target Diátaxis quadrant, then draft content using active voice and Standard UK English conventions.
 
 ### What document formats are supported?
+
 This skill is tailored for Markdown (`.md`), MDX (`.mdx`), and Open Knowledge Format (OKF) files.
 
 ---
