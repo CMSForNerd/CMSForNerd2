@@ -44,4 +44,8 @@ topics: ["tasks", "track", "progress", "dsom"]
 - [x] Apply UI accessibility and layout stability improvements in `src/components/Widgets.astro`.
 - [x] Adopt LLM WIKI Adoption Strategy into `docs/governance/LLM-WIKI-ADOPTION.md`.
 - [x] Fix preview server process group teardown in `tests/conftest.py` with `start_new_session=True` and `os.killpg`.
+- [x] Implement FastMCP server in `tools/mcp/server.py` to expose live SSG routes, content, sitemap, and spatial memory to AI agents.
+- [x] Integrate Pagefind WebAssembly (Wasm) client-side search engine (`npm run build`) and client UI at `/search`.
+- [x] Implement WebAssembly Cryptographic & OKF v0.2 Document Processing Studio component and page at `/wasm-studio`.
+- [x] Author Diátaxis explanation and how-to guides for FastMCP and WebAssembly tools in `docs/explanation/` and `docs/how-to/`.
 - [x] Complete End of Day (EOD) Palace Brain Sync in `.agents/brain/`.

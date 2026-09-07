@@ -143,9 +143,9 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 | Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
 | :--- | :--- | :--- | :--- |
 | **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
-| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `deploy-static.yml` dual pathway |
+| **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [FastMCP & Wasm Guide](docs/how-to/how-to-use-fastmcp-and-wasm.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `python3 tools/mcp/server.py` |
 | **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
-| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](docs/explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
 ---
 
@@ -932,6 +932,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 45. **Vercel Web Design Guidelines Skill & LLM WIKI Integration**
     The repository adopts Vercel's `web-design-guidelines` skill into `skills/` and `.agents/skills/`, and integrates Andrej Karpathy's LLM WIKI Ingest, Query, and Lint protocols into DSOM via `docs/governance/LLM-WIKI-ADOPTION.md`. The Pytest `preview_server` session fixture in `tests/conftest.py` spawns the preview server with `start_new_session=True` and uses `os.killpg` for clean process group teardown.
 
+46. **FastMCP Server Adoption & WebAssembly (Wasm) Search and Processing**
+    The repository adopts a FastMCP (Model Context Protocol) server (`tools/mcp/server.py`) to expose live Astro SSG routes (`list_ssg_routes`), route content (`get_route_content`), full-text search (`search_ssg_routes`), sitemaps (`get_sitemap_routes`), and spatial memory (`get_openwiki_concept`) directly to AI agents. It integrates Pagefind Wasm client-side search (`astro build && pagefind --site dist`) with a client search UI at `/search`, and implements a browser-native WebAssembly Cryptographic & OKF v0.2 Document Processing Studio at `/wasm-studio`.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
@@ -1558,6 +1561,104 @@ python3 -m pytest tests/test_unit.py -v
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-22*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/how-to/how-to-use-fastmcp-and-wasm.md
+
+
+---
+spec_version: "0.2"
+type: "how_to"
+title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
+description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, and utilizing client-side Wasm utilities."
+timestamp: "2026-09-06T00:00:00Z"
+topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
+
+okf_version: 0.1
+nav_order: 1
+---
+
+# How to Use FastMCP Server & WebAssembly (Wasm) Tools
+
+This guide explains how to run the FastMCP SSG Gateway server, inspect static routes as an AI agent, and utilize client-side WebAssembly search and cryptographic tools.
+
+---
+
+## 1. Running the FastMCP Server Gateway
+
+The FastMCP server is located at `tools/mcp/server.py`.
+
+### Prerequisites
+Ensure Python dependencies are installed:
+```bash
+pip install fastmcp mcp pyyaml
+```
+
+### Starting the Server
+To run the server in standard stdio mode (for Claude Desktop, Cursor, or AI agent integration):
+```bash
+python3 tools/mcp/server.py
+```
+
+### Querying FastMCP Tools Programmatically
+You can also invoke tools programmatically in Python:
+```python
+from tools.mcp.server import list_ssg_routes, get_route_content, search_ssg_routes
+
+# List all SSG routes
+routes = list_ssg_routes()
+print(f"Total SSG routes: {len(routes)}")
+
+# Fetch route content
+about_page = get_route_content("about")
+print(about_page["frontmatter"]["title"])
+
+# Search content
+search_results = search_ssg_routes("WebAssembly")
+print(search_results)
+```
+
+---
+
+## 2. Executing Pagefind WebAssembly (Wasm) Search
+
+Pagefind indexes the static HTML site after Astro compilation.
+
+### Building and Indexing
+Run the combined build command:
+```bash
+npm run build
+```
+This executes `astro build && pagefind --site dist`, compiling static assets to `dist/` and writing Wasm index bundles to `dist/pagefind/`.
+
+### Previewing Search
+Launch the local preview server:
+```bash
+npm run preview
+```
+Navigate to `http://localhost:4321/search` to test client-side Wasm search queries with term highlighting and subresults.
+
+---
+
+## 3. Utilizing WebAssembly Cryptographic & Document Studio
+
+Navigate to `http://localhost:4321/wasm-studio` in your browser.
+
+### Computing CSP SHA-256 Hashes
+1. Paste inline script content into the **Cryptographic Hash & CSP Tool** input box.
+2. Click **Compute SHA-256 Hash**.
+3. Copy the generated Nginx CSP Header value (e.g. `'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='`) and append it to your Nginx CSP whitelist configuration in `nginx/nginx.conf`.
+
+### Validating OKF v0.2 Documents
+1. Paste Markdown content into the **OKF v0.2 Document Processor** input box.
+2. Click **Analyze Document**.
+3. Review compliance status, extracted title, word count, and line metrics.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -3066,6 +3167,86 @@ To ensure these changes maintain full backward compatibility and zero regression
 1. **Automated Frontmatter & Sitemap Audits**: Executed `node tools/refactor-okf.cjs` and `node tools/verify-sitemaps.js`.
 2. **Pytest Integration & Unit Suite**: Executed `python3 -m pytest tests/` to confirm all route and server status checks pass.
 3. **Playwright E2E Visual Verification**: Captured screenshots and validated interactive elements against the live preview server.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: docs/explanation/fastmcp-wasm-architecture.md
+
+
+---
+spec_version: "0.2"
+type: "explanation"
+title: "FastMCP Protocol & WebAssembly (Wasm) Architecture"
+description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, and client-side Wasm cryptographic & document processing in CMSForNerd2."
+timestamp: "2026-09-06T00:00:00Z"
+topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
+
+okf_version: 0.1
+nav_order: 1
+---
+
+# FastMCP Protocol & WebAssembly (Wasm) Architecture
+
+This document provides a conceptual explanation of the **FastMCP Model Context Protocol** server integration and the **WebAssembly (Wasm)** client-side architecture in CMSForNerd2.
+
+---
+
+## 1. FastMCP SSG Route Exposure for AI Agents
+
+Modern AI agents (e.g. Claude Desktop, Cursor, Google Jules) require fast, deterministic introspection of web platform assets without scanning unindexed file trees or relying on brittle web scrapers.
+
+### Architecture Overview
+
+```
+ +------------------+                 +------------------------+
+ |   AI Agent /     |  JSON-RPC over  |  FastMCP SSG Gateway   |
+ |  Claude Desktop  |  stdio / HTTP   |  (tools/mcp/server.py) |
+ +--------+---------+ <=============> +-----------+------------+
+          |                                       |
+          v                                       v
+ +------------------+                 +------------------------+
+ | list_ssg_routes  |                 |  src/content/pages/*.md|
+ | get_route_content|                 |  sitemap.txt           |
+ | search_ssg_routes|                 |  .agents/brain/        |
+ +------------------+                 +------------------------+
+```
+
+### Key Capabilities
+
+1. **Deterministic Route Mapping**: Exposes every Astro SSG route directly as structured JSON objects (`list_ssg_routes()`), eliminating link-crawling overhead.
+2. **On-Demand Content Retrieval**: Delivers clean frontmatter and Markdown body text (`get_route_content()`) for instant context ingestion.
+3. **Spatial Memory Introspection**: Integrates with Deep State of Mind (DSOM) knowledge base (`get_openwiki_concept()`) to share active spatial memory directly with AI subagents.
+
+---
+
+## 2. WebAssembly (Wasm) Client-Side Search Engine (Pagefind)
+
+Search engines traditionally require dedicated backend servers (e.g., Elasticsearch, Solr, Meilisearch) or heavy serverless endpoints. CMSForNerd2 eliminates backend runtime overhead by adopting **Pagefind**, a static search engine compiled to **WebAssembly (Wasm)**.
+
+### How Pagefind Wasm Works
+
+- **Build-Time Compilation**: During `npm run build`, `pagefind --site dist` parses compiled HTML output in `dist/` and compiles static Wasm index files (`dist/pagefind/wasm.en.pagefind`).
+- **Zero Server Overhead**: At runtime, browser JS loads the Pagefind Wasm engine (`pagefind-ui.js`), which queries the binary Wasm index locally.
+- **Micro-Bundle Bandwidth**: Index files are chunked into tiny Wasm segments, ensuring users download only byte ranges necessary for their search query.
+
+---
+
+## 3. WebAssembly (Wasm) Client Cryptographic & Document Processing
+
+To align with modern Zero-Trust static security standards, CMSForNerd2 includes client-side WebAssembly tools for cryptographic hashing and OKF v0.2 document parsing.
+
+### Cryptographic Whitelisting
+- **Browser-Native Execution**: Hashing functions execute using WebAssembly/WebCrypto APIs inside local browser memory.
+- **CSP Integrity Verification**: Generates Base64 SHA-256 digests (`'sha256-...'`) for inline script whitelisting in Nginx Content Security Policy headers.
+
+### OKF v0.2 Schema Processing
+- Parses Open Knowledge Format frontmatter schemas, verifying trust and freshness pillars (`status`, `stale_after`, `sources`, `generated`).
+- Guarantees complete user privacy: documents are analyzed entirely client-side with zero external data transmission.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
