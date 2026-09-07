@@ -1,12 +1,33 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Module 7 Worksheet | CMSForNerd2 Static Security & Performance"
 description: "Interactive lab worksheet for configuring Content Security Policy whitelists, unprivileged server headers, and static performance caching."
 schemaType: "TechArticle"
 author: "CMSForNerd2 Security Education Team"
-timestamp: "2026-08-01T09:00:00Z"
-topics: ["security", "owasp", "performance", "optimisation", "nginx", "astro"]
+topics:
+- security
+- owasp
+- performance
+- optimisation
+- nginx
+- astro
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: lab-module7.md
+  url: src/content/pages/lab-module7.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T09:00:00Z'
+tags:
+- security
+- owasp
+- performance
+- optimisation
+- nginx
+- astro
 ---
 
 <article class="lab-module-page" itemscope itemtype="https://schema.org/TechArticle">

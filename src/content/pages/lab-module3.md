@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Lab Worksheet: Module 3 - CMSForNerd2"
 description: "Module 3: Defensive Engineering in Static Architectures. Learn how Astro 7.1 and unprivileged containers eliminate runtime security risks."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: lab-module3.md
+  url: src/content/pages/lab-module3.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="lab-worksheet">
@@ -85,9 +102,12 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve using hardened unprivileged NGINX
+
 FROM nginx:alpine-slim
 COPY --from=builder /app/dist /usr/share/nginx/html
+
 # Run NGINX on non-root port 8080 as unprivileged user
+
 ...</code></pre>
 </div>
 <p><strong>Question:</strong> Why do we run the container on port <code>8080</code> instead of port <code>80</code>?</p>

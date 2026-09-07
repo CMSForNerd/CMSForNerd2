@@ -6,27 +6,39 @@ name: "docs-review"
 title: "Documentation Review Skill"
 description: "Facilitates structured reviews of documentation changes to ensure accuracy, style guide compliance, and maintainability."
 version: "1.0.0"
-timestamp: "2026-09-06T00:00:00Z"
 author: "AI Workspace Assistant"
-tags: ["documentation", "review", "quality-assurance", "okf", "diataxis"]
+tags:
+- documentation
+- review
+- quality-assurance
+- okf
+- diataxis
 status: "stable"
 sources:
-  - id: "metabase_docs_review"
-    title: "Metabase Documentation Review Skill"
-    url: "https://github.com/metabase/metabase"
-  - id: "microsoft_writing_style_guide"
-    title: "Microsoft Writing Style Guide"
-    url: "https://learn.microsoft.com/en-us/style-guide/welcome/"
+- id: "metabase_docs_review"
+  title: Metabase Documentation Review Skill
+  url: https://github.com/metabase/metabase
+- id: "microsoft_writing_style_guide"
+  title: Microsoft Writing Style Guide
+  url: https://learn.microsoft.com/en-us/style-guide/welcome/
 inputs:
   target_file:
-    type: "string"
-    description: "Path to the documentation file or pull request diff being reviewed."
+    type: string
+    description: Path to the documentation file or pull request diff being reviewed.
 outputs:
   review_feedback:
-    type: "string"
-    description: "Numbered, prioritised review findings categorized by severity."
-
-okf_version: "0.1"
+    type: string
+    description: Numbered, prioritised review findings categorized by severity.
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+topics:
+- documentation
+- review
+- quality-assurance
+- okf
+- diataxis
 ---
 
 # Documentation Review Skill (`docs-review`)
@@ -52,9 +64,11 @@ The `docs-review` skill provides a systematic review protocol for evaluating doc
 ## FAQs
 
 ### How do I determine which review mode to use?
+
 In local terminal workflows, use local review mode. When GitHub review tools or pull request comments are available, integrate with PR review workflows.
 
 ### What should I do with trivial or insignificant formatting issues?
+
 Focus feedback on material issues impacting reader understanding or technical accuracy. Ignore minor stylistic choices if they do not violate project standards.
 
 ---

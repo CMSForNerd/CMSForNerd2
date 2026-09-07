@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Final Exam: Break-Fix Challenge - CMSForNerd2"
 description: "Final Certification Exam. Repair 5 deliberate static site and Astro 7.1 errors to prove mastery of SSG compilation and layout safety."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: final-exam.md
+  url: src/content/pages/final-exam.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="final-exam">
@@ -51,8 +68,8 @@ okf_version: 0.1
 type: content_page
 title: "Windows Guides"
 topics:
-	- "modernisation" # BROKEN: Indented with a tab character!
-	- "setup"
+ - "modernisation" # BROKEN: Indented with a tab character!
+ - "setup"
 ---</code></pre>
 </div>
 </section>

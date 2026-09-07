@@ -1,12 +1,28 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Static Site Deployment Tutorial"
 description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."
-timestamp: "2026-08-01T14:40:00Z"
-topics: ["tutorials", "deployment", "github-pages", "render"]
-
+topics:
+- tutorials
+- deployment
+- github-pages
+- render
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: static-site-deployment.md
+  url: docs/tutorials/static-site-deployment.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:40:00Z'
+tags:
+- tutorials
+- deployment
+- github-pages
+- render
 ---
 
 # 🎓 Static Site Deployment Tutorial
@@ -18,6 +34,7 @@ In this tutorial, you will learn how to configure and deploy CMSForNerd2 to **Gi
 ## 🎯 Learning Objectives
 
 By the end of this tutorial, you will be able to:
+
 - Configure dynamic base paths for subpath deployments.
 - Deploy static builds automatically via GitHub Actions.
 - Launch a native static site on Render.com.
@@ -27,6 +44,7 @@ By the end of this tutorial, you will be able to:
 ## 🏗️ Step-by-Step Lesson
 
 ### Step 1: Understand Path Structuring (GitHub Pages vs. Cloud)
+
 GitHub Pages publishes sites in subdirectory pathways (e.g. `https://username.github.io/CMSForNerd2`), whereas standard cloud sites publish at the domain root (e.g. `https://cmsfornerd2.netlify.app`).
 
 To avoid broken URLs, `astro.config.mjs` handles this dynamically. Open `astro.config.mjs` and observe the base configuration:
@@ -44,6 +62,7 @@ export default defineConfig({
 ```
 
 ### Step 2: Set Up GitHub Pages Deployment Pipeline
+
 Your deployments can be automated on push to the `master` branch. Let's inspect `.github/workflows/deploy-gh-pages.yml`:
 
 ```yaml
@@ -86,15 +105,16 @@ jobs:
 When you push your code to GitHub, this action automatically installs packages, runs `npm run build`, and publishes the static `dist/` directory to the `gh-pages` branch.
 
 ### Step 3: Deploy to Render.com Statically (Free Tier)
+
 To deploy the compiled static assets directly to Render:
 
-1.  Log in to your **Render.com Dashboard**.
-2.  Click **New + > Static Site**.
-3.  Connect your Git repository.
-4.  Configure the service with these exact settings:
-    *   **Build Command**: `npm run build`
-    *   **Publish Directory**: `dist`
-5.  Click **Create Static Site**.
+1. Log in to your **Render.com Dashboard**.
+2. Click **New + > Static Site**.
+3. Connect your Git repository.
+4. Configure the service with these exact settings:
+    - **Build Command**: `npm run build`
+    - **Publish Directory**: `dist`
+5. Click **Create Static Site**.
 
 Render will provision a free global CDN, automatically pull your repository, execute the static build, and serve `dist/` securely over HTTPS.
 
@@ -103,6 +123,7 @@ Render will provision a free global CDN, automatically pull your repository, exe
 ## 🚀 Verification
 
 Once your deployment completes:
+
 - Access your public site and verify that the navigation links function correctly.
 - Verify that your URL bar reflects your secure hosting endpoint.
 

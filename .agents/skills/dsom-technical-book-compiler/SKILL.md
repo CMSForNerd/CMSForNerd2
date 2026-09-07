@@ -1,17 +1,32 @@
 ---
-okf_version: "0.1"
 type: "skill"
 title: "Technical Ebook & Handbook Compiler (Pandoc / Print & Terminal Theme)"
-timestamp: "2026-09-03T07:30:00Z"
 description: "Compiles complete Diataxis documentation suites and source code repositories into publication-grade technical handbooks (PDF, standalone HTML, EPUB, ODT) using Pandoc and the Terminal & Cloud design framework."
-topics: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
+topics:
+- pandoc
+- ebook
+- pdf
+- html
+- epub
+- terminal-theme
 status: "stable"
 stale_after: "2027-09-03"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
-    path: ".agents/AGENTS.md"
+- id: "dsom_agents_rulebook"
+  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  path: .agents/AGENTS.md
 name: "dsom-technical-book-compiler"
+spec_version: "0.2"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-03T07:30:00Z'
+tags:
+- pandoc
+- ebook
+- pdf
+- html
+- epub
+- terminal-theme
 ---
 
 # Technical Ebook & Handbook Compiler
@@ -19,6 +34,7 @@ name: "dsom-technical-book-compiler"
 **Purpose:** Standardizes the automated compilation of complex multi-part Diátaxis documentation palaces and complete source code directories into unified, publication-grade technical handbooks (PDF, HTML, EPUB, ODT) tailored for SysAdmins, DevOps Engineers, and SREs.
 
 ## Dual-Mode "Terminal & Cloud" Design System
+
 1. **Interactive / Screen Mode:** Optional dark slate container (#0F172A) for code and off-white (#F8FAFC) reading background.
 2. **Physical Print / PDF Handbook Mode (Zero Ink Waste):**
    - **Pure White Background:** `@page { background: #FFFFFF; }` and `body { background-color: #FFFFFF !important; }` to eliminate grayish tints and toner waste.
@@ -28,6 +44,7 @@ name: "dsom-technical-book-compiler"
    - **Attribution Standard:** Compilations must be credited as `Compile by: Harisfazillah Jamel`.
 
 ## Technical Execution Constraints
+
 1. **Footer & Frontmatter Stripping:** When assembling 100+ documents, individual OKF frontmatter and DSOM signature footers must be stripped to prevent Pandoc YAML parser collisions (`Unknown alias`).
 2. **Dynamic Backtick Fence Scaling:** When wrapping source code containing triple backticks (` ``` `), the enclosing fence must scale dynamically to 4 or 5 backticks (` ```` `).
 3. **Mermaid HTML Unescaping Protocol:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;br/&gt;`, `--&gt;`). The compilation pipeline must decode these entities before browser rendering to prevent Mermaid 10 syntax error bomb graphics.
@@ -42,6 +59,7 @@ name: "dsom-technical-book-compiler"
 10. **Developer Commentary Extraction Protocol:** For every YAML playbook, shell script, or INI file ingested, extract the leading `#` comment block (all contiguous comment lines before the first YAML key, after the `---` fence) and render it as an HTML callout div above the code fence. Classify by keyword scan: comments containing `BUG`, `FIX`, `Confirmed`, `live`, `vendor`, `NEVER`, `ORA-\d+`, `destroy`, `destructive`, `hard way`, or `escalation` render as `callout-warning` (⚠️ orange, label `Read Before Executing`); all others render as `callout-note` (💡 blue). Preserve original `#` lines inside the code fence unchanged. CSS must define `.callout-warning p`, `.callout-note p`, and `strong` selectors with explicit `padding: 12px 16px` and `page-break-inside: avoid` for clean print rendering.
 
 ## Execution Command
+
 ```bash
 python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py
 ```

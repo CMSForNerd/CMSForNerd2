@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Official Answer Key: Final Exam | CMSForNerd2"
 description: "Instructor grading rubric and official static build solutions for the CMSForNerd2 Final Exam."
 schemaType: "EducationalOccupationalCredential"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: exam-answers.md
+  url: src/content/pages/exam-answers.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="exam-answers">

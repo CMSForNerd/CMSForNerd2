@@ -1,12 +1,32 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
-timestamp: "2026-07-31T07:15:00Z"
-topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
-
+topics:
+- context7
+- integrations
+- gitlab-ci
+- github-actions
+- api
+- documentation
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: context7-integration.md
+  url: docs/context7-integration.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-31T07:15:00Z'
+tags:
+- context7
+- integrations
+- gitlab-ci
+- github-actions
+- api
+- documentation
 ---
 
 # Context7 Service Integration Guide
@@ -27,7 +47,7 @@ Within CMSForNerd2, Context7 is utilised to synchronise and refresh statically c
 
 To enable the repository context inside Context7, a configuration file named `context7.json` is created at the repository root folder.
 
-### Configuration Format (`context7.json`):
+### Configuration Format (`context7.json`)
 
 ```json
 {
@@ -63,15 +83,15 @@ refresh-context7-docs:
         -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
 ```
 
-#### Setup Instructions for GitLab CI Variables:
+#### Setup Instructions for GitLab CI Variables
 
-1.  Navigate to the GitLab project settings page: **Settings > CI/CD > Variables**.
-2.  Click **Add Variable**.
-3.  Add the key: `CONTEXT7_API_KEY`.
-4.  Paste the secure access token in the Value field: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
-5.  Set the variable type as `Variable`.
-6.  Check **Mask variable** to ensure security in build logs.
-7.  Click **Add variable** to save the state.
+1. Navigate to the GitLab project settings page: **Settings > CI/CD > Variables**.
+2. Click **Add Variable**.
+3. Add the key: `CONTEXT7_API_KEY`.
+4. Paste the secure access token in the Value field: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+5. Set the variable type as `Variable`.
+6. Check **Mask variable** to ensure security in build logs.
+7. Click **Add variable** to save the state.
 
 ---
 
@@ -97,14 +117,14 @@ jobs:
             -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
 ```
 
-#### Setup Instructions for GitHub Secrets:
+#### Setup Instructions for GitHub Secrets
 
-1.  On GitHub, navigate to your repository landing page.
-2.  Go to **Settings > Secrets and variables > Actions**.
-3.  Click **New repository secret**.
-4.  Add Name: `CONTEXT7_API_KEY`.
-5.  Add Secret: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
-6.  Click **Add secret** to persist the variable.
+1. On GitHub, navigate to your repository landing page.
+2. Go to **Settings > Secrets and variables > Actions**.
+3. Click **New repository secret**.
+4. Add Name: `CONTEXT7_API_KEY`.
+5. Add Secret: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+6. Click **Add secret** to persist the variable.
 
 With this dual-platform pipeline configuration, pushing modifications to the master branch triggers automatic documentation refreshes regardless of whether GitLab or GitHub is deployed as the primary CI environment.
 
@@ -121,5 +141,6 @@ By implementing the following standards, developers can maximise the efficiency 
 ---
 
 ## 📜 Sources
+
 - [Context7 Official Integrations Guide](https://context7.com/docs/integrations/github-actions) - Configuration workflows for automatic refreshes.
 - [Context7 API Reference documentation](https://context7.com/docs/api-reference) - Endpoint parameters and authorisation guides.

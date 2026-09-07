@@ -8,11 +8,28 @@
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
-timestamp: "2026-08-01T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: README.md
+  url: README.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 # 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)
@@ -38,13 +55,13 @@ To satisfy the requirements of a database-free, lightweight, and modern tech sta
 
 We have compiled comprehensive, human-readable blueprint guides detailing the research, framework evaluation, and step-by-step transition plan:
 
-*   **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
-*   **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
-*   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
-*   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
-*   **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
-*   **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
-*   **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
+- **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
+- **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
+- **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
+- **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
+- **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
+- **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
 
@@ -82,6 +99,7 @@ To compile the entire website into statically served assets:
 ```bash
 npm run build
 ```
+
 This writes the fully optimised production-ready HTML5, CSS3, and JavaScript files to the dist/ directory, which can be served by any static host or unprivileged web server.
 
 ### Deploying to Render.com
@@ -89,11 +107,14 @@ This writes the fully optimised production-ready HTML5, CSS3, and JavaScript fil
 CMSForNerd2 can be deployed on **Render.com** either as a containerised service or as a free Static Site.
 
 #### 1. Free Static Site Deployment (Recommended)
+
 To prevent build failures (such as `Publish directory dist/ does not exist!` due to skipped builds), ensure the following parameters are explicitly configured in the Render Dashboard under your Static Site settings:
-*   **Build Command**: `npm run build`
-*   **Publish Directory**: `dist`
+
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
 
 #### 2. Containerised Web Service
+
 Alternatively, you can deploy using our pre-configured multi-stage Dockerfile and unprivileged NginX server. This can be launched instantly using our Blueprint specification (`render.yaml`).
 
 ---
@@ -107,12 +128,31 @@ Alternatively, you can deploy using our pre-configured multi-stage Dockerfile an
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
-timestamp: "2026-08-01T12:00:00Z"
 description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
-topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
+topics:
+- onboarding
+- diataxis
+- navigation
+- dsom
+- agents
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: START-HERE.md
+  url: START-HERE.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags:
+- onboarding
+- diataxis
+- navigation
+- dsom
+- agents
 ---
 
 # 🎯 START HERE: CMSForNerd2 Master Onboarding Standard
@@ -154,6 +194,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 Do not attempt to read the entire codebase. Begin immediately with the smallest viable verification task.
 
 ### 👤 Human Developer Pathway
+
 To verify your local setup in under 60 seconds, run this 3-step command chain:
 
 ```bash
@@ -168,6 +209,7 @@ npm run build && npm run preview
 ```
 
 ### 🤖 Autonomous AI Agent Pathway
+
 When an issue or task is assigned to an AI agent, execute the following standardized task ingestion protocol:
 
 1. **State Ingestion**: Inspect `.agents/AGENTS.md` and `.agents/brain/task.md` to establish current operational parameters and active context.
@@ -182,18 +224,23 @@ When an issue or task is assigned to an AI agent, execute the following standard
 To guarantee operational stability across multi-agent workflows, all autonomous systems MUST comply with the following context governance principles:
 
 ### 1. Minimal Context Window Ingestion
+
 AI agents must maintain context hygiene. Loading the full repository into context windows causes hallucination and degrades reasoning accuracy. Agents must read `.agents/AGENTS.md` for gateway rules, parse `.agents/brain/` for active state, and selectively load target files on demand.
 
 ### 2. Deep State of Mind (DSOM) Spatial Memory
+
 All operational memory is zero-global and spatial. Spatial state lives strictly within `.agents/brain/`:
+
 * `task.md`: Tracks active and completed execution steps.
 * `walkthrough.md`: Retains historical session anchors.
 * `knowledge.md`: Stores domain-specific operational knowledge.
 
 ### 3. Multi-Agent Interoperability
+
 CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 10 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, `dsom-cognitive-protocol`, `dsom-technical-book-compiler`, and `project-technical-book-compiler`).
 
 ### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
+
 Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
 
 ```yaml
@@ -205,20 +252,22 @@ timestamp: "2026-08-01T12:00:00Z"
 topics: ["topic1", "topic2"]
 ---
 ```
+
 *Note: Any string value containing emojis, colons, or brackets must be double-quoted.*
 
 ### 5. Standard UK English Rule
+
 All documentation, code comments, commit messages, and cognitive logs MUST strictly adhere to Standard UK English spelling conventions (e.g. *optimisation*, *synchronise*, *behaviour*, *modularise*, *colour*).
 
 ---
 
 ## 🔗 Core Repository Map
 
-- [README.md](README.md) — Executive project summary and architectural overview.
-- [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
-- [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
-- [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
-- [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
+* [README.md](README.md) — Executive project summary and architectural overview.
+* [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
+* [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
+* [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+* [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
@@ -231,12 +280,27 @@ All documentation, code comments, commit messages, and cognitive logs MUST stric
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
-timestamp: "2026-08-01T12:00:00Z"
-topics: ["summary", "index", "navigation"]
+topics:
+- summary
+- index
+- navigation
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: SUMMARY.md
+  url: SUMMARY.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags:
+- summary
+- index
+- navigation
 ---
 
 # Summary
@@ -245,6 +309,7 @@ topics: ["summary", "index", "navigation"]
 * [Onboarding Map](START-HERE.md)
 
 ## 📘 Migration Manuals & Platform Guides
+
 * [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
@@ -254,12 +319,15 @@ topics: ["summary", "index", "navigation"]
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
 ## 🏛️ Project Governance & Protocols
+
 * [AI Onboarding Rulebook](AGENTS.md)
 * [Technical Book Design & PDF Compilation Master Prompt Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 * [DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)
 
 ## 🧠 Spatial Memory & Agent Skills
+
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)
+* [Google Deep Research & Search Skill](.agents/skills/google-deep-research/SKILL.md)
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
@@ -272,12 +340,31 @@ topics: ["summary", "index", "navigation"]
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
-timestamp: "2026-09-06T00:00:00Z"
-topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
+topics:
+- agents
+- dsom
+- rulebook
+- constitution
+- skills
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: AGENTS.md
+  url: AGENTS.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- agents
+- dsom
+- rulebook
+- constitution
+- skills
 ---
 
 # AI Agent Registry & Sovereign Gateway
@@ -290,20 +377,20 @@ This file describes the agents and tools in our codebase, outlining their operat
 
 ## Critical Instructions for AI Agents
 
-1.  **Read the Full Rulebook**: Navigate immediately to [`.agents/AGENTS.md`](.agents/AGENTS.md) to parse the operational persona, writing styles, and detailed rules governing this project.
-2.  **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
-    *   `task.md` — Active and completed task list (present state).
-    *   `walkthrough.md` — Session history and Mental Anchors (past state).
-    *   `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
-3.  **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
-4.  **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
-    *   Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
-    *   Target specific line ranges via read tools.
-    *   Verify the OKF `timestamp` for contextual relevance.
-    *   Obtain human consensus if local knowledge is stale.
-    *   Execute physical terminal commands only when necessary.
-5.  **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
-6.  **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
+1. **Read the Full Rulebook**: Navigate immediately to [`.agents/AGENTS.md`](.agents/AGENTS.md) to parse the operational persona, writing styles, and detailed rules governing this project.
+2. **Access Spatial Memory**: Read all brain files located in `.agents/brain/` to restore operational context:
+    * `task.md` — Active and completed task list (present state).
+    * `walkthrough.md` — Session history and Mental Anchors (past state).
+    * `knowledge.md` — Sovereign AI Agent Knowledge Base containing all Jules operational and domain-specific knowledge from day 0 to present.
+3. **Deploy Agent Skills**: Discover, load, and execute Google Antigravity-compatible Agent Skills from `.agents/skills/` to automate operational procedures.
+4. **Execute the 5-Step Knowledge-First Discovery Flow**: Before executing terminal commands or external API queries:
+    * Search OKF frontmatter (`topics:` / `description:`) in `.agents/brain/` and `docs/`.
+    * Target specific line ranges via read tools.
+    * Verify the OKF `timestamp` for contextual relevance.
+    * Obtain human consensus if local knowledge is stale.
+    * Execute physical terminal commands only when necessary.
+5. **Synchronise Both Registries**: Keep this root gateway and `.agents/AGENTS.md` fully in sync to maintain architectural consistency.
+6. **Acknowledge Environment & Sandbox Limitations**: When operating in the Google Jules environment (or other restricted, unprivileged container/sandbox settings), be aware of key execution limits (e.g. no persistent OS system setting modifications, headless execution, transient sandbox lifecycle, and limited raw root privileges). Always ensure code and automation scripts (such as Ansible playbooks) detect this environment and gracefully offer options to branch between a limited environment and a real, unconstrained OS.
 
 ---
 
@@ -312,17 +399,20 @@ This file describes the agents and tools in our codebase, outlining their operat
 When creating, editing, or using automation playbooks, shell scripts, or deployment tools in this workspace, AI agents must respect the specific constraints of the Google Jules environment:
 
 ### 1. Key Sandbox Constraints
-*   **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
-*   **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
-*   **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
-*   **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
+
+* **Ephemeral VM Lifecycle**: Tasks execute in temporary, isolated Google Cloud VMs/containers. Any system-wide configuration or package installation is discarded after the task completes.
+* **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no systemd init system available, and you cannot permanently change system-wide configurations, alter kernel modules, or adjust low-level OS settings.
+* **Headless Execution Only**: No physical or virtual graphical display exists. Browser-based tests (e.g., Playwright) must run in strict headless mode.
+* **Isolated & Async**: No inter-task coordination or real-time pair-programming is supported.
 
 ### 2. Dual-Pathway Branching Rule (Ansible & Shell Code)
+
 To prevent build failures and environment blocks, all automation scripts, Ansible playbooks, and shell scripts **must** dynamically detect whether they are running in a limited environment (like Google Jules) or on a real OS:
-*   **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
-*   **Branching Pathways**:
-    *   *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
-    *   *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
+
+* **Detection Mechanism**: Check if the current user is `jules` (e.g., `ansible_env.USER == 'jules'` or `$USER == "jules"`), check for specific environment variables, or inspect virtualisation types (`ansible_virtualization_type in ['docker', 'container', 'lxc']`).
+* **Branching Pathways**:
+  * *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
+  * *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
 
 ---
 
@@ -348,6 +438,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Code Health & Static Analysis** | `.agents/skills/code-health-linting/` | Governs static analysis, type checking (mypy/tsc), and linter rules (ruff/markdownlint) across the project. |
 | **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
+| **Google Deep Research & Search** | `.agents/skills/google-deep-research/` | Iterative deep web research, `/learn` knowledge ingestion, and OKF v0.2 trust signal generation with `uv python` token optimisation. |
 | **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
 | **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` & `.agents/skills/docstring/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
@@ -386,11 +477,11 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
 3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
 4. **Required Field Schema**: Every document must carry a complete set of five required fields:
-   - `okf_version` / `spec_version`: `0.1` or `"0.2"`.
-   - `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
-   - `title`: Human-readable display title (double-quoted if containing special characters).
-   - `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
-   - `topics`: An array of associated category tags.
+   * `okf_version` / `spec_version`: `0.1` or `"0.2"`.
+   * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
+   * `title`: Human-readable display title (double-quoted if containing special characters).
+   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
+   * `topics`: An array of associated category tags.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---
@@ -404,32 +495,47 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 
 
 ---
-okf_version: "0.1"
 type: "governance"
 title: "Technical Book Design & PDF Compilation Master Prompt Guide"
-timestamp: "2026-09-04T21:15:00Z"
-topics: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
+topics:
+- pandoc
+- pdf
+- handbook
+- prompt
+- print-optimized
+- mermaid
+- ebook
+- diataxis
 description: "Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
 status: "stable"
 stale_after: "2027-09-04"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
-    path: ".agents/AGENTS.md"
-  - id: "dsom_technical_book_compiler_skill"
-    title: "Technical Ebook & Handbook Compiler Skill"
-    path: ".agents/skills/dsom-technical-book-compiler/SKILL.md"
-  - id: "build_mcmc_ansible_book_script"
-    title: "MCMC Ansible Book Compiler Implementation"
-    path: "tools/build_mcmc_ansible_book.py"
+- id: dsom_agents_rulebook
+  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  path: .agents/AGENTS.md
+- id: dsom_technical_book_compiler_skill
+  title: Technical Ebook & Handbook Compiler Skill
+  path: .agents/skills/dsom-technical-book-compiler/SKILL.md
+- id: build_mcmc_ansible_book_script
+  title: MCMC Ansible Book Compiler Implementation
+  path: tools/build_mcmc_ansible_book.py
 generated:
-  by: "Antigravity Cognitive Digital Twin"
-  timestamp: "2026-09-04T21:15:00Z"
+  by: Antigravity Cognitive Digital Twin
+  timestamp: '2026-09-04T21:15:00Z'
 verified:
-  by: "Harisfazillah Jamel (LinuxMalaysia)"
-  timestamp: "2026-09-04T21:15:00Z"
-
+  by: Harisfazillah Jamel (LinuxMalaysia)
+  timestamp: '2026-09-04T21:15:00Z'
 nav_order: 1
+spec_version: "0.2"
+tags:
+- pandoc
+- pdf
+- handbook
+- prompt
+- print-optimized
+- mermaid
+- ebook
+- diataxis
 ---
 
 # Technical Book Design & PDF Compilation Master Prompt Guide
@@ -444,6 +550,7 @@ nav_order: 1
 ## 1. Executive Overview & Dual Purpose
 
 This document serves two complementary functions:
+
 1. **The Reusable AI Master Prompt (Section 2):** A complete, drop-in system prompt that can be provided to any advanced AI coding assistant (Google Antigravity, Google Jules, Claude, Cursor, ChatGPT) to autonomously orchestrate, style, and compile an entire repository of multi-file Markdown (`.md`) documentation and source code into a publication-grade PDF handbook.
 2. **The Architectural Blueprint & Engineering Field Manual (Sections 3–7):** An exhaustive technical record documenting the formatting standards, color palettes, typography pairings, CSS `@page` rules, and the **ten critical engineering hurdles** solved to eliminate syntax crashes, blank pages, link leaks, and ink waste during multi-format compilation (PDF, standalone HTML, EPUB 3, and styled ODT).
 3. **The Embedded Skill SOP (Section 6):** The full operational specification of the `dsom-technical-book-compiler` skill, ensuring complete self-containment.
@@ -544,7 +651,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
 | **Page Background** | `#FFFFFF` | Pure white. Eliminates background shading and toner waste. | `body { background-color: #FFFFFF !important; }` |
 | **Body Text** | `#0F172A` | Deep charcoal slate. Maximum contrast against white without harsh black glare. | `color: #0F172A !important;` |
 | **Primary Headings** | `#1E3A8A` | Linux Blue. Professional, authoritative enterprise header branding. | `h1, h2 { color: #1E3A8A; }` |
-| **Secondary Headings**| `#77216F` | Deep Ubuntu Purple. High-visibility distinction for major subsections. | `h3 { color: #77216F; }` |
+| **Secondary Headings** | `#77216F` | Deep Ubuntu Purple. High-visibility distinction for major subsections. | `h3 { color: #77216F; }` |
 | **Tertiary Headings** | `#0D9488` | Deep Teal. Clear demarcator for low-level runbook procedures. | `h4 { color: #0D9488; }` |
 | **Code Block Background** | `#F8FAFC` | Very light alabaster gray. Visually defines code boundaries without heavy ink deposit. | `div.sourceCode, pre.sourceCode { background-color: #F8FAFC !important; }` |
 | **Code Block Border** | `#CBD5E1` | Slate border. Provides crisp, laser-printer-safe container edges. | `border: 1px solid #CBD5E1 !important;` |
@@ -602,14 +709,17 @@ Your task is to take an entire repository of Markdown (.md) documents and source
 ## 4. The 10 Critical Engineering Hurdles Solved
 
 ### Hurdle 1: Pandoc YAML Parser Explosions (`Unknown alias`)
+
 - **Failure Mode:** Stitched multi-document markdowns retain individual OKF frontmatter blocks (`--- ... ---`). Pandoc attempts to parse subsequent frontmatter blocks as YAML document streams, failing with `Unknown alias` or corrupted titles.
 - **Solution:** A pre-processing function (`strip_frontmatter()`) strips leading YAML frontmatter while capturing `title` and `description` to create formatted chapter metadata banners (`.chapter-meta`).
 
 ### Hurdle 2: Nested Backtick Fence Collisions
+
 - **Failure Mode:** Ingested markdown documents or playbook examples already contain triple backticks (```` ``` ````). If the master compiler wraps them in triple backticks, the code block prematurely terminates, leaking raw code into prose.
 - **Solution:** Dynamic backtick scaling. The compiler scans the target code text; if triple backticks exist, it wraps the block in 4 backticks (```` ```` ````); if 4 exist, it scales to 5.
 
 ### Hurdle 3: Blank Overflow Pages & Cover Fragmentation
+
 - **Failure Mode:** Manual page breaks (`<div class="page-break"></div>`) combined with CSS `page-break-before: always;` on H1 elements generate unwanted empty pages. Furthermore, default Pandoc title headers split the cover across Pages 1 and 2.
 - **Solution:**
   1. Eliminate all manual page break divs.
@@ -618,18 +728,22 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   4. Constrain cover page padding and metadata fonts so the entire cover fits inside Page 1.
 
 ### Hurdle 4: Mermaid 10 Syntax Bomb Graphics (HTML Escaping)
+
 - **Failure Mode:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;`, `&gt;`, `--&gt;`). When Mermaid.js runs, it encounters illegal characters, rendering a pink syntax error bomb icon.
 - **Solution:** A dedicated post-pandoc HTML regex unescapes `&quot;`, `&lt;`, `&gt;`, `&amp;` and strips enclosing `<code>` tags before headless browser invocation.
 
 ### Hurdle 5: Mermaid Node Collision in Multi-Diagram Handbooks
+
 - **Failure Mode:** Different diagrams reuse common node identifiers (e.g. `NODE1`, `DB`, `CBE`, `PWP`). Mermaid's internal parser merges identical IDs into the same global SVG graph, corrupting diagram topology.
 - **Solution:** **Mermaid Multi-Diagram Isolation Protocol**. Every diagram must have unique diagram-scoped namespaces prefixed to all nodes (e.g., `TB_` for Master Architecture, `PA_` for Pattern A, `PB_` for Pattern B, `PC_` for Pattern C).
 
 ### Hurdle 6: Headless Chromium Millisecond Timestamp Collision
+
 - **Failure Mode:** Headless Chromium renders all page scripts in milliseconds. Mermaid's default `mermaid.run()` uses `Date.now()` timestamp IDs, causing ID collisions that draw multiple diagrams inside the same container.
 - **Solution:** Sequential DOM replacement. The browser script iterates over `document.querySelectorAll("pre.mermaid")` and calls `mermaid.render("diagram_svg_" + i, code)` sequentially, injecting the returned SVG directly into `el.innerHTML`.
 
 ### Hurdle 7: Tall Vertical Flowcharts Splitting Pages
+
 - **Failure Mode:** Long linear flowcharts (height > 600px) split mid-node across physical page breaks, causing dangling connectors and unreadable diagrams.
 - **Solution:**
   1. Re-architect flowcharts into balanced 2-column grids (e.g., Phase 1 vs Phase 2).
@@ -637,6 +751,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   3. Extract `innerHTML` rather than `textContent` in the Mermaid pre-pass to preserve `<br/>` tags and card formatting.
 
 ### Hurdle 8: Broken Relative Links & Leaked Local Paths (`file:///`)
+
 - **Failure Mode:** Ingested documentation contains relative links (`../how-to/deploy.md`) or absolute filesystem paths (`file:///D:/Users/...`), which break or leak workstation directories in the compiled PDF.
 - **Solution:** **Soft-Path Link Resolution Mandate (3-Tier Normalisation Pipeline)**:
   1. Pre-index all chapters (`#chap-{slug}`) and code files (`#code-{slug}`) into an in-memory `link_map`.
@@ -648,6 +763,7 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   4. Run an automated post-assembly audit to verify zero absolute paths survive in PDF links.
 
 ### Hurdle 9: Critical Safety Warnings Hidden in Code Comments
+
 - **Failure Mode:** Production playbooks contain vital operational warnings, vendor bug workarounds, and safety dispatches hidden in `#` comments that SysAdmins miss when skimming compiled books.
 - **Solution:** **Developer Commentary Extraction Protocol**:
   1. Inspect the leading `#` comment block of every playbook, script, and configuration file.
@@ -657,11 +773,14 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   5. Preserve the original `#` comments inside the code block intact.
 
 ### Hurdle 10: Headless Browser Print Timeouts & Compositor Stalls
+
 - **Failure Mode:** Headless Chrome/Edge can hang indefinitely if web fonts or ESM modules fail to trigger draw completion, stalling CI/CD pipelines.
 - **Solution:** Execute Chromium with strict flags:
+
   ```bash
   chromium-browser --headless=new --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=8000 --print-to-pdf=<out.pdf> <file_uri>
   ```
+
   Enforce a hard Python subprocess timeout (45–60s) to gracefully catch draw completion.
 
 ---
@@ -756,6 +875,7 @@ name: "dsom-technical-book-compiler"
 ```bash
 python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py
 ```
+
 ```
 
 ---
@@ -781,12 +901,29 @@ Before finalizing any compiled handbook, the AI agent must verify:
 
 
 ---
-okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
-timestamp: "2026-09-06T00:00:00Z"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
-topics: ["knowledge", "jules", "brain", "dsom"]
+topics:
+- knowledge
+- jules
+- brain
+- dsom
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: knowledge.md
+  url: .agents/brain/knowledge.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- knowledge
+- jules
+- brain
+- dsom
 ---
 
 # Sovereign AI Agent Knowledge Base (CMSForNerd2)
@@ -843,7 +980,7 @@ This document contains a comprehensive record of all Google Jules operational, s
     All automation scripts, deployment pipelines, and Ansible playbooks in the repository must explicitly check for limited sandbox environments (such as the Google Jules container, typically by checking for username 'jules', custom environment variables, or virtualisation types) and implement a dual-pathway branching logic. Limited sandbox environments must bypass system-level modifications (such as systemd configurations, global packages installations, or firewall rule adjustments) to focus strictly on unprivileged workspace operations (e.g. local dependencies and compilation), whereas real OS environments are permitted to execute full administrative configurations with no limitations. An Ansible orchestration suite (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, and `tools/deploy-static.sh`) is configured to demonstrate and enforce this rule.
 
 16. **Google Antigravity Agent Skills**
-    The workspace defines a comprehensive suite of 22 Google Antigravity-compatible Agent Skills located under `.agents/skills/`. Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
+    The workspace defines a comprehensive suite of Google Antigravity-compatible Agent Skills located under `.agents/skills/` (including `google-deep-research`). Each skill contains a `SKILL.md` file featuring a unified OKF v0.2 YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
 17. **Static Security Lab Manual Integration**
     The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
@@ -943,14 +1080,30 @@ This document contains a comprehensive record of all Google Jules operational, s
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Local Development Quickstart Tutorial"
 description: "A step-by-step tutorial guiding beginners through installing dependencies, compiling static assets, and previewing CMSForNerd2."
-timestamp: "2026-08-01T14:40:00Z"
-topics: ["tutorials", "onboarding", "local-development", "astro"]
-
+topics:
+- tutorials
+- onboarding
+- local-development
+- astro
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: local-development.md
+  url: docs/tutorials/local-development.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:40:00Z'
+tags:
+- tutorials
+- onboarding
+- local-development
+- astro
 ---
 
 # 🎓 Local Development Quickstart
@@ -962,6 +1115,7 @@ Welcome to CMSForNerd2! In this tutorial, you will set up your local development
 ## 🎯 Learning Objectives
 
 By the end of this tutorial, you will be able to:
+
 - Configure your local Node.js v22 environment.
 - Install verified workspace dependencies.
 - Compile standard and AMP static pages.
@@ -972,6 +1126,7 @@ By the end of this tutorial, you will be able to:
 ## 🏗️ Step-by-Step Lesson
 
 ### Step 1: Verify System Prerequisites
+
 Before starting, ensure that Node.js (version 22) and Python (for testing) are installed. Check your versions:
 
 ```bash
@@ -980,6 +1135,7 @@ python3 --version
 ```
 
 ### Step 2: Install Project Dependencies
+
 Run `npm install` to load pinned packages. This command resolves peer-dependency constraints automatically via our `.npmrc` configuration:
 
 ```bash
@@ -987,11 +1143,13 @@ npm install
 ```
 
 Expected output:
+
 ```text
 added 632 packages, and audited 633 packages in 15s
 ```
 
 ### Step 3: Run the Local Development Server
+
 Launch the Astro dev engine in live reloading mode. This is useful for authoring new content or updating CSS:
 
 ```bash
@@ -999,6 +1157,7 @@ npm run dev
 ```
 
 The terminal will print:
+
 ```text
   🚀 Astro v7.1.6 started on http://localhost:4321/
 ```
@@ -1006,6 +1165,7 @@ The terminal will print:
 Open `http://localhost:4321` in your browser to inspect the landing page. Press `Ctrl+C` to terminate the dev server.
 
 ### Step 4: Compile Production Static Assets
+
 To verify that all layout components, Markdown pages, and AMP variants render without build-time errors, compile the site:
 
 ```bash
@@ -1013,6 +1173,7 @@ npm run build
 ```
 
 Expected output:
+
 ```text
 ▶ Astro collects anonymous usage data.
 14:32:55 [content] Syncing content
@@ -1026,6 +1187,7 @@ generating static routes
 This compiles your pages into pure static HTML/CSS inside the `dist/` directory.
 
 ### Step 5: Run the Local Production Preview
+
 Start the local preview server to run tests against the compiled output directory:
 
 ```bash
@@ -1051,14 +1213,30 @@ Congratulations! You have completed the local development quickstart. To learn h
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Static Site Deployment Tutorial"
 description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."
-timestamp: "2026-08-01T14:40:00Z"
-topics: ["tutorials", "deployment", "github-pages", "render"]
-
+topics:
+- tutorials
+- deployment
+- github-pages
+- render
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: static-site-deployment.md
+  url: docs/tutorials/static-site-deployment.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:40:00Z'
+tags:
+- tutorials
+- deployment
+- github-pages
+- render
 ---
 
 # 🎓 Static Site Deployment Tutorial
@@ -1070,6 +1248,7 @@ In this tutorial, you will learn how to configure and deploy CMSForNerd2 to **Gi
 ## 🎯 Learning Objectives
 
 By the end of this tutorial, you will be able to:
+
 - Configure dynamic base paths for subpath deployments.
 - Deploy static builds automatically via GitHub Actions.
 - Launch a native static site on Render.com.
@@ -1079,6 +1258,7 @@ By the end of this tutorial, you will be able to:
 ## 🏗️ Step-by-Step Lesson
 
 ### Step 1: Understand Path Structuring (GitHub Pages vs. Cloud)
+
 GitHub Pages publishes sites in subdirectory pathways (e.g. `https://username.github.io/CMSForNerd2`), whereas standard cloud sites publish at the domain root (e.g. `https://cmsfornerd2.netlify.app`).
 
 To avoid broken URLs, `astro.config.mjs` handles this dynamically. Open `astro.config.mjs` and observe the base configuration:
@@ -1096,6 +1276,7 @@ export default defineConfig({
 ```
 
 ### Step 2: Set Up GitHub Pages Deployment Pipeline
+
 Your deployments can be automated on push to the `master` branch. Let's inspect `.github/workflows/deploy-gh-pages.yml`:
 
 ```yaml
@@ -1138,15 +1319,16 @@ jobs:
 When you push your code to GitHub, this action automatically installs packages, runs `npm run build`, and publishes the static `dist/` directory to the `gh-pages` branch.
 
 ### Step 3: Deploy to Render.com Statically (Free Tier)
+
 To deploy the compiled static assets directly to Render:
 
-1.  Log in to your **Render.com Dashboard**.
-2.  Click **New + > Static Site**.
-3.  Connect your Git repository.
-4.  Configure the service with these exact settings:
-    *   **Build Command**: `npm run build`
-    *   **Publish Directory**: `dist`
-5.  Click **Create Static Site**.
+1. Log in to your **Render.com Dashboard**.
+2. Click **New + > Static Site**.
+3. Connect your Git repository.
+4. Configure the service with these exact settings:
+    - **Build Command**: `npm run build`
+    - **Publish Directory**: `dist`
+5. Click **Create Static Site**.
 
 Render will provision a free global CDN, automatically pull your repository, execute the static build, and serve `dist/` securely over HTTPS.
 
@@ -1155,6 +1337,7 @@ Render will provision a free global CDN, automatically pull your repository, exe
 ## 🚀 Verification
 
 Once your deployment completes:
+
 - Access your public site and verify that the navigation links function correctly.
 - Verify that your URL bar reflects your secure hosting endpoint.
 
@@ -1169,14 +1352,30 @@ Once your deployment completes:
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "OKF Frontmatter Refactoring How-To Guide"
 description: "A step-by-step guide explaining how to automatically scan, format, and validate YAML frontmatter across all workspace Markdown files."
-timestamp: "2026-08-01T14:45:00Z"
-topics: ["how-to", "okf", "validation", "automation"]
-
+topics:
+- how-to
+- okf
+- validation
+- automation
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: okf-refactoring.md
+  url: docs/how-to/okf-refactoring.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:45:00Z'
+tags:
+- how-to
+- okf
+- validation
+- automation
 ---
 
 # 📋 How to Run the OKF Frontmatter Refactoring Utility
@@ -1198,6 +1397,7 @@ node --version
 ## 🏗️ Step-by-Step Directions
 
 ### Step 1: Run the Automatic Refactoring Tool
+
 Run the Node.js script located at `tools/refactor-okf.cjs`. This utility recursively crawls all Markdown files in the repository (bypassing `node_modules` and build directories) and validates their metadata formats:
 
 ```bash
@@ -1205,6 +1405,7 @@ node tools/refactor-okf.cjs
 ```
 
 Expected terminal output:
+
 ```text
 Found 15 markdown files.
 Adding missing OKF frontmatter to README.md
@@ -1213,12 +1414,15 @@ Refactoring complete.
 ```
 
 ### Step 2: Review Frontmatter Repair Actions
+
 The tool automatically performs several essential maintenance tasks:
+
 - **Double-Quotes Special Characters**: Any values containing colons, emojis, or brackets are wrapped securely in double quotes.
 - **Formats Arrays**: Topics and tags are reformatted as compact horizontal JSON arrays (e.g., `["dsom", "gitbook"]`).
 - **Injects Missing Keys**: If mandatory OKF v0.1 fields (`okf_version`, `type`, `title`, `timestamp`, `topics`) are missing, the script calculates and injects standard defaults.
 
 ### Step 3: Run the Compliance Unit Test
+
 To verify that all files conform perfectly to the strict Open Knowledge Format v0.1 scheme, run Pytest:
 
 ```bash
@@ -1226,6 +1430,7 @@ python3 -m pytest tests/test_unit.py -k "test_markdown_okf_compliance"
 ```
 
 Expected output:
+
 ```text
 tests/test_unit.py .                                                     [100%]
 =========================== 1 passed in 0.12s ===========================
@@ -1236,6 +1441,7 @@ tests/test_unit.py .                                                     [100%]
 ## 🔍 Troubleshooting Anomalies
 
 ### Parsing Errors
+
 If a Markdown file has malformed or unclosed YAML indicators (e.g. `---` missing or on the wrong line), the tool will output a warning:
 
 ```text
@@ -1255,14 +1461,30 @@ Error: unclosed frontmatter in ./docs/broken-file.md
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Sitemap Verification How-To Guide"
 description: "Instructions on how to verify root and public plain-text sitemaps, built multi-host XML sitemaps, and static file mapping."
-timestamp: "2026-08-01T14:45:00Z"
-topics: ["how-to", "sitemap", "verification", "seo"]
-
+topics:
+- how-to
+- sitemap
+- verification
+- seo
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: sitemap-verification.md
+  url: docs/how-to/sitemap-verification.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:45:00Z'
+tags:
+- how-to
+- sitemap
+- verification
+- seo
 ---
 
 # 📋 How to Verify Sitemaps and Link Consistency
@@ -1284,6 +1506,7 @@ npm run build
 ## 🏗️ Step-by-Step Directions
 
 ### Step 1: Run the Sitemap Verification Script
+
 Execute the Node.js validation script from the repository root:
 
 ```bash
@@ -1291,6 +1514,7 @@ node tools/verify-sitemaps.js
 ```
 
 Expected output:
+
 ```text
 ===================================================
 🧪 Verifying Sitemap Structure and Links
@@ -1307,7 +1531,9 @@ Expected output:
 ```
 
 ### Step 2: Validate Multi-Host Targets
+
 The verification engine scans `dist/sitemap.xml` to confirm that it dynamically builds links for three critical multi-host publishing targets:
+
 - **Netlify**: `https://cmsfornerd2.netlify.app/`
 - **GitHub Pages**: `https://cmsfornerd.github.io/CMSForNerd2/`
 - **GitBook**: `https://cmsfornerd.gitbook.io/cmsfornerd2/`
@@ -1315,6 +1541,7 @@ The verification engine scans `dist/sitemap.xml` to confirm that it dynamically 
 Verify that all three target strings are reported as successful in your terminal logs.
 
 ### Step 3: Verify via Integration Test Suite
+
 To run this verification as part of our automated end-to-end integration test suite, execute the integration test:
 
 ```bash
@@ -1322,6 +1549,7 @@ python3 -m pytest tests/test_cms.py -k "test_sitemap_verification"
 ```
 
 Expected output:
+
 ```text
 tests/test_cms.py .                                                      [100%]
 =========================== 1 passed in 4.50s ===========================
@@ -1332,6 +1560,7 @@ tests/test_cms.py .                                                      [100%]
 ## 🔍 Troubleshooting Anomalies
 
 ### Sitemaps Not Identical
+
 If `sitemap.txt` (root) and `public/sitemap.txt` diverge, the script exits immediately with:
 
 ```text
@@ -1355,14 +1584,32 @@ cp sitemap.txt public/sitemap.txt
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Ansible Deployment How-To Guide"
 description: "A comprehensive guide on deploying CMSForNerd2 using the Ansible static orchestration suite with dual-pathway branching logic."
-timestamp: "2026-08-01T14:45:00Z"
-topics: ["how-to", "ansible", "deployment", "orchestration", "security"]
-
+topics:
+- how-to
+- ansible
+- deployment
+- orchestration
+- security
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: ansible-deployment.md
+  url: docs/how-to/ansible-deployment.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:45:00Z'
+tags:
+- how-to
+- ansible
+- deployment
+- orchestration
+- security
 ---
 
 # 📋 How to Deploy with Ansible Static Orchestration
@@ -1386,11 +1633,14 @@ Verify that `deploy-static.yml` and `inventory/hosts.staging.yml` are present in
 ## 🏗️ Step-by-Step Directions
 
 ### Step 1: Understand Dual-Pathway Branching Logic
+
 Because systems like Google Jules or local test Docker containers are restricted, system-wide adjustments (such as configuring Nginx, restarting firewalls, or reloading systemd) will fail. To address this, our Ansible orchestration implements **Dual-Pathway Branching**:
+
 - **Limited Sandbox VM Pathway**: Detects if the user is unprivileged (e.g., `jules`), bypasses all administrative actions, and performs local workspace builds (`npm install` and `npm run build`).
 - **Real OS Pathway**: Performs standard unprivileged workspace actions and then runs root-level security hardening, Nginx configuration setup, and daemon management.
 
 ### Step 2: Run the Deployment Orchestrator
+
 To deploy using the automated orchestrator script, run:
 
 ```bash
@@ -1398,6 +1648,7 @@ To deploy using the automated orchestrator script, run:
 ```
 
 If run within a limited sandbox (e.g. Google Jules), it outputs:
+
 ```text
 🔍 Detected Limited Sandbox Environment (Google Jules).
 ⚠️  Running under limited sandbox constraints.
@@ -1415,6 +1666,7 @@ ansible-playbook deploy-static.yml -i inventory/hosts.staging.yml
 ```
 
 ### Step 3: Run Staging Verification Tests
+
 To verify that the deployed site renders correctly and matches high-performance criteria, run the integration test suite:
 
 ```bash
@@ -1422,6 +1674,7 @@ python3 -m pytest tests/test_cms.py
 ```
 
 Expected output:
+
 ```text
 tests/test_cms.py ..............................                         [100%]
 ============================= 30 passed in 6.50s =============================
@@ -1432,9 +1685,10 @@ tests/test_cms.py ..............................                         [100%]
 ## 🔒 Security Hardening Policies
 
 When deploying onto a Real OS, the Ansible orchestration playbook applies the following OWASP-aligned standards:
-1.  **Strict Security Headers**: Integrates defensive headers in `/etc/nginx/nginx.conf` (HSTS, CSP whitelists, X-Frame-Options: DENY, and X-Content-Type-Options: nosniff).
-2.  **Unprivileged Execution**: Enforces Nginx worker operations to execute purely under the unprivileged `USER nginx` on unprivileged port `8080`.
-3.  **Clean URLs Routing**: Formulates clean static pathways (omitting `.html` from browser location paths).
+
+1. **Strict Security Headers**: Integrates defensive headers in `/etc/nginx/nginx.conf` (HSTS, CSP whitelists, X-Frame-Options: DENY, and X-Content-Type-Options: nosniff).
+2. **Unprivileged Execution**: Enforces Nginx worker operations to execute purely under the unprivileged `USER nginx` on unprivileged port `8080`.
+3. **Clean URLs Routing**: Formulates clean static pathways (omitting `.html` from browser location paths).
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
@@ -1447,14 +1701,32 @@ When deploying onto a Real OS, the Ansible orchestration playbook applies the fo
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "GitHub Pages Deployment and Troubleshooting Guide"
 description: "How-To guide for understanding, troubleshooting, and managing GitHub Pages deployments for CMSForNerd2."
-timestamp: "2026-08-22T01:00:00Z"
-topics: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
-
+topics:
+- how-to
+- github-pages
+- actions
+- astro
+- troubleshooting
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: github-pages-deployment-troubleshooting.md
+  url: docs/how-to/github-pages-deployment-troubleshooting.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-22T01:00:00Z'
+tags:
+- how-to
+- github-pages
+- actions
+- astro
+- troubleshooting
 ---
 
 # 🚀 How to Troubleshoot and Manage GitHub Pages Deployments
@@ -1476,6 +1748,7 @@ If a legacy Jekyll workflow (`.github/workflows/jekyll-gh-pages.yml`) is trigger
 ### Active Astro Deployment Pipeline
 
 CMSForNerd2 utilizes a dedicated Astro deployment workflow configured in `.github/workflows/deploy-gh-pages.yml`. This workflow:
+
 1. Checks out the repository using `actions/checkout@v4`.
 2. Sets up Node.js v22 using `actions/setup-node@v4`.
 3. Installs dependencies using `npm ci`.
@@ -1487,6 +1760,7 @@ CMSForNerd2 utilizes a dedicated Astro deployment workflow configured in `.githu
 ## 📋 Step-by-Step Directions
 
 ### Step 1: Remove Obsolete Jekyll Workflows
+
 To avoid workflow collisions and erroneous build failures on the `master` branch, ensure that no Jekyll workflow files exist in `.github/workflows/`. Remove any file named `jekyll-gh-pages.yml`:
 
 ```bash
@@ -1494,6 +1768,7 @@ rm -f .github/workflows/jekyll-gh-pages.yml
 ```
 
 ### Step 2: Verify Active GitHub Pages Workflow
+
 Confirm that `.github/workflows/deploy-gh-pages.yml` exists and contains the correct build and publish configuration:
 
 ```yaml
@@ -1539,6 +1814,7 @@ jobs:
 ```
 
 ### Step 3: Verify Local Build and Sitemaps Before Pushing
+
 Run the local build and sitemap verification tools to ensure all compiled pages render cleanly:
 
 ```bash
@@ -1567,26 +1843,46 @@ python3 -m pytest tests/test_unit.py -v
 
 
 ---
-okf_version: "0.1"
 type: "how-to"
 title: "How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint"
-timestamp: "2026-09-05T05:00:00Z"
-topics: ["pandoc", "pdf", "handbook", "prompt-engineering", "print-optimized", "diataxis", "gitops", "aiops", "transferable-skills"]
+topics:
+- pandoc
+- pdf
+- handbook
+- prompt-engineering
+- print-optimized
+- diataxis
+- gitops
+- aiops
+- transferable-skills
 description: "Comprehensive operational handbook and transferable AI prompt library for analyzing code repositories, synthesizing Diataxis documentation, baking native vector diagrams, and compiling publication-grade print-ready handbooks (PDF, HTML, EPUB) using Pandoc and Headless Chromium."
 status: "stable"
 stale_after: "2027-09-05"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
-    path: ".agents/AGENTS.md"
-  - id: "dsom_technical_book_compiler_skill"
-    title: "Technical Ebook & Handbook Compiler Skill"
-    path: ".agents/skills/dsom-technical-book-compiler/SKILL.md"
-  - id: "technical_book_compiler_prompt_guide"
-    title: "Technical Book Design & PDF Compilation Master Prompt Guide"
-    path: "docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md"
-
+- id: dsom_agents_rulebook
+  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  path: .agents/AGENTS.md
+- id: dsom_technical_book_compiler_skill
+  title: Technical Ebook & Handbook Compiler Skill
+  path: .agents/skills/dsom-technical-book-compiler/SKILL.md
+- id: technical_book_compiler_prompt_guide
+  title: Technical Book Design & PDF Compilation Master Prompt Guide
+  path: docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md
 nav_order: 1
+spec_version: "0.2"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-05T05:00:00Z'
+tags:
+- pandoc
+- pdf
+- handbook
+- prompt-engineering
+- print-optimized
+- diataxis
+- gitops
+- aiops
+- transferable-skills
 ---
 
 # How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint
@@ -1605,7 +1901,8 @@ Modern software, DevOps, and infrastructure projects frequently suffer from **fr
 
 This guide provides a **100% transferable blueprint** that enables any engineering repository—whether built on Ansible, Terraform, Kubernetes, Python, Go, or Cloud Native architectures—to synthesize its entire codebase and documentation into a cohesive, print-optimized technical book (PDF, interactive HTML, and EPUB 3).
 
-### What This Blueprint Provides:
+### What This Blueprint Provides
+
 1. **The Prompt Transformation Matrix:** All conversational prompts typically asked by human leads, rewritten into high-fidelity, optimized master prompts that any AI agent can execute without ambiguity.
 2. **The 6-Phase Engineering Pipeline:** Discovery, visual modeling, Diataxis ingestion, narrative storytelling, print formatting, and multi-format compilation.
 3. **The 17 Core Compilation Invariants:** Solutions to every major compilation hurdle (syntax crashes, dark container ink waste, missing covers, unrendered Mermaid blocks, unparsed callout alerts, and browser process timeouts).
@@ -1623,10 +1920,12 @@ Below is the complete **Before & After Matrix**, translating conversational requ
 
 ### Prompt 1: Project Discovery & Architectural Modeling
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"I need you to produce a book for this project. Start with understanding the project by understanding the ansible playbook and documents that can be related to the ansible playbook. Make sure we have diagram of flow of works and flow of how ansible work."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Principal Technical Author and Systems Architect. Your mission is to analyze this repository and assemble an authoritative, publication-grade Technical Handbook.
 
@@ -1649,10 +1948,12 @@ OUTPUT REQUIREMENTS:
 
 ### Prompt 2: Resolving Diagram Failures (Mermaid to Native SVG)
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"The diagram is not showing in the book."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Graphics & Headless Browser Print Specialist. The Mermaid diagrams in our compiled HTML/PDF are failing to render or displaying syntax error graphics.
 
@@ -1671,10 +1972,12 @@ REMEDIATION MANDATE (NATIVE VECTOR SVG PRE-RENDERING):
 
 ### Prompt 3: Diátaxis Documentation Enrichment & Ingestion
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"Add into our books, content from md documents that is related to each of our ansible playbooks. Enrich our book."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Technical Documentation Compiler. Your task is to enrich every playbook chapter in the Technical Handbook by dynamically ingesting its accompanying operational runbooks, explanations, and incident reports.
 
@@ -1691,10 +1994,12 @@ MANDATORY INGESTION & SANITIZATION RULES:
 
 ### Prompt 4: The Narrative Epic (Heart, Soul, and Sovereign Blood)
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"I need a chapter that's like a story, all about this project and infra from start to end, how it can be built, deployed, and operated. Highlight the use of ansible + semaphoreui + gitea as GitOps, and AIOps with human in the loop. Add about deep state of mind (DSOM) of My AI as the AI memory and brain. This chapter is not technical; it is about the heart, soul, and blood of this project."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Principal Technical Biographer and Systems Philosopher. Author an evocative, inspiring narrative chapter titled:
 "# Prologue: The Story of <Project Name> — Heart, Soul, and Sovereign Blood {.unnumbered}"
@@ -1721,10 +2026,12 @@ NARRATIVE STRUCTURE & THEMES:
 
 ### Prompt 5: Clean Architecture Separation (Standalone Markdown Document)
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"I need the story to be in its own md file."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Clean Architecture and Diataxis Specialist. Refactor the narrative story chapter out of inline Python script strings into a dedicated, reusable documentation artifact.
 
@@ -1739,10 +2046,12 @@ IMPLEMENTATION STEPS:
 
 ### Prompt 6: Print-Optimized Formatting Restoration (Zero Toner Waste & Cover Injection)
 
-#### Conversational Human Ask:
+#### Conversational Human Ask
+>
 > *"What happened to my book? We lost the formatting. No cover, black background? That needs to be checked again."*
 
-#### Production-Grade AI Master Prompt:
+#### Production-Grade AI Master Prompt
+
 ```markdown
 You are a Print Production Engineer and CSS Specialist. Diagnose and fix the visual formatting regressions in our compiled PDF and HTML handbook.
 
@@ -1785,6 +2094,7 @@ Any automated compilation pipeline must adhere to these 17 strict invariants:
 ## 4. Reusable Project Book Assembler Template (`tools/build_project_book.py`)
 
 Below is the clean, modular Python assembler that can be copied directly into any repository:
+
 ```python
 #!/usr/bin/env python3
 """
@@ -1985,6 +2295,7 @@ python3 tools/build_project_book.py
 ```
 
 ### 2. Compile Standalone Interactive HTML (Pandoc 3.x)
+
 ```bash
 pandoc build/book/master_book.md -o build/book/handbook.html \
   --standalone --toc --toc-depth=3 --number-sections \
@@ -1997,11 +2308,13 @@ pandoc build/book/master_book.md -o build/book/handbook.html \
 ```
 
 ### 3. Bake Native Vector SVGs & Inline Theme CSS
+
 ```bash
 python3 tools/bake_native_svg.py
 ```
 
 ### 4. Compile Publication-Grade PDF (Headless Chromium)
+
 ```bash
 chromium-browser --headless=new --disable-gpu \
   --run-all-compositor-stages-before-draw --virtual-time-budget=8000 \
@@ -2009,12 +2322,14 @@ chromium-browser --headless=new --disable-gpu \
 ```
 
 ### 5. Compile EPUB 3 Ebook
+
 ```bash
 pandoc build/book/master_book.md -o build/book/handbook.epub \
   -t epub3 --toc --toc-depth=3 \
   --css=build/book/terminal-theme.css \
   --metadata title="Project Technical Handbook"
 ```
+
 ```
 
 ---
@@ -2042,14 +2357,30 @@ Before delivering any compiled handbook to stakeholders, execute this audit chec
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "refactor-okf.cjs API Reference"
 description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."
-timestamp: "2026-08-01T14:50:00Z"
-topics: ["reference", "okf", "api", "utility"]
-
+topics:
+- reference
+- okf
+- api
+- utility
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: refactor-okf.md
+  url: docs/reference/refactor-okf.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags:
+- reference
+- okf
+- api
+- utility
 ---
 
 # 🏗️ `refactor-okf.cjs` API Reference
@@ -2072,7 +2403,9 @@ The `refactor-okf.cjs` script is a Node.js-based developer utility that recursiv
 The script organizes its functionality into three primary core functions:
 
 ### 1. `getMarkdownFiles(dir, files = [])`
+
 Recursively traverses directories to locate all files with a `.md` extension.
+
 - **Parameters**:
   - `dir` (string): The path of the directory to scan.
   - `files` (array, optional): Accumulator array for discovered file paths.
@@ -2080,7 +2413,9 @@ Recursively traverses directories to locate all files with a `.md` extension.
 - **Returns**: An array of relative file paths.
 
 ### 2. `formatValue(key, value)`
+
 Formats a single frontmatter property's raw string value according to OKF rules.
+
 - **Parameters**:
   - `key` (string): The frontmatter property key (case-insensitive).
   - `value` (string): The raw string value parsed from the file.
@@ -2091,7 +2426,9 @@ Formats a single frontmatter property's raw string value according to OKF rules.
   - **Strings**: Wraps string values containing emojis or special characters (`:`, `[`, `]`) securely in double quotes via `JSON.stringify`.
 
 ### 3. `processFile(filePath)`
+
 Parses and reformats a Markdown file's frontmatter block.
+
 - **Parameters**:
   - `filePath` (string): Absolute or relative path to the Markdown document.
 - **Repair Protocols**:
@@ -2119,14 +2456,30 @@ Parses and reformats a Markdown file's frontmatter block.
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "verify-sitemaps.js API Reference"
 description: "Technical specifications, verification rules, and static asset mapping protocols for the sitemap verification utility."
-timestamp: "2026-08-01T14:50:00Z"
-topics: ["reference", "sitemap", "api", "seo"]
-
+topics:
+- reference
+- sitemap
+- api
+- seo
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: verify-sitemaps.md
+  url: docs/reference/verify-sitemaps.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags:
+- reference
+- sitemap
+- api
+- seo
 ---
 
 # 🏗️ `verify-sitemaps.js` API Reference
@@ -2149,15 +2502,16 @@ The `verify-sitemaps.js` script is an automated Node.js test runner that validat
 The script is encapsulated inside a single, high-reliability execution function:
 
 ### `verifySitemaps()`
+
 Main entry point for sitemap verification. It executes four sequential check blocks:
 
-1.  **Identity Verification**: Compares root `sitemap.txt` and `public/sitemap.txt` to guarantee they are 100% identical in character length and content.
-2.  **Syntax Checking**: Validates that all URLs utilize the secure `https://` protocol and do not contain broken JavaScript serialization strings (such as `//undefined` or `[object`).
-3.  **Physical File Mapping**: Resolves Netlify URLs listed in `sitemap.txt` and checks whether their corresponding compiled `.html` files exist in the `dist/` directory.
+1. **Identity Verification**: Compares root `sitemap.txt` and `public/sitemap.txt` to guarantee they are 100% identical in character length and content.
+2. **Syntax Checking**: Validates that all URLs utilize the secure `https://` protocol and do not contain broken JavaScript serialization strings (such as `//undefined` or `[object`).
+3. **Physical File Mapping**: Resolves Netlify URLs listed in `sitemap.txt` and checks whether their corresponding compiled `.html` files exist in the `dist/` directory.
     - `/` maps to `dist/index.html`
     - `/offline` maps to `dist/offline/index.html`
     - `/any-slug` maps to `dist/any-slug/index.html`
-4.  **XML Validation**: Parses the compiled `dist/sitemap.xml` file. It validates the XML header declaration, checks `<urlset>` structures, and confirms that multi-host destinations (Netlify, GitHub Pages, and GitBook) are fully indexable.
+4. **XML Validation**: Parses the compiled `dist/sitemap.xml` file. It validates the XML header declaration, checks `<urlset>` structures, and confirms that multi-host destinations (Netlify, GitHub Pages, and GitBook) are fully indexable.
 
 ---
 
@@ -2182,14 +2536,30 @@ Main entry point for sitemap verification. It executes four sequential check blo
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "deploy-static.sh CLI Reference"
 description: "Technical specifications, environment variable overrides, and dual-pathway branching logic for the static deployment orchestrator."
-timestamp: "2026-08-01T14:50:00Z"
-topics: ["reference", "bash", "ansible", "deployment"]
-
+topics:
+- reference
+- bash
+- ansible
+- deployment
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: deploy-static.md
+  url: docs/reference/deploy-static.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags:
+- reference
+- bash
+- ansible
+- deployment
 ---
 
 # 🏗️ `deploy-static.sh` CLI Reference
@@ -2226,10 +2596,12 @@ The script executes a dynamic environmental check to determine available system 
 ```
 
 ### 1. Limited Sandbox Pathway (Google Jules)
+
 - **Condition**: Automatically activated if `USER` is `'jules'` or the `JULES_ENV` environment variable is defined.
 - **Actions**: Bypasses system-wide configurations, executes local workspace dependencies installations (`npm install`), and compiles the Astro SSG files (`npm run build`).
 
 ### 2. Real OS Pathway (Production Server)
+
 - **Condition**: Activated if neither conditions are met.
 - **Actions**: Verifies Ansible installation, accesses `inventory/hosts.staging.yml`, and triggers the complete playbook `deploy-static.yml` with system administrative privileges to configure web serving.
 
@@ -2255,14 +2627,32 @@ The script executes a dynamic environmental check to determine available system 
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "llms_txt2ctx.py CLI Reference"
 description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."
-timestamp: "2026-08-01T14:50:00Z"
-topics: ["reference", "python", "cli", "parser", "llmstxt"]
-
+topics:
+- reference
+- python
+- cli
+- parser
+- llmstxt
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: llms-txt2ctx.md
+  url: docs/reference/llms-txt2ctx.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:50:00Z'
+tags:
+- reference
+- python
+- cli
+- parser
+- llmstxt
 ---
 
 # 🏗️ `llms_txt2ctx.py` CLI Reference
@@ -2288,9 +2678,11 @@ python3 tools/llms_txt2ctx.py <file_path> [options]
 ```
 
 ### Positional Arguments
+
 - `file` (string, required): The relative or absolute path to the target `llms.txt` file (e.g., `llms.txt`).
 
 ### Optional Flags
+
 - `-h`, `--help` (flag): Displays standard CLI help information and options specs.
 - `--optional` (flag): Includes the `## Optional` section of the `llms.txt` file in the generated XML context. If omitted, optional sections are filtered out for context window efficiency.
 
@@ -2301,7 +2693,9 @@ python3 tools/llms_txt2ctx.py <file_path> [options]
 The utility exports two main functions for inclusion in third-party Python scripts:
 
 ### 1. `parse_llms_txt(txt: str) -> dict`
+
 Parses the markdown contents into a structured dictionary.
+
 - **Parameters**: `txt` (str) — Raw content string of the file.
 - **Returns**: A dictionary containing:
   - `'title'`: String containing the main H1 header.
@@ -2310,7 +2704,9 @@ Parses the markdown contents into a structured dictionary.
   - `'sections'`: Dictionary mapping H2 headings to listed hyperlink objects.
 
 ### 2. `create_ctx(txt: str, include_optional: bool = False) -> str`
+
 Creates a standardized XML context string.
+
 - **Parameters**:
   - `txt` (str): Raw content string.
   - `include_optional` (bool): If true, includes the optional section.
@@ -2327,13 +2723,36 @@ Creates a standardized XML context string.
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules"
 description: "Comprehensive technical guide and project showcase detailing the end-to-end engineering workflow, OpenTofu IaC, Ansible automation, GitHub PR comment collaboration, Deep State of Mind (DSOM) governance, and Google Antigravity multi-agent integration."
-timestamp: "2026-08-14T10:00:00Z"
-topics: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
+topics:
+- jules
+- opentofu
+- ansible
+- dsom
+- antigravity
+- github-pages
+- pair-programming
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: jules-platform-guide.md
+  url: docs/jules-platform-guide.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-14T10:00:00Z'
+tags:
+- jules
+- opentofu
+- ansible
+- dsom
+- antigravity
+- github-pages
+- pair-programming
 ---
 
 # Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules
@@ -2457,6 +2876,7 @@ Working with Jules feels like pairing with a dedicated, highly competent colleag
 
 1. Jules parses the PR review comment and opens `terraform/asg.tf`.
 2. Jules applies a Git merge diff enforcing IMDSv2:
+
    ```hcl
    metadata_options {
      http_endpoint               = "enabled"
@@ -2465,6 +2885,7 @@ Working with Jules feels like pairing with a dedicated, highly competent colleag
      instance_metadata_tags      = "enabled"
    }
    ```
+
 3. Jules runs `tofu validate` in the execution environment to verify syntax.
 4. Jules posts a reply on the PR thread:
 
@@ -2721,18 +3142,111 @@ python3 -m pytest -v tests/test_cms.py
 
 ---
 
+## File: .agents/skills/google-deep-research/SKILL.md
+
+
+---
+spec_version: "0.2"
+type: "skill"
+title: "Google Deep Research & Search Skill"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: google_deep_research_spec
+  title: Google Deep Research & Search Specification
+  author: Google Cloud / Agent Architecture Guild
+  url: https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T23:00:00Z'
+tags:
+- deep-search
+- okf-v02
+- research
+- learn-protocol
+- token-optimisation
+topics:
+- deep-search
+- okf-v02
+- research
+- learn-protocol
+- token-optimisation
+---
+
+# Skill: Google Deep Research & Search
+
+## Overview
+
+Enables Google Jules and autonomous AI agents to perform multi-step, iterative, and deep web research to gather comprehensive intelligence, verify technical facts, and synthesize detailed, context-ready Open Knowledge Format (OKF) v0.2 Markdown documents.
+
+This skill integrates the `/learn` (or "to learn") Knowledge Ingestion Protocol to intercept external URLs, technical specifications, and raw documentation, transforming them into structured, trust-verified OKF v0.2 assets using deterministic `uv python` execution to minimise AI token usage.
+
+## Context Integration & File Capabilities
+
+- **Input Files:** Ingests repository files (codebases, `.md` files, internal spec docs) or attached external documents (PDF, TXT, CSV) to cross-reference or ground web research within project-specific data.
+- **Output Files:** Generates structured Markdown (`.md`) reports, system documentation, or configuration files directly into the project's repository workspace for final review in Pull Requests.
+
+## Knowledge Ingestion Protocol (/learn or "to learn")
+
+Whenever a task or prompt includes `/learn [Topic, URL, or Context]` or "to learn":
+
+1. **Intercept & Parse:** Suspend standard conversational behavior. Parse the target URL, raw text, or technical spec.
+2. **Transform to OKF v0.2:** Extract core technical truths and generate/update `.md` documents with the **Five Trust & Freshness Pillars**:
+   - `spec_version`: Explicitly set to `"0.2"`.
+   - `type`: Functional classification (`"tutorial"`, `"how-to"`, `"reference"`, `"explanation"`, `"skill"`).
+   - `title`: Concise title string.
+   - `status`: Lifecycle state (`"stable"`, `"draft"`, `"deprecated"`).
+   - `stale_after`: ISO date string (YYYY-MM-DD), typically set to 6-12 months out.
+   - `sources`: Structural list (`id`, `title`, `author`, `url`).
+   - `generated`: Provenance metadata (`by`, `timestamp`).
+3. **Diátaxis & UK English Alignment:** Structure prose according to Diátaxis quadrants and adhere strictly to UK English spelling conventions (*optimise*, *organise*, *behaviour*).
+4. **Token Optimisation via `uv python`:** Offload scanning, metadata parsing, and validation to deterministic `uv python` scripts (`tools/migrate_okf_v02.py`) to eliminate unnecessary LLM context consumption.
+
+## Workspace Quality Enforcement (markdownlint-cli)
+
+Before presenting generated knowledge assets or finalizing file writes:
+
+1. Programmatically invoke `npx --no-install markdownlint-cli --fix <filename.md>` or run script-level linting.
+2. Ensure compliance with `.markdownlint.json`.
+3. Verify frontmatter starts cleanly on Line 1, Column 1 with `---`.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
 ## File: docs/explanation/modernisation-philosophy.md
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "PHP-to-Static Modernisation Philosophy"
 description: "Architectural concepts, performance impacts, and design decisions behind modernising CMSForNerd to Astro SSG."
-timestamp: "2026-08-01T15:00:00Z"
-topics: ["explanation", "architecture", "migration", "static", "php"]
-
+topics:
+- explanation
+- architecture
+- migration
+- static
+- php
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: modernisation-philosophy.md
+  url: docs/explanation/modernisation-philosophy.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T15:00:00Z'
+tags:
+- explanation
+- architecture
+- migration
+- static
+- php
 ---
 
 # 🧠 PHP-to-Static Modernisation Philosophy
@@ -2744,9 +3258,10 @@ This document explains the core architectural reasoning, conceptual principles, 
 ## 🏛️ Context & Origins
 
 The legacy **CMSForNerd** was created to address the overhead of database-driven systems (such as WordPress). It relied on flat-file JSON and HTML fragment files compiled dynamically at runtime by PHP 8.4. While this approach eliminated database vulnerabilities (like SQL injection) and reduced server complexity, it still required:
-1.  **Dynamic Runtime Compute**: Every page view forced the PHP-FPM worker engine to reconstruct components and templates, placing an execution load on server CPUs.
-2.  **Server Security Concerns**: Hosting PHP-FPM opens vectors for common runtime exploits, such as Local File Inclusion (LFI), command injection, or directory traversal.
-3.  **Complex Dual Rendering**: Managing separate mobile layouts (AMP) and desktop layouts at runtime required custom PHP router query parsing (`?view=amp`).
+
+1. **Dynamic Runtime Compute**: Every page view forced the PHP-FPM worker engine to reconstruct components and templates, placing an execution load on server CPUs.
+2. **Server Security Concerns**: Hosting PHP-FPM opens vectors for common runtime exploits, such as Local File Inclusion (LFI), command injection, or directory traversal.
+3. **Complex Dual Rendering**: Managing separate mobile layouts (AMP) and desktop layouts at runtime required custom PHP router query parsing (`?view=amp`).
 
 ---
 
@@ -2755,9 +3270,11 @@ The legacy **CMSForNerd** was created to address the overhead of database-driven
 To eliminate runtime execution compute while preserving the database-free, content-first philosophy, **CMSForNerd2** standardizes on **Astro SSG (Static Site Generator)**.
 
 ### 1. Zero Runtime JS Footprint
+
 Astro acts as a compiler rather than a heavy client-side framework. By default, it strips all JavaScript from the final output, producing only pure, pre-rendered HTML5 and CSS3. JavaScript is only bundled if client hydration is explicitly requested, maximizing responsiveness and lowering payload size.
 
 ### 2. Pair Logic Replicated via Component-Frontmatter
+
 The legacy PHP CMS used a custom controller pattern where metadata was declared first, loading HTML body fragments next. Astro mirrors this cleanly via **component frontmatter**:
 
 ```astro
@@ -2773,7 +3290,9 @@ const title = "Clean Architecture";
 Variables inside the frontmatter code block `---` run purely at build time. The client receives static compiled elements, avoiding any runtime server-side execution.
 
 ### 3. Dynamic Dual-View Generation (Standard & AMP)
+
 Rather than executing complex runtime query strings, Astro builds dual outputs statically at compile time:
+
 - Standard desktop files are generated at `dist/[slug]/index.html`.
 - Mobile-optimized, strictly-validated Accelerated Mobile Pages (AMP) are compiled to `dist/[slug]/amp/index.html`.
 
@@ -2790,18 +3309,30 @@ This structure keeps all routes statically accessible offline and allows deploym
 
 
 ---
-okf_version: "0.2"
 type: "governance"
 title: "DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy"
-timestamp: "2026-09-06T15:00:00Z"
 description: "Sovereign knowledge adoption strategy integrating Andrej Karpathy LLM WIKI Ingest Query and Lint protocols with DSOM Protocol."
 topics:
-  - "llm-wiki"
-  - "dsom-protocol"
-  - "knowledge-governance"
-  - "spatial-memory"
-
+- llm-wiki
+- dsom-protocol
+- knowledge-governance
+- spatial-memory
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: LLM-WIKI-ADOPTION.md
+  url: docs/governance/LLM-WIKI-ADOPTION.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T15:00:00Z'
+tags:
+- llm-wiki
+- dsom-protocol
+- knowledge-governance
+- spatial-memory
 ---
 
 # 🧠 DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy
@@ -2837,14 +3368,17 @@ DSOM provides an advanced, production-grade implementation of the LLM WIKI conce
 While we have the structure, the LLM WIKI highlights three operational verbs to make the DSOM Palace self-sustaining and compounding: **Ingest**, **Query**, and **Lint**.
 
 ### A. The "Ingest" Protocol (Automated Synthesis)
+
 * **The Concept**: When a new raw source (e.g., an article, a specification, a transcript) is introduced, the AI extracts data, synthesises it, creates concept pages, and links it into the Wiki.
 * **Our Adoption**: We maintain a strict separation between raw sources and the synthesised Palace via the `dsom-knowledge-ingester` skill to extract text, synthesise Markdown pages in the Palace, and update `palace_registry.md` and `SUMMARY.md`.
 
 ### B. The "Lint" Ritual (Automated Health Checks)
+
 * **The Concept**: The AI periodically health-checks the Wiki for contradictions, orphan pages, and stale claims.
 * **Our Adoption**: As the Sovereign Markdown Palace grows, context can rot. The `tools/refactor-okf.cjs` and `tools/verify-sitemaps.js` scripts, alongside the `docs-review` skill, crawl `docs/` and `.agents/` to detect broken links, conflicting rules, and orphan pages.
 
 ### C. The "Query" Loop (Compounding Answers)
+
 * **The Concept**: When the LLM generates a high-value answer, comparison, or analysis, it is filed back into the Wiki rather than disappearing into chat history.
 * **Our Adoption**: Establish the behavioural mandate: *"Any time a complex architectural analysis or troubleshooting guide is generated in session, the AI must proactively propose saving it as a persistent `.md` document in the Palace."*
 
@@ -2867,14 +3401,32 @@ While we have the structure, the LLM WIKI highlights three operational verbs to 
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Spatial Memory & Dual-Pathway Design"
 description: "Conceptual overview explaining Deep State of Mind spatial memory boundaries, Google Jules sandbox environment limits, and dual-pathway Ansible orchestration."
-timestamp: "2026-08-01T15:00:00Z"
-topics: ["explanation", "dsom", "sandbox", "jules", "ansible"]
-
+topics:
+- explanation
+- dsom
+- sandbox
+- jules
+- ansible
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: spatial-memory-and-sandbox.md
+  url: docs/explanation/spatial-memory-and-sandbox.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T15:00:00Z'
+tags:
+- explanation
+- dsom
+- sandbox
+- jules
+- ansible
 ---
 
 # 🧠 Spatial Memory & Dual-Pathway Design
@@ -2888,15 +3440,17 @@ This document describes the architectural theory and conceptual principles gover
 Unlike traditional software development where operational rules and context exist only in the human mind, the CMSForNerd2 project uses the **Deep State of Mind (DSOM)** cognitive protocol.
 
 Under DSOM, AI agents (like Google Jules) and human developers share a synchronized, Git-native memory model:
-1.  **Rulebook Synchronization**: Core rules are fully synchronized between `AGENTS.md` and `.agents/AGENTS.md`. These rulebooks act as the "constitution" of the repository, setting coding standards, language rules, and verification pathways.
-2.  **Zero-Global Operational Memory**: Active context, tasks, and historical mental anchors are recorded in Markdown format inside `.agents/brain/` (`task.md`, `walkthrough.md`, `knowledge.md`).
-3.  **Self-Contained Discovery**: By establishing spatial memories within the repository, agents can instantly restore context on subsequent runs without relying on external, stateful API databases.
+
+1. **Rulebook Synchronization**: Core rules are fully synchronized between `AGENTS.md` and `.agents/AGENTS.md`. These rulebooks act as the "constitution" of the repository, setting coding standards, language rules, and verification pathways.
+2. **Zero-Global Operational Memory**: Active context, tasks, and historical mental anchors are recorded in Markdown format inside `.agents/brain/` (`task.md`, `walkthrough.md`, `knowledge.md`).
+3. **Self-Contained Discovery**: By establishing spatial memories within the repository, agents can instantly restore context on subsequent runs without relying on external, stateful API databases.
 
 ---
 
 ## 🔒 Google Jules Sandbox Constraints
 
 When executing inside the Google Jules workspace, automation tasks run under specialized unprivileged virtual machine constraints:
+
 - **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no persistent init/systemd system. Changes made outside the workspace directory are discarded when the container finishes running.
 - **Headless Execution**: No physical or virtual display server exists, meaning visual validation (like Playwright browser tests) must run in strict headless mode.
 - **Transient VM Lifecycle**: The sandbox environment is transient.
@@ -2923,9 +3477,11 @@ Instead of assuming full OS privileges, the automation engine performs dynamic d
 ```
 
 ### Pathway A: Sandbox-Safe Unprivileged Builds
+
 If the execution user is detected as `jules` (or `JULES_ENV` is present), the tool skips system-level alterations (such as modifying firewalls, copying system files, or running administrative package managers). It runs local workspace builds inside the unprivileged directory using standard user commands.
 
 ### Pathway B: Production System Orchestration
+
 When executing on a persistent staging or production server, the engine launches the full Ansible playbook (`deploy-static.yml`), allowing administrative system configurations, secure Nginx reverse proxy routing, and cryptographic whitelisting.
 
 By separating unprivileged compilation from server provisioning, we guarantee that the build pipeline remains portable, robust, and safe across different running environments.
@@ -2941,13 +3497,32 @@ By separating unprivileged compilation from server provisioning, we guarantee th
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Web Design Guidelines Skill Overview"
 description: "Comprehensive guide to the web-design-guidelines skill, its purpose, guidelines, and execution workflow for human developers and AI agents."
-timestamp: "2026-09-06T00:00:00Z"
-topics: ["skill", "web-design", "accessibility", "ux", "guidelines"]
+topics:
+- skill
+- web-design
+- accessibility
+- ux
+- guidelines
 nav_order: 10
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: web-design-guidelines-skill.md
+  url: docs/explanation/web-design-guidelines-skill.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- skill
+- web-design
+- accessibility
+- ux
+- guidelines
 ---
 
 # Web Design Guidelines Skill Guide
@@ -2963,6 +3538,7 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 ## Core Guidelines & Rule Categories
 
 ### 1. Accessibility (a11y)
+
 - **Icon-only buttons**: Must carry an explicit `aria-label` attribute.
 - **Form controls**: Must be associated with an explicit `<label>` or carry an `aria-label`.
 - **Keyboard navigation**: Interactive elements must support standard keyboard event handlers (`onKeyDown`/`onKeyUp`).
@@ -2973,10 +3549,12 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 - **Heading hierarchy**: Enforce hierarchical `<h1>` through `<h6>` tags.
 
 ### 2. Focus States
+
 - Interactive elements must provide visible focus indicators (e.g. `:focus-visible` or focus rings).
 - Never use `outline: none` or `outline-none` without providing a visible focus replacement.
 
 ### 3. Forms & Inputs
+
 - Text inputs must specify explicit `autocomplete` and meaningful `name` attributes.
 - Use appropriate `type` attributes (`email`, `tel`, `url`, `number`) and `inputmode`.
 - Labels must be clickable by sharing an explicit hit target with the form control.
@@ -2984,12 +3562,14 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 - Non-authentication fields should explicitly use `autocomplete="off"` to prevent unintended browser auto-fill triggers.
 
 ### 4. Typography & Copy
+
 - Use unicode ellipsis `…` (`\u2026`) instead of three full stops `...`.
 - Use curly quotes (`“` `”`) instead of straight double quotes (`"`).
 - Ensure non-breaking spaces before units (`10&nbsp;MB`, `⌘&nbsp;K`).
 - Use heading balancing via `text-wrap: balance` or `text-pretty`.
 
 ### 5. Images & Layout Performance
+
 - Every `<img>` tag must specify explicit `width` and `height` dimensions to eliminate Cumulative Layout Shift (CLS).
 - Below-the-fold assets must specify `loading="lazy"`.
 - Above-the-fold critical assets must specify `fetchpriority="high"`.
@@ -3014,13 +3594,32 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Web Interface Improvements & Design Review"
 description: "Detailed breakdown of UI design audit findings and code improvements applied across CMSForNerd2 in accordance with Web Interface Guidelines."
-timestamp: "2026-09-06T00:00:00Z"
-topics: ["ui", "ux", "accessibility", "design", "enhancements"]
+topics:
+- ui
+- ux
+- accessibility
+- design
+- enhancements
 nav_order: 11
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: web-interface-improvements.md
+  url: docs/explanation/web-interface-improvements.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- ui
+- ux
+- accessibility
+- design
+- enhancements
 ---
 
 # Web Interface Improvements & Design Review
@@ -3034,6 +3633,7 @@ This document outlines the UI design audit findings, accessibility enhancements,
 Following a systematic review of layout templates, components, and content pages against the Web Interface Guidelines, several key areas were identified and enhanced:
 
 ### 1. Form Inputs & Search Accessibility (`src/components/Widgets.astro`)
+
 - **Autocomplete Attributes**: Added `autocomplete="q"` to search input fields to provide explicit context to browser auto-fill engines.
 - **Name Attributes**: Maintained clean, standard field naming (`name="q"`, `name="sa"`).
 - **Labels & ARIA**: Associated explicit hidden labels / `aria-label` attributes with search fields and buttons for screen-reader clarity.
@@ -3041,10 +3641,12 @@ Following a systematic review of layout templates, components, and content pages
 - **Explicit Image Dimensions**: Added exact `width` and `height` attributes to Google Search and HTML Tidy brand images to eliminate Cumulative Layout Shift (CLS).
 
 ### 2. Navigation & Target Sizing (`src/components/Navigation.astro`)
+
 - **Semantic Link Elements**: Verified that all navigation controls utilise semantic `<a>` links with clean `import.meta.env.BASE_URL` routing.
 - **Touch Target Padding**: Ensured touch targets adhere to mobile accessibility standards with clean visual hierarchy.
 
 ### 3. Layout Focus States & Dark Mode Theming (`src/layouts/Layout.astro`, `src/layouts/AmpLayout.astro`)
+
 - **Visible Focus Rings**: Verified that interactive buttons and theme switchers carry clear `:focus-visible` outline styles without removing focus indicators.
 - **Color Scheme & Meta Theme Color**: Confirmed `<meta name="theme-color">` dynamically responds to light/dark themes and `color-scheme` properties on root `<html>`.
 
@@ -3063,6 +3665,7 @@ Following a systematic review of layout templates, components, and content pages
 ## Verification & Testing Strategy
 
 To ensure these changes maintain full backward compatibility and zero regressions:
+
 1. **Automated Frontmatter & Sitemap Audits**: Executed `node tools/refactor-okf.cjs` and `node tools/verify-sitemaps.js`.
 2. **Pytest Integration & Unit Suite**: Executed `python3 -m pytest tests/` to confirm all route and server status checks pass.
 3. **Playwright E2E Visual Verification**: Captured screenshots and validated interactive elements against the live preview server.
@@ -3078,17 +3681,36 @@ To ensure these changes maintain full backward compatibility and zero regression
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
-timestamp: "2026-07-31T10:00:00Z"
 description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
-topics: ["migration", "astro", "static", "php", "architecture"]
-
+topics:
+- migration
+- astro
+- static
+- php
+- architecture
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: migration-guide.md
+  url: docs/migration-guide.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-31T10:00:00Z'
+tags:
+- migration
+- astro
+- static
+- php
+- architecture
 ---
 
 # 🚀 CMSForNerd to CMSForNerd2: Static Migration Guide
+
 ## *From Database-Free PHP to Modern Static Site Generator (Astro SSG)*
 
 ---
@@ -3107,10 +3729,10 @@ This document serves as the human-readable architectural blueprint and implement
 
 To ensure architectural fidelity during the migration, the fundamental pillars of the legacy PHP CmsForNerd system must be thoroughly understood:
 
-*   **"Pair Logic" Architecture**: Layouts are strictly separated from content. Each controller file (e.g., `index.php`) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the `contents/` directory (e.g., `contents/index-body.inc`).
-*   **Dual-View Engine (Standard / AMP)**: The central router (`themes/CmsForNerd/pager.php`) parses the query parameter `?view=amp` to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.
-*   **PWA and SPA-like Hydration Router**: A lightweight vanilla JavaScript router (`router.js`) overrides internal link clicks. By appending the `X-Requested-With: XMLHttpRequest` header, it fetches purely the raw content fragments from PHP and dynamically updates the `<main>` element to provide instantaneous transitions.
-*   **Zero-Global Mutable State**: The application runs without global variables, relying entirely on an immutable `CmsContext` object injected into templates to enforce strict functional isolation.
+* **"Pair Logic" Architecture**: Layouts are strictly separated from content. Each controller file (e.g., `index.php`) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the `contents/` directory (e.g., `contents/index-body.inc`).
+* **Dual-View Engine (Standard / AMP)**: The central router (`themes/CmsForNerd/pager.php`) parses the query parameter `?view=amp` to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.
+* **PWA and SPA-like Hydration Router**: A lightweight vanilla JavaScript router (`router.js`) overrides internal link clicks. By appending the `X-Requested-With: XMLHttpRequest` header, it fetches purely the raw content fragments from PHP and dynamically updates the `<main>` element to provide instantaneous transitions.
+* **Zero-Global Mutable State**: The application runs without global variables, relying entirely on an immutable `CmsContext` object injected into templates to enforce strict functional isolation.
 
 ---
 
@@ -3130,10 +3752,11 @@ During the discovery phase, multiple static site generators were evaluated again
 ### Why Astro is the Ultimate Fit
 
 By selecting **Astro**, the project gains several critical advantages:
-1.  **Component Frontmatter (Build-Time Pair Logic)**: Astro uses an HTML-like component format (`.astro`) featuring a JS/TS frontmatter block (`---`). This executes solely during the build process, mapping 1-to-1 to the PHP "Pair Logic" pattern where meta-variables are initialised prior to UI rendering.
-2.  **Islands Architecture**: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the "Zero-Debt" and high-performance philosophy.
-3.  **Built-in SPA Routing**: Astro's `<ViewTransitions />` component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone `router.js` fragment.
-4.  **Static View Differentiation**: Rather than using dynamic query strings (`?view=amp`), Astro's build engine can compile dual outputs statically (e.g., `dist/index.html` and `dist/amp/index.html`), preserving 100% offline and static compatibility.
+
+1. **Component Frontmatter (Build-Time Pair Logic)**: Astro uses an HTML-like component format (`.astro`) featuring a JS/TS frontmatter block (`---`). This executes solely during the build process, mapping 1-to-1 to the PHP "Pair Logic" pattern where meta-variables are initialised prior to UI rendering.
+2. **Islands Architecture**: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the "Zero-Debt" and high-performance philosophy.
+3. **Built-in SPA Routing**: Astro's `<ViewTransitions />` component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone `router.js` fragment.
+4. **Static View Differentiation**: Rather than using dynamic query strings (`?view=amp`), Astro's build engine can compile dual outputs statically (e.g., `dist/index.html` and `dist/amp/index.html`), preserving 100% offline and static compatibility.
 
 ---
 
@@ -3141,11 +3764,11 @@ By selecting **Astro**, the project gains several critical advantages:
 
 Through this modernisation, CMSForNerd2 will leverage the latest web technologies:
 
-*   **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
-*   **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
-*   **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
-*   **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
-*   **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
+* **Languages**: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).
+* **Core Framework**: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).
+* **Styling**: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.
+* **State Management**: Static context parameters passed at build time, replicating the immutable `CmsContext` pattern.
+* **PWA Capabilities**: Service workers managed via `@vite-pwa/astro` or native script registration in Astro's `public/` folder, ensuring robust offline cache performance.
 
 ---
 
@@ -3154,11 +3777,15 @@ Through this modernisation, CMSForNerd2 will leverage the latest web technologie
 To perform a structured and bug-free migration, developers should follow this step-by-step playbook:
 
 ### Step 5.1: Initialising CMSForNerd2
+
 In the root directory of the target repository, bootstrap the Astro project:
+
 ```bash
 npm create astro@latest -- --template minimal --install --git false
 ```
+
 *Note: Ensure that the output in `astro.config.mjs` has `output: 'static'` configured:*
+
 ```javascript
 import { defineConfig } from 'astro/config';
 
@@ -3169,6 +3796,7 @@ export default defineConfig({
 ```
 
 ### Step 5.2: Directory Mapping Strategy
+
 By restructuring directories, files are mapped from PHP to the SSG standard:
 
 | Legacy PHP Source Directory | New Astro Target Directory | Purpose |
@@ -3182,6 +3810,7 @@ By restructuring directories, files are mapped from PHP to the SSG standard:
 | `robots.txt` / `favicon.ico` | `public/` | Standard root static assets. |
 
 ### Step 5.3: Migrating Controllers and Fragments (Pair Logic)
+
 In Astro, the separation of concerns is maintained via layout components.
 
 For example, a typical legacy controller `about.php` and its content fragment `contents/about-body.inc` are merged and modernised into `src/pages/about.astro`:
@@ -3225,9 +3854,11 @@ const pageContext = {
 ```
 
 ### Step 5.4: Migrating Content via Markdown & Content Collections
+
 To simplify long-term editing, page fragments should be migrated from raw `.inc` files to `.md` files under `src/content/pages/`.
 
 Define the type-safe schema in `src/content/config.ts`:
+
 ```typescript
 import { defineCollection, z } from 'astro:content';
 
@@ -3245,12 +3876,15 @@ export const collections = {
   'pages': pagesCollection,
 };
 ```
+
 Through this validation pattern, compile-time checks are executed to ensure content metadata matches strict rules, providing the same safety guarantees as PHPStan Level 8 did for PHP code.
 
 ### Step 5.5: Static Dual-View Generation (AMP View)
+
 To preserve Accelerated Mobile Pages (AMP) support without runtime PHP, Astro leverages its dynamic static path generation.
 
 Create `src/pages/[pageName]/amp.astro` or `src/pages/amp/[pageName].astro`:
+
 ```astro
 ---
 import { getCollection } from 'astro:content';
@@ -3275,12 +3909,16 @@ const { Content } = await page.render();
   </article>
 </AmpLayout>
 ```
+
 During the build step, Astro compiles both the standard layout and the stripped-down, AMP-validated `<amp-img>` and AMP CSS layout automatically.
 
 ### Step 5.6: PWA Service Worker & SPA Client-Side Routing
+
 With Astro's client-side capabilities, the custom AJAX routing logic is modernised:
-*   **Routing**: Incorporate the `<ViewTransitions />` component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.
-*   **Service Worker**: Install the `@vite-pwa/astro` integration to manage caching, background syncing, and full offline support. Configure it in `astro.config.mjs`:
+
+* **Routing**: Incorporate the `<ViewTransitions />` component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.
+* **Service Worker**: Install the `@vite-pwa/astro` integration to manage caching, background syncing, and full offline support. Configure it in `astro.config.mjs`:
+
     ```javascript
     import { defineConfig } from 'astro/config';
     import AstroPWA from '@vite-pwa/astro';
@@ -3313,31 +3951,40 @@ With Astro's client-side capabilities, the custom AJAX routing logic is modernis
 By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration is replaced or augmented by GitOps-driven deployment.
 
 ### Build Step
+
 Execute the production build to compile static assets:
+
 ```bash
 npm run build
 ```
+
 This writes all HTML, CSS, and JS files to the `dist/` directory, completely self-contained.
 
 ### Deploying to Render.com as a Static Site (Recommended / Free Tier)
+
 By deploying CMSForNerd2 directly as a Static Site on Render, you can leverage completely free static hosting without the need to maintain or run a containerised server.
 
 To configure this in the Render Dashboard:
-1.  **Build Command**: Set this to `npm run build`
-2.  **Publish Directory**: Set this to `dist/` or `dist`
+
+1. **Build Command**: Set this to `npm run build`
+2. **Publish Directory**: Set this to `dist/` or `dist`
 
 If deploying via our Blueprint specification, the `render.yaml` file automatically configures a static service named `cmsfornerd2-static` alongside the Nginx container, ensuring seamless, zero-config builds.
 
 ### Deploying to Render.com with NGINX
+
 To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.
 
 The deployment infrastructure is defined via three root-level files:
-1.  **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
-2.  **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
-3.  **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
+
+1. **`render.yaml`** (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to `/healthz` for health checks.
+2. **`Dockerfile`** / **`Containerfile`** — Leverages `node:22-alpine` to compile the static Astro build and then copies the output directory (`dist/`) into an unprivileged `nginx:alpine-slim` runtime.
+3. **`nginx/nginx.conf`** — Formulates a highly-hardened unprivileged NGINX configuration listening on port `8080`, supporting Clean URLs (routing `/about` to `/about.html` and falling back to `index.html`), gzip compression, and secure HTTP response headers.
 
 ### Hardened NGINX Container Configuration
+
 To satisfy unprivileged execution rules and defend against host compromise, standardise on our hardened `./nginx/nginx.conf`:
+
 ```nginx
 worker_processes auto;
 pid /tmp/nginx.pid;
@@ -3436,26 +4083,27 @@ http {
 
 To coordinate the team's operational efforts, follow this milestone progression:
 
-1.  **Phase 1: Project Bootstrapping** (Days 1–2)
-    *   [ ] Bootstrapping the Astro framework in CMSForNerd2.
-    *   [ ] Migrating global stylesheet and static icons.
-2.  **Phase 2: Content Remapping** (Days 3–5)
-    *   [ ] Remapping PHP layout templates (`bodytop.tpl`, `bodyfooter.tpl`) to Astro components.
-    *   [ ] Converting flat-file pages under `contents/*.inc` to Markdown Content Collections.
-3.  **Phase 3: Dual-View and SEO Calibration** (Days 6–8)
-    *   [ ] Building static paths for standard views and AMP-compliant views.
-    *   [ ] Implementing structured Schema.org JSON-LD generation based on `schemaType`.
-4.  **Phase 4: Service Worker & Performance Audit** (Days 9–10)
-    *   [ ] Implementing `@vite-pwa/astro` for instant offline loading.
-    *   [ ] Compiling files and running Lighthouse audits to achieve 100/100 performance scores.
+1. **Phase 1: Project Bootstrapping** (Days 1–2)
+    * [ ] Bootstrapping the Astro framework in CMSForNerd2.
+    * [ ] Migrating global stylesheet and static icons.
+2. **Phase 2: Content Remapping** (Days 3–5)
+    * [ ] Remapping PHP layout templates (`bodytop.tpl`, `bodyfooter.tpl`) to Astro components.
+    * [ ] Converting flat-file pages under `contents/*.inc` to Markdown Content Collections.
+3. **Phase 3: Dual-View and SEO Calibration** (Days 6–8)
+    * [ ] Building static paths for standard views and AMP-compliant views.
+    * [ ] Implementing structured Schema.org JSON-LD generation based on `schemaType`.
+4. **Phase 4: Service Worker & Performance Audit** (Days 9–10)
+    * [ ] Implementing `@vite-pwa/astro` for instant offline loading.
+    * [ ] Compiling files and running Lighthouse audits to achieve 100/100 performance scores.
 
 ---
 
 ## SOURCES
-- [Astro Documentation](https://docs.astro.build) - Comprehensive specifications for static site building, layouts, content collections, and routing.
-- [Accelerated Mobile Pages (AMP) Specifications](https://amp.dev) - Official layout guidelines, validation rules, and CSS limits for mobile views.
-- [Vite PWA Plugin](https://vite-pwa-org.netlify.app) - Implementation guide for offline service worker registration and caching strategies.
-- [CMSForNerd Legacy Repository](https://github.com/CMSForNerd/CmsForNerd) - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.
+
+* [Astro Documentation](https://docs.astro.build) - Comprehensive specifications for static site building, layouts, content collections, and routing.
+* [Accelerated Mobile Pages (AMP) Specifications](https://amp.dev) - Official layout guidelines, validation rules, and CSS limits for mobile views.
+* [Vite PWA Plugin](https://vite-pwa-org.netlify.app) - Implementation guide for offline service worker registration and caching strategies.
+* [CMSForNerd Legacy Repository](https://github.com/CMSForNerd/CmsForNerd) - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30*
@@ -3468,14 +4116,34 @@ To coordinate the team's operational efforts, follow this milestone progression:
 
 
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
-timestamp: "2026-07-31T07:15:00Z"
-topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
-
+topics:
+- context7
+- integrations
+- gitlab-ci
+- github-actions
+- api
+- documentation
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: context7-integration.md
+  url: docs/context7-integration.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-31T07:15:00Z'
+tags:
+- context7
+- integrations
+- gitlab-ci
+- github-actions
+- api
+- documentation
 ---
 
 # Context7 Service Integration Guide
@@ -3496,7 +4164,7 @@ Within CMSForNerd2, Context7 is utilised to synchronise and refresh statically c
 
 To enable the repository context inside Context7, a configuration file named `context7.json` is created at the repository root folder.
 
-### Configuration Format (`context7.json`):
+### Configuration Format (`context7.json`)
 
 ```json
 {
@@ -3532,15 +4200,15 @@ refresh-context7-docs:
         -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
 ```
 
-#### Setup Instructions for GitLab CI Variables:
+#### Setup Instructions for GitLab CI Variables
 
-1.  Navigate to the GitLab project settings page: **Settings > CI/CD > Variables**.
-2.  Click **Add Variable**.
-3.  Add the key: `CONTEXT7_API_KEY`.
-4.  Paste the secure access token in the Value field: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
-5.  Set the variable type as `Variable`.
-6.  Check **Mask variable** to ensure security in build logs.
-7.  Click **Add variable** to save the state.
+1. Navigate to the GitLab project settings page: **Settings > CI/CD > Variables**.
+2. Click **Add Variable**.
+3. Add the key: `CONTEXT7_API_KEY`.
+4. Paste the secure access token in the Value field: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+5. Set the variable type as `Variable`.
+6. Check **Mask variable** to ensure security in build logs.
+7. Click **Add variable** to save the state.
 
 ---
 
@@ -3566,14 +4234,14 @@ jobs:
             -d '{"libraryName": "/cmsfornerd/cmsfornerd2"}'
 ```
 
-#### Setup Instructions for GitHub Secrets:
+#### Setup Instructions for GitHub Secrets
 
-1.  On GitHub, navigate to your repository landing page.
-2.  Go to **Settings > Secrets and variables > Actions**.
-3.  Click **New repository secret**.
-4.  Add Name: `CONTEXT7_API_KEY`.
-5.  Add Secret: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
-6.  Click **Add secret** to persist the variable.
+1. On GitHub, navigate to your repository landing page.
+2. Go to **Settings > Secrets and variables > Actions**.
+3. Click **New repository secret**.
+4. Add Name: `CONTEXT7_API_KEY`.
+5. Add Secret: `ctx7sk-3ed90597-9a00-41ff-a537-60e42d7d4deb`.
+6. Click **Add secret** to persist the variable.
 
 With this dual-platform pipeline configuration, pushing modifications to the master branch triggers automatic documentation refreshes regardless of whether GitLab or GitHub is deployed as the primary CI environment.
 
@@ -3590,6 +4258,7 @@ By implementing the following standards, developers can maximise the efficiency 
 ---
 
 ## 📜 Sources
+
 - [Context7 Official Integrations Guide](https://context7.com/docs/integrations/github-actions) - Configuration workflows for automatic refreshes.
 - [Context7 API Reference documentation](https://context7.com/docs/api-reference) - Endpoint parameters and authorisation guides.
 

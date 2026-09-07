@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Ansible Static Orchestration | CMSForNerd2"
 description: "Automated unprivileged NginX and Astro 7.1 static site deployment guide using the CMSForNerd2 Ansible fabric."
 schemaType: "TechArticle"
 author: "CMSForNerd Team"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: ansible-lab.md
+  url: src/content/pages/ansible-lab.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="lab-documentation">

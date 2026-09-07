@@ -1,15 +1,32 @@
 ---
-okf_version: "0.1"
 type: "task_list"
 title: "CMSForNerd2 Active Tasks"
-timestamp: "2026-09-06T00:00:00Z"
 description: "Sovereign tracking list of active and completed tasks in this session."
-topics: ["tasks", "track", "progress", "dsom"]
+topics:
+- tasks
+- track
+- progress
+- dsom
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: task.md
+  url: .agents/brain/task.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- tasks
+- track
+- progress
+- dsom
 ---
 
 # CMSForNerd2 Tasks
 
-## Session Tasks:
+## Session Tasks
 
 - [x] Research and analyse legacy PHP CmsForNerd architecture.
 - [x] Evaluate and compare static site generator (SSG) frameworks (selected Astro).

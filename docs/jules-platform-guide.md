@@ -1,11 +1,34 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules"
 description: "Comprehensive technical guide and project showcase detailing the end-to-end engineering workflow, OpenTofu IaC, Ansible automation, GitHub PR comment collaboration, Deep State of Mind (DSOM) governance, and Google Antigravity multi-agent integration."
-timestamp: "2026-08-14T10:00:00Z"
-topics: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
+topics:
+- jules
+- opentofu
+- ansible
+- dsom
+- antigravity
+- github-pages
+- pair-programming
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: jules-platform-guide.md
+  url: docs/jules-platform-guide.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-14T10:00:00Z'
+tags:
+- jules
+- opentofu
+- ansible
+- dsom
+- antigravity
+- github-pages
+- pair-programming
 ---
 
 # Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules
@@ -129,6 +152,7 @@ Working with Jules feels like pairing with a dedicated, highly competent colleag
 
 1. Jules parses the PR review comment and opens `terraform/asg.tf`.
 2. Jules applies a Git merge diff enforcing IMDSv2:
+
    ```hcl
    metadata_options {
      http_endpoint               = "enabled"
@@ -137,6 +161,7 @@ Working with Jules feels like pairing with a dedicated, highly competent colleag
      instance_metadata_tags      = "enabled"
    }
    ```
+
 3. Jules runs `tofu validate` in the execution environment to verify syntax.
 4. Jules posts a reply on the PR thread:
 

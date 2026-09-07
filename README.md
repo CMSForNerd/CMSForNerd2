@@ -1,9 +1,26 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
-timestamp: "2026-08-01T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: README.md
+  url: README.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 # 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)
@@ -29,13 +46,13 @@ To satisfy the requirements of a database-free, lightweight, and modern tech sta
 
 We have compiled comprehensive, human-readable blueprint guides detailing the research, framework evaluation, and step-by-step transition plan:
 
-*   **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
-*   **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
-*   **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
-*   **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
-*   **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
-*   **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
-*   **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
+- **[Google Jules Platform & Multi-Agent Operations Guide](docs/jules-platform-guide.md)** — Comprehensive technical guide and project showcase detailing end-to-end development workflows, OpenTofu IaC, Ansible automation, PR comment collaboration, and DSOM governance.
+- **[Technical Book Design & PDF Compilation Guide](docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)** — Master prompt guide, engineering field manual, and SOP for compiling publication-grade PDF/HTML handbooks using Pandoc and Headless Chromium.
+- **[Static Migration Guide](docs/migration-guide.md)** — The complete playbook for converting legacy PHP layouts, router, controllers, and PWA logic to Astro, HTML5, CSS3, and Vite.
+- **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
+- **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
+- **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
 
@@ -73,6 +90,7 @@ To compile the entire website into statically served assets:
 ```bash
 npm run build
 ```
+
 This writes the fully optimised production-ready HTML5, CSS3, and JavaScript files to the dist/ directory, which can be served by any static host or unprivileged web server.
 
 ### Deploying to Render.com
@@ -80,11 +98,14 @@ This writes the fully optimised production-ready HTML5, CSS3, and JavaScript fil
 CMSForNerd2 can be deployed on **Render.com** either as a containerised service or as a free Static Site.
 
 #### 1. Free Static Site Deployment (Recommended)
+
 To prevent build failures (such as `Publish directory dist/ does not exist!` due to skipped builds), ensure the following parameters are explicitly configured in the Render Dashboard under your Static Site settings:
-*   **Build Command**: `npm run build`
-*   **Publish Directory**: `dist`
+
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
 
 #### 2. Containerised Web Service
+
 Alternatively, you can deploy using our pre-configured multi-stage Dockerfile and unprivileged NginX server. This can be launched instantly using our Blueprint specification (`render.yaml`).
 
 ---

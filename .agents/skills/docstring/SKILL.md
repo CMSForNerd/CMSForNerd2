@@ -6,27 +6,41 @@ name: "docstring"
 title: "Docstring and API Reference Standard Skill"
 description: "Provides structured guidelines for writing PEP-257 Google-style Python docstrings and detailed JSDoc comments."
 version: "1.1.0"
-timestamp: "2026-09-06T00:00:00Z"
 author: "AI Workspace Assistant"
-tags: ["docstring", "jsdoc", "pep257", "google-style", "python", "typescript"]
+tags:
+- docstring
+- jsdoc
+- pep257
+- google-style
+- python
+- typescript
 status: "stable"
 sources:
-  - id: "pytorch_docstring"
-    title: "PyTorch Docstring Guidelines"
-    url: "https://github.com/pytorch/pytorch"
-  - id: "google_python_styleguide"
-    title: "Google Python Style Guide"
-    url: "https://google.github.io/styleguide/pyguide.html"
+- id: "pytorch_docstring"
+  title: PyTorch Docstring Guidelines
+  url: https://github.com/pytorch/pytorch
+- id: "google_python_styleguide"
+  title: Google Python Style Guide
+  url: https://google.github.io/styleguide/pyguide.html
 inputs:
   code_snippet:
-    type: "string"
-    description: "Function, class, or module code requiring docstring or JSDoc annotation."
+    type: string
+    description: Function, class, or module code requiring docstring or JSDoc annotation.
 outputs:
   documented_code:
-    type: "string"
-    description: "Code updated with standardized PEP-257 or JSDoc documentation blocks."
-
-okf_version: "0.1"
+    type: string
+    description: Code updated with standardized PEP-257 or JSDoc documentation blocks.
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+topics:
+- docstring
+- jsdoc
+- pep257
+- google-style
+- python
+- typescript
 ---
 
 # Docstring & API Reference Standard Skill (`docstring`)
@@ -50,9 +64,11 @@ The `docstring` skill enforces function-level, module-level, and API reference d
 ## FAQs
 
 ### When should raw docstrings (`r"""..."""`) be used?
+
 Use raw triple-quoted strings whenever docstrings contain backslashes, regular expressions, or LaTeX notation.
 
 ### Can this skill be used for non-PyTorch / non-Python languages?
+
 Yes, while inspired by PyTorch and Google Python conventions, the core principles apply to JSDoc (JavaScript/TypeScript) and function comment standards.
 
 ---

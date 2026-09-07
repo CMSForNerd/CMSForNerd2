@@ -1,12 +1,30 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "Spatial Memory & Dual-Pathway Design"
 description: "Conceptual overview explaining Deep State of Mind spatial memory boundaries, Google Jules sandbox environment limits, and dual-pathway Ansible orchestration."
-timestamp: "2026-08-01T15:00:00Z"
-topics: ["explanation", "dsom", "sandbox", "jules", "ansible"]
-
+topics:
+- explanation
+- dsom
+- sandbox
+- jules
+- ansible
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: spatial-memory-and-sandbox.md
+  url: docs/explanation/spatial-memory-and-sandbox.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T15:00:00Z'
+tags:
+- explanation
+- dsom
+- sandbox
+- jules
+- ansible
 ---
 
 # 🧠 Spatial Memory & Dual-Pathway Design
@@ -20,15 +38,17 @@ This document describes the architectural theory and conceptual principles gover
 Unlike traditional software development where operational rules and context exist only in the human mind, the CMSForNerd2 project uses the **Deep State of Mind (DSOM)** cognitive protocol.
 
 Under DSOM, AI agents (like Google Jules) and human developers share a synchronized, Git-native memory model:
-1.  **Rulebook Synchronization**: Core rules are fully synchronized between `AGENTS.md` and `.agents/AGENTS.md`. These rulebooks act as the "constitution" of the repository, setting coding standards, language rules, and verification pathways.
-2.  **Zero-Global Operational Memory**: Active context, tasks, and historical mental anchors are recorded in Markdown format inside `.agents/brain/` (`task.md`, `walkthrough.md`, `knowledge.md`).
-3.  **Self-Contained Discovery**: By establishing spatial memories within the repository, agents can instantly restore context on subsequent runs without relying on external, stateful API databases.
+
+1. **Rulebook Synchronization**: Core rules are fully synchronized between `AGENTS.md` and `.agents/AGENTS.md`. These rulebooks act as the "constitution" of the repository, setting coding standards, language rules, and verification pathways.
+2. **Zero-Global Operational Memory**: Active context, tasks, and historical mental anchors are recorded in Markdown format inside `.agents/brain/` (`task.md`, `walkthrough.md`, `knowledge.md`).
+3. **Self-Contained Discovery**: By establishing spatial memories within the repository, agents can instantly restore context on subsequent runs without relying on external, stateful API databases.
 
 ---
 
 ## 🔒 Google Jules Sandbox Constraints
 
 When executing inside the Google Jules workspace, automation tasks run under specialized unprivileged virtual machine constraints:
+
 - **No Persistent OS Modifications**: Though passwordless `sudo` is configured, there is no persistent init/systemd system. Changes made outside the workspace directory are discarded when the container finishes running.
 - **Headless Execution**: No physical or virtual display server exists, meaning visual validation (like Playwright browser tests) must run in strict headless mode.
 - **Transient VM Lifecycle**: The sandbox environment is transient.
@@ -55,9 +75,11 @@ Instead of assuming full OS privileges, the automation engine performs dynamic d
 ```
 
 ### Pathway A: Sandbox-Safe Unprivileged Builds
+
 If the execution user is detected as `jules` (or `JULES_ENV` is present), the tool skips system-level alterations (such as modifying firewalls, copying system files, or running administrative package managers). It runs local workspace builds inside the unprivileged directory using standard user commands.
 
 ### Pathway B: Production System Orchestration
+
 When executing on a persistent staging or production server, the engine launches the full Ansible playbook (`deploy-static.yml`), allowing administrative system configurations, secure Nginx reverse proxy routing, and cryptographic whitelisting.
 
 By separating unprivileged compilation from server provisioning, we guarantee that the build pipeline remains portable, robust, and safe across different running environments.

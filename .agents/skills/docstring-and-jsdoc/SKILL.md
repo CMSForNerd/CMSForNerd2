@@ -1,16 +1,30 @@
 ---
-okf_version: "0.1"
 type: "skill"
 title: "Docstring and JSDoc Documentation Standard Skill"
 name: "docstring-and-jsdoc"
 description: "Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities."
-timestamp: "2026-09-05T08:00:00Z"
-topics: ["docstrings", "jsdoc", "pep257", "google-style", "comments"]
+topics:
+- docstrings
+- jsdoc
+- pep257
+- google-style
+- comments
 status: "stable"
 sources:
-  - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM)"
-    path: ".agents/AGENTS.md"
+- id: "dsom_agents_rulebook"
+  title: The Core AI Rulebook (DSOM)
+  path: .agents/AGENTS.md
+spec_version: "0.2"
+stale_after: "2027-03-06"
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-05T08:00:00Z'
+tags:
+- docstrings
+- jsdoc
+- pep257
+- google-style
+- comments
 ---
 
 # Docstring and JSDoc Documentation Standard Skill

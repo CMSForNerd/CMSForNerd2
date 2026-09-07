@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Installation Guide | CMSForNerd2"
 description: "Official installation steps for CMSForNerd2. Learn how to configure the Astro 7.1 environment, run the dev server, and compile static builds."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Gemini AI"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: installation.md
+  url: src/content/pages/installation.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <h1>Introduction</h1>
@@ -45,6 +62,7 @@ CMSForNerd2 manages its build integrations and support packages using <code>pack
 npm install
 
 # Resolve potential peer-dependency conflicts with legacy integrations
+
 npm install --legacy-peer-deps</code></pre>
 </div>
 

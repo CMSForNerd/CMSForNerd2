@@ -1,12 +1,28 @@
 ---
-okf_version: "0.1"
 type: "documentation"
 title: "CMSForNerd2 Documentation SUMMARY"
 description: "GitBook table of contents and navigation summary for the Diátaxis documentation system."
-timestamp: "2026-08-01T14:35:00Z"
-topics: ["summary", "index", "gitbook", "diataxis"]
-
+topics:
+- summary
+- index
+- gitbook
+- diataxis
 nav_order: 1
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: SUMMARY.md
+  url: docs/SUMMARY.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T14:35:00Z'
+tags:
+- summary
+- index
+- gitbook
+- diataxis
 ---
 
 # Summary
@@ -15,22 +31,26 @@ nav_order: 1
 * [Master Onboarding Standard](start-here.md)
 
 ## 🎓 Tutorials
+
 * [Local Development Quickstart](tutorials/local-development.md)
 * [Static Site Deployment](tutorials/static-site-deployment.md)
 
 ## 📋 How-To Guides
+
 * [OKF Frontmatter Refactoring](how-to/okf-refactoring.md)
 * [Sitemap Verification](how-to/sitemap-verification.md)
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)
 * [GitHub Pages Deployment & Troubleshooting](how-to/github-pages-deployment-troubleshooting.md)
 
 ## 🏗️ Reference
+
 * [refactor-okf.cjs API](reference/refactor-okf.md)
 * [verify-sitemaps.js API](reference/verify-sitemaps.md)
 * [deploy-static.sh Orchestrator](reference/deploy-static.md)
 * [llms_txt2ctx.py CLI](reference/llms-txt2ctx.md)
 
 ## 🧠 Explanation
+
 * [Autonomous AI Operations & Google Jules](jules-platform-guide.md)
 * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
@@ -38,6 +58,7 @@ nav_order: 1
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 
 ## 🏛️ Governance
+
 * [Technical Book Design & PDF Compiler Guide](governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 * [DSOM vs. LLM WIKI Adoption Strategy](governance/LLM-WIKI-ADOPTION.md)
 

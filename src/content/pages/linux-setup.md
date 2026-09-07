@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Linux Setup Guide (Node.js & Astro) | CMSForNerd2 Lab"
 description: "Official laboratory guide for installing Node.js 22+ and Astro 7.1 on Debian, Ubuntu LTS, and AlmaLinux."
 schemaType: "HowTo"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: linux-setup.md
+  url: src/content/pages/linux-setup.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="lab-worksheet linux-setup" itemscope itemtype="https://schema.org/HowTo">
@@ -61,9 +78,11 @@ git clone https://github.com/CMSForNerd/CMSForNerd2.git
 cd CMSForNerd2
 
 # Install local dependencies
+
 npm install --legacy-peer-deps
 
 # Start Astro 7.1 dev server
+
 npm run dev</code>
 </div>
 </section>

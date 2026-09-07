@@ -1,12 +1,29 @@
 ---
-okf_version: "0.1"
 type: "content_page"
 title: "Lab Worksheet: Module 1 - CMSForNerd2"
 description: "Module 1: Master Astro 7.1 Component Frontmatter, Layouts, and strict TypeScript compilation."
 schemaType: "WebPage"
 author: "CMSForNerd Team & Google Gemini"
-timestamp: "2026-07-30T12:00:00Z"
-topics: ["modernisation", "astro", "static", "architecture"]
+topics:
+- modernisation
+- astro
+- static
+- architecture
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: lab-module1.md
+  url: src/content/pages/lab-module1.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-07-30T12:00:00Z'
+tags:
+- modernisation
+- astro
+- static
+- architecture
 ---
 
 <article class="lab-worksheet">

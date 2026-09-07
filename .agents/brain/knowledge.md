@@ -1,10 +1,27 @@
 ---
-okf_version: "0.1"
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
-timestamp: "2026-09-06T00:00:00Z"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
-topics: ["knowledge", "jules", "brain", "dsom"]
+topics:
+- knowledge
+- jules
+- brain
+- dsom
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: "workspace_file"
+  title: knowledge.md
+  url: .agents/brain/knowledge.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags:
+- knowledge
+- jules
+- brain
+- dsom
 ---
 
 # Sovereign AI Agent Knowledge Base (CMSForNerd2)
@@ -61,7 +78,7 @@ This document contains a comprehensive record of all Google Jules operational, s
     All automation scripts, deployment pipelines, and Ansible playbooks in the repository must explicitly check for limited sandbox environments (such as the Google Jules container, typically by checking for username 'jules', custom environment variables, or virtualisation types) and implement a dual-pathway branching logic. Limited sandbox environments must bypass system-level modifications (such as systemd configurations, global packages installations, or firewall rule adjustments) to focus strictly on unprivileged workspace operations (e.g. local dependencies and compilation), whereas real OS environments are permitted to execute full administrative configurations with no limitations. An Ansible orchestration suite (`ansible.cfg`, `deploy-static.yml`, `inventory/hosts.staging.yml`, and `tools/deploy-static.sh`) is configured to demonstrate and enforce this rule.
 
 16. **Google Antigravity Agent Skills**
-    The workspace defines a comprehensive suite of 22 Google Antigravity-compatible Agent Skills located under `.agents/skills/`. Each skill contains a `SKILL.md` file featuring a unified OKF/Antigravity YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
+    The workspace defines a comprehensive suite of Google Antigravity-compatible Agent Skills located under `.agents/skills/` (including `google-deep-research`). Each skill contains a `SKILL.md` file featuring a unified OKF v0.2 YAML frontmatter block and a standard Deep State of Mind (DSOM) AI Protocol footer.
 
 17. **Static Security Lab Manual Integration**
     The `cmsfornerd2` laboratory manual (`src/content/pages/lab-manual.md`) features an interactive educational worksheet, 'Laboratory Module 7: Static Security Whitelisting & Performance Hardening' (`src/content/pages/lab-module7.md`), instructing students on applying OWASP standards, cryptographic CSP hashes, Nginx defensive configurations, and static performance caching.
