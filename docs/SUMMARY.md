@@ -51,6 +51,20 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 * [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)
 
+## 💼 Executive Blueprint
+
+* [Executive & Financial Blueprint Portal](executive/index.md)
+* [36-Month TCO & Financial Blueprint](executive/tco-financial-blueprint.md)
+* [Sovereignty & Regulatory Compliance](executive/regulatory-compliance.md)
+
+## 🛠️ Engineering Runbook
+
+* [DevOps Implementation Runbook Portal](engineering/index.md)
+* [OpenTofu Module Manifests & Simulation](engineering/opentofu-manifests.md)
+* [DNS & systemd-resolved Troubleshooting Guide](engineering/dns-systemd-troubleshooting.md)
+* [Ansible ASIMP Hardening Playbooks](engineering/ansible-asimp-hardening.md)
+* [Persistent EFS Storage & Mount Scripts](engineering/efs-mount-scripts.md)
+
 ## 🏛️ Governance
 
 * [Technical Book Design & PDF Compiler Guide](governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)

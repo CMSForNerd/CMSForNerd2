@@ -3,11 +3,19 @@ spec_version: "0.2"
 type: "explanation"
 title: "FastMCP Protocol & WebAssembly (Wasm) Architecture"
 description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, and client-side Wasm cryptographic & document processing in CMSForNerd2."
-timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
-
 okf_version: "0.1"
 nav_order: 1
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: fastmcp-wasm-architecture.md
+  url: docs/explanation/fastmcp-wasm-architecture.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
 ---
 
 # FastMCP Protocol & WebAssembly (Wasm) Architecture

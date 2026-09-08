@@ -3,11 +3,19 @@ spec_version: "0.2"
 type: "how_to"
 title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
 description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, and utilizing client-side Wasm utilities."
-timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
-
 okf_version: "0.1"
 nav_order: 1
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: how-to-use-fastmcp-and-wasm.md
+  url: docs/how-to/how-to-use-fastmcp-and-wasm.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
 ---
 
 # How to Use FastMCP Server & WebAssembly (Wasm) Tools
