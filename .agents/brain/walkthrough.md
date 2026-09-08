@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/walkthrough.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-07T03:15:00Z'
+  timestamp: '2026-09-08T12:30:00Z'
 tags: ["walkthrough", "history", "brain", "dsom"]
 ---
 
@@ -53,8 +53,15 @@ tags: ["walkthrough", "history", "brain", "dsom"]
     - **Tooling & Linter Alignment**: Added `.markdownlint.json`, updated `tools/refactor-okf.cjs` with fallback to `python3` if `uv` is not present, and updated unit test assertions in `tests/unit/markdown.py` and `tests/test_cms.py`.
     - **Verification**: Verified 100% test pass rate across 43 Pytest cases (`test_cms.py`, `test_e2e.py`, `test_unit.py`), zero `ruff` linter issues, clean `mypy --strict` type checking, and successful Astro SSG compilation.
     - **End of Day (EOD) Palace Brain Sync**: Updated spatial memory files (`task.md`, `walkthrough.md`, `knowledge.md`) in accordance with the Deep State of Mind (DSOM) Protocol.
-16. **FastMCP Server SSG Gateway, Pagefind Wasm Search Engine & Wasm Studio**:
+18. **FastMCP Server SSG Gateway, Pagefind Wasm Search Engine & Wasm Studio**:
     - **FastMCP Adoption**: Implemented Python FastMCP server at `tools/mcp/server.py` exposing SSG routes (`list_ssg_routes`), route content (`get_route_content`), search (`search_ssg_routes`), sitemap (`get_sitemap_routes`), and spatial memory knowledge (`get_openwiki_concept`) directly to AI agents. Added unit test suite in `tests/unit/mcp.py` integrated into Pytest.
     - **Pagefind Wasm Search**: Added `pagefind` to `package.json` devDependencies and updated build script to `astro build && pagefind --site dist`. Built client search page `src/content/pages/search.md` and component `src/components/Search.astro`. Verified generation of `dist/pagefind/` Wasm indices.
     - **Wasm Studio**: Implemented client-side WebAssembly Cryptographic SHA-256 / CSP whitelisting and OKF v0.2 Document Processing Studio at `src/components/WasmStudio.astro` and `src/content/pages/wasm-studio.md`.
     - **Documentation & Spatial Memory Sync**: Authored Diátaxis explanation `docs/explanation/fastmcp-wasm-architecture.md` and how-to guide `docs/how-to/how-to-use-fastmcp-and-wasm.md`. Synchronised `SUMMARY.md`, `START-HERE.md`, `llms.txt`, `llms-full.txt`, and spatial memory (`knowledge.md`, `task.md`, `walkthrough.md`).
+19. **GitHub Pages Workflow & Audience/Persona Modularization**:
+    - **GitHub Pages Configuration**: Updated `.github/workflows/jekyll-gh-pages.yml` to target `./docs`.
+    - **Executive Blueprint Volume**: Created `docs/executive/index.md`, `docs/executive/tco-financial-blueprint.md`, and `docs/executive/regulatory-compliance.md` detailing $92,509.78 USD ($\sim\text{RM } 416,294.01$) 36-month TCO and PDPA 2010 Section 129 / 2025 CBPDT compliance.
+    - **Engineering Runbook Volume**: Created `docs/engineering/index.md`, `docs/engineering/opentofu-manifests.md`, `docs/engineering/dns-systemd-troubleshooting.md`, `docs/engineering/ansible-asimp-hardening.md`, and `docs/engineering/efs-mount-scripts.md`.
+    - **Visual Architecture Badges**: Added visual metadata badges (`[STRATEGIC FINANCIAL]`, `[SECURITY & COMPLIANCE]`, `[DEVOPS EXECUTION]`).
+    - **Navigation & Index Sync**: Updated `SUMMARY.md`, `docs/SUMMARY.md`, and `src/components/Navigation.astro` using relative links.
+    - **End of Day (EOD) Palace Brain Sync**: Updated spatial memory files (`.agents/brain/checkpoint_summary.txt`, `palace_registry.md`, `active_context_manifest.md`, `walkthrough.md`) adhering to DSOM EOD Palace Sync protocol.
