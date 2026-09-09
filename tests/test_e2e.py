@@ -89,3 +89,68 @@ def test_pwa_manifest_and_sw() -> None:
         assert reg_resp.status_code == 200, "registerSW.js script returned non-200 status code."
 
         browser.close()
+
+
+def test_wasm_studio_interactive_workflows() -> None:
+    """Verifies client-side WebAssembly Studio SHA-256 hash calculation and OKF parsing."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("http://127.0.0.1:4321/wasm-studio/")
+
+        # Test Cryptographic Hashing Workflow
+        test_script = "console.log('Hello CMSForNerd2 Wasm');"
+        page.fill("#wasm-crypto-input", test_script)
+        page.click("#wasm-hash-btn")
+
+        page.wait_for_selector("#wasm-crypto-output:not(.hidden)", timeout=3000)
+        hex_text = page.text_content("#wasm-hex-res") or ""
+        b64_text = page.text_content("#wasm-b64-res") or ""
+        csp_text = page.text_content("#wasm-csp-res") or ""
+
+        assert len(hex_text) == 64, f"Expected 64-char hex SHA-256 digest, got {len(hex_text)}"
+        assert len(b64_text) > 0, "Base64 hash output is empty."
+        assert csp_text.startswith("'sha256-"), f"CSP header output invalid: {csp_text}"
+
+        # Test OKF Document Analysis Workflow
+        okf_sample = """---
+spec_version: "0.2"
+type: "documentation"
+title: "Playwright E2E Sample Document"
+---
+
+This is a sample document for testing OKF analysis.
+"""
+        page.fill("#wasm-doc-input", okf_sample)
+        page.click("#wasm-parse-btn")
+
+        page.wait_for_selector("#wasm-doc-output:not(.hidden)", timeout=3000)
+        okf_status = page.text_content("#wasm-okf-status") or ""
+        doc_title = page.text_content("#wasm-doc-title") or ""
+
+        assert "Compliant" in okf_status, f"Expected OKF compliance, got: {okf_status}"
+        assert doc_title == "Playwright E2E Sample Document", f"Unexpected title: {doc_title}"
+
+        browser.close()
+
+
+def test_pagefind_search_interaction() -> None:
+    """Verifies interactive WebAssembly Pagefind search input and result rendering."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("http://127.0.0.1:4321/search/")
+
+        # Wait for Pagefind search input element to initialize
+        search_input_selector = "#pagefind-search input"
+        page.wait_for_selector(search_input_selector, timeout=5000)
+
+        # Type search query
+        page.fill(search_input_selector, "Astro")
+
+        # Verify search results container renders matching entries
+        page.wait_for_selector(".pagefind-ui__result", timeout=5000)
+        results = page.query_selector_all(".pagefind-ui__result")
+        assert len(results) > 0, "Pagefind search query returned no result items."
+
+        browser.close()

@@ -26,3 +26,13 @@ services:
     name: cmsfornerd2-static
     buildCommand: npm run build
     publishPath: dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /pagefind/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /_astro/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
