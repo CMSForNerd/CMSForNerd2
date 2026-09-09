@@ -50,6 +50,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 * [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)
+* [Next Technologies: WebGPU & Wasm AI Guide](explanation/next-tech-webgpu-wasm-inferencing.md)
 
 ## 💼 Executive Blueprint
 

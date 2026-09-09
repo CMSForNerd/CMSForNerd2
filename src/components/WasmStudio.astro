@@ -3,10 +3,31 @@
 ---
 
 <div class="wasm-studio-card">
-  <h2>⚡ WebAssembly (Wasm) Client Studio</h2>
+  <h2>⚡ WebAssembly (Wasm) & Hardware Compute Studio</h2>
   <p class="wasm-intro">
-    Interactive browser-native suite for client-side cryptographic hashing, CSP whitelist generation, and OKF v0.2 document processing.
+    Interactive browser-native suite for client-side cryptographic hashing, CSP whitelist generation, OKF v0.2 document processing, and WebGPU / Wasm SIMD capability diagnostics.
   </p>
+
+  <!-- Capability Detection Card -->
+  <div class="wasm-box cap-box" style="margin-bottom: 1.5rem;">
+    <h3>🖥️ Client Hardware & Compute Capability Diagnostics</h3>
+    <p class="wasm-desc">Detect hardware acceleration support for WebGPU WGSL compute pipelines, WebAssembly 128-bit SIMD vectorization, cross-origin isolation (COOP/COEP), and device memory allocation.</p>
+
+    <div class="wasm-action-row">
+      <button type="button" id="wasm-cap-btn" class="wasm-btn">Run Hardware Diagnostics</button>
+    </div>
+
+    <div id="wasm-cap-output" class="wasm-output hidden">
+      <div class="cap-grid">
+        <div><strong>WebGPU API Support:</strong> <span id="cap-webgpu">Testing...</span></div>
+        <div><strong>Wasm 128-bit SIMD:</strong> <span id="cap-simd">Testing...</span></div>
+        <div><strong>COOP/COEP Isolation:</strong> <span id="cap-coop">Testing...</span></div>
+        <div><strong>Device Memory (RAM):</strong> <span id="cap-ram">Testing...</span></div>
+        <div><strong>JS Heap Memory Limit:</strong> <span id="cap-heap">Testing...</span></div>
+        <div><strong>SLM Inference Readiness:</strong> <span id="cap-slm">Testing...</span></div>
+      </div>
+    </div>
+  </div>
 
   <div class="wasm-grid">
     <!-- Cryptographic Processing Box -->
@@ -59,6 +80,83 @@ Sample body text..."></textarea>
 </div>
 
 <script is:inline>
+  async function runHardwareDiagnostics() {
+    const outputBox = document.getElementById('wasm-cap-output');
+    if (!outputBox) return;
+
+    // 1. WebGPU API Support
+    const webgpuEl = document.getElementById('cap-webgpu');
+    let hasWebGPU = false;
+    if ('gpu' in navigator && navigator.gpu) {
+      try {
+        const adapter = await navigator.gpu.requestAdapter();
+        if (adapter) {
+          hasWebGPU = true;
+          webgpuEl.textContent = '✅ Supported (Hardware Adapter Active)';
+          webgpuEl.style.color = '#2ea44f';
+        } else {
+          webgpuEl.textContent = '⚠️ WebGPU API present, but no adapter available';
+          webgpuEl.style.color = '#d97706';
+        }
+      } catch (e) {
+        webgpuEl.textContent = '⚠️ WebGPU request failed: ' + e.message;
+        webgpuEl.style.color = '#d97706';
+      }
+    } else {
+      webgpuEl.textContent = '❌ Not Supported (Requires WebGPU Browser)';
+      webgpuEl.style.color = '#cb2431';
+    }
+
+    // 2. WebAssembly 128-bit SIMD Vectorization
+    const simdEl = document.getElementById('cap-simd');
+    let hasSIMD = false;
+    // Wasm SIMD v128 const byte pattern validation
+    const simdBytes = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 10, 10, 1, 8, 0, 65, 0, 253, 15, 0, 11]);
+    hasSIMD = WebAssembly.validate(simdBytes);
+    simdEl.textContent = hasSIMD ? '✅ Supported (128-bit Vector Operations Active)' : '❌ Not Supported';
+    simdEl.style.color = hasSIMD ? '#2ea44f' : '#cb2431';
+
+    // 3. COOP / COEP Cross-Origin Isolation Status
+    const coopEl = document.getElementById('cap-coop');
+    const isIsolated = window.crossOriginIsolated === true;
+    coopEl.textContent = isIsolated
+      ? '✅ Cross-Origin Isolated (SharedArrayBuffer Enabled)'
+      : '⚠️ Not Isolated (SharedArrayBuffer Restricted / Single-Thread Fallback)';
+    coopEl.style.color = isIsolated ? '#2ea44f' : '#d97706';
+
+    // 4. Device Memory (RAM) Allocation
+    const ramEl = document.getElementById('cap-ram');
+    const deviceRam = navigator.deviceMemory || 'Unknown';
+    ramEl.textContent = typeof deviceRam === 'number' ? `~${deviceRam} GB System RAM` : 'API Unavailable';
+    ramEl.style.color = typeof deviceRam === 'number' && deviceRam >= 4 ? '#2ea44f' : '#d97706';
+
+    // 5. Heap Memory Limit
+    const heapEl = document.getElementById('cap-heap');
+    if (performance && performance.memory) {
+      const limitMB = Math.round(performance.memory.jsHeapSizeLimit / (1024 * 1024));
+      heapEl.textContent = `~${limitMB} MB Allocated JS Heap`;
+      heapEl.style.color = limitMB >= 2048 ? '#2ea44f' : '#d97706';
+    } else {
+      heapEl.textContent = 'Performance Memory API Restricted';
+      heapEl.style.color = '#64748b';
+    }
+
+    // 6. Overall SLM Inference Readiness Rating
+    const slmEl = document.getElementById('cap-slm');
+    if (hasWebGPU && hasSIMD && (typeof deviceRam !== 'number' || deviceRam >= 4)) {
+      slmEl.textContent = '🚀 Optimal (Ready for Phi-3 / Llama-3.2 On-Device Execution)';
+      slmEl.style.color = '#2ea44f';
+    } else if (hasSIMD) {
+      slmEl.textContent = '⚡ Moderate (Wasm SIMD CPU Fallback Execution Available)';
+      slmEl.style.color = '#d97706';
+    } else {
+      slmEl.textContent = '⚠️ Limited (Static/Traditional Web Browsing Mode Only)';
+      slmEl.style.color = '#cb2431';
+    }
+
+    outputBox.classList.remove('hidden');
+  }
+
   async function computeCryptoHash() {
     const input = document.getElementById('wasm-crypto-input')?.value || '';
     const outputBox = document.getElementById('wasm-crypto-output');
@@ -123,9 +221,11 @@ Sample body text..."></textarea>
   }
 
   function initWasmStudio() {
+    const capBtn = document.getElementById('wasm-cap-btn');
     const hashBtn = document.getElementById('wasm-hash-btn');
     const parseBtn = document.getElementById('wasm-parse-btn');
 
+    if (capBtn) capBtn.onclick = runHardwareDiagnostics;
     if (hashBtn) hashBtn.onclick = computeCryptoHash;
     if (parseBtn) parseBtn.onclick = processDocument;
   }
@@ -151,6 +251,18 @@ Sample body text..."></textarea>
     font-size: 0.95rem;
     color: var(--lab-muted, #64748b);
     margin-bottom: 1.5rem;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .cap-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .wasm-grid {
