@@ -31,6 +31,20 @@ tags: ["summary", "index", "navigation"]
 * [Web Interface Improvements](docs/explanation/web-interface-improvements.md)
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
+## 💼 Executive Blueprint
+
+* [Executive & Financial Blueprint Portal](docs/executive/index.md)
+* [36-Month TCO & Financial Blueprint](docs/executive/tco-financial-blueprint.md)
+* [Sovereignty & Regulatory Compliance](docs/executive/regulatory-compliance.md)
+
+## 🛠️ Engineering Runbook
+
+* [DevOps Implementation Runbook Portal](docs/engineering/index.md)
+* [OpenTofu Module Manifests & Simulation](docs/engineering/opentofu-manifests.md)
+* [DNS & systemd-resolved Troubleshooting Guide](docs/engineering/dns-systemd-troubleshooting.md)
+* [Ansible ASIMP Hardening Playbooks](docs/engineering/ansible-asimp-hardening.md)
+* [Persistent EFS Storage & Mount Scripts](docs/engineering/efs-mount-scripts.md)
+
 ## 🏛️ Project Governance & Protocols
 
 * [AI Onboarding Rulebook](AGENTS.md)
