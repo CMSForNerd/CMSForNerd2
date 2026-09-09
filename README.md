@@ -45,6 +45,7 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 - **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
 - **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
 - **[Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)** — Guide to the diagram-design-standards skill for multi-tier technical diagrams.
+- **[Next Technologies: WebGPU & Wasm AI Architecture Guide](docs/explanation/next-tech-webgpu-wasm-inferencing.md)** — Architecture guide for WebGPU, WebAssembly 128-bit SIMD hardware-accelerated SLM inferencing, and OpenWiki Knowledge Graph Graphviz build pipelines.
 - **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
