@@ -39,6 +39,7 @@
 - [docs/governance/LLM-WIKI-ADOPTION.md](docs/governance/LLM-WIKI-ADOPTION.md): Comparative analysis and adoption strategy integrating Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
 - [docs/explanation/spatial-memory-and-sandbox.md](docs/explanation/spatial-memory-and-sandbox.md): Deep-dive into DSOM protocols and unprivileged sandbox boundaries.
 - [docs/explanation/web-design-guidelines-skill.md](docs/explanation/web-design-guidelines-skill.md): Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- [docs/explanation/diagram-design-standards-skill.md](docs/explanation/diagram-design-standards-skill.md): Guide to the diagram-design-standards skill for multi-tier technical diagrams.
 - [docs/explanation/web-interface-improvements.md](docs/explanation/web-interface-improvements.md): Detailed UI design audit findings and applied enhancements.
 - [docs/explanation/fastmcp-wasm-architecture.md](docs/explanation/fastmcp-wasm-architecture.md): Architectural analysis of FastMCP SSG route exposure, Pagefind Wasm search, and client-side cryptographic & document Wasm processing.
 

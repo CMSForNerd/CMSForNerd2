@@ -10,11 +10,7 @@
 ---
 type: "documentation"
 title: "CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)"
-topics:
-- modernisation
-- astro
-- static
-- architecture
+topics: ["modernisation", "astro", "static", "architecture"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -25,11 +21,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- modernisation
-- astro
-- static
-- architecture
+tags: ["modernisation", "astro", "static", "architecture"]
 ---
 
 # 🚀 CMSForNerd2 (Modern HTML5 & CSS3 Static Edition)
@@ -61,6 +53,7 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 - **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
 - **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
 - **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- **[Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)** — Guide to the diagram-design-standards skill for multi-tier technical diagrams.
 - **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---
@@ -131,12 +124,7 @@ Alternatively, you can deploy using our pre-configured multi-stage Dockerfile an
 type: "documentation"
 title: "CMSForNerd2 Master Onboarding Map"
 description: "Dual-audience Diátaxis onboarding standard and master entry point for human engineers and autonomous AI agents."
-topics:
-- onboarding
-- diataxis
-- navigation
-- dsom
-- agents
+topics: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -147,12 +135,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- onboarding
-- diataxis
-- navigation
-- dsom
-- agents
+tags: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 ---
 
 # 🎯 START HERE: CMSForNerd2 Master Onboarding Standard
@@ -185,7 +168,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 | **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
 | **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [FastMCP & Wasm Guide](docs/how-to/how-to-use-fastmcp-and-wasm.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `python3 tools/mcp/server.py` |
 | **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
-| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](docs/explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
+| **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](docs/explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Diagram Design Standards Skill](docs/explanation/diagram-design-standards-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
 ---
 
@@ -283,10 +266,7 @@ All documentation, code comments, commit messages, and cognitive logs MUST stric
 type: "documentation"
 title: "CMSForNerd2 Summary Index"
 description: "Detailed mapping of all architectural manuals, migration blueprints, and spatial layouts."
-topics:
-- summary
-- index
-- navigation
+topics: ["summary", "index", "navigation"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -297,10 +277,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T12:00:00Z'
-tags:
-- summary
-- index
-- navigation
+tags: ["summary", "index", "navigation"]
 ---
 
 # Summary
@@ -315,8 +292,23 @@ tags:
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
 * [Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)
+* [Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)
 * [Web Interface Improvements](docs/explanation/web-interface-improvements.md)
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
+
+## 💼 Executive Blueprint
+
+* [Executive & Financial Blueprint Portal](docs/executive/index.md)
+* [36-Month TCO & Financial Blueprint](docs/executive/tco-financial-blueprint.md)
+* [Sovereignty & Regulatory Compliance](docs/executive/regulatory-compliance.md)
+
+## 🛠️ Engineering Runbook
+
+* [DevOps Implementation Runbook Portal](docs/engineering/index.md)
+* [OpenTofu Module Manifests & Simulation](docs/engineering/opentofu-manifests.md)
+* [DNS & systemd-resolved Troubleshooting Guide](docs/engineering/dns-systemd-troubleshooting.md)
+* [Ansible ASIMP Hardening Playbooks](docs/engineering/ansible-asimp-hardening.md)
+* [Persistent EFS Storage & Mount Scripts](docs/engineering/efs-mount-scripts.md)
 
 ## 🏛️ Project Governance & Protocols
 
@@ -343,12 +335,7 @@ tags:
 type: "documentation"
 title: "The Core AI Rulebook (DSOM) - CMSForNerd2"
 description: "OKF-compliant constitution detailing the operational persona, cognitive rules, and spatial memory protocols."
-topics:
-- agents
-- dsom
-- rulebook
-- constitution
-- skills
+topics: ["agents", "dsom", "rulebook", "constitution", "skills"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -359,12 +346,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- agents
-- dsom
-- rulebook
-- constitution
-- skills
+tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
 # AI Agent Registry & Sovereign Gateway
@@ -452,6 +434,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 | **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
+| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining standalone SVG vector graphics, Mermaid blocks, and routing tables. |
 
 ---
 
@@ -497,15 +480,7 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
 ---
 type: "governance"
 title: "Technical Book Design & PDF Compilation Master Prompt Guide"
-topics:
-- pandoc
-- pdf
-- handbook
-- prompt
-- print-optimized
-- mermaid
-- ebook
-- diataxis
+topics: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 description: "Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal & Cloud design framework."
 status: "stable"
 stale_after: "2027-09-04"
@@ -527,15 +502,7 @@ verified:
   timestamp: '2026-09-04T21:15:00Z'
 nav_order: 1
 spec_version: "0.2"
-tags:
-- pandoc
-- pdf
-- handbook
-- prompt
-- print-optimized
-- mermaid
-- ebook
-- diataxis
+tags: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebook", "diataxis"]
 ---
 
 # Technical Book Design & PDF Compilation Master Prompt Guide
@@ -904,11 +871,7 @@ Before finalizing any compiled handbook, the AI agent must verify:
 type: "knowledge_base"
 title: "Sovereign AI Agent Knowledge Base"
 description: "Master directory cataloguing all Jules operational and domain-specific knowledge about CMSForNerd2."
-topics:
-- knowledge
-- jules
-- brain
-- dsom
+topics: ["knowledge", "jules", "brain", "dsom"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -919,11 +882,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- knowledge
-- jules
-- brain
-- dsom
+tags: ["knowledge", "jules", "brain", "dsom"]
 ---
 
 # Sovereign AI Agent Knowledge Base (CMSForNerd2)
@@ -1072,6 +1031,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 46. **FastMCP Server Adoption & WebAssembly (Wasm) Search and Processing**
     The repository adopts a FastMCP (Model Context Protocol) server (`tools/mcp/server.py`) to expose live Astro SSG routes (`list_ssg_routes`), route content (`get_route_content`), full-text search (`search_ssg_routes`), sitemaps (`get_sitemap_routes`), and spatial memory (`get_openwiki_concept`) directly to AI agents. It integrates Pagefind Wasm client-side search (`astro build && pagefind --site dist`) with a client search UI at `/search`, and implements a browser-native WebAssembly Cryptographic & OKF v0.2 Document Processing Studio at `/wasm-studio`.
 
+47. **Diagram Design Standards Skill Adoption**
+    The repository adopts the `diagram-design-standards` skill (`.agents/skills/diagram-design-standards/SKILL.md` and `skills/diagram-design-standards/SKILL.md`), enforcing a unified tri-part output format for all technical diagrams: (1) Standalone SVG Vector Graphic (`.svg`), (2) Git-Native Mermaid Block (`.mmd`), and (3) Summary Interface & Routing Comparison Table. The skill is documented at `docs/explanation/diagram-design-standards-skill.md` and mapped across all navigation and AI gateway registries.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
@@ -1086,11 +1048,7 @@ This document contains a comprehensive record of all Google Jules operational, s
 type: "documentation"
 title: "Local Development Quickstart Tutorial"
 description: "A step-by-step tutorial guiding beginners through installing dependencies, compiling static assets, and previewing CMSForNerd2."
-topics:
-- tutorials
-- onboarding
-- local-development
-- astro
+topics: ["tutorials", "onboarding", "local-development", "astro"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1102,11 +1060,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:40:00Z'
-tags:
-- tutorials
-- onboarding
-- local-development
-- astro
+tags: ["tutorials", "onboarding", "local-development", "astro"]
 ---
 
 # 🎓 Local Development Quickstart
@@ -1219,11 +1173,7 @@ Congratulations! You have completed the local development quickstart. To learn h
 type: "documentation"
 title: "Static Site Deployment Tutorial"
 description: "A guided lesson to deploy the CMSForNerd2 static build to cloud platforms like Render or GitHub Pages."
-topics:
-- tutorials
-- deployment
-- github-pages
-- render
+topics: ["tutorials", "deployment", "github-pages", "render"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1235,11 +1185,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:40:00Z'
-tags:
-- tutorials
-- deployment
-- github-pages
-- render
+tags: ["tutorials", "deployment", "github-pages", "render"]
 ---
 
 # 🎓 Static Site Deployment Tutorial
@@ -1358,11 +1304,7 @@ Once your deployment completes:
 type: "documentation"
 title: "OKF Frontmatter Refactoring How-To Guide"
 description: "A step-by-step guide explaining how to automatically scan, format, and validate YAML frontmatter across all workspace Markdown files."
-topics:
-- how-to
-- okf
-- validation
-- automation
+topics: ["how-to", "okf", "validation", "automation"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1374,11 +1316,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- okf
-- validation
-- automation
+tags: ["how-to", "okf", "validation", "automation"]
 ---
 
 # 📋 How to Run the OKF Frontmatter Refactoring Utility
@@ -1467,11 +1405,7 @@ Error: unclosed frontmatter in ./docs/broken-file.md
 type: "documentation"
 title: "Sitemap Verification How-To Guide"
 description: "Instructions on how to verify root and public plain-text sitemaps, built multi-host XML sitemaps, and static file mapping."
-topics:
-- how-to
-- sitemap
-- verification
-- seo
+topics: ["how-to", "sitemap", "verification", "seo"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1483,11 +1417,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- sitemap
-- verification
-- seo
+tags: ["how-to", "sitemap", "verification", "seo"]
 ---
 
 # 📋 How to Verify Sitemaps and Link Consistency
@@ -1590,12 +1520,7 @@ cp sitemap.txt public/sitemap.txt
 type: "documentation"
 title: "Ansible Deployment How-To Guide"
 description: "A comprehensive guide on deploying CMSForNerd2 using the Ansible static orchestration suite with dual-pathway branching logic."
-topics:
-- how-to
-- ansible
-- deployment
-- orchestration
-- security
+topics: ["how-to", "ansible", "deployment", "orchestration", "security"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1607,12 +1532,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:45:00Z'
-tags:
-- how-to
-- ansible
-- deployment
-- orchestration
-- security
+tags: ["how-to", "ansible", "deployment", "orchestration", "security"]
 ---
 
 # 📋 How to Deploy with Ansible Static Orchestration
@@ -1707,12 +1627,7 @@ When deploying onto a Real OS, the Ansible orchestration playbook applies the fo
 type: "documentation"
 title: "GitHub Pages Deployment and Troubleshooting Guide"
 description: "How-To guide for understanding, troubleshooting, and managing GitHub Pages deployments for CMSForNerd2."
-topics:
-- how-to
-- github-pages
-- actions
-- astro
-- troubleshooting
+topics: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -1724,12 +1639,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-22T01:00:00Z'
-tags:
-- how-to
-- github-pages
-- actions
-- astro
-- troubleshooting
+tags: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
 ---
 
 # 🚀 How to Troubleshoot and Manage GitHub Pages Deployments
@@ -1850,11 +1760,19 @@ spec_version: "0.2"
 type: "how_to"
 title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
 description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, and utilizing client-side Wasm utilities."
-timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
-
 okf_version: "0.1"
 nav_order: 1
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: how-to-use-fastmcp-and-wasm.md
+  url: docs/how-to/how-to-use-fastmcp-and-wasm.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
 ---
 
 # How to Use FastMCP Server & WebAssembly (Wasm) Tools
@@ -1946,16 +1864,7 @@ Navigate to `http://localhost:4321/wasm-studio` in your browser.
 ---
 type: "how-to"
 title: "How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint"
-topics:
-- pandoc
-- pdf
-- handbook
-- prompt-engineering
-- print-optimized
-- diataxis
-- gitops
-- aiops
-- transferable-skills
+topics: ["pandoc", "pdf", "handbook", "prompt-engineering", "print-optimized", "diataxis", "gitops", "aiops", "transferable-skills"]
 description: "Comprehensive operational handbook and transferable AI prompt library for analyzing code repositories, synthesizing Diataxis documentation, baking native vector diagrams, and compiling publication-grade print-ready handbooks (PDF, HTML, EPUB) using Pandoc and Headless Chromium."
 status: "stable"
 stale_after: "2027-09-05"
@@ -1974,16 +1883,7 @@ spec_version: "0.2"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-05T05:00:00Z'
-tags:
-- pandoc
-- pdf
-- handbook
-- prompt-engineering
-- print-optimized
-- diataxis
-- gitops
-- aiops
-- transferable-skills
+tags: ["pandoc", "pdf", "handbook", "prompt-engineering", "print-optimized", "diataxis", "gitops", "aiops", "transferable-skills"]
 ---
 
 # How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint
@@ -2461,11 +2361,7 @@ Before delivering any compiled handbook to stakeholders, execute this audit chec
 type: "documentation"
 title: "refactor-okf.cjs API Reference"
 description: "Technical specifications, functions, and file validation criteria for the OKF frontmatter crawler utility."
-topics:
-- reference
-- okf
-- api
-- utility
+topics: ["reference", "okf", "api", "utility"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -2477,11 +2373,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- okf
-- api
-- utility
+tags: ["reference", "okf", "api", "utility"]
 ---
 
 # 🏗️ `refactor-okf.cjs` API Reference
@@ -2560,11 +2452,7 @@ Parses and reformats a Markdown file's frontmatter block.
 type: "documentation"
 title: "verify-sitemaps.js API Reference"
 description: "Technical specifications, verification rules, and static asset mapping protocols for the sitemap verification utility."
-topics:
-- reference
-- sitemap
-- api
-- seo
+topics: ["reference", "sitemap", "api", "seo"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -2576,11 +2464,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- sitemap
-- api
-- seo
+tags: ["reference", "sitemap", "api", "seo"]
 ---
 
 # 🏗️ `verify-sitemaps.js` API Reference
@@ -2640,11 +2524,7 @@ Main entry point for sitemap verification. It executes four sequential check blo
 type: "documentation"
 title: "deploy-static.sh CLI Reference"
 description: "Technical specifications, environment variable overrides, and dual-pathway branching logic for the static deployment orchestrator."
-topics:
-- reference
-- bash
-- ansible
-- deployment
+topics: ["reference", "bash", "ansible", "deployment"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -2656,11 +2536,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- bash
-- ansible
-- deployment
+tags: ["reference", "bash", "ansible", "deployment"]
 ---
 
 # 🏗️ `deploy-static.sh` CLI Reference
@@ -2731,12 +2607,7 @@ The script executes a dynamic environmental check to determine available system 
 type: "documentation"
 title: "llms_txt2ctx.py CLI Reference"
 description: "Technical specifications, Python API, and CLI parameters for parsing llms.txt and generating XML context documents."
-topics:
-- reference
-- python
-- cli
-- parser
-- llmstxt
+topics: ["reference", "python", "cli", "parser", "llmstxt"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -2748,12 +2619,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T14:50:00Z'
-tags:
-- reference
-- python
-- cli
-- parser
-- llmstxt
+tags: ["reference", "python", "cli", "parser", "llmstxt"]
 ---
 
 # 🏗️ `llms_txt2ctx.py` CLI Reference
@@ -2827,14 +2693,7 @@ Creates a standardized XML context string.
 type: "documentation"
 title: "Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules"
 description: "Comprehensive technical guide and project showcase detailing the end-to-end engineering workflow, OpenTofu IaC, Ansible automation, GitHub PR comment collaboration, Deep State of Mind (DSOM) governance, and Google Antigravity multi-agent integration."
-topics:
-- jules
-- opentofu
-- ansible
-- dsom
-- antigravity
-- github-pages
-- pair-programming
+topics: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -2846,14 +2705,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-14T10:00:00Z'
-tags:
-- jules
-- opentofu
-- ansible
-- dsom
-- antigravity
-- github-pages
-- pair-programming
+tags: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 ---
 
 # Autonomous AI Pair-Programming & Multi-Agent Operations with Google Jules
@@ -3260,18 +3112,8 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T23:00:00Z'
-tags:
-- deep-search
-- okf-v02
-- research
-- learn-protocol
-- token-optimisation
-topics:
-- deep-search
-- okf-v02
-- research
-- learn-protocol
-- token-optimisation
+tags: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
+topics: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
 ---
 
 # Skill: Google Deep Research & Search
@@ -3325,12 +3167,7 @@ Before presenting generated knowledge assets or finalizing file writes:
 type: "documentation"
 title: "PHP-to-Static Modernisation Philosophy"
 description: "Architectural concepts, performance impacts, and design decisions behind modernising CMSForNerd to Astro SSG."
-topics:
-- explanation
-- architecture
-- migration
-- static
-- php
+topics: ["explanation", "architecture", "migration", "static", "php"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -3342,12 +3179,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T15:00:00Z'
-tags:
-- explanation
-- architecture
-- migration
-- static
-- php
+tags: ["explanation", "architecture", "migration", "static", "php"]
 ---
 
 # 🧠 PHP-to-Static Modernisation Philosophy
@@ -3413,11 +3245,7 @@ This structure keeps all routes statically accessible offline and allows deploym
 type: "governance"
 title: "DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy"
 description: "Sovereign knowledge adoption strategy integrating Andrej Karpathy LLM WIKI Ingest Query and Lint protocols with DSOM Protocol."
-topics:
-- llm-wiki
-- dsom-protocol
-- knowledge-governance
-- spatial-memory
+topics: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -3429,11 +3257,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T15:00:00Z'
-tags:
-- llm-wiki
-- dsom-protocol
-- knowledge-governance
-- spatial-memory
+tags: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 ---
 
 # 🧠 DSOM vs. LLM WIKI: Comparative Analysis & Adoption Strategy
@@ -3505,12 +3329,7 @@ While we have the structure, the LLM WIKI highlights three operational verbs to 
 type: "documentation"
 title: "Spatial Memory & Dual-Pathway Design"
 description: "Conceptual overview explaining Deep State of Mind spatial memory boundaries, Google Jules sandbox environment limits, and dual-pathway Ansible orchestration."
-topics:
-- explanation
-- dsom
-- sandbox
-- jules
-- ansible
+topics: ["explanation", "dsom", "sandbox", "jules", "ansible"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -3522,12 +3341,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-08-01T15:00:00Z'
-tags:
-- explanation
-- dsom
-- sandbox
-- jules
-- ansible
+tags: ["explanation", "dsom", "sandbox", "jules", "ansible"]
 ---
 
 # 🧠 Spatial Memory & Dual-Pathway Design
@@ -3601,12 +3415,7 @@ By separating unprivileged compilation from server provisioning, we guarantee th
 type: "documentation"
 title: "Web Design Guidelines Skill Overview"
 description: "Comprehensive guide to the web-design-guidelines skill, its purpose, guidelines, and execution workflow for human developers and AI agents."
-topics:
-- skill
-- web-design
-- accessibility
-- ux
-- guidelines
+topics: ["skill", "web-design", "accessibility", "ux", "guidelines"]
 nav_order: 10
 spec_version: "0.2"
 status: "stable"
@@ -3618,12 +3427,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- skill
-- web-design
-- accessibility
-- ux
-- guidelines
+tags: ["skill", "web-design", "accessibility", "ux", "guidelines"]
 ---
 
 # Web Design Guidelines Skill Guide
@@ -3691,6 +3495,93 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 
 ---
 
+## File: docs/explanation/diagram-design-standards-skill.md
+
+
+---
+type: "documentation"
+title: "Diagram Design Standards Skill Overview"
+description: "Comprehensive guide to the diagram-design-standards skill, detailing the unified specification for standalone SVG vector graphics, Git-native Mermaid blocks, and summary routing tables."
+topics: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: skill_definition
+  title: Diagram Design Standards Skill Definition
+  url: .agents/skills/diagram-design-standards/SKILL.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation"]
+---
+
+# Diagram Design Standards Skill Overview
+
+The `diagram-design-standards` skill provides autonomous AI agents (such as Google Jules and Google Antigravity) and human software engineers with a unified, repeatable specification for producing production-ready, highly legible technical diagrams across the CMSForNerd2 ecosystem.
+
+## Overview & Rationale
+
+Visual architecture and network topology diagrams in modern software systems frequently suffer from visual inconsistency, platform lock-in, and lack of metadata clarity. Traditional image formats (such as PNG or JPEG) cannot be diffed in Git or indexed by AI search agents, whereas raw Mermaid diagrams alone may lack fine-grained aesthetic control required for executive handbooks and print publications.
+
+The `diagram-design-standards` skill addresses these challenges by mandating a tri-part output format for every diagram generation task:
+
+1. **Standalone SVG Vector Graphic (`.svg`):** Provides pixel-perfect visual styling, crisp vector resolution, custom card containers, color-coded security tiers, and precise connection pill badges.
+2. **Git-Native Mermaid Block (`.mmd`):** Guarantees native, interactive rendering in GitHub web views, Markdown viewers, and web applications with version-controlled plain-text readability.
+3. **Summary Interface & Routing Table:** Offers structured, machine-readable operational tabular metadata detailing ports, protocols, security boundaries, and traffic flow mechanics.
+
+---
+
+## Detailed Formatting & Design Specifications
+
+### 1. SVG Design System & Palette Constraints
+
+All standalone SVG vector blocks generated under this skill must adhere to the following design system:
+
+* **Canvas Hygiene:** Explicit `xmlns="http://www.w3.org/2000/svg"`, explicit `viewBox` matching element coordinates, and relative `width="100%"` / `height="100%"`.
+* **Color Palette:**
+  * Canvas Background: `#F8FAFC` (slate-50) or `#FFFFFF` (pure white).
+  * Container Cards: Background `#FFFFFF` with rounded corners (`rx="8"` or `rx="10"`) and subtle strokes (`#CBD5E1` or `#94A3B8`).
+  * Header Accents: Soft pastel fills (`#EFF6FF` blue, `#DCFCE7` green, `#F1F5F9` slate).
+  * Text Colors: High-contrast slate text (`#0F172A` / `#334155`).
+* **Typography Stack:** Modern sans-serif stack (`font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"`) for titles and labels; Monospace (`Consolas`, `Monaco`, `'Courier New'`) for network ports, IP addresses, paths, and protocols.
+* **Markers & Connecting Lines:** Arrows defined inside `<defs>` with explicit `<marker>` tags. Lines styled with distinct callout pill badges indicating network protocols (e.g., `HTTPS/443`, `mTLS/5432`, `SSH/22`).
+
+### 2. Git-Native Mermaid Specifications
+
+Directly following the SVG code fence, an equivalent Mermaid diagram is placed inside a ````mermaid ... ```` code fence:
+
+* **Subgraphs:** Group subnets, VLANs, trust zones, or operational clusters inside explicit `subgraph` blocks.
+* **Connector Precision:** Annotate every edge connector with protocol details (e.g., `-->|"TCP 4321 / HTTP"|`).
+* **Multi-Line Labels:** Use `<br/>` HTML tags to break long component descriptions into clean multi-line blocks.
+
+### 3. Summary Interface & Routing Table Specifications
+
+Conclude each diagram output with a clean Markdown comparison table formatted as follows:
+
+| Source Component | Target Component | Port / Protocol / API Ingress | Security Boundary / Trust Zone / Access Key | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| *Client Browser / Agent* | *Nginx Reverse Proxy* | `443 / HTTPS (TLS 1.3)` | *DMZ / Public Ingress / TLS Cert* | *Handles incoming SSL termination and routes static web requests.* |
+
+---
+
+## AI Agent & Developer Execution Workflow
+
+When invoked during documentation writing, architecture decision record (ADR) drafting, or technical handbook creation:
+
+1. Identify the architectural entities, network ingress paths, and trust boundaries.
+2. Construct the standalone SVG vector block inside an ````xml ... ```` fence.
+3. Construct the character-exact Mermaid block inside a ````mermaid ... ```` fence.
+4. Construct the summary routing comparison table in standard Markdown format.
+5. Audit the generated output to ensure zero missing text nodes, valid SVG syntax, and complete table mapping.
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
 ## File: docs/explanation/web-interface-improvements.md
 
 
@@ -3698,12 +3589,7 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 type: "documentation"
 title: "Web Interface Improvements & Design Review"
 description: "Detailed breakdown of UI design audit findings and code improvements applied across CMSForNerd2 in accordance with Web Interface Guidelines."
-topics:
-- ui
-- ux
-- accessibility
-- design
-- enhancements
+topics: ["ui", "ux", "accessibility", "design", "enhancements"]
 nav_order: 11
 spec_version: "0.2"
 status: "stable"
@@ -3715,12 +3601,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags:
-- ui
-- ux
-- accessibility
-- design
-- enhancements
+tags: ["ui", "ux", "accessibility", "design", "enhancements"]
 ---
 
 # Web Interface Improvements & Design Review
@@ -3786,11 +3667,19 @@ spec_version: "0.2"
 type: "explanation"
 title: "FastMCP Protocol & WebAssembly (Wasm) Architecture"
 description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, and client-side Wasm cryptographic & document processing in CMSForNerd2."
-timestamp: "2026-09-06T00:00:00Z"
 topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
-
 okf_version: "0.1"
 nav_order: 1
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: fastmcp-wasm-architecture.md
+  url: docs/explanation/fastmcp-wasm-architecture.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-09-06T00:00:00Z'
+tags: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
 ---
 
 # FastMCP Protocol & WebAssembly (Wasm) Architecture
@@ -3865,12 +3754,7 @@ To align with modern Zero-Trust static security standards, CMSForNerd2 includes 
 type: "documentation"
 title: "CMSForNerd to CMSForNerd2 Static Migration Guide"
 description: "Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."
-topics:
-- migration
-- astro
-- static
-- php
-- architecture
+topics: ["migration", "astro", "static", "php", "architecture"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -3882,12 +3766,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-31T10:00:00Z'
-tags:
-- migration
-- astro
-- static
-- php
-- architecture
+tags: ["migration", "astro", "static", "php", "architecture"]
 ---
 
 # 🚀 CMSForNerd to CMSForNerd2: Static Migration Guide
@@ -4300,13 +4179,7 @@ To coordinate the team's operational efforts, follow this milestone progression:
 type: "documentation"
 title: "Context7 Service Integration Guide"
 description: "Comprehensive blueprint detailing the integration, configuration, and utilisation of Context7 within CMSForNerd2."
-topics:
-- context7
-- integrations
-- gitlab-ci
-- github-actions
-- api
-- documentation
+topics: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 nav_order: 1
 spec_version: "0.2"
 status: "stable"
@@ -4318,13 +4191,7 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-07-31T07:15:00Z'
-tags:
-- context7
-- integrations
-- gitlab-ci
-- github-actions
-- api
-- documentation
+tags: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 ---
 
 # Context7 Service Integration Guide

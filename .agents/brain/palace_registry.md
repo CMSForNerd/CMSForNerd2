@@ -30,6 +30,7 @@ Sovereign Markdown Palace
 │   ├── Room: room_clean_architecture (docs/explanation/modernisation-philosophy.md)
 │   └── Room: room_spatial_sandbox (docs/explanation/spatial-memory-and-sandbox.md)
 ├── Wing: Tooling & Utilities
+│   ├── Room: room_diagram_design_standards (docs/explanation/diagram-design-standards-skill.md)
 │   ├── Room: room_web_design_guidelines (docs/explanation/web-design-guidelines-skill.md)
 │   └── Room: room_ui_improvements (docs/explanation/web-interface-improvements.md)
 └── Wing: Spatial Memory Brain

@@ -44,6 +44,7 @@ We have compiled comprehensive, human-readable blueprint guides detailing the re
 - **[Context7 Integration Guide](docs/context7-integration.md)** — Complete configuration guidelines for synchronising repository documentation with Context7 services using GitLab CI and GitHub Actions.
 - **[DSOM vs. LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)** — Comparative analysis and integration of Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
 - **[Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)** — Guide to the web-design-guidelines skill for UI accessibility and design auditing.
+- **[Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)** — Guide to the diagram-design-standards skill for multi-tier technical diagrams.
 - **[Web Interface Improvements](docs/explanation/web-interface-improvements.md)** — Detailed UI design audit findings and applied enhancements.
 
 ---

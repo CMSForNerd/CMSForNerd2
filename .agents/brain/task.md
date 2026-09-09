@@ -67,3 +67,6 @@ tags: ["tasks", "track", "progress", "dsom"]
 - [x] Implement WebAssembly Cryptographic & OKF v0.2 Document Processing Studio component and page at `/wasm-studio`.
 - [x] Author Diátaxis explanation and how-to guides for FastMCP and WebAssembly tools in `docs/explanation/` and `docs/how-to/`.
 - [x] Complete End of Day (EOD) Palace Brain Sync in `.agents/brain/`.
+- [x] Adopt Diagram Design Standards skill (`diagram-design-standards`) in `.agents/skills/` and `skills/`.
+- [x] Create skill explanation guide in `docs/explanation/diagram-design-standards-skill.md`.
+- [x] Synchronise agent registries, documentation navigation, and compiled LLM context files (`llms-full.txt`, `llms-context.xml`).

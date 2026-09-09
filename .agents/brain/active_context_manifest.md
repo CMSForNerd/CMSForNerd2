@@ -20,6 +20,9 @@ tags: ["context-manifest", "dsom-protocol", "active-scope"]
 
 The following files constitute the active engineering context for this session:
 
+- `skills/diagram-design-standards/SKILL.md` (Adopted Diagram skill)
+- `.agents/skills/diagram-design-standards/SKILL.md` (DSOM agent skill)
+- `docs/explanation/diagram-design-standards-skill.md` (Diagram Skill overview documentation)
 - `skills/web-design-guidelines/SKILL.md` (Adopted Vercel skill)
 - `.agents/skills/web-design-guidelines/SKILL.md` (DSOM agent skill)
 - `docs/explanation/web-design-guidelines-skill.md` (Skill overview documentation)
