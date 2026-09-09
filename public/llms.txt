@@ -15,6 +15,9 @@
 
 - [docs/tutorials/local-development.md](docs/tutorials/local-development.md): Guided step-by-step development setup and local static previewing.
 - [docs/tutorials/static-site-deployment.md](docs/tutorials/static-site-deployment.md): Standard cloud (Render) and subpath (GitHub Pages) static deployment workflows.
+- [src/content/pages/lab-module8.md](src/content/pages/lab-module8.md): WebAssembly SRI Hash Whitelisting & Pre-rendered Brotli Performance Hardening.
+- [src/content/pages/lab-module9.md](src/content/pages/lab-module9.md): Advanced Playwright E2E Testing - Dynamic Roles & Cookie Boundaries.
+- [src/content/pages/lab-module10.md](src/content/pages/lab-module10.md): Next-Gen Wasm Vector Search & FastMCP ADR Validation.
 
 ## How-To Guides
 
@@ -35,6 +38,7 @@
 ## Explanation
 
 - [docs/jules-platform-guide.md](docs/jules-platform-guide.md): Technical guide for autonomous AI pair-programming, OpenTofu, Ansible, PR comments, and Google Antigravity operations.
+- [.agents/skills/google-deep-research/SKILL.md](.agents/skills/google-deep-research/SKILL.md): Google Deep Research & Search skill with /learn knowledge ingestion protocol and OKF v0.2 trust signal generation.
 - [docs/explanation/modernisation-philosophy.md](docs/explanation/modernisation-philosophy.md): Conceptual context on choosing Astro SSG over PHP.
 - [docs/governance/LLM-WIKI-ADOPTION.md](docs/governance/LLM-WIKI-ADOPTION.md): Comparative analysis and adoption strategy integrating Andrej Karpathy LLM WIKI Ingest, Query, and Lint protocols into DSOM.
 - [docs/explanation/spatial-memory-and-sandbox.md](docs/explanation/spatial-memory-and-sandbox.md): Deep-dive into DSOM protocols and unprivileged sandbox boundaries.

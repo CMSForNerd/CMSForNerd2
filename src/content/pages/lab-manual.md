@@ -143,6 +143,36 @@ is an interactive lesson in professional web standards using Astro 7.1.
 </div>
 </section>
 
+<section class="module">
+<h2>⚡ Laboratory Module 8: WebAssembly SRI Whitelisting & Pre-rendered Brotli Performance</h2>
+<p>Learn to calculate build-time Subresource Integrity (SRI) hashes for WebAssembly search binaries (`dist/pagefind/`) and configure pre-rendered Brotli/Gzip assets for sub-10ms TTFB responses.</p>
+<div class="exercise">
+<h3>Exercise 8.1: WebAssembly Binary Integrity & Compression</h3>
+<p>Incorporate Wasm cryptographic hashes into Nginx Content Security Policy headers and deliver immutable static cache controls.</p>
+<p><a href="/lab-module8" class="btn">⚡ Open Student Worksheet: Module 8</a></p>
+</div>
+</section>
+
+<section class="module">
+<h2>🧪 Laboratory Module 9: Playwright E2E Testing - Dynamic Roles & Cookie Boundaries</h2>
+<p>Master advanced Playwright test scenarios covering dynamic role permission mocking, session cookie expiration boundaries, and Service Worker storage assertions.</p>
+<div class="exercise">
+<h3>Exercise 9.1: Role Fixtures & Cookie Expiration Boundaries</h3>
+<p>Author automated E2E tests validating role-based authorization states and token expiration logic in SSG and PWA applications.</p>
+<p><a href="/lab-module9" class="btn">🧪 Open Student Worksheet: Module 9</a></p>
+</div>
+</section>
+
+<section class="module">
+<h2>🚀 Laboratory Module 10: Wasm Vector Search & FastMCP ADR Validation</h2>
+<p>Explore next-gen static technologies including client-side Wasm vector search micro-frontends and FastMCP server tools for real-time Architectural Decision Record (ADR) validation.</p>
+<div class="exercise">
+<h3>Exercise 10.1: Client-Side Vector Search & FastMCP ADR Validation</h3>
+<p>Run privacy-preserving embedding models in WebAssembly workers and validate architectural decision records programmatically via FastMCP gateways.</p>
+<p><a href="/lab-module10" class="btn">🚀 Open Student Worksheet: Module 10</a></p>
+</div>
+</section>
+
 <section class="module exam-module">
 <h2>🚩 The Final Exam: Break-Fix Challenge</h2>
 <p>The ultimate test of a static front-end engineer. Repair a broken configuration or schema mapping to pass the compilation test.</p>

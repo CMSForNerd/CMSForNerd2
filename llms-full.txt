@@ -165,7 +165,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 
 | Quadrant | Purpose | Human Engineer Pathway | Autonomous AI Agent Pathway |
 | :--- | :--- | :--- | :--- |
-| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
+| **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](docs/tutorials/local-development.md)<br>• [Static Site Deployment](docs/tutorials/static-site-deployment.md)<br>• [Module 8: Wasm SRI & Brotli](src/content/pages/lab-module8.md)<br>• [Module 9: Advanced E2E Testing](src/content/pages/lab-module9.md)<br>• [Module 10: Wasm Search & FastMCP](src/content/pages/lab-module10.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
 | **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](docs/how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](docs/how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](docs/how-to/ansible-deployment.md)<br>• [FastMCP & Wasm Guide](docs/how-to/how-to-use-fastmcp-and-wasm.md)<br>• [Project Technical Handbook Production](docs/how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `python3 tools/mcp/server.py` |
 | **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](docs/reference/refactor-okf.md)<br>• [Sitemap Engine Spec](docs/reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](docs/reference/deploy-static.md)<br>• [LLMS Context Parser CLI](docs/reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
 | **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](docs/jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](docs/explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](docs/explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](docs/governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](docs/explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](docs/explanation/web-design-guidelines-skill.md)<br>• [Diagram Design Standards Skill](docs/explanation/diagram-design-standards-skill.md)<br>• [Web Interface Improvements](docs/explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
@@ -284,6 +284,13 @@ tags: ["summary", "index", "navigation"]
 
 * [Introduction](README.md)
 * [Onboarding Map](START-HERE.md)
+
+## 🎓 Educational Laboratory Suite
+
+* [Lab Manual Overview](src/content/pages/lab-manual.md)
+* [Lab Module 8: WebAssembly SRI Whitelisting & Brotli Performance](src/content/pages/lab-module8.md)
+* [Lab Module 9: Advanced Playwright E2E & Cookie Boundaries](src/content/pages/lab-module9.md)
+* [Lab Module 10: Wasm Vector Search & FastMCP ADR Validation](src/content/pages/lab-module10.md)
 
 ## 📘 Migration Manuals & Platform Guides
 
@@ -1293,6 +1300,401 @@ Once your deployment completes:
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
+
+
+---
+
+## File: src/content/pages/lab-module8.md
+
+
+---
+type: "content_page"
+title: "Module 8 Worksheet | CMSForNerd2 Wasm SRI & Brotli Performance"
+description: "Interactive lab worksheet for whitelisting WebAssembly binaries with build-time SRI hashes and configuring pre-rendered Brotli sub-10ms TTFB assets."
+schemaType: "TechArticle"
+author: "CMSForNerd2 Security & Performance Education Team"
+topics: ["security", "wasm", "sri", "brotli", "performance", "nginx", "pagefind"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: lab-module8.md
+  url: src/content/pages/lab-module8.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T09:00:00Z'
+tags: ["security", "wasm", "sri", "brotli", "performance", "nginx", "pagefind"]
+---
+
+<article class="lab-module-page" itemscope itemtype="https://schema.org/TechArticle">
+<header class="module-header">
+<h1 itemprop="headline">⚡ Laboratory Module 8: WebAssembly SRI Whitelisting & Pre-rendered Brotli Performance</h1>
+<p class="intro">
+Welcome to <strong>Laboratory Module 8</strong>. In this module, we explore how WebAssembly (Wasm) search binaries in static sites (such as Pagefind under <code>dist/pagefind/</code>) can be secured with <strong>Build-Time Subresource Integrity (SRI) Hashes</strong> and accelerated for <strong>sub-10ms Time-To-First-Byte (TTFB)</strong> using pre-rendered Brotli asset compression.
+</p>
+</header>
+
+<section class="learning-objectives">
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li><strong>WebAssembly Cryptographic Integrity:</strong> Learn how to calculate build-time Subresource Integrity (SRI) hashes for WebAssembly (<code>.wasm</code>) binaries.</li>
+<li><strong>Configure Nginx CSP & Static Whitelists:</strong> Incorporate Wasm integrity hashes into Nginx Content-Security-Policy (CSP) and HTTP response headers.</li>
+<li><strong>Pre-rendered Brotli Static Compression:</strong> Understand how pre-compiling static assets into <code>.br</code> and <code>.gz</code> archives bypasses dynamic CPU compression bottlenecks at runtime, delivering sub-10ms TTFB responses.</li>
+<li><strong>Immutable Asset Caching Policies:</strong> Configure <code>Cache-Control: public, max-age=31536000, immutable</code> rules for versioned static search indices.</li>
+</ul>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 8.1: Build-Time SRI Hashes for Wasm Binaries</h2>
+<p>
+WebAssembly modules run compiled binary code in browser sandboxes. To guarantee that Pagefind Wasm search binaries (<code>dist/pagefind/*.wasm</code>) have not been tampered with in transit or on storage, we generate cryptographic SHA-384 or SHA-256 SRI hashes during the build process.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Generating Cryptographic SRI Hashes</h3>
+<p>
+Execute the build pipeline and generate the SRI hash for the compiled Pagefind Wasm binary using <code>openssl</code> or <code>shasum</code>:
+</p>
+<pre><code># Calculate base64-encoded SHA-384 hash of Pagefind Wasm module
+openssl dgst -sha384 -binary dist/pagefind/pagefind_web_bg.wasm | openssl base64 -A
+
+# Expected Output Format:
+# sha384-K1R+4Z6X... (whitelisted in script-src / wasm-src header)</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 8.2: Sub-10ms TTFB Pre-rendered Brotli Assets</h2>
+<p>
+Dynamic HTTP compression on web servers adds runtime CPU latency to every incoming request. Modern static site deployments eliminate this overhead by pre-compressing static build artifacts during CI/CD using Brotli level 11 compression.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Verifying Pre-rendered Brotli Compression</h3>
+<p>
+Inspect the Nginx server configuration (<code>nginx/nginx.conf</code>). Notice how <code>brotli_static on;</code> and <code>gzip_static on;</code> instruct the server to serve pre-rendered <code>.br</code> files directly from disk without runtime processing:
+</p>
+<pre><code># Pre-rendering assets with Brotli in CI build script
+brotli --best --keep dist/*.html dist/pagefind/*.wasm dist/pagefind/*.js
+
+# Nginx static delivery directive
+location /pagefind/ {
+    brotli_static on;
+    gzip_static on;
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 8.3: Nginx Defensive Headers for Wasm</h2>
+<p>
+To prevent cross-site side-channel attacks and enforce strict browser isolation when executing WebAssembly, we configure Cross-Origin Opener Policy (COOP) and Cross-Origin Embedder Policy (COEP) headers.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Inspecting Isolation Headers</h3>
+<p>
+Verify that response headers for <code>/pagefind/</code> include site isolation directives:
+</p>
+<pre><code>Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+Content-Type: application/wasm</code></pre>
+</div>
+</section>
+
+<nav class="footer-nav">
+<a href="/lab-module7" class="btn btn-secondary">← Back to Module 7</a>
+<a href="/lab-module9" class="btn btn-primary">Proceed to Module 9 →</a>
+</nav>
+</article>
+
+<style>
+.lab-module-page { max-width: 900px; margin: 0 auto; line-height: 1.7; color: #1e293b; }
+.module-header h1 { color: #0d6efd; border-bottom: 3px solid #0d6efd; padding-bottom: 8px; }
+.intro { background: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 5px solid #22c55e; margin: 20px 0; }
+.learning-objectives { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.exercise-box { margin-bottom: 40px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+.exercise-box h2 { color: #0284c7; border-bottom: 2px solid #e0f2fe; padding-bottom: 6px; margin-top: 0; }
+.try-it-box { background: #fafafa; border-left: 4px solid #0284c7; padding: 15px; border-radius: 4px; margin-top: 15px; }
+.try-it-box pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: 'SF Mono', monospace; font-size: 0.9rem; }
+.btn { display: inline-block; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+.btn-primary { background: #0d6efd; color: white; }
+.btn-secondary { background: #e2e8f0; color: #333; }
+.footer-nav { display: flex; justify-content: space-between; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+</style>
+
+
+---
+
+## File: src/content/pages/lab-module9.md
+
+
+---
+type: "content_page"
+title: "Module 9 Worksheet | CMSForNerd2 Advanced E2E & Boundary Testing"
+description: "Interactive lab worksheet for Playwright E2E scenarios covering dynamic role permissions, cookie expiration boundaries, and state validation in SSG/PWA applications."
+schemaType: "TechArticle"
+author: "CMSForNerd2 Quality Assurance Education Team"
+topics: ["testing", "playwright", "e2e", "roles", "cookies", "pwa", "astro"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: lab-module9.md
+  url: src/content/pages/lab-module9.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T09:00:00Z'
+tags: ["testing", "playwright", "e2e", "roles", "cookies", "pwa", "astro"]
+---
+
+<article class="lab-module-page" itemscope itemtype="https://schema.org/TechArticle">
+<header class="module-header">
+<h1 itemprop="headline">🧪 Laboratory Module 9: Playwright E2E Testing - Dynamic Roles & Cookie Expiration</h1>
+<p class="intro">
+Welcome to <strong>Laboratory Module 9</strong>. In this module, students master advanced end-to-end (E2E) automated testing techniques using <strong>Playwright</strong>. Learn how to simulate dynamic role-based access controls, mock cookie expiration boundaries, and validate client-side state transitions in static progressive web apps (PWA).
+</p>
+</header>
+
+<section class="learning-objectives">
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li><strong>Dynamic Role Permissions Mocking:</strong> Use Playwright browser contexts and local storage fixtures to simulate multiple user roles (Admin, Student, Guest) on static pages.</li>
+<li><strong>Cookie Expiration & Boundary Auditing:</strong> Test session time-outs, SameSite cookie attributes, and token expiration boundaries without requiring live backends.</li>
+<li><strong>PWA Offline & Storage Assertions:</strong> Verify Service Worker cache interception and IndexedDB state persistence across simulated network disruptions.</li>
+<li><strong>Visual Regression & DOM Assertion Patterns:</strong> Construct robust automated assertions that resist fragile UI refactoring.</li>
+</ul>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 9.1: Dynamic Role Permission Fixtures</h2>
+<p>
+Even in static site architectures (SSG), client-side interactivity and micro-frontends require role-based access validation. Playwright allows tests to inject custom authentication states and localStorage claims prior to page navigation.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Authoring Role Assertion Tests</h3>
+<p>
+Examine how Playwright sets client-side role state before evaluating navigation capabilities:
+</p>
+<pre><code>import { test, expect } from '@playwright/test';
+
+test('verify administrator access to lab manual solutions', async ({ page }) => {
+  // Inject simulated admin credentials into localStorage
+  await page.addInitScript(() => {
+    window.localStorage.setItem('user_role', 'administrator');
+    window.localStorage.setItem('auth_token', 'mock_jwt_admin_token');
+  });
+
+  await page.goto('http://127.0.0.1:4321/lab-manual');
+
+  // Assert administrator-only solution toggle is visible
+  const adminPanel = page.locator('#admin-solution-key');
+  await expect(adminPanel).toBeVisible();
+});</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 9.2: Cookie Expiration & Boundary Auditing</h2>
+<p>
+Validating cookie lifetimes and boundary conditions ensures that stale user sessions do not persist authorization privileges across static client routes.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Simulating Cookie Expiration</h3>
+<p>
+Write an automated Playwright test that sets an expired session cookie and verifies that client routing correctly redirects to the fallback login view:
+</p>
+<pre><code>test('verify automatic fallback when session cookie expires', async ({ context, page }) => {
+  // Set an expired auth cookie (Expires in the past)
+  await context.addCookies([{
+    name: 'session_id',
+    value: 'expired_session_123',
+    domain: '127.0.0.1',
+    path: '/',
+    expires: Math.floor(Date.now() / 1000) - 3600, // 1 hour ago
+    httpOnly: true,
+    secure: false,
+    sameSite: 'Lax'
+  }]);
+
+  await page.goto('http://127.0.0.1:4321/graduation');
+
+  // Verify user is redirected to student welcome kit due to expired session
+  await expect(page).toHaveURL(/.*welcome-kit/);
+});</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 9.3: PWA Service Worker & Storage Auditing</h2>
+<p>
+In modern Progressive Web Apps built with `@vite-pwa/astro`, testing offline availability requires verifying Service Worker cache registration using Playwright.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Asserting Service Worker Active State</h3>
+<p>
+Inspect the end-to-end test fixture verifying PWA manifest and service worker registration in `tests/test_e2e.py`:
+</p>
+<pre><code>def test_pwa_manifest_linkage(page):
+    page.goto('http://127.0.0.1:4321/')
+    manifest_link = page.locator('link[rel="manifest"]')
+    assert manifest_link.get_attribute('href') == '/manifest.webmanifest'</code></pre>
+</div>
+</section>
+
+<nav class="footer-nav">
+<a href="/lab-module8" class="btn btn-secondary">← Back to Module 8</a>
+<a href="/lab-module10" class="btn btn-primary">Proceed to Module 10 →</a>
+</nav>
+</article>
+
+<style>
+.lab-module-page { max-width: 900px; margin: 0 auto; line-height: 1.7; color: #1e293b; }
+.module-header h1 { color: #0d6efd; border-bottom: 3px solid #0d6efd; padding-bottom: 8px; }
+.intro { background: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 5px solid #22c55e; margin: 20px 0; }
+.learning-objectives { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.exercise-box { margin-bottom: 40px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+.exercise-box h2 { color: #7c3aed; border-bottom: 2px solid #f3e8ff; padding-bottom: 6px; margin-top: 0; }
+.try-it-box { background: #fafafa; border-left: 4px solid #7c3aed; padding: 15px; border-radius: 4px; margin-top: 15px; }
+.try-it-box pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: 'SF Mono', monospace; font-size: 0.9rem; }
+.btn { display: inline-block; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+.btn-primary { background: #0d6efd; color: white; }
+.btn-secondary { background: #e2e8f0; color: #333; }
+.footer-nav { display: flex; justify-content: space-between; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+</style>
+
+
+---
+
+## File: src/content/pages/lab-module10.md
+
+
+---
+type: "content_page"
+title: "Module 10 Worksheet | CMSForNerd2 Wasm Vector Search & FastMCP ADR Validation"
+description: "Interactive lab worksheet exploring client-side Wasm vector search micro-frontends and FastMCP server tools for real-time Architectural Decision Record (ADR) validation."
+schemaType: "TechArticle"
+author: "CMSForNerd2 Architecture & AI Education Team"
+topics: ["wasm", "vector-search", "fastmcp", "adr", "ai", "mcp", "architecture"]
+spec_version: "0.2"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+- id: workspace_file
+  title: lab-module10.md
+  url: src/content/pages/lab-module10.md
+generated:
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  timestamp: '2026-08-01T09:00:00Z'
+tags: ["wasm", "vector-search", "fastmcp", "adr", "ai", "mcp", "architecture"]
+---
+
+<article class="lab-module-page" itemscope itemtype="https://schema.org/TechArticle">
+<header class="module-header">
+<h1 itemprop="headline">🚀 Laboratory Module 10: Wasm Vector Search & FastMCP ADR Validation</h1>
+<p class="intro">
+Welcome to <strong>Laboratory Module 10</strong>. In this advanced module, students explore next-generation static web technologies: running <strong>client-side WebAssembly (Wasm) vector search embeddings</strong> for semantic page discovery, and utilizing <strong>FastMCP (Model Context Protocol) gateway tools</strong> for real-time Architectural Decision Record (ADR) validation.
+</p>
+</header>
+
+<section class="learning-objectives">
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li><strong>Client-Side Wasm Vector Search Micro-Frontends:</strong> Understand how lightweight ONNX / Wasm embedding models enable client-side semantic search without server costs or API key exposure.</li>
+<li><strong>Model Context Protocol (MCP) Server Architecture:</strong> Explore how Python FastMCP gateways (`tools/mcp/server.py`) expose routes, spatial memory, and validation tools directly to AI coding agents.</li>
+<li><strong>Architectural Decision Record (ADR) Validation:</strong> Use automated schema checkers to ensure ADRs match strict structural, temporal, and governance criteria.</li>
+<li><strong>Privacy-Preserving Edge Intelligence:</strong> Deliver local AI functionality directly inside browser WebAssembly runtimes.</li>
+</ul>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 10.1: Client-Side Wasm Vector Search Micro-Frontends</h2>
+<p>
+Traditional search indexes rely on exact keyword matching. Modern WebAssembly micro-frontends allow lightweight vector embedding models (such as `all-MiniLM-L6-v2` compiled to Wasm) to run directly inside the user's browser, calculating cosine similarity over static page vector indices.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Exploring Wasm Vector Search Architecture</h3>
+<p>
+Examine how client-side vector search initializes inside a Web Worker thread:
+</p>
+<pre><code>// Initialize Wasm Vector Search Worker
+const worker = new Worker('/wasm/vector-search-worker.js');
+
+// Query semantic embeddings client-side
+worker.postMessage({
+  type: 'SEMANTIC_SEARCH',
+  query: 'How do I configure Nginx Content Security Policy hashes?'
+});
+
+worker.onmessage = (event) => {
+  const { results } = event.data;
+  console.log('Top Semantic Match:', results[0].title, 'Score:', results[0].score);
+};</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 10.2: FastMCP Gateway Architecture</h2>
+<p>
+The repository implements a Python FastMCP (Model Context Protocol) server gateway located at <code>tools/mcp/server.py</code>. This allows AI developer tools and agent systems to query Astro routes, search SSG pages, inspect OpenWiki concepts, and validate system schemas programmatically.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Inspecting FastMCP Tools</h3>
+<p>
+Inspect the FastMCP tool registration in <code>tools/mcp/server.py</code>:
+</p>
+<pre><code>@mcp.tool()
+def search_ssg_routes(query: str) -> list[dict[str, str]]:
+    """Performs full-text search across all compiled Astro SSG routes."""
+    # Queries compiled page content and returns formatted matching routes
+    ...
+
+@mcp.tool()
+def validate_diagram_schema(mermaid_code: str) -> dict[str, str]:
+    """Validates Mermaid diagram blocks against standard visual guidelines."""
+    ...</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
+<h2>📝 Exercise 10.3: Architectural Decision Record (ADR) Real-Time Validation</h2>
+<p>
+Architectural Decision Records (ADRs) document key system choices (e.g. adopting Astro 7.1 SSG, using Wasm Pagefind search, implementing FastMCP). Using FastMCP tools, AI agents and developers can validate ADR formatting, status fields, and linked references in real-time.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Validating ADR Compliance</h3>
+<p>
+Execute unit tests in <code>tests/unit/mcp.py</code> to verify MCP tool execution and ADR schema assertions:
+</p>
+<pre><code># Run FastMCP unit test suite
+python3 -m pytest tests/unit/mcp.py
+
+# Expected Output:
+# tests/unit/mcp.py :: test_fastmcp_route_listing PASSED
+# tests/unit/mcp.py :: test_fastmcp_adr_validation PASSED</code></pre>
+</div>
+</section>
+
+<nav class="footer-nav">
+<a href="/lab-module9" class="btn btn-secondary">← Back to Module 9</a>
+<a href="/graduation" class="btn btn-primary">Proceed to Graduation →</a>
+</nav>
+</article>
+
+<style>
+.lab-module-page { max-width: 900px; margin: 0 auto; line-height: 1.7; color: #1e293b; }
+.module-header h1 { color: #0d6efd; border-bottom: 3px solid #0d6efd; padding-bottom: 8px; }
+.intro { background: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 5px solid #22c55e; margin: 20px 0; }
+.learning-objectives { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.exercise-box { margin-bottom: 40px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+.exercise-box h2 { color: #059669; border-bottom: 2px solid #d1fae5; padding-bottom: 6px; margin-top: 0; }
+.try-it-box { background: #fafafa; border-left: 4px solid #059669; padding: 15px; border-radius: 4px; margin-top: 15px; }
+.try-it-box pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: 'SF Mono', monospace; font-size: 0.9rem; }
+.btn { display: inline-block; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+.btn-primary { background: #0d6efd; color: white; }
+.btn-secondary { background: #e2e8f0; color: #333; }
+.footer-nav { display: flex; justify-content: space-between; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+</style>
 
 
 ---

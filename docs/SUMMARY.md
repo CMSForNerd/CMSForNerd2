@@ -22,10 +22,13 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Introduction](README.md)
 * [Master Onboarding Standard](start-here.md)
 
-## 🎓 Tutorials
+## 🎓 Tutorials & Educational Modules
 
 * [Local Development Quickstart](tutorials/local-development.md)
 * [Static Site Deployment](tutorials/static-site-deployment.md)
+* [Lab Module 8: WebAssembly SRI Whitelisting & Brotli Performance](../src/content/pages/lab-module8.md)
+* [Lab Module 9: Advanced Playwright E2E & Cookie Boundaries](../src/content/pages/lab-module9.md)
+* [Lab Module 10: Wasm Vector Search & FastMCP ADR Validation](../src/content/pages/lab-module10.md)
 
 ## 📋 How-To Guides
 
