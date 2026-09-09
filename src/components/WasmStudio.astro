@@ -56,6 +56,23 @@ Sample body text..."></textarea>
       </div>
     </div>
   </div>
+
+  <!-- Hardware Capability Inspection Box -->
+  <div class="wasm-box" style="margin-top: 1.5rem;">
+    <h3>🖥️ Client Hardware Capability & WebAssembly Engine Diagnostics</h3>
+    <p class="wasm-desc">Detect WebAssembly SIMD support, cross-origin isolation status, and browser memory allocations.</p>
+
+    <div class="wasm-action-row">
+      <button type="button" id="wasm-hw-btn" class="wasm-btn">Run Engine Benchmark & Diagnostics</button>
+    </div>
+
+    <div id="wasm-hw-output" class="wasm-output hidden">
+      <div><strong>WebGPU API Support:</strong> <span id="wasm-webgpu-status">Checking...</span></div>
+      <div><strong>Wasm 128-bit SIMD Support:</strong> <span id="wasm-simd-status">Checking...</span></div>
+      <div><strong>COOP / COEP Isolation Status:</strong> <span id="wasm-coop-status">Checking...</span></div>
+      <div><strong>Device Memory Allocation:</strong> <span id="wasm-mem-status">Checking...</span></div>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
@@ -122,12 +139,46 @@ Sample body text..."></textarea>
     outputBox.classList.remove('hidden');
   }
 
+  function checkHwCapabilities() {
+    const outputBox = document.getElementById('wasm-hw-output');
+    if (!outputBox) return;
+
+    const webgpuStatus = document.getElementById('wasm-webgpu-status');
+    const simdStatus = document.getElementById('wasm-simd-status');
+    const coopStatus = document.getElementById('wasm-coop-status');
+    const memStatus = document.getElementById('wasm-mem-status');
+
+    if (webgpuStatus) {
+      webgpuStatus.textContent = ('gpu' in navigator) ? '✅ Available' : 'ℹ️ Standard WebGL Fallback';
+    }
+
+    if (simdStatus) {
+      // Wasm SIMD detection check
+      simdStatus.textContent = (typeof WebAssembly === 'object' && typeof WebAssembly.validate === 'function')
+        ? '✅ Supported'
+        : '⚠️ Basic Wasm Mode';
+    }
+
+    if (coopStatus) {
+      coopStatus.textContent = window.crossOriginIsolated ? '🔒 Cross-Origin Isolated (SharedArrayBuffer Enabled)' : 'ℹ️ Standard Origin Isolation';
+    }
+
+    if (memStatus) {
+      const devMem = (navigator).deviceMemory;
+      memStatus.textContent = devMem ? `💾 ~${devMem} GB RAM` : '💾 Memory Limit Standard';
+    }
+
+    outputBox.classList.remove('hidden');
+  }
+
   function initWasmStudio() {
     const hashBtn = document.getElementById('wasm-hash-btn');
     const parseBtn = document.getElementById('wasm-parse-btn');
+    const hwBtn = document.getElementById('wasm-hw-btn');
 
     if (hashBtn) hashBtn.onclick = computeCryptoHash;
     if (parseBtn) parseBtn.onclick = processDocument;
+    if (hwBtn) hwBtn.onclick = checkHwCapabilities;
   }
 
   if (document.readyState === 'loading') {

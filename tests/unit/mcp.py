@@ -73,3 +73,19 @@ def test_get_openwiki_concept() -> None:
     assert res["found"] is True
     assert res["matches_count"] > 0
     assert len(res["matches"]) > 0
+
+
+def test_validate_diagram_schema() -> None:
+    """Verifies diagram schema validation for valid and invalid Mermaid code."""
+    from tools.mcp.server import validate_diagram_schema
+
+    valid_flowchart = "graph TD\n  A[Start] --> B[End]"
+    res_valid: dict[str, Any] = validate_diagram_schema(valid_flowchart)
+    assert res_valid["valid"] is True
+    assert res_valid["diagram_type"] == "graph"
+    assert len(res_valid["warnings"]) == 0
+
+    invalid_diagram = "invalidType TD\n  A --> B"
+    res_invalid: dict[str, Any] = validate_diagram_schema(invalid_diagram)
+    assert res_invalid["valid"] is False
+    assert res_invalid["diagram_type"] == "unknown"

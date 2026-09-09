@@ -207,5 +207,60 @@ def get_openwiki_concept(concept_name: str) -> dict[str, Any]:
     }
 
 
+@mcp.tool()
+def validate_diagram_schema(diagram_code: str) -> dict[str, Any]:
+    """Validates Mermaid or architecture diagram syntax according to repository diagram standards.
+
+    Args:
+        diagram_code: Mermaid definition block or raw diagram content string.
+
+    Returns:
+        Validation results containing status, diagram type, line count, and warnings.
+    """
+    code = diagram_code.strip()
+    if not code:
+        return {"valid": False, "error": "Diagram code string is empty."}
+
+    valid_types = [
+        "graph",
+        "flowchart",
+        "sequenceDiagram",
+        "classDiagram",
+        "stateDiagram",
+        "erDiagram",
+        "gantt",
+        "pie",
+        "gitGraph",
+        "architecture",
+    ]
+
+    lines = [line.strip() for line in code.splitlines() if line.strip()]
+    first_line = lines[0] if lines else ""
+
+    detected_type = "unknown"
+    for dtype in valid_types:
+        if first_line.startswith(dtype):
+            detected_type = dtype
+            break
+
+    is_valid = detected_type != "unknown"
+    warnings: list[str] = []
+
+    if not is_valid:
+        warnings.append(
+            f"First non-empty line '{first_line}' does not match known Mermaid types ({', '.join(valid_types[:5])}...)."
+        )
+
+    if "-->" not in code and "-.->" not in code and "==>" not in code and detected_type in ["graph", "flowchart"]:
+        warnings.append("Flowchart diagram contains no connector arrows (e.g. '-->').")
+
+    return {
+        "valid": is_valid,
+        "diagram_type": detected_type,
+        "line_count": len(lines),
+        "warnings": warnings,
+    }
+
+
 if __name__ == "__main__":
     mcp.run()
