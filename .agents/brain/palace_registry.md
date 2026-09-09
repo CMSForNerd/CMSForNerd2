@@ -28,7 +28,8 @@ Sovereign Markdown Palace
 ├── Wing: Platform & Architecture
 │   ├── Room: room_jules_operations (docs/jules-platform-guide.md)
 │   ├── Room: room_clean_architecture (docs/explanation/modernisation-philosophy.md)
-│   └── Room: room_spatial_sandbox (docs/explanation/spatial-memory-and-sandbox.md)
+│   ├── Room: room_spatial_sandbox (docs/explanation/spatial-memory-and-sandbox.md)
+│   └── Room: room_webgpu_wasm_inferencing (docs/explanation/next-tech-webgpu-wasm-inferencing.md)
 ├── Wing: Tooling & Utilities
 │   ├── Room: room_web_design_guidelines (docs/explanation/web-design-guidelines-skill.md)
 │   └── Room: room_ui_improvements (docs/explanation/web-interface-improvements.md)
