@@ -21,6 +21,13 @@ tags: ["summary", "index", "navigation"]
 * [Introduction](README.md)
 * [Onboarding Map](START-HERE.md)
 
+## 🎓 Educational Laboratory Suite
+
+* [Lab Manual Overview](src/content/pages/lab-manual.md)
+* [Lab Module 8: WebAssembly SRI Whitelisting & Brotli Performance](src/content/pages/lab-module8.md)
+* [Lab Module 9: Advanced Playwright E2E & Cookie Boundaries](src/content/pages/lab-module9.md)
+* [Lab Module 10: Wasm Vector Search & FastMCP ADR Validation](src/content/pages/lab-module10.md)
+
 ## 📘 Migration Manuals & Platform Guides
 
 * [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
