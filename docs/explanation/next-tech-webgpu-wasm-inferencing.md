@@ -31,22 +31,171 @@ This architecture guide details the evaluation and implementation strategy for i
 
 As modern web applications transition from server-dependent computation to zero-latency, edge-first paradigms, **CMSForNerd2** leverages client-side WebAssembly and GPU compute shader execution. This architecture achieves zero backend server costs while providing complete operational privacy and high performance.
 
+#### 1. Standalone Production-Ready SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC" rx="12"/>
+
+  <!-- Main Title Banner -->
+  <rect x="30" y="20" width="840" height="48" fill="#0F172A" rx="8"/>
+  <text x="450" y="50" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
+    CMSForNerd2 Dual-Render On-Device AI &amp; WebAssembly Architecture
+  </text>
+
+  <!-- Tier 1 Container: Astro Build Pipeline -->
+  <rect x="30" y="85" width="840" height="175" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="10" filter="url(#shadow)"/>
+  <rect x="30" y="85" width="840" height="34" fill="#EFF6FF" rx="10"/>
+  <path d="M 30 119 L 870 119" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="50" y="107" fill="#1E40AF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">
+    TIER 1: ASTRO SSG STATIC BUILD PIPELINE (BUILD-TIME ENGINE)
+  </text>
+
+  <!-- Node 1: Astro Core -->
+  <rect x="50" y="135" width="240" height="105" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <text x="65" y="157" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">Astro 7.1 SSG Compiler</text>
+  <text x="65" y="177" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">ID: astro-ssg-core</text>
+  <text x="65" y="197" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Role: HTML5/ES6 Static Gen</text>
+  <text x="65" y="215" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Output: dist/ static assets</text>
+
+  <!-- Node 2: Pagefind Wasm -->
+  <rect x="330" y="135" width="240" height="105" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <text x="345" y="157" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">Pagefind Wasm Search</text>
+  <text x="345" y="177" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">ID: pagefind-wasm-cli</text>
+  <text x="345" y="197" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Role: Static Index Builder</text>
+  <text x="345" y="215" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Output: dist/pagefind/*.wasm</text>
+
+  <!-- Node 3: OpenWiki Graphviz -->
+  <rect x="610" y="135" width="240" height="105" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <text x="625" y="157" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">OpenWiki Graphviz Renderer</text>
+  <text x="625" y="177" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">ID: openwiki-dot-compiler</text>
+  <text x="625" y="197" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Role: DSOM Spatial Graph</text>
+  <text x="625" y="215" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Output: SVG Vector Graphs</text>
+
+  <!-- Connectors Tier 1 -> Tier 2 -->
+  <path d="M 170 240 L 170 295" stroke="#475569" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrow)"/>
+  <path d="M 450 240 L 450 295" stroke="#475569" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrow)"/>
+  <path d="M 730 240 L 730 295" stroke="#475569" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrow)"/>
+
+  <!-- Connector Badges -->
+  <rect x="115" y="258" width="110" height="20" fill="#E2E8F0" rx="4"/>
+  <text x="170" y="272" fill="#334155" font-family="Consolas, Monaco, monospace" font-size="10" text-anchor="middle">HTTP/2 Static</text>
+
+  <rect x="395" y="258" width="110" height="20" fill="#E2E8F0" rx="4"/>
+  <text x="450" y="272" fill="#334155" font-family="Consolas, Monaco, monospace" font-size="10" text-anchor="middle">Wasm Payload</text>
+
+  <rect x="675" y="258" width="110" height="20" fill="#E2E8F0" rx="4"/>
+  <text x="730" y="272" fill="#334155" font-family="Consolas, Monaco, monospace" font-size="10" text-anchor="middle">Inline Vector SVG</text>
+
+  <!-- Tier 2 Container: Client Hardware Execution Layer -->
+  <rect x="30" y="300" width="840" height="325" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="10" filter="url(#shadow)"/>
+  <rect x="30" y="300" width="840" height="34" fill="#DCFCE7" rx="10"/>
+  <path d="M 30 334 L 870 334" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="50" y="322" fill="#15803D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">
+    TIER 2: CLIENT HARDWARE EXECUTION LAYER (RUNTIME PARADIGM)
+  </text>
+
+  <!-- Subnet A: Wasm SIMD -->
+  <rect x="50" y="350" width="240" height="255" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <rect x="50" y="350" width="240" height="28" fill="#F1F5F9" rx="8"/>
+  <text x="170" y="369" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Wasm 128-bit SIMD Vector Engine</text>
+  <text x="65" y="398" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">Subnet: CPU-Vector-Ops</text>
+  <text x="65" y="420" fill="#334155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">Capabilities:</text>
+  <text x="65" y="440" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• 128-bit Vector Registers</text>
+  <text x="65" y="460" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• 4x f32 Single Precision</text>
+  <text x="65" y="480" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• Cosine Embedding Matrix</text>
+  <text x="65" y="500" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• Fallback CPU Engine</text>
+  <rect x="65" y="525" width="210" height="65" fill="#FFFFFF" stroke="#E2E8F0" rx="6"/>
+  <text x="75" y="545" fill="#0F172A" font-family="Consolas, Monaco, monospace" font-size="10" font-weight="bold">SLM Target:</text>
+  <text x="75" y="563" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="10">Gemma-2b / ONNX Wasm</text>
+  <text x="75" y="579" fill="#16A34A" font-family="Consolas, Monaco, monospace" font-size="10">Status: Validated (v128)</text>
+
+  <!-- Subnet B: WebGPU WGSL -->
+  <rect x="330" y="350" width="240" height="255" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <rect x="330" y="350" width="240" height="28" fill="#F1F5F9" rx="8"/>
+  <text x="450" y="369" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">WebGPU WGSL Compute Pipeline</text>
+  <text x="345" y="398" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">Subnet: GPU-Compute-Shaders</text>
+  <text x="345" y="420" fill="#334155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">Capabilities:</text>
+  <text x="345" y="440" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• WGSL GEMM Workgroups</text>
+  <text x="345" y="460" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• Parallel MatMul Shaders</text>
+  <text x="345" y="480" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• Zero-Copy Storage Buffers</text>
+  <text x="345" y="500" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• Hardware Accelerated</text>
+  <rect x="345" y="525" width="210" height="65" fill="#FFFFFF" stroke="#E2E8F0" rx="6"/>
+  <text x="355" y="545" fill="#0F172A" font-family="Consolas, Monaco, monospace" font-size="10" font-weight="bold">SLM Target:</text>
+  <text x="355" y="563" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="10">Phi-3-mini / Llama 3.2</text>
+  <text x="355" y="579" fill="#16A34A" font-family="Consolas, Monaco, monospace" font-size="10">Status: WebGPU API Ready</text>
+
+  <!-- Subnet C: Security Isolation -->
+  <rect x="610" y="350" width="240" height="255" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="8"/>
+  <rect x="610" y="350" width="240" height="28" fill="#F1F5F9" rx="8"/>
+  <text x="730" y="369" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Security &amp; Isolation Sandbox</text>
+  <text x="625" y="398" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="11">Subnet: Browser-Security-Tier</text>
+  <text x="625" y="420" fill="#334155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">Capabilities:</text>
+  <text x="625" y="440" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• COOP: same-origin</text>
+  <text x="625" y="460" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• COEP: require-corp</text>
+  <text x="625" y="480" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• SharedArrayBuffer Lock</text>
+  <text x="625" y="500" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">• CSP SHA-256 Script Hash</text>
+  <rect x="625" y="525" width="210" height="65" fill="#FFFFFF" stroke="#E2E8F0" rx="6"/>
+  <text x="635" y="545" fill="#0F172A" font-family="Consolas, Monaco, monospace" font-size="10" font-weight="bold">Isolation Status:</text>
+  <text x="635" y="563" fill="#475569" font-family="Consolas, Monaco, monospace" font-size="10">crossOriginIsolated</text>
+  <text x="635" y="579" fill="#16A34A" font-family="Consolas, Monaco, monospace" font-size="10">Status: Enforced / Nonced</text>
+</svg>
 ```
-+-----------------------------------------------------------------------------------+
-|                            CMSForNerd2 Static Frontend                            |
-+-----------------------------------------------------------------------------------+
-|  Astro SSG Build Pipeline (Pagefind Wasm Search & Graphviz OpenWiki Compilation)  |
-+-----------------------------------------------------------------------------------+
-                                         |
-                                         v
-+-----------------------------------------------------------------------------------+
-|                        Client Hardware Execution Layer                            |
-+-----------------------------------------------------------------------------------+
-|  1. WebAssembly 128-bit SIMD    |  2. WebGPU WGSL Pipelines |  3. CSP & Isolation  |
-|     - CPU Vector Inferences     |     - Matrix Multiplies   |     - COOP / COEP    |
-|     - FlexSearch / Pagefind Wasm|     - Phi-3 / Llama-3.2   |     - SHA-256 Whitelist|
-+-----------------------------------------------------------------------------------+
+
+#### 2. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
+
+```mermaid
+graph TD
+    subgraph TIER1["Tier 1: Astro SSG Build Pipeline (Build-Time Engine)"]
+        ASTRO["Astro 7.1 SSG Compiler<br/><code>astro-ssg-core</code><br/>HTML5/ES6 Static Assets"]
+        PAGEFIND["Pagefind Wasm Search<br/><code>pagefind-wasm-cli</code><br/>Static Index Bundler"]
+        GRAPHVIZ["OpenWiki Graphviz Renderer<br/><code>openwiki-dot-compiler</code><br/>DSOM Vector Graph Builder"]
+    end
+
+    subgraph TIER2["Tier 2: Client Hardware Execution Layer (Runtime Paradigm)"]
+        subgraph SUBNET_A["Subnet A: Wasm 128-bit SIMD Vector Engine"]
+            SIMD["WebAssembly SIMD Runtime<br/><code>CPU-Vector-Ops</code><br/>4x f32 Lanes / Embedding Cosine"]
+            SIMD_MODEL["SLM Target: Gemma-2b / ONNX Wasm"]
+        end
+
+        subgraph SUBNET_B["Subnet B: WebGPU WGSL Compute Pipeline"]
+            WEBGPU["WebGPU Shading Language<br/><code>GPU-Compute-Shaders</code><br/>WGSL GEMM MatMul Shaders"]
+            WEBGPU_MODEL["SLM Target: Phi-3-mini / Llama 3.2"]
+        end
+
+        subgraph SUBNET_C["Subnet C: Security & Isolation Sandbox"]
+            SECURITY["Cross-Origin Isolation<br/><code>COOP: same-origin / COEP: require-corp</code><br/>SharedArrayBuffer & CSP SHA-256"]
+        end
+    end
+
+    ASTRO -->|"HTTP/2 Static Assets"| SECURITY
+    PAGEFIND -->|"Wasm Payload / IPC"| SIMD
+    GRAPHVIZ -->|"Inline Vector SVG"| WEBGPU
+
+    SIMD --- SIMD_MODEL
+    WEBGPU --- WEBGPU_MODEL
 ```
+
+#### 3. Summary Interface & Routing Table
+
+| Source Component | Target Component | Port / Protocol / API Ingress | Security Boundary / Trust Zone / Access Key | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **Astro SSG Compiler** | Static Frontend (`dist/`) | `File I/O / Build Output` | Build-time Environment | Generates static HTML5, CSS3, and ES6+ bundles without backend server requirements. |
+| **Pagefind Wasm Engine** | Client Wasm Runtime | `HTTP/2 / Wasm Binary Fetch` | Static Distribution / Public | Downloads micro-chunks of Wasm search index dynamically based on user query tokens. |
+| **OpenWiki DOT Compiler** | Layout Document DOM | `Astro SSG Build Hook / Inline SVG` | Build-time Renderer | Pre-compiles Graphviz DOT graphs into raw inline SVG for zero-latency client rendering. |
+| **WebAssembly SIMD Engine** | Client CPU Subsystem | `Wasm SIMD Bytecode / v128` | Browser Sandbox (Unprivileged) | Executes 128-bit vector SIMD matrix calculations for embedding similarity when WebGPU is unavailable. |
+| **WebGPU Compute Shader** | Dedicated Client GPU | `WebGPU API / WGSL Shader Buffer` | Driver & GPU Memory Boundary | Dispatches parallelized GEMM matrix multiplication workgroups directly to hardware for SLMs (Phi-3-mini, Llama 3.2). |
+| **Security Sandbox Header** | Web Browser Context | `HTTP Response Headers (COOP/COEP)` | OWASP Hardened Policy | Enforces `crossOriginIsolated` state to unlock `SharedArrayBuffer` for multi-threaded Wasm and WebGPU workloads. |
 
 ---
 
