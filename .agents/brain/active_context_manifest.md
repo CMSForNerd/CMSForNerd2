@@ -20,10 +20,17 @@ tags: ["context-manifest", "dsom-protocol", "active-scope"]
 
 The following files constitute the active engineering context for this session:
 
-- `docs/explanation/next-tech-webgpu-wasm-inferencing.md` (WebGPU WGSL and Wasm SIMD SLM Inferencing Architecture Guide with dual-render SVG + Mermaid diagrams)
-- `src/components/WasmStudio.astro` (Client-side interactive WebGPU, Wasm SIMD, COOP/COEP isolation, and device memory capability diagnostics)
-- `src/pages/wasm-studio.astro` (Wasm Studio container page)
+- `skills/diagram-design-standards/SKILL.md` (Adopted Diagram skill)
+- `.agents/skills/diagram-design-standards/SKILL.md` (DSOM agent skill)
+- `docs/explanation/diagram-design-standards-skill.md` (Diagram Skill overview documentation)
+- `skills/web-design-guidelines/SKILL.md` (Adopted Vercel skill)
+- `.agents/skills/web-design-guidelines/SKILL.md` (DSOM agent skill)
+- `docs/explanation/web-design-guidelines-skill.md` (Skill overview documentation)
+- `docs/explanation/web-interface-improvements.md` (UI improvement findings)
 - `docs/governance/LLM-WIKI-ADOPTION.md` (DSOM vs LLM WIKI Adoption Strategy)
+- `src/components/Widgets.astro` (UI best practice fixes)
+- `tests/conftest.py` (Resilient preview server process group session fixture)
+- `tests/test_e2e.py` (Playwright E2E test suite)
 - `.agents/brain/task.md` (Active execution checklist)
 - `.agents/brain/walkthrough.md` (Historical execution anchors)
 - `.agents/brain/knowledge.md` (Compiled Jules spatial knowledge)

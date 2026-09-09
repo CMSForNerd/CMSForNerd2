@@ -28,8 +28,8 @@ tags: ["summary", "index", "navigation"]
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
 * [Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)
+* [Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)
 * [Web Interface Improvements](docs/explanation/web-interface-improvements.md)
-* [Next Technologies: WebGPU & Wasm AI Guide](docs/explanation/next-tech-webgpu-wasm-inferencing.md)
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
 ## 💼 Executive Blueprint

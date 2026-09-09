@@ -101,6 +101,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 | **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
+| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining standalone SVG vector graphics, Mermaid blocks, and routing tables. |
 
 ---
 

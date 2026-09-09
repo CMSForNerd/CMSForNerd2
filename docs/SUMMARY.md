@@ -48,9 +48,9 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
+* [Diagram Design Standards Skill Overview](explanation/diagram-design-standards-skill.md)
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 * [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)
-* [Next Technologies: WebGPU & Wasm AI Guide](explanation/next-tech-webgpu-wasm-inferencing.md)
 
 ## 💼 Executive Blueprint
 

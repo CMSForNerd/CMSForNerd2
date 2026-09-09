@@ -5,30 +5,18 @@ import WasmStudio from '../components/WasmStudio.astro';
 ---
 
 <Layout
-  title="⚙️ WebAssembly Cryptographic & Hardware Compute Studio"
-  description="Client-side WebAssembly suite for cryptographic SHA-256 hash generation, CSP whitelist calculations, OKF v0.2 document processing, and WebGPU / Wasm SIMD hardware diagnostics."
+  title="⚙️ WebAssembly Cryptographic & Document Processing Studio"
+  description="Client-side WebAssembly suite for cryptographic SHA-256 hash generation, CSP whitelist calculations, and OKF v0.2 document processing."
   slug="wasm-studio"
 >
-  <h1>⚙️ WebAssembly Cryptographic & Hardware Compute Studio</h1>
+  <h1>⚙️ WebAssembly Cryptographic & Document Processing Studio</h1>
   <p style="font-size: 1.05rem; color: var(--lab-muted, #64748b); line-height: 1.6;">
-    Welcome to the <strong>CMSForNerd2</strong> client-side WebAssembly (Wasm) and hardware compute studio. This module demonstrates browser-native, zero-server execution of cryptographic hashing, Content Security Policy (CSP) whitelist generation, Open Knowledge Format (OKF) v0.2 document structure parsing, and WebGPU / Wasm SIMD hardware capability diagnostics for client-side AI inferencing.
+    Welcome to the <strong>CMSForNerd2</strong> client-side WebAssembly (Wasm) studio. This module demonstrates browser-native, zero-server execution of cryptographic hashing, Content Security Policy (CSP) whitelist generation, and Open Knowledge Format (OKF) v0.2 document structure parsing.
   </p>
 
   <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
 
   <section>
-    <h2>🖥️ Client Hardware & WebGPU Diagnostics</h2>
-    <p>
-      Next-generation web applications leverage WebGPU (WGSL compute pipelines) and WebAssembly 128-bit SIMD vectorization to execute Small Language Models (Phi-3-mini, Llama 3.2, Gemma 2b) directly on client hardware without backend server latency.
-    </p>
-    <ul>
-      <li><strong>WebGPU WGSL Compute:</strong> Hardware-accelerated matrix multiplication for vector embeddings and neural network layers.</li>
-      <li><strong>Wasm 128-bit SIMD:</strong> CPU vector instruction fallback ensuring high performance across devices without discrete GPUs.</li>
-      <li><strong>Isolation Security:</strong> Evaluates COOP/COEP header requirements for multi-threaded <code>SharedArrayBuffer</code> execution.</li>
-    </ul>
-  </section>
-
-  <section style="margin-top: 1.5rem;">
     <h2>🔐 Client-Side Cryptographic Hashing & CSP Whitelisting</h2>
     <p>
       In high-security static site deployments, inline scripts and critical assets must be whitelisted using cryptographic SHA-256 digests in HTTP Content Security Policy (<code>Content-Security-Policy</code>) headers.
@@ -58,7 +46,7 @@ import WasmStudio from '../components/WasmStudio.astro';
 
   <footer>
     <p style="font-size: 0.8rem; opacity: 0.7;">
-      <em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-09</em><br />
+      <em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06</em><br />
       <em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em>
     </p>
   </footer>
