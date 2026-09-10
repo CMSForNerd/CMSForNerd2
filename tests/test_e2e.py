@@ -1,7 +1,7 @@
 """Playwright End-to-End (E2E) browser test suite for CMSForNerd2.
 
 Verifies dynamic theme switching (light/dark mode toggle), content page routing,
-PWA service worker/manifest registration, and captures screenshot artifacts.
+PWA service worker/manifest registration, Wasm Studio interactive workflows, and captures screenshot artifacts.
 """
 
 import requests
@@ -92,7 +92,7 @@ def test_pwa_manifest_and_sw() -> None:
 
 
 def test_wasm_studio_interactive_workflows() -> None:
-    """Verifies client-side WebAssembly Studio SHA-256 hash calculation and OKF parsing."""
+    """Verifies client-side WebAssembly Studio SHA-256 hash calculation, OKF parsing, WebLLM local RAG, and ONNX streaming."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -143,6 +143,27 @@ This is a sample document for testing OKF analysis.
         assert "Web Worker" in vec_thread, f"Unexpected vector processing thread status: {vec_thread}"
         assert "IndexedDB" in idb_status, f"Unexpected IndexedDB status text: {idb_status}"
         assert len(results_list) > 0, "FastMCP semantic search returned no ranked results."
+
+        # Test WebLLM + WebGPU On-Device Generation Workflow
+        page.click("#wasm-webllm-load-btn")
+        page.wait_for_selector("#wasm-webllm-output:not(.hidden)", timeout=3000)
+        webllm_status = page.text_content("#wasm-webllm-status") or ""
+        assert "Initialized" in webllm_status or "Loaded" in webllm_status, f"Unexpected WebLLM status: {webllm_status}"
+
+        page.click("#wasm-webllm-gen-btn")
+        page.wait_for_selector("#wasm-webllm-result", timeout=5000)
+        page.wait_for_function("document.querySelector('#wasm-webllm-status').textContent.includes('Synthesis Complete')", timeout=10000)
+        webllm_res = page.text_content("#wasm-webllm-result") or ""
+        assert "WebLLM On-Device Synthesis Result" in webllm_res, f"Unexpected WebLLM synthesis result: {webllm_res}"
+
+        # Test HuggingFace ONNX Web Runtime Streaming Completion Workflow
+        page.click("#wasm-onnx-stream-btn")
+        page.wait_for_selector("#wasm-onnx-output:not(.hidden)", timeout=3000)
+        onnx_status = page.text_content("#wasm-onnx-status") or ""
+        assert "ONNX Wasm Stream Active" in onnx_status, f"Unexpected ONNX stream status: {onnx_status}"
+        page.wait_for_function("document.querySelector('#wasm-onnx-stream-res').textContent.includes('ONNX')", timeout=5000)
+        onnx_res = page.text_content("#wasm-onnx-stream-res") or ""
+        assert "ONNX" in onnx_res, f"Unexpected ONNX completion output: {onnx_res}"
 
         browser.close()
 

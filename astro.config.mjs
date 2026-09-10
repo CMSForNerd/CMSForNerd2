@@ -44,6 +44,9 @@ export default defineConfig({
     mdx(),
     AstroPWA({
       registerType: 'autoUpdate',
+      workbox: {
+        maximumFileSizeToCacheInBytes: 35 * 1024 * 1024
+      },
       manifest: {
         name: 'CMSForNerd2',
         short_name: 'CFN2',
