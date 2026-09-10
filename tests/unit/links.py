@@ -3,8 +3,76 @@
 import os
 import re
 import unittest
+from html.parser import HTMLParser
 
 import requests
+
+
+class LinkExtractor(HTMLParser):
+    """HTML parser that extracts link targets while ignoring code, script, style, and pre blocks."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.ignored_tags = {"script", "style", "pre", "code"}
+        self.stack: list[str] = []
+        self.extracted_links: list[str] = []
+        self.text_chunks: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag_lower = tag.lower()
+        if tag_lower in self.ignored_tags:
+            self.stack.append(tag_lower)
+            return
+
+        if not self.stack:
+            for name, value in attrs:
+                if name.lower() in ("href", "src", "action") and value:
+                    self.extracted_links.append(value)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag_lower = tag.lower()
+        if self.stack and self.stack[-1] == tag_lower:
+            self.stack.pop()
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag_lower = tag.lower()
+        if not self.stack and tag_lower not in self.ignored_tags:
+            for name, value in attrs:
+                if name.lower() in ("href", "src", "action") and value:
+                    self.extracted_links.append(value)
+
+    def handle_data(self, data: str) -> None:
+        if not self.stack:
+            self.text_chunks.append(data)
+
+
+def parse_links_from_file(filepath: str) -> list[str]:
+    """Parses HTML/Astro/Markdown content and extracts all candidate href, src, action, and Markdown links.
+
+    Args:
+        filepath: Path to the template or content file.
+
+    Returns:
+        List of link target strings.
+    """
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+
+    # Strip markdown backtick code blocks first to prevent code samples matching as links
+    clean_content = re.sub(r"```.*?```", "", content, flags=re.DOTALL)
+    clean_content = re.sub(r"`.*?`", "", clean_content)
+
+    parser = LinkExtractor()
+    parser.feed(clean_content)
+
+    links = list(parser.extracted_links)
+
+    # Extract Markdown links [text](target) from text chunks outside ignored tags
+    md_pattern = re.compile(r"""\[(?:[^\]]+)\]\(([^)]+)\)""")
+    remaining_text = "".join(parser.text_chunks)
+    links.extend(md_pattern.findall(remaining_text))
+
+    return links
 
 
 class InternalBrokenLinksTest(unittest.TestCase):
@@ -24,24 +92,10 @@ class InternalBrokenLinksTest(unittest.TestCase):
 
         self.assertTrue(len(files) > 0, "No template or content files found to scan for internal links.")
 
-        href_pattern = re.compile(r"""(?:href|src|action)=["\x27]([^"\x27]+)["\x27]""", re.IGNORECASE)
-        md_pattern = re.compile(r"""\[(?:[^\]]+)\]\(([^)]+)\)""")
-
         unresolved_links: list[tuple[str, str]] = []
 
         for filepath in files:
-            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-                content = f.read()
-
-            # Strip script, style, pre, and code blocks to prevent code samples and logic matching as links
-            clean_content = re.sub(r"<script.*?>.*?</script>", "", content, flags=re.DOTALL | re.IGNORECASE)
-            clean_content = re.sub(r"<style.*?>.*?</style>", "", clean_content, flags=re.DOTALL | re.IGNORECASE)
-            clean_content = re.sub(r"<pre.*?>.*?</pre>", "", clean_content, flags=re.DOTALL | re.IGNORECASE)
-            clean_content = re.sub(r"<code.*?>.*?</code>", "", clean_content, flags=re.DOTALL | re.IGNORECASE)
-            clean_content = re.sub(r"```.*?```", "", clean_content, flags=re.DOTALL)
-            clean_content = re.sub(r"`.*?`", "", clean_content)
-
-            targets = href_pattern.findall(clean_content) + md_pattern.findall(clean_content)
+            targets = parse_links_from_file(filepath)
 
             for link in targets:
                 link = link.strip()
@@ -119,16 +173,10 @@ class ExternalBrokenLinksTest(unittest.TestCase):
 
         self.assertTrue(len(files) > 0, "No template or content files found to scan for external links.")
 
-        href_pattern = re.compile(r"""(?:href|src)=["\x27]([^"\x27]+)["\x27]""", re.IGNORECASE)
-        md_pattern = re.compile(r"""\[(?:[^\]]+)\]\(([^)]+)\)""")
-
         external_links: set[str] = set()
 
         for filepath in files:
-            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-                content = f.read()
-
-            targets = href_pattern.findall(content) + md_pattern.findall(content)
+            targets = parse_links_from_file(filepath)
 
             for link in targets:
                 link = link.strip()
