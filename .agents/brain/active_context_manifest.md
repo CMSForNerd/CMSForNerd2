@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T15:05:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["context-manifest", "dsom-protocol", "active-scope"]
 ---
 
@@ -20,26 +20,22 @@ tags: ["context-manifest", "dsom-protocol", "active-scope"]
 
 The following files constitute the active engineering context for this session:
 
-- `skills/diagram-design-standards/SKILL.md` (Adopted Diagram skill)
-- `.agents/skills/diagram-design-standards/SKILL.md` (DSOM agent skill)
-- `docs/explanation/diagram-design-standards-skill.md` (Diagram Skill overview documentation)
-- `skills/web-design-guidelines/SKILL.md` (Adopted Vercel skill)
-- `.agents/skills/web-design-guidelines/SKILL.md` (DSOM agent skill)
-- `docs/explanation/web-design-guidelines-skill.md` (Skill overview documentation)
-- `docs/explanation/web-interface-improvements.md` (UI improvement findings)
-- `docs/governance/LLM-WIKI-ADOPTION.md` (DSOM vs LLM WIKI Adoption Strategy)
-- `nginx/nginx.conf` (Gzip static & Wasm immutable caching headers)
-- `render.yaml` (Static caching policies for dist/pagefind/ and _astro/)
-- `tools/eod-palace.sh` (DSOM End-of-Day Spatial Palace & Pre-Commit Guardrail)
-- `tools/mcp/server.py` (FastMCP gateway with validate_diagram_schema tool)
-- `tests/unit/mcp.py` (Unit tests for FastMCP diagram schema validation)
-- `src/components/WasmStudio.astro` (Browser WebAssembly hardware SIMD capability diagnostics)
-- `tests/test_e2e.py` (Playwright E2E test suite covering Wasm Studio & Pagefind search)
+- `.agents/skills/triple-render-architecture-diagram/SKILL.md` (Triple-Render Architecture Diagram Skill)
+- `skills/triple-render-architecture-diagram/SKILL.md` (Public Agent Skill)
+- `.agents/skills/diagram-design-standards/SKILL.md` (Updated Diagram Design Standards skill)
+- `skills/diagram-design-standards/SKILL.md` (Updated Public Skill)
+- `docs/explanation/diagram-design-standards-skill.md` (Skill overview documentation)
+- `docs/reference/deploy-static.md` (Modernized 4-tier diagram)
+- `docs/explanation/spatial-memory-and-sandbox.md` (Modernized 4-tier diagram)
+- `docs/explanation/fastmcp-wasm-architecture.md` (Modernized 4-tier diagrams)
+- `docs/jules-platform-guide.md` (Modernized 4-tier diagrams)
+- `docs/README.md` (Modernized 4-tier Diáktaxis diagram)
+- `src/styles/global.css` (Light mode variables & SVG theme/print rules)
 - `.agents/brain/knowledge.md` (Compiled Jules spatial knowledge)
 - `.agents/brain/palace_registry.md` (Palace spatial registry)
 - `.agents/brain/active_context_manifest.md` (This file)
 
 ---
 
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

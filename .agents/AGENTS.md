@@ -12,7 +12,7 @@ sources:
   url: .agents/AGENTS.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
@@ -67,8 +67,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 14 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
-By using the open standard for extending agent capabilities, our workspace publishes 22 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -89,9 +88,6 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
 | **Google Deep Research & Search** | `.agents/skills/google-deep-research/` | Iterative deep web research, `/learn` knowledge ingestion, and OKF v0.2 trust signal generation with `uv python` token optimisation. |
 | **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
-| **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` & `.agents/skills/docstring/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
-| **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
-| **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
 | **Documentation Writing** | `.agents/skills/docs-write/` | Guides creating clear, conversational, reader-focused documentation in Standard UK English adhering to Diátaxis principles. |
 | **Documentation Review** | `.agents/skills/docs-review/` | Provides a structured review protocol for verifying technical claims, evidence, and style guide compliance across Markdown docs. |
 | **Document Processing & Conversion** | `.agents/skills/docx/` | Manages professional Word document (.docx) creation, tracked changes redlining, comment extraction, and Pandoc Markdown conversion. |
@@ -101,7 +97,8 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 | **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
-| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining standalone SVG vector graphics, Mermaid blocks, and routing tables. |
+| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining ASCII trees, standalone Dark Slate SVG vector graphics, Mermaid blocks, and routing tables. |
+| **Triple-Render Architecture Diagram** | `.agents/skills/triple-render-architecture-diagram/` | Enforces 4-tier visual deliverables combining ASCII trees, Dark Slate raw SVGs, Mermaid diagrams, and summary routing tables. |
 
 ---
 
@@ -130,10 +127,10 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
    * `okf_version` / `spec_version`: `0.1` or `"0.2"`.
    * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
    * `title`: Human-readable display title (double-quoted if containing special characters).
-   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
+   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-08T00:00:00Z"`).
    * `topics`: An array of associated category tags.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
