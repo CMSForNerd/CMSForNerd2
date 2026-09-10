@@ -12,6 +12,7 @@ class LinkExtractor(HTMLParser):
     """HTML parser that extracts link targets while ignoring code, script, style, and pre blocks."""
 
     def __init__(self) -> None:
+        """Initialises the HTML parser with state tracking for ignored tags and extracted links."""
         super().__init__()
         self.ignored_tags = {"script", "style", "pre", "code"}
         self.stack: list[str] = []
@@ -19,6 +20,12 @@ class LinkExtractor(HTMLParser):
         self.text_chunks: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Handles the opening tag event to track ignored elements and capture link attributes.
+
+        Args:
+            tag: The HTML tag name in lower case.
+            attrs: A list of (attribute_name, attribute_value) tuples.
+        """
         tag_lower = tag.lower()
         if tag_lower in self.ignored_tags:
             self.stack.append(tag_lower)
@@ -30,11 +37,22 @@ class LinkExtractor(HTMLParser):
                     self.extracted_links.append(value)
 
     def handle_endtag(self, tag: str) -> None:
+        """Handles the closing tag event to update element stack state.
+
+        Args:
+            tag: The HTML tag name in lower case.
+        """
         tag_lower = tag.lower()
         if self.stack and self.stack[-1] == tag_lower:
             self.stack.pop()
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Handles self-closing tag events to extract attributes when not inside ignored blocks.
+
+        Args:
+            tag: The HTML tag name in lower case.
+            attrs: A list of (attribute_name, attribute_value) tuples.
+        """
         tag_lower = tag.lower()
         if not self.stack and tag_lower not in self.ignored_tags:
             for name, value in attrs:
@@ -42,6 +60,11 @@ class LinkExtractor(HTMLParser):
                     self.extracted_links.append(value)
 
     def handle_data(self, data: str) -> None:
+        """Handles text data chunks between tags when not enclosed in ignored blocks.
+
+        Args:
+            data: Raw text content between tags.
+        """
         if not self.stack:
             self.text_chunks.append(data)
 
