@@ -81,10 +81,10 @@
 
 /* Force light theme via class on root or HTML */
 .theme-light, :root.theme-light {
-    --lab-bg: #f8f9fa;
+    --lab-bg: #ffffff;
     --lab-surface: #ffffff;
-    --lab-text: #1e293b;
-    --lab-muted: #64748b;
+    --lab-text: #0f172a;
+    --lab-muted: #475569;
     --lab-border: #e2e8f0;
     --lab-primary: #0f172a;
     --lab-purple: #8e44ad;
@@ -92,14 +92,14 @@
 
     /* -- ADAPTIVE COMPONENT TOKENS FOR LIGHT THEME -- */
     --lab-section-bg: #ffffff;
-    --lab-box-bg: #f9f9f9;
+    --lab-box-bg: #f8fafc;
     --lab-alert-bg: #e6f7ff;
     --lab-warning-bg: #fff3cd;
     --lab-vulnerable-bg: #ffffff;
     --lab-secure-bg: #ffffff;
     --lab-cta-bg: #fffbeb;
-    --lab-code-bg: #2d2d2d;
-    --lab-code-text: #ccc;
+    --lab-code-bg: #f8fafc;
+    --lab-code-text: #0f172a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -379,5 +379,162 @@ body {
 
     #content {
         padding: 20px;
+    }
+}
+
+/**
+ * [10. TRIPLE-RENDER DIAGRAM & CODE BLOCK LIGHT / PRINT MODE ADAPTIVE RULES]
+ * Dynamically transforms Dark Slate SVGs, code blocks, and Mermaid blocks
+ * into crisp white canvas rendering in Light Mode and Print Mode to save toner.
+ */
+.theme-light svg rect[fill="#0F172A"],
+.theme-light svg rect[fill="#0f172a"],
+.theme-light svg rect[fill="#0B0F19"],
+.theme-light svg rect[fill="#0b0f19"],
+:root.theme-light svg rect[fill="#0F172A"],
+:root.theme-light svg rect[fill="#0f172a"],
+:root.theme-light svg rect[fill="#0B0F19"],
+:root.theme-light svg rect[fill="#0b0f19"] {
+    fill: #ffffff !important;
+    stroke: #e2e8f0 !important;
+}
+
+.theme-light svg rect[fill="#1E293B"],
+.theme-light svg rect[fill="#1e293b"],
+:root.theme-light svg rect[fill="#1E293B"],
+:root.theme-light svg rect[fill="#1e293b"] {
+    fill: #f8fafc !important;
+    stroke: #cbd5e1 !important;
+}
+
+.theme-light svg rect[fill="#334155"],
+.theme-light svg rect[fill="#334155"],
+:root.theme-light svg rect[fill="#334155"],
+:root.theme-light svg rect[fill="#334155"] {
+    fill: #e2e8f0 !important;
+}
+
+.theme-light svg text[fill="#F8FAFC"],
+.theme-light svg text[fill="#f8fafc"],
+.theme-light svg text[fill="#FFFFFF"],
+.theme-light svg text[fill="#ffffff"],
+.theme-light svg text[fill="#E2E8F0"],
+.theme-light svg text[fill="#e2e8f0"],
+:root.theme-light svg text[fill="#F8FAFC"],
+:root.theme-light svg text[fill="#f8fafc"],
+:root.theme-light svg text[fill="#FFFFFF"],
+:root.theme-light svg text[fill="#ffffff"],
+:root.theme-light svg text[fill="#E2E8F0"],
+:root.theme-light svg text[fill="#e2e8f0"] {
+    fill: #0f172a !important;
+}
+
+/* Rich, print-suitable deep title labels */
+.theme-light svg text[fill="#60A5FA"], .theme-light svg text[fill="#60a5fa"],
+:root.theme-light svg text[fill="#60A5FA"], :root.theme-light svg text[fill="#60a5fa"] {
+    fill: #1d4ed8 !important;
+}
+
+.theme-light svg text[fill="#4ADE80"], .theme-light svg text[fill="#4ade80"],
+:root.theme-light svg text[fill="#4ADE80"], :root.theme-light svg text[fill="#4ade80"] {
+    fill: #15803d !important;
+}
+
+.theme-light svg text[fill="#FBBF24"], .theme-light svg text[fill="#fbbf24"],
+:root.theme-light svg text[fill="#FBBF24"], :root.theme-light svg text[fill="#fbbf24"] {
+    fill: #b45309 !important;
+}
+
+.theme-light svg text[fill="#C084FC"], .theme-light svg text[fill="#c084fc"],
+:root.theme-light svg text[fill="#C084FC"], :root.theme-light svg text[fill="#c084fc"] {
+    fill: #6b21a8 !important;
+}
+
+.theme-light svg text[fill="#38BDF8"], .theme-light svg text[fill="#38bdf8"],
+:root.theme-light svg text[fill="#38BDF8"], :root.theme-light svg text[fill="#38bdf8"] {
+    fill: #0284c7 !important;
+}
+
+.theme-light svg text[fill="#A7F3D0"], .theme-light svg text[fill="#a7f3d0"],
+:root.theme-light svg text[fill="#A7F3D0"], :root.theme-light svg text[fill="#a7f3d0"] {
+    fill: #047857 !important;
+}
+
+/* Lines, paths, and arrows */
+.theme-light svg path[stroke="#94A3B8"], .theme-light svg line[stroke="#94A3B8"],
+.theme-light svg path[stroke="#334155"], .theme-light svg line[stroke="#334155"],
+.theme-light svg path[stroke="#475569"], .theme-light svg line[stroke="#475569"],
+:root.theme-light svg path[stroke="#94A3B8"], :root.theme-light svg line[stroke="#94A3B8"],
+:root.theme-light svg path[stroke="#334155"], :root.theme-light svg line[stroke="#334155"],
+:root.theme-light svg path[stroke="#475569"], :root.theme-light svg line[stroke="#475569"] {
+    stroke: #475569 !important;
+}
+
+.theme-light svg marker path,
+:root.theme-light svg marker path {
+    fill: #475569 !important;
+}
+
+/* Code blocks and Mermaid blocks adaptation */
+.theme-light pre,
+.theme-light code,
+.theme-light .mermaid,
+.theme-light pre.mermaid,
+:root.theme-light pre,
+:root.theme-light code,
+:root.theme-light .mermaid,
+:root.theme-light pre.mermaid {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+/* Print Mode overrides */
+@media print {
+    body, #container, #content, .content-body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+    }
+
+    /* Hide interactive UI elements when printing */
+    .top-header, #top, .sidebar-nav, #left, #right, .theme-switcher, .theme-switcher-container, .print-btn, .sitemap-link, #footer {
+        display: none !important;
+    }
+
+    #container {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    svg rect[fill="#0F172A"], svg rect[fill="#0f172a"], svg rect[fill="#0B0F19"], svg rect[fill="#0b0f19"] {
+        fill: #ffffff !important;
+        stroke: #000000 !important;
+    }
+
+    svg rect[fill="#1E293B"], svg rect[fill="#1e293b"] {
+        fill: #f8fafc !important;
+        stroke: #64748b !important;
+    }
+
+    svg rect[fill="#334155"] {
+        fill: #e2e8f0 !important;
+    }
+
+    svg text {
+        fill: #000000 !important;
+    }
+
+    svg text[fill="#60A5FA"], svg text[fill="#60a5fa"] { fill: #1d4ed8 !important; }
+    svg text[fill="#4ADE80"], svg text[fill="#4ade80"] { fill: #15803d !important; }
+    svg text[fill="#FBBF24"], svg text[fill="#fbbf24"] { fill: #b45309 !important; }
+    svg text[fill="#C084FC"], svg text[fill="#c084fc"] { fill: #6b21a8 !important; }
+
+    pre, code, .mermaid {
+        background-color: #ffffff !important;
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
     }
 }
