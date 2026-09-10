@@ -13,7 +13,7 @@ sources:
   url: docs/jules-platform-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-14T10:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 ---
 
@@ -36,31 +36,126 @@ Modern software and cloud engineering require rapid iteration without sacrificin
 3. **Deep State of Mind (DSOM) Governance:** A metacognitive governance framework enforcing persistent spatial memory, zero context decay, and human-in-the-loop verification across all agent interactions.
 4. **Multi-Agent Pair-Programming Synergy:** An operational ecosystem where Google Jules acts as an autonomous senior co-engineer in the cloud, working side-by-side with human engineers on GitHub PRs, while Google Antigravity orchestrates local CLI operations and task delegations.
 
+#### 1. ASCII Tree Diagram
+
 ```
-+-----------------------------------------------------------------------------------+
-|                            HUMAN ENGINEER / ARCHITECT                             |
-+-----------------------------------------------------------------------------------+
-       |                                       |                               |
-       | Inline PR Comments                    | Terminal / Mobile Session     | Natural Language Directives
-       v                                       v                               v
-+-----------------------+           +-----------------------+       +-----------------------+
-|  GitHub Web & PRs     | <=======> |  Google Jules Engine  | <===> |   Google Antigravity  |
-|  (PR Comments & Diff) |  Webhooks |  (API / Web Console)  |  MCP  |   (Local CLI / Skills)|
-+-----------------------+           +-----------------------+       +-----------------------+
-       |                                       |                               |
-       +-------------------+-------------------+-------------------------------+
-                           |
-                           v
-        +------------------------------------------------------+
-        |      REPOSITORY-WIDE ARTIFACTS & INFRASTRUCTURE      |
-        |  - Astro 7.1 SSG Framework (`src/`)                  |
-        |  - OpenTofu Modules (`terraform/`)                   |
-        |  - Ansible Hardening & Playbooks                     |
-        |  - DSOM Spatial Memory (`.agents/brain/`)            |
-        |  - Agent Skills (`.agents/skills/`)                  |
-        |  - GitHub Pages CI/CD Pipeline                       |
-        +------------------------------------------------------+
+                              ┌────────────────────────┐
+                              │ HUMAN ENGINEER / ARCH  │
+                              └───────────┬────────────┘
+                                          │
+                  ┌───────────────────────┼───────────────────────┐
+                  ▼                       ▼                       ▼
+       ┌─────────────────────┐ ┌─────────────────────┐ ┌─────────────────────┐
+       │ GitHub Web & PRs    │ │ Google Jules Engine │ │ Google Antigravity  │
+       │ (PR Comments & Diff)│ │ (API / Web Console) │ │ (Local CLI / Skills)│
+       └──────────┬──────────┘ └──────────┬──────────┘ └──────────┬──────────┘
+                  │                       │                       │
+                  └───────────────────────┼───────────────────────┘
+                                          │
+                                          ▼
+                      ┌───────────────────────────────────────┐
+                      │ REPOSITORY ARTIFACTS & INFRASTRUCTURE │
+                      │ • Astro 7.1 SSG Framework (`src/`)     │
+                      │ • OpenTofu Modules (`terraform/`)     │
+                      │ • Ansible Hardening & Playbooks       │
+                      │ • DSOM Memory (`.agents/brain/`)      │
+                      └───────────────────────────────────────┘
 ```
+
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#60A5FA" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">HUMAN-AGENT PAIR-PROGRAMMING ARCHITECTURE</text>
+
+  <!-- Human Engineer -->
+  <rect x="250" y="60" width="300" height="50" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+  <rect x="250" y="60" width="300" height="20" rx="10" fill="#B45309"/>
+  <text x="400" y="75" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">HUMAN LEAD ARCHITECT</text>
+  <text x="400" y="98" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Strategic Guidance &amp; Code Review</text>
+
+  <!-- Connectors -->
+  <path d="M 300 110 L 150 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 110 L 400 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 500 110 L 650 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Tier 2 Nodes -->
+  <rect x="30" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="30" y="160" width="220" height="20" rx="8" fill="#0284C7"/>
+  <text x="140" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GITHUB WEB &amp; PRS</text>
+  <text x="140" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">PR Review Threads</text>
+  <text x="140" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Git Diff / Webhooks</text>
+
+  <rect x="290" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+  <rect x="290" y="160" width="220" height="20" rx="8" fill="#15803D"/>
+  <text x="400" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GOOGLE JULES ENGINE</text>
+  <text x="400" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">Autonomous Coding Agent</text>
+  <text x="400" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Cloud Sandbox / Pytest</text>
+
+  <rect x="550" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#C084FC" stroke-width="1.5"/>
+  <rect x="550" y="160" width="220" height="20" rx="8" fill="#6B21A8"/>
+  <text x="660" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GOOGLE ANTIGRAVITY</text>
+  <text x="660" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">Local CLI Assistant</text>
+  <text x="660" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Agent Skills / REST API</text>
+
+  <!-- Flow to Repository Artifacts -->
+  <path d="M 140 240 L 140 270 L 400 270 L 400 280" stroke="#94A3B8" stroke-width="1.5"/>
+  <path d="M 400 240 L 400 280" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 660 240 L 660 270 L 400 270 L 400 280" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- Repository Artifacts Box -->
+  <rect x="50" y="280" width="700" height="80" rx="10" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+  <rect x="50" y="280" width="700" height="24" rx="10" fill="#1D4ED8"/>
+  <text x="400" y="297" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">REPOSITORY-WIDE ARTIFACTS &amp; INFRASTRUCTURE</text>
+  <text x="400" y="325" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Astro 7.1 SSG (`src/`) • OpenTofu IaC (`terraform/`) • Ansible Hardening • DSOM Memory (`.agents/brain/`)</text>
+  <text x="400" y="345" text-anchor="middle" fill="#60A5FA" font-family="Consolas, monospace" font-size="10">Deterministic Git Versioning &amp; Automated CI/CD Pipelines</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Architect ["Human Engineer Layer"]
+        HUMAN["Human Lead Architect"]
+    end
+
+    subgraph Operations ["Multi-Agent Execution Layer"]
+        GH["GitHub Web & PRs<br/>(PR Review Comments)"]
+        JULES["Google Jules Engine<br/>(Cloud Sandbox / Pytest)"]
+        AGY["Google Antigravity<br/>(Local CLI / REST API)"]
+    end
+
+    subgraph Target ["Repository Artifacts"]
+        REPO["Astro 7.1 SSG (`src/`)<br/>OpenTofu Modules (`terraform/`)<br/>Ansible Playbooks &amp; DSOM Memory"]
+    end
+
+    HUMAN -->|"Inline Review Comments"| GH
+    HUMAN -->|"Natural Directives"| JULES
+    HUMAN -->|"Local Terminal Prompts"| AGY
+
+    GH <-->|"Webhooks / Merges"| JULES
+    AGY <-->|"REST API / Skills"| JULES
+
+    JULES -->|"Git Commits & Test Verification"| REPO
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| Human Architect | GitHub PRs / Jules | HTTPS / Webhooks | GitHub OAuth / TLS 1.3 | Issues review comments and directives to drive autonomous task continuation. |
+| Google Jules Engine | Repository Core | Git HTTPS / SSH | Cloud Sandbox VM | Refactors code, executes test suites, and pushes clean verified commits to target branches. |
+
+---
 
 ### Core Value Delivery: Reducing MTTD/MTTR & Operational Toil
 
@@ -98,7 +193,7 @@ This chronicle details the exact sequence of engineering milestones executed col
 ### Milestone 4: DSOM Protocol & Spatial Memory Integration
 
 1. **Spatial Memory Architecture (`.agents/brain/`):** Implemented permanent memory ledgers (`task.md`, `walkthrough.md`, `implementation_plan.md`, `palace_registry.md`) to index architectural decisions and track project evolution across sessions.
-2. **Modular Agent Skills (`.agents/skills/`):** Created 8 specialised AI agent skill modules (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dsom-cognitive-protocol`, etc.) conforming to OKF v0.1 and Google Antigravity specifications.
+2. **Modular Agent Skills (`.agents/skills/`):** Created specialised AI agent skill modules (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dsom-cognitive-protocol`, etc.) conforming to OKF v0.2 and Google Antigravity specifications.
 3. **Dual `AGENTS.md` Gateway:** Configured `AGENTS.md` at the repository root as the primary entry point for Jules and external agents, redirecting to `.agents/AGENTS.md` for the comprehensive sovereign rulebook.
 
 ---
@@ -124,208 +219,6 @@ The defining feature of Google Jules is its ability to engage in natural, iterat
 +-----------------------------------------------------------------+
 ```
 
-### Real-World Interaction Patterns & Concrete Examples
-
-Working with Jules feels like pairing with a dedicated, highly competent colleague. Rather than issuing cold, formal instructions, developers converse naturally with Jules. Jules parses the conversation, inspects the codebase, runs local test suites in its sandbox environment, and replies with precise commits.
-
-#### Example 1: Refactoring Infrastructure & Enforcing Security Compliance
-
-**Human Engineer Comment on PR #12 (`terraform/asg.tf`):**
-
-> *@jules-agent Hey Jules, great job setting up the compute launch templates! However, our security audit flagged that IMDSv1 is still permitted on the compute instances. Could you update `aws_launch_template` to strictly enforce IMDSv2 with `http_tokens = "required"`? Also run `tofu validate` to ensure the syntax is clean.*
-
-**Jules Autonomous Execution & Response:**
-
-1. Jules parses the PR review comment and opens `terraform/asg.tf`.
-2. Jules applies a Git merge diff enforcing IMDSv2:
-
-   ```hcl
-   metadata_options {
-     http_endpoint               = "enabled"
-     http_tokens                 = "required"
-     http_put_response_hop_limit = 1
-     instance_metadata_tags      = "enabled"
-   }
-   ```
-
-3. Jules runs `tofu validate` in the execution environment to verify syntax.
-4. Jules posts a reply on the PR thread:
-
-> *All done! I have updated `aws_launch_template` in `terraform/asg.tf` to strictly enforce IMDSv2 (`http_tokens = "required"` and hop limit 1). OpenTofu validation passed with zero errors. The change has been committed and pushed to the branch!*
-
-#### Example 2: Dynamic Debugging & Resolving Link Integrity Failures
-
-**Human Engineer Comment on PR #18:**
-
-> *@jules-agent Morning Jules! The CI test suite failed on `tests/test_cms.py`. It looks like the new page `docs/jules-platform-guide.md` is missing from `SUMMARY.md` and causing sitemap verification warnings. Could you register the document in `docs/SUMMARY.md` and `llms.txt`, run `tools/refactor-okf.cjs`, and verify that pytest passes cleanly?*
-
-**Jules Autonomous Execution & Response:**
-
-1. Jules inspects `docs/SUMMARY.md`, `llms.txt`, and `docs/jules-platform-guide.md`.
-2. Jules updates navigation mapping across `docs/SUMMARY.md`, `SUMMARY.md`, `llms.txt`, `START-HERE.md`, and `README.md`.
-3. Jules executes `node tools/refactor-okf.cjs` to validate YAML frontmatter formatting.
-4. Jules executes `python3 -m pytest -v tests/test_cms.py` and `node tools/verify-sitemaps.js`.
-5. Jules replies in the PR review thread:
-
-> *Resolved! I registered `docs/jules-platform-guide.md` in all navigation summaries (`SUMMARY.md`, `llms.txt`, `START-HERE.md`, `README.md`), normalized OKF frontmatter metadata using `tools/refactor-okf.cjs`, and verified that sitemap checks and pytest suites pass 100% cleanly.*
-
-#### Example 3: Iterative Architectural Pair-Programming
-
-**Human Engineer Comment on PR #25:**
-
-> *@jules-agent What do you think about adding a dedicated tutorial on OpenTofu vs Terraform state management for our team? We should highlight OpenTofu's open-source MPL-2.0 license and state encryption features.*
-
-**Jules Autonomous Response:**
-
-1. Jules references spatial memory in `.agents/brain/` and project governance standards.
-2. Jules creates `docs/tutorials/opentofu-state-management.md` complete with OKF v0.1 frontmatter, code snippets, and licensing breakdowns.
-3. Jules registers the new file in navigation files, regenerates sitemaps, and verifies build output.
-4. Jules replies with a summary and commit reference, offering further refactoring options if needed.
-
----
-
-## 4. Advanced Interoperability: Jules API, CLI, & Google Antigravity
-
-Google Jules is architected for seamless multi-agent orchestration. Developers can invoke Jules via web consoles, local terminal CLIs, or delegate tasks programmatically from external AI frameworks like Google Antigravity.
-
-```
-+---------------------------+                      +---------------------------+
-|    GOOGLE ANTIGRAVITY     |                      |       GOOGLE JULES        |
-|     (Local Assistant)     |                      |    (Autonomous Agent)     |
-|                           |                      |                           |
-|  - High-level planning    |  API / MCP Request   |  - Cloud Sandbox & Exec   |
-|  - CLI command testing    | -------------------> |  - Deep Code Refactoring  |
-|  - Skill discovery        |                      |  - Validation & Pytest    |
-|                           | <------------------- |  - Git Push & PR Reply    |
-|                           |   Telemetry & Diff   |                           |
-+---------------------------+                      +---------------------------+
-```
-
-### Configuring Jules CLI & API Authentication
-
-The Jules CLI (`jules`) enables engineers to trigger sessions, monitor agent runs, and stream telemetry directly in local terminal environments.
-
-#### 1. Obtaining API Authentication
-
-Generate a Jules API key from your developer platform console and export it into your active shell session:
-
-```bash
-export JULES_API_KEY="your_secure_jules_api_key_here"
-```
-
-#### 2. Installing Jules CLI
-
-Install the official Jules CLI package via Node.js package manager:
-
-```bash
-npm install -g @google/jules
-jules --version
-```
-
-#### 3. Mobile-First & Android Termux Terminal Execution
-
-Engineers working remotely or on mobile hardware can manage workflows and dispatch Jules sessions directly using Android Termux:
-
-```bash
-# Update Termux packages & install dependencies
-pkg update && pkg upgrade -y
-pkg install nodejs-lts git openssh -y
-
-# Export API authentication
-export JULES_API_KEY="your_secure_jules_api_key_here"
-
-# Dispatch a remote session to Jules
-jules remote new \
-  --repo "songketmail/CMSForNerd2" \
-  --session "Refactor Astro navigation components to support BASE_URL dynamic prefixing."
-```
-
-```
-+--------------------------------------------------------------------+
-|                  TERMUX MOBILE TERMINAL INTERFACE                  |
-+--------------------------------------------------------------------+
- $ jules remote status --id session_992104
- [STATUS]: IN_PROGRESS
- [ACTION]: Inspecting src/components/Navigation.astro...
- [ACTION]: Applying Git merge diff for BASE_URL prefixing...
- [STATUS]: COMPLETED
- [COMMIT]: f82a19c - "refactor: apply dynamic BASE_URL in navigation"
-+--------------------------------------------------------------------+
-```
-
-### Programmatic Task Delegation: Google Antigravity to Jules REST API
-
-When operating within Google Antigravity (CLI: `agy`), Antigravity can hand off complex coding tasks, infrastructure refactoring, or documentation generation to Google Jules via the Jules REST API.
-
-#### Delegation Script Example (`tools/antigravity_to_jules.py`)
-
-```python
-#!/usr/bin/env python3
-"""Programmatic task delegation script from Google Antigravity to Google Jules API."""
-
-import os
-import requests
-
-JULES_SESSIONS_URL = "https://jules.googleapis.com/v1/sessions"
-JULES_SOURCES_URL = "https://jules.googleapis.com/v1/sources"
-
-api_key = os.getenv("JULES_API_KEY")
-if not api_key:
-    raise ValueError("JULES_API_KEY environment variable is required.")
-
-headers = {
-    "X-Goog-Api-Key": api_key,
-    "Content-Type": "application/json"
-}
-
-# 1. Resolve source repository reference
-sources_resp = requests.get(JULES_SOURCES_URL, headers=headers, timeout=30)
-sources_resp.raise_for_status()
-sources_data = sources_resp.json()
-
-target_repo = "songketmail/CMSForNerd2"
-source_name = None
-
-for src in sources_data.get("sources", []):
-    if target_repo in src.get("githubRepository", {}).get("repository", ""):
-        source_name = src.get("name")
-        break
-
-if not source_name:
-    source_name = f"sources/github-{target_repo.replace('/', '-')}"
-
-# 2. Dispatch session prompt to Jules
-payload = {
-    "prompt": (
-        "1. Check all Astro page layouts for base URL prefixing compliance.\n"
-        "2. Execute 'node tools/refactor-okf.cjs' to normalize frontmatter.\n"
-        "3. Run 'python3 -m pytest -v tests/test_cms.py' to confirm zero regressions."
-    ),
-    "sourceContext": {
-        "source": source_name,
-        "githubRepoContext": {
-            "startingBranch": "master"
-        }
-    }
-}
-
-response = requests.post(JULES_SESSIONS_URL, headers=headers, json=payload, timeout=30)
-response.raise_for_status()
-res_json = response.json()
-
-session_id = res_json.get("name") or res_json.get("id")
-print(f"Task successfully delegated to Jules. Session ID: {session_id}")
-```
-
-### Multi-Agent Cross-Team PR Collaboration Patterns
-
-In modern engineering organizations, multiple human developers and AI agents collaborate on the same Pull Request:
-
-1. **Strategic Planning:** Google Antigravity generates architectural blueprints and records intent in `.agents/brain/implementation_plan.md`.
-2. **Autonomous Execution:** Antigravity dispatches a session to Jules via API to implement code changes across the codebase.
-3. **Human Peer Review:** The human lead architect reviews Jules' PR, adding inline review comments on specific code blocks.
-4. **Iterative Refinement:** Jules parses feedback, refactors code, executes validation suites, and pushes updated commits until final PR approval and merge.
-
 ---
 
 ## 5. Deep State of Mind (DSOM) Governance & Spatial Memory
@@ -333,6 +226,8 @@ In modern engineering organizations, multiple human developers and AI agents col
 To guarantee that AI models produce deterministic, policy-compliant outputs without context decay, we integrated the **Deep State of Mind (DSOM) for My AI** framework into this repository.
 
 ### The Three Pillars of DSOM
+
+#### 1. ASCII Tree Diagram
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -350,9 +245,79 @@ To guarantee that AI models produce deterministic, policy-compliant outputs with
 └─────────────────────────────────────────────────────┘
 ```
 
-1. **AIOps (Mind):** Jules analyzes codebase context, formulates execution plans, and proposes code changes.
-2. **GitOps (Record):** Every decision, plan update, and code modification is versioned in Git.
-3. **The Executor (Hand):** Automated tools (`npm run build`, `pytest`, `tofu validate`, `ansible-playbook`) execute code safely in controlled environments.
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#C084FC" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">DEEP STATE OF MIND (DSOM) OPERATING MODEL</text>
+
+  <!-- Container Cards -->
+  <rect x="40" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="40" y="70" width="210" height="24" rx="10" fill="#0284C7"/>
+  <text x="145" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">1. AIOPS (MIND)</text>
+  <text x="145" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">AI Analysis &amp; Plans</text>
+  <text x="145" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Proposes code changes &amp; edits</text>
+
+  <path d="M 250 130 L 295 130" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="295" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+  <rect x="295" y="70" width="210" height="24" rx="10" fill="#15803D"/>
+  <text x="400" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">2. GITOPS (RECORD)</text>
+  <text x="400" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">Git Version Control</text>
+  <text x="400" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Records state &amp; spatial memory</text>
+
+  <path d="M 505 130 L 550 130" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="1.5"/>
+  <rect x="550" y="70" width="210" height="24" rx="10" fill="#B45309"/>
+  <text x="655" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">3. EXECUTOR (HAND)</text>
+  <text x="655" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">Verification Engine</text>
+  <text x="655" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Runs Pytest, builds &amp; linter</text>
+
+  <!-- Feedback Loop Path -->
+  <path d="M 655 190 L 655 240 L 145 240 L 145 190" stroke="#C084FC" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <rect x="330" y="228" width="140" height="24" rx="12" fill="#6B21A8"/>
+  <text x="400" y="244" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">Verification Feedback Loop</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph LR
+    subgraph Mind ["Pillar 1: AIOps"]
+        A1["AIOps (Mind)<br/>(AI Analysis &amp; Plans)"]
+    end
+
+    subgraph Record ["Pillar 2: GitOps"]
+        G1["GitOps (Record)<br/>(Git State &amp; Spatial Memory)"]
+    end
+
+    subgraph Hand ["Pillar 3: The Executor"]
+        E1["The Executor (Hand)<br/>(Pytest, Build, Linter)"]
+    end
+
+    A1 -->|"Proposes code edits"| G1
+    G1 -->|"Records state in Git"| E1
+    E1 -.->"Verification Feedback Loop"| A1
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| AIOps (Mind) | GitOps (Record) | Git Commits / Diffs | Repository Workspace | Transforms natural language intent into structured code edits and spatial memory updates. |
+| The Executor (Hand) | AIOps (Mind) | Test Logs / Diagnostic Output | Local Sandbox Engine | Executes test suites (`pytest`, `npm run build`), providing diagnostic feedback to refine code. |
+
+---
 
 ### Spatial Memory Ledger (`.agents/brain/`)
 
@@ -365,20 +330,7 @@ Rather than losing context when chat windows close, Jules reads and updates perm
 
 ---
 
-## 6. Why Engineers Fall in Love with Google Jules
-
-Google Jules represents a paradigm shift in AI-assisted software engineering. It is not merely an inline autocomplete widget or isolated chat window—it is an autonomous, context-aware co-engineer embedded directly in your Git workflow.
-
-### Key Operational Advantages
-
-* **Complete Repository Context:** Jules understands your entire codebase structure, honoring `AGENTS.md` rules, spatial memory in `.agents/brain/`, and custom agent skills in `.agents/skills/`.
-* **Self-Healing Execution:** Jules does not write unverified code. It runs local builds and tests (`npm run build`, `pytest`), inspects diagnostic logs, self-corrects bugs, and verifies clean execution before requesting human review.
-* **Frictionless Collaboration:** Interacting with Jules through GitHub PR comments creates a transparent, friendly, and empowering engineering experience that feels like working with a trusted senior peer.
-* **Multi-Platform Interoperability:** Whether invoked via GitHub web interface, command-line CLI, mobile Termux, or Google Antigravity API calls, Jules delivers consistent, high-fidelity results.
-
----
-
-## 7. Verification & Quality Gates
+## 6. Verification & Quality Gates
 
 To verify this guide and ensure codebase integrity:
 
@@ -398,5 +350,5 @@ python3 -m pytest -v tests/test_cms.py
 
 ---
 
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-14*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/knowledge.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["knowledge", "jules", "brain", "dsom"]
 ---
 
@@ -162,9 +162,9 @@ This document contains a comprehensive record of all Google Jules operational, s
 46. **FastMCP Server Adoption & WebAssembly (Wasm) Search and Processing**
     The repository adopts a FastMCP (Model Context Protocol) server (`tools/mcp/server.py`) to expose live Astro SSG routes (`list_ssg_routes`), route content (`get_route_content`), full-text search (`search_ssg_routes`), sitemaps (`get_sitemap_routes`), and spatial memory (`get_openwiki_concept`) directly to AI agents. It integrates Pagefind Wasm client-side search (`astro build && pagefind --site dist`) with a client search UI at `/search`, and implements a browser-native WebAssembly Cryptographic & OKF v0.2 Document Processing Studio at `/wasm-studio`.
 
-47. **Diagram Design Standards Skill Adoption**
-    The repository adopts the `diagram-design-standards` skill (`.agents/skills/diagram-design-standards/SKILL.md` and `skills/diagram-design-standards/SKILL.md`), enforcing a unified tri-part output format for all technical diagrams: (1) Standalone SVG Vector Graphic (`.svg`), (2) Git-Native Mermaid Block (`.mmd`), and (3) Summary Interface & Routing Comparison Table. The skill is documented at `docs/explanation/diagram-design-standards-skill.md` and mapped across all navigation and AI gateway registries.
+47. **Triple-Render Architecture Diagram Specification Skill**
+    The repository adopts the `triple-render-architecture-diagram` skill (`.agents/skills/triple-render-architecture-diagram/SKILL.md` and `skills/triple-render-architecture-diagram/SKILL.md`), enforcing a 4-tier visual deliverable sequence for all technical diagrams: (1) Plain-Text ASCII Tree Diagram, (2) Standalone Dark Slate Raw SVG Vector Graphic, (3) Git-Native Mermaid Block, and (4) Summary Interface & Routing Table. Embedded CSS rules dynamically adapt Dark Slate SVGs in Light Mode and Print Mode (`@media print`) to crisp `#FFFFFF` white canvas rendering with deep print-suitable colors to save toner when printing.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
