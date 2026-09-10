@@ -7,10 +7,15 @@ It imports and re-exports test functions across domain submodules:
 3. Markdown files for OKF compliance, DSOM footers, and UK English guidelines (tests/unit/markdown.py).
 4. Sitemap consistency and JSON configurations (tests/unit/sitemaps.py).
 5. LLMs parsing and compilation tools (tests/unit/llms.py).
+6. Internal and external broken links validation (tests/unit/links.py).
 """
 
 from tests.unit.ansible import test_ansible_playbook_compliance
 from tests.unit.containers import test_containerfile_security_and_structure
+from tests.unit.links import (
+    ExternalBrokenLinksTest,
+    InternalBrokenLinksTest,
+)
 from tests.unit.llms import (
     test_build_llms_full_compilation,
     test_llms_txt2ctx_parser_api,
@@ -33,6 +38,8 @@ from tests.unit.sitemaps import (
 )
 
 __all__ = [
+    "ExternalBrokenLinksTest",
+    "InternalBrokenLinksTest",
     "test_ansible_playbook_compliance",
     "test_build_llms_full_compilation",
     "test_containerfile_security_and_structure",

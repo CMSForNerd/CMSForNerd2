@@ -109,7 +109,7 @@ tags: ["modernisation", "astro", "static", "architecture"]
 </section>
 
 <footer class="content-footer">
-<p>Technical Lead: <a href="docs/ANSIBLE-LAB-MANUAL.md">Practical Laboratory Guide</a></p>
+<p>Technical Lead: <a href="docs/how-to/ansible-deployment.md">Practical Laboratory Guide</a></p>
 </footer>
 </article>
 
