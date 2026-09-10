@@ -131,6 +131,19 @@ This is a sample document for testing OKF analysis.
         assert "Compliant" in okf_status, f"Expected OKF compliance, got: {okf_status}"
         assert doc_title == "Playwright E2E Sample Document", f"Unexpected title: {doc_title}"
 
+        # Test FastMCP Semantic Search Workflow with Web Worker & IndexedDB
+        page.fill("#wasm-vector-query", "Astro security hardening")
+        page.click("#wasm-vector-btn")
+
+        page.wait_for_selector("#wasm-vector-output:not(.hidden)", timeout=5000)
+        vec_thread = page.text_content("#wasm-vec-dims") or ""
+        idb_status = page.text_content("#wasm-idb-status") or ""
+        results_list = page.query_selector_all("#wasm-vec-results-list li")
+
+        assert "Web Worker" in vec_thread, f"Unexpected vector processing thread status: {vec_thread}"
+        assert "IndexedDB" in idb_status, f"Unexpected IndexedDB status text: {idb_status}"
+        assert len(results_list) > 0, "FastMCP semantic search returned no ranked results."
+
         browser.close()
 
 

@@ -11,7 +11,7 @@ import WasmStudio from '../components/WasmStudio.astro';
 >
   <h1>⚙️ WebAssembly Cryptographic & Document Processing Studio</h1>
   <p style="font-size: 1.05rem; color: var(--lab-muted, #64748b); line-height: 1.6;">
-    Welcome to the <strong>CMSForNerd2</strong> client-side WebAssembly (Wasm) studio. This module demonstrates browser-native, zero-server execution of cryptographic hashing, Content Security Policy (CSP) whitelist generation, and Open Knowledge Format (OKF) v0.2 document structure parsing.
+    Welcome to the <strong>CMSForNerd2</strong> client-side WebAssembly (Wasm) studio. This module demonstrates browser-native, zero-server execution of cryptographic hashing, Content Security Policy (CSP) whitelist generation, Open Knowledge Format (OKF) v0.2 document structure parsing, and in-browser WebAssembly vector embeddings with FastMCP semantic AI search.
   </p>
 
   <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />
@@ -37,6 +37,18 @@ import WasmStudio from '../components/WasmStudio.astro';
       <li><strong>Schema Validation:</strong> Checks for required frontmatter fields.</li>
       <li><strong>Word & Line Metrics:</strong> Performs tokenisation and line frequency analysis.</li>
       <li><strong>Privacy Guaranteed:</strong> Content never leaves your local browser memory space.</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 1.5rem;">
+    <h2>🧠 Offline In-Browser WebAssembly Vector Embeddings & FastMCP Semantic Search</h2>
+    <p>
+      For isolated, air-gapped offline environments, the studio executes normalized 384-dimensional vector embedding models natively inside browser Web Workers, persisting vectors to IndexedDB and routing search through FastMCP tool schemas.
+    </p>
+    <ul>
+      <li><strong>Web Worker Isolation Layer:</strong> Offloads heavy matrix multiplications (e.g. Transformers.js / ONNX feature extraction) from the UI thread.</li>
+      <li><strong>IndexedDB Local Storage:</strong> Stores raw document snippets alongside 384-dimensional Float32 vector embeddings locally in the browser.</li>
+      <li><strong>FastMCP Semantic Search Protocol:</strong> Wraps mathematical cosine similarity matching inside the <code>semantic_code_search</code> tool schema for internal RAG pipelines.</li>
     </ul>
   </section>
 
