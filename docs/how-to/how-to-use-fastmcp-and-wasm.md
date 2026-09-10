@@ -94,6 +94,11 @@ Navigate to `http://localhost:4321/wasm-studio` in your browser.
 2. Click **Analyze Document**.
 3. Review compliance status, extracted title, word count, and line metrics.
 
+### Executing In-Browser FastMCP Semantic AI Search
+1. Enter a conceptual query (e.g., `Astro static site security hardening`) into the **In-Browser WebAssembly Vector Embeddings & FastMCP Semantic Search** input field.
+2. Click **Execute FastMCP `semantic_code_search` Tool**.
+3. The studio generates a 384-dimensional Float32 vector embedding via Web Workers, syncs vectors with IndexedDB local storage, computes cosine similarity scores across local documents, and returns top RAG matches wrapped in FastMCP tool output schemas.
+
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
