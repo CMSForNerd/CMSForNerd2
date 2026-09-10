@@ -2,8 +2,8 @@
 spec_version: "0.2"
 type: "how_to"
 title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
-description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, and utilizing client-side Wasm utilities."
-topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
+description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, WebLLM WebGPU RAG generation, ONNX streaming, and utilizing client-side Wasm utilities."
+topics: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
 okf_version: "0.1"
 nav_order: 1
 status: "stable"
@@ -15,12 +15,12 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
+tags: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
 ---
 
 # How to Use FastMCP Server & WebAssembly (Wasm) Tools
 
-This guide explains how to run the FastMCP SSG Gateway server, inspect static routes as an AI agent, and utilize client-side WebAssembly search and cryptographic tools.
+This guide explains how to run the FastMCP SSG Gateway server, inspect static routes as an AI agent, and utilize client-side WebAssembly search, cryptographic tools, WebLLM WebGPU on-device RAG generation, and HuggingFace ONNX Web Runtime streaming.
 
 ---
 
@@ -80,7 +80,7 @@ Navigate to `http://localhost:4321/search` to test client-side Wasm search queri
 
 ---
 
-## 3. Utilizing WebAssembly Cryptographic & Document Studio
+## 3. Utilizing WebAssembly Cryptographic, Document, WebLLM & ONNX Studio
 
 Navigate to `http://localhost:4321/wasm-studio` in your browser.
 
@@ -98,6 +98,17 @@ Navigate to `http://localhost:4321/wasm-studio` in your browser.
 1. Enter a conceptual query (e.g., `Astro static site security hardening`) into the **In-Browser WebAssembly Vector Embeddings & FastMCP Semantic Search** input field.
 2. Click **Execute FastMCP `semantic_code_search` Tool**.
 3. The studio generates a 384-dimensional Float32 vector embedding via Web Workers, syncs vectors with IndexedDB local storage, computes cosine similarity scores across local documents, and returns top RAG matches wrapped in FastMCP tool output schemas.
+
+### Executing 100% Offline Air-Gapped WebLLM + WebGPU RAG Generation
+1. Select target model from dropdown (`Llama-3.2-1B-Instruct-q4f16`, `Qwen2.5-0.5B-Instruct-q4f16`, or Wasm SIMD CPU fallback).
+2. Click **Initialize WebLLM Pipeline** to initialize model over WebGPU hardware acceleration.
+3. Enter local RAG prompt and click **Generate Air-Gapped RAG Synthesis**.
+4. WebLLM retrieves context from FastMCP IndexedDB vector records and streams synthesized answers on-device without external API calls.
+
+### Streaming Real-Time Code Completions via HuggingFace ONNX Web Runtime
+1. Type or edit document/code content in the **Workspace Document / Code Editor**.
+2. Click **Trigger ONNX Wasm Stream Completion** or toggle **Enable Live Typing Stream Completion**.
+3. Real-time token-by-token completion streams directly into the output window via WebAssembly streams with performance metrics (~42 tokens/sec).
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
