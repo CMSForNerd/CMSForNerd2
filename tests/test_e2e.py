@@ -183,8 +183,8 @@ def test_pagefind_search_interaction() -> None:
         page.fill(search_input_selector, "Astro")
 
         # Verify search results container renders matching entries
-        page.wait_for_selector(".pagefind-ui__result", timeout=5000)
-        results = page.query_selector_all(".pagefind-ui__result")
+        page.wait_for_selector(".pf-result", timeout=5000)
+        results = page.query_selector_all(".pf-result")
         assert len(results) > 0, "Pagefind search query returned no result items."
 
         browser.close()
