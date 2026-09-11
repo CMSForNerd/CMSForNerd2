@@ -1,0 +1,579 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</title><meta name="description" content="Comprehensive operational handbook and transferable AI prompt library for analyzing code repositories, synthesizing Diataxis documentation, baking native vector diagrams, and compiling publication-grade print-ready handbooks (PDF, HTML, EPUB) using Pandoc and Headless Chromium."><meta name="theme-color" content="#0d6efd"><link rel="manifest" href="/CMSForNerd2manifest.webmanifest"><link rel="icon" type="image/x-icon" href="/CMSForNerd2favicon.ico"><!-- Schema.org JSON-LD structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How to Produce a Project Technical Handbook: The AI Prompt Engineering & Skill Adoption Blueprint","description":"Comprehensive operational handbook and transferable AI prompt library for analyzing code repositories, synthesizing Diataxis documentation, baking native vector diagrams, and compiling publication-grade print-ready handbooks (PDF, HTML, EPUB) using Pandoc and Headless Chromium.","author":{"@type":"Person","name":"Harisfazillah Jamel"}}</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/CMSForNerd2/_astro/ClientRouter.astro_astro_type_script_index_0_lang.C6UpqvXS.js"></script><script>
+      // Initialize theme early to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+      })();
+    </script><style>.astro-route-announcer{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;position:absolute;top:0;left:0;overflow:hidden}
+</style><link rel="stylesheet" href="/CMSForNerd2/_astro/global.CmC4qDv1.css"></head><body><div id="container"><!-- GRID AREA: HEADER --><div id="top"><table class="header-table"><tr><td style="text-align: left;"><div style="font-family: 'SF Mono', monospace; font-weight: 900; font-size: 24px;">CMSForNerd <span style="color: var(--lab-highlight)">::</span> LAB</div><div style="font-size: 12px; opacity: 0.8; letter-spacing: 1px;">STATIC ASTRO 7.1 LABORATORY // STRICT MODE</div></td><td style="text-align: right; vertical-align: middle;"><div class="theme-switcher-container" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'SF Mono', monospace; font-size: 11px;"><span style="opacity: 0.7; font-weight: bold; text-transform: uppercase; color: var(--lab-text);">MODE:</span><div class="theme-btn-group" style="display: inline-flex; border: 1px solid var(--lab-border); border-radius: 6px; overflow: hidden; background: var(--lab-bg);"><button id="theme-btn-light" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; transition: background 0.2s;">☀️ LIGHT</button><button id="theme-btn-dark" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">🌙 DARK</button><button id="theme-btn-auto" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">💻 AUTO</button></div></div></td></tr></table></div><!-- GRID AREA: LEFT NAV --><div id="left"><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2">Home</a><a href="https://www.linuxmalaysia.com">CmsForNerd</a><a href="https://github.com/CMSForNerd/CmsForNerd/archive/refs/heads/master.zip">Download</a><a href="/CMSForNerd2template">🎨 Template Guide</a><a href="/CMSForNerd2sitemap-page">CmsForNerd Sitemap</a><a href="/CMSForNerd2installation">CmsForNerd Installation</a><a href="/CMSForNerd2windows-setup">🪟 Windows 11 Setup (Nerd)</a><a href="/CMSForNerd2welcome-kit">🚀 Student Welcome Kit</a><a href="/CMSForNerd2history">Modernisation History</a><a href="/CMSForNerd2lab-manual">🎓 Lab Manual</a><a href="/CMSForNerd2ai-dev">🤖 AI Development</a><a href="/CMSForNerd2ai-sop">📜 AI Ethics SOP</a><a href="/CMSForNerd2csp-nonce-guide">🛡️ CSP Nonce Guide</a><a href="/CMSForNerd2final-exam">🚩 Final Exam</a><a href="/CMSForNerd2graduation">🏁 Graduation</a><a href="/CMSForNerd2pwa-architecture">📱 PWA Implementation</a><a href="/CMSForNerd2amp-acceleration">⚡ AMP Acceleration</a><a href="/CMSForNerd2search">🔍 Wasm Search</a><a href="/CMSForNerd2wasm-studio">⚙️ Wasm Studio</a><a href="https://www.linuxmalaysia.com">CmsForNerd Blog</a></div></div><br><h3>Executive Blueprint</h3><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2docs/executive/">💼 Executive Blueprint Portal</a><a href="/CMSForNerd2docs/executive/tco-financial-blueprint">📊 36-Month TCO & Financial Blueprint</a><a href="/CMSForNerd2docs/executive/regulatory-compliance">⚖️ Sovereignty & Regulatory Compliance</a></div></div><br><h3>Engineering Runbook</h3><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2docs/engineering/">🛠️ DevOps Implementation Runbook Portal</a><a href="/CMSForNerd2docs/engineering/opentofu-manifests">🏗️ OpenTofu Module Manifests</a><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting">🔍 DNS & systemd Troubleshooting</a><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening">🔒 Ansible ASIMP Hardening Playbooks</a><a href="/CMSForNerd2docs/engineering/efs-mount-scripts">💾 Persistent EFS Storage & Mount Scripts</a></div></div><br><h3>E-Mail</h3><p style="font-size: 0.8em; color: var(--lab-muted); margin-top: 5px;">contact@linuxmalaysia.com</p><br><h3>Join Us</h3><aside class="group-box"><span class="group-title">Community</span><p style="font-size: 0.8em; color: var(--lab-muted);">Join the <strong>cmsfornerd</strong> discussion group.</p><a href="https://groups.google.com/group/cmsfornerd" target="_blank" rel="noopener noreferrer" class="btn-google-group">Visit Group</a></aside><h3>Get Updates</h3></div><!-- GRID AREA: RIGHT NAV --><div id="right"><!-- Search Google --><div class="search-container" style="text-align: center; padding: 10px;"><form method="get" action="https://www.google.com/custom" target="_blank"><a href="https://www.google.com/"><img src="https://www.google.com/logos/Logo_25wht.gif" alt="Google" width="120" height="32" style="border:0; vertical-align: middle; width: 120px; height: 32px;"></a><br><label for="search-input" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Search CmsForNerd</label><input id="search-input" type="text" name="q" size="17" maxlength="255" autocomplete="q" placeholder="Search…" aria-label="Search CmsForNerd"><input type="submit" name="sa" value="Search" aria-label="Submit search"><input type="hidden" name="client" value="pub-9240760101409835"><input type="hidden" name="forid" value="1"><input type="hidden" name="ie" value="UTF-8"><input type="hidden" name="oe" value="UTF-8"><input type="hidden" name="hl" value="en"></form></div><!-- Search Google --><br><a href="https://github.com/htacg/tidy-html5" target="_blank" rel="noopener noreferrer"><img src="/images/tidy.png" alt="Validated by HTML Validator (based on Tidy)" width="39" height="16" style="height: 16px; width: 39px; border: 0;"></a><br></div><!-- GRID AREA: MAIN CONTENT --><div id="content"><main class="content-body"><h1 id="how-to-produce-a-project-technical-handbook-the-ai-prompt-engineering--skill-adoption-blueprint">How to Produce a Project Technical Handbook: The AI Prompt Engineering &#x26; Skill Adoption Blueprint</h1>
+<blockquote>
+<p><strong>Classification:</strong> Technical Standard &#x26; Transferable Knowledge Base
+<strong>Target Audience:</strong> Lead Architects, DevOps/SRE Engineers, and Autonomous AI Coding Assistants
+<strong>Standard:</strong> Terminal &#x26; Cloud Technical Book Standard (DSOM Rule 11 &#x26; Rule 22)
+<strong>Author &#x26; Lead Consultant:</strong> Harisfazillah Jamel (LinuxMalaysia)
+<strong>Compiled By:</strong> Antigravity Cognitive Digital Twin</p>
+</blockquote>
+<hr>
+<h2 id="1-executive-overview--transferability-mandate">1. Executive Overview &#x26; Transferability Mandate</h2>
+<p>Modern software, DevOps, and infrastructure projects frequently suffer from <strong>fragmented documentation</strong>. Architectural intent is split across READMEs, tribal chat logs, wiki pages, runbooks, and inline source code comments. When teams need to present their systems for audits, client handovers, team onboarding, or management reviews, they lack a single, authoritative, publication-grade volume.</p>
+<p>This guide provides a <strong>100% transferable blueprint</strong> that enables any engineering repository—whether built on Ansible, Terraform, Kubernetes, Python, Go, or Cloud Native architectures—to synthesize its entire codebase and documentation into a cohesive, print-optimized technical book (PDF, interactive HTML, and EPUB 3).</p>
+<h3 id="what-this-blueprint-provides">What This Blueprint Provides</h3>
+<ol>
+<li><strong>The Prompt Transformation Matrix:</strong> All conversational prompts typically asked by human leads, rewritten into high-fidelity, optimized master prompts that any AI agent can execute without ambiguity.</li>
+<li><strong>The 6-Phase Engineering Pipeline:</strong> Discovery, visual modeling, Diataxis ingestion, narrative storytelling, print formatting, and multi-format compilation.</li>
+<li><strong>The 17 Core Compilation Invariants:</strong> Solutions to every major compilation hurdle (syntax crashes, dark container ink waste, missing covers, unrendered Mermaid blocks, unparsed callout alerts, and browser process timeouts).</li>
+<li><strong>Drop-in Reusable Skill Specification:</strong> An autonomous skill definition that can be copied directly into <code>.agents/skills/</code> of any target repository.</li>
+</ol>
+<hr>
+<h2 id="2-the-prompt-transformation-matrix-from-conversational-ask-to-production-ai-master-prompts">2. The Prompt Transformation Matrix: From Conversational Ask to Production AI Master Prompts</h2>
+<p>When humans communicate with AI assistants during technical book compilation, their initial requests are often short and intuitive. However, generic AI assistants often misinterpret these asks—generating dark code blocks, omitting cover pages, hardcoding narrative text into compiler scripts, or failing to render diagrams.</p>
+<p>Below is the complete <strong>Before &#x26; After Matrix</strong>, translating conversational requests into robust, constraint-enforced AI master prompts.</p>
+<hr>
+<h3 id="prompt-1-project-discovery--architectural-modeling">Prompt 1: Project Discovery &#x26; Architectural Modeling</h3>
+<h4 id="conversational-human-ask">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“I need you to produce a book for this project. Start with understanding the project by understanding the ansible playbook and documents that can be related to the ansible playbook. Make sure we have diagram of flow of works and flow of how ansible work.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Principal Technical Author and Systems Architect. Your mission is to analyze this repository and assemble an authoritative, publication-grade Technical Handbook.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">PHASE 1: REPOSITORY DISCOVERY &#x26; TAXONOMY</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Scan the repository inventory, orchestration playbooks/manifests, roles, configuration templates, and documentation suites.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Catalog all operational components into logical tiers (e.g., Command Centres, Orchestration Bridges, Persistence Fabrics, Telemetry Ingestion Workers).</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> Map every production playbook/code file to its corresponding documentation, runbooks, and Root Cause Analysis (RCA) reports.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">PHASE 2: ARCHITECTURAL VISUAL MODELING</span></span>
+<span class="line"><span style="color:#E1E4E8">Construct two comprehensive architectural flowcharts:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> The End-to-End Command Highway: Visualizing the multi-tier flow of code from local development and GitOps remotes to target nodes.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> The Orchestration Execution Engine: Visualizing how automation tasks inspect hardware, apply declarative baselines, enforce zero-trust security, and verify system state.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">OUTPUT REQUIREMENTS:</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> Structure the book into clear, hierarchical Parts and Chapters following the Diataxis framework.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> Ensure every code artifact has a dedicated sub-chapter accompanied by developer operational context and architectural rationale.</span></span></code></pre>
+<hr>
+<h3 id="prompt-2-resolving-diagram-failures-mermaid-to-native-svg">Prompt 2: Resolving Diagram Failures (Mermaid to Native SVG)</h3>
+<h4 id="conversational-human-ask-1">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“The diagram is not showing in the book.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt-1">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Graphics &#x26; Headless Browser Print Specialist. The Mermaid diagrams in our compiled HTML/PDF are failing to render or displaying syntax error graphics.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">ROOT CAUSE ANALYSIS:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Headless Chrome/Edge print engines capture DOM snapshots in milliseconds, outrunning asynchronous client-side Mermaid JavaScript CDN libraries.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Pandoc wraps </span><span style="color:#79B8FF">`&#x3C;pre class="mermaid">`</span><span style="color:#E1E4E8"> blocks in </span><span style="color:#79B8FF">`&#x3C;code>`</span><span style="color:#E1E4E8"> tags and escapes HTML arrows (</span><span style="color:#79B8FF">`-->`</span><span style="color:#E1E4E8"> becomes </span><span style="color:#79B8FF">`--&#x26;gt;`</span><span style="color:#E1E4E8">), corrupting Mermaid syntax.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">REMEDIATION MANDATE (NATIVE VECTOR SVG PRE-RENDERING):</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Eliminate client-side Mermaid JavaScript rendering entirely for PDF production.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Author a standalone Python script (e.g., </span><span style="color:#79B8FF">`tools/bake_native_svg.py`</span><span style="color:#E1E4E8">) that pre-renders or directly substitutes Mermaid code blocks with clean, styled, inline vector </span><span style="color:#79B8FF">`&#x3C;svg>`</span><span style="color:#E1E4E8"> markup.</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> Ensure SVG elements include viewBox definitions, drop-shadow filters, high-contrast text labels (using 'Inter' or system sans-serif), and responsive container wrappers (</span><span style="color:#79B8FF">`&#x3C;div class="mermaid-svg-container">`</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> Execute this transformation directly on the generated </span><span style="color:#79B8FF">`handbook.html`</span><span style="color:#E1E4E8"> prior to launching the headless browser PDF print step.</span></span></code></pre>
+<hr>
+<h3 id="prompt-3-diátaxis-documentation-enrichment--ingestion">Prompt 3: Diátaxis Documentation Enrichment &#x26; Ingestion</h3>
+<h4 id="conversational-human-ask-2">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“Add into our books, content from md documents that is related to each of our ansible playbooks. Enrich our book.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt-2">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Technical Documentation Compiler. Your task is to enrich every playbook chapter in the Technical Handbook by dynamically ingesting its accompanying operational runbooks, explanations, and incident reports.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">MANDATORY INGESTION &#x26; SANITIZATION RULES:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Frontmatter &#x26; Signature Stripping: Parse each ingested markdown file and strip all YAML metadata fences (</span><span style="color:#79B8FF">`--- ... ---`</span><span style="color:#E1E4E8">) and document signature footers (</span><span style="color:#79B8FF">`*Maintained by...*`</span><span style="color:#E1E4E8">) to prevent Pandoc parser collisions (</span><span style="color:#79B8FF">`Unknown alias`</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Heading Level Offsetting: Apply a dynamic heading level offset (+2 levels: </span><span style="color:#79B8FF">`#`</span><span style="color:#E1E4E8"> becomes </span><span style="color:#79B8FF">`###`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`##`</span><span style="color:#E1E4E8"> becomes </span><span style="color:#79B8FF">`####`</span><span style="color:#E1E4E8">) to ensure ingested document headings nest cleanly beneath the parent Chapter title in the Table of Contents.</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> Markdown Horizontal Rule Sanitization: Replace all internal standalone horizontal rules (</span><span style="color:#79B8FF">`\n---\n`</span><span style="color:#E1E4E8">) with triple asterisks (</span><span style="color:#79B8FF">`\n***\n`</span><span style="color:#E1E4E8">) to prevent Pandoc from falsely interpreting them as YAML metadata blocks.</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> Operational Provenance Banner: Inject an audit pill above each ingested document:</span></span>
+<span class="line"><span style="color:#79B8FF">   `&#x3C;div class="doc-provenance">&#x3C;strong>Operational Reference Guide:&#x3C;/strong> &#x3C;code>path/to/file.md&#x3C;/code>&#x3C;/div>`</span></span>
+<span class="line"><span style="color:#FFAB70">5.</span><span style="color:#E1E4E8"> Developer Commentary Extraction: Scan the leading comment block of each code file for keywords (BUG, FIX, WARNING, CRITICAL, NEVER, escalation). Render matches as high-visibility callouts (</span><span style="color:#79B8FF">`callout-warning`</span><span style="color:#E1E4E8"> or </span><span style="color:#79B8FF">`callout-note`</span><span style="color:#E1E4E8">) above the code fence.</span></span></code></pre>
+<hr>
+<h3 id="prompt-4-the-narrative-epic-heart-soul-and-sovereign-blood">Prompt 4: The Narrative Epic (Heart, Soul, and Sovereign Blood)</h3>
+<h4 id="conversational-human-ask-3">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“I need a chapter that’s like a story, all about this project and infra from start to end, how it can be built, deployed, and operated. Highlight the use of ansible + semaphoreui + gitea as GitOps, and AIOps with human in the loop. Add about deep state of mind (DSOM) of My AI as the AI memory and brain. This chapter is not technical; it is about the heart, soul, and blood of this project.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt-3">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Principal Technical Biographer and Systems Philosopher. Author an evocative, inspiring narrative chapter titled:</span></span>
+<span class="line"><span style="color:#E1E4E8">"# Prologue: The Story of &#x3C;Project Name> — Heart, Soul, and Sovereign Blood {.unnumbered}"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">NARRATIVE STRUCTURE &#x26; THEMES:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> The Spark in the Dark (Why This Fabric Was Born):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Paint the operational reality: telemetry deluge, memory exhaustion, swap death spirals, and the painful loss of context when engineers step away from the terminal.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> The Trinity of Motion (GitOps, The Control Node, and The Hand):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Explain how Git serves as the immutable source of truth, Semaphore UI acts as the scheduled heartbeat, and Ansible operates as the indomitable physical hand shaping the infrastructure.</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> The Mind in the Machine (Deep State of Mind &#x26; AIOps):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Address the fatal flaw of Large Language Models: Context Decay (cognitive amnesia).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Chronicle the creation of the Sovereign Markdown Palace (</span><span style="color:#79B8FF">`.agents/brain/`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`palace_registry.md`</span><span style="color:#E1E4E8">, Start-of-Day reanimation, and End-of-Day hibernation), preserving unbroken historical context across operational shifts.</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> The Sacred Balance (AIOps with Human-in-the-Loop):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Reject blind, dangerous auto-remediation.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Embed the Sovereign AIOps Integration Loop (ASCII architectural diagram): AI proposes remediation -> Sovereign Human verifies and commits -> Ansible executes -> AI audits and records memory.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Articulate the Three Laws of the Twin: Advisory over Execution, Logic over Operation, and Partnership through Environmental Awareness.</span></span>
+<span class="line"><span style="color:#FFAB70">5.</span><span style="color:#E1E4E8"> From Raw Metal to Living Shield:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Walk through the 5 foundational phases from genesis virtual machine bootstrapping to hardened security baselines, rootless container pods, threat analytics, and continuous Day-2 operations.</span></span>
+<span class="line"><span style="color:#FFAB70">6.</span><span style="color:#E1E4E8"> The Heart, Soul, and Blood:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Close with the philosophical trifecta: Sovereignty, Discipline, and Human-AI Symbiosis.</span></span></code></pre>
+<hr>
+<h3 id="prompt-5-clean-architecture-separation-standalone-markdown-document">Prompt 5: Clean Architecture Separation (Standalone Markdown Document)</h3>
+<h4 id="conversational-human-ask-4">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“I need the story to be in its own md file.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt-4">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Clean Architecture and Diataxis Specialist. Refactor the narrative story chapter out of inline Python script strings into a dedicated, reusable documentation artifact.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">IMPLEMENTATION STEPS:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Author the file </span><span style="color:#79B8FF">`docs/explanation/THE-STORY-OF-&#x3C;PROJECT>.md`</span><span style="color:#E1E4E8"> with complete OKF v0.1 YAML frontmatter (</span><span style="color:#79B8FF">`type: "documentation"`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`title: "..."`</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Embed the complete narrative text, ASCII loop diagram, and formal DSOM signature footer.</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> Register the new document in </span><span style="color:#79B8FF">`SUMMARY.md`</span><span style="color:#E1E4E8"> under the </span><span style="color:#79B8FF">`explanation`</span><span style="color:#E1E4E8"> quadrant to ensure GitBook/MkDocs navigation indexing.</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> Update the book compiler script (</span><span style="color:#79B8FF">`tools/build_book.py`</span><span style="color:#E1E4E8">) to dynamically ingest this document using </span><span style="color:#79B8FF">`ingest_doc_file("docs/explanation/THE-STORY-OF-&#x3C;PROJECT>.md", heading_offset=0, show_provenance=False)`</span><span style="color:#E1E4E8"> directly into the book's Prologue.</span></span></code></pre>
+<hr>
+<h3 id="prompt-6-print-optimized-formatting-restoration-zero-toner-waste--cover-injection">Prompt 6: Print-Optimized Formatting Restoration (Zero Toner Waste &#x26; Cover Injection)</h3>
+<h4 id="conversational-human-ask-5">Conversational Human Ask</h4>
+<blockquote>
+<p><em>“What happened to my book? We lost the formatting. No cover, black background? That needs to be checked again.”</em></p>
+</blockquote>
+<h4 id="production-grade-ai-master-prompt-5">Production-Grade AI Master Prompt</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Print Production Engineer and CSS Specialist. Diagnose and fix the visual formatting regressions in our compiled PDF and HTML handbook.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">SYMPTOMS TO REMEDY:</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Missing Cover Page: Re-inject </span><span style="color:#79B8FF">`--include-before-body=build/book/cover.html`</span><span style="color:#E1E4E8"> in the Pandoc build chain. Ensure </span><span style="color:#79B8FF">`.cover-page`</span><span style="color:#E1E4E8"> in CSS declares </span><span style="color:#79B8FF">`break-after: page; min-height: 250mm;`</span><span style="color:#E1E4E8"> so the cover fills Page 1 completely and cleanly page-breaks before the Table of Contents.</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Black Background Code Blocks: Replace dark syntax highlighting (e.g. </span><span style="color:#79B8FF">`--highlight-style=espresso`</span><span style="color:#E1E4E8">) with </span><span style="color:#79B8FF">`--highlight-style=tango`</span><span style="color:#E1E4E8">. Ensure CSS enforces </span><span style="color:#79B8FF">`pre, code, div.sourceCode { background-color: #F8FAFC !important; border: 1px solid #CBD5E1 !important; color: #0F172A !important; }`</span><span style="color:#E1E4E8"> to eliminate toner waste.</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> External CSS Linking Failures: Prevent headless browser path resolution failures by reading </span><span style="color:#79B8FF">`terminal-theme.css`</span><span style="color:#E1E4E8"> and inlining the complete stylesheet directly into </span><span style="color:#79B8FF">`&#x3C;style>`</span><span style="color:#E1E4E8"> inside </span><span style="color:#79B8FF">`&#x3C;head>`</span><span style="color:#E1E4E8"> of the HTML before PDF generation.</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> Raw GitHub Alert Syntax: Detect all </span><span style="color:#79B8FF">`> [!NOTE]`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`> [!WARNING]`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`> [!TIP]`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`> [!IMPORTANT]`</span><span style="color:#E1E4E8">, and </span><span style="color:#79B8FF">`> [!CAUTION]`</span><span style="color:#E1E4E8"> syntax in ingested markdown files and transform them into styled pastel HTML callout cards (</span><span style="color:#79B8FF">`&#x3C;div class="callout callout-note">&#x3C;strong>💡 Note&#x3C;/strong>&#x3C;p>...&#x3C;/p>&#x3C;/div>`</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#FFAB70">5.</span><span style="color:#E1E4E8"> Asynchronous Process Premature Exit: Execute Chromium print process synchronously and enforce virtual time budgets (</span><span style="color:#79B8FF">`--virtual-time-budget=8000`</span><span style="color:#E1E4E8">) to ensure the process does not terminate before the PDF file buffer is completely written.</span></span></code></pre>
+<hr>
+<h2 id="3-the-17-non-negotiable-technical-book-compilation-invariants">3. The 17 Non-Negotiable Technical Book Compilation Invariants</h2>
+<p>Any automated compilation pipeline must adhere to these 17 strict invariants:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">#</th><th align="left">Invariant Name</th><th align="left">Failure Mode Addressed</th><th align="left">Architectural Rule</th></tr></thead><tbody><tr><td align="left"><strong>1</strong></td><td align="left"><strong>Pure White Standard</strong></td><td align="left">Dark gray backgrounds waste ink and look muddy</td><td align="left">Force <code>@page { background: #FFFFFF; }</code> and <code>body { background-color: #FFFFFF !important; }</code>.</td></tr><tr><td align="left"><strong>2</strong></td><td align="left"><strong>Light Alabaster Code</strong></td><td align="left">Solid black terminal containers waste ink</td><td align="left">Code containers must use <code>#F8FAFC</code> background with <code>#CBD5E1</code> border and dark charcoal text <code>#0F172A</code>.</td></tr><tr><td align="left"><strong>3</strong></td><td align="left"><strong>Syntax Theme (<code>tango</code>)</strong></td><td align="left">Dark themes (<code>espresso</code>, <code>zenburn</code>) force black code backgrounds</td><td align="left">Strictly enforce <code>--highlight-style=tango</code> for light-background compatibility.</td></tr><tr><td align="left"><strong>4</strong></td><td align="left"><strong>Standalone Cover Injection</strong></td><td align="left">Raw Markdown covers break page layout and spill over</td><td align="left">Author <code>cover.html</code> and inject via <code>--include-before-body=cover.html</code>.</td></tr><tr><td align="left"><strong>5</strong></td><td align="left"><strong>Cover Single-Page Fit</strong></td><td align="left">Cover content spilling into Table of Contents</td><td align="left">Enforce <code>.cover-page { break-after: page; min-height: 250mm; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }</code>.</td></tr><tr><td align="left"><strong>6</strong></td><td align="left"><strong>Frontmatter Stripping</strong></td><td align="left">Pandoc crashes with <code>Unknown alias</code> error</td><td align="left">Strip <code>--- ... ---</code> blocks from all ingested markdown files before concatenation.</td></tr><tr><td align="left"><strong>7</strong></td><td align="left"><strong>Horizontal Rule Sanitization</strong></td><td align="left"><code>\n---\n</code> parsed by Pandoc as YAML start</td><td align="left">Regex replace <code>\n---\n</code> with <code>\n***\n</code> in all ingested content.</td></tr><tr><td align="left"><strong>8</strong></td><td align="left"><strong>GitHub Alert Card Conversion</strong></td><td align="left"><code>> [!NOTE]</code> renders as unstyled plain text</td><td align="left">Programmatically transform into <code>&#x3C;div class="callout callout-note">&#x3C;strong>💡 Note&#x3C;/strong>&#x3C;p>...&#x3C;/p>&#x3C;/div></code>.</td></tr><tr><td align="left"><strong>9</strong></td><td align="left"><strong>Self-Contained Embedded CSS</strong></td><td align="left">Headless browsers fail to resolve relative CSS links</td><td align="left">Read <code>terminal-theme.css</code> and inject directly into <code>&#x3C;style></code> inside <code>&#x3C;head></code>.</td></tr><tr><td align="left"><strong>10</strong></td><td align="left"><strong>Dynamic Backtick Scaling</strong></td><td align="left">Triple backticks inside code blocks close outer fence</td><td align="left">Count max backticks in code and scale outer fence to N+1 (e.g. <code>````</code>).</td></tr><tr><td align="left"><strong>11</strong></td><td align="left"><strong>Heading Offset (+2)</strong></td><td align="left">Embedded guide titles collide with Book H1/H2</td><td align="left">Dynamically increment heading level (<code>#</code> to <code>###</code>, <code>##</code> to <code>####</code>).</td></tr><tr><td align="left"><strong>12</strong></td><td align="left"><strong>Native Vector SVG Baking</strong></td><td align="left">Client-side Mermaid race conditions in headless PDF</td><td align="left">Pre-render diagrams to <code>&#x3C;svg></code> and inject into HTML before headless PDF execution.</td></tr><tr><td align="left"><strong>13</strong></td><td align="left"><strong>Mermaid Namespace Isolation</strong></td><td align="left">Global node ID collisions across multiple diagrams</td><td align="left">Prefix node IDs with unique namespace prefixes (<code>TB_</code>, <code>AN_</code>, <code>TH_</code>).</td></tr><tr><td align="left"><strong>14</strong></td><td align="left"><strong>Pandoc Code-Tag Wrapping</strong></td><td align="left">Pandoc wraps <code>&#x3C;pre class="mermaid">&#x3C;code></code> and escapes HTML</td><td align="left">SVG replacement regexes must match both standard and <code>&#x3C;code></code>-wrapped pre blocks and unescape arrows (<code>--&#x26;gt;</code>).</td></tr><tr><td align="left"><strong>15</strong></td><td align="left"><strong>Isolated Browser Profile</strong></td><td align="left">Headless Chromium crashes if user desktop instances exist</td><td align="left">Launch Chromium with isolated temp profiles.</td></tr><tr><td align="left"><strong>16</strong></td><td align="left"><strong>Synchronous Execution</strong></td><td align="left">Shell returns before Edge/Chromium finishes writing PDF</td><td align="left">Always use synchronous subprocess calls and wait guards.</td></tr><tr><td align="left"><strong>17</strong></td><td align="left"><strong>Provenance Audit Banners</strong></td><td align="left">Loss of traceability for ingested runbooks</td><td align="left">Inject <code>&#x3C;div class="doc-provenance"></code> detailing the repository source path.</td></tr></tbody></table>
+<hr>
+<h2 id="4-reusable-project-book-assembler-template-toolsbuild_project_bookpy">4. Reusable Project Book Assembler Template (<code>tools/build_project_book.py</code>)</h2>
+<p>Below is the clean, modular Python assembler that can be copied directly into any repository:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D">#!/usr/bin/env python3</span></span>
+<span class="line"><span style="color:#9ECBFF">"""</span></span>
+<span class="line"><span style="color:#9ECBFF">Universal Technical Handbook Assembler &#x26; Multi-Format Compiler</span></span>
+<span class="line"><span style="color:#9ECBFF">Standard: Terminal &#x26; Cloud Standard (DSOM Rule 11 &#x26; Rule 22)</span></span>
+<span class="line"><span style="color:#9ECBFF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> re</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> sys</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> subprocess</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> pathlib </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Path</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">ROOT_DIR</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> Path(</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">).resolve()</span></span>
+<span class="line"><span style="color:#79B8FF">BUILD_DIR</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> ROOT_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "build"</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "book"</span></span>
+<span class="line"><span style="color:#79B8FF">BUILD_DIR</span><span style="color:#E1E4E8">.mkdir(</span><span style="color:#FFAB70">parents</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">exist_ok</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">MASTER_MD</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "master_book.md"</span></span>
+<span class="line"><span style="color:#79B8FF">COVER_HTML</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "cover.html"</span></span>
+<span class="line"><span style="color:#79B8FF">THEME_CSS</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "terminal-theme.css"</span></span>
+<span class="line"><span style="color:#79B8FF">HANDBOOK_HTML</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "handbook.html"</span></span>
+<span class="line"><span style="color:#79B8FF">HANDBOOK_PDF</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "handbook.pdf"</span></span>
+<span class="line"><span style="color:#79B8FF">HANDBOOK_EPUB</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> BUILD_DIR</span><span style="color:#F97583"> /</span><span style="color:#9ECBFF"> "handbook.epub"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">WARNING_KEYWORDS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> re.compile(</span></span>
+<span class="line"><span style="color:#F97583">    r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\b(</span><span style="color:#DBEDFF">BUG</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">FIX</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">Confirmed</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">live</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">vendor</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">NEVER</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">destroy</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">destructive</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">ORA-</span><span style="color:#79B8FF">\d</span><span style="color:#F97583">+|</span><span style="color:#DBEDFF">crash</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">escalation</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">hard way</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">WARNING</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">CAUTION</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">CRITICAL</span><span style="color:#79B8FF">)\b</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    re.</span><span style="color:#79B8FF">IGNORECASE</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> strip_frontmatter_and_footer</span><span style="color:#E1E4E8">(content: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    lines </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> content.splitlines()</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> lines </span><span style="color:#F97583">and</span><span style="color:#E1E4E8"> lines[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">].strip() </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "---"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">        end_idx </span><span style="color:#F97583">=</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> idx </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(lines)):</span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> lines[idx].strip() </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "---"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">                end_idx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> idx</span></span>
+<span class="line"><span style="color:#F97583">                break</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> end_idx </span><span style="color:#F97583">!=</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">            content </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(lines[end_idx</span><span style="color:#F97583">+</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:])</span></span>
+<span class="line"><span style="color:#E1E4E8">    content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.sub(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#DBEDFF">---</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">*</span><span style="color:#85E89D;font-weight:bold">\n\*</span><span style="color:#79B8FF">.</span><span style="color:#F97583">*</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, content, </span><span style="color:#FFAB70">flags</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">re.</span><span style="color:#79B8FF">DOTALL</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.sub(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#DBEDFF">---</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">***</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, content)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> content.strip()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> convert_github_alerts</span><span style="color:#E1E4E8">(text: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    pattern </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.compile(</span></span>
+<span class="line"><span style="color:#F97583">        r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">^</span><span style="color:#DBEDFF">></span><span style="color:#79B8FF">\s</span><span style="color:#F97583">*</span><span style="color:#79B8FF">(?:</span><span style="color:#85E89D;font-weight:bold">\*\*</span><span style="color:#79B8FF">)</span><span style="color:#F97583">?</span><span style="color:#85E89D;font-weight:bold">\[</span><span style="color:#DBEDFF">!</span><span style="color:#79B8FF">(</span><span style="color:#DBEDFF">NOTE</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">TIP</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">WARNING</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">IMPORTANT</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">CAUTION</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">SUCCESS</span><span style="color:#79B8FF">)</span><span style="color:#85E89D;font-weight:bold">\]</span><span style="color:#79B8FF">(?:</span><span style="color:#85E89D;font-weight:bold">\*\*</span><span style="color:#79B8FF">)</span><span style="color:#F97583">?</span><span style="color:#79B8FF">(?:[ </span><span style="color:#85E89D;font-weight:bold">\t</span><span style="color:#79B8FF">]</span><span style="color:#F97583">*</span><span style="color:#79B8FF">(.</span><span style="color:#F97583">*</span><span style="color:#79B8FF">))</span><span style="color:#F97583">?</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#79B8FF">((?:^</span><span style="color:#DBEDFF">></span><span style="color:#79B8FF">.</span><span style="color:#F97583">*</span><span style="color:#79B8FF">$</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#F97583">?</span><span style="color:#79B8FF">)</span><span style="color:#F97583">*</span><span style="color:#79B8FF">)</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        re.</span><span style="color:#79B8FF">MULTILINE</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> replacer</span><span style="color:#E1E4E8">(match):</span></span>
+<span class="line"><span style="color:#E1E4E8">        alert_type </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> match.group(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">).upper()</span></span>
+<span class="line"><span style="color:#E1E4E8">        first_line </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> match.group(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">or</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line"><span style="color:#E1E4E8">        raw_body </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> match.group(</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">or</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line"><span style="color:#E1E4E8">        lines </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> first_line.strip():</span></span>
+<span class="line"><span style="color:#E1E4E8">            lines.append(first_line.strip())</span></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> line </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> raw_body.splitlines():</span></span>
+<span class="line"><span style="color:#E1E4E8">            clean_line </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.sub(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">^</span><span style="color:#DBEDFF">></span><span style="color:#79B8FF">\s</span><span style="color:#F97583">?</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, line)</span></span>
+<span class="line"><span style="color:#E1E4E8">            lines.append(clean_line)</span></span>
+<span class="line"><span style="color:#E1E4E8">        body </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(lines).strip()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> alert_type </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> (</span><span style="color:#9ECBFF">"WARNING"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"CAUTION"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"IMPORTANT"</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">            css_class </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "callout callout-warning"</span></span>
+<span class="line"><span style="color:#E1E4E8">            icon </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "⚠️"</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> alert_type </span><span style="color:#F97583">!=</span><span style="color:#9ECBFF"> "CAUTION"</span><span style="color:#F97583"> else</span><span style="color:#9ECBFF"> "🛑"</span></span>
+<span class="line"><span style="color:#E1E4E8">            title </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> alert_type.capitalize()</span></span>
+<span class="line"><span style="color:#F97583">        elif</span><span style="color:#E1E4E8"> alert_type </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> (</span><span style="color:#9ECBFF">"TIP"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"SUCCESS"</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">            css_class </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "callout callout-tip"</span></span>
+<span class="line"><span style="color:#E1E4E8">            icon </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "💡"</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> alert_type </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "TIP"</span><span style="color:#F97583"> else</span><span style="color:#9ECBFF"> "✅"</span></span>
+<span class="line"><span style="color:#E1E4E8">            title </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> alert_type.capitalize()</span></span>
+<span class="line"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">            css_class </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "callout callout-note"</span></span>
+<span class="line"><span style="color:#E1E4E8">            icon </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "💡"</span></span>
+<span class="line"><span style="color:#E1E4E8">            title </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Note"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">&#x3C;div class="</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">css_class</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"></span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">&#x3C;strong></span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">icon</span><span style="color:#79B8FF">}</span><span style="color:#79B8FF"> {</span><span style="color:#E1E4E8">title</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">&#x3C;/strong></span><span style="color:#79B8FF">\n\n{</span><span style="color:#E1E4E8">body</span><span style="color:#79B8FF">}\n</span><span style="color:#9ECBFF">&#x3C;/div></span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> pattern.sub(replacer, text)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> scale_backticks</span><span style="color:#E1E4E8">(code_text: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> tuple[</span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">]:</span></span>
+<span class="line"><span style="color:#E1E4E8">    max_ticks </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line"><span style="color:#E1E4E8">    matches </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.findall(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">(</span><span style="color:#DBEDFF">`</span><span style="color:#F97583">{3,}</span><span style="color:#79B8FF">)</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, code_text)</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> m </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> matches:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#79B8FF"> len</span><span style="color:#E1E4E8">(m) </span><span style="color:#F97583">></span><span style="color:#E1E4E8"> max_ticks:</span></span>
+<span class="line"><span style="color:#E1E4E8">            max_ticks </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> len</span><span style="color:#E1E4E8">(m)</span></span>
+<span class="line"><span style="color:#E1E4E8">    fence </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "`"</span><span style="color:#F97583"> *</span><span style="color:#79B8FF"> max</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, max_ticks </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> fence, fence</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> extract_commentary</span><span style="color:#E1E4E8">(code_text: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, lang: </span><span style="color:#79B8FF">str</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "yaml"</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">    lines </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> code_text.splitlines()</span></span>
+<span class="line"><span style="color:#E1E4E8">    comment_lines </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#E1E4E8">    start_idx </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> lines </span><span style="color:#F97583">and</span><span style="color:#E1E4E8"> lines[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">].strip() </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "---"</span><span style="color:#F97583"> else</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(start_idx, </span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(lines)):</span></span>
+<span class="line"><span style="color:#E1E4E8">        l </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> lines[i]</span></span>
+<span class="line"><span style="color:#E1E4E8">        stripped </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> l.strip()</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> stripped:</span></span>
+<span class="line"><span style="color:#F97583">            continue</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> stripped.startswith(</span><span style="color:#9ECBFF">"#"</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">            comment_lines.append(stripped.lstrip(</span><span style="color:#9ECBFF">"#"</span><span style="color:#E1E4E8">).strip())</span></span>
+<span class="line"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">            break</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> comment_lines:</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> None</span></span>
+<span class="line"><span style="color:#E1E4E8">    comment_text </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> " "</span><span style="color:#E1E4E8">.join(comment_lines)</span></span>
+<span class="line"><span style="color:#E1E4E8">    is_warning </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> bool</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">WARNING_KEYWORDS</span><span style="color:#E1E4E8">.search(comment_text))</span></span>
+<span class="line"><span style="color:#E1E4E8">    callout_class </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "callout callout-warning"</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> is_warning </span><span style="color:#F97583">else</span><span style="color:#9ECBFF"> "callout callout-note"</span></span>
+<span class="line"><span style="color:#E1E4E8">    callout_title </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Developer Commentary — Read Before Executing"</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> is_warning </span><span style="color:#F97583">else</span><span style="color:#9ECBFF"> "Developer Operational Context"</span></span>
+<span class="line"><span style="color:#E1E4E8">    callout_icon </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "⚠️"</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> is_warning </span><span style="color:#F97583">else</span><span style="color:#9ECBFF"> "💡"</span></span>
+<span class="line"><span style="color:#E1E4E8">    body </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"> </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">cl</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"</span><span style="color:#F97583"> for</span><span style="color:#E1E4E8"> cl </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> comment_lines[:</span><span style="color:#79B8FF">15</span><span style="color:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">'&#x3C;div class="</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">callout_class</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"></span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">&#x3C;strong></span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">callout_icon</span><span style="color:#79B8FF">}</span><span style="color:#79B8FF"> {</span><span style="color:#E1E4E8">callout_title</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">&#x3C;/strong></span><span style="color:#79B8FF">\n\n{</span><span style="color:#E1E4E8">body</span><span style="color:#79B8FF">}\n</span><span style="color:#9ECBFF">&#x3C;/div></span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> ingest_code_file</span><span style="color:#E1E4E8">(file_path: Path, lang: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, title: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, anchor: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> file_path.exists():</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">*File not found: </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">file_path</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">*</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">    content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> file_path.read_text(</span><span style="color:#FFAB70">encoding</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">errors</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"replace"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    callout </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> extract_commentary(content, lang)</span></span>
+<span class="line"><span style="color:#E1E4E8">    fence_start, fence_end </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> scale_backticks(content)</span></span>
+<span class="line"><span style="color:#E1E4E8">    md_parts </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">&#x3C;a id=</span><span style="color:#79B8FF">\"{</span><span style="color:#E1E4E8">anchor</span><span style="color:#79B8FF">}\"</span><span style="color:#9ECBFF">>&#x3C;/a></span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">### </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">title</span><span style="color:#79B8FF">}\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    md_parts.append(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"**Source File:** `</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">file_path.relative_to(</span><span style="color:#79B8FF">ROOT_DIR</span><span style="color:#E1E4E8">).as_posix()</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">`</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> callout:</span></span>
+<span class="line"><span style="color:#E1E4E8">        md_parts.append(callout)</span></span>
+<span class="line"><span style="color:#E1E4E8">    md_parts.append(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">fence_start</span><span style="color:#79B8FF">}{</span><span style="color:#E1E4E8">lang</span><span style="color:#79B8FF">}\n{</span><span style="color:#E1E4E8">content.strip()</span><span style="color:#79B8FF">}\n{</span><span style="color:#E1E4E8">fence_end</span><span style="color:#79B8FF">}\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(md_parts)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> ingest_doc_file</span><span style="color:#E1E4E8">(rel_path: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, heading_offset: </span><span style="color:#79B8FF">int</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">, show_provenance: </span><span style="color:#79B8FF">bool</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> True</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    file_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> ROOT_DIR</span><span style="color:#F97583"> /</span><span style="color:#E1E4E8"> rel_path</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> file_path.exists():</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">*Documentation file not found: </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">rel_path</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">*</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">    raw </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> file_path.read_text(</span><span style="color:#FFAB70">encoding</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">errors</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"replace"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    clean </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> strip_frontmatter_and_footer(raw)</span></span>
+<span class="line"><span style="color:#E1E4E8">    clean </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> convert_github_alerts(clean)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    out </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> line </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> clean.splitlines():</span></span>
+<span class="line"><span style="color:#E1E4E8">        m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.match(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">^(</span><span style="color:#DBEDFF">#</span><span style="color:#F97583">{1,6}</span><span style="color:#79B8FF">)\s</span><span style="color:#F97583">+</span><span style="color:#79B8FF">(.</span><span style="color:#F97583">*</span><span style="color:#79B8FF">)$</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, line)</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> m:</span></span>
+<span class="line"><span style="color:#E1E4E8">            lvl </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> min</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(m.group(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> heading_offset, </span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">            hashes </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "#"</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> lvl</span></span>
+<span class="line"><span style="color:#E1E4E8">            title </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> m.group(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">            out.append(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">hashes</span><span style="color:#79B8FF">}</span><span style="color:#79B8FF"> {</span><span style="color:#E1E4E8">title</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">            out.append(line)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    header </span><span style="color:#F97583">=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">&#x3C;div class="doc-provenance">&#x3C;strong>Operational Reference Guide:&#x3C;/strong> &#x3C;code></span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">rel_path</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">&#x3C;/code>&#x3C;/div></span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> show_provenance </span><span style="color:#F97583">else</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> header </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(out) </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> build_master_book</span><span style="color:#E1E4E8">():</span></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Assembling master book markdown..."</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    parts </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    # 1. Book Executive Overview</span></span>
+<span class="line"><span style="color:#E1E4E8">    parts.append(</span><span style="color:#9ECBFF">"""# Executive Overview </span><span style="color:#79B8FF">{.unnumbered}</span></span>
+<span class="line"><span style="color:#9ECBFF">> **Classification:** Private And Confidential (P&#x26;C)</span></span>
+<span class="line"><span style="color:#9ECBFF">> **Compiled By:** Autonomous Cognitive Twin</span></span>
+<span class="line"><span style="color:#9ECBFF">> **Standard:** Terminal &#x26; Cloud Technical Handbook Standard</span></span>
+<span class="line"><span style="color:#9ECBFF">"""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    # 2. Prologue Story (Dynamically Ingested from Standalone File)</span></span>
+<span class="line"><span style="color:#E1E4E8">    story_path </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "docs/explanation/THE-STORY-OF-PROJECT.md"</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">ROOT_DIR</span><span style="color:#F97583"> /</span><span style="color:#E1E4E8"> story_path).exists():</span></span>
+<span class="line"><span style="color:#E1E4E8">        parts.append(ingest_doc_file(story_path, </span><span style="color:#FFAB70">heading_offset</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">show_provenance</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    full_text </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.join(parts)</span></span>
+<span class="line"><span style="color:#79B8FF">    MASTER_MD</span><span style="color:#E1E4E8">.write_text(full_text, </span><span style="color:#FFAB70">encoding</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"Master markdown written: </span><span style="color:#79B8FF">{MASTER_MD}</span><span style="color:#9ECBFF"> (</span><span style="color:#79B8FF">{len</span><span style="color:#E1E4E8">(full_text)</span><span style="color:#F97583">:,</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF"> bytes)"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#79B8FF"> __name__</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> "__main__"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    build_master_book()</span></span></code></pre>
+<hr>
+<h2 id="5-standalone-reusable-skill-specification-project-technical-book-compiler">5. Standalone Reusable Skill Specification (<code>project-technical-book-compiler</code>)</h2>
+<p>To adopt this capability in another repository, copy the specification below into <code>.agents/skills/project-technical-book-compiler/SKILL.md</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#B392F0">---</span></span>
+<span class="line"><span style="color:#85E89D">okf_version</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"0.1"</span></span>
+<span class="line"><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"skill"</span></span>
+<span class="line"><span style="color:#85E89D">title</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Project Technical Book &#x26; Handbook Compiler"</span></span>
+<span class="line"><span style="color:#85E89D">timestamp</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-09-05T00:00:00Z"</span></span>
+<span class="line"><span style="color:#85E89D">description</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Autonomously synthesizes repository code, Diataxis documentation, and system telemetry into publication-grade print-ready PDF, standalone HTML, and EPUB handbooks using Pandoc, Headless Chromium, and the Terminal &#x26; Cloud design framework."</span></span>
+<span class="line"><span style="color:#85E89D">topics</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"pandoc"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"pdf"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"html"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"epub"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"print-optimized"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"diataxis"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"handbook"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#85E89D">status</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"stable"</span></span>
+<span class="line"><span style="color:#85E89D">stale_after</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2027-09-05"</span></span>
+<span class="line"><span style="color:#85E89D">name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"project-technical-book-compiler"</span></span>
+<span class="line"><span style="color:#B392F0">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Project Technical Book &#x26; Handbook Compiler</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## Purpose</span></span>
+<span class="line"><span style="color:#9ECBFF">Standardizes the automated assembly, styling, and multi-format compilation of entire project repositories into unified, publication-grade engineering handbooks.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## Execution Commands</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">### 1. Build Master Markdown</span></span>
+<span class="line"><span style="color:#E1E4E8">```</span><span style="color:#9ECBFF">bash</span></span>
+<span class="line"><span style="color:#9ECBFF">python3 tools/build_project_book.py</span></span></code></pre>
+<h3 id="2-compile-standalone-interactive-html-pandoc-3x">2. Compile Standalone Interactive HTML (Pandoc 3.x)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pandoc</span><span style="color:#9ECBFF"> build/book/master_book.md</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> build/book/handbook.html</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --standalone</span><span style="color:#79B8FF"> --toc</span><span style="color:#79B8FF"> --toc-depth=3</span><span style="color:#79B8FF"> --number-sections</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --include-before-body=build/book/cover.html</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --css=terminal-theme.css</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --highlight-style=tango</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> title="Project Technical Handbook"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> author="Lead Architect"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> date="September 2026"</span><span style="color:#79B8FF"> -V</span><span style="color:#9ECBFF"> lang=en</span></span></code></pre>
+<h3 id="3-bake-native-vector-svgs--inline-theme-css">3. Bake Native Vector SVGs &#x26; Inline Theme CSS</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python3</span><span style="color:#9ECBFF"> tools/bake_native_svg.py</span></span></code></pre>
+<h3 id="4-compile-publication-grade-pdf-headless-chromium">4. Compile Publication-Grade PDF (Headless Chromium)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">chromium-browser</span><span style="color:#79B8FF"> --headless=new</span><span style="color:#79B8FF"> --disable-gpu</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --run-all-compositor-stages-before-draw</span><span style="color:#79B8FF"> --virtual-time-budget=8000</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --print-to-pdf=build/book/handbook.pdf</span><span style="color:#9ECBFF"> file:///path/to/build/book/handbook.html</span></span></code></pre>
+<h3 id="5-compile-epub-3-ebook">5. Compile EPUB 3 Ebook</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pandoc</span><span style="color:#9ECBFF"> build/book/master_book.md</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> build/book/handbook.epub</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -t</span><span style="color:#9ECBFF"> epub3</span><span style="color:#79B8FF"> --toc</span><span style="color:#79B8FF"> --toc-depth=3</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --css=build/book/terminal-theme.css</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> title="Project Technical Handbook"</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 6. Operational Checklist &#x26; Quality Assurance</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Before delivering any compiled handbook to stakeholders, execute this audit checklist:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- [ ] **Cover Page Audit:** Page 1 renders as a full-page bordered card with P&#x26;C badges and metadata table; breaks cleanly before Table of Contents.</span></span>
+<span class="line"><span>- [ ] **Zero Toner Waste Audit:** All code containers have `#F8FAFC` light gray backgrounds with dark charcoal text and `tango` syntax colors. Zero black terminal boxes exist.</span></span>
+<span class="line"><span>- [ ] **Callout Card Audit:** All operational notes, warnings, and tips render as styled pastel cards with icons (`💡 Note`, `⚠️ Warning`, `💡 Tip`). Zero raw `[!NOTE]` markdown syntax leaks survive.</span></span>
+<span class="line"><span>- [ ] **Vector Diagram Audit:** All architecture and workflow diagrams render as crisp, scalable vector SVGs directly inline.</span></span>
+<span class="line"><span>- [ ] **Inline CSS Audit:** CSS is embedded directly into `&#x3C;style>` inside `&#x3C;head>` to prevent external relative link breakage.</span></span>
+<span class="line"><span>- [ ] **Soft-Path Link Audit:** All internal cross-references point to clean `#chap-...` or `#code-...` fragments without surviving absolute filesystem paths (`file:///` or drive letters).</span></span>
+<span class="line"><span>- [ ] **Pagination Audit:** Verified zero empty filler pages exist between chapters.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-05*</span></span>
+<span class="line"><span>*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*</span></span></code></pre></main></div><!-- GRID AREA: FOOTER --><div id="footer"><div class="lab-footer-wrap" style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--lab-border, #e2e8f0); background-color: var(--lab-bg, #f1f5f9); color: var(--lab-text, #1e293b);"><nav style="margin-bottom: 25px;"><p style="font-family: 'SF Mono', 'Cascadia Code', 'Source Code Pro', monospace; font-size: 0.7rem; text-transform: uppercase; color: #64748b; letter-spacing: 2px; margin-bottom: 15px; opacity: 0.8;"><strong>&lt; Laboratory_Modules /&gt;</strong></p><div style="display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 10px;"><a href="/CMSForNerd2" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 700;">Home</a><a href="/CMSForNerd2docs/context7-integration" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Context7 Service Integration Guide</a><a href="/CMSForNerd2docs/engineering" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DevOps Implementation Runbook Portal</a><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible ASIMP Hardening Playbooks</a><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DNS &amp; systemd-resolved Troubleshooting Guide</a><a href="/CMSForNerd2docs/engineering/efs-mount-scripts" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Persistent EFS Storage &amp; Mount Scripts</a><a href="/CMSForNerd2docs/engineering/opentofu-manifests" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">OpenTofu Module Manifests &amp; Simulation</a><a href="/CMSForNerd2docs/executive" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Executive &amp; Financial Blueprint Portal</a><a href="/CMSForNerd2docs/executive/regulatory-compliance" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sovereignty &amp; Regulatory Compliance</a><a href="/CMSForNerd2docs/executive/tco-financial-blueprint" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">36-Month TCO &amp; Financial Blueprint</a><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Diagram Design Standards Skill Overview</a><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a><a href="/CMSForNerd2docs/explanation/modernisation-philosophy" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">PHP-to-Static Modernisation Philosophy</a><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Spatial Memory &amp; Dual-Pathway Design</a><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Web Design Guidelines Skill Overview</a><a href="/CMSForNerd2docs/explanation/web-interface-improvements" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Web Interface Improvements &amp; Design Review</a><a href="/CMSForNerd2docs/governance/llm-wiki-adoption" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Technical Book Design &amp; PDF Compilation Master Prompt Guide</a><a href="/CMSForNerd2docs/how-to/ansible-deployment" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible Deployment How-To Guide</a><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">GitHub Pages Deployment and Troubleshooting Guide</a><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a><a href="/CMSForNerd2docs/how-to/okf-refactoring" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">OKF Frontmatter Refactoring How-To Guide</a><a href="/CMSForNerd2docs/how-to/sitemap-verification" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sitemap Verification How-To Guide</a><a href="/CMSForNerd2docs/jules-platform-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a><a href="/CMSForNerd2docs/migration-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd to CMSForNerd2 Static Migration Guide</a><a href="/CMSForNerd2docs/readme" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Documentation System</a><a href="/CMSForNerd2docs/reference/deploy-static" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">deploy-static.sh CLI Reference</a><a href="/CMSForNerd2docs/reference/llms-txt2ctx" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">llms_txt2ctx.py CLI Reference</a><a href="/CMSForNerd2docs/reference/refactor-okf" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">refactor-okf.cjs API Reference</a><a href="/CMSForNerd2docs/reference/verify-sitemaps" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">verify-sitemaps.js API Reference</a><a href="/CMSForNerd2docs/start-here" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Master Onboarding Map</a><a href="/CMSForNerd2docs/summary" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Documentation SUMMARY</a><a href="/CMSForNerd2docs/tutorials/local-development" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Local Development Quickstart Tutorial</a><a href="/CMSForNerd2docs/tutorials/static-site-deployment" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Static Site Deployment Tutorial</a><a href="/CMSForNerd2about" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">About CMSForNerd2</a><a href="/CMSForNerd2ai-dev" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AI-Assisted Development</a><a href="/CMSForNerd2ai-sop" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">SOP: Ethical AI Integration</a><a href="/CMSForNerd2amp-acceleration" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AMP Acceleration</a><a href="/CMSForNerd2ansible-lab" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible Static Orchestration</a><a href="/CMSForNerd2csp-nonce-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Static CSP Implementation Guide</a><a href="/CMSForNerd2exam-answers" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Official Answer Key: Final Exam</a><a href="/CMSForNerd2final-exam" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Final Exam: Break-Fix Challenge - CMSForNerd2</a><a href="/CMSForNerd2graduation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a><a href="/CMSForNerd2hall-of-fame" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Nerd Hall of Fame</a><a href="/CMSForNerd2history" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Modernisation History</a><a href="/CMSForNerd2installation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Installation Guide</a><a href="/CMSForNerd2lab-manual" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a><a href="/CMSForNerd2lab-module1" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 1 - CMSForNerd2</a><a href="/CMSForNerd2lab-module10" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 10 Worksheet</a><a href="/CMSForNerd2lab-module2" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 2 - CMSForNerd2</a><a href="/CMSForNerd2lab-module3" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 3 - CMSForNerd2</a><a href="/CMSForNerd2lab-module4" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 4 - CMSForNerd2</a><a href="/CMSForNerd2lab-module5" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 5 - CMSForNerd2</a><a href="/CMSForNerd2lab-module7" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 7 Worksheet</a><a href="/CMSForNerd2lab-module8" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 8 Worksheet</a><a href="/CMSForNerd2lab-module9" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 9 Worksheet</a><a href="/CMSForNerd2linux-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Linux Setup Guide (Node.js &amp; Astro)</a><a href="/CMSForNerd2pwa-architecture" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">PWA Architecture</a><a href="/CMSForNerd2security-policy" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Security Policy &amp; Disclosure</a><a href="/CMSForNerd2sitemap-page" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sitemap For CMSForNerd2</a><a href="/CMSForNerd2template" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">New Page Creation Guide</a><a href="/CMSForNerd2ui-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">UI Diagnostic Kit</a><a href="/CMSForNerd2welcome-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a><a href="/CMSForNerd2windows-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></div></nav><hr style="width: 60px; border: 0; border-top: 3px solid var(--lab-highlight, #8e44ad); margin: 25px auto; opacity: 0.6;"><div style="margin-bottom: 20px;"><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook/amp" style="display: inline-block; padding: 5px 12px; border: 1px solid var(--lab-highlight, #8e44ad); border-radius: 4px; color: var(--lab-highlight, #8e44ad); text-decoration: none; font-size: 0.75rem; font-family: 'SF Mono', monospace; font-weight: bold;">⚡ SWITCH TO AMP MOBILE VIEW</a></div><div style="font-size: 0.85rem; line-height: 1.8;"><span style="opacity: 0.7;">CmsForNerd Infrastructure:</span><a href="https://www.linuxmalaysia.com" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 600;">linuxmalaysia.com</a><br><span style="font-family: 'SF Mono', monospace; font-size: 0.8rem;">Copyright &copy; 2005 - 2026 Harisfazillah Jamel</span></div><div style="font-family: 'SF Mono', monospace; font-size: 0.65rem; color: #94a3b8; margin-top: 30px; letter-spacing: 0.5px;">[ REL: 3.5.1 ] | [ STD: RFC_9116 ] | [ ENV: ASTRO_7 ] | [ VIEW: STANDARD ]</div></div><div class="sitemap-link" style="margin-top:10px;"><a href="/CMSForNerd2sitemap.xml" target="_blank">[XML Sitemap]</a></div><div style="margin-top: 5px; font-size: 0.7em; opacity: 0.5;">Rendered: Statically Compiled at Build-time | MEM: 0 KB (Zero-runtime database-free)</div></div></div><!-- Theme switcher script --><script>
+      function setLaboratoryTheme(theme) {
+        document.documentElement.classList.remove('theme-light', 'theme-dark');
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+          localStorage.setItem('theme', 'dark');
+        } else if (theme === 'light') {
+          document.documentElement.classList.add('theme-light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.removeItem('theme');
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('theme-dark');
+          } else {
+            document.documentElement.classList.add('theme-light');
+          }
+        }
+
+        updateActiveThemeButtons(theme);
+      }
+
+      function updateActiveThemeButtons(theme) {
+        if (!theme) {
+          theme = localStorage.getItem('theme') || 'auto';
+        }
+
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (!btnLight || !btnDark || !btnAuto) return;
+
+        [btnLight, btnDark, btnAuto].forEach(btn => {
+          btn.style.background = 'none';
+          btn.style.color = 'var(--lab-text)';
+          btn.style.opacity = '0.6';
+        });
+
+        let activeBtn;
+        if (theme === 'dark') {
+          activeBtn = btnDark;
+        } else if (theme === 'light') {
+          activeBtn = btnLight;
+        } else {
+          activeBtn = btnAuto;
+        }
+
+        if (activeBtn) {
+          activeBtn.style.background = 'var(--lab-purple)';
+          activeBtn.style.color = '#ffffff';
+          activeBtn.style.opacity = '1';
+        }
+      }
+
+      function initThemeSwitcher() {
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (btnLight) {
+          btnLight.addEventListener('click', function() { setLaboratoryTheme('light'); });
+        }
+        if (btnDark) {
+          btnDark.addEventListener('click', function() { setLaboratoryTheme('dark'); });
+        }
+        if (btnAuto) {
+          btnAuto.addEventListener('click', function() { setLaboratoryTheme('auto'); });
+        }
+
+        updateActiveThemeButtons();
+      }
+
+      // Initial setup
+      initThemeSwitcher();
+
+      // Setup theme switcher on page transition (Astro View Transitions)
+      document.addEventListener('astro:after-swap', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+        initThemeSwitcher();
+      });
+    </script></body></html>

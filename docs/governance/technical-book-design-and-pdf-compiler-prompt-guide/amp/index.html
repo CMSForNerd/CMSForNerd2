@@ -1,0 +1,692 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Technical Book Design &amp; PDF Compilation Master Prompt Guide (AMP)</title><meta name="description" content="Master operational prompt and technical blueprint for compiling multi-file Markdown documentation suites into publication-grade, print-optimized PDF, HTML, EPUB, and ODT handbooks using Pandoc, Headless Chromium, and the Terminal &amp; Cloud design framework."><link rel="canonical" href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style></head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2docs/context7-integration/amp" class>Context7 Service Integration Guide</a></li><li><a href="/CMSForNerd2docs/engineering/amp" class>DevOps Implementation Runbook Portal</a></li><li><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening/amp" class>Ansible ASIMP Hardening Playbooks</a></li><li><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting/amp" class>DNS &amp; systemd-resolved Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/engineering/efs-mount-scripts/amp" class>Persistent EFS Storage &amp; Mount Scripts</a></li><li><a href="/CMSForNerd2docs/engineering/opentofu-manifests/amp" class>OpenTofu Module Manifests &amp; Simulation</a></li><li><a href="/CMSForNerd2docs/executive/amp" class>Executive &amp; Financial Blueprint Portal</a></li><li><a href="/CMSForNerd2docs/executive/regulatory-compliance/amp" class>Sovereignty &amp; Regulatory Compliance</a></li><li><a href="/CMSForNerd2docs/executive/tco-financial-blueprint/amp" class>36-Month TCO &amp; Financial Blueprint</a></li><li><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill/amp" class>Diagram Design Standards Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture/amp" class>FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a></li><li><a href="/CMSForNerd2docs/explanation/modernisation-philosophy/amp" class>PHP-to-Static Modernisation Philosophy</a></li><li><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox/amp" class>Spatial Memory &amp; Dual-Pathway Design</a></li><li><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill/amp" class>Web Design Guidelines Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/web-interface-improvements/amp" class>Web Interface Improvements &amp; Design Review</a></li><li><a href="/CMSForNerd2docs/governance/llm-wiki-adoption/amp" class>DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a></li><li><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/amp" class="active">Technical Book Design &amp; PDF Compilation Master Prompt Guide</a></li><li><a href="/CMSForNerd2docs/how-to/ansible-deployment/amp" class>Ansible Deployment How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting/amp" class>GitHub Pages Deployment and Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook/amp" class>How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm/amp" class>How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a></li><li><a href="/CMSForNerd2docs/how-to/okf-refactoring/amp" class>OKF Frontmatter Refactoring How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/sitemap-verification/amp" class>Sitemap Verification How-To Guide</a></li><li><a href="/CMSForNerd2docs/jules-platform-guide/amp" class>Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a></li><li><a href="/CMSForNerd2docs/migration-guide/amp" class>CMSForNerd to CMSForNerd2 Static Migration Guide</a></li><li><a href="/CMSForNerd2docs/readme/amp" class>CMSForNerd2 Documentation System</a></li><li><a href="/CMSForNerd2docs/reference/deploy-static/amp" class>deploy-static.sh CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/llms-txt2ctx/amp" class>llms_txt2ctx.py CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/refactor-okf/amp" class>refactor-okf.cjs API Reference</a></li><li><a href="/CMSForNerd2docs/reference/verify-sitemaps/amp" class>verify-sitemaps.js API Reference</a></li><li><a href="/CMSForNerd2docs/start-here/amp" class>CMSForNerd2 Master Onboarding Map</a></li><li><a href="/CMSForNerd2docs/summary/amp" class>CMSForNerd2 Documentation SUMMARY</a></li><li><a href="/CMSForNerd2docs/tutorials/local-development/amp" class>Local Development Quickstart Tutorial</a></li><li><a href="/CMSForNerd2docs/tutorials/static-site-deployment/amp" class>Static Site Deployment Tutorial</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module10/amp" class>Module 10 Worksheet</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2lab-module8/amp" class>Module 8 Worksheet</a></li><li><a href="/CMSForNerd2lab-module9/amp" class>Module 9 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><h1 id="technical-book-design--pdf-compilation-master-prompt-guide">Technical Book Design &#x26; PDF Compilation Master Prompt Guide</h1>
+<blockquote>
+<p><strong>Document Type:</strong> Governance Blueprint &#x26; Reusable AI Master Prompt
+<strong>Classification:</strong> Private And Confidential (P&#x26;C)
+<strong>Attribution:</strong> Compile by: Harisfazillah Jamel
+<strong>Standard:</strong> Terminal &#x26; Cloud Technical Ebook &#x26; Handbook Standard (DSOM Rule 11 &#x26; Rule 22)</p>
+</blockquote>
+<hr>
+<h2 id="1-executive-overview--dual-purpose">1. Executive Overview &#x26; Dual Purpose</h2>
+<p>This document serves two complementary functions:</p>
+<ol>
+<li><strong>The Reusable AI Master Prompt (Section 2):</strong> A complete, drop-in system prompt that can be provided to any advanced AI coding assistant (Google Antigravity, Google Jules, Claude, Cursor, ChatGPT) to autonomously orchestrate, style, and compile an entire repository of multi-file Markdown (<code>.md</code>) documentation and source code into a publication-grade PDF handbook.</li>
+<li><strong>The Architectural Blueprint &#x26; Engineering Field Manual (Sections 3–7):</strong> An exhaustive technical record documenting the formatting standards, color palettes, typography pairings, CSS <code>@page</code> rules, and the <strong>ten critical engineering hurdles</strong> solved to eliminate syntax crashes, blank pages, link leaks, and ink waste during multi-format compilation (PDF, standalone HTML, EPUB 3, and styled ODT).</li>
+<li><strong>The Embedded Skill SOP (Section 6):</strong> The full operational specification of the <code>dsom-technical-book-compiler</code> skill, ensuring complete self-containment.</li>
+</ol>
+<hr>
+<h2 id="2-the-reusable-ai-master-prompt">2. The Reusable AI Master Prompt</h2>
+<p><em>Copy and paste the entire block below into your AI prompt window or agent instruction set:</em></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">You are a Principal Publication Systems Architect and Pandoc Book Engineering Specialist.</span></span>
+<span class="line"><span style="color:#E1E4E8">Your task is to take an entire repository of Markdown (.md) documents and source code trees, assemble them into a cohesive, publication-grade technical handbook, and compile them into a print-optimized PDF, standalone interactive HTML, EPUB 3, and styled OpenDocument Text (ODT).</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">### MANDATORY DESIGN &#x26; STYLING SPECIFICATIONS (TERMINAL &#x26; CLOUD STANDARD)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> PRINT-OPTIMIZED PURE WHITE STANDARD (ZERO TONER WASTE):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> For all PDF and print compilations, dark or black container backgrounds are STRICTLY FORBIDDEN.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Base Body Background: Pure White (#FFFFFF !important).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Code Blocks (Preformatted): Light Alabaster/Gray (#F8FAFC) with a subtle slate border (1px solid #CBD5E1), dark charcoal text (#0F172A), and high-contrast dark syntax highlighting (Pandoc 'tango' style: Keywords #1E40AF bold, Strings #047857, Comments #64748B italic, Numbers #B45309, Functions #6D28D9).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Callout &#x26; Alert Boxes: Light pastel containers with high-contrast colored left borders:</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Critical Warnings &#x26; Cautions: Background #FEF2F2, Left Border 5px solid #DC2626, Border 1px solid #FCA5A5, Text #991B1B.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Operational Notes &#x26; Information: Background #F0F9FF, Left Border 5px solid #0284C7, Border 1px solid #BAE6FD, Text #075985.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Pro-Tips: Background #F0FDF4, Left Border 5px solid #16A34A, Border 1px solid #BBF7D0, Text #166534.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Chapter Executive Summaries: Background #F8FAFC, Border 1px solid #CBD5E1, Text #334155.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> TYPOGRAPHY &#x26; VISUAL HIERARCHY:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Body Text: Clean sans-serif ('Inter', 'Plus Jakarta Sans', or system-ui fallback), 10pt, line-height 1.55, color #0F172A.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Code &#x26; Terminal Elements: Monospace font ('JetBrains Mono', 'Fira Code', or 'Consolas'), 8.5pt, line-height 1.4.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Headings:</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Book Title (Cover): 22pt bold, Linux Blue (#1E3A8A).</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Part Headers (H1 .part): 22pt bold, Linux Blue (#1E3A8A), shaded banner #F8FAFC with 8px solid #1E3A8A left bar, page-break-before: always.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Chapter Headers (H2): 16pt bold, Linux Blue (#1E3A8A), bottom border 1px solid #E2E8F0.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Section Headers (H3): 13pt bold, Deep Ubuntu (#77216F).</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Sub-section Headers (H4): 11pt semibold, Deep Teal (#0D9488).</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> PAGE LAYOUT &#x26; RUNNING HEADERS/FOOTERS:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Page Size: A4 (margin: 20mm 15mm 20mm 15mm).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Running Header Top-Left: "&#x3C;Book Title>" (Inter 8pt, #64748B).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Running Header Top-Right: "PRIVATE AND CONFIDENTIAL (P&#x26;C)" (Inter 8pt bold, #DC2626).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Running Footer Bottom-Left: "Compile by: Harisfazillah Jamel" (Inter 8pt, #64748B).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Running Footer Bottom-Right: "Page " counter(page) (Inter 8pt bold, #0F172A).</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> STANDALONE COVER PAGE (SINGLE PAGE FIT):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Passed to Pandoc via '--include-before-body=cover.html'.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Must fit entirely on Page 1 without spilling over.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Contain badges: Private And Confidential (P&#x26;C) (#FEE2E2), Technology badges (#EFF6FF), Tooling badges (#F0FDF4).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Metadata grid: 2-column key-value grid (Architect, Compiler, Audience, Classification, Covenant, Edition).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> CSS Guard: Hide duplicate Pandoc title header (#title-block-header { display: none !important; }) and prevent cover title page break (.cover-title { break-before: avoid !important; }).</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">### NON-NEGOTIABLE ENGINEERING PIPELINE CONSTRAINTS</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> FRONTMATTER &#x26; FOOTER STRIPPING:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Systematically strip individual YAML frontmatter (lines between leading '---' fences) and individual document signature footers from every ingested .md file to prevent Pandoc YAML parser crashes ('Unknown alias').</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Extract 'title' and 'description' from frontmatter: convert description into an executive summary callout box above the chapter body.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> DYNAMIC BACKTICK SCALING:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> When ingesting code files containing triple backticks (```), dynamically scale the outer markdown fence to 4 or 5 backticks (```` or `````) to prevent premature block closure.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> ANTI-BLANK PAGE DISCIPLINE:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Never combine manual HTML page break tags ('&#x3C;div class="page-break">&#x3C;/div>') with CSS 'page-break-before: always;'. Use CSS classes exclusively on H1/Part elements.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> MERMAID MULTI-DIAGRAM ISOLATION PROTOCOL:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Diagram-Scoped Namespaces: Reusing identical node IDs (e.g. NODE1, DB, GATEWAY) across diagrams is strictly prohibited. Prefix all node IDs within each diagram with a unique diagram namespace (e.g. TB_, PA_, PB_, PC_) to eliminate global SVG node collisions.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Sequential DOM Replacement: Never rely on 'mermaid.run()' which causes millisecond timestamp collisions in headless Chromium. Render diagrams sequentially via 'mermaid.render("diagram_svg_" + i, code)' into unique containers.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Entity Unescaping Pipeline: Unescape '&#x26;quot;', '&#x26;lt;', '&#x26;gt;', '&#x26;amp;' inside '&#x3C;pre class="mermaid">' blocks before rendering, and extract 'innerHTML' (not 'textContent') to preserve stacked card line breaks.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Balanced Flowchart Architecture: Prevent tall vertical flowchart towers (height > 600px) that cause blank page overflows. Split complex diagrams into balanced 2-column or orthogonal grid layouts.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">5.</span><span style="color:#E1E4E8"> SOFT-PATH INTERNAL LINK RESOLUTION MANDATE (3-TIER NORMALISATION):</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Pre-index all chapters ('#chap-{slug}') and ingested code blocks ('#code-{slug}') into an internal anchor dictionary.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Rewrite all markdown links using a 3-tier normalisation lookup:</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Tier 1 (Exact Match): Check raw relative path against dictionary.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Tier 2 (Normalised Match): Strip 'file:///', Windows drive letters ('C:/', 'D:/'), project root prefix, and 'build/' prefix, then check dictionary.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Tier 3 (Basename-Only Match): Strip all parent directories and check dictionary by filename only.</span></span>
+<span class="line"><span style="color:#FFAB70">     *</span><span style="color:#E1E4E8"> Preserve '#fragment' anchor jumps across all three tiers.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Post-Compile Audit: Assert zero absolute path leaks ('D:/', 'C:/', 'file:///') survive in compiled PDF/HTML links.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">6.</span><span style="color:#E1E4E8"> DEVELOPER COMMENTARY EXTRACTION PROTOCOL:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> For every ingested Ansible playbook, shell script, or configuration file, parse the leading '#' comment block (contiguous comments before the first active code key).</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Regex Keyword Scan: If comments contain keywords ('BUG', 'FIX', 'Confirmed', 'live', 'vendor', 'NEVER', 'destroy', 'destructive', 'ORA-\d+', 'crash', 'escalation', 'hard way'), render a ⚠️ orange warning callout ('callout-warning', 'Developer Commentary — Read Before Executing') ABOVE the code fence. Otherwise, render a 💡 blue note callout ('callout-note', 'Developer Commentary').</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Keep the original '#' comments inside the code block intact.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">7.</span><span style="color:#E1E4E8"> MULTI-FORMAT COMPILATION SUITE:</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Step 1: Standalone HTML with embedded Mermaid.js ESM and print CSS.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Step 2: Print-to-PDF via Headless Chromium/Edge with '--headless=new --run-all-compositor-stages-before-draw --virtual-time-budget=8000'.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Step 3: EPUB 3 with clean table of contents metadata.</span></span>
+<span class="line"><span style="color:#FFAB70">   -</span><span style="color:#E1E4E8"> Step 4: OpenDocument Text (ODT) with custom reference styles for Google Docs/LibreOffice collaboration.</span></span></code></pre>
+<hr>
+<h2 id="3-visual-design-system-the-terminal--cloud-framework">3. Visual Design System: The “Terminal &#x26; Cloud” Framework</h2>
+<h3 id="31-color-palette--contrast-economics">3.1 Color Palette &#x26; Contrast Economics</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Role</th><th align="left">HEX Code</th><th align="left">Print Rationale</th><th align="left">CSS Class / Property</th></tr></thead><tbody><tr><td align="left"><strong>Page Background</strong></td><td align="left"><code>#FFFFFF</code></td><td align="left">Pure white. Eliminates background shading and toner waste.</td><td align="left"><code>body { background-color: #FFFFFF !important; }</code></td></tr><tr><td align="left"><strong>Body Text</strong></td><td align="left"><code>#0F172A</code></td><td align="left">Deep charcoal slate. Maximum contrast against white without harsh black glare.</td><td align="left"><code>color: #0F172A !important;</code></td></tr><tr><td align="left"><strong>Primary Headings</strong></td><td align="left"><code>#1E3A8A</code></td><td align="left">Linux Blue. Professional, authoritative enterprise header branding.</td><td align="left"><code>h1, h2 { color: #1E3A8A; }</code></td></tr><tr><td align="left"><strong>Secondary Headings</strong></td><td align="left"><code>#77216F</code></td><td align="left">Deep Ubuntu Purple. High-visibility distinction for major subsections.</td><td align="left"><code>h3 { color: #77216F; }</code></td></tr><tr><td align="left"><strong>Tertiary Headings</strong></td><td align="left"><code>#0D9488</code></td><td align="left">Deep Teal. Clear demarcator for low-level runbook procedures.</td><td align="left"><code>h4 { color: #0D9488; }</code></td></tr><tr><td align="left"><strong>Code Block Background</strong></td><td align="left"><code>#F8FAFC</code></td><td align="left">Very light alabaster gray. Visually defines code boundaries without heavy ink deposit.</td><td align="left"><code>div.sourceCode, pre.sourceCode { background-color: #F8FAFC !important; }</code></td></tr><tr><td align="left"><strong>Code Block Border</strong></td><td align="left"><code>#CBD5E1</code></td><td align="left">Slate border. Provides crisp, laser-printer-safe container edges.</td><td align="left"><code>border: 1px solid #CBD5E1 !important;</code></td></tr><tr><td align="left"><strong>Warning Callout</strong></td><td align="left"><code>#FEF2F2</code> / <code>#DC2626</code></td><td align="left">Soft red pastel with intense dark red border and text. Immediate visual alert.</td><td align="left"><code>.callout-warning</code></td></tr><tr><td align="left"><strong>Note Callout</strong></td><td align="left"><code>#F0F9FF</code> / <code>#0284C7</code></td><td align="left">Soft blue pastel with vivid blue border. High legibility for operational context.</td><td align="left"><code>.callout-note</code></td></tr><tr><td align="left"><strong>Tip Callout</strong></td><td align="left"><code>#F0FDF4</code> / <code>#16A34A</code></td><td align="left">Soft green pastel with crisp green border. Architectural pro-tips.</td><td align="left"><code>.callout-tip</code></td></tr></tbody></table>
+<h3 id="32-typography-pairing">3.2 Typography Pairing</h3>
+<ul>
+<li><strong>Prose:</strong> <code>font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;</code>
+<em>Characteristics:</em> Clean geometric sans-serif, high x-height, optimized for both 300 DPI print and high-res displays. Line height is fixed at <code>1.55</code> with <code>10pt</code> base size.</li>
+<li><strong>Code &#x26; Configurations:</strong> <code>font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;</code>
+<em>Characteristics:</em> Distinct character shaping (disambiguating <code>0</code>/<code>O</code> and <code>1</code>/<code>l</code>/<code>I</code>), tabular numbers, ligature support. Sized at <code>8.5pt</code> with <code>1.4</code> line height.</li>
+</ul>
+<h3 id="33-print-page-budget--paging-rules-page">3.3 Print Page Budget &#x26; Paging Rules (<code>@page</code>)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#F97583">@page</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    size</span><span style="color:#E1E4E8">: A4;</span></span>
+<span class="line"><span style="color:#79B8FF">    margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">20</span><span style="color:#F97583">mm</span><span style="color:#79B8FF"> 15</span><span style="color:#F97583">mm</span><span style="color:#79B8FF"> 20</span><span style="color:#F97583">mm</span><span style="color:#79B8FF"> 15</span><span style="color:#F97583">mm</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#FFFFFF</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#79B8FF">top-left</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">        content</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Technical Handbook"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">        font-family</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'Inter'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">        font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">8</span><span style="color:#F97583">pt</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">        color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#64748B</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">        font-weight</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    @top-right</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#85E89D">        content</span><span style="color:#E1E4E8">: "PRIVATE AND CONFIDENTIAL (P&#x26;C)";</span></span>
+<span class="line"><span style="color:#85E89D">        font-family</span><span style="color:#E1E4E8">: 'Inter', </span><span style="color:#85E89D">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">        font-size</span><span style="color:#E1E4E8">: 8pt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        color: </span><span style="color:#FDAEB7;font-style:italic">#DC2626;</span></span>
+<span class="line"><span style="color:#85E89D">        font-weight</span><span style="color:#E1E4E8">: 700;</span></span>
+<span class="line"><span style="color:#85E89D">        letter-spacing</span><span style="color:#E1E4E8">: 0.5px;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    @bottom-left</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#85E89D">        content</span><span style="color:#E1E4E8">: "Compile by: Harisfazillah Jamel";</span></span>
+<span class="line"><span style="color:#85E89D">        font-family</span><span style="color:#E1E4E8">: 'Inter', </span><span style="color:#85E89D">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">        font-size</span><span style="color:#E1E4E8">: 8pt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        color: </span><span style="color:#FDAEB7;font-style:italic">#64748B</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    @bottom-right</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#85E89D">        content</span><span style="color:#E1E4E8">: "Page " counter(page);</span></span>
+<span class="line"><span style="color:#85E89D">        font-family</span><span style="color:#E1E4E8">: 'Inter', </span><span style="color:#85E89D">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">        font-size</span><span style="color:#E1E4E8">: 8pt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        color: </span><span style="color:#FDAEB7;font-style:italic">#0F172A</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">        font-weight</span><span style="color:#E1E4E8">: 600;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="4-the-10-critical-engineering-hurdles-solved">4. The 10 Critical Engineering Hurdles Solved</h2>
+<h3 id="hurdle-1-pandoc-yaml-parser-explosions-unknown-alias">Hurdle 1: Pandoc YAML Parser Explosions (<code>Unknown alias</code>)</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Stitched multi-document markdowns retain individual OKF frontmatter blocks (<code>--- ... ---</code>). Pandoc attempts to parse subsequent frontmatter blocks as YAML document streams, failing with <code>Unknown alias</code> or corrupted titles.</li>
+<li><strong>Solution:</strong> A pre-processing function (<code>strip_frontmatter()</code>) strips leading YAML frontmatter while capturing <code>title</code> and <code>description</code> to create formatted chapter metadata banners (<code>.chapter-meta</code>).</li>
+</ul>
+<h3 id="hurdle-2-nested-backtick-fence-collisions">Hurdle 2: Nested Backtick Fence Collisions</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Ingested markdown documents or playbook examples already contain triple backticks (<code>```</code>). If the master compiler wraps them in triple backticks, the code block prematurely terminates, leaking raw code into prose.</li>
+<li><strong>Solution:</strong> Dynamic backtick scaling. The compiler scans the target code text; if triple backticks exist, it wraps the block in 4 backticks (<code> </code> ````); if 4 exist, it scales to 5.</li>
+</ul>
+<h3 id="hurdle-3-blank-overflow-pages--cover-fragmentation">Hurdle 3: Blank Overflow Pages &#x26; Cover Fragmentation</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Manual page breaks (<code>&#x3C;div class="page-break">&#x3C;/div></code>) combined with CSS <code>page-break-before: always;</code> on H1 elements generate unwanted empty pages. Furthermore, default Pandoc title headers split the cover across Pages 1 and 2.</li>
+<li><strong>Solution:</strong>
+<ol>
+<li>Eliminate all manual page break divs.</li>
+<li>Generate a standalone <code>cover.html</code> passed via <code>--include-before-body=cover.html</code>.</li>
+<li>Enforce <code>#title-block-header { display: none !important; }</code> and <code>.cover-title { break-before: avoid !important; }</code>.</li>
+<li>Constrain cover page padding and metadata fonts so the entire cover fits inside Page 1.</li>
+</ol>
+</li>
+</ul>
+<h3 id="hurdle-4-mermaid-10-syntax-bomb-graphics-html-escaping">Hurdle 4: Mermaid 10 Syntax Bomb Graphics (HTML Escaping)</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Pandoc automatically escapes HTML entities inside <code>&#x3C;pre class="mermaid">&#x3C;code></code> (<code>&#x26;quot;</code>, <code>&#x26;lt;</code>, <code>&#x26;gt;</code>, <code>--&#x26;gt;</code>). When Mermaid.js runs, it encounters illegal characters, rendering a pink syntax error bomb icon.</li>
+<li><strong>Solution:</strong> A dedicated post-pandoc HTML regex unescapes <code>&#x26;quot;</code>, <code>&#x26;lt;</code>, <code>&#x26;gt;</code>, <code>&#x26;amp;</code> and strips enclosing <code>&#x3C;code></code> tags before headless browser invocation.</li>
+</ul>
+<h3 id="hurdle-5-mermaid-node-collision-in-multi-diagram-handbooks">Hurdle 5: Mermaid Node Collision in Multi-Diagram Handbooks</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Different diagrams reuse common node identifiers (e.g. <code>NODE1</code>, <code>DB</code>, <code>CBE</code>, <code>PWP</code>). Mermaid’s internal parser merges identical IDs into the same global SVG graph, corrupting diagram topology.</li>
+<li><strong>Solution:</strong> <strong>Mermaid Multi-Diagram Isolation Protocol</strong>. Every diagram must have unique diagram-scoped namespaces prefixed to all nodes (e.g., <code>TB_</code> for Master Architecture, <code>PA_</code> for Pattern A, <code>PB_</code> for Pattern B, <code>PC_</code> for Pattern C).</li>
+</ul>
+<h3 id="hurdle-6-headless-chromium-millisecond-timestamp-collision">Hurdle 6: Headless Chromium Millisecond Timestamp Collision</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Headless Chromium renders all page scripts in milliseconds. Mermaid’s default <code>mermaid.run()</code> uses <code>Date.now()</code> timestamp IDs, causing ID collisions that draw multiple diagrams inside the same container.</li>
+<li><strong>Solution:</strong> Sequential DOM replacement. The browser script iterates over <code>document.querySelectorAll("pre.mermaid")</code> and calls <code>mermaid.render("diagram_svg_" + i, code)</code> sequentially, injecting the returned SVG directly into <code>el.innerHTML</code>.</li>
+</ul>
+<h3 id="hurdle-7-tall-vertical-flowcharts-splitting-pages">Hurdle 7: Tall Vertical Flowcharts Splitting Pages</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Long linear flowcharts (height > 600px) split mid-node across physical page breaks, causing dangling connectors and unreadable diagrams.</li>
+<li><strong>Solution:</strong>
+<ol>
+<li>Re-architect flowcharts into balanced 2-column grids (e.g., Phase 1 vs Phase 2).</li>
+<li>Set <code>pre.mermaid svg { max-width: 100% !important; height: auto !important; }</code>.</li>
+<li>Extract <code>innerHTML</code> rather than <code>textContent</code> in the Mermaid pre-pass to preserve <code>&#x3C;br/></code> tags and card formatting.</li>
+</ol>
+</li>
+</ul>
+<h3 id="hurdle-8-broken-relative-links--leaked-local-paths-file">Hurdle 8: Broken Relative Links &#x26; Leaked Local Paths (<code>file:///</code>)</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Ingested documentation contains relative links (<code>../how-to/deploy.md</code>) or absolute filesystem paths (<code>file:///D:/Users/...</code>), which break or leak workstation directories in the compiled PDF.</li>
+<li><strong>Solution:</strong> <strong>Soft-Path Link Resolution Mandate (3-Tier Normalisation Pipeline)</strong>:
+<ol>
+<li>Pre-index all chapters (<code>#chap-{slug}</code>) and code files (<code>#code-{slug}</code>) into an in-memory <code>link_map</code>.</li>
+<li>Normalize link targets across 3 tiers:
+<ul>
+<li><em>Tier 1:</em> Exact match in <code>link_map</code>.</li>
+<li><em>Tier 2:</em> Strip <code>file:///</code>, Windows drive letters (<code>C:/</code>, <code>D:/</code>), root directory prefixes, and <code>build/</code> prefixes.</li>
+<li><em>Tier 3:</em> Basename-only fallback (<code>os.path.basename(target)</code>).</li>
+</ul>
+</li>
+<li>Preserve <code>#fragment</code> anchor suffixes across all tiers.</li>
+<li>Run an automated post-assembly audit to verify zero absolute paths survive in PDF links.</li>
+</ol>
+</li>
+</ul>
+<h3 id="hurdle-9-critical-safety-warnings-hidden-in-code-comments">Hurdle 9: Critical Safety Warnings Hidden in Code Comments</h3>
+<ul>
+<li><strong>Failure Mode:</strong> Production playbooks contain vital operational warnings, vendor bug workarounds, and safety dispatches hidden in <code>#</code> comments that SysAdmins miss when skimming compiled books.</li>
+<li><strong>Solution:</strong> <strong>Developer Commentary Extraction Protocol</strong>:
+<ol>
+<li>Inspect the leading <code>#</code> comment block of every playbook, script, and configuration file.</li>
+<li>Scan for warning keywords (<code>BUG</code>, <code>FIX</code>, <code>Confirmed</code>, <code>live</code>, <code>vendor</code>, <code>NEVER</code>, <code>destroy</code>, <code>destructive</code>, <code>ORA-\d+</code>, <code>crash</code>, <code>escalation</code>).</li>
+<li>If keywords match, generate a <strong>⚠️ orange warning callout</strong> (<code>callout-warning</code>, “Developer Commentary — Read Before Executing”) rendered <strong>above</strong> the code fence.</li>
+<li>If standard comments, render a <strong>💡 blue note callout</strong> (<code>callout-note</code>).</li>
+<li>Preserve the original <code>#</code> comments inside the code block intact.</li>
+</ol>
+</li>
+</ul>
+<h3 id="hurdle-10-headless-browser-print-timeouts--compositor-stalls">Hurdle 10: Headless Browser Print Timeouts &#x26; Compositor Stalls</h3>
+<ul>
+<li>
+<p><strong>Failure Mode:</strong> Headless Chrome/Edge can hang indefinitely if web fonts or ESM modules fail to trigger draw completion, stalling CI/CD pipelines.</p>
+</li>
+<li>
+<p><strong>Solution:</strong> Execute Chromium with strict flags:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">chromium-browser</span><span style="color:#79B8FF"> --headless=new</span><span style="color:#79B8FF"> --disable-gpu</span><span style="color:#79B8FF"> --run-all-compositor-stages-before-draw</span><span style="color:#79B8FF"> --virtual-time-budget=8000</span><span style="color:#79B8FF"> --print-to-pdf=</span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF">out.pdf</span><span style="color:#F97583">></span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">file_ur</span><span style="color:#E1E4E8">i</span><span style="color:#F97583">></span></span></code></pre>
+<p>Enforce a hard Python subprocess timeout (45–60s) to gracefully catch draw completion.</p>
+</li>
+</ul>
+<hr>
+<h2 id="5-multi-format-compilation-commands">5. Multi-Format Compilation Commands</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 1. Compile Standalone Interactive HTML Ebook</span></span>
+<span class="line"><span style="color:#B392F0">pandoc</span><span style="color:#9ECBFF"> build/book/master_book.md</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> build/book/handbook.html</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --standalone</span><span style="color:#79B8FF"> --toc</span><span style="color:#79B8FF"> --toc-depth=3</span><span style="color:#79B8FF"> --number-sections</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --include-before-body=build/book/cover.html</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --css=build/book/terminal-theme.css</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --highlight-style=tango</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> title="Technical Handbook"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> author="Compile by: Harisfazillah Jamel"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> date="September 2026"</span><span style="color:#79B8FF"> -V</span><span style="color:#9ECBFF"> lang=en</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 2. Compile Publication-Grade PDF via Headless Chromium</span></span>
+<span class="line"><span style="color:#B392F0">chromium-browser</span><span style="color:#79B8FF"> --headless=new</span><span style="color:#79B8FF"> --disable-gpu</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --run-all-compositor-stages-before-draw</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --virtual-time-budget=8000</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --print-to-pdf=build/book/handbook.pdf</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">  file:///path/to/build/book/handbook.html</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 3. Compile EPUB 3 Ebook</span></span>
+<span class="line"><span style="color:#B392F0">pandoc</span><span style="color:#9ECBFF"> build/book/master_book.md</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> build/book/handbook.epub</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -t</span><span style="color:#9ECBFF"> epub3</span><span style="color:#79B8FF"> --toc</span><span style="color:#79B8FF"> --toc-depth=3</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --css=build/book/terminal-theme.css</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> title="Technical Handbook"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> author="Compile by: Harisfazillah Jamel"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> publisher="Deep State of Mind (DSOM)"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 4. Compile Styled OpenDocument Text (ODT) for Google Docs</span></span>
+<span class="line"><span style="color:#B392F0">pandoc</span><span style="color:#9ECBFF"> build/book/master_book.md</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> build/book/handbook.odt</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --reference-doc=build/book/custom_reference.odt</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --toc</span><span style="color:#79B8FF"> --toc-depth=3</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> title="Technical Handbook"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --metadata</span><span style="color:#9ECBFF"> author="Compile by: Harisfazillah Jamel"</span></span></code></pre>
+<hr>
+<h2 id="6-complete-embedded-skill-dsom-technical-book-compiler">6. Complete Embedded Skill: <code>dsom-technical-book-compiler</code></h2>
+<p>Below is the full, unabridged operational specification of the <code>dsom-technical-book-compiler</code> skill:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#B392F0">---</span></span>
+<span class="line"><span style="color:#85E89D">okf_version</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"0.1"</span></span>
+<span class="line"><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"skill"</span></span>
+<span class="line"><span style="color:#85E89D">title</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Technical Ebook &#x26; Handbook Compiler (Pandoc / Print &#x26; Terminal Theme)"</span></span>
+<span class="line"><span style="color:#85E89D">timestamp</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-09-03T07:30:00Z"</span></span>
+<span class="line"><span style="color:#85E89D">description</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Compiles complete Diataxis documentation suites and source code repositories into publication-grade technical handbooks (PDF, standalone HTML, EPUB, ODT) using Pandoc and the Terminal &#x26; Cloud design framework."</span></span>
+<span class="line"><span style="color:#85E89D">topics</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"pandoc"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"ebook"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"pdf"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"html"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"epub"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"terminal-theme"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#85E89D">status</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"stable"</span></span>
+<span class="line"><span style="color:#85E89D">stale_after</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2027-09-03"</span></span>
+<span class="line"><span style="color:#85E89D">sources</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">  - </span><span style="color:#85E89D">id</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"dsom_agents_rulebook"</span></span>
+<span class="line"><span style="color:#85E89D">    title</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"The Core AI Rulebook (DSOM Rule 11 &#x26; Rule 22)"</span></span>
+<span class="line"><span style="color:#85E89D">    path</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">".agents/AGENTS.md"</span></span>
+<span class="line"><span style="color:#85E89D">name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"dsom-technical-book-compiler"</span></span>
+<span class="line"><span style="color:#B392F0">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Technical Ebook &#x26; Handbook Compiler</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Purpose:** </span><span style="color:#9ECBFF">Standardizes the automated compilation of complex multi-part Diátaxis documentation palaces and complete source code directories into unified, publication-grade technical handbooks (PDF, HTML, EPUB, ODT) tailored for SysAdmins, DevOps Engineers, and SREs.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## Dual-Mode "Terminal &#x26; Cloud" Design System</span></span>
+<span class="line"><span style="color:#9ECBFF">1. **Interactive / Screen Mode:** Optional dark slate container (#0F172A) for code and off-white (#F8FAFC) reading background.</span></span>
+<span class="line"><span style="color:#9ECBFF">2. **Physical Print / PDF Handbook Mode (Zero Ink Waste):**</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Pure </span><span style="color:#85E89D">White Background:** `@page { background</span><span style="color:#E1E4E8">: </span><span style="color:#6A737D">#FFFFFF; }` and `body { background-color: #FFFFFF !important; }` to eliminate grayish tints and toner waste.</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Light </span><span style="color:#9ECBFF">Code Blocks:** Code containers use `#F8FAFC` light gray with `#CBD5E1` border, dark text (`#0F172A`), and high-contrast dark syntax highlighting (Pandoc `tango`). Black or solid dark containers are strictly forbidden.</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Light </span><span style="color:#9ECBFF">Pastel Callouts:** Soft pastel backgrounds (`#FEF2F2` for warnings, `#F0F9FF` for notes, `#F0FDF4` for tips) with colored left borders.</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Full </span><span style="color:#9ECBFF">Confidentiality Statement:** Must be written as `Private And Confidential (P&#x26;C)` (uppercase `PRIVATE AND CONFIDENTIAL (P&#x26;C)` in running headers).</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">*Attribution </span><span style="color:#85E89D">Standard:** Compilations must be credited as `Compile by</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">Harisfazillah Jamel`.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## Technical Execution Constraints</span></span>
+<span class="line"><span style="color:#9ECBFF">1. **Footer &#x26; Frontmatter Stripping:** When assembling 100+ documents, individual OKF frontmatter and DSOM signature footers must be stripped to prevent Pandoc YAML parser collisions (`Unknown alias`).</span></span>
+<span class="line"><span style="color:#9ECBFF">2. **Dynamic Backtick Fence Scaling:** When wrapping source code containing triple backticks (` ``` `), the enclosing fence must scale dynamically to 4 or 5 backticks (` ```` `).</span></span>
+<span class="line"><span style="color:#9ECBFF">3. **Mermaid HTML Unescaping Protocol:** Pandoc automatically escapes HTML entities inside `&#x3C;pre class="mermaid">&#x3C;code>` (`&#x26;quot;`, `&#x26;lt;br/&#x26;gt;`, `--&#x26;gt;`). The compilation pipeline must decode these entities before browser rendering to prevent Mermaid 10 syntax error bomb graphics.</span></span>
+<span class="line"><span style="color:#85E89D">4. **Standalone Cover Body Inclusion:** Never embed raw HTML covers inside Markdown files. Generate a standalone `cover.html` passed via `--include-before-body=cover.html`. Enforce `.cover-title { break-before</span><span style="color:#E1E4E8">: </span><span style="color:#85E89D">avoid !important; }` and `#title-block-header { display</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">none !important; }` to prevent cover fragmentation.</span></span>
+<span class="line"><span style="color:#85E89D">5. **Anti-Blank Page Discipline:** Never mix manual `&#x3C;div class="page-break">&#x3C;/div>` tags with CSS `page-break-before</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">always;`.</span></span>
+<span class="line"><span style="color:#9ECBFF">6. **Headless Browser PDF Timeout:** Headless Chromium/Edge (`--headless=new --print-to-pdf`) renders CSS `@page` layouts, vector SVGs, and web fonts. A process timeout guardrail (45–60s) must be enforced.</span></span>
+<span class="line"><span style="color:#9ECBFF">7. **Mermaid Multi-Diagram Isolation Protocol:**</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">Diagram-Scoped </span><span style="color:#9ECBFF">Namespace:* Prohibit reusing identical node IDs (e.g., `NODE1`, `CBE`, `PWP`) across diagrams. Prefix all node IDs with a unique diagram namespace (e.g., `TB_`, `PA_`, `PB_`, `PC_`) to prevent global symbol collisions.</span></span>
+<span class="line"><span style="color:#E1E4E8">   - </span><span style="color:#F97583">*</span><span style="color:#E1E4E8">Sequential </span><span style="color:#9ECBFF">Headless DOM Replacement:* Headless Chromium renders in milliseconds, causing default `mermaid.run()` timestamp IDs (`Date.now()`) to collide and nest diagrams inside one container. Mandate sequential rendering via `mermaid.render(id, code)` with unique IDs (`diagram_svg_${i}`) replacing `&#x3C;pre class="mermaid">` innerHTML sequentially.</span></span>
+<span class="line"><span style="color:#85E89D">8. **Soft-Path Link Resolution Mandate (3-Tier Normalisation):** The compilation pipeline must dynamically map all chapters (`#chap-{slug}`) and ingested code blocks (`#code-{slug}`) and rewrite all markdown links via a **3-tier normalisation pipeline**</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">(1) *Exact match* — look up the raw target in `link_map` as-is; (2) *Normalised match* — strip `file:///`, Windows drive letters (`D:/`, `C:/`), the project root prefix, and the `build/` intermediate directory prefix, then retry; (3) *Basename-only match* — strip all directory components and retry with the filename only. Pre-index basename-only keys into `link_map` before rewriting. Preserve `#fragment` suffixes across all tiers. Run a post-compile link audit asserting zero absolute path leaks (`D:/`, `C:/`, `file:///`, `build/` prefixes) survive in any PDF/HTML link target.</span></span>
+<span class="line"><span style="color:#9ECBFF">9. **Full-Spectrum Code Ingestion:** Ingest all production playbooks, Jinja2 templates, inventories, host/group variables, shell scripts, and candidate staging playbooks into dedicated book chapters to produce self-contained handbooks.</span></span>
+<span class="line"><span style="color:#85E89D">10. **Developer Commentary Extraction Protocol:** For every YAML playbook, shell script, or INI file ingested, extract the leading `#` comment block (all contiguous comment lines before the first YAML key, after the `---` fence) and render it as an HTML callout div above the code fence. Classify by keyword scan</span><span style="color:#E1E4E8">: </span><span style="color:#85E89D">comments containing `BUG`, `FIX`, `Confirmed`, `live`, `vendor`, `NEVER`, `ORA-\d+`, `destroy`, `destructive`, `hard way`, or `escalation` render as `callout-warning` (⚠️ orange, label `Read Before Executing`); all others render as `callout-note` (💡 blue). Preserve original `#` lines inside the code fence unchanged. CSS must define `.callout-warning p`, `.callout-note p`, and `strong` selectors with explicit `padding</span><span style="color:#E1E4E8">: </span><span style="color:#85E89D">12px 16px` and `page-break-inside</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">avoid` for clean print rendering.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## Execution Command</span></span>
+<span class="line"><span style="color:#E1E4E8">```</span><span style="color:#9ECBFF">bash</span></span>
+<span class="line"><span style="color:#9ECBFF">python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 7. Operational Checklist for AI Agents &#x26; Compilers</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Before finalizing any compiled handbook, the AI agent must verify:</span></span>
+<span class="line"><span>- [ ] **Pure White Audit:** No solid black terminal blocks exist in the compiled PDF.</span></span>
+<span class="line"><span>- [ ] **Blank Page Audit:** Verified total page count has zero empty filler pages between chapters.</span></span>
+<span class="line"><span>- [ ] **Mermaid Audit:** All diagrams render as clean vector SVGs with zero syntax error bomb icons.</span></span>
+<span class="line"><span>- [ ] **Link Leak Audit:** Grep search the assembled HTML/PDF links for `file:///` or Windows drive letters (`D:/`, `C:/`) — result must be 0.</span></span>
+<span class="line"><span>- [ ] **Commentary Audit:** Leading playbook dispatches are rendered as human-readable callouts above the code fences.</span></span>
+<span class="line"><span>- [ ] **Confidentiality Audit:** Running headers state `PRIVATE AND CONFIDENTIAL (P&#x26;C)` and attribution reads `Compile by: Harisfazillah Jamel`.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-04*</span></span>
+<span class="line"><span>*Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | PRIVATE &#x26; CONFIDENTIAL (P&#x26;C) | All Rights Reserved*</span></span></code></pre></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>

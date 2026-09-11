@@ -1,0 +1,378 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Module 8 Worksheet | CMSForNerd2 Wasm SRI &amp; Brotli Performance (AMP)</title><meta name="description" content="Interactive lab worksheet for whitelisting WebAssembly binaries with build-time SRI hashes and configuring pre-rendered Brotli sub-10ms TTFB assets."><link rel="canonical" href="/CMSForNerd2lab-module8"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style></head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2docs/context7-integration/amp" class>Context7 Service Integration Guide</a></li><li><a href="/CMSForNerd2docs/engineering/amp" class>DevOps Implementation Runbook Portal</a></li><li><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening/amp" class>Ansible ASIMP Hardening Playbooks</a></li><li><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting/amp" class>DNS &amp; systemd-resolved Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/engineering/efs-mount-scripts/amp" class>Persistent EFS Storage &amp; Mount Scripts</a></li><li><a href="/CMSForNerd2docs/engineering/opentofu-manifests/amp" class>OpenTofu Module Manifests &amp; Simulation</a></li><li><a href="/CMSForNerd2docs/executive/amp" class>Executive &amp; Financial Blueprint Portal</a></li><li><a href="/CMSForNerd2docs/executive/regulatory-compliance/amp" class>Sovereignty &amp; Regulatory Compliance</a></li><li><a href="/CMSForNerd2docs/executive/tco-financial-blueprint/amp" class>36-Month TCO &amp; Financial Blueprint</a></li><li><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill/amp" class>Diagram Design Standards Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture/amp" class>FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a></li><li><a href="/CMSForNerd2docs/explanation/modernisation-philosophy/amp" class>PHP-to-Static Modernisation Philosophy</a></li><li><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox/amp" class>Spatial Memory &amp; Dual-Pathway Design</a></li><li><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill/amp" class>Web Design Guidelines Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/web-interface-improvements/amp" class>Web Interface Improvements &amp; Design Review</a></li><li><a href="/CMSForNerd2docs/governance/llm-wiki-adoption/amp" class>DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a></li><li><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/amp" class>Technical Book Design &amp; PDF Compilation Master Prompt Guide</a></li><li><a href="/CMSForNerd2docs/how-to/ansible-deployment/amp" class>Ansible Deployment How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting/amp" class>GitHub Pages Deployment and Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook/amp" class>How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm/amp" class>How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a></li><li><a href="/CMSForNerd2docs/how-to/okf-refactoring/amp" class>OKF Frontmatter Refactoring How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/sitemap-verification/amp" class>Sitemap Verification How-To Guide</a></li><li><a href="/CMSForNerd2docs/jules-platform-guide/amp" class>Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a></li><li><a href="/CMSForNerd2docs/migration-guide/amp" class>CMSForNerd to CMSForNerd2 Static Migration Guide</a></li><li><a href="/CMSForNerd2docs/readme/amp" class>CMSForNerd2 Documentation System</a></li><li><a href="/CMSForNerd2docs/reference/deploy-static/amp" class>deploy-static.sh CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/llms-txt2ctx/amp" class>llms_txt2ctx.py CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/refactor-okf/amp" class>refactor-okf.cjs API Reference</a></li><li><a href="/CMSForNerd2docs/reference/verify-sitemaps/amp" class>verify-sitemaps.js API Reference</a></li><li><a href="/CMSForNerd2docs/start-here/amp" class>CMSForNerd2 Master Onboarding Map</a></li><li><a href="/CMSForNerd2docs/summary/amp" class>CMSForNerd2 Documentation SUMMARY</a></li><li><a href="/CMSForNerd2docs/tutorials/local-development/amp" class>Local Development Quickstart Tutorial</a></li><li><a href="/CMSForNerd2docs/tutorials/static-site-deployment/amp" class>Static Site Deployment Tutorial</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module10/amp" class>Module 10 Worksheet</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2lab-module8/amp" class="active">Module 8 Worksheet</a></li><li><a href="/CMSForNerd2lab-module9/amp" class>Module 9 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><article class="lab-module-page" itemscope itemtype="https://schema.org/TechArticle">
+<header class="module-header">
+<h1 itemprop="headline">⚡ Laboratory Module 8: WebAssembly SRI Whitelisting &#x26; Pre-rendered Brotli Performance</h1>
+<p class="intro">
+Welcome to <strong>Laboratory Module 8</strong>. In this module, we explore how WebAssembly (Wasm) search binaries in static sites (such as Pagefind under <code>dist/pagefind/</code>) can be secured with <strong>Build-Time Subresource Integrity (SRI) Hashes</strong> and accelerated for <strong>sub-10ms Time-To-First-Byte (TTFB)</strong> using pre-rendered Brotli asset compression.
+</p>
+</header>
+<section class="learning-objectives">
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li><strong>WebAssembly Cryptographic Integrity:</strong> Learn how to calculate build-time Subresource Integrity (SRI) hashes for WebAssembly (<code>.wasm</code>) binaries.</li>
+<li><strong>Configure Nginx CSP &#x26; Static Whitelists:</strong> Incorporate Wasm integrity hashes into Nginx Content-Security-Policy (CSP) and HTTP response headers.</li>
+<li><strong>Pre-rendered Brotli Static Compression:</strong> Understand how pre-compiling static assets into <code>.br</code> and <code>.gz</code> archives bypasses dynamic CPU compression bottlenecks at runtime, delivering sub-10ms TTFB responses.</li>
+<li><strong>Immutable Asset Caching Policies:</strong> Configure <code>Cache-Control: public, max-age=31536000, immutable</code> rules for versioned static search indices.</li>
+</ul>
+</section>
+<section class="exercise-box">
+<h2>📝 Exercise 8.1: Build-Time SRI Hashes for Wasm Binaries</h2>
+<p>
+WebAssembly modules run compiled binary code in browser sandboxes. To guarantee that Pagefind Wasm search binaries (<code>dist/pagefind/*.wasm</code>) have not been tampered with in transit or on storage, we generate cryptographic SHA-384 or SHA-256 SRI hashes during the build process.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Generating Cryptographic SRI Hashes</h3>
+<p>
+Execute the build pipeline and generate the SRI hash for the compiled Pagefind Wasm binary using <code>openssl</code> or <code>shasum</code>:
+</p>
+<pre><code># Calculate base64-encoded SHA-384 hash of Pagefind Wasm module
+openssl dgst -sha384 -binary dist/pagefind/pagefind_web_bg.wasm | openssl base64 -A
+<h1 id="expected-output-format">Expected Output Format:</h1>
+</code><h1 id="sha384-k1r4z6x-whitelisted-in-script-src--wasm-src-header"><code>sha384-K1R+4Z6X… (whitelisted in script-src / wasm-src header)</code></h1></pre>
+</div>
+</section>
+<section class="exercise-box">
+<h2>📝 Exercise 8.2: Sub-10ms TTFB Pre-rendered Brotli Assets</h2>
+<p>
+Dynamic HTTP compression on web servers adds runtime CPU latency to every incoming request. Modern static site deployments eliminate this overhead by pre-compressing static build artifacts during CI/CD using Brotli level 11 compression.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Verifying Pre-rendered Brotli Compression</h3>
+<p>
+Inspect the Nginx server configuration (<code>nginx/nginx.conf</code>). Notice how <code>brotli_static on;</code> and <code>gzip_static on;</code> instruct the server to serve pre-rendered <code>.br</code> files directly from disk without runtime processing:
+</p>
+<pre><code># Pre-rendering assets with Brotli in CI build script
+brotli --best --keep dist/*.html dist/pagefind/*.wasm dist/pagefind/*.js
+<h1 id="nginx-static-delivery-directive">Nginx static delivery directive</h1>
+</code><p><code>location /pagefind/ {
+brotli_static on;
+gzip_static on;
+add_header Cache-Control “public, max-age=31536000, immutable”;
+}</code></p></pre><p></p>
+</div>
+</section>
+<section class="exercise-box">
+<h2>📝 Exercise 8.3: Nginx Defensive Headers for Wasm</h2>
+<p>
+To prevent cross-site side-channel attacks and enforce strict browser isolation when executing WebAssembly, we configure Cross-Origin Opener Policy (COOP) and Cross-Origin Embedder Policy (COEP) headers.
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Inspecting Isolation Headers</h3>
+<p>
+Verify that response headers for <code>/pagefind/</code> include site isolation directives:
+</p>
+<pre><code>Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+Content-Type: application/wasm</code></pre>
+</div>
+</section>
+<nav class="footer-nav">
+<a href="/lab-module7" class="btn btn-secondary">← Back to Module 7</a>
+<a href="/lab-module9" class="btn btn-primary">Proceed to Module 9 →</a>
+</nav>
+</article>
+<style>
+.lab-module-page { max-width: 900px; margin: 0 auto; line-height: 1.7; color: #1e293b; }
+.module-header h1 { color: #0d6efd; border-bottom: 3px solid #0d6efd; padding-bottom: 8px; }
+.intro { background: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 5px solid #22c55e; margin: 20px 0; }
+.learning-objectives { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.exercise-box { margin-bottom: 40px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+.exercise-box h2 { color: #0284c7; border-bottom: 2px solid #e0f2fe; padding-bottom: 6px; margin-top: 0; }
+.try-it-box { background: #fafafa; border-left: 4px solid #0284c7; padding: 15px; border-radius: 4px; margin-top: 15px; }
+.try-it-box pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: 'SF Mono', monospace; font-size: 0.9rem; }
+.btn { display: inline-block; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+.btn-primary { background: #0d6efd; color: white; }
+.btn-secondary { background: #e2e8f0; color: #333; }
+.footer-nav { display: flex; justify-content: space-between; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+</style></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2lab-module8" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>

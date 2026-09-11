@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CMSForNerd to CMSForNerd2 Static Migration Guide</title><meta name="description" content="Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript."><meta name="theme-color" content="#0d6efd"><link rel="manifest" href="/CMSForNerd2manifest.webmanifest"><link rel="icon" type="image/x-icon" href="/CMSForNerd2favicon.ico"><!-- Schema.org JSON-LD structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"CMSForNerd to CMSForNerd2 Static Migration Guide","description":"Comprehensive architectural guide for migrating the database-free flat-file PHP CMS to Astro Static Site Generator (SSG) with HTML5, CSS3, and modern JavaScript.","author":{"@type":"Person","name":"Harisfazillah Jamel"}}</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/CMSForNerd2/_astro/ClientRouter.astro_astro_type_script_index_0_lang.C6UpqvXS.js"></script><script>
+      // Initialize theme early to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+      })();
+    </script><style>.astro-route-announcer{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;position:absolute;top:0;left:0;overflow:hidden}
+</style><link rel="stylesheet" href="/CMSForNerd2/_astro/global.CmC4qDv1.css"></head><body><div id="container"><!-- GRID AREA: HEADER --><div id="top"><table class="header-table"><tr><td style="text-align: left;"><div style="font-family: 'SF Mono', monospace; font-weight: 900; font-size: 24px;">CMSForNerd <span style="color: var(--lab-highlight)">::</span> LAB</div><div style="font-size: 12px; opacity: 0.8; letter-spacing: 1px;">STATIC ASTRO 7.1 LABORATORY // STRICT MODE</div></td><td style="text-align: right; vertical-align: middle;"><div class="theme-switcher-container" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'SF Mono', monospace; font-size: 11px;"><span style="opacity: 0.7; font-weight: bold; text-transform: uppercase; color: var(--lab-text);">MODE:</span><div class="theme-btn-group" style="display: inline-flex; border: 1px solid var(--lab-border); border-radius: 6px; overflow: hidden; background: var(--lab-bg);"><button id="theme-btn-light" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; transition: background 0.2s;">☀️ LIGHT</button><button id="theme-btn-dark" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">🌙 DARK</button><button id="theme-btn-auto" style="background: none; border: none; color: var(--lab-text); padding: 5px 10px; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: bold; border-left: 1px solid var(--lab-border); transition: background 0.2s;">💻 AUTO</button></div></div></td></tr></table></div><!-- GRID AREA: LEFT NAV --><div id="left"><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2">Home</a><a href="https://www.linuxmalaysia.com">CmsForNerd</a><a href="https://github.com/CMSForNerd/CmsForNerd/archive/refs/heads/master.zip">Download</a><a href="/CMSForNerd2template">🎨 Template Guide</a><a href="/CMSForNerd2sitemap-page">CmsForNerd Sitemap</a><a href="/CMSForNerd2installation">CmsForNerd Installation</a><a href="/CMSForNerd2windows-setup">🪟 Windows 11 Setup (Nerd)</a><a href="/CMSForNerd2welcome-kit">🚀 Student Welcome Kit</a><a href="/CMSForNerd2history">Modernisation History</a><a href="/CMSForNerd2lab-manual">🎓 Lab Manual</a><a href="/CMSForNerd2ai-dev">🤖 AI Development</a><a href="/CMSForNerd2ai-sop">📜 AI Ethics SOP</a><a href="/CMSForNerd2csp-nonce-guide">🛡️ CSP Nonce Guide</a><a href="/CMSForNerd2final-exam">🚩 Final Exam</a><a href="/CMSForNerd2graduation">🏁 Graduation</a><a href="/CMSForNerd2pwa-architecture">📱 PWA Implementation</a><a href="/CMSForNerd2amp-acceleration">⚡ AMP Acceleration</a><a href="/CMSForNerd2search">🔍 Wasm Search</a><a href="/CMSForNerd2wasm-studio">⚙️ Wasm Studio</a><a href="https://www.linuxmalaysia.com">CmsForNerd Blog</a></div></div><br><h3>Executive Blueprint</h3><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2docs/executive/">💼 Executive Blueprint Portal</a><a href="/CMSForNerd2docs/executive/tco-financial-blueprint">📊 36-Month TCO & Financial Blueprint</a><a href="/CMSForNerd2docs/executive/regulatory-compliance">⚖️ Sovereignty & Regulatory Compliance</a></div></div><br><h3>Engineering Runbook</h3><div class="buttonscontainer"><div class="buttons"><a href="/CMSForNerd2docs/engineering/">🛠️ DevOps Implementation Runbook Portal</a><a href="/CMSForNerd2docs/engineering/opentofu-manifests">🏗️ OpenTofu Module Manifests</a><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting">🔍 DNS & systemd Troubleshooting</a><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening">🔒 Ansible ASIMP Hardening Playbooks</a><a href="/CMSForNerd2docs/engineering/efs-mount-scripts">💾 Persistent EFS Storage & Mount Scripts</a></div></div><br><h3>E-Mail</h3><p style="font-size: 0.8em; color: var(--lab-muted); margin-top: 5px;">contact@linuxmalaysia.com</p><br><h3>Join Us</h3><aside class="group-box"><span class="group-title">Community</span><p style="font-size: 0.8em; color: var(--lab-muted);">Join the <strong>cmsfornerd</strong> discussion group.</p><a href="https://groups.google.com/group/cmsfornerd" target="_blank" rel="noopener noreferrer" class="btn-google-group">Visit Group</a></aside><h3>Get Updates</h3></div><!-- GRID AREA: RIGHT NAV --><div id="right"><!-- Search Google --><div class="search-container" style="text-align: center; padding: 10px;"><form method="get" action="https://www.google.com/custom" target="_blank"><a href="https://www.google.com/"><img src="https://www.google.com/logos/Logo_25wht.gif" alt="Google" width="120" height="32" style="border:0; vertical-align: middle; width: 120px; height: 32px;"></a><br><label for="search-input" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Search CmsForNerd</label><input id="search-input" type="text" name="q" size="17" maxlength="255" autocomplete="q" placeholder="Search…" aria-label="Search CmsForNerd"><input type="submit" name="sa" value="Search" aria-label="Submit search"><input type="hidden" name="client" value="pub-9240760101409835"><input type="hidden" name="forid" value="1"><input type="hidden" name="ie" value="UTF-8"><input type="hidden" name="oe" value="UTF-8"><input type="hidden" name="hl" value="en"></form></div><!-- Search Google --><br><a href="https://github.com/htacg/tidy-html5" target="_blank" rel="noopener noreferrer"><img src="/images/tidy.png" alt="Validated by HTML Validator (based on Tidy)" width="39" height="16" style="height: 16px; width: 39px; border: 0;"></a><br></div><!-- GRID AREA: MAIN CONTENT --><div id="content"><main class="content-body"><h1 id="-cmsfornerd-to-cmsfornerd2-static-migration-guide">🚀 CMSForNerd to CMSForNerd2: Static Migration Guide</h1>
+<h2 id="from-database-free-php-to-modern-static-site-generator-astro-ssg"><em>From Database-Free PHP to Modern Static Site Generator (Astro SSG)</em></h2>
+<hr>
+<h2 id="1-executive-summary--migration-context">1. Executive Summary &#x26; Migration Context</h2>
+<p>With the rapid progression of web technologies, legacy server-rendered frameworks are increasingly being succeeded by modern Static Site Generators (SSGs) that deliver maximum performance, enhanced security, and simplified deployment models. In this context, the migration of <strong>CMSForNerd</strong> from its flat-file PHP 8.4 implementation to <strong>CMSForNerd2</strong>—a purely static, client-facing architecture—presents a major leap forward.</p>
+<p>By removing PHP, the runtime surface area is compressed to zero, eliminating server-side vulnerabilities such as Local File Inclusion (LFI), Directory Traversal, and PHP-FPM misconfiguration exploits. Through the deployment of an SSG-based pipeline, all layout processing is executed at build time. The final output consists entirely of statically served HTML5, CSS3, and JavaScript, deployable to high-availability Content Delivery Networks (CDNs) or simple Nginx web servers.</p>
+<p>This document serves as the human-readable architectural blueprint and implementation playbook for migrating CMSForNerd to CMSForNerd2.</p>
+<hr>
+<h2 id="2-legacy-php-architecture-analysis">2. Legacy PHP Architecture Analysis</h2>
+<p>To ensure architectural fidelity during the migration, the fundamental pillars of the legacy PHP CmsForNerd system must be thoroughly understood:</p>
+<ul>
+<li><strong>“Pair Logic” Architecture</strong>: Layouts are strictly separated from content. Each controller file (e.g., <code>index.php</code>) acts as a master that sets metadata (title, schema type, author) and loads a corresponding HTML/PHP fragment from the <code>contents/</code> directory (e.g., <code>contents/index-body.inc</code>).</li>
+<li><strong>Dual-View Engine (Standard / AMP)</strong>: The central router (<code>themes/CmsForNerd/pager.php</code>) parses the query parameter <code>?view=amp</code> to toggle between standard desktop rendering and Google-validated Accelerated Mobile Pages (AMP) containing inline styling below the strict 75KB limit.</li>
+<li><strong>PWA and SPA-like Hydration Router</strong>: A lightweight vanilla JavaScript router (<code>router.js</code>) overrides internal link clicks. By appending the <code>X-Requested-With: XMLHttpRequest</code> header, it fetches purely the raw content fragments from PHP and dynamically updates the <code>&#x3C;main></code> element to provide instantaneous transitions.</li>
+<li><strong>Zero-Global Mutable State</strong>: The application runs without global variables, relying entirely on an immutable <code>CmsContext</code> object injected into templates to enforce strict functional isolation.</li>
+</ul>
+<hr>
+<h2 id="3-evaluation-of-static-site-frameworks">3. Evaluation of Static Site Frameworks</h2>
+<p>During the discovery phase, multiple static site generators were evaluated against the core design principles of CMSForNerd (database-free, content-first, zero-JS capability, and high performance):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Criteria / Feature</th><th align="left">Astro 🚀 (Recommended)</th><th align="left">Eleventy (11ty)</th><th align="left">Hugo</th><th align="left">Next.js (Static Export)</th></tr></thead><tbody><tr><td align="left"><strong>Default JS footprint</strong></td><td align="left"><strong>Zero JS by default</strong></td><td align="left">Zero JS by default</td><td align="left">Zero JS by default</td><td align="left">Full React runtime bundle</td></tr><tr><td align="left"><strong>“Pair Logic” Mapping</strong></td><td align="left"><strong>Perfect</strong> (Frontmatter + Layouts)</td><td align="left">Moderate (Frontmatter + Markdown)</td><td align="left">Moderate (Go templates)</td><td align="left">High complexity</td></tr><tr><td align="left"><strong>Modern Tech Stack</strong></td><td align="left"><strong>HTML5, CSS3, Vite, TS</strong></td><td align="left">HTML5, Node.js</td><td align="left">Go templating engine</td><td align="left">React, Webpack</td></tr><tr><td align="left"><strong>Content Security</strong></td><td align="left">Excellent (Static build removes XSS risk)</td><td align="left">Good (Static)</td><td align="left">Good (Static)</td><td align="left">Good (Static)</td></tr><tr><td align="left"><strong>PWA &#x26; SPA Transitions</strong></td><td align="left"><strong>Built-in (View Transitions)</strong></td><td align="left">Manual integration</td><td align="left">Manual integration</td><td align="left">Built-in</td></tr><tr><td align="left"><strong>AMP Support</strong></td><td align="left">Excellent (Via custom static paths)</td><td align="left">Complex templates</td><td align="left">Complex templates</td><td align="left">Highly complex</td></tr></tbody></table>
+<h3 id="why-astro-is-the-ultimate-fit">Why Astro is the Ultimate Fit</h3>
+<p>By selecting <strong>Astro</strong>, the project gains several critical advantages:</p>
+<ol>
+<li><strong>Component Frontmatter (Build-Time Pair Logic)</strong>: Astro uses an HTML-like component format (<code>.astro</code>) featuring a JS/TS frontmatter block (<code>---</code>). This executes solely during the build process, mapping 1-to-1 to the PHP “Pair Logic” pattern where meta-variables are initialised prior to UI rendering.</li>
+<li><strong>Islands Architecture</strong>: Standard pages are compiled down to zero client-side JavaScript. Client-side code is only loaded where explicit interactivity is required, matching the “Zero-Debt” and high-performance philosophy.</li>
+<li><strong>Built-in SPA Routing</strong>: Astro’s <code>&#x3C;ViewTransitions /></code> component provides a native, hardware-accelerated SPA routing mechanism, completely replacing the custom, error-prone <code>router.js</code> fragment.</li>
+<li><strong>Static View Differentiation</strong>: Rather than using dynamic query strings (<code>?view=amp</code>), Astro’s build engine can compile dual outputs statically (e.g., <code>dist/index.html</code> and <code>dist/amp/index.html</code>), preserving 100% offline and static compatibility.</li>
+</ol>
+<hr>
+<h2 id="4-target-architecture-for-cmsfornerd2">4. Target Architecture for CMSForNerd2</h2>
+<p>Through this modernisation, CMSForNerd2 will leverage the latest web technologies:</p>
+<ul>
+<li><strong>Languages</strong>: Modern HTML5, modern CSS3 (utilising native CSS variables, custom media queries, and modern flexbox/grid layouts), and TypeScript (where dynamic client-side code is necessary).</li>
+<li><strong>Core Framework</strong>: Astro (v7.1, configured with static output to leverage stable features such as Vite 8, the optimised Rust-based compiler, Sätteri Markdown pipeline, and refined Content Security Policy directives).</li>
+<li><strong>Styling</strong>: Standardised, decoupled CSS files using native CSS nesting and variables. This keeps styling fully compliant with legacy aesthetics while enabling automated CSS shaking to satisfy the 75KB AMP budget.</li>
+<li><strong>State Management</strong>: Static context parameters passed at build time, replicating the immutable <code>CmsContext</code> pattern.</li>
+<li><strong>PWA Capabilities</strong>: Service workers managed via <code>@vite-pwa/astro</code> or native script registration in Astro’s <code>public/</code> folder, ensuring robust offline cache performance.</li>
+</ul>
+<hr>
+<h2 id="5-step-by-step-migration-process">5. Step-by-Step Migration Process</h2>
+<p>To perform a structured and bug-free migration, developers should follow this step-by-step playbook:</p>
+<h3 id="step-51-initialising-cmsfornerd2">Step 5.1: Initialising CMSForNerd2</h3>
+<p>In the root directory of the target repository, bootstrap the Astro project:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> astro@latest</span><span style="color:#79B8FF"> --</span><span style="color:#79B8FF"> --template</span><span style="color:#9ECBFF"> minimal</span><span style="color:#79B8FF"> --install</span><span style="color:#79B8FF"> --git</span><span style="color:#79B8FF"> false</span></span></code></pre>
+<p><em>Note: Ensure that the output in <code>astro.config.mjs</code> has <code>output: 'static'</code> configured:</em></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { defineConfig } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro/config'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> defineConfig</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  output: </span><span style="color:#9ECBFF">'static'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">  // Configuration options for pre-rendering, markdown processing, and assets</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h3 id="step-52-directory-mapping-strategy">Step 5.2: Directory Mapping Strategy</h3>
+<p>By restructuring directories, files are mapped from PHP to the SSG standard:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Legacy PHP Source Directory</th><th align="left">New Astro Target Directory</th><th align="left">Purpose</th></tr></thead><tbody><tr><td align="left"><code>contents/*.inc</code></td><td align="left"><code>src/content/pages/</code></td><td align="left">Contains markdown/MDX page content fragments.</td></tr><tr><td align="left"><code>contents/left-side.inc</code></td><td align="left"><code>src/components/Navigation.astro</code></td><td align="left">Dynamic navigation component.</td></tr><tr><td align="left"><code>contents/right-side.inc</code></td><td align="left"><code>src/components/Widgets.astro</code></td><td align="left">Sidebar widget items.</td></tr><tr><td align="left"><code>themes/CmsForNerd/style.css</code></td><td align="left"><code>src/styles/global.css</code></td><td align="left">Main desktop styles.</td></tr><tr><td align="left"><code>themes/CmsForNerd/*.tpl</code></td><td align="left"><code>src/layouts/Layout.astro</code></td><td align="left">Global layout wrapper.</td></tr><tr><td align="left"><code>assets/pwa/*</code></td><td align="left"><code>public/assets/pwa/</code></td><td align="left">Static static assets and PWA icons.</td></tr><tr><td align="left"><code>robots.txt</code> / <code>favicon.ico</code></td><td align="left"><code>public/</code></td><td align="left">Standard root static assets.</td></tr></tbody></table>
+<h3 id="step-53-migrating-controllers-and-fragments-pair-logic">Step 5.3: Migrating Controllers and Fragments (Pair Logic)</h3>
+<p>In Astro, the separation of concerns is maintained via layout components.</p>
+<p>For example, a typical legacy controller <code>about.php</code> and its content fragment <code>contents/about-body.inc</code> are merged and modernised into <code>src/pages/about.astro</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#6A737D">// src/pages/about.astro</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Layout </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '../layouts/Layout.astro'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> SidebarLeft </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '../components/SidebarLeft.astro'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> SidebarRight </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '../components/SidebarRight.astro'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Initialize the Immutable build context (replicating CmsContext)</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> pageContext</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  title: </span><span style="color:#9ECBFF">"About Us | The Developer's Laboratory"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  description: </span><span style="color:#9ECBFF">"A static modernization of the lightweight flat-file CMS."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  schemaType: </span><span style="color:#9ECBFF">"AboutPage"</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">Layout</span><span style="color:#B392F0"> context</span><span style="color:#E1E4E8">={pageContext}></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"layout-grid"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">aside</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"left"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#79B8FF">SidebarLeft</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">aside</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">main</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"content"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">article</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"modernized-page"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>About the Laboratory&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">          This is a static content page migrated from the PHP flat-file contents.</span></span>
+<span class="line"><span style="color:#E1E4E8">          All content is fully compiled to static HTML during the build process.</span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">article</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">main</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">aside</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"right"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#79B8FF">SidebarRight</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">aside</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#79B8FF">Layout</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="step-54-migrating-content-via-markdown--content-collections">Step 5.4: Migrating Content via Markdown &#x26; Content Collections</h3>
+<p>To simplify long-term editing, page fragments should be migrated from raw <code>.inc</code> files to <code>.md</code> files under <code>src/content/pages/</code>.</p>
+<p>Define the type-safe schema in <code>src/content/config.ts</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { defineCollection, z } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro:content'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> pagesCollection</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> defineCollection</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  type: </span><span style="color:#9ECBFF">'content'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  schema: z.</span><span style="color:#B392F0">object</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    title: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">    description: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">    schemaType: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">default</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'WebPage'</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">    author: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">default</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Harisfazillah Jamel'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">  })</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> const</span><span style="color:#79B8FF"> collections</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#9ECBFF">  'pages'</span><span style="color:#E1E4E8">: pagesCollection,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p>Through this validation pattern, compile-time checks are executed to ensure content metadata matches strict rules, providing the same safety guarantees as PHPStan Level 8 did for PHP code.</p>
+<h3 id="step-55-static-dual-view-generation-amp-view">Step 5.5: Static Dual-View Generation (AMP View)</h3>
+<p>To preserve Accelerated Mobile Pages (AMP) support without runtime PHP, Astro leverages its dynamic static path generation.</p>
+<p>Create <code>src/pages/[pageName]/amp.astro</code> or <code>src/pages/amp/[pageName].astro</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { getCollection } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro:content'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> AmpLayout </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '../../layouts/AmpLayout.astro'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> getStaticPaths</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> pages</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> getCollection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'pages'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> pages.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">page</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> ({</span></span>
+<span class="line"><span style="color:#E1E4E8">    params: { pageName: page.slug },</span></span>
+<span class="line"><span style="color:#E1E4E8">    props: { page }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }));</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">page</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Astro.props;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">Content</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> page.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">AmpLayout</span><span style="color:#B392F0"> title</span><span style="color:#E1E4E8">={page.data.title} </span><span style="color:#B392F0">description</span><span style="color:#E1E4E8">={page.data.description}></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">article</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>{page.data.title}&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#79B8FF">Content</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">article</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#79B8FF">AmpLayout</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>During the build step, Astro compiles both the standard layout and the stripped-down, AMP-validated <code>&#x3C;amp-img></code> and AMP CSS layout automatically.</p>
+<h3 id="step-56-pwa-service-worker--spa-client-side-routing">Step 5.6: PWA Service Worker &#x26; SPA Client-Side Routing</h3>
+<p>With Astro’s client-side capabilities, the custom AJAX routing logic is modernised:</p>
+<ul>
+<li>
+<p><strong>Routing</strong>: Incorporate the <code>&#x3C;ViewTransitions /></code> component into the primary Layout to enable buttery smooth, SPA-like client-side hydration without writing any custom JavaScript.</p>
+</li>
+<li>
+<p><strong>Service Worker</strong>: Install the <code>@vite-pwa/astro</code> integration to manage caching, background syncing, and full offline support. Configure it in <code>astro.config.mjs</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { defineConfig } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro/config'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> AstroPWA </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '@vite-pwa/astro'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> defineConfig</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  integrations: [</span></span>
+<span class="line"><span style="color:#B392F0">    AstroPWA</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      registerType: </span><span style="color:#9ECBFF">'autoUpdate'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      manifest: {</span></span>
+<span class="line"><span style="color:#E1E4E8">        name: </span><span style="color:#9ECBFF">'CMSForNerd2'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        short_name: </span><span style="color:#9ECBFF">'CFN2'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        theme_color: </span><span style="color:#9ECBFF">'#0d6efd'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        background_color: </span><span style="color:#9ECBFF">'#ffffff'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        display: </span><span style="color:#9ECBFF">'standalone'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        start_url: </span><span style="color:#9ECBFF">'/'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        icons: [</span></span>
+<span class="line"><span style="color:#E1E4E8">          { src: </span><span style="color:#9ECBFF">'assets/pwa/icon-192x192.png'</span><span style="color:#E1E4E8">, sizes: </span><span style="color:#9ECBFF">'192x192'</span><span style="color:#E1E4E8">, type: </span><span style="color:#9ECBFF">'image/png'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">          { src: </span><span style="color:#9ECBFF">'assets/pwa/icon-512x512.png'</span><span style="color:#E1E4E8">, sizes: </span><span style="color:#9ECBFF">'512x512'</span><span style="color:#E1E4E8">, type: </span><span style="color:#9ECBFF">'image/png'</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">        ]</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    })</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="6-build--deployment-architecture">6. Build &#x26; Deployment Architecture</h2>
+<p>By migrating to static assets, Day 2 operations are massively simplified. High-availability container orchestration is replaced or augmented by GitOps-driven deployment.</p>
+<h3 id="build-step">Build Step</h3>
+<p>Execute the production build to compile static assets:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> build</span></span></code></pre>
+<p>This writes all HTML, CSS, and JS files to the <code>dist/</code> directory, completely self-contained.</p>
+<h3 id="deploying-to-rendercom-as-a-static-site-recommended--free-tier">Deploying to Render.com as a Static Site (Recommended / Free Tier)</h3>
+<p>By deploying CMSForNerd2 directly as a Static Site on Render, you can leverage completely free static hosting without the need to maintain or run a containerised server.</p>
+<p>To configure this in the Render Dashboard:</p>
+<ol>
+<li><strong>Build Command</strong>: Set this to <code>npm run build</code></li>
+<li><strong>Publish Directory</strong>: Set this to <code>dist/</code> or <code>dist</code></li>
+</ol>
+<p>If deploying via our Blueprint specification, the <code>render.yaml</code> file automatically configures a static service named <code>cmsfornerd2-static</code> alongside the Nginx container, ensuring seamless, zero-config builds.</p>
+<h3 id="deploying-to-rendercom-with-nginx">Deploying to Render.com with NGINX</h3>
+<p>To deploy CMSForNerd2 to Render.com, we utilise a secure multi-stage Docker build that compiles our Astro 7.1 application and packages it within a lightweight, unprivileged NGINX Alpine container.</p>
+<p>The deployment infrastructure is defined via three root-level files:</p>
+<ol>
+<li><strong><code>render.yaml</code></strong> (Blueprint Specification) — Declares a web service using the Docker runtime on the Starter plan in the Singapore region, pointing to <code>/healthz</code> for health checks.</li>
+<li><strong><code>Dockerfile</code></strong> / <strong><code>Containerfile</code></strong> — Leverages <code>node:22-alpine</code> to compile the static Astro build and then copies the output directory (<code>dist/</code>) into an unprivileged <code>nginx:alpine-slim</code> runtime.</li>
+<li><strong><code>nginx/nginx.conf</code></strong> — Formulates a highly-hardened unprivileged NGINX configuration listening on port <code>8080</code>, supporting Clean URLs (routing <code>/about</code> to <code>/about.html</code> and falling back to <code>index.html</code>), gzip compression, and secure HTTP response headers.</li>
+</ol>
+<h3 id="hardened-nginx-container-configuration">Hardened NGINX Container Configuration</h3>
+<p>To satisfy unprivileged execution rules and defend against host compromise, standardise on our hardened <code>./nginx/nginx.conf</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#F97583">worker_processes </span><span style="color:#E1E4E8">auto;</span></span>
+<span class="line"><span style="color:#F97583">pid </span><span style="color:#E1E4E8">/tmp/nginx.pid;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">events</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    worker_connections </span><span style="color:#79B8FF">1024</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">http</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    include </span><span style="color:#E1E4E8">/etc/nginx/mime.types;</span></span>
+<span class="line"><span style="color:#F97583">    default_type </span><span style="color:#E1E4E8">application/octet-stream;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    # Logging settings</span></span>
+<span class="line"><span style="color:#F97583">    access_log </span><span style="color:#E1E4E8">/dev/stdout;</span></span>
+<span class="line"><span style="color:#F97583">    error_log </span><span style="color:#E1E4E8">/dev/stderr </span><span style="color:#79B8FF">warn</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    # Performance optimisation</span></span>
+<span class="line"><span style="color:#F97583">    sendfile </span><span style="color:#79B8FF">on</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    tcp_nopush </span><span style="color:#79B8FF">on</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    tcp_nodelay </span><span style="color:#79B8FF">on</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    keepalive_timeout </span><span style="color:#79B8FF">65</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    types_hash_max_size </span><span style="color:#79B8FF">2048</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    # Gzip compression configuration</span></span>
+<span class="line"><span style="color:#F97583">    gzip </span><span style="color:#79B8FF">on</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_disable </span><span style="color:#9ECBFF">"msie6"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_vary </span><span style="color:#79B8FF">on</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_proxied </span><span style="color:#E1E4E8">any;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_comp_level </span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_buffers </span><span style="color:#79B8FF">16</span><span style="color:#79B8FF"> 8k</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_http_version </span><span style="color:#79B8FF">1.1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_min_length </span><span style="color:#79B8FF">256</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    gzip_types</span></span>
+<span class="line"><span style="color:#E1E4E8">        text/plain</span></span>
+<span class="line"><span style="color:#E1E4E8">        text/css</span></span>
+<span class="line"><span style="color:#E1E4E8">        application/json</span></span>
+<span class="line"><span style="color:#E1E4E8">        application/javascript</span></span>
+<span class="line"><span style="color:#E1E4E8">        application/x-javascript</span></span>
+<span class="line"><span style="color:#E1E4E8">        text/xml</span></span>
+<span class="line"><span style="color:#E1E4E8">        application/xml</span></span>
+<span class="line"><span style="color:#E1E4E8">        application/xml+rss</span></span>
+<span class="line"><span style="color:#E1E4E8">        text/javascript</span></span>
+<span class="line"><span style="color:#E1E4E8">        image/svg+xml;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    server</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # Port 8080 for unprivileged operation</span></span>
+<span class="line"><span style="color:#F97583">        listen </span><span style="color:#79B8FF">8080</span><span style="color:#79B8FF"> default_server</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">        listen </span><span style="color:#E1E4E8">[::]:8080 </span><span style="color:#79B8FF">default_server</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">        server_name </span><span style="color:#E1E4E8">_;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        root </span><span style="color:#E1E4E8">/usr/share/nginx/html;</span></span>
+<span class="line"><span style="color:#F97583">        index </span><span style="color:#E1E4E8">index.html;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Custom security headers</span></span>
+<span class="line"><span style="color:#F97583">        add_header </span><span style="color:#E1E4E8">X-Frame-Options </span><span style="color:#9ECBFF">"DENY"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"><span style="color:#F97583">        add_header </span><span style="color:#E1E4E8">X-Content-Type-Options </span><span style="color:#9ECBFF">"nosniff"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"><span style="color:#F97583">        add_header </span><span style="color:#E1E4E8">Referrer-Policy </span><span style="color:#9ECBFF">"no-referrer-when-downgrade"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"><span style="color:#F97583">        add_header </span><span style="color:#E1E4E8">Content-Security-Policy </span><span style="color:#9ECBFF">"default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*; connect-src 'self' https://*;"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Healthcheck location</span></span>
+<span class="line"><span style="color:#F97583">        location</span><span style="color:#F97583"> =</span><span style="color:#DBEDFF"> /healthz </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">            access_log </span><span style="color:#79B8FF">off</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">            add_header </span><span style="color:#E1E4E8">Content-Type text/plain;</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> 200</span><span style="color:#9ECBFF"> "OK"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Handling static assets with caching</span></span>
+<span class="line"><span style="color:#F97583">        location</span><span style="color:#B392F0"> /assets/ </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">            expires </span><span style="color:#E1E4E8">1y;</span></span>
+<span class="line"><span style="color:#F97583">            add_header </span><span style="color:#E1E4E8">Cache-Control </span><span style="color:#9ECBFF">"public, no-transform"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">            try_files </span><span style="color:#E1E4E8">$uri </span><span style="color:#79B8FF">=404</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Clean URLs routing for Astro static pages</span></span>
+<span class="line"><span style="color:#F97583">        location</span><span style="color:#B392F0"> / </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">            try_files </span><span style="color:#E1E4E8">$uri $uri/ $uri.html /index.html </span><span style="color:#79B8FF">=404</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Error handling</span></span>
+<span class="line"><span style="color:#F97583">        error_page </span><span style="color:#79B8FF">404</span><span style="color:#E1E4E8"> /404.html;</span></span>
+<span class="line"><span style="color:#F97583">        location</span><span style="color:#F97583"> =</span><span style="color:#DBEDFF"> /404.html </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">            internal</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        error_page </span><span style="color:#79B8FF">500</span><span style="color:#79B8FF"> 502</span><span style="color:#79B8FF"> 503</span><span style="color:#79B8FF"> 504</span><span style="color:#E1E4E8"> /50x.html;</span></span>
+<span class="line"><span style="color:#F97583">        location</span><span style="color:#F97583"> =</span><span style="color:#DBEDFF"> /50x.html </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">            internal</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="7-migration-timeline--checklist">7. Migration Timeline &#x26; Checklist</h2>
+<p>To coordinate the team’s operational efforts, follow this milestone progression:</p>
+<ol>
+<li><strong>Phase 1: Project Bootstrapping</strong> (Days 1–2)
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Bootstrapping the Astro framework in CMSForNerd2.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Migrating global stylesheet and static icons.</li>
+</ul>
+</li>
+<li><strong>Phase 2: Content Remapping</strong> (Days 3–5)
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Remapping PHP layout templates (<code>bodytop.tpl</code>, <code>bodyfooter.tpl</code>) to Astro components.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Converting flat-file pages under <code>contents/*.inc</code> to Markdown Content Collections.</li>
+</ul>
+</li>
+<li><strong>Phase 3: Dual-View and SEO Calibration</strong> (Days 6–8)
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Building static paths for standard views and AMP-compliant views.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Implementing structured Schema.org JSON-LD generation based on <code>schemaType</code>.</li>
+</ul>
+</li>
+<li><strong>Phase 4: Service Worker &#x26; Performance Audit</strong> (Days 9–10)
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Implementing <code>@vite-pwa/astro</code> for instant offline loading.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Compiling files and running Lighthouse audits to achieve 100/100 performance scores.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="sources">SOURCES</h2>
+<ul>
+<li><a href="https://docs.astro.build">Astro Documentation</a> - Comprehensive specifications for static site building, layouts, content collections, and routing.</li>
+<li><a href="https://amp.dev">Accelerated Mobile Pages (AMP) Specifications</a> - Official layout guidelines, validation rules, and CSS limits for mobile views.</li>
+<li><a href="https://vite-pwa-org.netlify.app">Vite PWA Plugin</a> - Implementation guide for offline service worker registration and caching strategies.</li>
+<li><a href="https://github.com/CMSForNerd/CmsForNerd">CMSForNerd Legacy Repository</a> - The baseline codebase containing the flat-file PHP 8.4 dual-view logic and contents.</li>
+</ul>
+<hr>
+<p><em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-07-30</em>
+<em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em></p></main></div><!-- GRID AREA: FOOTER --><div id="footer"><div class="lab-footer-wrap" style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--lab-border, #e2e8f0); background-color: var(--lab-bg, #f1f5f9); color: var(--lab-text, #1e293b);"><nav style="margin-bottom: 25px;"><p style="font-family: 'SF Mono', 'Cascadia Code', 'Source Code Pro', monospace; font-size: 0.7rem; text-transform: uppercase; color: #64748b; letter-spacing: 2px; margin-bottom: 15px; opacity: 0.8;"><strong>&lt; Laboratory_Modules /&gt;</strong></p><div style="display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 10px;"><a href="/CMSForNerd2" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 700;">Home</a><a href="/CMSForNerd2docs/context7-integration" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Context7 Service Integration Guide</a><a href="/CMSForNerd2docs/engineering" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DevOps Implementation Runbook Portal</a><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible ASIMP Hardening Playbooks</a><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DNS &amp; systemd-resolved Troubleshooting Guide</a><a href="/CMSForNerd2docs/engineering/efs-mount-scripts" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Persistent EFS Storage &amp; Mount Scripts</a><a href="/CMSForNerd2docs/engineering/opentofu-manifests" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">OpenTofu Module Manifests &amp; Simulation</a><a href="/CMSForNerd2docs/executive" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Executive &amp; Financial Blueprint Portal</a><a href="/CMSForNerd2docs/executive/regulatory-compliance" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sovereignty &amp; Regulatory Compliance</a><a href="/CMSForNerd2docs/executive/tco-financial-blueprint" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">36-Month TCO &amp; Financial Blueprint</a><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Diagram Design Standards Skill Overview</a><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a><a href="/CMSForNerd2docs/explanation/modernisation-philosophy" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">PHP-to-Static Modernisation Philosophy</a><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Spatial Memory &amp; Dual-Pathway Design</a><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Web Design Guidelines Skill Overview</a><a href="/CMSForNerd2docs/explanation/web-interface-improvements" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Web Interface Improvements &amp; Design Review</a><a href="/CMSForNerd2docs/governance/llm-wiki-adoption" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Technical Book Design &amp; PDF Compilation Master Prompt Guide</a><a href="/CMSForNerd2docs/how-to/ansible-deployment" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible Deployment How-To Guide</a><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">GitHub Pages Deployment and Troubleshooting Guide</a><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a><a href="/CMSForNerd2docs/how-to/okf-refactoring" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">OKF Frontmatter Refactoring How-To Guide</a><a href="/CMSForNerd2docs/how-to/sitemap-verification" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sitemap Verification How-To Guide</a><a href="/CMSForNerd2docs/jules-platform-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a><a href="/CMSForNerd2docs/migration-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd to CMSForNerd2 Static Migration Guide</a><a href="/CMSForNerd2docs/readme" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Documentation System</a><a href="/CMSForNerd2docs/reference/deploy-static" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">deploy-static.sh CLI Reference</a><a href="/CMSForNerd2docs/reference/llms-txt2ctx" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">llms_txt2ctx.py CLI Reference</a><a href="/CMSForNerd2docs/reference/refactor-okf" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">refactor-okf.cjs API Reference</a><a href="/CMSForNerd2docs/reference/verify-sitemaps" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">verify-sitemaps.js API Reference</a><a href="/CMSForNerd2docs/start-here" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Master Onboarding Map</a><a href="/CMSForNerd2docs/summary" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">CMSForNerd2 Documentation SUMMARY</a><a href="/CMSForNerd2docs/tutorials/local-development" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Local Development Quickstart Tutorial</a><a href="/CMSForNerd2docs/tutorials/static-site-deployment" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Static Site Deployment Tutorial</a><a href="/CMSForNerd2about" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">About CMSForNerd2</a><a href="/CMSForNerd2ai-dev" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AI-Assisted Development</a><a href="/CMSForNerd2ai-sop" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">SOP: Ethical AI Integration</a><a href="/CMSForNerd2amp-acceleration" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">AMP Acceleration</a><a href="/CMSForNerd2ansible-lab" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Ansible Static Orchestration</a><a href="/CMSForNerd2csp-nonce-guide" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Static CSP Implementation Guide</a><a href="/CMSForNerd2exam-answers" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Official Answer Key: Final Exam</a><a href="/CMSForNerd2final-exam" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Final Exam: Break-Fix Challenge - CMSForNerd2</a><a href="/CMSForNerd2graduation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a><a href="/CMSForNerd2hall-of-fame" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Nerd Hall of Fame</a><a href="/CMSForNerd2history" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Modernisation History</a><a href="/CMSForNerd2installation" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Installation Guide</a><a href="/CMSForNerd2lab-manual" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a><a href="/CMSForNerd2lab-module1" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 1 - CMSForNerd2</a><a href="/CMSForNerd2lab-module10" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 10 Worksheet</a><a href="/CMSForNerd2lab-module2" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 2 - CMSForNerd2</a><a href="/CMSForNerd2lab-module3" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 3 - CMSForNerd2</a><a href="/CMSForNerd2lab-module4" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 4 - CMSForNerd2</a><a href="/CMSForNerd2lab-module5" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Lab Worksheet: Module 5 - CMSForNerd2</a><a href="/CMSForNerd2lab-module7" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 7 Worksheet</a><a href="/CMSForNerd2lab-module8" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 8 Worksheet</a><a href="/CMSForNerd2lab-module9" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Module 9 Worksheet</a><a href="/CMSForNerd2linux-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Linux Setup Guide (Node.js &amp; Astro)</a><a href="/CMSForNerd2pwa-architecture" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">PWA Architecture</a><a href="/CMSForNerd2security-policy" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Security Policy &amp; Disclosure</a><a href="/CMSForNerd2sitemap-page" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Sitemap For CMSForNerd2</a><a href="/CMSForNerd2template" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">New Page Creation Guide</a><a href="/CMSForNerd2ui-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">UI Diagnostic Kit</a><a href="/CMSForNerd2welcome-kit" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a><a href="/CMSForNerd2windows-setup" style="color: inherit; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;">Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></div></nav><hr style="width: 60px; border: 0; border-top: 3px solid var(--lab-highlight, #8e44ad); margin: 25px auto; opacity: 0.6;"><div style="margin-bottom: 20px;"><a href="/CMSForNerd2docs/migration-guide/amp" style="display: inline-block; padding: 5px 12px; border: 1px solid var(--lab-highlight, #8e44ad); border-radius: 4px; color: var(--lab-highlight, #8e44ad); text-decoration: none; font-size: 0.75rem; font-family: 'SF Mono', monospace; font-weight: bold;">⚡ SWITCH TO AMP MOBILE VIEW</a></div><div style="font-size: 0.85rem; line-height: 1.8;"><span style="opacity: 0.7;">CmsForNerd Infrastructure:</span><a href="https://www.linuxmalaysia.com" style="color: var(--lab-highlight, #8e44ad); text-decoration: none; font-weight: 600;">linuxmalaysia.com</a><br><span style="font-family: 'SF Mono', monospace; font-size: 0.8rem;">Copyright &copy; 2005 - 2026 Harisfazillah Jamel</span></div><div style="font-family: 'SF Mono', monospace; font-size: 0.65rem; color: #94a3b8; margin-top: 30px; letter-spacing: 0.5px;">[ REL: 3.5.1 ] | [ STD: RFC_9116 ] | [ ENV: ASTRO_7 ] | [ VIEW: STANDARD ]</div></div><div class="sitemap-link" style="margin-top:10px;"><a href="/CMSForNerd2sitemap.xml" target="_blank">[XML Sitemap]</a></div><div style="margin-top: 5px; font-size: 0.7em; opacity: 0.5;">Rendered: Statically Compiled at Build-time | MEM: 0 KB (Zero-runtime database-free)</div></div></div><!-- Theme switcher script --><script>
+      function setLaboratoryTheme(theme) {
+        document.documentElement.classList.remove('theme-light', 'theme-dark');
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+          localStorage.setItem('theme', 'dark');
+        } else if (theme === 'light') {
+          document.documentElement.classList.add('theme-light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.removeItem('theme');
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('theme-dark');
+          } else {
+            document.documentElement.classList.add('theme-light');
+          }
+        }
+
+        updateActiveThemeButtons(theme);
+      }
+
+      function updateActiveThemeButtons(theme) {
+        if (!theme) {
+          theme = localStorage.getItem('theme') || 'auto';
+        }
+
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (!btnLight || !btnDark || !btnAuto) return;
+
+        [btnLight, btnDark, btnAuto].forEach(btn => {
+          btn.style.background = 'none';
+          btn.style.color = 'var(--lab-text)';
+          btn.style.opacity = '0.6';
+        });
+
+        let activeBtn;
+        if (theme === 'dark') {
+          activeBtn = btnDark;
+        } else if (theme === 'light') {
+          activeBtn = btnLight;
+        } else {
+          activeBtn = btnAuto;
+        }
+
+        if (activeBtn) {
+          activeBtn.style.background = 'var(--lab-purple)';
+          activeBtn.style.color = '#ffffff';
+          activeBtn.style.opacity = '1';
+        }
+      }
+
+      function initThemeSwitcher() {
+        const btnLight = document.getElementById('theme-btn-light');
+        const btnDark = document.getElementById('theme-btn-dark');
+        const btnAuto = document.getElementById('theme-btn-auto');
+
+        if (btnLight) {
+          btnLight.addEventListener('click', function() { setLaboratoryTheme('light'); });
+        }
+        if (btnDark) {
+          btnDark.addEventListener('click', function() { setLaboratoryTheme('dark'); });
+        }
+        if (btnAuto) {
+          btnAuto.addEventListener('click', function() { setLaboratoryTheme('auto'); });
+        }
+
+        updateActiveThemeButtons();
+      }
+
+      // Initial setup
+      initThemeSwitcher();
+
+      // Setup theme switcher on page transition (Astro View Transitions)
+      document.addEventListener('astro:after-swap', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.add('theme-light');
+        }
+        initThemeSwitcher();
+      });
+    </script></body></html>
