@@ -12,7 +12,7 @@ import { glob } from 'astro/loaders';
  * Validates metadata, author information, SEO description, and schema properties.
  */
 const pagesCollection = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  loader: glob({ pattern: ['src/content/pages/**/*.md', 'docs/**/*.md'], base: '.' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
