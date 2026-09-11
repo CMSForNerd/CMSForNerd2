@@ -7,7 +7,12 @@ import { getCollection } from 'astro:content';
  * @returns A clean slug (e.g. 'index', 'about')
  */
 export function getCleanSlug(id: string): string {
-  return id.replace(/\.[^/.]+$/, "");
+  let cleaned = id.replace(/\.[^/.]+$/, "");
+  cleaned = cleaned.replace(/^src\/content\/pages\//, "");
+  if (cleaned === 'src/content/pages/index' || cleaned === 'src/content/pages') {
+    return 'index';
+  }
+  return cleaned;
 }
 
 interface NavigationPage {
