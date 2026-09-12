@@ -60,7 +60,7 @@ def test_route_navigation() -> None:
 
 
 def test_pwa_manifest_and_sw() -> None:
-    """Verifies PWA manifest linkage and service worker asset availability."""
+    """Verifies PWA manifest linkage, service worker prefetching, and offline fallback route handling."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -79,14 +79,23 @@ def test_pwa_manifest_and_sw() -> None:
         resp = requests.get(manifest_url, timeout=5)
         assert resp.status_code == 200, f"Failed to fetch PWA manifest from {manifest_url}"
 
-        # Verify Service Worker asset endpoints
+        # Verify Service Worker asset endpoints and configuration directives
         sw_url = "http://127.0.0.1:4321/sw.js"
         sw_resp = requests.get(sw_url, timeout=5)
         assert sw_resp.status_code == 200, "sw.js service worker script returned non-200 status code."
+        assert "pages-cache" in sw_resp.text, "sw.js missing pages-cache Workbox runtime caching rule."
+        assert "/offline/" in sw_resp.text or "NavigationRoute" in sw_resp.text, "sw.js missing offline navigation fallback route rule."
 
         reg_url = "http://127.0.0.1:4321/registerSW.js"
         reg_resp = requests.get(reg_url, timeout=5)
         assert reg_resp.status_code == 200, "registerSW.js script returned non-200 status code."
+
+        # Verify PWA online status badge and client-side link prefetcher initialization
+        status_text = page.text_content("#pwa-status-badge") or ""
+        assert "ONLINE" in status_text, f"Unexpected PWA status badge text: {status_text}"
+
+        prefetched_count = page.evaluate("window._cfnPrefetchedUrls ? window._cfnPrefetchedUrls.size : -1")
+        assert prefetched_count >= 0, "window._cfnPrefetchedUrls Set was not initialized by client script."
 
         browser.close()
 
@@ -164,6 +173,16 @@ This is a sample document for testing OKF analysis.
         page.wait_for_function("document.querySelector('#wasm-onnx-stream-res').textContent.includes('ONNX')", timeout=5000)
         onnx_res = page.text_content("#wasm-onnx-stream-res") or ""
         assert "ONNX" in onnx_res, f"Unexpected ONNX completion output: {onnx_res}"
+
+        # Test Service Worker Link Prefetching & Offline Fallback Diagnostic Panel
+        page.click("#wasm-sw-inspect-btn")
+        page.wait_for_selector("#wasm-sw-output:not(.hidden)", timeout=3000)
+        sw_fallback_text = page.text_content("#wasm-sw-fallback") or ""
+        assert "/offline/" in sw_fallback_text, f"Unexpected SW fallback text: {sw_fallback_text}"
+
+        page.click("#wasm-sw-prefetch-btn")
+        sw_count_text = page.text_content("#wasm-sw-count") or ""
+        assert "pre-cached" in sw_count_text, f"Unexpected SW prefetch count text: {sw_count_text}"
 
         browser.close()
 

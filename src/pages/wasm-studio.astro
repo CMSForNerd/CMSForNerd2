@@ -52,6 +52,18 @@ import WasmStudio from '../components/WasmStudio.astro';
     </ul>
   </section>
 
+  <section style="margin-top: 1.5rem;">
+    <h2>📡 Service Worker Link Prefetching & Offline Fallback Handlers</h2>
+    <p>
+      Next-gen Progressive Web App (PWA) resilience in CMSForNerd2 pairs Workbox runtime caching and speculative client link prefetching with automatic network offline fallback handlers.
+    </p>
+    <ul>
+      <li><strong>Speculative Viewport Link Prefetching:</strong> Detects internal links in viewport or touch interactions and pre-populates the Service Worker <code>pages-cache</code> before navigation.</li>
+      <li><strong>Automatic Offline Fallback:</strong> Serves the statically compiled <code>/offline/</code> fallback route seamlessly when network connectivity drops and uncached routes are requested.</li>
+      <li><strong>Network Awareness:</strong> Dynamically adapts theme and status indicators based on real-time browser connection state.</li>
+    </ul>
+  </section>
+
   <WasmStudio />
 
   <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />

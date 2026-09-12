@@ -42,6 +42,13 @@ Astro 7.1 supports standard browser Back/Forward Cache (bfcache) natively. Navig
 </p>
 </div>
 
+<div class="scenario-box">
+<h3 style="margin-top:0;">📡 Service Worker Link Prefetching</h3>
+<p>
+Speculatively observes internal links using <code>IntersectionObserver</code> and pointer events to pre-populate Workbox <code>pages-cache</code> before link navigation.
+</p>
+</div>
+
 </div>
 
 <h2>1. The Static Client Routing Strategy</h2>
@@ -62,6 +69,7 @@ Through our web manifest metadata, CMSForNerd2 presents itself as a fully instal
 <ul>
 <li><strong><code>display: standalone</code></strong> - For a chromeless, immersive interface.</li>
 <li><strong>Offline Fallbacks</strong> - Automatic fallback routing to the statically compiled <code>/offline/index.html</code> page if the network is disconnected and the resource isn't pre-cached.</li>
+<li><strong>Service Worker Prefetching & Network Awareness</strong> - Low-priority background link prefetching populates the SW runtime cache while dynamic status indicators monitor browser connection state.</li>
 <li><strong>Security Standard</strong> - By strict specification, PWA service workers require a secure HTTPS context or localhost environment to register.</li>
 </ul>
 
