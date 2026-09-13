@@ -119,6 +119,7 @@ def test_wasm_studio_interactive_workflows() -> None:
         page.click("#wasm-ast-parse-btn")
 
         page.wait_for_selector("#wasm-ast-output:not(.hidden)", timeout=3000)
+        page.wait_for_function("document.querySelector('#wasm-ast-validity').textContent.includes('Syntax')", timeout=5000)
         ast_engine = page.text_content("#wasm-ast-status") or ""
         ast_validity = page.text_content("#wasm-ast-validity") or ""
         ast_root = page.text_content("#wasm-ast-root") or ""
