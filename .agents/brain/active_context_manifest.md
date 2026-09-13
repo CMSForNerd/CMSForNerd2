@@ -20,20 +20,16 @@ tags: ["context-manifest", "dsom-protocol", "active-scope"]
 
 The following files constitute the active engineering context for this session:
 
-- `.agents/skills/triple-render-architecture-diagram/SKILL.md` (Triple-Render Architecture Diagram Skill)
-- `skills/triple-render-architecture-diagram/SKILL.md` (Public Agent Skill)
-- `.agents/skills/diagram-design-standards/SKILL.md` (Updated Diagram Design Standards skill)
-- `skills/diagram-design-standards/SKILL.md` (Updated Public Skill)
-- `docs/explanation/diagram-design-standards-skill.md` (Skill overview documentation)
-- `docs/reference/deploy-static.md` (Modernized 4-tier diagram)
-- `docs/explanation/spatial-memory-and-sandbox.md` (Modernized 4-tier diagram)
-- `docs/explanation/fastmcp-wasm-architecture.md` (Modernized 4-tier diagrams)
-- `docs/jules-platform-guide.md` (Modernized 4-tier diagrams)
-- `docs/README.md` (Modernized 4-tier Diáktaxis diagram)
-- `src/styles/global.css` (Light mode variables & SVG theme/print rules)
+- `astro.config.mjs` (Workbox Service Worker navigateFallback and runtimeCaching config)
+- `src/layouts/Layout.astro` (Speculative link prefetcher & real-time PWA online status badge)
+- `src/pages/wasm-studio.astro` (Wasm Studio SW prefetch & offline fallback suite documentation)
+- `src/components/WasmStudio.astro` (Wasm Studio SW prefetch & offline fallback interactive diagnostic UI)
+- `src/content/pages/pwa-architecture.md` (PWA SW prefetching & offline architecture doc update)
+- `tests/test_e2e.py` (Playwright E2E browser tests for SW prefetching, fallback routes, dynamic role permissions, and cookie expiration boundaries)
 - `.agents/brain/knowledge.md` (Compiled Jules spatial knowledge)
 - `.agents/brain/palace_registry.md` (Palace spatial registry)
-- `.agents/brain/active_context_manifest.md` (This file)
+- `.agents/brain/checkpoint_summary.txt` (EOD checkpoint summary)
+- `.agents/brain/active_context_manifest.md` (This active context tracking file)
 
 ---
 
