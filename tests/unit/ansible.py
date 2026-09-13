@@ -13,6 +13,9 @@ def test_ansible_playbook_compliance() -> None:
     - All tasks use Fully Qualified Collection Names (FQCN).
     - The playbook contains dual-pathway branching variables (is_limited_environment).
     - Idempotency is supported via changed_when parameters on commands.
+
+    Raises:
+        AssertionError: If any playbook structure, FQCN, or idempotency check fails.
     """
     playbook_path = "deploy-static.yml"
     assert os.path.exists(playbook_path), "Ansible playbook deploy-static.yml not found."

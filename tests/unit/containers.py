@@ -14,6 +14,12 @@ def test_containerfile_security_and_structure(container_file: str) -> None:
     - Build stage inherits from node:22-alpine.
     - Runs under unprivileged USER nginx.
     - Exposes unprivileged web port 8080.
+
+    Args:
+        container_file: Filename string of the container manifest to validate.
+
+    Raises:
+        AssertionError: If container specifications fail structure or security rules.
     """
     assert os.path.exists(container_file), f"{container_file} not found."
 

@@ -20,8 +20,16 @@ import yaml
 
 EXCLUDE_DIRS = {"node_modules", ".git", "dist", ".astro", ".pytest_cache"}
 
+
 def get_markdown_files(root_dir: Path) -> list[Path]:
-    """Finds all markdown files in the workspace excluding build and node directories."""
+    """Finds all markdown files in the workspace excluding build and node directories.
+
+    Args:
+        root_dir: The root directory path to recursively scan for Markdown files.
+
+    Returns:
+        A list of Path objects pointing to non-excluded Markdown files.
+    """
     md_files: list[Path] = []
     for path in root_dir.rglob("*.md"):
         if not any(excluded in path.parts for excluded in EXCLUDE_DIRS):
@@ -30,13 +38,27 @@ def get_markdown_files(root_dir: Path) -> list[Path]:
 
 
 def format_array_single_line(lst: list[object]) -> str:
-    """Formats a list of strings as a compact JSON-style single-line list [\"a\", \"b\"]."""
+    """Formats a list of strings as a compact JSON-style single-line list [\"a\", \"b\"].
+
+    Args:
+        lst: A list of objects or strings to be formatted.
+
+    Returns:
+        A single-line string representation in JSON array format.
+    """
     items = [json.dumps(str(x)) for x in lst]
     return f"[{', '.join(items)}]"
 
 
 def migrate_file(filepath: Path) -> bool:
-    """Migrates a single markdown file to OKF v0.2 compliance. Returns True if modified."""
+    """Migrates a single markdown file to OKF v0.2 compliance.
+
+    Args:
+        filepath: Path to the target Markdown file to inspect and migrate.
+
+    Returns:
+        True if the file content was modified and saved, False otherwise.
+    """
     try:
         content = filepath.read_text(encoding="utf-8")
     except OSError as e:
@@ -160,7 +182,11 @@ def migrate_file(filepath: Path) -> bool:
 
 
 def run_markdownlint(files: list[Path]) -> None:
-    """Invokes markdownlint-cli if available to enforce style formatting."""
+    """Invokes markdownlint-cli if available to enforce style formatting.
+
+    Args:
+        files: A list of Path objects for Markdown files to lint.
+    """
     print("Executing Workspace Quality Enforcement via markdownlint-cli...")
     file_args = [str(f) for f in files]
     cmd = ["npx", "--no-install", "markdownlint-cli", "--fix"] + file_args
@@ -172,6 +198,7 @@ def run_markdownlint(files: list[Path]) -> None:
 
 
 def main() -> None:
+    """Main execution handler to discover markdown files, execute OKF v0.2 migration, and run linter."""
     root = Path(".")
     md_files = get_markdown_files(root)
     print(f"Found {len(md_files)} markdown files in workspace.")
