@@ -37,6 +37,16 @@ The following files constitute the active engineering context for this session:
 - `.agents/brain/walkthrough.md` (Session history & milestones)
 - `.agents/brain/checkpoint_summary.txt` (Session mental anchor & summary)
 - `.agents/brain/active_context_manifest.md` (This file)
+- `astro.config.mjs` (Workbox Service Worker navigateFallback and runtimeCaching config)
+- `src/layouts/Layout.astro` (Speculative link prefetcher & real-time PWA online status badge)
+- `src/pages/wasm-studio.astro` (Wasm Studio SW prefetch & offline fallback suite documentation)
+- `src/components/WasmStudio.astro` (Wasm Studio SW prefetch & offline fallback interactive diagnostic UI)
+- `src/content/pages/pwa-architecture.md` (PWA SW prefetching & offline architecture doc update)
+- `tests/test_e2e.py` (Playwright E2E browser tests for SW prefetching, fallback routes, dynamic role permissions, and cookie expiration boundaries)
+- `.agents/brain/knowledge.md` (Compiled Jules spatial knowledge)
+- `.agents/brain/palace_registry.md` (Palace spatial registry)
+- `.agents/brain/checkpoint_summary.txt` (EOD checkpoint summary)
+- `.agents/brain/active_context_manifest.md` (This active context tracking file)
 
 ---
 

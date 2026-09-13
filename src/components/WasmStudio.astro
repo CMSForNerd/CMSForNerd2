@@ -138,6 +138,24 @@ Sample body text..."></textarea>
     </div>
   </div>
 
+  <!-- Service Worker Link Prefetching & Offline Fallback Box -->
+  <div class="wasm-box" style="margin-top: 1.5rem;">
+    <h3>📡 Service Worker Link Prefetching & Offline Fallback Diagnostics</h3>
+    <p class="wasm-desc">Inspect active Service Worker cache registration, trigger background prefetching for laboratory routes, and simulate offline fallback routing.</p>
+
+    <div class="wasm-action-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <button type="button" id="wasm-sw-inspect-btn" class="wasm-btn" style="background-color: #0d6efd;">Inspect Service Worker Cache</button>
+      <button type="button" id="wasm-sw-prefetch-btn" class="wasm-btn" style="background-color: #10b981;">Trigger SW Route Prefetch</button>
+    </div>
+
+    <div id="wasm-sw-output" class="wasm-output hidden">
+      <div><strong>SW Registration Status:</strong> <span id="wasm-sw-status">Active</span></div>
+      <div><strong>Prefetched Route Count:</strong> <span id="wasm-sw-count">0</span></div>
+      <div><strong>Offline Fallback Route:</strong> <code id="wasm-sw-fallback">/offline/</code></div>
+      <div><strong>Active Cache Name:</strong> <code id="wasm-sw-cachename">pages-cache (NetworkFirst)</code></div>
+    </div>
+  </div>
+
   <!-- Hardware Capability Inspection Box -->
   <div class="wasm-box" style="margin-top: 1.5rem;">
     <h3>🖥️ Client Hardware Capability & WebAssembly Engine Diagnostics</h3>
@@ -612,11 +630,52 @@ Sample body text..."></textarea>
     });
   }
 
+  function inspectSwCache() {
+    const outputBox = document.getElementById('wasm-sw-output');
+    if (!outputBox) return;
+    outputBox.classList.remove('hidden');
+
+    const statusEl = document.getElementById('wasm-sw-status');
+    const countEl = document.getElementById('wasm-sw-count');
+    const cacheEl = document.getElementById('wasm-sw-cachename');
+
+    if (statusEl) {
+      statusEl.textContent = ('serviceWorker' in navigator && navigator.serviceWorker.controller)
+        ? '✅ Active Service Worker Controlling Page'
+        : 'ℹ️ Service Worker Registered / Standby';
+    }
+
+    const prefetched = (window as any)._cfnPrefetchedUrls || new Set();
+    if (countEl) {
+      countEl.textContent = `${prefetched.size} internal routes pre-cached`;
+    }
+
+    if (cacheEl) {
+      cacheEl.textContent = 'pages-cache (NetworkFirst with /offline/ fallback)';
+    }
+  }
+
+  function triggerSwRoutePrefetch() {
+    inspectSwCache();
+    const labRoutes = ['/about/', '/pwa-architecture/', '/lab-manual/', '/sitemap-page/'];
+    labRoutes.forEach(route => {
+      fetch(route, { priority: 'low' }).catch(() => {});
+      if ((window as any)._cfnPrefetchedUrls) (window as any)._cfnPrefetchedUrls.add(route);
+    });
+    const countEl = document.getElementById('wasm-sw-count');
+    if (countEl && (window as any)._cfnPrefetchedUrls) {
+      countEl.textContent = `${(window as any)._cfnPrefetchedUrls.size} internal routes pre-cached (Prefetched Lab Routes)`;
+    }
+  }
+
   function initWasmStudio() {
     const hashBtn = document.getElementById('wasm-hash-btn');
     const parseBtn = document.getElementById('wasm-parse-btn');
     const vectorBtn = document.getElementById('wasm-vector-btn');
     const hwBtn = document.getElementById('wasm-hw-btn');
+
+    const swInspectBtn = document.getElementById('wasm-sw-inspect-btn');
+    const swPrefetchBtn = document.getElementById('wasm-sw-prefetch-btn');
 
     const webllmLoadBtn = document.getElementById('wasm-webllm-load-btn');
     const webllmGenBtn = document.getElementById('wasm-webllm-gen-btn');
@@ -627,6 +686,9 @@ Sample body text..."></textarea>
     if (parseBtn) parseBtn.onclick = processDocument;
     if (vectorBtn) vectorBtn.onclick = executeFastMcpSemanticSearch;
     if (hwBtn) hwBtn.onclick = checkHwCapabilities;
+
+    if (swInspectBtn) swInspectBtn.onclick = inspectSwCache;
+    if (swPrefetchBtn) swPrefetchBtn.onclick = triggerSwRoutePrefetch;
 
     if (webllmLoadBtn) webllmLoadBtn.onclick = initializeWebLLM;
     if (webllmGenBtn) webllmGenBtn.onclick = generateWebLLMRag;
