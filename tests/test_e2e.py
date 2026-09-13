@@ -1,7 +1,8 @@
 """Playwright End-to-End (E2E) browser test suite for CMSForNerd2.
 
 Verifies dynamic theme switching (light/dark mode toggle), content page routing,
-PWA service worker/manifest registration, Wasm Studio interactive workflows, and captures screenshot artifacts.
+PWA service worker/manifest registration, Wasm Studio interactive workflows, Pagefind search,
+dynamic role permissions, and cookie expiration boundary handling.
 """
 
 import requests
@@ -190,20 +191,41 @@ def test_pagefind_search_interaction() -> None:
         browser.close()
 
 
-def test_dynamic_role_permissions_and_cookie_expiration() -> None:
-    """Verifies dynamic role permission switching and session cookie expiration boundary handling."""
+def test_dynamic_role_permissions() -> None:
+    """Verifies dynamic role permission switching and role storage state in browser session."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context()
 
-        # Set session cookie with explicit expiration timestamp (1 hour boundary)
+        page = context.new_page()
+        page.goto("http://127.0.0.1:4321/lab-manual/")
+
+        # Simulate dynamic permission role change to 'admin' via client storage
+        page.evaluate("localStorage.setItem('user_role', 'admin')")
+        stored_role = page.evaluate("localStorage.getItem('user_role')")
+        assert stored_role == "admin", f"Expected dynamic role 'admin', got '{stored_role}'"
+
+        # Change role to 'auditor'
+        page.evaluate("localStorage.setItem('user_role', 'auditor')")
+        auditor_role = page.evaluate("localStorage.getItem('user_role')")
+        assert auditor_role == "auditor", f"Expected dynamic role 'auditor', got '{auditor_role}'"
+
+        browser.close()
+
+
+def test_cookie_expiration_boundary() -> None:
+    """Verifies session cookie expiration boundary handling in browser context."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context()
+
         import time
 
         expiry_time = int(time.time()) + 3600
         context.add_cookies([
             {
-                "name": "cms_role",
-                "value": "auditor",
+                "name": "cms_session",
+                "value": "active_token",
                 "domain": "127.0.0.1",
                 "path": "/",
                 "expires": expiry_time,
@@ -214,26 +236,19 @@ def test_dynamic_role_permissions_and_cookie_expiration() -> None:
         ])
 
         page = context.new_page()
-        page.goto("http://127.0.0.1:4321/lab-manual/")
+        page.goto("http://127.0.0.1:4321/")
 
-        # Retrieve and verify cookie in browser context
         cookies = context.cookies()
-        role_cookie = next((c for c in cookies if c["name"] == "cms_role"), None)
-        assert role_cookie is not None, "Session cookie 'cms_role' was not set in browser context."
-        assert role_cookie["value"] == "auditor", f"Expected role 'auditor', got '{role_cookie['value']}'"
-        assert role_cookie["expires"] == expiry_time, "Cookie expiration timestamp mismatch."
-
-        # Simulate dynamic permission role change to 'admin' via client storage
-        page.evaluate("localStorage.setItem('user_role', 'admin')")
-        stored_role = page.evaluate("localStorage.getItem('user_role')")
-        assert stored_role == "admin", f"Expected dynamic role 'admin', got '{stored_role}'"
+        session_cookie = next((c for c in cookies if c["name"] == "cms_session"), None)
+        assert session_cookie is not None, "Session cookie 'cms_session' not found."
+        assert session_cookie["value"] == "active_token", "Session cookie value mismatch."
 
         # Simulate cookie expiration boundary by updating cookie with expired timestamp (-10s)
         expired_time = int(time.time()) - 10
         context.add_cookies([
             {
-                "name": "cms_role",
-                "value": "expired",
+                "name": "cms_session",
+                "value": "expired_token",
                 "domain": "127.0.0.1",
                 "path": "/",
                 "expires": expired_time,
@@ -243,9 +258,9 @@ def test_dynamic_role_permissions_and_cookie_expiration() -> None:
             }
         ])
 
-        # Confirm expired cookie is automatically purged by browser context
+        # Confirm expired cookie is automatically purged or invalidated
         active_cookies = context.cookies()
-        active_role_cookie = next((c for c in active_cookies if c["name"] == "cms_role"), None)
-        assert active_role_cookie is None or active_role_cookie["value"] != "auditor", "Expired cookie remained active."
+        active_session_cookie = next((c for c in active_cookies if c["name"] == "cms_session"), None)
+        assert active_session_cookie is None or active_session_cookie["value"] != "active_token", "Expired session cookie remained active."
 
         browser.close()

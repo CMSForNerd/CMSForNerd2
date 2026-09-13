@@ -15,6 +15,9 @@ def test_markdown_okf_compliance() -> None:
     - Parses successfully as OKF v0.2 YAML frontmatter with required keys (`spec_version: "0.2"`).
     - Ensures special characters in string values are double quoted.
     - Array formatting (topics/tags) uses square brackets with double quoted strings.
+
+    Raises:
+        AssertionError: If any Markdown file violates OKF v0.2 frontmatter rules.
     """
     markdown_files = []
     for root, _, files in os.walk("."):
@@ -74,6 +77,9 @@ def test_markdown_governance_footers() -> None:
 
     Ensures that every governance document under .agents/ or in the root directory (excluding pages)
     carries the standardized Deep State of Mind signature and standard UK English declarations.
+
+    Raises:
+        AssertionError: If any governance document is missing required DSOM or UK English declarations.
     """
     governance_files = []
 
@@ -115,6 +121,9 @@ def test_uk_english_documentation_spellings() -> None:
 
     Ensures that words like 'optimise', 'colour', 'customise' are preferred over US English equivalents
     ('optimize', 'color', 'customize') within primary root-level documents.
+
+    Raises:
+        AssertionError: If prohibited US English spellings are detected in target documents.
     """
     target_docs = ["README.md", "START-HERE.md", "SUMMARY.md", "AGENTS.md", ".agents/AGENTS.md"]
 
