@@ -52,6 +52,18 @@ import WasmStudio from '../components/WasmStudio.astro';
     </ul>
   </section>
 
+  <section style="margin-top: 1.5rem;">
+    <h2>🌲 WebGPU & WebTreeSitter Client AST Parsing & LLM Snippet Validation</h2>
+    <p>
+      Before sending user code snippets or configuration manifests to AI LLM agents (e.g. WebLLM or FastMCP agent endpoints), WebTreeSitter WASM parses the Abstract Syntax Tree (AST) locally in the browser to validate syntax integrity and inspect structural node hierarchies.
+    </p>
+    <ul>
+      <li><strong>Client-Side AST Parsing:</strong> Uses WebAssembly WebTreeSitter binaries to build complete concrete syntax trees (CST/AST) zero-server.</li>
+      <li><strong>Pre-LLM Guardrail Validation:</strong> Traverses syntax nodes to detect syntax error nodes (<code>ERROR</code>) or missing tokens prior to agent dispatch.</li>
+      <li><strong>Structured Prompt Context:</strong> Extracts root node type, node depth, token counts, and structural syntax trees for context enrichment.</li>
+    </ul>
+  </section>
+
   <WasmStudio />
 
   <hr style="border: 0; border-top: 1px solid var(--lab-border, #e2e8f0); margin: 1.5rem 0;" />

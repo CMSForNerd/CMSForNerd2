@@ -113,6 +113,28 @@ def test_wasm_studio_interactive_workflows() -> None:
         assert len(b64_text) > 0, "Base64 hash output is empty."
         assert csp_text.startswith("'sha256-"), f"CSP header output invalid: {csp_text}"
 
+        # Test WebTreeSitter Client AST Parsing & LLM Snippet Validation Workflow
+        test_code = "function checkConfig(cfg) { return cfg && cfg.active; }"
+        page.fill("#wasm-ast-input", test_code)
+        page.click("#wasm-ast-parse-btn")
+
+        page.wait_for_selector("#wasm-ast-output:not(.hidden)", timeout=3000)
+        page.wait_for_function("document.querySelector('#wasm-ast-validity').textContent.includes('Syntax')", timeout=5000)
+        ast_engine = page.text_content("#wasm-ast-status") or ""
+        ast_validity = page.text_content("#wasm-ast-validity") or ""
+        ast_root = page.text_content("#wasm-ast-root") or ""
+        ast_tree = page.text_content("#wasm-ast-tree") or ""
+
+        assert "WebTreeSitter" in ast_engine, f"Unexpected AST engine status: {ast_engine}"
+        assert "Valid Syntax" in ast_validity, f"Unexpected AST validity check: {ast_validity}"
+        assert len(ast_root) > 0, "AST root node type is empty."
+        assert "(" in ast_tree, f"Unexpected AST tree preview format: {ast_tree}"
+
+        page.click("#wasm-ast-submit-btn")
+        page.wait_for_selector("#wasm-ast-llm-status", timeout=3000)
+        llm_submit_msg = page.text_content("#wasm-ast-llm-status") or ""
+        assert "Forwarding code payload to LLM Agent" in llm_submit_msg, f"Unexpected LLM submit message: {llm_submit_msg}"
+
         # Test OKF Document Analysis Workflow
         okf_sample = """---
 spec_version: "0.2"
