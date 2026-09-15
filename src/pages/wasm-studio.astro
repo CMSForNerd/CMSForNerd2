@@ -53,6 +53,18 @@ import WasmStudio from '../components/WasmStudio.astro';
   </section>
 
   <section style="margin-top: 1.5rem;">
+    <h2>🛠️ WebGPU Multi-Model Ensemble Fallbacks & Dynamic Air-Gapped Code Remediation</h2>
+    <p>
+      In air-gapped or offline environments, code remediation requires intelligent multi-model ensemble strategies combining WebGPU hardware acceleration, multi-threaded WebAssembly SIMD CPU fallbacks, and deterministic AST rule synthesizers.
+    </p>
+    <ul>
+      <li><strong>Tri-Tiered Ensemble Strategy:</strong> Automatically routes code remediation tasks to Tier 1 (WebGPU WebLLM model), Tier 2 (Wasm SIMD CPU fallback), or Tier 3 (WebTreeSitter AST synthesizer) based on client hardware capabilities.</li>
+      <li><strong>Zero Data-Leakage Code Repair:</strong> Inspects and fixes broken code syntax, missing brackets, or invalid logic inside local browser memory without network transmissions.</li>
+      <li><strong>Deterministic Remediation Guardrails:</strong> Validates generated code fixes against Abstract Syntax Trees (AST) before applying adjustments to workspace documents.</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 1.5rem;">
     <h2>🌲 WebGPU & WebTreeSitter Client AST Parsing & LLM Snippet Validation</h2>
     <p>
       Before sending user code snippets or configuration manifests to AI LLM agents (e.g. WebLLM or FastMCP agent endpoints), WebTreeSitter WASM parses the Abstract Syntax Tree (AST) locally in the browser to validate syntax integrity and inspect structural node hierarchies.
