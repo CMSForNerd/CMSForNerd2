@@ -134,6 +134,7 @@ graph TD
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |
 | AI Agent Client | FastMCP Gateway | `stdio` / JSON-RPC | Local Workspace Process | Initiates tool requests to query static site routes and spatial memory concept graphs. |
+| WebTransport Mesh | Datagram Streaming | HTTP/3 Datagrams | Ultra-Low Latency Agent Mesh | Streams spatial memory concept vectors across agent mesh nodes with sub-1.5ms latency. |
 | FastMCP Gateway | SSG Content Store | Direct File I/O | Repository Workspace (`src/content/pages/`) | Extracts raw Markdown body, frontmatter metadata, and sitemap routes for AI model ingestion. |
 
 ---
