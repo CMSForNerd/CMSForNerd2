@@ -291,6 +291,7 @@ tags: ["summary", "index", "navigation"]
 * [Lab Module 8: WebAssembly SRI Whitelisting & Brotli Performance](src/content/pages/lab-module8.md)
 * [Lab Module 9: Advanced Playwright E2E & Cookie Boundaries](src/content/pages/lab-module9.md)
 * [Lab Module 10: Wasm Vector Search & FastMCP ADR Validation](src/content/pages/lab-module10.md)
+* [Lab Module 11: WebGPU Multi-Model Ensemble Fallbacks & Air-Gapped Code Remediation](src/content/pages/lab-module11.md)
 
 ## 📘 Migration Manuals & Platform Guides
 
@@ -352,7 +353,7 @@ sources:
   url: AGENTS.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
@@ -407,8 +408,7 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
 
 ## Google Antigravity & AgentSkills.io Agent Skills
 
-By using the open standard for extending agent capabilities, our workspace publishes 14 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
-By using the open standard for extending agent capabilities, our workspace publishes 22 specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
+By using the open standard for extending agent capabilities, our workspace publishes specialised skills in `.agents/skills/`. Each skill consists of a `SKILL.md` file featuring combined OKF/Antigravity YAML frontmatter and concludes with the standard DSOM footer, bridging Google Jules' and Antigravity's capabilities.
 
 Agents can discover, activate, and execute these skills on demand as per the open standard documented at `https://antigravity.google/docs/skills` and `https://agentskills.io/home`.
 
@@ -429,9 +429,6 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
 | **Google Deep Research & Search** | `.agents/skills/google-deep-research/` | Iterative deep web research, `/learn` knowledge ingestion, and OKF v0.2 trust signal generation with `uv python` token optimisation. |
 | **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
-| **Docstring & JSDoc Standards** | `.agents/skills/docstring-and-jsdoc/` & `.agents/skills/docstring/` | Enforces PEP-257 Google-style docstrings for Python and detailed JSDoc comments for JavaScript/Node.js utilities. |
-| **Unit Testing Suite** | `.agents/skills/unit-testing-suite/` | Governs unit testing across Pytest modules, Ansible compliance, Podman containerization, OKF frontmatter, and Playwright E2E suites. |
-| **OKF v0.2 Migration & Compliance** | `.agents/skills/okf-v02-migration/` | Governs OKF v0.1 and v0.2 schema validation, machine-readable trust signals, and opportunistic migration protocols. |
 | **Documentation Writing** | `.agents/skills/docs-write/` | Guides creating clear, conversational, reader-focused documentation in Standard UK English adhering to Diátaxis principles. |
 | **Documentation Review** | `.agents/skills/docs-review/` | Provides a structured review protocol for verifying technical claims, evidence, and style guide compliance across Markdown docs. |
 | **Document Processing & Conversion** | `.agents/skills/docx/` | Manages professional Word document (.docx) creation, tracked changes redlining, comment extraction, and Pandoc Markdown conversion. |
@@ -441,7 +438,8 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 | **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
-| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining standalone SVG vector graphics, Mermaid blocks, and routing tables. |
+| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining ASCII trees, standalone Dark Slate SVG vector graphics, Mermaid blocks, and routing tables. |
+| **Triple-Render Architecture Diagram** | `.agents/skills/triple-render-architecture-diagram/` | Enforces 4-tier visual deliverables combining ASCII trees, Dark Slate raw SVGs, Mermaid diagrams, and summary routing tables. |
 
 ---
 
@@ -470,12 +468,12 @@ To prevent parsing anomalies and ensure absolute compatibility across different 
    * `okf_version` / `spec_version`: `0.1` or `"0.2"`.
    * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
    * `title`: Human-readable display title (double-quoted if containing special characters).
-   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-06T00:00:00Z"`).
+   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-08T00:00:00Z"`).
    * `topics`: An array of associated category tags.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -888,7 +886,7 @@ sources:
   url: .agents/brain/knowledge.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["knowledge", "jules", "brain", "dsom"]
 ---
 
@@ -1038,11 +1036,11 @@ This document contains a comprehensive record of all Google Jules operational, s
 46. **FastMCP Server Adoption & WebAssembly (Wasm) Search and Processing**
     The repository adopts a FastMCP (Model Context Protocol) server (`tools/mcp/server.py`) to expose live Astro SSG routes (`list_ssg_routes`), route content (`get_route_content`), full-text search (`search_ssg_routes`), sitemaps (`get_sitemap_routes`), and spatial memory (`get_openwiki_concept`) directly to AI agents. It integrates Pagefind Wasm client-side search (`astro build && pagefind --site dist`) with a client search UI at `/search`, and implements a browser-native WebAssembly Cryptographic & OKF v0.2 Document Processing Studio at `/wasm-studio`.
 
-47. **Diagram Design Standards Skill Adoption**
-    The repository adopts the `diagram-design-standards` skill (`.agents/skills/diagram-design-standards/SKILL.md` and `skills/diagram-design-standards/SKILL.md`), enforcing a unified tri-part output format for all technical diagrams: (1) Standalone SVG Vector Graphic (`.svg`), (2) Git-Native Mermaid Block (`.mmd`), and (3) Summary Interface & Routing Comparison Table. The skill is documented at `docs/explanation/diagram-design-standards-skill.md` and mapped across all navigation and AI gateway registries.
+47. **Triple-Render Architecture Diagram Specification Skill**
+    The repository adopts the `triple-render-architecture-diagram` skill (`.agents/skills/triple-render-architecture-diagram/SKILL.md` and `skills/triple-render-architecture-diagram/SKILL.md`), enforcing a 4-tier visual deliverable sequence for all technical diagrams: (1) Plain-Text ASCII Tree Diagram, (2) Standalone Dark Slate Raw SVG Vector Graphic, (3) Git-Native Mermaid Block, and (4) Summary Interface & Routing Table. Embedded CSS rules dynamically adapt Dark Slate SVGs in Light Mode and Print Mode (`@media print`) to crisp `#FFFFFF` white canvas rendering with deep print-suitable colors to save toner when printing.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -2161,8 +2159,8 @@ python3 -m pytest tests/test_unit.py -v
 spec_version: "0.2"
 type: "how_to"
 title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
-description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, and utilizing client-side Wasm utilities."
-topics: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
+description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, WebLLM WebGPU RAG generation, ONNX streaming, and utilizing client-side Wasm utilities."
+topics: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
 okf_version: "0.1"
 nav_order: 1
 status: "stable"
@@ -2174,12 +2172,12 @@ sources:
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
   timestamp: '2026-09-06T00:00:00Z'
-tags: ["fastmcp", "mcp", "wasm", "pagefind", "how-to"]
+tags: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
 ---
 
 # How to Use FastMCP Server & WebAssembly (Wasm) Tools
 
-This guide explains how to run the FastMCP SSG Gateway server, inspect static routes as an AI agent, and utilize client-side WebAssembly search and cryptographic tools.
+This guide explains how to run the FastMCP SSG Gateway server, inspect static routes as an AI agent, and utilize client-side WebAssembly search, cryptographic tools, WebLLM WebGPU on-device RAG generation, and HuggingFace ONNX Web Runtime streaming.
 
 ---
 
@@ -2239,7 +2237,7 @@ Navigate to `http://localhost:4321/search` to test client-side Wasm search queri
 
 ---
 
-## 3. Utilizing WebAssembly Cryptographic & Document Studio
+## 3. Utilizing WebAssembly Cryptographic, Document, WebLLM & ONNX Studio
 
 Navigate to `http://localhost:4321/wasm-studio` in your browser.
 
@@ -2252,6 +2250,22 @@ Navigate to `http://localhost:4321/wasm-studio` in your browser.
 1. Paste Markdown content into the **OKF v0.2 Document Processor** input box.
 2. Click **Analyze Document**.
 3. Review compliance status, extracted title, word count, and line metrics.
+
+### Executing In-Browser FastMCP Semantic AI Search
+1. Enter a conceptual query (e.g., `Astro static site security hardening`) into the **In-Browser WebAssembly Vector Embeddings & FastMCP Semantic Search** input field.
+2. Click **Execute FastMCP `semantic_code_search` Tool**.
+3. The studio generates a 384-dimensional Float32 vector embedding via Web Workers, syncs vectors with IndexedDB local storage, computes cosine similarity scores across local documents, and returns top RAG matches wrapped in FastMCP tool output schemas.
+
+### Executing 100% Offline Air-Gapped WebLLM + WebGPU RAG Generation
+1. Select target model from dropdown (`Llama-3.2-1B-Instruct-q4f16`, `Qwen2.5-0.5B-Instruct-q4f16`, or Wasm SIMD CPU fallback).
+2. Click **Initialize WebLLM Pipeline** to initialize model over WebGPU hardware acceleration.
+3. Enter local RAG prompt and click **Generate Air-Gapped RAG Synthesis**.
+4. WebLLM retrieves context from FastMCP IndexedDB vector records and streams synthesized answers on-device without external API calls.
+
+### Streaming Real-Time Code Completions via HuggingFace ONNX Web Runtime
+1. Type or edit document/code content in the **Workspace Document / Code Editor**.
+2. Click **Trigger ONNX Wasm Stream Completion** or toggle **Enable Live Typing Stream Completion**.
+3. Real-time token-by-token completion streams directly into the output window via WebAssembly streams with performance metrics (~42 tokens/sec).
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
@@ -2937,7 +2951,7 @@ sources:
   url: docs/reference/deploy-static.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T14:50:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["reference", "bash", "ansible", "deployment"]
 ---
 
@@ -2959,30 +2973,119 @@ The `deploy-static.sh` script is a POSIX-compliant Bash orchestrator that automa
 
 ## 🛠️ Execution Pathways
 
-The script executes a dynamic environmental check to determine available system privileges:
+The script executes a dynamic environmental check to determine available system privileges across limited sandbox and production server runtimes.
+
+#### 1. ASCII Tree Diagram
 
 ```
-                      [START RUN]
-                           │
-             Is USER == "jules" or JULES_ENV?
-              /                         \
-            YES                         NO
-            /                             \
-    [Limited Sandbox]                  [Real OS]
-    - npm install                      - Run full Ansible playbook
-    - npm run build                    - Set up Nginx config
-    - Bypass systemd/root              - Hardened CSP/Security Headers
+                              ┌───────────────────┐
+                              │    START RUN      │
+                              │ deploy-static.sh  │
+                              └─────────┬─────────┘
+                                        │
+                         Is USER == "jules" or $JULES_ENV?
+                         ┌──────────────┴──────────────┐
+                        YES                            NO
+                         │                             │
+                         ▼                             ▼
+              ┌─────────────────────┐       ┌─────────────────────┐
+              │  Pathway A: Sandbox │       │ Pathway B: Real OS  │
+              │  Unprivileged SSG   │       │ Ansible Deploy      │
+              ├─────────────────────┤       ├─────────────────────┤
+              │ • npm ci            │       │ • deploy-static.yml │
+              │ • npm run build     │       │ • Nginx Web Server  │
+              │ • Bypass systemd    │       │ • Hardened Headers  │
+              └─────────────────────┘       └─────────────────────┘
 ```
 
-### 1. Limited Sandbox Pathway (Google Jules)
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
-- **Condition**: Automatically activated if `USER` is `'jules'` or the `JULES_ENV` environment variable is defined.
-- **Actions**: Bypasses system-wide configurations, executes local workspace dependencies installations (`npm install`), and compiles the Astro SSG files (`npm run build`).
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
 
-### 2. Real OS Pathway (Production Server)
+  <!-- Dark Slate Background Canvas -->
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
 
-- **Condition**: Activated if neither conditions are met.
-- **Actions**: Verifies Ansible installation, accesses `inventory/hosts.staging.yml`, and triggers the complete playbook `deploy-static.yml` with system administrative privileges to configure web serving.
+  <!-- Section Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#60A5FA" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">DEPLOY-STATIC DUAL-PATHWAY EXECUTION ARCHITECTURE</text>
+
+  <!-- Container: Orchestrator Ingress -->
+  <rect x="250" y="60" width="300" height="70" rx="10" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  <rect x="250" y="60" width="300" height="24" rx="10" fill="#334155"/>
+  <text x="400" y="77" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">ORCHESTRATOR ENTRY POINT</text>
+  <text x="400" y="105" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">deploy-static.sh</text>
+  <text x="400" y="120" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="10">USER Check / JULES_ENV</text>
+
+  <!-- Connectors from Orchestrator -->
+  <path d="M 330 130 L 200 180" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 470 130 L 600 180" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision Badges -->
+  <rect x="210" y="145" width="80" height="22" rx="11" fill="#38BDF8"/>
+  <text x="250" y="160" text-anchor="middle" fill="#0F172A" font-family="Consolas, monospace" font-size="10" font-weight="bold">YES (Sandbox)</text>
+
+  <rect x="510" y="145" width="80" height="22" rx="11" fill="#4ADE80"/>
+  <text x="550" y="160" text-anchor="middle" fill="#0F172A" font-family="Consolas, monospace" font-size="10" font-weight="bold">NO (Real OS)</text>
+
+  <!-- Container: Sandbox Pathway -->
+  <rect x="50" y="180" width="300" height="200" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <rect x="50" y="180" width="300" height="28" rx="10" fill="#0284C7"/>
+  <text x="200" y="199" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">PATHWAY A: LIMITED SANDBOX</text>
+  <text x="70" y="230" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">Runtime: <tspan fill="#38BDF8" font-family="Consolas, monospace">Google Jules VM</tspan></text>
+  <text x="70" y="255" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Installs workspace dependencies (npm ci)</text>
+  <text x="70" y="280" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Compiles Astro SSG site (npm run build)</text>
+  <text x="70" y="305" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Generates Pagefind Wasm search index</text>
+  <text x="70" y="330" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Bypasses systemd and root configurations</text>
+  <text x="70" y="355" fill="#4ADE80" font-family="Consolas, monospace" font-size="11">Status: Unprivileged Build Success</text>
+
+  <!-- Container: Real OS Pathway -->
+  <rect x="450" y="180" width="300" height="200" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="2"/>
+  <rect x="450" y="180" width="300" height="28" rx="10" fill="#15803D"/>
+  <text x="600" y="199" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">PATHWAY B: PRODUCTION SERVER</text>
+  <text x="470" y="230" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12">Runtime: <tspan fill="#4ADE80" font-family="Consolas, monospace">Linux Host / Staging</tspan></text>
+  <text x="470" y="255" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Triggers Ansible playbook (deploy-static.yml)</text>
+  <text x="470" y="280" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Provisions Nginx reverse proxy server</text>
+  <text x="470" y="305" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Configures OWASP CSP &amp; security headers</text>
+  <text x="470" y="330" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Manages systemd web service daemons</text>
+  <text x="470" y="355" fill="#4ADE80" font-family="Consolas, monospace" font-size="11">Status: Full Infrastructure Provisioned</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Ingress ["Orchestrator Entry Point"]
+        CLI["deploy-static.sh<br/>(USER Check / JULES_ENV)"]
+    end
+
+    subgraph PathwayA ["Pathway A: Limited Sandbox"]
+        S1["npm ci<br/>(Workspace Dependencies)"] --> S2["npm run build<br/>(Astro SSG Compilation)"]
+        S2 --> S3["pagefind --site dist<br/>(Wasm Search Index)"]
+        S3 --> S4["Bypass Systemd & Root Operations"]
+    end
+
+    subgraph PathwayB ["Pathway B: Production Server"]
+        P1["ansible-playbook deploy-static.yml<br/>(Full Automation Suite)"] --> P2["Nginx Server Configuration<br/>(Port 8080 / TLS Ingress)"]
+        P2 --> P3["OWASP CSP & Security Headers"]
+        P3 --> P4["Systemd Service Management"]
+    end
+
+    CLI -->|"USER == 'jules' OR JULES_ENV set"| S1
+    CLI -->|"Persistent OS Environment"| P1
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `deploy-static.sh` | Sandbox Build Engine | Local Shell CLI | Unprivileged VM (`jules`) | Executes workspace dependency installation and Astro static site generation without requiring root system access. |
+| `deploy-static.sh` | Ansible Playbook Engine | `ansible-playbook` CLI | Staging / Production OS | Triggers `deploy-static.yml` to configure system Nginx servers, OWASP security headers, and systemd services. |
 
 ---
 
@@ -2996,7 +3099,7 @@ The script executes a dynamic environmental check to determine available system 
   - `1`: Missing command-line dependencies (such as `ansible-playbook` in Real OS mode).
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -3106,7 +3209,7 @@ sources:
   url: docs/jules-platform-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-14T10:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 ---
 
@@ -3129,31 +3232,126 @@ Modern software and cloud engineering require rapid iteration without sacrificin
 3. **Deep State of Mind (DSOM) Governance:** A metacognitive governance framework enforcing persistent spatial memory, zero context decay, and human-in-the-loop verification across all agent interactions.
 4. **Multi-Agent Pair-Programming Synergy:** An operational ecosystem where Google Jules acts as an autonomous senior co-engineer in the cloud, working side-by-side with human engineers on GitHub PRs, while Google Antigravity orchestrates local CLI operations and task delegations.
 
+#### 1. ASCII Tree Diagram
+
 ```
-+-----------------------------------------------------------------------------------+
-|                            HUMAN ENGINEER / ARCHITECT                             |
-+-----------------------------------------------------------------------------------+
-       |                                       |                               |
-       | Inline PR Comments                    | Terminal / Mobile Session     | Natural Language Directives
-       v                                       v                               v
-+-----------------------+           +-----------------------+       +-----------------------+
-|  GitHub Web & PRs     | <=======> |  Google Jules Engine  | <===> |   Google Antigravity  |
-|  (PR Comments & Diff) |  Webhooks |  (API / Web Console)  |  MCP  |   (Local CLI / Skills)|
-+-----------------------+           +-----------------------+       +-----------------------+
-       |                                       |                               |
-       +-------------------+-------------------+-------------------------------+
-                           |
-                           v
-        +------------------------------------------------------+
-        |      REPOSITORY-WIDE ARTIFACTS & INFRASTRUCTURE      |
-        |  - Astro 7.1 SSG Framework (`src/`)                  |
-        |  - OpenTofu Modules (`terraform/`)                   |
-        |  - Ansible Hardening & Playbooks                     |
-        |  - DSOM Spatial Memory (`.agents/brain/`)            |
-        |  - Agent Skills (`.agents/skills/`)                  |
-        |  - GitHub Pages CI/CD Pipeline                       |
-        +------------------------------------------------------+
+                              ┌────────────────────────┐
+                              │ HUMAN ENGINEER / ARCH  │
+                              └───────────┬────────────┘
+                                          │
+                  ┌───────────────────────┼───────────────────────┐
+                  ▼                       ▼                       ▼
+       ┌─────────────────────┐ ┌─────────────────────┐ ┌─────────────────────┐
+       │ GitHub Web & PRs    │ │ Google Jules Engine │ │ Google Antigravity  │
+       │ (PR Comments & Diff)│ │ (API / Web Console) │ │ (Local CLI / Skills)│
+       └──────────┬──────────┘ └──────────┬──────────┘ └──────────┬──────────┘
+                  │                       │                       │
+                  └───────────────────────┼───────────────────────┘
+                                          │
+                                          ▼
+                      ┌───────────────────────────────────────┐
+                      │ REPOSITORY ARTIFACTS & INFRASTRUCTURE │
+                      │ • Astro 7.1 SSG Framework (`src/`)     │
+                      │ • OpenTofu Modules (`terraform/`)     │
+                      │ • Ansible Hardening & Playbooks       │
+                      │ • DSOM Memory (`.agents/brain/`)      │
+                      └───────────────────────────────────────┘
 ```
+
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#60A5FA" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">HUMAN-AGENT PAIR-PROGRAMMING ARCHITECTURE</text>
+
+  <!-- Human Engineer -->
+  <rect x="250" y="60" width="300" height="50" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+  <rect x="250" y="60" width="300" height="20" rx="10" fill="#B45309"/>
+  <text x="400" y="75" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">HUMAN LEAD ARCHITECT</text>
+  <text x="400" y="98" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Strategic Guidance &amp; Code Review</text>
+
+  <!-- Connectors -->
+  <path d="M 300 110 L 150 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 110 L 400 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 500 110 L 650 160" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Tier 2 Nodes -->
+  <rect x="30" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="30" y="160" width="220" height="20" rx="8" fill="#0284C7"/>
+  <text x="140" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GITHUB WEB &amp; PRS</text>
+  <text x="140" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">PR Review Threads</text>
+  <text x="140" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Git Diff / Webhooks</text>
+
+  <rect x="290" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+  <rect x="290" y="160" width="220" height="20" rx="8" fill="#15803D"/>
+  <text x="400" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GOOGLE JULES ENGINE</text>
+  <text x="400" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">Autonomous Coding Agent</text>
+  <text x="400" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Cloud Sandbox / Pytest</text>
+
+  <rect x="550" y="160" width="220" height="80" rx="8" fill="#1E293B" stroke="#C084FC" stroke-width="1.5"/>
+  <rect x="550" y="160" width="220" height="20" rx="8" fill="#6B21A8"/>
+  <text x="660" y="175" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">GOOGLE ANTIGRAVITY</text>
+  <text x="660" y="200" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="10">Local CLI Assistant</text>
+  <text x="660" y="220" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="9">Agent Skills / REST API</text>
+
+  <!-- Flow to Repository Artifacts -->
+  <path d="M 140 240 L 140 270 L 400 270 L 400 280" stroke="#94A3B8" stroke-width="1.5"/>
+  <path d="M 400 240 L 400 280" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 660 240 L 660 270 L 400 270 L 400 280" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- Repository Artifacts Box -->
+  <rect x="50" y="280" width="700" height="80" rx="10" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+  <rect x="50" y="280" width="700" height="24" rx="10" fill="#1D4ED8"/>
+  <text x="400" y="297" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">REPOSITORY-WIDE ARTIFACTS &amp; INFRASTRUCTURE</text>
+  <text x="400" y="325" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Astro 7.1 SSG (`src/`) • OpenTofu IaC (`terraform/`) • Ansible Hardening • DSOM Memory (`.agents/brain/`)</text>
+  <text x="400" y="345" text-anchor="middle" fill="#60A5FA" font-family="Consolas, monospace" font-size="10">Deterministic Git Versioning &amp; Automated CI/CD Pipelines</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Architect ["Human Engineer Layer"]
+        HUMAN["Human Lead Architect"]
+    end
+
+    subgraph Operations ["Multi-Agent Execution Layer"]
+        GH["GitHub Web & PRs<br/>(PR Review Comments)"]
+        JULES["Google Jules Engine<br/>(Cloud Sandbox / Pytest)"]
+        AGY["Google Antigravity<br/>(Local CLI / REST API)"]
+    end
+
+    subgraph Target ["Repository Artifacts"]
+        REPO["Astro 7.1 SSG (`src/`)<br/>OpenTofu Modules (`terraform/`)<br/>Ansible Playbooks &amp; DSOM Memory"]
+    end
+
+    HUMAN -->|"Inline Review Comments"| GH
+    HUMAN -->|"Natural Directives"| JULES
+    HUMAN -->|"Local Terminal Prompts"| AGY
+
+    GH <-->|"Webhooks / Merges"| JULES
+    AGY <-->|"REST API / Skills"| JULES
+
+    JULES -->|"Git Commits & Test Verification"| REPO
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| Human Architect | GitHub PRs / Jules | HTTPS / Webhooks | GitHub OAuth / TLS 1.3 | Issues review comments and directives to drive autonomous task continuation. |
+| Google Jules Engine | Repository Core | Git HTTPS / SSH | Cloud Sandbox VM | Refactors code, executes test suites, and pushes clean verified commits to target branches. |
+
+---
 
 ### Core Value Delivery: Reducing MTTD/MTTR & Operational Toil
 
@@ -3191,7 +3389,7 @@ This chronicle details the exact sequence of engineering milestones executed col
 ### Milestone 4: DSOM Protocol & Spatial Memory Integration
 
 1. **Spatial Memory Architecture (`.agents/brain/`):** Implemented permanent memory ledgers (`task.md`, `walkthrough.md`, `implementation_plan.md`, `palace_registry.md`) to index architectural decisions and track project evolution across sessions.
-2. **Modular Agent Skills (`.agents/skills/`):** Created 8 specialised AI agent skill modules (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dsom-cognitive-protocol`, etc.) conforming to OKF v0.1 and Google Antigravity specifications.
+2. **Modular Agent Skills (`.agents/skills/`):** Created specialised AI agent skill modules (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dsom-cognitive-protocol`, etc.) conforming to OKF v0.2 and Google Antigravity specifications.
 3. **Dual `AGENTS.md` Gateway:** Configured `AGENTS.md` at the repository root as the primary entry point for Jules and external agents, redirecting to `.agents/AGENTS.md` for the comprehensive sovereign rulebook.
 
 ---
@@ -3217,208 +3415,6 @@ The defining feature of Google Jules is its ability to engage in natural, iterat
 +-----------------------------------------------------------------+
 ```
 
-### Real-World Interaction Patterns & Concrete Examples
-
-Working with Jules feels like pairing with a dedicated, highly competent colleague. Rather than issuing cold, formal instructions, developers converse naturally with Jules. Jules parses the conversation, inspects the codebase, runs local test suites in its sandbox environment, and replies with precise commits.
-
-#### Example 1: Refactoring Infrastructure & Enforcing Security Compliance
-
-**Human Engineer Comment on PR #12 (`terraform/asg.tf`):**
-
-> *@jules-agent Hey Jules, great job setting up the compute launch templates! However, our security audit flagged that IMDSv1 is still permitted on the compute instances. Could you update `aws_launch_template` to strictly enforce IMDSv2 with `http_tokens = "required"`? Also run `tofu validate` to ensure the syntax is clean.*
-
-**Jules Autonomous Execution & Response:**
-
-1. Jules parses the PR review comment and opens `terraform/asg.tf`.
-2. Jules applies a Git merge diff enforcing IMDSv2:
-
-   ```hcl
-   metadata_options {
-     http_endpoint               = "enabled"
-     http_tokens                 = "required"
-     http_put_response_hop_limit = 1
-     instance_metadata_tags      = "enabled"
-   }
-   ```
-
-3. Jules runs `tofu validate` in the execution environment to verify syntax.
-4. Jules posts a reply on the PR thread:
-
-> *All done! I have updated `aws_launch_template` in `terraform/asg.tf` to strictly enforce IMDSv2 (`http_tokens = "required"` and hop limit 1). OpenTofu validation passed with zero errors. The change has been committed and pushed to the branch!*
-
-#### Example 2: Dynamic Debugging & Resolving Link Integrity Failures
-
-**Human Engineer Comment on PR #18:**
-
-> *@jules-agent Morning Jules! The CI test suite failed on `tests/test_cms.py`. It looks like the new page `docs/jules-platform-guide.md` is missing from `SUMMARY.md` and causing sitemap verification warnings. Could you register the document in `docs/SUMMARY.md` and `llms.txt`, run `tools/refactor-okf.cjs`, and verify that pytest passes cleanly?*
-
-**Jules Autonomous Execution & Response:**
-
-1. Jules inspects `docs/SUMMARY.md`, `llms.txt`, and `docs/jules-platform-guide.md`.
-2. Jules updates navigation mapping across `docs/SUMMARY.md`, `SUMMARY.md`, `llms.txt`, `START-HERE.md`, and `README.md`.
-3. Jules executes `node tools/refactor-okf.cjs` to validate YAML frontmatter formatting.
-4. Jules executes `python3 -m pytest -v tests/test_cms.py` and `node tools/verify-sitemaps.js`.
-5. Jules replies in the PR review thread:
-
-> *Resolved! I registered `docs/jules-platform-guide.md` in all navigation summaries (`SUMMARY.md`, `llms.txt`, `START-HERE.md`, `README.md`), normalized OKF frontmatter metadata using `tools/refactor-okf.cjs`, and verified that sitemap checks and pytest suites pass 100% cleanly.*
-
-#### Example 3: Iterative Architectural Pair-Programming
-
-**Human Engineer Comment on PR #25:**
-
-> *@jules-agent What do you think about adding a dedicated tutorial on OpenTofu vs Terraform state management for our team? We should highlight OpenTofu's open-source MPL-2.0 license and state encryption features.*
-
-**Jules Autonomous Response:**
-
-1. Jules references spatial memory in `.agents/brain/` and project governance standards.
-2. Jules creates `docs/tutorials/opentofu-state-management.md` complete with OKF v0.1 frontmatter, code snippets, and licensing breakdowns.
-3. Jules registers the new file in navigation files, regenerates sitemaps, and verifies build output.
-4. Jules replies with a summary and commit reference, offering further refactoring options if needed.
-
----
-
-## 4. Advanced Interoperability: Jules API, CLI, & Google Antigravity
-
-Google Jules is architected for seamless multi-agent orchestration. Developers can invoke Jules via web consoles, local terminal CLIs, or delegate tasks programmatically from external AI frameworks like Google Antigravity.
-
-```
-+---------------------------+                      +---------------------------+
-|    GOOGLE ANTIGRAVITY     |                      |       GOOGLE JULES        |
-|     (Local Assistant)     |                      |    (Autonomous Agent)     |
-|                           |                      |                           |
-|  - High-level planning    |  API / MCP Request   |  - Cloud Sandbox & Exec   |
-|  - CLI command testing    | -------------------> |  - Deep Code Refactoring  |
-|  - Skill discovery        |                      |  - Validation & Pytest    |
-|                           | <------------------- |  - Git Push & PR Reply    |
-|                           |   Telemetry & Diff   |                           |
-+---------------------------+                      +---------------------------+
-```
-
-### Configuring Jules CLI & API Authentication
-
-The Jules CLI (`jules`) enables engineers to trigger sessions, monitor agent runs, and stream telemetry directly in local terminal environments.
-
-#### 1. Obtaining API Authentication
-
-Generate a Jules API key from your developer platform console and export it into your active shell session:
-
-```bash
-export JULES_API_KEY="your_secure_jules_api_key_here"
-```
-
-#### 2. Installing Jules CLI
-
-Install the official Jules CLI package via Node.js package manager:
-
-```bash
-npm install -g @google/jules
-jules --version
-```
-
-#### 3. Mobile-First & Android Termux Terminal Execution
-
-Engineers working remotely or on mobile hardware can manage workflows and dispatch Jules sessions directly using Android Termux:
-
-```bash
-# Update Termux packages & install dependencies
-pkg update && pkg upgrade -y
-pkg install nodejs-lts git openssh -y
-
-# Export API authentication
-export JULES_API_KEY="your_secure_jules_api_key_here"
-
-# Dispatch a remote session to Jules
-jules remote new \
-  --repo "songketmail/CMSForNerd2" \
-  --session "Refactor Astro navigation components to support BASE_URL dynamic prefixing."
-```
-
-```
-+--------------------------------------------------------------------+
-|                  TERMUX MOBILE TERMINAL INTERFACE                  |
-+--------------------------------------------------------------------+
- $ jules remote status --id session_992104
- [STATUS]: IN_PROGRESS
- [ACTION]: Inspecting src/components/Navigation.astro...
- [ACTION]: Applying Git merge diff for BASE_URL prefixing...
- [STATUS]: COMPLETED
- [COMMIT]: f82a19c - "refactor: apply dynamic BASE_URL in navigation"
-+--------------------------------------------------------------------+
-```
-
-### Programmatic Task Delegation: Google Antigravity to Jules REST API
-
-When operating within Google Antigravity (CLI: `agy`), Antigravity can hand off complex coding tasks, infrastructure refactoring, or documentation generation to Google Jules via the Jules REST API.
-
-#### Delegation Script Example (`tools/antigravity_to_jules.py`)
-
-```python
-#!/usr/bin/env python3
-"""Programmatic task delegation script from Google Antigravity to Google Jules API."""
-
-import os
-import requests
-
-JULES_SESSIONS_URL = "https://jules.googleapis.com/v1/sessions"
-JULES_SOURCES_URL = "https://jules.googleapis.com/v1/sources"
-
-api_key = os.getenv("JULES_API_KEY")
-if not api_key:
-    raise ValueError("JULES_API_KEY environment variable is required.")
-
-headers = {
-    "X-Goog-Api-Key": api_key,
-    "Content-Type": "application/json"
-}
-
-# 1. Resolve source repository reference
-sources_resp = requests.get(JULES_SOURCES_URL, headers=headers, timeout=30)
-sources_resp.raise_for_status()
-sources_data = sources_resp.json()
-
-target_repo = "songketmail/CMSForNerd2"
-source_name = None
-
-for src in sources_data.get("sources", []):
-    if target_repo in src.get("githubRepository", {}).get("repository", ""):
-        source_name = src.get("name")
-        break
-
-if not source_name:
-    source_name = f"sources/github-{target_repo.replace('/', '-')}"
-
-# 2. Dispatch session prompt to Jules
-payload = {
-    "prompt": (
-        "1. Check all Astro page layouts for base URL prefixing compliance.\n"
-        "2. Execute 'node tools/refactor-okf.cjs' to normalize frontmatter.\n"
-        "3. Run 'python3 -m pytest -v tests/test_cms.py' to confirm zero regressions."
-    ),
-    "sourceContext": {
-        "source": source_name,
-        "githubRepoContext": {
-            "startingBranch": "master"
-        }
-    }
-}
-
-response = requests.post(JULES_SESSIONS_URL, headers=headers, json=payload, timeout=30)
-response.raise_for_status()
-res_json = response.json()
-
-session_id = res_json.get("name") or res_json.get("id")
-print(f"Task successfully delegated to Jules. Session ID: {session_id}")
-```
-
-### Multi-Agent Cross-Team PR Collaboration Patterns
-
-In modern engineering organizations, multiple human developers and AI agents collaborate on the same Pull Request:
-
-1. **Strategic Planning:** Google Antigravity generates architectural blueprints and records intent in `.agents/brain/implementation_plan.md`.
-2. **Autonomous Execution:** Antigravity dispatches a session to Jules via API to implement code changes across the codebase.
-3. **Human Peer Review:** The human lead architect reviews Jules' PR, adding inline review comments on specific code blocks.
-4. **Iterative Refinement:** Jules parses feedback, refactors code, executes validation suites, and pushes updated commits until final PR approval and merge.
-
 ---
 
 ## 5. Deep State of Mind (DSOM) Governance & Spatial Memory
@@ -3426,6 +3422,8 @@ In modern engineering organizations, multiple human developers and AI agents col
 To guarantee that AI models produce deterministic, policy-compliant outputs without context decay, we integrated the **Deep State of Mind (DSOM) for My AI** framework into this repository.
 
 ### The Three Pillars of DSOM
+
+#### 1. ASCII Tree Diagram
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -3443,9 +3441,79 @@ To guarantee that AI models produce deterministic, policy-compliant outputs with
 └─────────────────────────────────────────────────────┘
 ```
 
-1. **AIOps (Mind):** Jules analyzes codebase context, formulates execution plans, and proposes code changes.
-2. **GitOps (Record):** Every decision, plan update, and code modification is versioned in Git.
-3. **The Executor (Hand):** Automated tools (`npm run build`, `pytest`, `tofu validate`, `ansible-playbook`) execute code safely in controlled environments.
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#C084FC" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">DEEP STATE OF MIND (DSOM) OPERATING MODEL</text>
+
+  <!-- Container Cards -->
+  <rect x="40" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="40" y="70" width="210" height="24" rx="10" fill="#0284C7"/>
+  <text x="145" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">1. AIOPS (MIND)</text>
+  <text x="145" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">AI Analysis &amp; Plans</text>
+  <text x="145" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Proposes code changes &amp; edits</text>
+
+  <path d="M 250 130 L 295 130" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="295" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+  <rect x="295" y="70" width="210" height="24" rx="10" fill="#15803D"/>
+  <text x="400" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">2. GITOPS (RECORD)</text>
+  <text x="400" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">Git Version Control</text>
+  <text x="400" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Records state &amp; spatial memory</text>
+
+  <path d="M 505 130 L 550 130" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="70" width="210" height="120" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="1.5"/>
+  <rect x="550" y="70" width="210" height="24" rx="10" fill="#B45309"/>
+  <text x="655" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">3. EXECUTOR (HAND)</text>
+  <text x="655" y="120" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">Verification Engine</text>
+  <text x="655" y="145" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Runs Pytest, builds &amp; linter</text>
+
+  <!-- Feedback Loop Path -->
+  <path d="M 655 190 L 655 240 L 145 240 L 145 190" stroke="#C084FC" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <rect x="330" y="228" width="140" height="24" rx="12" fill="#6B21A8"/>
+  <text x="400" y="244" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="bold">Verification Feedback Loop</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph LR
+    subgraph Mind ["Pillar 1: AIOps"]
+        A1["AIOps (Mind)<br/>(AI Analysis &amp; Plans)"]
+    end
+
+    subgraph Record ["Pillar 2: GitOps"]
+        G1["GitOps (Record)<br/>(Git State &amp; Spatial Memory)"]
+    end
+
+    subgraph Hand ["Pillar 3: The Executor"]
+        E1["The Executor (Hand)<br/>(Pytest, Build, Linter)"]
+    end
+
+    A1 -->|"Proposes code edits"| G1
+    G1 -->|"Records state in Git"| E1
+    E1 -.->"Verification Feedback Loop"| A1
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| AIOps (Mind) | GitOps (Record) | Git Commits / Diffs | Repository Workspace | Transforms natural language intent into structured code edits and spatial memory updates. |
+| The Executor (Hand) | AIOps (Mind) | Test Logs / Diagnostic Output | Local Sandbox Engine | Executes test suites (`pytest`, `npm run build`), providing diagnostic feedback to refine code. |
+
+---
 
 ### Spatial Memory Ledger (`.agents/brain/`)
 
@@ -3458,20 +3526,7 @@ Rather than losing context when chat windows close, Jules reads and updates perm
 
 ---
 
-## 6. Why Engineers Fall in Love with Google Jules
-
-Google Jules represents a paradigm shift in AI-assisted software engineering. It is not merely an inline autocomplete widget or isolated chat window—it is an autonomous, context-aware co-engineer embedded directly in your Git workflow.
-
-### Key Operational Advantages
-
-* **Complete Repository Context:** Jules understands your entire codebase structure, honoring `AGENTS.md` rules, spatial memory in `.agents/brain/`, and custom agent skills in `.agents/skills/`.
-* **Self-Healing Execution:** Jules does not write unverified code. It runs local builds and tests (`npm run build`, `pytest`), inspects diagnostic logs, self-corrects bugs, and verifies clean execution before requesting human review.
-* **Frictionless Collaboration:** Interacting with Jules through GitHub PR comments creates a transparent, friendly, and empowering engineering experience that feels like working with a trusted senior peer.
-* **Multi-Platform Interoperability:** Whether invoked via GitHub web interface, command-line CLI, mobile Termux, or Google Antigravity API calls, Jules delivers consistent, high-fidelity results.
-
----
-
-## 7. Verification & Quality Gates
+## 6. Verification & Quality Gates
 
 To verify this guide and ensure codebase integrity:
 
@@ -3491,7 +3546,7 @@ python3 -m pytest -v tests/test_cms.py
 
 ---
 
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-14*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -3742,7 +3797,7 @@ sources:
   url: docs/explanation/spatial-memory-and-sandbox.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T15:00:00Z'
+  timestamp: '2026-09-08T00:00:00Z'
 tags: ["explanation", "dsom", "sandbox", "jules", "ansible"]
 ---
 
@@ -3778,20 +3833,106 @@ When executing inside the Google Jules workspace, automation tasks run under spe
 
 To prevent build failures and environment blocks under restricted sandboxes, all shell scripts, deployment tools, and Ansible orchestration playbooks follow the **Dual-Pathway Automation Principle**.
 
-Instead of assuming full OS privileges, the automation engine performs dynamic detection:
+#### 1. ASCII Tree Diagram
 
 ```
-                  [AUTOMATION TRIGGER]
-                           │
-             Check if $USER is "jules" or JULES_ENV?
-              /                         \
-            YES                         NO
-            /                             \
-     [Pathway A: Sandbox]         [Pathway B: Production]
-     - Run in local workspace     - Trigger full playbook execution
-     - npm install & build        - Update system Nginx servers
-     - Skip system modifications  - Run full security hardening
+                             ┌───────────────────────┐
+                             │  AUTOMATION TRIGGER   │
+                             │ deploy-static.sh      │
+                             └───────────┬───────────┘
+                                         │
+                          Is $USER == "jules" or JULES_ENV?
+                          ┌──────────────┴──────────────┐
+                         YES                            NO
+                          │                             │
+                          ▼                             ▼
+               ┌─────────────────────┐       ┌─────────────────────┐
+               │ Pathway A: Sandbox  │       │ Pathway B: Real OS  │
+               ├─────────────────────┤       ├─────────────────────┤
+               │ • Unprivileged SSG  │       │ • Full Ansible Suite│
+               │ • npm ci & build    │       │ • Systemd & Nginx   │
+               │ • Skip Systemd/Root │       │ • OWASP Hardening   │
+               └─────────────────────┘       └─────────────────────┘
 ```
+
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#C084FC" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">DUAL-PATHWAY AUTOMATION PRINCIPLE ARCHITECTURE</text>
+
+  <rect x="250" y="60" width="300" height="65" rx="10" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  <rect x="250" y="60" width="300" height="24" rx="10" fill="#334155"/>
+  <text x="400" y="77" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">AUTOMATION ENGINE DETECTOR</text>
+  <text x="400" y="102" text-anchor="middle" fill="#E2E8F0" font-family="Consolas, monospace" font-size="11">USER == "jules" || JULES_ENV</text>
+
+  <path d="M 320 125 L 200 175" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 480 125 L 600 175" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="210" y="140" width="80" height="22" rx="11" fill="#38BDF8"/>
+  <text x="250" y="155" text-anchor="middle" fill="#0F172A" font-family="Consolas, monospace" font-size="10" font-weight="bold">YES (Sandbox)</text>
+
+  <rect x="510" y="140" width="80" height="22" rx="11" fill="#4ADE80"/>
+  <text x="550" y="155" text-anchor="middle" fill="#0F172A" font-family="Consolas, monospace" font-size="10" font-weight="bold">NO (Real OS)</text>
+
+  <rect x="50" y="175" width="300" height="190" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <rect x="50" y="175" width="300" height="28" rx="10" fill="#0284C7"/>
+  <text x="200" y="194" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">PATHWAY A: UNPRIVILEGED SANDBOX</text>
+  <text x="70" y="225" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12">Target: <tspan fill="#38BDF8" font-family="Consolas, monospace">Google Jules Sandbox VM</tspan></text>
+  <text x="70" y="250" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Executed inside unprivileged workspace</text>
+  <text x="70" y="275" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Runs local npm ci &amp; npm run build</text>
+  <text x="70" y="300" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Bypasses systemd and firewall updates</text>
+  <text x="70" y="325" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Guarantees zero transient build blocks</text>
+
+  <rect x="450" y="175" width="300" height="190" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="2"/>
+  <rect x="450" y="175" width="300" height="28" rx="10" fill="#15803D"/>
+  <text x="600" y="194" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">PATHWAY B: PRODUCTION HOST</text>
+  <text x="470" y="225" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12">Target: <tspan fill="#4ADE80" font-family="Consolas, monospace">Staging / Production Linux Host</tspan></text>
+  <text x="470" y="250" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Launches full Ansible deploy-static.yml</text>
+  <text x="470" y="275" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Configures Nginx reverse proxy routing</text>
+  <text x="470" y="300" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Applies OWASP security header suite</text>
+  <text x="470" y="325" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11">• Manages persistent systemd web services</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Trigger ["Automation Trigger"]
+        DET["Automation Engine Detector<br/>(USER Check / JULES_ENV)"]
+    end
+
+    subgraph SandboxPath ["Pathway A: Sandbox Runtime"]
+        A1["Unprivileged Workspace Execution"] --> A2["npm ci & npm run build"]
+        A2 --> A3["Bypass Systemd & Firewall Configs"]
+    end
+
+    subgraph ProdPath ["Pathway B: Production Runtime"]
+        B1["Ansible Automation Suite<br/>(deploy-static.yml)"] --> B2["Nginx Reverse Proxy Provisioning"]
+        B2 --> B3["OWASP Hardening & Systemd Services"]
+    end
+
+    DET -->|"USER == 'jules' OR JULES_ENV"| A1
+    DET -->|"Persistent Linux Host"| B1
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| Automation Detector | Pathway A: Sandbox Engine | Local Shell Execution | Unprivileged VM (`jules`) | Runs unprivileged static builds and tests locally, bypassing system-level configuration changes. |
+| Automation Detector | Pathway B: Production Engine | `ansible-playbook` CLI | Staging / Production Server | Executes full Ansible orchestration to configure web servers, firewalls, and system services with full privileges. |
+
+---
 
 ### Pathway A: Sandbox-Safe Unprivileged Builds
 
@@ -3804,7 +3945,7 @@ When executing on a persistent staging or production server, the engine launches
 By separating unprivileged compilation from server provisioning, we guarantee that the build pipeline remains portable, robust, and safe across different running environments.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -3903,8 +4044,8 @@ The 'web-design-guidelines' skill solves the problem of checking websites and we
 ---
 type: "documentation"
 title: "Diagram Design Standards Skill Overview"
-description: "Comprehensive guide to the diagram-design-standards skill, detailing the unified specification for standalone SVG vector graphics, Git-native Mermaid blocks, and summary routing tables."
-topics: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation"]
+description: "Comprehensive guide to the diagram-design-standards skill, detailing the unified specification for ASCII trees, standalone SVG vector graphics, Git-native Mermaid blocks, and summary routing tables."
+topics: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation", "ASCII trees"]
 spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
@@ -3914,42 +4055,50 @@ sources:
   url: .agents/skills/diagram-design-standards/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
-tags: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation"]
+  timestamp: '2026-09-08T00:00:00Z'
+tags: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation", "ASCII trees"]
 ---
 
 # Diagram Design Standards Skill Overview
 
-The `diagram-design-standards` skill provides autonomous AI agents (such as Google Jules and Google Antigravity) and human software engineers with a unified, repeatable specification for producing production-ready, highly legible technical diagrams across the CMSForNerd2 ecosystem.
+The `diagram-design-standards` and `triple-render-architecture-diagram` skills provide autonomous AI agents (such as Google Jules and Google Antigravity) and human software engineers with a unified, repeatable specification for producing production-ready, highly legible technical diagrams across the CMSForNerd2 ecosystem.
 
 ## Overview & Rationale
 
 Visual architecture and network topology diagrams in modern software systems frequently suffer from visual inconsistency, platform lock-in, and lack of metadata clarity. Traditional image formats (such as PNG or JPEG) cannot be diffed in Git or indexed by AI search agents, whereas raw Mermaid diagrams alone may lack fine-grained aesthetic control required for executive handbooks and print publications.
 
-The `diagram-design-standards` skill addresses these challenges by mandating a tri-part output format for every diagram generation task:
+These diagram skills address these challenges by mandating a 4-tier output format for every diagram generation task:
 
-1. **Standalone SVG Vector Graphic (`.svg`):** Provides pixel-perfect visual styling, crisp vector resolution, custom card containers, color-coded security tiers, and precise connection pill badges.
-2. **Git-Native Mermaid Block (`.mmd`):** Guarantees native, interactive rendering in GitHub web views, Markdown viewers, and web applications with version-controlled plain-text readability.
-3. **Summary Interface & Routing Table:** Offers structured, machine-readable operational tabular metadata detailing ports, protocols, security boundaries, and traffic flow mechanics.
+1. **Plain-Text ASCII Tree Diagram:** Provides instant, terminal-friendly structural visualization readable across any text editor or CLI tool.
+2. **Standalone Dark Slate SVG Vector Graphic (`.svg`):** Provides pixel-perfect visual styling, crisp vector resolution, custom card containers, color-coded security tiers, and precise connection pill badges.
+3. **Git-Native Mermaid Block (`.mmd`):** Guarantees native, interactive rendering in GitHub web views, Markdown viewers, and web applications with version-controlled plain-text readability.
+4. **Summary Interface & Routing Table:** Offers structured, machine-readable operational tabular metadata detailing ports, protocols, security boundaries, and traffic flow mechanics.
 
 ---
 
 ## Detailed Formatting & Design Specifications
 
-### 1. SVG Design System & Palette Constraints
+### 1. ASCII Tree Diagram Specifications
+
+* Use standard box-drawing characters (`┌`, `─`, `┐`, `│`, `└`, `┘`, `├`, `┤`, `┬`, `┴`, `┼`, `▶`, `▲`, `▼`, `◄`).
+* Ensure clear alignment and clean indentation for all components and decision branches.
+
+### 2. SVG Design System & Palette Constraints
 
 All standalone SVG vector blocks generated under this skill must adhere to the following design system:
 
 * **Canvas Hygiene:** Explicit `xmlns="http://www.w3.org/2000/svg"`, explicit `viewBox` matching element coordinates, and relative `width="100%"` / `height="100%"`.
-* **Color Palette:**
-  * Canvas Background: `#F8FAFC` (slate-50) or `#FFFFFF` (pure white).
-  * Container Cards: Background `#FFFFFF` with rounded corners (`rx="8"` or `rx="10"`) and subtle strokes (`#CBD5E1` or `#94A3B8`).
-  * Header Accents: Soft pastel fills (`#EFF6FF` blue, `#DCFCE7` green, `#F1F5F9` slate).
-  * Text Colors: High-contrast slate text (`#0F172A` / `#334155`).
+* **Dark Mode Navy Palette:**
+  * Canvas Background: `#0F172A` (dark slate navy) or `#0B0F19`.
+  * Container Cards: Background `#1E293B` with rounded corners (`rx="8"` or `rx="10"`) and subtle strokes (`#334155` or `#475569`).
+  * Header Accents: Dark slate header bars (`#334155`).
+  * Text Colors: High-contrast off-white slate text (`#F8FAFC` / `#E2E8F0`).
+* **Light Mode & Print Mode Adaptive Rules:**
+  * Embedded application CSS dynamically adapts Dark Slate SVGs in Light Mode and Print Mode (`@media print`): outer canvas becomes white (`#FFFFFF`) with `#E2E8F0` border, cards adapt to `#F8FAFC`, typography converts to dark `#0F172A`, and accent labels adapt to deep print-suitable tones (`#1D4ED8`, `#15803D`, `#B45309`, `#6B21A8`), saving color and toner when printing.
 * **Typography Stack:** Modern sans-serif stack (`font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"`) for titles and labels; Monospace (`Consolas`, `Monaco`, `'Courier New'`) for network ports, IP addresses, paths, and protocols.
 * **Markers & Connecting Lines:** Arrows defined inside `<defs>` with explicit `<marker>` tags. Lines styled with distinct callout pill badges indicating network protocols (e.g., `HTTPS/443`, `mTLS/5432`, `SSH/22`).
 
-### 2. Git-Native Mermaid Specifications
+### 3. Git-Native Mermaid Specifications
 
 Directly following the SVG code fence, an equivalent Mermaid diagram is placed inside a ````mermaid ... ```` code fence:
 
@@ -3957,7 +4106,7 @@ Directly following the SVG code fence, an equivalent Mermaid diagram is placed i
 * **Connector Precision:** Annotate every edge connector with protocol details (e.g., `-->|"TCP 4321 / HTTP"|`).
 * **Multi-Line Labels:** Use `<br/>` HTML tags to break long component descriptions into clean multi-line blocks.
 
-### 3. Summary Interface & Routing Table Specifications
+### 4. Summary Interface & Routing Table Specifications
 
 Conclude each diagram output with a clean Markdown comparison table formatted as follows:
 
@@ -3972,13 +4121,14 @@ Conclude each diagram output with a clean Markdown comparison table formatted as
 When invoked during documentation writing, architecture decision record (ADR) drafting, or technical handbook creation:
 
 1. Identify the architectural entities, network ingress paths, and trust boundaries.
-2. Construct the standalone SVG vector block inside an ````xml ... ```` fence.
-3. Construct the character-exact Mermaid block inside a ````mermaid ... ```` fence.
-4. Construct the summary routing comparison table in standard Markdown format.
-5. Audit the generated output to ensure zero missing text nodes, valid SVG syntax, and complete table mapping.
+2. Construct the plain-text ASCII tree diagram.
+3. Construct the standalone SVG vector block inside an ````xml ... ```` fence.
+4. Construct the character-exact Mermaid block inside a ````mermaid ... ```` fence.
+5. Construct the summary routing comparison table in standard Markdown format.
+6. Audit the generated output to ensure zero missing text nodes, valid SVG syntax, and complete table mapping.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 
@@ -4066,11 +4216,11 @@ To ensure these changes maintain full backward compatibility and zero regression
 
 ---
 spec_version: "0.2"
+okf_version: "0.2"
 type: "explanation"
 title: "FastMCP Protocol & WebAssembly (Wasm) Architecture"
-description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, and client-side Wasm cryptographic & document processing in CMSForNerd2."
-topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
-okf_version: "0.1"
+description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, WebLLM WebGPU on-device RAG generation, ONNX streaming, and client-side Wasm cryptographic & document processing in CMSForNerd2."
+topics: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "webllm", "webgpu", "onnx", "architecture"]
 nav_order: 1
 status: "stable"
 stale_after: "2027-03-06"
@@ -4080,8 +4230,8 @@ sources:
   url: docs/explanation/fastmcp-wasm-architecture.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
-tags: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "architecture"]
+  timestamp: '2026-09-08T00:00:00Z'
+tags: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "webllm", "webgpu", "onnx", "architecture"]
 ---
 
 # FastMCP Protocol & WebAssembly (Wasm) Architecture
@@ -4096,19 +4246,113 @@ Modern AI agents (e.g. Claude Desktop, Cursor, Google Jules) require fast, deter
 
 ### Architecture Overview
 
+#### 1. ASCII Tree Diagram
+
 ```
- +------------------+                 +------------------------+
- |   AI Agent /     |  JSON-RPC over  |  FastMCP SSG Gateway   |
- |  Claude Desktop  |  stdio / HTTP   |  (tools/mcp/server.py) |
- +--------+---------+ <=============> +-----------+------------+
-          |                                       |
-          v                                       v
- +------------------+                 +------------------------+
- | list_ssg_routes  |                 |  src/content/pages/*.md|
- | get_route_content|                 |  sitemap.txt           |
- | search_ssg_routes|                 |  .agents/brain/        |
- +------------------+                 +------------------------+
+                             ┌───────────────────────┐
+                             │  AI Agent / Client    │
+                             │ (Claude / Jules/ IDE) │
+                             └───────────┬───────────┘
+                                         │
+                            JSON-RPC (stdio / HTTP)
+                                         │
+                                         ▼
+                             ┌───────────────────────┐
+                             │ FastMCP SSG Gateway   │
+                             │ (tools/mcp/server.py) │
+                             └───────────┬───────────┘
+                                         │
+                ┌────────────────────────┼────────────────────────┐
+                ▼                        ▼                        ▼
+     ┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐
+     │  list_ssg_routes()  │  │ get_route_content() │  │ get_openwiki_...()  │
+     │  Exposes SSG routes │  │ Body & Frontmatter  │  │ Spatial Memory RAG  │
+     └─────────────────────┘  └─────────────────────┘  └─────────────────────┘
 ```
+
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#60A5FA" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">FASTMCP SSG ROUTE EXPOSURE ARCHITECTURE</text>
+
+  <!-- Client Node -->
+  <rect x="250" y="60" width="300" height="60" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <rect x="250" y="60" width="300" height="24" rx="10" fill="#0284C7"/>
+  <text x="400" y="77" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">AI AGENT / IDE CLIENT</text>
+  <text x="400" y="102" text-anchor="middle" fill="#F8FAFC" font-family="Consolas, monospace" font-size="11">Claude Desktop / Cursor / Google Jules</text>
+
+  <!-- Connector -->
+  <path d="M 400 120 L 400 170" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="330" y="135" width="140" height="20" rx="10" fill="#334155"/>
+  <text x="400" y="149" text-anchor="middle" fill="#E2E8F0" font-family="Consolas, monospace" font-size="10">JSON-RPC / stdio</text>
+
+  <!-- FastMCP Server Gateway -->
+  <rect x="250" y="170" width="300" height="60" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="2"/>
+  <rect x="250" y="170" width="300" height="24" rx="10" fill="#15803D"/>
+  <text x="400" y="187" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">FASTMCP GATEWAY SERVER</text>
+  <text x="400" y="212" text-anchor="middle" fill="#F8FAFC" font-family="Consolas, monospace" font-size="11">tools/mcp/server.py</text>
+
+  <!-- Branch Connectors -->
+  <path d="M 300 230 L 150 280" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 230 L 400 280" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 500 230 L 650 280" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Endpoint Cards -->
+  <rect x="30" y="280" width="220" height="70" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+  <text x="140" y="300" text-anchor="middle" fill="#38BDF8" font-family="Consolas, monospace" font-size="11" font-weight="bold">list_ssg_routes()</text>
+  <text x="140" y="325" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">SSG Route Introspection</text>
+
+  <rect x="290" y="280" width="220" height="70" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+  <text x="400" y="300" text-anchor="middle" fill="#4ADE80" font-family="Consolas, monospace" font-size="11" font-weight="bold">get_route_content()</text>
+  <text x="400" y="325" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Frontmatter &amp; Body Extraction</text>
+
+  <rect x="550" y="280" width="220" height="70" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+  <text x="660" y="300" text-anchor="middle" fill="#C084FC" font-family="Consolas, monospace" font-size="11" font-weight="bold">get_openwiki_concept()</text>
+  <text x="660" y="325" text-anchor="middle" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="10">Spatial Memory Graph RAG</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Client ["AI Agent / IDE Environment"]
+        AGENT["Claude Desktop / Google Jules"]
+    end
+
+    subgraph Server ["FastMCP SSG Gateway"]
+        MCP["FastMCP Server<br/>(tools/mcp/server.py)"]
+    end
+
+    subgraph Methods ["FastMCP Protocol Tools"]
+        M1["list_ssg_routes()<br/>(SSG Route Introspection)"]
+        M2["get_route_content()<br/>(Markdown & Frontmatter Extraction)"]
+        M3["get_openwiki_concept()<br/>(Spatial Memory Knowledge Graph)"]
+    end
+
+    AGENT -->|"JSON-RPC via stdio / HTTP"| MCP
+    MCP --> M1
+    MCP --> M2
+    MCP --> M3
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| AI Agent Client | FastMCP Gateway | `stdio` / JSON-RPC | Local Workspace Process | Initiates tool requests to query static site routes and spatial memory concept graphs. |
+| FastMCP Gateway | SSG Content Store | Direct File I/O | Repository Workspace (`src/content/pages/`) | Extracts raw Markdown body, frontmatter metadata, and sitemap routes for AI model ingestion. |
+
+---
 
 ### Key Capabilities
 
@@ -4143,7 +4387,140 @@ To align with modern Zero-Trust static security standards, CMSForNerd2 includes 
 - Guarantees complete user privacy: documents are analyzed entirely client-side with zero external data transmission.
 
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-06*
+
+## 4. WebLLM + WebGPU On-Device Air-Gapped RAG Generation
+
+To enable 100% offline, air-gapped intelligence inside static sites, CMSForNerd2 pairs Web Worker Float32 vector embeddings and IndexedDB persistence with local in-browser LLMs (WebLLM running quantized Llama/Qwen models over WebGPU).
+
+#### 1. ASCII Tree Diagram
+
+```
+ ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+ │  Web Worker Vector   │ ──▶ │ IndexedDB Vector     │ ──▶ │  FastMCP RAG Context │
+ │  Embedding Thread    │     │ Store (WasmStudio)   │     │  Search Extractor    │
+ └──────────────────────┘     └──────────────────────┘     └──────────┬───────────┘
+                                                                      │
+                                                                      ▼
+ ┌────────────────────────────────────────────────────────────────────────────────┐
+ │ WebLLM WebGPU On-Device LLM Generator (Llama-3.2-1B / Qwen2.5 Quantized Model) │
+ └────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" fill="#C084FC" font-family="-apple-system, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">WEBLLM WEBGPU ON-DEVICE AIR-GAPPED RAG ARCHITECTURE</text>
+
+  <!-- Stage 1 -->
+  <rect x="30" y="70" width="220" height="90" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="30" y="70" width="220" height="24" rx="10" fill="#0284C7"/>
+  <text x="140" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">WEB WORKER VECTOR THREAD</text>
+  <text x="140" y="115" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Float32 Embedding Pipeline</text>
+  <text x="140" y="135" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="10">Non-blocking Blob Worker</text>
+
+  <path d="M 250 115 L 290 115" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2 -->
+  <rect x="290" y="70" width="220" height="90" rx="10" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+  <rect x="290" y="70" width="220" height="24" rx="10" fill="#15803D"/>
+  <text x="400" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">INDEXEDDB VECTOR STORE</text>
+  <text x="400" y="115" text-anchor="middle" fill="#F8FAFC" font-family="Consolas, monospace" font-size="11">WasmStudioVectorDB</text>
+  <text x="400" y="135" text-anchor="middle" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="10">Client-Side Persistence</text>
+
+  <path d="M 510 115 L 550 115" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3 -->
+  <rect x="550" y="70" width="220" height="90" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="1.5"/>
+  <rect x="550" y="70" width="220" height="24" rx="10" fill="#B45309"/>
+  <text x="660" y="87" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold">FASTMCP RAG CONTEXT</text>
+  <text x="660" y="115" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="11">Cosine Similarity Extractor</text>
+  <text x="660" y="135" text-anchor="middle" fill="#94A3B8" font-family="Consolas, monospace" font-size="10">Top-K Context Matching</text>
+
+  <!-- Flow to WebGPU LLM -->
+  <path d="M 660 160 L 660 200 L 400 200 L 400 220" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- WebGPU Model Box -->
+  <rect x="50" y="220" width="700" height="90" rx="10" fill="#1E293B" stroke="#C084FC" stroke-width="2"/>
+  <rect x="50" y="220" width="700" height="28" rx="10" fill="#6B21A8"/>
+  <text x="400" y="239" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold">WEBGPU ON-DEVICE LLM GENERATION ENGINE (Llama-3.2-1B / Qwen2.5-0.5B)</text>
+  <text x="400" y="270" text-anchor="middle" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="12">100% Offline Air-Gapped Local Inference via Browser WebGPU Matrix Shaders</text>
+  <text x="400" y="292" text-anchor="middle" fill="#C084FC" font-family="Consolas, monospace" font-size="11">Zero Backend API Transmissions | Zero Data Leakage Boundary</text>
+</svg>
+```
+
+#### 3. Git-Native Mermaid Diagram (`.mmd`)
+
+```mermaid
+graph TD
+    subgraph Ingestion ["Client Embedding Pipeline"]
+        W1["Web Worker Vector Thread<br/>(Float32 Embeddings)"] --> W2["IndexedDB Vector Store<br/>(WasmStudioVectorDB)"]
+    end
+
+    subgraph Retrieval ["FastMCP RAG Extractor"]
+        W2 --> R1["Cosine Similarity Matcher<br/>(Top-K Context Search)"]
+    end
+
+    subgraph Inference ["WebGPU Air-Gapped LLM Engine"]
+        R1 --> L1["WebLLM WebGPU Inference<br/>(Llama-3.2 / Qwen2.5 Quantized)"]
+        L1 --> L2["100% Offline On-Device Output"]
+    end
+```
+
+#### 4. Summary Interface & Routing Table
+
+| Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
+| :--- | :--- | :--- | :--- | :--- |
+| Web Worker Embedding Thread | IndexedDB Vector Store | In-Memory Messaging | Local Browser Storage | Computes Float32 document embeddings in a background Web Worker without blocking UI rendering. |
+| IndexedDB Vector Store | WebGPU LLM Engine | FastMCP Context API | Local Memory Air-Gap | Retrieves top cosine-similarity context matches locally to ground WebLLM on-device inference without server APIs. |
+
+---
+
+### Architecture Highlights
+- **100% Offline Air-Gapped Execution**: Synthesizes responses locally on user hardware without transmitting prompts or vector contexts to external API backends.
+- **WebGPU Acceleration**: Leverages modern GPU compute shaders for rapid quantized tensor matrix multiplication, falling back to multi-core Wasm SIMD when WebGPU is unavailable.
+- **FastMCP Context Coupling**: Ingests top cosine-similarity matches from the FastMCP local vector database to deliver contextually grounded RAG answers.
+
+---
+
+## 5. WebGPU Multi-Model Ensemble Fallbacks for Dynamic Air-Gapped Code Remediation
+
+In air-gapped web applications and isolated developer environments, network connectivity to cloud AI endpoints is unavailable. CMSForNerd2 implements a dynamic **Tri-Tiered WebGPU Multi-Model Ensemble** architecture for offline code inspection, AST validation, and automated code remediation.
+
+### Architectural Tiers
+
+1. **Tier 1: Hardware-Accelerated WebGPU Model Execution (Primary)**
+   - Utilizes `CreateMLCEngine` to load quantized 4-bit/16-bit LLM models (such as `Llama-3.2-1B-Instruct-q4f16` or `Qwen2.5-0.5B-Instruct-q4f16`) directly into browser GPU compute pipelines.
+   - Provides high-throughput context synthesis and code transformation with zero data leakage beyond browser memory.
+
+2. **Tier 2: Multi-Core WebAssembly SIMD CPU Engine (Fallback)**
+   - If WebGPU hardware adapters are unavailable or disabled by browser origin isolation policies, the system seamlessly transitions execution to multi-threaded WebAssembly SIMD CPU runtimes.
+   - Maintains continuous offline functionality across older or restricted client hardware configurations.
+
+3. **Tier 3: WebTreeSitter Rule-Based AST Synthesizer (Guardrail)**
+   - Operates as a deterministic fallback layer using WebTreeSitter WASM to parse concrete Abstract Syntax Trees (AST).
+   - Identifies structural syntax errors (such as missing closing brackets, unmatched parentheses, or unclosed string literals) and applies deterministic code repairs before submitting context to LLM pipelines.
+
+---
+
+## 6. HuggingFace ONNX Web Runtime Streaming
+
+Real-time developer feedback is enabled via WebAssembly-streamed ONNX inference for live workspace code and document completion.
+
+### Architecture Highlights
+- **Token-by-Token WebAssembly Streaming**: Streams embeddings and generated tokens incrementally without blocking the main browser UI thread.
+- **Live Typing Completion**: Automatically analyzes input text during document editing, delivering low-latency (~2.4ms) code suggestions at high throughput (~42 tokens/sec).
+
+---
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*
 
 

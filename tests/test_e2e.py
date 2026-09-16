@@ -167,6 +167,18 @@ This is a sample document for testing OKF analysis.
         assert "IndexedDB" in idb_status, f"Unexpected IndexedDB status text: {idb_status}"
         assert len(results_list) > 0, "FastMCP semantic search returned no ranked results."
 
+        # Test WebGPU Quantized KV-Cache (PagedAttention) & Speculative Decoding Workflow
+        page.click("#wasm-paged-gen-btn")
+        page.wait_for_selector("#wasm-paged-output:not(.hidden)", timeout=3000)
+        page.wait_for_function("document.querySelector('#wasm-paged-result').textContent.includes('PagedAttention')", timeout=5000)
+        paged_res = page.text_content("#wasm-paged-result") or ""
+        assert "PagedAttention" in paged_res, f"Unexpected PagedAttention result output: {paged_res}"
+
+        page.click("#wasm-kv-benchmark-btn")
+        page.wait_for_function("document.querySelector('#wasm-paged-result').textContent.includes('Benchmark')", timeout=5000)
+        bench_res = page.text_content("#wasm-paged-result") or ""
+        assert "Benchmark" in bench_res, f"Unexpected KV-Cache benchmark output: {bench_res}"
+
         # Test WebLLM + WebGPU On-Device Generation Workflow
         page.click("#wasm-webllm-load-btn")
         page.wait_for_selector("#wasm-webllm-output:not(.hidden)", timeout=3000)
