@@ -56,7 +56,7 @@ def test_route_navigation() -> None:
             assert page.title() != "", f"Page {route} is missing a title."
 
         # Take visual verification screenshot
-        page.screenshot(path="e2e_verification.png", full_page=True)
+        page.screenshot(path="/tmp/e2e_verification.png", full_page=True)
         browser.close()
 
 
@@ -324,7 +324,7 @@ def test_webgpu_canvas_visual_regression() -> None:
         assert box["width"] > 0 and box["height"] > 0, "Canvas dimensions are invalid."
 
         # Take element screenshot snapshot for visual regression verification
-        canvas_bytes = canvas_elem.screenshot(path="webgpu_canvas_snapshot.png")
+        canvas_bytes = canvas_elem.screenshot(path="/tmp/webgpu_canvas_snapshot.png")
         assert len(canvas_bytes) > 0, "WebGPU canvas screenshot byte stream is empty."
 
         browser.close()
@@ -341,7 +341,7 @@ def test_print_mode_css_visual_regression() -> None:
         page.emulate_media(media="print")
 
         # Take full page print snapshot
-        print_bytes = page.screenshot(path="print_mode_snapshot.png", full_page=True)
+        print_bytes = page.screenshot(path="/tmp/print_mode_snapshot.png", full_page=True)
         assert len(print_bytes) > 0, "Print mode screenshot byte stream is empty."
 
         # Verify page title and main content element presence under print emulation
@@ -396,13 +396,15 @@ def test_service_worker_offline_fallback() -> None:
 
         # Test context setting offline mode
         context.set_offline(True)
+        from playwright.sync_api import Error as PlaywrightError
+
         try:
             offline_page = context.new_page()
             offline_page.goto("http://127.0.0.1:4321/offline/", timeout=3000)
             offline_heading = offline_page.text_content("h1") or ""
             assert "You're Offline" in offline_heading, "Offline context failed to render cached offline page."
-        except Exception:
-            pass  # Offline network state validation completed
+        except PlaywrightError as err:
+            assert "ERR_INTERNET_DISCONNECTED" in str(err) or "net::" in str(err), f"Unexpected navigation error: {err}"
 
         browser.close()
 
