@@ -1,13 +1,19 @@
-"""Unit tests for FastMCP server tools and SSG route introspection."""
+"""Unit tests for FastMCP server tools, SSG route introspection, and WebSocket/SSE transports."""
 
 from typing import Any
 
+import pytest
+from starlette.testclient import TestClient
+
 from tools.mcp.server import (
+    create_mcp_app,
     get_openwiki_concept,
     get_route_content,
     get_sitemap_routes,
     list_ssg_routes,
+    run_server,
     search_ssg_routes,
+    validate_diagram_schema,
 )
 
 
@@ -77,8 +83,6 @@ def test_get_openwiki_concept() -> None:
 
 def test_validate_diagram_schema() -> None:
     """Verifies diagram schema validation for valid and invalid Mermaid code."""
-    from tools.mcp.server import validate_diagram_schema
-
     valid_flowchart = "graph TD\n  A[Start] --> B[End]"
     res_valid: dict[str, Any] = validate_diagram_schema(valid_flowchart)
     assert res_valid["valid"] is True
@@ -89,3 +93,55 @@ def test_validate_diagram_schema() -> None:
     res_invalid: dict[str, Any] = validate_diagram_schema(invalid_diagram)
     assert res_invalid["valid"] is False
     assert res_invalid["diagram_type"] == "unknown"
+
+
+def test_create_mcp_app_and_websocket_transport() -> None:
+    """Verifies creating Starlette app and executing JSON-RPC tool calls over WebSocket transport."""
+    app = create_mcp_app(transport="websocket")
+    client = TestClient(app)
+
+    with client.websocket_connect("/ws") as websocket:
+        # 1. Handshake initialize
+        websocket.send_json({"jsonrpc": "2.0", "method": "initialize", "id": 1})
+        init_res = websocket.receive_json()
+        assert init_res["id"] == 1
+        assert "serverInfo" in init_res["result"]
+
+        # 2. Ping check
+        websocket.send_json({"jsonrpc": "2.0", "method": "ping", "id": 2})
+        ping_res = websocket.receive_json()
+        assert ping_res["id"] == 2
+
+        # 3. List FastMCP tools
+        websocket.send_json({"jsonrpc": "2.0", "method": "tools/list", "id": 3})
+        tools_res = websocket.receive_json()
+        assert tools_res["id"] == 3
+        tools = tools_res["result"]["tools"]
+        assert len(tools) >= 6
+        tool_names = [t["name"] for t in tools]
+        assert "list_ssg_routes" in tool_names
+        assert "validate_diagram_schema" in tool_names
+
+        # 4. Invoke FastMCP tool over WebSocket
+        websocket.send_json(
+            {
+                "jsonrpc": "2.0",
+                "method": "tools/call",
+                "id": 4,
+                "params": {
+                    "name": "validate_diagram_schema",
+                    "arguments": {"diagram_code": "graph TD\n  A --> B"},
+                },
+            }
+        )
+        call_res = websocket.receive_json()
+        assert call_res["id"] == 4
+        assert "content" in call_res["result"]
+        text_content = call_res["result"]["content"][0]["text"]
+        assert "valid" in text_content
+
+
+def test_run_server_invalid_transport() -> None:
+    """Verifies that run_server raises ValueError for unsupported transport modes."""
+    with pytest.raises(ValueError, match="Unsupported transport mode"):
+        run_server(transport="invalid-transport-mode")

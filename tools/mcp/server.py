@@ -3,14 +3,23 @@
 This module implements a Model Context Protocol (MCP) server utilizing FastMCP to grant
 AI agents (e.g., Claude Desktop, Cursor, Google Jules) direct introspection capabilities
 over CMSForNerd2's static site routes, content collections, sitemaps, and spatial memory.
+It supports stdio, Server-Sent Events (SSE), and WebSocket transport modes for real-time
+AI pair-programming integration.
 """
 
+import argparse
+import json
+import os
 import re
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
+import uvicorn
 import yaml
 from fastmcp import FastMCP
+from starlette.applications import Starlette
+from starlette.websockets import WebSocket, WebSocketDisconnect
 
 # Initialize FastMCP Server Gateway
 mcp = FastMCP(
@@ -139,7 +148,6 @@ def search_ssg_routes(query: str) -> list[dict[str, Any]]:
         body_lower = body.lower()
         searchable_text = f"{title} {desc} {topics} {body_lower}"
         if query_lower in searchable_text:
-            # Extract snippet from body
             snippet = ""
             pos = body_lower.find(query_lower)
             if pos >= 0:
@@ -262,5 +270,208 @@ def validate_diagram_schema(diagram_code: str) -> dict[str, Any]:
     }
 
 
+async def _mcp_websocket_handler(websocket: WebSocket) -> None:
+    """Handles real-time WebSocket connections and JSON-RPC 2.0 messages for live AI pair programming.
+
+    Args:
+        websocket: The Starlette WebSocket connection instance.
+    """
+    await websocket.accept()
+    tool_map: dict[str, Callable[..., Any]] = {
+        "list_ssg_routes": list_ssg_routes,
+        "get_route_content": get_route_content,
+        "search_ssg_routes": search_ssg_routes,
+        "get_sitemap_routes": get_sitemap_routes,
+        "get_openwiki_concept": get_openwiki_concept,
+        "validate_diagram_schema": validate_diagram_schema,
+    }
+
+    try:
+        while True:
+            raw_msg = await websocket.receive_text()
+            try:
+                data: dict[str, Any] = json.loads(raw_msg)
+            except json.JSONDecodeError:
+                await websocket.send_json(
+                    {
+                        "jsonrpc": "2.0",
+                        "error": {"code": -32700, "message": "Parse error"},
+                        "id": None,
+                    }
+                )
+                continue
+
+            method = data.get("method")
+            msg_id = data.get("id")
+
+            if method == "initialize":
+                await websocket.send_json(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": msg_id,
+                        "result": {
+                            "protocolVersion": "2024-11-05",
+                            "capabilities": {"tools": {"listChanged": True}},
+                            "serverInfo": {
+                                "name": "CMSForNerd2 Live SSG Gateway",
+                                "version": "2.0.0",
+                            },
+                        },
+                    }
+                )
+            elif method == "notifications/initialized":
+                pass
+            elif method == "ping":
+                await websocket.send_json({"jsonrpc": "2.0", "id": msg_id, "result": {}})
+            elif method in ("tools/list", "list_tools"):
+                tools_list = [
+                    {
+                        "name": "list_ssg_routes",
+                        "description": "Lists all active Astro SSG routes with metadata.",
+                    },
+                    {
+                        "name": "get_route_content",
+                        "description": "Retrieves metadata and body for an SSG route.",
+                    },
+                    {
+                        "name": "search_ssg_routes",
+                        "description": "Searches titles, descriptions, and body content of SSG pages.",
+                    },
+                    {
+                        "name": "get_sitemap_routes",
+                        "description": "Parses and returns published site URLs.",
+                    },
+                    {
+                        "name": "get_openwiki_concept",
+                        "description": "Queries spatial memory knowledge base.",
+                    },
+                    {
+                        "name": "validate_diagram_schema",
+                        "description": "Validates Mermaid diagram syntax.",
+                    },
+                ]
+                await websocket.send_json({"jsonrpc": "2.0", "id": msg_id, "result": {"tools": tools_list}})
+            elif method in ("tools/call", "call_tool"):
+                params: dict[str, Any] = data.get("params") or {}
+                name = str(params.get("name") or data.get("name") or "")
+                raw_args = params.get("arguments") or data.get("arguments")
+                arguments: dict[str, Any] = raw_args if isinstance(raw_args, dict) else {}
+
+                if name in tool_map:
+                    try:
+                        func = tool_map[name]
+                        res = func(**arguments) if arguments else func()
+                        await websocket.send_json(
+                            {
+                                "jsonrpc": "2.0",
+                                "id": msg_id,
+                                "result": {
+                                    "content": [
+                                        {"type": "text", "text": json.dumps(res, default=str)}
+                                    ]
+                                },
+                            }
+                        )
+                    except (TypeError, ValueError, KeyError) as err:
+                        await websocket.send_json(
+                            {
+                                "jsonrpc": "2.0",
+                                "id": msg_id,
+                                "error": {"code": -32603, "message": str(err)},
+                            }
+                        )
+                else:
+                    await websocket.send_json(
+                        {
+                            "jsonrpc": "2.0",
+                            "id": msg_id,
+                            "error": {"code": -32601, "message": f"Tool '{name}' not found"},
+                        }
+                    )
+            else:
+                if msg_id is not None:
+                    await websocket.send_json(
+                        {
+                            "jsonrpc": "2.0",
+                            "id": msg_id,
+                            "error": {"code": -32601, "message": f"Method '{method}' not implemented"},
+                        }
+                    )
+    except WebSocketDisconnect:
+        pass
+
+
+def create_mcp_app(transport: str = "sse") -> Starlette:
+    """Creates a Starlette ASGI application with SSE and WebSocket real-time gateway endpoints.
+
+    Args:
+        transport: Transport protocol mode ('sse', 'http', or 'websocket').
+
+    Returns:
+        Configured Starlette application supporting live AI pair programming integration.
+    """
+    selected_transport: Literal["sse", "http"] = (
+        "sse" if transport in ("sse", "websocket", "ws") else "http"
+    )
+    app = mcp.http_app(transport=selected_transport)
+    app.router.add_websocket_route("/ws", _mcp_websocket_handler)
+    app.router.add_websocket_route("/ws/mcp", _mcp_websocket_handler)
+    return app
+
+
+def run_server(transport: str = "stdio", host: str = "127.0.0.1", port: int = 8000) -> None:
+    """Runs the FastMCP gateway server using the requested transport mode.
+
+    Args:
+        transport: Transport protocol ('stdio', 'sse', 'websocket', or 'http').
+        host: Host IP address to bind server endpoints to.
+        port: Port number for HTTP/SSE/WebSocket server modes.
+    """
+    transport_mode = transport.lower().strip()
+    if transport_mode == "stdio":
+        mcp.run(transport="stdio")
+    elif transport_mode in ("websocket", "ws"):
+        app = create_mcp_app(transport="websocket")
+        uvicorn.run(app, host=host, port=port)
+    elif transport_mode in ("sse", "http", "streamable-http"):
+        valid_mode: Literal["stdio", "http", "sse", "streamable-http"] = (
+            "sse" if transport_mode == "sse"
+            else "http" if transport_mode == "http"
+            else "streamable-http"
+        )
+        mcp.run(transport=valid_mode, host=host, port=port)
+    else:
+        raise ValueError(f"Unsupported transport mode: '{transport}'")
+
+
+def main() -> None:
+    """Parses command-line arguments and environment variables to start the FastMCP Gateway."""
+    parser = argparse.ArgumentParser(
+        description="CMSForNerd2 FastMCP Gateway Server with stdio, SSE, and WebSocket transport support."
+    )
+    parser.add_argument(
+        "--transport",
+        type=str,
+        default=os.getenv("MCP_TRANSPORT", "stdio"),
+        choices=["stdio", "sse", "websocket", "ws", "http"],
+        help="Transport mode for AI agent integration (default: stdio or MCP_TRANSPORT).",
+    )
+    parser.add_argument(
+        "--host",
+        type=str,
+        default=os.getenv("MCP_HOST", "127.0.0.1"),
+        help="Host IP address for HTTP/SSE/WebSocket server modes (default: 127.0.0.1 or MCP_HOST).",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=int(os.getenv("MCP_PORT", "8000")),
+        help="Port number for HTTP/SSE/WebSocket server modes (default: 8000 or MCP_PORT).",
+    )
+
+    args = parser.parse_args()
+    run_server(transport=args.transport, host=args.host, port=args.port)
+
+
 if __name__ == "__main__":
-    mcp.run()
+    main()

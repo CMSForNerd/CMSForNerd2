@@ -175,11 +175,15 @@ is an interactive lesson in professional web standards using Astro 7.1.
 
 <section class="module">
 <h2>🎮 Laboratory Module 11: WebGPU Multi-Model Ensemble Fallbacks & Air-Gapped Code Remediation</h2>
-<p>Explore WebGPU hardware acceleration, multi-threaded Wasm SIMD CPU fallbacks, and WebTreeSitter AST parsing guardrails for dynamic air-gapped code remediation.</p>
+<p>Explore WebGPU hardware acceleration, PagedAttention quantized KV-Cache optimization, FP16/INT4 speculative decoding compute shaders, multi-threaded Wasm SIMD CPU fallbacks, and WebTreeSitter AST parsing guardrails for dynamic air-gapped code remediation.</p>
 <div class="exercise">
 <h3>Exercise 11.1: WebGPU Ensemble Fallbacks & Dynamic Air-Gapped Code Remediation</h3>
 <p>Execute multi-tier hardware fallbacks, detect AST syntax errors client-side, and apply automated code fixes in isolated browser sandboxes.</p>
 <p><a href="/lab-module11" class="btn">🎮 Open Student Worksheet: Module 11</a></p>
+</div>
+<div class="exercise">
+<h3>Exercise 11.4: WebGPU Quantized KV-Cache (PagedAttention) & FP16/INT4 Speculative Decoding</h3>
+<p>Tune PagedAttention GPU memory page blocks, configure INT4/FP16 quantization, and run dual-model speculative decoding passes over WebGPU compute shaders.</p>
 </div>
 </section>
 
