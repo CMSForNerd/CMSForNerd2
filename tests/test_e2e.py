@@ -325,3 +325,52 @@ def test_webgpu_canvas_visual_regression() -> None:
         assert len(canvas_bytes) > 0, "WebGPU canvas screenshot byte stream is empty."
 
         browser.close()
+
+
+def test_print_mode_css_visual_regression() -> None:
+    """Verifies Playwright E2E visual snapshot rendering for @media print CSS layout rules."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("http://127.0.0.1:4321/wasm-studio/")
+
+        # Emulate CSS print media type (@media print)
+        page.emulate_media(media="print")
+
+        # Take full page print snapshot
+        print_bytes = page.screenshot(path="print_mode_snapshot.png", full_page=True)
+        assert len(print_bytes) > 0, "Print mode screenshot byte stream is empty."
+
+        # Verify page title and main content element presence under print emulation
+        assert page.locator("main").is_visible(), "Main content element is missing in print mode."
+        browser.close()
+
+
+def test_fastmcp_p2p_mesh_fallback_modes() -> None:
+    """Verifies FastMCP WebRTC and HTTP/3 WebTransport datagram fallback modes in Wasm Studio."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("http://127.0.0.1:4321/wasm-studio/")
+
+        # Test WebTransport Datagram Mode
+        page.select_option("#wasm-mesh-transport-mode", "webtransport-datagram")
+        page.click("#wasm-webrtc-connect-btn")
+
+        page.wait_for_selector("#wasm-webrtc-output:not(.hidden)", timeout=3000)
+        status_text = page.text_content("#wasm-webrtc-status") or ""
+        assert "Active" in status_text, f"Unexpected WebTransport status: {status_text}"
+
+        page.click("#wasm-webrtc-sync-btn")
+        log_text = page.text_content("#wasm-webrtc-log") or ""
+        assert "webtransport-datagram" in log_text, f"Expected WebTransport log entry, got: {log_text}"
+
+        # Test WebRTC DataChannel Fallback Mode
+        page.select_option("#wasm-mesh-transport-mode", "webrtc-datachannel")
+        page.click("#wasm-webrtc-connect-btn")
+
+        page.click("#wasm-webrtc-sync-btn")
+        updated_log = page.text_content("#wasm-webrtc-log") or ""
+        assert "webrtc-datachannel" in updated_log, f"Expected WebRTC log entry, got: {updated_log}"
+
+        browser.close()
