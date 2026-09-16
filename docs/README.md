@@ -125,6 +125,7 @@ To explore our documentation system, navigate using the following curated pathwa
   * [OKF Frontmatter Refactoring](how-to/okf-refactoring.md) — How to automatically validate and repair Markdown metadata.
   * [Sitemap Verification](how-to/sitemap-verification.md) — How to verify that generated sitemap links match built static files.
   * [Ansible Static Security Hardening](how-to/ansible-deployment.md) — How to configure and deploy a production static site with dual-pathway branching.
+  * [Building WebGPU Applications](how-to/webgpu-application-development.md) — Complete guide to WebGPU hardware acceleration, tri-tiered ensemble fallbacks, and air-gapped RAG pipelines.
 * **Technical Specifications (Reference)**
   * [`refactor-okf.cjs` API](reference/refactor-okf.md) — Reference specifications for the YAML validation crawler.
   * [`verify-sitemaps.js` API](reference/verify-sitemaps.md) — Reference specifications for the sitemap testing engine.
