@@ -31,8 +31,10 @@ from tests.unit.mcp import (
     test_get_route_content,
     test_get_sitemap_routes,
     test_list_ssg_routes,
+    test_mcp_webrtc_p2p_mesh_transport,
     test_run_server_invalid_transport,
     test_search_ssg_routes,
+    test_websocket_reconnect_failure_mode,
 )
 from tests.unit.sitemaps import (
     test_context7_configuration,
@@ -54,8 +56,10 @@ __all__ = [
     "test_llms_txt2ctx_parser_api",
     "test_markdown_governance_footers",
     "test_markdown_okf_compliance",
+    "test_mcp_webrtc_p2p_mesh_transport",
     "test_run_server_invalid_transport",
     "test_search_ssg_routes",
     "test_sitemaps_consistency",
     "test_uk_english_documentation_spellings",
+    "test_websocket_reconnect_failure_mode",
 ]

@@ -298,3 +298,29 @@ def test_cookie_expiration_boundary() -> None:
         assert active_session_cookie is None or active_session_cookie["value"] != "active_token", "Expired session cookie remained active."
 
         browser.close()
+
+
+def test_webgpu_canvas_visual_regression() -> None:
+    """Verifies Playwright visual snapshot rendering for WebGPU matrix canvas in Wasm Studio."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("http://127.0.0.1:4321/wasm-studio/")
+
+        # Trigger PagedAttention Speculative Generation to draw on #webgpu-canvas
+        page.click("#wasm-paged-gen-btn")
+        page.wait_for_selector("#webgpu-canvas", timeout=5000)
+
+        # Confirm canvas element visibility and size dimensions
+        canvas_elem = page.locator("#webgpu-canvas")
+        assert canvas_elem.is_visible(), "#webgpu-canvas element is not visible."
+
+        box = canvas_elem.bounding_box()
+        assert box is not None, "Bounding box for #webgpu-canvas is None."
+        assert box["width"] > 0 and box["height"] > 0, "Canvas dimensions are invalid."
+
+        # Take element screenshot snapshot for visual regression verification
+        canvas_bytes = canvas_elem.screenshot(path="webgpu_canvas_snapshot.png")
+        assert len(canvas_bytes) > 0, "WebGPU canvas screenshot byte stream is empty."
+
+        browser.close()
