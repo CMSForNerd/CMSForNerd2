@@ -275,7 +275,27 @@ graph TD
 
 ---
 
-## 5. HuggingFace ONNX Web Runtime Streaming
+## 5. WebGPU Multi-Model Ensemble Fallbacks for Dynamic Air-Gapped Code Remediation
+
+In air-gapped web applications and isolated developer environments, network connectivity to cloud AI endpoints is unavailable. CMSForNerd2 implements a dynamic **Tri-Tiered WebGPU Multi-Model Ensemble** architecture for offline code inspection, AST validation, and automated code remediation.
+
+### Architectural Tiers
+
+1. **Tier 1: Hardware-Accelerated WebGPU Model Execution (Primary)**
+   - Utilizes `CreateMLCEngine` to load quantized 4-bit/16-bit LLM models (such as `Llama-3.2-1B-Instruct-q4f16` or `Qwen2.5-0.5B-Instruct-q4f16`) directly into browser GPU compute pipelines.
+   - Provides high-throughput context synthesis and code transformation with zero data leakage beyond browser memory.
+
+2. **Tier 2: Multi-Core WebAssembly SIMD CPU Engine (Fallback)**
+   - If WebGPU hardware adapters are unavailable or disabled by browser origin isolation policies, the system seamlessly transitions execution to multi-threaded WebAssembly SIMD CPU runtimes.
+   - Maintains continuous offline functionality across older or restricted client hardware configurations.
+
+3. **Tier 3: WebTreeSitter Rule-Based AST Synthesizer (Guardrail)**
+   - Operates as a deterministic fallback layer using WebTreeSitter WASM to parse concrete Abstract Syntax Trees (AST).
+   - Identifies structural syntax errors (such as missing closing brackets, unmatched parentheses, or unclosed string literals) and applies deterministic code repairs before submitting context to LLM pipelines.
+
+---
+
+## 6. HuggingFace ONNX Web Runtime Streaming
 
 Real-time developer feedback is enabled via WebAssembly-streamed ONNX inference for live workspace code and document completion.
 

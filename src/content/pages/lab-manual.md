@@ -173,6 +173,16 @@ is an interactive lesson in professional web standards using Astro 7.1.
 </div>
 </section>
 
+<section class="module">
+<h2>🎮 Laboratory Module 11: WebGPU Multi-Model Ensemble Fallbacks & Air-Gapped Code Remediation</h2>
+<p>Explore WebGPU hardware acceleration, multi-threaded Wasm SIMD CPU fallbacks, and WebTreeSitter AST parsing guardrails for dynamic air-gapped code remediation.</p>
+<div class="exercise">
+<h3>Exercise 11.1: WebGPU Ensemble Fallbacks & Dynamic Air-Gapped Code Remediation</h3>
+<p>Execute multi-tier hardware fallbacks, detect AST syntax errors client-side, and apply automated code fixes in isolated browser sandboxes.</p>
+<p><a href="/lab-module11" class="btn">🎮 Open Student Worksheet: Module 11</a></p>
+</div>
+</section>
+
 <section class="module exam-module">
 <h2>🚩 The Final Exam: Break-Fix Challenge</h2>
 <p>The ultimate test of a static front-end engineer. Repair a broken configuration or schema mapping to pass the compilation test.</p>
