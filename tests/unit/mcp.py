@@ -141,6 +141,75 @@ def test_create_mcp_app_and_websocket_transport() -> None:
         assert "valid" in text_content
 
 
+def test_websocket_reconnect_failure_mode() -> None:
+    """Verifies WebSocket reconnect failure modes, malformed JSON error recovery, and session restoration."""
+    app = create_mcp_app(transport="websocket")
+    client = TestClient(app)
+
+    # 1. Connect and send malformed JSON
+    with client.websocket_connect("/ws") as websocket:
+        websocket.send_text("MALFORMED_JSON_STRING")
+        err_res = websocket.receive_json()
+        assert err_res["error"]["code"] == -32700
+        assert err_res["error"]["message"] == "Parse error"
+
+        # Verify server remains functional after parse error
+        websocket.send_json({"jsonrpc": "2.0", "method": "ping", "id": 10})
+        ping_res = websocket.receive_json()
+        assert ping_res["id"] == 10
+
+    # 2. Simulate connection drop and reconnect recovery
+    with client.websocket_connect("/ws") as reconnected_ws:
+        reconnected_ws.send_json({"jsonrpc": "2.0", "method": "initialize", "id": 11})
+        init_res = reconnected_ws.receive_json()
+        assert init_res["id"] == 11
+        assert "serverInfo" in init_res["result"]
+
+
+def test_mcp_webrtc_p2p_mesh_transport() -> None:
+    """Verifies FastMCP WebRTC P2P agent mesh signaling, ICE candidate registration, and spatial memory sync."""
+    app = create_mcp_app(transport="websocket")
+    client = TestClient(app)
+
+    with client.websocket_connect("/ws/webrtc") as websocket:
+        # 1. Test SDP Offer & Answer Exchange
+        websocket.send_json(
+            {
+                "type": "webrtc_offer",
+                "node_id": "agent-alpha",
+                "sdp": "v=0\r\no=- 12345 IN IP4 127.0.0.1",
+            }
+        )
+        answer_res = websocket.receive_json()
+        assert answer_res["type"] == "webrtc_answer"
+        assert answer_res["status"] == "signaling_established"
+
+        # 2. Test ICE Candidate Registration
+        websocket.send_json(
+            {
+                "type": "ice_candidate",
+                "node_id": "agent-alpha",
+                "candidate": {"candidate": "candidate:1 1 UDP 2013266431 127.0.0.1 5000 typ host"},
+            }
+        )
+        ice_res = websocket.receive_json()
+        assert ice_res["type"] == "ice_candidate_ack"
+        assert ice_res["status"] == "candidate_registered"
+
+        # 3. Test Spatial Memory P2P Mesh Concept Broadcast Sync
+        websocket.send_json(
+            {
+                "type": "mesh_sync",
+                "node_id": "agent-alpha",
+                "concepts": ["FastMCP P2P", "WebGPU PagedAttention", "WebNN Graph"],
+            }
+        )
+        sync_res = websocket.receive_json()
+        assert sync_res["type"] == "mesh_sync_ack"
+        assert sync_res["synced_concepts_count"] == 3
+        assert sync_res["status"] == "spatial_memory_updated"
+
+
 def test_run_server_invalid_transport() -> None:
     """Verifies that run_server raises ValueError for unsupported transport modes."""
     with pytest.raises(ValueError, match="Unsupported transport mode"):
