@@ -166,6 +166,26 @@ def test_websocket_reconnect_failure_mode() -> None:
         assert "serverInfo" in init_res["result"]
 
 
+def test_mcp_webtransport_datagram_handler() -> None:
+    """Verifies HTTP/3 WebTransport datagram packet ingestion and spatial memory mesh status."""
+    app = create_mcp_app(transport="websocket")
+    client = TestClient(app)
+
+    payload = {
+        "node_id": "wt-agent-alpha-1",
+        "transport": "WebTransport-Datagram",
+        "concepts": ["WebGPU INT4 Speculative KV-Cache", "WebTransport P2P Datagrams"],
+    }
+    response = client.post("/webtransport/datagrams", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "datagram_received"
+    assert data["transport"] == "WebTransport-Datagram"
+    assert data["node_id"] == "wt-agent-alpha-1"
+    assert len(data["synced_concepts"]) == 2
+    assert "latency_ms" in data
+
+
 def test_mcp_webrtc_p2p_mesh_transport() -> None:
     """Verifies FastMCP WebRTC P2P agent mesh signaling, ICE candidate registration, and spatial memory sync."""
     app = create_mcp_app(transport="websocket")

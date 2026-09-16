@@ -178,6 +178,7 @@ This is a sample document for testing OKF analysis.
         page.wait_for_function("document.querySelector('#wasm-paged-result').textContent.includes('Benchmark')", timeout=5000)
         bench_res = page.text_content("#wasm-paged-result") or ""
         assert "Benchmark" in bench_res, f"Unexpected KV-Cache benchmark output: {bench_res}"
+        assert "INT4 Unpacked" in bench_res, f"Unexpected INT4 dequantization benchmark output: {bench_res}"
 
         # Test WebLLM + WebGPU On-Device Generation Workflow
         page.click("#wasm-webllm-load-btn")

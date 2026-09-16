@@ -262,7 +262,23 @@ async function generateAirGappedSynthesis(userQuery, contextDocs) {
 
 ## 4. WebGPU PagedAttention KV-Cache Optimization & Speculative Decoding
 
-CMSForNerd2 implements **PagedAttention** memory management and **FP16/INT4 Speculative Decoding** over WebGPU compute shaders to dramatically accelerate in-browser LLM inference and local RAG generation.
+CMSForNerd2 implements **PagedAttention** memory management and **FP16/INT4 Speculative Decoding** over WebGPU compute shaders with direct uint32 bit-level weight unpacking (`unpack_int4_weight`) to dramatically accelerate in-browser LLM inference and local RAG generation.
+
+### INT4 WGSL Compute Shader Dequantization Math
+Quantized weights are stored packed with 8x 4-bit INT4 integers per 32-bit `uint32` word:
+
+$$\text{Weight}_{\text{dequant}} = (\text{RawINT4} - 8.0 - \text{ZeroPoint}) \times \text{QuantScale}$$
+
+The WGSL compute shader extracts 4-bit weights dynamically using bitwise shifts and masking:
+
+```wgsl
+fn unpack_int4_weight(packed_val: u32, sub_idx: u32, scale: f32, zero_pt: f32) -> f32 {
+  let shift = (sub_idx & 7u) * 4u;
+  let raw_int4 = (packed_val >> shift) & 0x0Fu;
+  let signed_val = f32(raw_int4) - 8.0;
+  return (signed_val - zero_pt) * scale;
+}
+```
 
 ### PagedAttention KV-Cache Memory Management
 
