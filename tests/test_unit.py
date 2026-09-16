@@ -26,10 +26,12 @@ from tests.unit.markdown import (
     test_uk_english_documentation_spellings,
 )
 from tests.unit.mcp import (
+    test_create_mcp_app_and_websocket_transport,
     test_get_openwiki_concept,
     test_get_route_content,
     test_get_sitemap_routes,
     test_list_ssg_routes,
+    test_run_server_invalid_transport,
     test_search_ssg_routes,
 )
 from tests.unit.sitemaps import (
@@ -44,6 +46,7 @@ __all__ = [
     "test_build_llms_full_compilation",
     "test_containerfile_security_and_structure",
     "test_context7_configuration",
+    "test_create_mcp_app_and_websocket_transport",
     "test_get_openwiki_concept",
     "test_get_route_content",
     "test_get_sitemap_routes",
@@ -51,6 +54,7 @@ __all__ = [
     "test_llms_txt2ctx_parser_api",
     "test_markdown_governance_footers",
     "test_markdown_okf_compliance",
+    "test_run_server_invalid_transport",
     "test_search_ssg_routes",
     "test_sitemaps_consistency",
     "test_uk_english_documentation_spellings",

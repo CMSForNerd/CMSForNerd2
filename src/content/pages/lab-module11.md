@@ -86,6 +86,29 @@ function calculateSecurityPolicy(config) {
 </section>
 
 <section class="exercise-box">
+<h2>📝 Exercise 11.4: WebGPU Quantized KV-Cache (PagedAttention) & FP16/INT4 Speculative Decoding</h2>
+<p>
+Accelerate in-browser RAG generation through PagedAttention GPU virtual block tables and dual-model speculative decoding (INT4 draft model proposals verified in parallel by FP16 target models using custom WGSL compute shaders).
+</p>
+<div class="try-it-box">
+<h3>🛠️ Student Task: Testing Speculative PagedAttention RAG in Wasm Studio</h3>
+<p>
+Navigate to <a href="/wasm-studio" class="btn btn-secondary">⚙️ Wasm Studio</a> and test the <strong>WebGPU Quantized KV-Cache &amp; Speculative Decoding Engine</strong> panel:
+</p>
+<pre><code>// PagedAttention Block Allocation & WGSL Compute Shader Execution
+const sampleContextTokens = 512;
+const blockSize = 32; // Tokens per page block
+const allocatedPages = Math.ceil(sampleContextTokens / blockSize);
+
+// Speculative Verification Pass: INT4 Draft generates K candidate tokens
+const lookaheadK = 3;
+const speedupFactor = (1.8 + lookaheadK * 0.25).toFixed(2) + 'x';
+
+console.log(`Allocated ${allocatedPages} GPU page blocks. Speedup: ${speedupFactor}`);</code></pre>
+</div>
+</section>
+
+<section class="exercise-box">
 <h2>📝 Exercise 11.3: WebTreeSitter AST Syntax Guardrails</h2>
 <p>
 Before executing local LLM transformations, WebTreeSitter WASM validates structural syntax nodes to guarantee deterministic prompt context.
