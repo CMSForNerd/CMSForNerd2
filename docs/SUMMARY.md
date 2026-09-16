@@ -37,6 +37,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)
 * [GitHub Pages Deployment & Troubleshooting](how-to/github-pages-deployment-troubleshooting.md)
 * [FastMCP Server & WebAssembly Tools Usage](how-to/how-to-use-fastmcp-and-wasm.md)
+* [Building WebGPU Applications](how-to/webgpu-application-development.md)
 
 ## 🏗️ Reference
 
