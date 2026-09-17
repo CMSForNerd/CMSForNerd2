@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import AstroPWA from '@vite-pwa/astro';
-import { unified } from '@astrojs/markdown-remark';
-
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 
 // Custom Rehype plugin to prefix absolute links in Markdown files when deploying to GitHub Pages
@@ -34,11 +32,9 @@ export default defineConfig({
   base: isGitHubPages ? '/CMSForNerd2' : '/',
   output: 'static',
   markdown: {
-    processor: unified({
-      rehypePlugins: [
-        rehypeAddBase
-      ]
-    })
+    rehypePlugins: [
+      rehypeAddBase
+    ]
   },
   integrations: [
     mdx(),

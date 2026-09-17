@@ -29,19 +29,25 @@ This guide explains how to run the FastMCP SSG Gateway server, inspect static ro
 The FastMCP server is located at `tools/mcp/server.py`.
 
 ### Prerequisites
+
 Ensure Python dependencies are installed:
+
 ```bash
 pip install fastmcp mcp pyyaml
 ```
 
 ### Starting the Server
+
 To run the server in standard stdio mode (for Claude Desktop, Cursor, or AI agent integration):
+
 ```bash
 python3 tools/mcp/server.py
 ```
 
 ### Querying FastMCP Tools Programmatically
+
 You can also invoke tools programmatically in Python:
+
 ```python
 from tools.mcp.server import list_ssg_routes, get_route_content, search_ssg_routes
 
@@ -65,17 +71,23 @@ print(search_results)
 Pagefind indexes the static HTML site after Astro compilation.
 
 ### Building and Indexing
+
 Run the combined build command:
+
 ```bash
 npm run build
 ```
+
 This executes `astro build && pagefind --site dist`, compiling static assets to `dist/` and writing Wasm index bundles to `dist/pagefind/`.
 
 ### Previewing Search
+
 Launch the local preview server:
+
 ```bash
 npm run preview
 ```
+
 Navigate to `http://localhost:4321/search` to test client-side Wasm search queries with term highlighting and subresults.
 
 ---
@@ -85,27 +97,32 @@ Navigate to `http://localhost:4321/search` to test client-side Wasm search queri
 Navigate to `http://localhost:4321/wasm-studio` in your browser.
 
 ### Computing CSP SHA-256 Hashes
+
 1. Paste inline script content into the **Cryptographic Hash & CSP Tool** input box.
 2. Click **Compute SHA-256 Hash**.
 3. Copy the generated Nginx CSP Header value (e.g. `'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='`) and append it to your Nginx CSP whitelist configuration in `nginx/nginx.conf`.
 
 ### Validating OKF v0.2 Documents
+
 1. Paste Markdown content into the **OKF v0.2 Document Processor** input box.
 2. Click **Analyze Document**.
 3. Review compliance status, extracted title, word count, and line metrics.
 
 ### Executing In-Browser FastMCP Semantic AI Search
+
 1. Enter a conceptual query (e.g., `Astro static site security hardening`) into the **In-Browser WebAssembly Vector Embeddings & FastMCP Semantic Search** input field.
 2. Click **Execute FastMCP `semantic_code_search` Tool**.
 3. The studio generates a 384-dimensional Float32 vector embedding via Web Workers, syncs vectors with IndexedDB local storage, computes cosine similarity scores across local documents, and returns top RAG matches wrapped in FastMCP tool output schemas.
 
 ### Executing 100% Offline Air-Gapped WebLLM + WebGPU RAG Generation
+
 1. Select target model from dropdown (`Llama-3.2-1B-Instruct-q4f16`, `Qwen2.5-0.5B-Instruct-q4f16`, or Wasm SIMD CPU fallback).
 2. Click **Initialize WebLLM Pipeline** to initialize model over WebGPU hardware acceleration.
 3. Enter local RAG prompt and click **Generate Air-Gapped RAG Synthesis**.
 4. WebLLM retrieves context from FastMCP IndexedDB vector records and streams synthesized answers on-device without external API calls.
 
 ### Streaming Real-Time Code Completions via HuggingFace ONNX Web Runtime
+
 1. Type or edit document/code content in the **Workspace Document / Code Editor**.
 2. Click **Trigger ONNX Wasm Stream Completion** or toggle **Enable Live Typing Stream Completion**.
 3. Real-time token-by-token completion streams directly into the output window via WebAssembly streams with performance metrics (~42 tokens/sec).

@@ -49,8 +49,10 @@ Execute the build pipeline and generate the SRI hash for the compiled Pagefind W
 <pre><code># Calculate base64-encoded SHA-384 hash of Pagefind Wasm module
 openssl dgst -sha384 -binary dist/pagefind/pagefind_web_bg.wasm | openssl base64 -A
 
-# Expected Output Format:
+# Expected Output Format
+
 # sha384-K1R+4Z6X... (whitelisted in script-src / wasm-src header)</code></pre>
+
 </div>
 </section>
 
@@ -68,6 +70,7 @@ Inspect the Nginx server configuration (<code>nginx/nginx.conf</code>). Notice h
 brotli --best --keep dist/*.html dist/pagefind/*.wasm dist/pagefind/*.js
 
 # Nginx static delivery directive
+
 location /pagefind/ {
     brotli_static on;
     gzip_static on;

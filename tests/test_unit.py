@@ -40,6 +40,7 @@ from tests.unit.mcp import (
 )
 from tests.unit.sitemaps import (
     test_context7_configuration,
+    test_csp_manifest_and_nonce_injection,
     test_pagefind_sri_manifest,
     test_sitemaps_consistency,
 )
@@ -52,6 +53,7 @@ __all__ = [
     "test_containerfile_security_and_structure",
     "test_context7_configuration",
     "test_create_mcp_app_and_websocket_transport",
+    "test_csp_manifest_and_nonce_injection",
     "test_dispatch_wasm_component_tool",
     "test_get_openwiki_concept",
     "test_get_route_content",

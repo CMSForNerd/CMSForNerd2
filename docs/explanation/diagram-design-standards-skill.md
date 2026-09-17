@@ -57,7 +57,7 @@ All standalone SVG vector blocks generated under this skill must adhere to the f
 
 ### 3. Git-Native Mermaid Specifications
 
-Directly following the SVG code fence, an equivalent Mermaid diagram is placed inside a ````mermaid ... ```` code fence:
+Directly following the SVG code fence, an equivalent Mermaid diagram is placed inside a ````mermaid ...```` code fence:
 
 * **Subgraphs:** Group subnets, VLANs, trust zones, or operational clusters inside explicit `subgraph` blocks.
 * **Connector Precision:** Annotate every edge connector with protocol details (e.g., `-->|"TCP 4321 / HTTP"|`).
@@ -79,8 +79,8 @@ When invoked during documentation writing, architecture decision record (ADR) dr
 
 1. Identify the architectural entities, network ingress paths, and trust boundaries.
 2. Construct the plain-text ASCII tree diagram.
-3. Construct the standalone SVG vector block inside an ````xml ... ```` fence.
-4. Construct the character-exact Mermaid block inside a ````mermaid ... ```` fence.
+3. Construct the standalone SVG vector block inside an ````xml ...```` fence.
+4. Construct the character-exact Mermaid block inside a ````mermaid ...```` fence.
 5. Construct the summary routing comparison table in standard Markdown format.
 6. Audit the generated output to ensure zero missing text nodes, valid SVG syntax, and complete table mapping.
 

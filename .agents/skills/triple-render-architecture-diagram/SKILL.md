@@ -32,10 +32,13 @@ Generate the output strictly in the following sequence without introductory fluf
 ---
 
 #### 1. ASCII Trees Diagram
+
 Generate a clean, structured plain-text ASCII box or tree diagram representing the component hierarchy, execution flow, or system topology using standard box-drawing characters (`┌`, `─`, `┐`, `│`, `└`, `┘`, `├`, `┤`, `┬`, `┴`, `┼`, `▶`, `▲`, `▼`, `◄`).
 
 #### 2. Standalone Production-Ready SVG Vector Graphic (`.svg`)
-Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ... ```` code fence matching these styling constraints:
+
+Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ...```` code fence matching these styling constraints:
+
 * **Canvas Hygiene:** Explicit `xmlns="http://www.w3.org/2000/svg"`, explicit `viewBox`, `width="100%"`, and `height="100%"`.
 * **Palette & Design System (Dark Slate Navy Canvas for Dark Mode):**
   * Canvas Background: Dark Slate Navy (`#0F172A` or `#0B0F19`).
@@ -52,14 +55,18 @@ Generate a self-contained, fully compliant raw SVG vector block inside a single 
   * Direct all connection paths (`<path>` or `<line>`) with explicit coordinates and distinct port/protocol callout pill badges.
 
 #### 3. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
-Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ... ```` code fence:
+
+Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ...```` code fence:
+
 * **Orientation:** Choose the most readable layout (`graph TD`, `graph LR`, or `sequenceDiagram`).
 * **Grouping:** Enclose security tiers, VLANs, clusters, or operational domains inside explicit `subgraph` blocks.
 * **Label Precision:** Display clear port bindings, protocol indicators, and service actions along link connectors (e.g., `-->|"TCP 5432 / mTLS"|` or `-->|"SSH Port 22"|`).
 * **Readability:** Break long node labels across multiple lines using HTML break tags (`<br/>`).
 
 #### 4. Summary Interface & Routing Table
+
 Conclude with a clean Markdown comparison table summarizing:
+
 * Source Component
 * Target Component
 * Port / Protocol / API Ingress

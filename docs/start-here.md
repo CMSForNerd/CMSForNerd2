@@ -130,11 +130,11 @@ All documentation, code comments, commit messages, and cognitive logs MUST stric
 * [docs/README.md](docs/README.md) — Full Diátaxis framework specification and index.
 * [AGENTS.md](AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
 * [llms.txt](llms.txt) — High-density context document optimised for LLM crawlers.
-- [README.md](../README.md) — Executive project summary and architectural overview.
-- [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
-- [docs/README.md](README.md) — Full Diátaxis framework specification and index.
-- [AGENTS.md](../AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
-- [llms.txt](../llms.txt) — High-density context document optimised for LLM crawlers.
+* [README.md](../README.md) — Executive project summary and architectural overview.
+* [SUMMARY.md](SUMMARY.md) — GitBook-compatible documentation index.
+* [docs/README.md](README.md) — Full Diátaxis framework specification and index.
+* [AGENTS.md](../AGENTS.md) — Gateway AI agent rulebook and DSOM protocol entry point.
+* [llms.txt](../llms.txt) — High-density context document optimised for LLM crawlers.
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

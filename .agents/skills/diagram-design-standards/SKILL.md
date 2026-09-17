@@ -32,11 +32,12 @@ When tasked with generating a diagram for architecture, network topology, sequen
 Every diagram generation request must output all four of the following components in order:
 
 ### 1. Plain-Text ASCII Tree Diagram
+
 Generate a clean, structured plain-text ASCII box or tree diagram representing the component hierarchy, execution flow, or system topology using standard box-drawing characters (`┌`, `─`, `┐`, `│`, `└`, `┘`, `├`, `┤`, `┬`, `┴`, `┼`, `▶`, `▲`, `▼`, `◄`).
 
 ### 2. Standalone Production-Ready SVG Vector Graphic (`.svg`)
 
-Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ... ```` code fence matching these styling constraints:
+Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ...```` code fence matching these styling constraints:
 
 * **Canvas Hygiene:**
   * Explicit `xmlns="http://www.w3.org/2000/svg"`.
@@ -56,7 +57,7 @@ Generate a self-contained, fully compliant raw SVG vector block inside a single 
 
 ### 3. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
 
-Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ... ```` code fence:
+Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ...```` code fence:
 
 * **Orientation:** Choose the most readable layout (`graph TD`, `graph LR`, or `sequenceDiagram`).
 * **Grouping:** Enclose security tiers, VLANs, clusters, or operational domains inside explicit `subgraph` blocks.
