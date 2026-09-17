@@ -27,16 +27,19 @@ This guide outlines diagnostic protocols for diagnosing and fixing DNS name reso
 ## 🔍 Diagnostic Workflow
 
 1. **Verify service status:**
+
    ```bash
    systemctl status systemd-resolved
    ```
 
 2. **Inspect current DNS server configurations:**
+
    ```bash
    resolvectl status
    ```
 
 3. **Test name resolution explicitly:**
+
    ```bash
    resolvectl query example.com
    ```

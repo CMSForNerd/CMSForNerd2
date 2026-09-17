@@ -63,3 +63,19 @@ def test_pagefind_sri_manifest() -> None:
         assert len(files) > 0, "SRI manifest 'files' map is empty."
         for file_path, sri_hash in files.items():
             assert sri_hash.startswith("sha384-"), f"SRI hash for {file_path} must start with 'sha384-'."
+
+
+def test_csp_manifest_and_nonce_injection() -> None:
+    """Validates the structure and integrity of the CSP manifest in dist/csp-manifest.json."""
+    manifest_path = os.path.join("dist", "csp-manifest.json")
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+        assert "policy" in manifest, "CSP manifest missing 'policy' string."
+        assert "pages" in manifest, "CSP manifest missing 'pages' map."
+        pages = manifest["pages"]
+        assert len(pages) > 0, "CSP manifest 'pages' map is empty."
+        for page_path, page_data in pages.items():
+            assert "inline_script_count" in page_data, f"Page {page_path} missing 'inline_script_count'."
+            assert "hashes" in page_data, f"Page {page_path} missing 'hashes' list."

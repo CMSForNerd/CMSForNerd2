@@ -98,9 +98,12 @@ Execute unit tests in <code>tests/unit/mcp.py</code> to verify MCP tool executio
 <pre><code># Run FastMCP unit test suite
 python3 -m pytest tests/unit/mcp.py
 
-# Expected Output:
+# Expected Output
+
 # tests/unit/mcp.py :: test_fastmcp_route_listing PASSED
+
 # tests/unit/mcp.py :: test_fastmcp_adr_validation PASSED</code></pre>
+
 </div>
 </section>
 

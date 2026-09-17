@@ -265,6 +265,7 @@ async function generateAirGappedSynthesis(userQuery, contextDocs) {
 CMSForNerd2 implements **PagedAttention** memory management and **FP16/INT4 Speculative Decoding** over WebGPU compute shaders with direct uint32 bit-level weight unpacking (`unpack_int4_weight`) to dramatically accelerate in-browser LLM inference and local RAG generation.
 
 ### INT4 WGSL Compute Shader Dequantization Math
+
 Quantized weights are stored packed with 8x 4-bit INT4 integers per 32-bit `uint32` word:
 
 $$\text{Weight}_{\text{dequant}} = (\text{RawINT4} - 8.0 - \text{ZeroPoint}) \times \text{QuantScale}$$

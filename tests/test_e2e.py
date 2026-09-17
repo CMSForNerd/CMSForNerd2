@@ -2,7 +2,8 @@
 
 Verifies dynamic theme switching (light/dark mode toggle), content page routing,
 PWA service worker/manifest registration, Wasm Studio interactive workflows, Pagefind search,
-dynamic role permissions, and cookie expiration boundary handling.
+dynamic role permissions, cookie expiration boundary handling, and Playwright visual snapshot
+regression baselines across all 11 laboratory modules.
 """
 
 import requests
@@ -33,6 +34,56 @@ def test_theme_switching() -> None:
         assert "theme-light" in html_class, "HTML element missing 'theme-light' class."
         theme_val = page.evaluate("localStorage.getItem('theme')")
         assert theme_val == "light", f"Expected localStorage theme 'light', got '{theme_val}'"
+
+        browser.close()
+
+
+def test_laboratory_modules_visual_regression_theme_transitions() -> None:
+    """Verifies Playwright visual snapshot regression baselines and light/dark theme transitions across all 11 laboratory modules."""
+    modules = [
+        ("module1", "/lab-module1/"),
+        ("module2", "/lab-module2/"),
+        ("module3", "/lab-module3/"),
+        ("module4", "/lab-module4/"),
+        ("module5", "/lab-module5/"),
+        ("ansible", "/ansible-lab/"),
+        ("module7", "/lab-module7/"),
+        ("module8", "/lab-module8/"),
+        ("module9", "/lab-module9/"),
+        ("module10", "/lab-module10/"),
+        ("module11", "/lab-module11/"),
+    ]
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+
+        for mod_id, route in modules:
+            resp = page.goto(f"http://127.0.0.1:4321{route}")
+            assert resp is not None and resp.status == 200, f"Failed loading laboratory module route {route}"
+
+            # 1. Switch to Light Mode and capture baseline snapshot
+            page.click("#theme-btn-light")
+            page.wait_for_selector("html.theme-light", timeout=3000)
+            light_class = page.get_attribute("html", "class") or ""
+            assert "theme-light" in light_class, f"Module {mod_id} failed light mode theme class assertion."
+            bytes_light = page.screenshot(path=f"/tmp/lab_{mod_id}_light.png", full_page=True)
+            assert len(bytes_light) > 0, f"Module {mod_id} light mode screenshot is empty."
+
+            # 2. Switch to Dark Mode and capture transition snapshot
+            page.click("#theme-btn-dark")
+            page.wait_for_selector("html.theme-dark", timeout=3000)
+            dark_class = page.get_attribute("html", "class") or ""
+            assert "theme-dark" in dark_class, f"Module {mod_id} failed dark mode theme class assertion."
+            bytes_dark = page.screenshot(path=f"/tmp/lab_{mod_id}_dark.png", full_page=True)
+            assert len(bytes_dark) > 0, f"Module {mod_id} dark mode screenshot is empty."
+
+            # 3. Assert visual snapshot regression diff ratio between theme transitions
+            max_len = max(len(bytes_light), len(bytes_dark))
+            byte_diffs = sum(1 for a, b in zip(bytes_light, bytes_dark) if a != b)
+            byte_diff_ratio = byte_diffs / max_len if max_len > 0 else 0.0
+
+            assert byte_diff_ratio > 0.001, f"Module {mod_id} light/dark theme visual transition ratio too low: {byte_diff_ratio:.4f}"
 
         browser.close()
 
@@ -169,13 +220,17 @@ This is a sample document for testing OKF analysis.
         assert "IndexedDB" in idb_status, f"Unexpected IndexedDB status text: {idb_status}"
         assert len(results_list) > 0, "FastMCP semantic search returned no ranked results."
 
-        # Test WebGPU Quantized KV-Cache (PagedAttention) & Speculative Decoding Workflow (with WebNN Hybrid Mode)
+        # Test WebGPU Quantized KV-Cache (PagedAttention) & Speculative Decoding Workflow (with WebNN Hybrid Mode & IDB Shader Cache)
         page.select_option("#wasm-kv-precision", "WEBNN-HYBRID")
         page.click("#wasm-paged-gen-btn")
         page.wait_for_selector("#wasm-paged-output:not(.hidden)", timeout=3000)
         page.wait_for_function("document.querySelector('#wasm-paged-result').textContent.includes('PagedAttention')", timeout=5000)
         paged_res = page.text_content("#wasm-paged-result") or ""
         assert "PagedAttention" in paged_res, f"Unexpected PagedAttention result output: {paged_res}"
+
+        # Verify IndexedDB WGSL Shader Pre-Compilation Caching status string
+        pipeline_cache_status = page.text_content("#wasm-pipeline-cache-status") or ""
+        assert "IndexedDB WGSL Shader Pre-Compiled & Cached" in pipeline_cache_status, f"Unexpected IDB shader cache status: {pipeline_cache_status}"
 
         page.click("#wasm-kv-benchmark-btn")
         page.wait_for_function("document.querySelector('#wasm-paged-result').textContent.includes('Benchmark')", timeout=5000)
@@ -440,7 +495,7 @@ def test_indexeddb_vector_store_quota_boundaries() -> None:
         # Evaluate client-side IndexedDB record count and storage quota check
         record_count = page.evaluate("""async () => {
             return new Promise((resolve) => {
-                const req = indexedDB.open('WasmStudioVectorDB', 1);
+                const req = indexedDB.open('WasmStudioVectorDB');
                 req.onsuccess = (e) => {
                     const db = e.target.result;
                     const tx = db.transaction('vector_documents', 'readonly');

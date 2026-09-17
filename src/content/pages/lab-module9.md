@@ -55,7 +55,7 @@ test('verify administrator access to lab manual solutions', async ({ page }) => 
     window.localStorage.setItem('auth_token', 'mock_jwt_admin_token');
   });
 
-  await page.goto('http://127.0.0.1:4321/lab-manual');
+  await page.goto('<http://127.0.0.1:4321/lab-manual>');
 
   // Assert administrator-only solution toggle is visible
   const adminPanel = page.locator('#admin-solution-key');
@@ -87,7 +87,7 @@ Write an automated Playwright test that sets an expired session cookie and verif
     sameSite: 'Lax'
   }]);
 
-  await page.goto('http://127.0.0.1:4321/graduation');
+  await page.goto('<http://127.0.0.1:4321/graduation>');
 
   // Verify user is redirected to student welcome kit due to expired session
   await expect(page).toHaveURL(/.*welcome-kit/);

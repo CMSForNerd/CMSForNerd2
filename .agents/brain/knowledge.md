@@ -70,7 +70,7 @@ This document contains a comprehensive record of all 50 Google Jules operational
     The repository adopts the Triple-Render Architecture Diagram Specification skill (`triple-render-architecture-diagram` located in `.agents/skills/triple-render-architecture-diagram/SKILL.md` and `skills/triple-render-architecture-diagram/SKILL.md`, documented in `docs/explanation/diagram-design-standards-skill.md`), mandating a unified 4-tier visual deliverable sequence for all technical diagrams: (1) ASCII trees, (2) standalone Dark Slate Navy raw SVG vector graphics (`#0F172A`), (3) Git-native Mermaid diagram block, and (4) summary interface and routing comparison table, backed by adaptive CSS in `src/styles/global.css` for light mode and toner-saving print mode (`@media print`).
 
 16. **Vite PWA Cache Maximum Limit**
-    The Vite PWA Astro configuration in `astro.config.mjs` sets `workbox.maximumFileSizeToCacheInBytes` to 35 MB (35 * 1024 * 1024) to allow pre-caching large WebAssembly binaries (such as ONNX Runtime Web WASM files) and bundled client script assets.
+    The Vite PWA Astro configuration in `astro.config.mjs` sets `workbox.maximumFileSizeToCacheInBytes` to 35 MB (35 *1024* 1024) to allow pre-caching large WebAssembly binaries (such as ONNX Runtime Web WASM files) and bundled client script assets.
 
 17. **GitHub Pages Deployment Workflow**
     The GitHub Pages deployment for the Astro SSG site is published from `dist/` via `.github/workflows/deploy-gh-pages.yml`, with `public/.nojekyll` ensuring that asset directories like `_astro/` are not processed or ignored by GitHub Pages.

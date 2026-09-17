@@ -164,10 +164,12 @@ Search engines traditionally require dedicated backend servers (e.g., Elasticsea
 To align with modern Zero-Trust static security standards, CMSForNerd2 includes client-side WebAssembly tools for cryptographic hashing and OKF v0.2 document parsing.
 
 ### Cryptographic Whitelisting
+
 - **Browser-Native Execution**: Hashing functions execute using WebAssembly/WebCrypto APIs inside local browser memory.
 - **CSP Integrity Verification**: Generates Base64 SHA-256 digests (`'sha256-...'`) for inline script whitelisting in Nginx Content Security Policy headers.
 
 ### OKF v0.2 Schema Processing
+
 - Parses Open Knowledge Format frontmatter schemas, verifying trust and freshness pillars (`status`, `stale_after`, `sources`, `generated`).
 - Guarantees complete user privacy: documents are analyzed entirely client-side with zero external data transmission.
 
@@ -270,6 +272,7 @@ graph TD
 ---
 
 ### Architecture Highlights
+
 - **100% Offline Air-Gapped Execution**: Synthesizes responses locally on user hardware without transmitting prompts or vector contexts to external API backends.
 - **WebGPU Acceleration**: Leverages modern GPU compute shaders for rapid quantized tensor matrix multiplication, falling back to multi-core Wasm SIMD when WebGPU is unavailable.
 - **FastMCP Context Coupling**: Ingests top cosine-similarity matches from the FastMCP local vector database to deliver contextually grounded RAG answers.
@@ -301,6 +304,7 @@ In air-gapped web applications and isolated developer environments, network conn
 Real-time developer feedback is enabled via WebAssembly-streamed ONNX inference for live workspace code and document completion.
 
 ### Architecture Highlights
+
 - **Token-by-Token WebAssembly Streaming**: Streams embeddings and generated tokens incrementally without blocking the main browser UI thread.
 - **Live Typing Completion**: Automatically analyzes input text during document editing, delivering low-latency (~2.4ms) code suggestions at high throughput (~42 tokens/sec).
 
