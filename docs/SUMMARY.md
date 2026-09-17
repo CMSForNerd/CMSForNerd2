@@ -53,6 +53,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
 * [Diagram Design Standards Skill Overview](explanation/diagram-design-standards-skill.md)
+* [Attested Computations and Warp Agent Skills Standard](explanation/attested-computations-and-warp-skills.md)
 * [Web Interface Improvements](explanation/web-interface-improvements.md)
 * [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)
 

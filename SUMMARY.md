@@ -37,6 +37,7 @@ tags: ["summary", "index", "navigation"]
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
 * [Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)
 * [Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)
+* [Attested Computations and Warp Agent Skills Standard](docs/explanation/attested-computations-and-warp-skills.md)
 * [Web Interface Improvements](docs/explanation/web-interface-improvements.md)
 * [How to Produce a Project Technical Handbook](docs/how-to/how-to-produce-a-project-technical-handbook.md)
 
