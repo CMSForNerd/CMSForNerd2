@@ -48,3 +48,18 @@ def test_context7_configuration() -> None:
     assert "url" in data, "context7.json missing 'url' key."
     assert "public_key" in data, "context7.json missing 'public_key' key."
     assert data["url"].startswith("https://"), "Context7 URL must be secure HTTPS."
+
+
+def test_pagefind_sri_manifest() -> None:
+    """Validates the structure and integrity of the Pagefind SRI manifest in dist/pagefind/pagefind-sri.json."""
+    manifest_path = os.path.join("dist", "pagefind", "pagefind-sri.json")
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+        assert manifest.get("algorithm") == "sha384", "SRI manifest algorithm must be 'sha384'."
+        assert "files" in manifest, "SRI manifest missing 'files' map."
+        files = manifest["files"]
+        assert len(files) > 0, "SRI manifest 'files' map is empty."
+        for file_path, sri_hash in files.items():
+            assert sri_hash.startswith("sha384-"), f"SRI hash for {file_path} must start with 'sha384-'."

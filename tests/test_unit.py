@@ -27,6 +27,7 @@ from tests.unit.markdown import (
 )
 from tests.unit.mcp import (
     test_create_mcp_app_and_websocket_transport,
+    test_dispatch_wasm_component_tool,
     test_get_openwiki_concept,
     test_get_route_content,
     test_get_sitemap_routes,
@@ -34,10 +35,12 @@ from tests.unit.mcp import (
     test_mcp_webrtc_p2p_mesh_transport,
     test_run_server_invalid_transport,
     test_search_ssg_routes,
+    test_validate_wasm_cm_wit_interface,
     test_websocket_reconnect_failure_mode,
 )
 from tests.unit.sitemaps import (
     test_context7_configuration,
+    test_pagefind_sri_manifest,
     test_sitemaps_consistency,
 )
 
@@ -49,6 +52,7 @@ __all__ = [
     "test_containerfile_security_and_structure",
     "test_context7_configuration",
     "test_create_mcp_app_and_websocket_transport",
+    "test_dispatch_wasm_component_tool",
     "test_get_openwiki_concept",
     "test_get_route_content",
     "test_get_sitemap_routes",
@@ -57,9 +61,11 @@ __all__ = [
     "test_markdown_governance_footers",
     "test_markdown_okf_compliance",
     "test_mcp_webrtc_p2p_mesh_transport",
+    "test_pagefind_sri_manifest",
     "test_run_server_invalid_transport",
     "test_search_ssg_routes",
     "test_sitemaps_consistency",
     "test_uk_english_documentation_spellings",
+    "test_validate_wasm_cm_wit_interface",
     "test_websocket_reconnect_failure_mode",
 ]

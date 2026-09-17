@@ -21,6 +21,8 @@ def preview_server() -> Generator[None, None, None]:
     # Force base path to '/' for test session execution to ensure consistent root preview serving across environments
     env = os.environ.copy()
     env["GITHUB_ACTIONS"] = "false"
+    node_bin = os.path.abspath("node_modules/.bin")
+    env["PATH"] = f"{node_bin}:{env.get('PATH', '')}"
 
     # Build static site assets
     subprocess.run(["npm", "run", "build"], env=env, check=True)

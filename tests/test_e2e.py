@@ -305,7 +305,7 @@ def test_cookie_expiration_boundary() -> None:
 
 
 def test_webgpu_canvas_visual_regression() -> None:
-    """Verifies Playwright visual snapshot rendering for WebGPU matrix canvas in Wasm Studio."""
+    """Verifies Playwright visual snapshot rendering and visual regression diff thresholds for WebGPU matrix canvas in Wasm Studio."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -323,9 +323,22 @@ def test_webgpu_canvas_visual_regression() -> None:
         assert box is not None, "Bounding box for #webgpu-canvas is None."
         assert box["width"] > 0 and box["height"] > 0, "Canvas dimensions are invalid."
 
-        # Take element screenshot snapshot for visual regression verification
-        canvas_bytes = canvas_elem.screenshot(path="/tmp/webgpu_canvas_snapshot.png")
-        assert len(canvas_bytes) > 0, "WebGPU canvas screenshot byte stream is empty."
+        # Take element screenshot snapshot for visual baseline
+        canvas_bytes_baseline = canvas_elem.screenshot(path="/tmp/webgpu_canvas_snapshot.png")
+        assert len(canvas_bytes_baseline) > 0, "WebGPU canvas screenshot byte stream is empty."
+
+        # Trigger second render pass and capture comparison snapshot
+        page.click("#wasm-paged-gen-btn")
+        canvas_bytes_current = canvas_elem.screenshot(path="/tmp/webgpu_canvas_snapshot_current.png")
+        assert len(canvas_bytes_current) > 0, "WebGPU comparison canvas screenshot byte stream is empty."
+
+        # Compute byte diff ratio between sequential canvas rendering frames
+        max_len = max(len(canvas_bytes_baseline), len(canvas_bytes_current))
+        byte_diffs = sum(1 for a, b in zip(canvas_bytes_baseline, canvas_bytes_current) if a != b)
+        byte_diff_ratio = byte_diffs / max_len if max_len > 0 else 0.0
+
+        # Assert visual regression diff ratio remains strictly below tolerance threshold (< 0.05)
+        assert byte_diff_ratio < 0.05, f"WebGPU canvas visual regression threshold exceeded: diff ratio = {byte_diff_ratio:.4f}"
 
         browser.close()
 

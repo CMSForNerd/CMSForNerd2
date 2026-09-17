@@ -27,6 +27,14 @@ def test_sitemap_verification() -> None:
     assert res.returncode == 0
     assert "Verification Script Completed Successfully" in res.stdout
 
+def test_pagefind_sri_hashing() -> None:
+    """Runs Pagefind SRI auto-hashing utility script and verifies manifest generation."""
+    res = subprocess.run(["node", "tools/sri-hash-pagefind.js"], capture_output=True, text=True, check=False)
+    assert res.returncode == 0
+    if os.path.exists("dist/pagefind"):
+        manifest_path = os.path.join("dist", "pagefind", "pagefind-sri.json")
+        assert os.path.exists(manifest_path), "pagefind-sri.json must exist in dist/pagefind after SRI hashing."
+
 def test_okf_compliance() -> None:
     """Runs frontmatter compliance checks using the OKF refactoring utility.
 

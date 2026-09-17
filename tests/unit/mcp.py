@@ -7,6 +7,7 @@ from starlette.testclient import TestClient
 
 from tools.mcp.server import (
     create_mcp_app,
+    dispatch_wasm_component_tool,
     get_openwiki_concept,
     get_route_content,
     get_sitemap_routes,
@@ -14,6 +15,7 @@ from tools.mcp.server import (
     run_server,
     search_ssg_routes,
     validate_diagram_schema,
+    validate_wasm_cm_wit_interface,
 )
 
 
@@ -79,6 +81,52 @@ def test_get_openwiki_concept() -> None:
     assert res["found"] is True
     assert res["matches_count"] > 0
     assert len(res["matches"]) > 0
+
+
+def test_validate_wasm_cm_wit_interface() -> None:
+    """Verifies WebAssembly Component Model WIT interface specification validation."""
+    wit_code = """package mcp:agent-tools@0.2.0;
+
+interface search-engine {
+  record search-query {
+    query: string,
+    limit: u32
+  }
+  func execute-search(req: search-query) -> string;
+}"""
+    res_valid: dict[str, Any] = validate_wasm_cm_wit_interface(wit_code)
+    assert res_valid["valid"] is True
+    assert res_valid["interface_name"] == "mcp:agent-tools@0.2.0"
+    assert "execute-search" in res_valid["functions"]
+    assert "search-query" in res_valid["types"]
+
+    res_empty: dict[str, Any] = validate_wasm_cm_wit_interface("")
+    assert res_empty["valid"] is False
+    assert "error" in res_empty
+
+
+def test_dispatch_wasm_component_tool() -> None:
+    """Verifies WebAssembly Component Model multi-language tool dispatching."""
+    res_rust: dict[str, Any] = dispatch_wasm_component_tool(
+        component_name="mcp:agent-tools/search",
+        function_name="execute-search",
+        args={"query": "Astro", "limit": 10},
+        target_language="rust",
+    )
+    assert res_rust["dispatched"] is True
+    assert res_rust["component"] == "mcp:agent-tools/search"
+    assert res_rust["function"] == "execute-search"
+    assert res_rust["target_language"] == "rust"
+    assert res_rust["abi"] == "wasm-cm-canonical-v1"
+    assert res_rust["output"]["status"] == "success"
+
+    res_go: dict[str, Any] = dispatch_wasm_component_tool(
+        component_name="mcp:agent-tools/vector",
+        function_name="rank-docs",
+        args={"query": "Wasm"},
+        target_language="go",
+    )
+    assert res_go["target_language"] == "go"
 
 
 def test_validate_diagram_schema() -> None:

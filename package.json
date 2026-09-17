@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist && node tools/sri-hash-pagefind.js",
     "preview": "astro preview",
     "astro": "astro"
   },
