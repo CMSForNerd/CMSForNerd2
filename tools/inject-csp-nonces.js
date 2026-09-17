@@ -54,7 +54,7 @@ function calculateCspHash(content) {
  */
 function extractInlineScripts(htmlContent) {
   const inlineScripts = [];
-  const scriptRegex = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+  const scriptRegex = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
   let match;
 
   while ((match = scriptRegex.exec(htmlContent)) !== null) {
