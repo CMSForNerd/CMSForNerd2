@@ -16,7 +16,7 @@
     "@mlc-ai/web-llm": "^0.2.85",
     "@vite-pwa/astro": "1.2.0",
     "astro": "^7.3.2",
-    "onnxruntime-web": "^1.29.0",
+    "onnxruntime-web": "^1.30.0",
     "tree-sitter-wasms": "^0.1.13",
     "web-tree-sitter": "^0.27.0"
   },
