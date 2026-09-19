@@ -22,7 +22,7 @@ def preview_server() -> Generator[None, None, None]:
     env = os.environ.copy()
     env["GITHUB_ACTIONS"] = "false"
     node_bin = os.path.abspath("node_modules/.bin")
-    env["PATH"] = f"{node_bin}:{env.get('PATH', '')}"
+    env["PATH"] = f"{node_bin}:/home/jules/.nvm/versions/node/v22.22.1/bin:/usr/local/bin:/usr/bin:/bin:{env.get('PATH', '')}"
 
     # Build static site assets
     subprocess.run(["npm", "run", "build"], env=env, check=True)

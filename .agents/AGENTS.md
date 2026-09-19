@@ -97,8 +97,10 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Architecture Decision Records** | `.agents/skills/architecture-decision-records/` | Guides writing and maintaining Architecture Decision Records (ADRs) following MADR standards. |
 | **Changelog Automation** | `.agents/skills/changelog-automation/` | Automates changelog generation from commits, PRs, and releases following Keep a Changelog and Conventional Commits. |
 | **Web Design Guidelines** | `.agents/skills/web-design-guidelines/` | Review UI code for Web Interface Guidelines compliance, accessibility standards, typography, and UX best practices. |
-| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams combining ASCII trees, standalone Dark Slate SVG vector graphics, Mermaid blocks, and routing tables. |
+| **Diagram Design Standards** | `.agents/skills/diagram-design-standards/` | Standardised specification for multi-tier diagrams incorporating Cathryn Lavery principles (grid alignment, typography hierarchy, visual flow, light/printer-friendly mode) combining ASCII trees, SVG vector graphics, Mermaid blocks, and routing tables. |
 | **Triple-Render Architecture Diagram** | `.agents/skills/triple-render-architecture-diagram/` | Enforces 4-tier visual deliverables combining ASCII trees, Dark Slate raw SVGs, Mermaid diagrams, and summary routing tables. |
+| **Attested Computations** | `.agents/skills/attested-computations/` | Standardised specification for defining and executing Attested Computations in Open Knowledge Format (OKF) v0.2 with deterministic attester verification. |
+| **Warp Agent Skills** | `.agents/skills/warp-agent-skills/` | Standardised specification for defining, parameterising, discovering, and executing Warp and OpenViking Agent Skills across project and user scopes. |
 
 ---
 
