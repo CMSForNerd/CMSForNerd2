@@ -1,0 +1,915 @@
+{
+  "generated_at": "2026-09-19T03:52:10.361Z",
+  "policy": "default-src 'self'",
+  "pages": {
+    "about/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "about/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "ai-dev/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "ai-dev/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "ai-sop/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "ai-sop/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "amp-acceleration/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "amp-acceleration/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "ansible-lab/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "ansible-lab/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "csp-nonce-guide/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "csp-nonce-guide/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/context7-integration/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/context7-integration/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/engineering/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/engineering/ansible-asimp-hardening/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/engineering/ansible-asimp-hardening/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/engineering/dns-systemd-troubleshooting/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/engineering/dns-systemd-troubleshooting/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/engineering/efs-mount-scripts/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/engineering/efs-mount-scripts/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/engineering/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/engineering/opentofu-manifests/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/engineering/opentofu-manifests/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/executive/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/executive/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/executive/regulatory-compliance/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/executive/regulatory-compliance/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/executive/tco-financial-blueprint/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/executive/tco-financial-blueprint/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/attested-computations-and-warp-skills/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/attested-computations-and-warp-skills/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/diagram-design-standards-skill/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/diagram-design-standards-skill/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/fastmcp-wasm-architecture/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/fastmcp-wasm-architecture/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/modernisation-philosophy/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/modernisation-philosophy/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/spatial-memory-and-sandbox/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/spatial-memory-and-sandbox/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/web-design-guidelines-skill/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/web-design-guidelines-skill/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/explanation/web-interface-improvements/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/explanation/web-interface-improvements/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/governance/llm-wiki-adoption/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/governance/llm-wiki-adoption/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/ansible-deployment/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/ansible-deployment/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/github-pages-deployment-troubleshooting/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/github-pages-deployment-troubleshooting/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/how-to-produce-a-project-technical-handbook/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/how-to-produce-a-project-technical-handbook/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/how-to-use-fastmcp-and-wasm/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/how-to-use-fastmcp-and-wasm/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/okf-refactoring/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/okf-refactoring/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/sitemap-verification/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/sitemap-verification/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/how-to/webgpu-application-development/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/how-to/webgpu-application-development/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/jules-platform-guide/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/jules-platform-guide/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/migration-guide/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/migration-guide/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/readme/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/readme/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/reference/deploy-static/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/reference/deploy-static/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/reference/llms-txt2ctx/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/reference/llms-txt2ctx/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/reference/refactor-okf/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/reference/refactor-okf/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/reference/verify-sitemaps/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/reference/verify-sitemaps/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/start-here/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/start-here/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/summary/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/summary/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/tutorials/local-development/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/tutorials/local-development/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "docs/tutorials/static-site-deployment/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "docs/tutorials/static-site-deployment/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "exam-answers/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "exam-answers/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "final-exam/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "final-exam/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "graduation/amp/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='",
+        "'sha256-pXYb4FkWd92uOgAXPjfvoXwQ1z62QK6pmOya3mjmwGo='"
+      ]
+    },
+    "graduation/index.html": {
+      "inline_script_count": 3,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-pXYb4FkWd92uOgAXPjfvoXwQ1z62QK6pmOya3mjmwGo='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "hall-of-fame/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "hall-of-fame/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "history/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "history/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "installation/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "installation/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-manual/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-manual/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module1/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module1/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module10/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module10/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module11/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module11/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module2/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module2/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module3/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module3/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module4/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module4/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module5/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module5/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module7/amp/index.html": {
+      "inline_script_count": 3,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='",
+        "'sha256-oWoBr8rxLLRBkt/sqy6+hkUsOa1urxNluH2vP0M2BOw='"
+      ]
+    },
+    "lab-module7/index.html": {
+      "inline_script_count": 4,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-oWoBr8rxLLRBkt/sqy6+hkUsOa1urxNluH2vP0M2BOw='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module8/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module8/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "lab-module9/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "lab-module9/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "linux-setup/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "linux-setup/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "offline/index.html": {
+      "inline_script_count": 0,
+      "hashes": []
+    },
+    "pwa-architecture/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "pwa-architecture/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "search/index.html": {
+      "inline_script_count": 3,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xL/lNVCdZBBNLu6FMWqYYyI4OfHSFa66ge8jn62j7gQ='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "security-policy/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "security-policy/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "sitemap-page/amp/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='",
+        "'sha256-U0WFtVjot63T+vU/Ql2tf2jmvq+BG7SKxUX7Zdf15ZQ='"
+      ]
+    },
+    "sitemap-page/index.html": {
+      "inline_script_count": 3,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-U0WFtVjot63T+vU/Ql2tf2jmvq+BG7SKxUX7Zdf15ZQ='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "template/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "template/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "ui-kit/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "ui-kit/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "wasm-studio/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "welcome-kit/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "welcome-kit/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    },
+    "windows-setup/amp/index.html": {
+      "inline_script_count": 1,
+      "hashes": [
+        "'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk='"
+      ]
+    },
+    "windows-setup/index.html": {
+      "inline_script_count": 2,
+      "hashes": [
+        "'sha256-2LaXhMeW+P+dX2p052SyP6yq8AfsmwHaWE9z/GDBxKE='",
+        "'sha256-xMLdygpRlhcC7mx2vvraVJC43ZbjiTop2k4rz1Btq1E='"
+      ]
+    }
+  }
+}

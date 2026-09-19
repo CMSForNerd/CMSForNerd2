@@ -1,0 +1,574 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Building WebGPU Applications on CMSForNerd2 (AMP)</title><meta name="description" content="Comprehensive guide and developer manual for implementing WebGPU hardware acceleration, WebLLM on-device inference, dynamic tri-tiered ensemble fallbacks, and air-gapped RAG pipelines within web applications based on CMSForNerd2."><link rel="canonical" href="/CMSForNerd2docs/how-to/webgpu-application-development"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style>  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' 'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk=' https://*; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://* wss://*; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
+</head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2docs/context7-integration/amp" class>Context7 Service Integration Guide</a></li><li><a href="/CMSForNerd2docs/engineering/amp" class>DevOps Implementation Runbook Portal</a></li><li><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening/amp" class>Ansible ASIMP Hardening Playbooks</a></li><li><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting/amp" class>DNS &amp; systemd-resolved Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/engineering/efs-mount-scripts/amp" class>Persistent EFS Storage &amp; Mount Scripts</a></li><li><a href="/CMSForNerd2docs/engineering/opentofu-manifests/amp" class>OpenTofu Module Manifests &amp; Simulation</a></li><li><a href="/CMSForNerd2docs/executive/amp" class>Executive &amp; Financial Blueprint Portal</a></li><li><a href="/CMSForNerd2docs/executive/regulatory-compliance/amp" class>Sovereignty &amp; Regulatory Compliance</a></li><li><a href="/CMSForNerd2docs/executive/tco-financial-blueprint/amp" class>36-Month TCO &amp; Financial Blueprint</a></li><li><a href="/CMSForNerd2docs/explanation/attested-computations-and-warp-skills/amp" class>Attested Computations and Warp Agent Skills Standard</a></li><li><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill/amp" class>Diagram Design Standards Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture/amp" class>FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a></li><li><a href="/CMSForNerd2docs/explanation/modernisation-philosophy/amp" class>PHP-to-Static Modernisation Philosophy</a></li><li><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox/amp" class>Spatial Memory &amp; Dual-Pathway Design</a></li><li><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill/amp" class>Web Design Guidelines Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/web-interface-improvements/amp" class>Web Interface Improvements &amp; Design Review</a></li><li><a href="/CMSForNerd2docs/governance/llm-wiki-adoption/amp" class>DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a></li><li><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/amp" class>Technical Book Design &amp; PDF Compilation Master Prompt Guide</a></li><li><a href="/CMSForNerd2docs/how-to/ansible-deployment/amp" class>Ansible Deployment How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting/amp" class>GitHub Pages Deployment and Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook/amp" class>How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm/amp" class>How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a></li><li><a href="/CMSForNerd2docs/how-to/okf-refactoring/amp" class>OKF Frontmatter Refactoring How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/sitemap-verification/amp" class>Sitemap Verification How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/webgpu-application-development/amp" class="active">Building WebGPU Applications on CMSForNerd2</a></li><li><a href="/CMSForNerd2docs/jules-platform-guide/amp" class>Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a></li><li><a href="/CMSForNerd2docs/migration-guide/amp" class>CMSForNerd to CMSForNerd2 Static Migration Guide</a></li><li><a href="/CMSForNerd2docs/readme/amp" class>CMSForNerd2 Documentation System</a></li><li><a href="/CMSForNerd2docs/reference/deploy-static/amp" class>deploy-static.sh CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/llms-txt2ctx/amp" class>llms_txt2ctx.py CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/refactor-okf/amp" class>refactor-okf.cjs API Reference</a></li><li><a href="/CMSForNerd2docs/reference/verify-sitemaps/amp" class>verify-sitemaps.js API Reference</a></li><li><a href="/CMSForNerd2docs/start-here/amp" class>CMSForNerd2 Master Onboarding Map</a></li><li><a href="/CMSForNerd2docs/summary/amp" class>CMSForNerd2 Documentation SUMMARY</a></li><li><a href="/CMSForNerd2docs/tutorials/local-development/amp" class>Local Development Quickstart Tutorial</a></li><li><a href="/CMSForNerd2docs/tutorials/static-site-deployment/amp" class>Static Site Deployment Tutorial</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module10/amp" class>Module 10 Worksheet</a></li><li><a href="/CMSForNerd2lab-module11/amp" class>Module 11 Worksheet</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2lab-module8/amp" class>Module 8 Worksheet</a></li><li><a href="/CMSForNerd2lab-module9/amp" class>Module 9 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><h1 id="building-webgpu-applications-on-cmsfornerd2">Building WebGPU Applications on CMSForNerd2</h1>
+<p>This guide provides a complete developer manual and step-by-step implementation framework for building modern, air-gapped web applications powered by <strong>WebGPU</strong> hardware acceleration on top of <strong>CMSForNerd2</strong>.</p>
+<hr>
+<h2 id="1-webgpu-architecture-in-cmsfornerd2">1. WebGPU Architecture in CMSForNerd2</h2>
+<p>CMSForNerd2 leverages WebGPU to deliver low-latency, 100% offline, privacy-preserving artificial intelligence directly within the user’s web browser. By executing quantized LLM tensors (<code>Llama-3.2-1B-Instruct-q4f16</code>, <code>Qwen2.5-0.5B-Instruct-q4f16</code>) via GPU compute shaders, web applications achieve high-throughput inference without server backends or network data transmission.</p>
+<h3 id="tri-tiered-ensemble-pipeline-architecture">Tri-Tiered Ensemble Pipeline Architecture</h3>
+<h4 id="1-ascii-tree-diagram">1. ASCII Tree Diagram</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>                              ┌──────────────────────────┐</span></span>
+<span class="line"><span>                              │    User Hardware Request  │</span></span>
+<span class="line"><span>                              └────────────┬─────────────┘</span></span>
+<span class="line"><span>                                           │</span></span>
+<span class="line"><span>                                  Capability Probe</span></span>
+<span class="line"><span>                                           │</span></span>
+<span class="line"><span>             ┌─────────────────────────────┼─────────────────────────────┐</span></span>
+<span class="line"><span>             ▼                             ▼                             ▼</span></span>
+<span class="line"><span>  ┌──────────────────────┐      ┌──────────────────────┐      ┌──────────────────────┐</span></span>
+<span class="line"><span>  │ Tier 1: WebGPU       │      │ Tier 2: Wasm SIMD    │      │ Tier 3: AST Guardrail│</span></span>
+<span class="line"><span>  │ Hardware Accelerator │      │ Multi-Thread CPU     │      │ Rule-Based Synthesiser│</span></span>
+<span class="line"><span>  └──────────────────────┘      └──────────────────────┘      └──────────────────────┘</span></span></code></pre>
+<h4 id="2-standalone-dark-slate-raw-svg-vector-graphic-svg">2. Standalone Dark Slate Raw SVG Vector Graphic (<code>.svg</code>)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">svg</span><span style="color:#B392F0"> xmlns</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"http://www.w3.org/2000/svg"</span><span style="color:#B392F0"> viewBox</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"0 0 800 360"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"100%"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"100%"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">defs</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">marker</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"arrow"</span><span style="color:#B392F0"> viewBox</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"0 0 10 10"</span><span style="color:#B392F0"> refX</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"6"</span><span style="color:#B392F0"> refY</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"5"</span><span style="color:#B392F0"> markerWidth</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"6"</span><span style="color:#B392F0"> markerHeight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"6"</span><span style="color:#B392F0"> orient</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"auto-start-reverse"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">path</span><span style="color:#B392F0"> d</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"M 0 0 L 10 5 L 0 10 z"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">marker</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">defs</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"100%"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"100%"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#0F172A"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"12"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"35"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#38BDF8"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"16"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#B392F0"> letter-spacing</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"1"</span><span style="color:#E1E4E8">>WEBGPU TRI-TIERED ENSEMBLE FALLBACK ARCHITECTURE&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Probe Node --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"250"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"60"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"300"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"50"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#1E293B"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#38BDF8"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"90"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FFFFFF"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"12"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>HARDWARE CAPABILITY PROBE ('gpu' in navigator)&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Branch Lines --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">path</span><span style="color:#B392F0"> d</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"M 300 110 L 150 160"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#B392F0"> marker-end</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"url(#arrow)"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">path</span><span style="color:#B392F0"> d</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"M 400 110 L 400 160"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#B392F0"> marker-end</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"url(#arrow)"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">path</span><span style="color:#B392F0"> d</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"M 500 110 L 650 160"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#B392F0"> marker-end</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"url(#arrow)"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Tier 1 --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"30"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"150"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#1E293B"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#4ADE80"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"30"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"28"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#15803D"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"140"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"179"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FFFFFF"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>TIER 1: WEBGPU PRIMARY&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"140"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"210"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#F8FAFC"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#E1E4E8">>GPU Compute Shaders&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"140"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"230"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#E2E8F0"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Consolas, monospace"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>WebLLM Matrix Tensors&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"140"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"260"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#4ADE80"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>High Throughput (~42 t/s)&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"140"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"285"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>Zero Network Leakage&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Tier 2 --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"290"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"150"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#1E293B"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FBBF24"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"290"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"28"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#B45309"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"179"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FFFFFF"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>TIER 2: WASM SIMD CPU&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"210"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#F8FAFC"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#E1E4E8">>Multi-Thread CPU Fallback&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"230"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#E2E8F0"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Consolas, monospace"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>128-bit Vector Registers&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"260"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FBBF24"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>Moderate (~12 t/s)&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"400"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"285"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>Restricted GPU Adapters&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Tier 3 --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"550"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"150"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#1E293B"</span><span style="color:#B392F0"> stroke</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#C084FC"</span><span style="color:#B392F0"> stroke-width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">rect</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"550"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"160"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"220"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"28"</span><span style="color:#B392F0"> rx</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#6B21A8"</span><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"660"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"179"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#FFFFFF"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>TIER 3: AST SYNTHESISER&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"660"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"210"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#F8FAFC"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#E1E4E8">>WebTreeSitter AST Engine&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"660"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"230"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#E2E8F0"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Consolas, monospace"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>Deterministic Parsing&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"660"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"260"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#C084FC"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"11"</span><span style="color:#B392F0"> font-weight</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bold"</span><span style="color:#E1E4E8">>Instant Repair (</span><span style="color:#79B8FF">&#x26;lt;</span><span style="color:#E1E4E8">2ms)&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">text</span><span style="color:#B392F0"> x</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"660"</span><span style="color:#B392F0"> y</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"285"</span><span style="color:#B392F0"> text-anchor</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"middle"</span><span style="color:#B392F0"> fill</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#94A3B8"</span><span style="color:#B392F0"> font-family</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-apple-system, sans-serif"</span><span style="color:#B392F0"> font-size</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">>Structural Code Repair&#x3C;/</span><span style="color:#85E89D">text</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">svg</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h4 id="3-git-native-mermaid-diagram-mmd">3. Git-Native Mermaid Diagram (<code>.mmd</code>)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="mermaid"><code><span class="line"><span style="color:#E1E4E8">graph TD</span></span>
+<span class="line"><span style="color:#E1E4E8">    subgraph Probe ["Hardware Initialization"]</span></span>
+<span class="line"><span style="color:#E1E4E8">        PROBE["Probe Navigator (`'gpu' in navigator`)"]</span></span>
+<span class="line"><span style="color:#E1E4E8">    end</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    subgraph Tiers ["Tri-Tiered Fallback Pipeline"]</span></span>
+<span class="line"><span style="color:#E1E4E8">        T1["Tier 1: WebGPU Compute Shaders&#x3C;br/>(Primary WebLLM Engine)"]</span></span>
+<span class="line"><span style="color:#E1E4E8">        T2["Tier 2: Wasm SIMD CPU Fallback&#x3C;br/>(Secondary Multi-Threaded Engine)"]</span></span>
+<span class="line"><span style="color:#E1E4E8">        T3["Tier 3: WebTreeSitter AST Synthesiser&#x3C;br/>(Deterministic Guardrail Layer)"]</span></span>
+<span class="line"><span style="color:#E1E4E8">    end</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    PROBE -->|"WebGPU Supported &#x26; Ready"| T1</span></span>
+<span class="line"><span style="color:#E1E4E8">    PROBE -->|"GPU Unavailable / Isolated"| T2</span></span>
+<span class="line"><span style="color:#E1E4E8">    T2 -->|"Model Loading Failed / Hardware Constraint"| T3</span></span></code></pre>
+<h4 id="4-summary-interface--routing-table">4. Summary Interface &#x26; Routing Table</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Tier Layer</th><th align="left">Runtime Engine</th><th align="left">Primary Use Case</th><th align="left">Hardware Requirement</th><th align="left">Fallback Trigger</th></tr></thead><tbody><tr><td align="left"><strong>Tier 1 (Primary)</strong></td><td align="left"><code>@mlc-ai/web-llm</code> over WebGPU</td><td align="left">Quantized LLM inference &#x26; RAG synthesis</td><td align="left">Modern GPU compute adapter (<code>navigator.gpu</code>)</td><td align="left">WebGPU adapter absent or origin isolation disabled</td></tr><tr><td align="left"><strong>Tier 2 (Fallback)</strong></td><td align="left">WebAssembly 128-bit SIMD</td><td align="left">Multi-threaded CPU LLM inference</td><td align="left">Multi-core CPU with Wasm SIMD support</td><td align="left">Model memory allocation overflow or GPU driver timeout</td></tr><tr><td align="left"><strong>Tier 3 (Guardrail)</strong></td><td align="left"><code>web-tree-sitter</code> WASM AST</td><td align="left">Structural syntax parsing &#x26; deterministic repairs</td><td align="left">Standard browser JS runtime</td><td align="left">Complete LLM engine unreachability or offline emergency</td></tr></tbody></table>
+<hr>
+<h2 id="2-hardware-capability-detection--setup">2. Hardware Capability Detection &#x26; Setup</h2>
+<p>Before initializing WebGPU inference pipelines, your application must inspect client browser capabilities and report fallback states to the user.</p>
+<h3 id="detecting-webgpu-and-memory-boundaries">Detecting WebGPU and Memory Boundaries</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * Probes browser capabilities for WebGPU, Wasm 128-bit SIMD, and cross-origin isolation.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@returns</span><span style="color:#B392F0"> {Promise&#x3C;Object>}</span><span style="color:#6A737D"> Status report containing capability booleans and recommendations.</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> inspectWebGPUCapabilities</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> hasWebGPU</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#9ECBFF">'gpu'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> navigator);</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> adapterInfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (hasWebGPU) {</span></span>
+<span class="line"><span style="color:#F97583">    try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> adapter</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> navigator.gpu.</span><span style="color:#B392F0">requestAdapter</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (adapter) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        adapterInfo </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> adapter.</span><span style="color:#B392F0">requestAdapterInfo</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (err) {</span></span>
+<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">warn</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'WebGPU adapter request failed:'</span><span style="color:#E1E4E8">, err);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> hasSIMD</span><span style="color:#F97583"> =</span><span style="color:#F97583"> typeof</span><span style="color:#E1E4E8"> WebAssembly </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'object'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#F97583"> typeof</span><span style="color:#E1E4E8"> WebAssembly.validate </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'function'</span><span style="color:#F97583"> &#x26;&#x26;</span></span>
+<span class="line"><span style="color:#E1E4E8">    WebAssembly.</span><span style="color:#B392F0">validate</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#B392F0"> Uint8Array</span><span style="color:#E1E4E8">([</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">97</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">115</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">109</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">96</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">123</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">65</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">253</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">15</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">11</span><span style="color:#E1E4E8">]));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> isIsolated</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> window.crossOriginIsolated </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> deviceMemory</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> navigator.deviceMemory </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> 'Unrestricted'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    hasWebGPU: </span><span style="color:#B392F0">Boolean</span><span style="color:#E1E4E8">(hasWebGPU </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> adapterInfo),</span></span>
+<span class="line"><span style="color:#E1E4E8">    adapterName: adapterInfo </span><span style="color:#F97583">?</span><span style="color:#E1E4E8"> adapterInfo.description </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> adapterInfo.vendor </span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 'Unavailable'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    hasSIMD,</span></span>
+<span class="line"><span style="color:#E1E4E8">    isIsolated,</span></span>
+<span class="line"><span style="color:#E1E4E8">    deviceMemory: </span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> deviceMemory </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'number'</span><span style="color:#F97583"> ?</span><span style="color:#9ECBFF"> `${</span><span style="color:#E1E4E8">deviceMemory</span><span style="color:#9ECBFF">} GB`</span><span style="color:#F97583"> :</span><span style="color:#E1E4E8"> deviceMemory,</span></span>
+<span class="line"><span style="color:#E1E4E8">    recommendedTier: (hasWebGPU </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> adapterInfo) </span><span style="color:#F97583">?</span><span style="color:#9ECBFF"> 'Tier 1: WebGPU'</span><span style="color:#F97583"> :</span><span style="color:#E1E4E8"> (hasSIMD </span><span style="color:#F97583">?</span><span style="color:#9ECBFF"> 'Tier 2: Wasm SIMD'</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> 'Tier 3: AST Synthesiser'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="3-webllm-integration--air-gapped-rag-workflow">3. WebLLM Integration &#x26; Air-Gapped RAG Workflow</h2>
+<p>CMSForNerd2 pairs WebLLM (<code>@mlc-ai/web-llm</code>) with an in-browser vector embedding store (<code>WasmStudioVectorDB</code>) to deliver grounded, offline RAG synthesis.</p>
+<h3 id="step-1-initializing-the-webllm-engine">Step 1: Initializing the WebLLM Engine</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { CreateMLCEngine } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '@mlc-ai/web-llm'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> engine </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SELECTED_MODEL</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'Llama-3.2-1B-Instruct-q4f16-MLC'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * Initializes the WebGPU WebLLM engine with progress callbacks.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {Function}</span><span style="color:#E1E4E8"> onProgress</span><span style="color:#6A737D"> Progress callback reporting model download and setup status.</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> initWebGPUEngine</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">onProgress</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    engine </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> CreateMLCEngine</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">SELECTED_MODEL</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#B392F0">      initProgressCallback</span><span style="color:#E1E4E8">: (</span><span style="color:#FFAB70">progress</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (onProgress) </span><span style="color:#B392F0">onProgress</span><span style="color:#E1E4E8">(progress.text, progress.progress);</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'✅ WebGPU LLM Engine successfully loaded.'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (err) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Tier 1 WebGPU initialization failed. Falling back to Tier 2 Wasm SIMD:'</span><span style="color:#E1E4E8">, err);</span></span>
+<span class="line"><span style="color:#6A737D">    // Execute fallback logic here</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="step-2-extracting-local-vector-context-indexeddb">Step 2: Extracting Local Vector Context (IndexedDB)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * Computes cosine similarity between query embedding and stored document vectors.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {Float32Array}</span><span style="color:#E1E4E8"> queryVector</span><span style="color:#6A737D"> 384-dimensional query vector.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {Array&#x3C;Object>}</span><span style="color:#E1E4E8"> storedRecords</span><span style="color:#6A737D"> IndexedDB vector records.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@returns</span><span style="color:#B392F0"> {Array&#x3C;Object>}</span><span style="color:#6A737D"> Top-K matched documents.</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> retrieveRAGContext</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">queryVector</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">storedRecords</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">topK</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> storedRecords.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">doc</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> dot </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">, normA </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">, normB </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> queryVector.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">      dot </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> queryVector[i] </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> doc.vector[i];</span></span>
+<span class="line"><span style="color:#E1E4E8">      normA </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> queryVector[i] </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> queryVector[i];</span></span>
+<span class="line"><span style="color:#E1E4E8">      normB </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> doc.vector[i] </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> doc.vector[i];</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> similarity</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> dot </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (Math.</span><span style="color:#B392F0">sqrt</span><span style="color:#E1E4E8">(normA) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">sqrt</span><span style="color:#E1E4E8">(normB) </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1e-9</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> { </span><span style="color:#F97583">...</span><span style="color:#E1E4E8">doc, similarity };</span></span>
+<span class="line"><span style="color:#E1E4E8">  })</span></span>
+<span class="line"><span style="color:#E1E4E8">  .</span><span style="color:#B392F0">sort</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">a</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">b</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> b.similarity </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> a.similarity)</span></span>
+<span class="line"><span style="color:#E1E4E8">  .</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, topK);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="step-3-generating-air-gapped-rag-synthesis">Step 3: Generating Air-Gapped RAG Synthesis</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * Synthesises grounded response using WebGPU LLM engine and local RAG context.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {string}</span><span style="color:#E1E4E8"> userQuery</span><span style="color:#6A737D"> User prompt.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {Array&#x3C;Object>}</span><span style="color:#E1E4E8"> contextDocs</span><span style="color:#6A737D"> Matched local context documents.</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@returns</span><span style="color:#B392F0"> {Promise&#x3C;string>}</span><span style="color:#6A737D"> Synthesised answer string.</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> generateAirGappedSynthesis</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">userQuery</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">contextDocs</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">engine) </span><span style="color:#F97583">throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'WebGPU Engine not initialized.'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> contextText</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> contextDocs.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">d</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> `[Source: ${</span><span style="color:#E1E4E8">d</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">title</span><span style="color:#9ECBFF">}]</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">${</span><span style="color:#E1E4E8">d</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">content</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> messages</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#E1E4E8">    { role: </span><span style="color:#9ECBFF">'system'</span><span style="color:#E1E4E8">, content: </span><span style="color:#9ECBFF">'You are an air-gapped security AI assistant running 100% locally on WebGPU. Answer questions strictly using the provided context.'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    { role: </span><span style="color:#9ECBFF">'user'</span><span style="color:#E1E4E8">, content: </span><span style="color:#9ECBFF">`Context:</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">${</span><span style="color:#E1E4E8">contextText</span><span style="color:#9ECBFF">}</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">Question: ${</span><span style="color:#E1E4E8">userQuery</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> response</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> engine.chat.completions.</span><span style="color:#B392F0">create</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    messages,</span></span>
+<span class="line"><span style="color:#E1E4E8">    temperature: </span><span style="color:#79B8FF">0.2</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    max_tokens: </span><span style="color:#79B8FF">512</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> response.choices[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">].message.content;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="4-webgpu-pagedattention-kv-cache-optimization--speculative-decoding">4. WebGPU PagedAttention KV-Cache Optimization &#x26; Speculative Decoding</h2>
+<p>CMSForNerd2 implements <strong>PagedAttention</strong> memory management and <strong>FP16/INT4 Speculative Decoding</strong> over WebGPU compute shaders with direct uint32 bit-level weight unpacking (<code>unpack_int4_weight</code>) to dramatically accelerate in-browser LLM inference and local RAG generation.</p>
+<h3 id="int4-wgsl-compute-shader-dequantization-math">INT4 WGSL Compute Shader Dequantization Math</h3>
+<p>Quantized weights are stored packed with 8x 4-bit INT4 integers per 32-bit <code>uint32</code> word:</p>
+<p>$$\text{Weight}_{\text{dequant}} = (\text{RawINT4} - 8.0 - \text{ZeroPoint}) \times \text{QuantScale}$$</p>
+<p>The WGSL compute shader extracts 4-bit weights dynamically using bitwise shifts and masking:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="wgsl"><code><span class="line"><span style="color:#F97583">fn</span><span style="color:#B392F0"> unpack_int4_weight</span><span style="color:#E1E4E8">(packed_val: </span><span style="color:#F97583">u32</span><span style="color:#E1E4E8">, sub_idx: </span><span style="color:#F97583">u32</span><span style="color:#E1E4E8">, scale: </span><span style="color:#F97583">f32</span><span style="color:#E1E4E8">, zero_pt: </span><span style="color:#F97583">f32</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">-></span><span style="color:#F97583"> f32</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> shift </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (sub_idx </span><span style="color:#F97583">&#x26;</span><span style="color:#79B8FF"> 7u</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 4u</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> raw_int4 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (packed_val </span><span style="color:#F97583">>></span><span style="color:#E1E4E8"> shift) </span><span style="color:#F97583">&#x26;</span><span style="color:#79B8FF"> 0x0Fu</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> signed_val </span><span style="color:#F97583">=</span><span style="color:#B392F0"> f32</span><span style="color:#E1E4E8">(raw_int4) </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 8.0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (signed_val </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> zero_pt) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> scale;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="pagedattention-kv-cache-memory-management">PagedAttention KV-Cache Memory Management</h3>
+<p>Standard autoregressive LLM decoding allocates contiguous GPU memory buffers for key-value (KV) caches, leading to severe memory fragmentation and unutilised allocation blocks. PagedAttention divides the KV-Cache into fixed-size physical page blocks (e.g., 16, 32, or 64 tokens per page) and maintains virtual-to-physical block tables:</p>
+<ul>
+<li><strong>INT4 Quantized KV-Cache</strong>: Compresses 16-bit key-value tensors down to 4-bit integer representation, achieving up to a <strong>75% reduction in GPU memory footprint</strong>.</li>
+<li><strong>Virtual Page Table Mapping</strong>: Maps non-contiguous GPU physical buffer pages dynamically, eliminating memory fragmentation.</li>
+<li><strong>Parallel WGSL Compute Shader Execution</strong>: Computes scaled dot-product attention directly over physical pages using custom WebGPU WGSL compute shaders.</li>
+</ul>
+<h3 id="fp16int4-speculative-decoding-pipeline">FP16/INT4 Speculative Decoding Pipeline</h3>
+<p>Speculative decoding pairs a lightweight INT4 draft proposal model with a high-capacity FP16 target validation model:</p>
+<ol>
+<li><strong>Draft Candidate Generation</strong>: The INT4 draft model generates $K$ candidate tokens (e.g., $K=3$) sequentially with ultra-low latency.</li>
+<li><strong>Parallel WebGPU Verification Pass</strong>: The FP16 target model evaluates all $K$ candidate tokens simultaneously in a single parallel WebGPU compute shader pass over the PagedAttention KV-Cache.</li>
+<li><strong>Acceptance &#x26; Speedup</strong>: Accepted draft tokens are committed instantly, achieving <strong>$1.8\times$ to $2.6\times$ decoding speedups</strong> vs standard autoregressive generation with zero loss in output quality.</li>
+</ol>
+<hr>
+<h2 id="5-security-headers--performance-guardrails">5. Security Headers &#x26; Performance Guardrails</h2>
+<h3 id="1-nginx-cross-origin-isolation-coop--coep">1. Nginx Cross-Origin Isolation (COOP &#x26; COEP)</h3>
+<p>To allow WebGPU memory sharing and multi-threaded Wasm <code>SharedArrayBuffer</code> allocation without security warnings, your Nginx web server must emit cross-origin isolation headers.</p>
+<p>Ensure <code>nginx/nginx.conf</code> includes:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#6A737D"># Enable Cross-Origin Isolation for WebGPU and Wasm SharedArrayBuffer</span></span>
+<span class="line"><span style="color:#F97583">add_header </span><span style="color:#E1E4E8">Cross-Origin-Opener-Policy </span><span style="color:#9ECBFF">"same-origin"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"><span style="color:#F97583">add_header </span><span style="color:#E1E4E8">Cross-Origin-Embedder-Policy </span><span style="color:#9ECBFF">"require-corp"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"><span style="color:#F97583">add_header </span><span style="color:#E1E4E8">Cross-Origin-Resource-Policy </span><span style="color:#9ECBFF">"cross-origin"</span><span style="color:#E1E4E8"> always;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Static asset immutable caching for Wasm binaries and WebGPU models</span></span>
+<span class="line"><span style="color:#F97583">location</span><span style="color:#F97583"> ~*</span><span style="color:#DBEDFF"> \.(wasm|bin|onnx)$ </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">    add_header </span><span style="color:#E1E4E8">Cache-Control </span><span style="color:#9ECBFF">"public, max-age=31536000, immutable"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    add_header </span><span style="color:#E1E4E8">Access-Control-Allow-Origin </span><span style="color:#9ECBFF">"*"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="2-csp-sha-256-nonce-whitelisting">2. CSP SHA-256 Nonce Whitelisting</h3>
+<p>When using inline WebGPU canvas renderers or script blocks in CMSForNerd2, calculate script SHA-256 digests via <code>/wasm-studio</code> and whitelist them inside your Nginx Content Security Policy:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#F97583">add_header </span><span style="color:#E1E4E8">Content-Security-Policy </span><span style="color:#9ECBFF">"default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; img-src 'self' data:;"</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<hr>
+<h2 id="6-verification--testing-framework">6. Verification &#x26; Testing Framework</h2>
+<p>CMSForNerd2 includes automated E2E and unit tests for WebGPU workflows in <code>tests/test_e2e.py</code>.</p>
+<p>Run the test suite locally to verify WebGPU integration:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Execute Pytest validation suite</span></span>
+<span class="line"><span style="color:#E1E4E8">PYTHONPATH</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0"> pytest</span><span style="color:#9ECBFF"> tests/test_e2e.py</span><span style="color:#79B8FF"> -k</span><span style="color:#9ECBFF"> test_wasm_studio_interactive_workflows</span></span></code></pre>
+<hr>
+<p><em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-08</em>
+<em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em></p></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2docs/how-to/webgpu-application-development" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>
