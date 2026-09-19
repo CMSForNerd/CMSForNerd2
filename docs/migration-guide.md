@@ -13,7 +13,7 @@ sources:
   url: docs/migration-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-07-31T10:00:00Z'
+  at: '2026-07-31T10:00:00Z'
 tags: ["migration", "astro", "static", "php", "architecture"]
 ---
 

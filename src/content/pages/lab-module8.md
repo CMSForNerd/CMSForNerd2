@@ -14,7 +14,7 @@ sources:
   url: src/content/pages/lab-module8.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T09:00:00Z'
+  at: '2026-08-01T09:00:00Z'
 tags: ["security", "wasm", "sri", "brotli", "performance", "nginx", "pagefind"]
 ---
 

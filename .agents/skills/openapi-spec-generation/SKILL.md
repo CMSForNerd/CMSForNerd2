@@ -16,6 +16,9 @@ sources:
 - id: openapi_31_spec
   title: OpenAPI 3.1.0 Specification
   url: https://spec.openapis.org/oas/v3.1.0
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/openapi-spec-generation/SKILL.md
 inputs:
   source_routes:
     type: string
@@ -28,7 +31,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["openapi", "api-docs", "contract-testing", "json-schema", "rest"]
 ---
 

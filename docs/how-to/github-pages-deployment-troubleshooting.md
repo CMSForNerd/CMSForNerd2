@@ -13,7 +13,7 @@ sources:
   url: docs/how-to/github-pages-deployment-troubleshooting.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-22T01:00:00Z'
+  at: '2026-08-22T01:00:00Z'
 tags: ["how-to", "github-pages", "actions", "astro", "troubleshooting"]
 ---
 

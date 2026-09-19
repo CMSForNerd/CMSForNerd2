@@ -13,7 +13,7 @@ sources:
   url: docs/start-here.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["onboarding", "diataxis", "navigation", "dsom", "agents"]
 ---
 
@@ -46,7 +46,7 @@ The documentation hierarchy is partitioned into four distinct Diátaxis quadrant
 | :--- | :--- | :--- | :--- |
 | **Tutorials**<br>*(Learning-Oriented)* | Skill acquisition & guided hands-on learning. | • [Local Development Quickstart](tutorials/local-development.md)<br>• [Static Site Deployment](tutorials/static-site-deployment.md)<br>• [Module 8: Wasm SRI & Brotli](../src/content/pages/lab-module8.md)<br>• [Module 9: Advanced E2E Testing](../src/content/pages/lab-module9.md)<br>• [Module 10: Wasm Search & FastMCP](../src/content/pages/lab-module10.md) | • Ground sandbox environment<br>• Verify Node.js v22 & `.npmrc`<br>• Test `npm run preview` on port 4321 |
 | **How-To Guides**<br>*(Problem-Oriented)* | Step-by-step solutions for specific real-world tasks. | • [OKF Metadata Refactoring](how-to/okf-refactoring.md)<br>• [Sitemap Integrity Verification](how-to/sitemap-verification.md)<br>• [Ansible Dual-Pathway Hardening](how-to/ansible-deployment.md)<br>• [FastMCP & Wasm Guide](how-to/how-to-use-fastmcp-and-wasm.md)<br>• [Project Technical Handbook Production](how-to/how-to-produce-a-project-technical-handbook.md) | • Execute `node tools/refactor-okf.cjs`<br>• Execute `node tools/verify-sitemaps.js`<br>• Run `python3 tools/mcp/server.py` |
-| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](reference/refactor-okf.md)<br>• [Sitemap Engine Spec](reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](reference/deploy-static.md)<br>• [LLMS Context Parser CLI](reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.1 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
+| **Reference**<br>*(Information-Oriented)* | Technical specifications, API signatures & CLI flags. | • [OKF Crawler API](reference/refactor-okf.md)<br>• [Sitemap Engine Spec](reference/verify-sitemaps.md)<br>• [Deploy Orchestrator API](reference/deploy-static.md)<br>• [LLMS Context Parser CLI](reference/llms-txt2ctx.md) | • Parse `llms.txt` & `AGENTS.md`<br>• Verify OKF v0.2 YAML schemas<br>• Inspect `astro.config.mjs` & `render.yaml`<br>• Read JSDoc & Google docstrings |
 | **Explanation**<br>*(Understanding-Oriented)* | High-level architecture, design context & philosophy. | • [Google Jules & Multi-Agent Operations](jules-platform-guide.md)<br>• [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)<br>• [Spatial Memory & Sandbox Boundaries](explanation/spatial-memory-and-sandbox.md)<br>• [LLM WIKI Adoption Strategy](governance/LLM-WIKI-ADOPTION.md)<br>• [FastMCP & WebAssembly Architecture](explanation/fastmcp-wasm-architecture.md)<br>• [Web Design Guidelines Skill](explanation/web-design-guidelines-skill.md)<br>• [Diagram Design Standards Skill](explanation/diagram-design-standards-skill.md)<br>• [Attested Computations and Warp Agent Skills Standard](explanation/attested-computations-and-warp-skills.md)<br>• [Web Interface Improvements](explanation/web-interface-improvements.md) | • Parse DSOM spatial memory rules<br>• Enforce Google Jules sandbox limits<br>• Respect zero-global memory model |
 
 ---
@@ -63,7 +63,7 @@ To verify your local setup in under 60 seconds, run this 3-step command chain:
 # 1. Install pinned dependencies with legacy peer dependency support
 npm ci
 
-# 2. Audit and refactor Open Knowledge Format (OKF) v0.1 frontmatter
+# 2. Audit and refactor Open Knowledge Format (OKF) v0.2 frontmatter
 node tools/refactor-okf.cjs
 
 # 3. Build static assets and preview locally
@@ -101,16 +101,24 @@ All operational memory is zero-global and spatial. Spatial state lives strictly 
 
 CMSForNerd2 supports collaborative agent workflows across **Google Jules**, **Google Antigravity**, and **CI/CD pipelines**. Agents interact via the 10 Google Antigravity-compatible Agent Skills in `.agents/skills/` (`static-security-hardening`, `github-pages-deployment`, `render-deployment`, `dependency-management`, `context7-integration`, `build-preview-workflow`, `documentation-governance`, `dsom-cognitive-protocol`, `dsom-technical-book-compiler`, and `project-technical-book-compiler`).
 
-### 4. Open Knowledge Format (OKF) v0.1 Schema Standard
+### 4. Open Knowledge Format (OKF) v0.2 Schema Standard
 
-Every Markdown document in this workspace MUST contain valid OKF v0.1 YAML frontmatter starting on line 1, column 1:
+Every Markdown document in this workspace MUST contain valid OKF v0.2 YAML frontmatter starting on line 1, column 1:
 
 ```yaml
 ---
-okf_version: 0.1
+spec_version: "0.2"
 type: "documentation"
 title: "Document Display Title"
-timestamp: "2026-08-01T12:00:00Z"
+status: "stable"
+stale_after: "2027-03-06"
+sources:
+  - id: "workspace_file"
+    title: "Document Display Title"
+    url: "docs/start-here.md"
+generated:
+  by: "Repository Architect & OKF v0.2 Compliance Agent"
+  timestamp: "2026-08-01T12:00:00Z"
 topics: ["topic1", "topic2"]
 ---
 ```

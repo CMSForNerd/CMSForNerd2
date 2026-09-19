@@ -12,7 +12,7 @@ sources:
   url: SUMMARY.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["summary", "index", "navigation"]
 ---
 

@@ -16,6 +16,9 @@ sources:
 - id: google_python_styleguide
   title: Google Python Style Guide
   url: https://google.github.io/styleguide/pyguide.html
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/docstring/SKILL.md
 inputs:
   code_snippet:
     type: string
@@ -27,7 +30,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["docstring", "jsdoc", "pep257", "google-style", "python", "typescript"]
 ---
 

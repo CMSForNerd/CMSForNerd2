@@ -18,7 +18,7 @@ sources:
   url: .agents/skills/diagram-design-standards/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-17T00:00:00Z'
+  at: '2026-09-17T00:00:00Z'
 tags: ["diagrams", "svg", "mermaid", "architecture", "design-system", "visualization", "cathryn-lavery", "print-optimized"]
 ---
 

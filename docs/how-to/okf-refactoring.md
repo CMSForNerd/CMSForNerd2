@@ -13,7 +13,7 @@ sources:
   url: docs/how-to/okf-refactoring.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T14:45:00Z'
+  at: '2026-08-01T14:45:00Z'
 tags: ["how-to", "okf", "validation", "automation"]
 ---
 

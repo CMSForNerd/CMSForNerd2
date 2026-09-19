@@ -9,11 +9,14 @@ sources:
 - id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
   path: .agents/AGENTS.md
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/dsom-technical-book-compiler/SKILL.md
 name: "dsom-technical-book-compiler"
 spec_version: "0.2"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-03T07:30:00Z'
+  at: '2026-09-03T07:30:00Z'
 tags: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
 ---
 

@@ -13,7 +13,7 @@ sources:
   url: docs/reference/verify-sitemaps.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T14:50:00Z'
+  at: '2026-08-01T14:50:00Z'
 tags: ["reference", "sitemap", "api", "seo"]
 ---
 

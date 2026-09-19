@@ -4,7 +4,6 @@ type: "how_to"
 title: "Building WebGPU Applications on CMSForNerd2"
 description: "Comprehensive guide and developer manual for implementing WebGPU hardware acceleration, WebLLM on-device inference, dynamic tri-tiered ensemble fallbacks, and air-gapped RAG pipelines within web applications based on CMSForNerd2."
 topics: ["webgpu", "webllm", "wasm", "ensemble", "air-gapped", "rag", "how-to"]
-okf_version: "0.2"
 nav_order: 2
 status: "stable"
 stale_after: "2027-03-06"
@@ -14,7 +13,7 @@ sources:
   url: docs/how-to/webgpu-application-development.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["webgpu", "webllm", "wasm", "ensemble", "air-gapped", "rag", "how-to"]
 ---
 

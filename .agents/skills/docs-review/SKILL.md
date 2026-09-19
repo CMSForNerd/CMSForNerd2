@@ -16,6 +16,9 @@ sources:
 - id: microsoft_writing_style_guide
   title: Microsoft Writing Style Guide
   url: https://learn.microsoft.com/en-us/style-guide/welcome/
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/docs-review/SKILL.md
 inputs:
   target_file:
     type: string
@@ -27,7 +30,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["documentation", "review", "quality-assurance", "okf", "diataxis"]
 ---
 

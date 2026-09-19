@@ -7,11 +7,14 @@ status: "active"
 stale_after: "2027-09-08T00:00:00Z"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 verified: true
 sources:
 - url: README.md
   description: Master platform index.
+- id: workspace_file
+  title: SKILL.md
+  url: skills/triple-render-architecture-diagram/SKILL.md
 topics: ["dsom", "skill", "architecture", "diagrams", "svg", "mermaid", "ASCII trees"]
 spec_version: "0.2"
 tags: ["dsom", "skill", "architecture", "diagrams", "svg", "mermaid", "ASCII trees"]

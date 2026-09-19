@@ -4,7 +4,6 @@ type: "how_to"
 title: "How to Use FastMCP Server & WebAssembly (Wasm) Tools"
 description: "Step-by-step guide for running the FastMCP SSG server, querying live routes, executing Pagefind Wasm search, WebLLM WebGPU RAG generation, ONNX streaming, and utilizing client-side Wasm utilities."
 topics: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
-okf_version: "0.1"
 nav_order: 1
 status: "stable"
 stale_after: "2027-03-06"
@@ -14,7 +13,7 @@ sources:
   url: docs/how-to/how-to-use-fastmcp-and-wasm.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 tags: ["fastmcp", "mcp", "wasm", "pagefind", "webllm", "webgpu", "onnx", "how-to"]
 ---
 

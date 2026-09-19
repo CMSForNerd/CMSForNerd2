@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/walkthrough.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-09T00:00:00Z'
+  at: '2026-09-09T00:00:00Z'
 tags: ["walkthrough", "history", "brain", "dsom"]
 ---
 
