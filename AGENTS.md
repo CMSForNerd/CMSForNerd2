@@ -101,6 +101,8 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Triple-Render Architecture Diagram** | `.agents/skills/triple-render-architecture-diagram/` | Enforces 4-tier visual deliverables combining ASCII trees, Dark Slate raw SVGs, Mermaid diagrams, and summary routing tables. |
 | **Attested Computations** | `.agents/skills/attested-computations/` | Standardised specification for defining and executing Attested Computations in Open Knowledge Format (OKF) v0.2 with deterministic attester verification. |
 | **Warp Agent Skills** | `.agents/skills/warp-agent-skills/` | Standardised specification for defining, parameterising, discovering, and executing Warp and OpenViking Agent Skills across project and user scopes. |
+| **Mermaid Diagram Validation** | `.agents/skills/mermaid-validation/` | Validates Mermaid diagram syntax across Markdown files in a headless Node.js environment using jsdom and official Mermaid parser. |
+| **Agent Charter Reskilling** | `.agents/skills/reskill/` | Audits agent charters, extracts procedural knowledge and checklists into reusable skills, and slims charters to core identity and authority boundaries. |
 
 ---
 
@@ -110,6 +112,7 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 
 | Principle | Description |
 | :--- | :--- |
+| **AI Agent Charters** | All agent workflows follow the Alignbase Charter Standard documented at `docs/governance/AI-AGENT-CHARTER-TEMPLATE.md`. |
 | **Zero-Global / Spatial Memory** | No global mutable state. Operational memory lives in `.agents/brain/`. |
 | **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.2 YAML frontmatter with explicit timestamps and trust signals. |
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |

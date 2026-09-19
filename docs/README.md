@@ -132,6 +132,7 @@ To explore our documentation system, navigate using the following curated pathwa
   * [`deploy-static.sh` Orchestrator](reference/deploy-static.md) — Specifications for the dual-pathway bash deployment orchestrator.
   * [`llms_txt2ctx.py` CLI](reference/llms-txt2ctx.md) — Parser interface specifications for generating XML contexts.
 * **Conceptual Depth (Explanation)**
+  * [DSOM Agentic Workflow Blueprint](explanation/dsom-agentic-workflow-blueprint.md) — 5-step continuous loop, compaction engine, and Git hook state sync.
   * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md) — Why we migrated from PHP to Astro.
   * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md) — Explaining sandbox boundaries and Google Jules compatibility.
 

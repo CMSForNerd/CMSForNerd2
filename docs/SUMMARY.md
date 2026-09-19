@@ -49,6 +49,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 ## 🧠 Explanation
 
 * [Autonomous AI Operations & Google Jules](jules-platform-guide.md)
+* [DSOM Agentic Workflow Blueprint & Compaction Engine](explanation/dsom-agentic-workflow-blueprint.md)
 * [Legacy PHP to SSG Modernisation](explanation/modernisation-philosophy.md)
 * [Spatial Memory & Dual Pathways](explanation/spatial-memory-and-sandbox.md)
 * [Web Design Guidelines Skill Overview](explanation/web-design-guidelines-skill.md)
@@ -75,6 +76,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 
 * [Technical Book Design & PDF Compiler Guide](governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 * [DSOM vs. LLM WIKI Adoption Strategy](governance/LLM-WIKI-ADOPTION.md)
+* [AI Agent Charter Template & Operating Governance](governance/AI-AGENT-CHARTER-TEMPLATE.md)
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*
