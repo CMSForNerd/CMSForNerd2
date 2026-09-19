@@ -16,6 +16,9 @@ sources:
 - id: diataxis_framework
   title: "Di\xE1taxis Documentation Framework"
   url: https://diataxis.fr
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/knowledge-base-templates/SKILL.md
 inputs:
   document_type:
     type: string
@@ -27,7 +30,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["knowledge-base", "diataxis", "wiki", "templates", "documentation"]
 ---
 

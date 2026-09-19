@@ -13,7 +13,7 @@ sources:
   url: docs/governance/LLM-WIKI-ADOPTION.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T15:00:00Z'
+  at: '2026-09-06T15:00:00Z'
 tags: ["llm-wiki", "dsom-protocol", "knowledge-governance", "spatial-memory"]
 ---
 

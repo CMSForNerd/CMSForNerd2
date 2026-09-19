@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/knowledge.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-16T00:00:00Z'
+  at: '2026-09-16T00:00:00Z'
 tags: ["knowledge", "jules", "brain", "dsom", "antigravity"]
 ---
 

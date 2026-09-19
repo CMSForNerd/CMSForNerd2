@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-19T00:00:00Z'
+  at: '2026-09-19T00:00:00Z'
 tags: ["context-manifest", "dsom-protocol", "active-scope"]
 ---
 

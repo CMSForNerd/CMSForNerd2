@@ -14,7 +14,7 @@ sources:
   url: src/content/pages/lab-module11.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-09T00:00:00Z'
+  at: '2026-09-09T00:00:00Z'
 tags: ["webgpu", "ensemble", "wasm", "ast", "code-remediation", "air-gapped", "ai"]
 ---
 

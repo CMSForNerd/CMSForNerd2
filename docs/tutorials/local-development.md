@@ -13,7 +13,7 @@ sources:
   url: docs/tutorials/local-development.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T14:40:00Z'
+  at: '2026-08-01T14:40:00Z'
 tags: ["tutorials", "onboarding", "local-development", "astro"]
 ---
 

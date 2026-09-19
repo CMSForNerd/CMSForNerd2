@@ -13,7 +13,7 @@ sources:
   url: .agents/skills/build-preview-workflow/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["build", "preview", "astro", "static", "workflow"]
 ---
 

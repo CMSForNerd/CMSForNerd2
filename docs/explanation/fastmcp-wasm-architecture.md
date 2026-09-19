@@ -1,6 +1,5 @@
 ---
 spec_version: "0.2"
-okf_version: "0.2"
 type: "explanation"
 title: "FastMCP Protocol & WebAssembly (Wasm) Architecture"
 description: "In-depth architectural analysis of FastMCP SSG route exposure, Pagefind Wasm client-side search, WebLLM WebGPU on-device RAG generation, ONNX streaming, and client-side Wasm cryptographic & document processing in CMSForNerd2."
@@ -14,7 +13,7 @@ sources:
   url: docs/explanation/fastmcp-wasm-architecture.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["fastmcp", "mcp", "wasm", "webassembly", "pagefind", "webllm", "webgpu", "onnx", "architecture"]
 ---
 

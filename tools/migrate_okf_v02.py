@@ -126,15 +126,21 @@ def migrate_file(filepath: Path) -> bool:
             "title": filepath.name,
             "url": str(filepath)
         }]
+    elif isinstance(fm_data["sources"], list):
+        for source in fm_data["sources"]:
+            if isinstance(source, dict) and source.get("id") == "workspace_file":
+                source["url"] = str(filepath)
 
-    if "generated" not in fm_data or not fm_data["generated"]:
-        timestamp_val = fm_data.get("timestamp", "2026-09-06T23:00:00Z")
-        if isinstance(timestamp_val, str) and not timestamp_val.endswith("Z"):
-            timestamp_val = "2026-09-06T23:00:00Z"
-        fm_data["generated"] = {
-            "by": "Repository Architect & OKF v0.2 Compliance Agent",
-            "timestamp": str(timestamp_val)
-        }
+    gen = fm_data.get("generated", {})
+    if not isinstance(gen, dict):
+        gen = {}
+    if "by" not in gen:
+        gen["by"] = "Repository Architect & OKF v0.2 Compliance Agent"
+    if "at" not in gen:
+        gen["at"] = gen.get("timestamp", "2026-09-17T00:00:00Z")
+    if "timestamp" in gen:
+        del gen["timestamp"]
+    fm_data["generated"] = gen
 
     # 4. Handle topics / tags alignment
     if "topics" in fm_data and "tags" not in fm_data:

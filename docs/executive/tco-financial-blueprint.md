@@ -8,11 +8,11 @@ status: "stable"
 stale_after: "2027-03-06"
 sources:
 - id: workspace_file
-  title: docs/executive/tco-financial-blueprint.md
+  title: tco-financial-blueprint.md
   url: docs/executive/tco-financial-blueprint.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["financial", "tco", "costing", "opex", "executive"]
 ---
 

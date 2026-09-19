@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/walkthrough.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-09T00:00:00Z'
+  at: '2026-09-09T00:00:00Z'
 tags: ["walkthrough", "history", "brain", "dsom"]
 ---
 
@@ -83,3 +83,9 @@ tags: ["walkthrough", "history", "brain", "dsom"]
     - **Unit Test Expansion**: Refactored `tests/unit/links.py` to handle sandbox external connection timeouts gracefully, and expanded unit tests for Ansible (`tests/unit/ansible.py`), Podman (`tests/unit/containers.py`), and OKF frontmatter (`tests/unit/markdown.py`).
     - **Playwright E2E Suite Expansion**: Added `test_dynamic_role_permissions` and `test_cookie_expiration_boundary` test cases to `tests/test_e2e.py`.
     - **Spatial Memory Sync & Verification**: Synchronised spatial brain files in `.agents/brain/` and achieved 100% pass rate across all 57 Pytest scenarios.
+23. **Attested Computations, Warp/OpenViking Skills & OKF v0.2 Adoption**:
+    - **OKF v0.2 Migration**: Batch migrated 100% of workspace Markdown files (136 files) to OKF v0.2 frontmatter trust signals (`spec_version: "0.2"`, `status`, `stale_after`, `sources` with exact relative paths, `generated.at`).
+    - **Agent Skills Sync**: Synchronised all 29 AI Agent Skills across `.agents/skills/` and `skills/` for Warp Agent and OpenViking discovery compatibility.
+    - **Attested Computations & Warp Skills**: Verified Attested Computations contract architecture and Warp parameterisation syntax (`$ARGUMENTS`, `$0`).
+    - **Downstream Mandate & Prompts**: Adopted Downstream DSOM Compliance Mandate and START AI AGENTS Setup Prompt across `AGENTS.md`, `.agents/AGENTS.md`, `START-HERE.md`, and `docs/start-here.md`.
+    - **End of Day (EOD) Palace Brain Sync**: Executed `tools/eod-palace.sh` and verified 100% pass rate across Ruff, Mypy --strict, and 73 Pytest tests.

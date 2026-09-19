@@ -15,11 +15,14 @@ sources:
 - id: technical_book_compiler_prompt_guide
   title: Technical Book Design & PDF Compilation Master Prompt Guide
   path: docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md
+- id: workspace_file
+  title: how-to-produce-a-project-technical-handbook.md
+  url: docs/how-to/how-to-produce-a-project-technical-handbook.md
 nav_order: 1
 spec_version: "0.2"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-05T05:00:00Z'
+  at: '2026-09-05T05:00:00Z'
 tags: ["pandoc", "pdf", "handbook", "prompt-engineering", "print-optimized", "diataxis", "gitops", "aiops", "transferable-skills"]
 ---
 

@@ -12,7 +12,7 @@ sources:
   url: .agents/AGENTS.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["agents", "dsom", "rulebook", "constitution", "skills"]
 ---
 
@@ -111,26 +111,29 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 | Principle | Description |
 | :--- | :--- |
 | **Zero-Global / Spatial Memory** | No global mutable state. Operational memory lives in `.agents/brain/`. |
-| **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.1/v0.2 YAML frontmatter with explicit timestamps. |
+| **Open Knowledge Format (OKF)** | All `.md` documents use OKF v0.2 YAML frontmatter with explicit timestamps and trust signals. |
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
 | **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
 | **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
 
 ---
 
-## Open Knowledge Format (OKF) v0.1 / v0.2 Compliance Guidelines
+## Open Knowledge Format (OKF) v0.2 Compliance Guidelines
 
 To prevent parsing anomalies and ensure absolute compatibility across different rendering platforms (including GitHub web view and automated SSG compilation), all Markdown (`.md`) files in the repository must adhere strictly to the following YAML frontmatter rules:
 
 1. **Exact Structure**: The YAML frontmatter block MUST start on line 1, column 1 with exactly three hyphens `---` and conclude with exactly three hyphens `---` on its own line.
 2. **Double Quoting Rule**: Any string value containing emojis, colons, brackets, or other special characters MUST be wrapped in double quotes (e.g. `title: "🧠 Deep State of Mind (DSOM)"` or `description: "Standard: UK English | GNU GPL v3"`).
 3. **Array Structure**: Arrays (such as `topics` or `tags`) must be preserved in compact, square-bracketed horizontal list formatting with double-quoted strings (e.g. `topics: ["dsom", "documentation", "gateway"]`).
-4. **Required Field Schema**: Every document must carry a complete set of five required fields:
-   * `okf_version` / `spec_version`: `0.1` or `"0.2"`.
-   * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, or `"skill"`).
+4. **Required Field Schema**: Every document must carry a complete set of required OKF v0.2 fields:
+   * `spec_version`: `"0.2"`.
+   * `type`: Explicit concept or page classification (e.g., `"documentation"`, `"content_page"`, `"skill"`, or `"Attested Computation"`).
    * `title`: Human-readable display title (double-quoted if containing special characters).
-   * `timestamp`: Date and time string formatted according to ISO 8601, wrapped in double quotes (e.g. `"2026-09-08T00:00:00Z"`).
-   * `topics`: An array of associated category tags.
+   * `status`: Concept stability indicator (`"stable"`, `"draft"`, `"deprecated"`).
+   * `stale_after`: Freshness boundary date (`"2027-03-06"`).
+   * `sources`: Provenance record array pointing to source specifications or workspace files.
+   * `generated`: Generation metadata containing `by` agent identity and ISO timestamp.
+   * `topics` / `tags`: Category tags array.
 5. **Body Isolation**: The original Markdown body text residing beneath the closing `---` block must remain entirely unaltered.
 
 ---

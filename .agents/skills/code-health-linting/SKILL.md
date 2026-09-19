@@ -9,11 +9,14 @@ sources:
 - id: dsom_agents_rulebook
   title: The Core AI Rulebook (DSOM)
   path: .agents/AGENTS.md
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/code-health-linting/SKILL.md
 spec_version: "0.2"
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-05T08:00:00Z'
+  at: '2026-09-05T08:00:00Z'
 tags: ["code-health", "linting", "static-analysis", "ruff", "markdownlint"]
 ---
 

@@ -16,6 +16,9 @@ sources:
 - id: keep_a_changelog
   title: Keep a Changelog 1.1.0 Specification
   url: https://keepachangelog.com/en/1.1.0/
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/changelog-automation/SKILL.md
 inputs:
   commit_range:
     type: string
@@ -27,7 +30,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["changelog", "release-notes", "conventional-commits", "keep-a-changelog", "automation"]
 ---
 

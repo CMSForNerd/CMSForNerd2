@@ -18,7 +18,7 @@ sources:
   url: skills/attested-computations/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-17T00:00:00Z'
+  at: '2026-09-17T00:00:00Z'
 tags: ["okf", "attested-computation", "verifiable-analytics", "data-governance", "ai-agents", "verification"]
 ---
 

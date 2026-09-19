@@ -13,7 +13,7 @@ sources:
   url: docs/README.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["diataxis", "documentation", "framework", "architecture"]
 ---
 

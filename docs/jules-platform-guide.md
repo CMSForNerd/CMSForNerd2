@@ -13,7 +13,7 @@ sources:
   url: docs/jules-platform-guide.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["jules", "opentofu", "ansible", "dsom", "antigravity", "github-pages", "pair-programming"]
 ---
 

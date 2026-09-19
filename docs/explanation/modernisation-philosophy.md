@@ -13,7 +13,7 @@ sources:
   url: docs/explanation/modernisation-philosophy.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T15:00:00Z'
+  at: '2026-08-01T15:00:00Z'
 tags: ["explanation", "architecture", "migration", "static", "php"]
 ---
 
