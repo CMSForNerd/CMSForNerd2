@@ -4,7 +4,7 @@ import os
 
 
 def test_llms_txt2ctx_parser_api() -> None:
-    """Validates the CLI and API implementation in tools/llms_txt2ctx.py.
+    """Validate the CLI and API implementation in tools/llms_txt2ctx.py.
 
     Verifies that the parser correctly parses an llms.txt sample string and
     builds standard-compliant XML output according to the llmstxt.org spec.
@@ -50,7 +50,7 @@ Some descriptive background notes here.
 
 
 def test_build_llms_full_compilation() -> None:
-    """Validates that tools/build_llms_full.py correctly processes llms.txt.
+    """Validate that tools/build_llms_full.py correctly processes llms.txt.
 
     Verifies that the compilation utility successfully parses target markdown files,
     resolves their references, and compiles the single consolidated llms-full.txt file.

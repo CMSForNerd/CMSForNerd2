@@ -12,7 +12,7 @@ import requests
 
 @pytest.fixture(scope="session", autouse=True)
 def preview_server() -> Generator[None, None, None]:
-    """Compiles the Astro static site and manages the preview web server on port 4321.
+    """Compile the Astro static site and manage the preview web server on port 4321.
 
     Executes 'npm run build' once per test session, launches 'npm run preview',
     waits for HTTP 200 on port 4321, and gracefully terminates the server process

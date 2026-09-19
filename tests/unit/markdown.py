@@ -8,7 +8,7 @@ import yaml
 
 
 def test_markdown_okf_compliance() -> None:
-    """Validates all workspace markdown files against the OKF v0.2 schema.
+    """Validate all workspace markdown files against the OKF v0.2 schema.
 
     Checks recursively across the repository that every Markdown file:
     - Starts with three hyphens '---' at line 1, column 1.
@@ -18,6 +18,7 @@ def test_markdown_okf_compliance() -> None:
 
     Raises:
         AssertionError: If any Markdown file violates OKF v0.2 frontmatter rules.
+
     """
     markdown_files = []
     for root, _, files in os.walk("."):
@@ -73,13 +74,14 @@ def test_markdown_okf_compliance() -> None:
 
 
 def test_markdown_governance_footers() -> None:
-    """Validates that all core governance and skill markdown files contain standard DSOM footers.
+    """Validate that all core governance and skill markdown files contain standard DSOM footers.
 
     Ensures that every governance document under .agents/ or in the root directory (excluding pages)
     carries the standardized Deep State of Mind signature and standard UK English declarations.
 
     Raises:
         AssertionError: If any governance document is missing required DSOM or UK English declarations.
+
     """
     governance_files = []
 
@@ -117,13 +119,14 @@ def test_markdown_governance_footers() -> None:
 
 
 def test_uk_english_documentation_spellings() -> None:
-    """Validates that newly written and root documentation files use standard UK English spellings.
+    """Validate that newly written and root documentation files use standard UK English spellings.
 
     Ensures that words like 'optimise', 'colour', 'customise' are preferred over US English equivalents
     ('optimize', 'color', 'customize') within primary root-level documents.
 
     Raises:
         AssertionError: If prohibited US English spellings are detected in target documents.
+
     """
     target_docs = ["README.md", "START-HERE.md", "SUMMARY.md", "AGENTS.md", ".agents/AGENTS.md"]
 

@@ -6,7 +6,7 @@ import yaml
 
 
 def test_ansible_playbook_compliance() -> None:
-    """Validates deploy-static.yml for ansible-lint and dual-pathway compliance.
+    """Validate deploy-static.yml for ansible-lint and dual-pathway compliance.
 
     Verifies that:
     - The playbook is well-formed YAML.
@@ -16,6 +16,7 @@ def test_ansible_playbook_compliance() -> None:
 
     Raises:
         AssertionError: If any playbook structure, FQCN, or idempotency check fails.
+
     """
     playbook_path = "deploy-static.yml"
     assert os.path.exists(playbook_path), "Ansible playbook deploy-static.yml not found."
