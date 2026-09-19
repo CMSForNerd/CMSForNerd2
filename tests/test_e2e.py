@@ -15,7 +15,7 @@ except ImportError:
 
 
 def test_theme_switching() -> None:
-    """Verifies dynamic theme switching between light and dark modes."""
+    """Verify dynamic theme switching between light and dark modes."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -39,7 +39,7 @@ def test_theme_switching() -> None:
 
 
 def test_laboratory_modules_visual_regression_theme_transitions() -> None:
-    """Verifies Playwright visual snapshot regression baselines and light/dark theme transitions across all 11 laboratory modules."""
+    """Verify Playwright visual snapshot regression baselines and light/dark theme transitions across all 11 laboratory modules."""
     modules = [
         ("module1", "/lab-module1/"),
         ("module2", "/lab-module2/"),
@@ -89,7 +89,7 @@ def test_laboratory_modules_visual_regression_theme_transitions() -> None:
 
 
 def test_route_navigation() -> None:
-    """Verifies navigation across dynamic content routes in Astro SSG."""
+    """Verify navigation across dynamic content routes in Astro SSG."""
     test_routes = [
         "/about/",
         "/lab-manual/",
@@ -112,7 +112,7 @@ def test_route_navigation() -> None:
 
 
 def test_pwa_manifest_and_sw() -> None:
-    """Verifies PWA manifest linkage and service worker asset availability."""
+    """Verify PWA manifest linkage and service worker asset availability."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -144,7 +144,7 @@ def test_pwa_manifest_and_sw() -> None:
 
 
 def test_wasm_studio_interactive_workflows() -> None:
-    """Verifies client-side WebAssembly Studio SHA-256 hash calculation, OKF parsing, WebLLM local RAG, and ONNX streaming."""
+    """Verify client-side WebAssembly Studio SHA-256 hash calculation, OKF parsing, WebLLM local RAG, and ONNX streaming."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -263,7 +263,7 @@ This is a sample document for testing OKF analysis.
 
 
 def test_pagefind_search_interaction() -> None:
-    """Verifies interactive WebAssembly Pagefind search input and result rendering."""
+    """Verify interactive WebAssembly Pagefind search input and result rendering."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -285,7 +285,7 @@ def test_pagefind_search_interaction() -> None:
 
 
 def test_dynamic_role_permissions() -> None:
-    """Verifies dynamic role permission switching and role storage state in browser session."""
+    """Verify dynamic role permission switching and role storage state in browser session."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context()
@@ -307,7 +307,7 @@ def test_dynamic_role_permissions() -> None:
 
 
 def test_cookie_expiration_boundary() -> None:
-    """Verifies session cookie expiration boundary handling in browser context."""
+    """Verify session cookie expiration boundary handling in browser context."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context()
@@ -360,7 +360,7 @@ def test_cookie_expiration_boundary() -> None:
 
 
 def test_webgpu_canvas_visual_regression() -> None:
-    """Verifies Playwright visual snapshot rendering and visual regression diff thresholds for WebGPU matrix canvas in Wasm Studio."""
+    """Verify Playwright visual snapshot rendering and visual regression diff thresholds for WebGPU matrix canvas in Wasm Studio."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -399,7 +399,7 @@ def test_webgpu_canvas_visual_regression() -> None:
 
 
 def test_print_mode_css_visual_regression() -> None:
-    """Verifies Playwright E2E visual snapshot rendering for @media print CSS layout rules."""
+    """Verify Playwright E2E visual snapshot rendering for @media print CSS layout rules."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -418,7 +418,7 @@ def test_print_mode_css_visual_regression() -> None:
 
 
 def test_fastmcp_p2p_mesh_fallback_modes() -> None:
-    """Verifies FastMCP WebRTC and HTTP/3 WebTransport datagram fallback modes in Wasm Studio."""
+    """Verify FastMCP WebRTC and HTTP/3 WebTransport datagram fallback modes in Wasm Studio."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -448,7 +448,7 @@ def test_fastmcp_p2p_mesh_fallback_modes() -> None:
 
 
 def test_service_worker_offline_fallback() -> None:
-    """Verifies service worker offline fallback behavior and offline page rendering."""
+    """Verify service worker offline fallback behavior and offline page rendering."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context()
@@ -478,7 +478,7 @@ def test_service_worker_offline_fallback() -> None:
 
 
 def test_indexeddb_vector_store_quota_boundaries() -> None:
-    """Verifies IndexedDB vector store capacity and quota boundary handling in Wasm Studio."""
+    """Verify IndexedDB vector store capacity and quota boundary handling in Wasm Studio."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()

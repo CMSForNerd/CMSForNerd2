@@ -36,13 +36,14 @@ KNOWLEDGE_FILE = REPO_ROOT / ".agents" / "brain" / "knowledge.md"
 
 
 def _extract_frontmatter(file_path: Path) -> tuple[dict[str, Any], str]:
-    """Extracts YAML frontmatter and body text from a Markdown file.
+    """Extract YAML frontmatter and body text from a Markdown file.
 
     Args:
         file_path: Path to the target Markdown file.
 
     Returns:
         A tuple containing the parsed YAML frontmatter dictionary and the body text string.
+
     """
     if not file_path.is_file():
         return {}, ""
@@ -62,10 +63,11 @@ def _extract_frontmatter(file_path: Path) -> tuple[dict[str, Any], str]:
 
 @mcp.tool()
 def list_ssg_routes() -> list[dict[str, Any]]:
-    """Lists all active Astro SSG routes with titles, descriptions, and file locations.
+    """List all active Astro SSG routes with titles, descriptions, and file locations.
 
     Returns:
         List of dictionaries detailing route slugs, titles, descriptions, and source files.
+
     """
     routes: list[dict[str, Any]] = []
     if not PAGES_DIR.exists():
@@ -91,13 +93,14 @@ def list_ssg_routes() -> list[dict[str, Any]]:
 
 @mcp.tool()
 def get_route_content(route_slug: str) -> dict[str, Any]:
-    """Retrieves frontmatter metadata and Markdown body content for a specific SSG route.
+    """Retrieve frontmatter metadata and Markdown body content for a specific SSG route.
 
     Args:
         route_slug: The slug or route path (e.g., 'about', '/lab-manual', 'index').
 
     Returns:
         Dictionary containing metadata, body content, and route status.
+
     """
     clean_slug = route_slug.strip("/").strip()
     if not clean_slug:
@@ -124,13 +127,14 @@ def get_route_content(route_slug: str) -> dict[str, Any]:
 
 @mcp.tool()
 def search_ssg_routes(query: str) -> list[dict[str, Any]]:
-    """Searches case-insensitively across titles, descriptions, topics, and body content of all SSG pages.
+    """Search case-insensitively across titles, descriptions, topics, and body content of all SSG pages.
 
     Args:
         query: Search string or keyword to look for.
 
     Returns:
         List of matching route metadata and snippet matches.
+
     """
     results: list[dict[str, Any]] = []
     query_lower = query.lower().strip()
@@ -175,10 +179,11 @@ def search_ssg_routes(query: str) -> list[dict[str, Any]]:
 
 @mcp.tool()
 def get_sitemap_routes() -> list[str]:
-    """Parses and returns all published site URLs from sitemap.txt.
+    """Parse and return all published site URLs from sitemap.txt.
 
     Returns:
         List of published sitemap URLs.
+
     """
     if not SITEMAP_FILE.is_file():
         return []
@@ -189,13 +194,14 @@ def get_sitemap_routes() -> list[str]:
 
 @mcp.tool()
 def get_openwiki_concept(concept_name: str) -> dict[str, Any]:
-    """Queries knowledge points and concept records from spatial memory knowledge base.
+    """Query knowledge points and concept records from spatial memory knowledge base.
 
     Args:
         concept_name: The concept or keyword to query in spatial memory (e.g., 'FastMCP', 'DSOM', 'Astro').
 
     Returns:
         Matching knowledge records and concepts.
+
     """
     if not KNOWLEDGE_FILE.is_file():
         return {"found": False, "error": "Knowledge base file missing."}
@@ -219,13 +225,14 @@ def get_openwiki_concept(concept_name: str) -> dict[str, Any]:
 
 @mcp.tool()
 def validate_diagram_schema(diagram_code: str) -> dict[str, Any]:
-    """Validates Mermaid or architecture diagram syntax according to repository diagram standards.
+    """Validate Mermaid or architecture diagram syntax according to repository diagram standards.
 
     Args:
         diagram_code: Mermaid definition block or raw diagram content string.
 
     Returns:
         Validation results containing status, diagram type, line count, and warnings.
+
     """
     code = diagram_code.strip()
     if not code:
@@ -274,13 +281,14 @@ def validate_diagram_schema(diagram_code: str) -> dict[str, Any]:
 
 @mcp.tool()
 def validate_wasm_cm_wit_interface(wit_definition: str) -> dict[str, Any]:
-    """Validates WebAssembly Component Model (Wasm-CM) WIT (WebAssembly Interface Type) definitions.
+    """Validate WebAssembly Component Model (Wasm-CM) WIT (WebAssembly Interface Type) definitions.
 
     Args:
         wit_definition: Raw WIT specification text declaring component interfaces, types, and functions.
 
     Returns:
         Validation results containing WIT interface metadata, exported functions, type definitions, and status.
+
     """
     code = wit_definition.strip()
     if not code:
@@ -335,7 +343,7 @@ def dispatch_wasm_component_tool(
     args: dict[str, Any] | None = None,
     target_language: str = "rust",
 ) -> dict[str, Any]:
-    """Dispatches a FastMCP tool call through WebAssembly Component Model (Wasm-CM) multi-language interface types.
+    """Dispatch a FastMCP tool call through WebAssembly Component Model (Wasm-CM) multi-language interface types.
 
     Args:
         component_name: Wasm component identifier (e.g. 'mcp:agent-tools/search').
@@ -345,6 +353,7 @@ def dispatch_wasm_component_tool(
 
     Returns:
         Dispatch result containing canonical ABI execution metadata and returned payload.
+
     """
     valid_targets = ["rust", "c", "go", "python", "wit"]
     target = target_language.lower().strip()
@@ -370,13 +379,14 @@ def dispatch_wasm_component_tool(
 
 
 async def _mcp_webtransport_datagram_handler(request: Request) -> JSONResponse:
-    """Handles HTTP/3 WebTransport datagram packets for low-latency FastMCP agent mesh streaming.
+    """Handle HTTP/3 WebTransport datagram packets for low-latency FastMCP agent mesh streaming.
 
     Args:
         request: Starlette request object containing WebTransport datagram payload.
 
     Returns:
         JSONResponse confirming datagram ingestion, latency stats, and P2P mesh state.
+
     """
     try:
         body_bytes = await request.body()
@@ -402,10 +412,11 @@ async def _mcp_webtransport_datagram_handler(request: Request) -> JSONResponse:
 
 
 async def _mcp_webrtc_signaling_handler(websocket: WebSocket) -> None:
-    """Handles WebRTC P2P signaling and spatial memory mesh synchronization for agent collaboration.
+    """Handle WebRTC P2P signaling and spatial memory mesh synchronization for agent collaboration.
 
     Args:
         websocket: The Starlette WebSocket connection instance for WebRTC SDP/ICE signaling.
+
     """
     await websocket.accept()
     try:
@@ -466,10 +477,11 @@ async def _mcp_webrtc_signaling_handler(websocket: WebSocket) -> None:
 
 
 async def _mcp_websocket_handler(websocket: WebSocket) -> None:
-    """Handles real-time WebSocket connections and JSON-RPC 2.0 messages for live AI pair programming.
+    """Handle real-time WebSocket connections and JSON-RPC 2.0 messages for live AI pair programming.
 
     Args:
         websocket: The Starlette WebSocket connection instance.
+
     """
     await websocket.accept()
     tool_map: dict[str, Callable[..., Any]] = {
@@ -607,13 +619,14 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
 
 
 def create_mcp_app(transport: str = "sse") -> Starlette:
-    """Creates a Starlette ASGI application with SSE and WebSocket real-time gateway endpoints.
+    """Create a Starlette ASGI application with SSE and WebSocket real-time gateway endpoints.
 
     Args:
         transport: Transport protocol mode ('sse', 'http', or 'websocket').
 
     Returns:
         Configured Starlette application supporting live AI pair programming integration.
+
     """
     selected_transport: Literal["sse", "http"] = (
         "sse" if transport in ("sse", "websocket", "ws") else "http"
@@ -627,12 +640,13 @@ def create_mcp_app(transport: str = "sse") -> Starlette:
 
 
 def run_server(transport: str = "stdio", host: str = "127.0.0.1", port: int = 8000) -> None:
-    """Runs the FastMCP gateway server using the requested transport mode.
+    """Run the FastMCP gateway server using the requested transport mode.
 
     Args:
         transport: Transport protocol ('stdio', 'sse', 'websocket', or 'http').
         host: Host IP address to bind server endpoints to.
         port: Port number for HTTP/SSE/WebSocket server modes.
+
     """
     transport_mode = transport.lower().strip()
     if transport_mode == "stdio":
@@ -652,7 +666,7 @@ def run_server(transport: str = "stdio", host: str = "127.0.0.1", port: int = 80
 
 
 def main() -> None:
-    """Parses command-line arguments and environment variables to start the FastMCP Gateway."""
+    """Parse command-line arguments and environment variables to start the FastMCP Gateway."""
     parser = argparse.ArgumentParser(
         description="CMSForNerd2 FastMCP Gateway Server with stdio, SSE, and WebSocket transport support."
     )

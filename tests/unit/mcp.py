@@ -20,7 +20,7 @@ from tools.mcp.server import (
 
 
 def test_list_ssg_routes() -> None:
-    """Verifies that list_ssg_routes returns active SSG routes with required metadata fields."""
+    """Verify that list_ssg_routes returns active SSG routes with required metadata fields."""
     routes: list[dict[str, Any]] = list_ssg_routes()
     assert isinstance(routes, list)
     assert len(routes) > 0
@@ -38,7 +38,7 @@ def test_list_ssg_routes() -> None:
 
 
 def test_get_route_content() -> None:
-    """Verifies fetching route content for both valid and invalid routes."""
+    """Verify fetching route content for both valid and invalid routes."""
     res_index: dict[str, Any] = get_route_content("index")
     assert res_index["found"] is True
     assert res_index["route"] == "/"
@@ -55,7 +55,7 @@ def test_get_route_content() -> None:
 
 
 def test_search_ssg_routes() -> None:
-    """Verifies keyword search across SSG routes."""
+    """Verify keyword search across SSG routes."""
     results: list[dict[str, Any]] = search_ssg_routes("Astro")
     assert isinstance(results, list)
     assert len(results) > 0
@@ -68,7 +68,7 @@ def test_search_ssg_routes() -> None:
 
 
 def test_get_sitemap_routes() -> None:
-    """Verifies parsing published URLs from sitemap.txt."""
+    """Verify parsing published URLs from sitemap.txt."""
     sitemap_urls: list[str] = get_sitemap_routes()
     assert isinstance(sitemap_urls, list)
     assert len(sitemap_urls) > 0
@@ -76,7 +76,7 @@ def test_get_sitemap_routes() -> None:
 
 
 def test_get_openwiki_concept() -> None:
-    """Verifies querying spatial memory concepts."""
+    """Verify querying spatial memory concepts."""
     res: dict[str, Any] = get_openwiki_concept("DSOM")
     assert res["found"] is True
     assert res["matches_count"] > 0
@@ -84,7 +84,7 @@ def test_get_openwiki_concept() -> None:
 
 
 def test_validate_wasm_cm_wit_interface() -> None:
-    """Verifies WebAssembly Component Model WIT interface specification validation."""
+    """Verify WebAssembly Component Model WIT interface specification validation."""
     wit_code = """package mcp:agent-tools@0.2.0;
 
 interface search-engine {
@@ -106,7 +106,7 @@ interface search-engine {
 
 
 def test_dispatch_wasm_component_tool() -> None:
-    """Verifies WebAssembly Component Model multi-language tool dispatching."""
+    """Verify WebAssembly Component Model multi-language tool dispatching."""
     res_rust: dict[str, Any] = dispatch_wasm_component_tool(
         component_name="mcp:agent-tools/search",
         function_name="execute-search",
@@ -130,7 +130,7 @@ def test_dispatch_wasm_component_tool() -> None:
 
 
 def test_validate_diagram_schema() -> None:
-    """Verifies diagram schema validation for valid and invalid Mermaid code."""
+    """Verify diagram schema validation for valid and invalid Mermaid code."""
     valid_flowchart = "graph TD\n  A[Start] --> B[End]"
     res_valid: dict[str, Any] = validate_diagram_schema(valid_flowchart)
     assert res_valid["valid"] is True
@@ -144,7 +144,7 @@ def test_validate_diagram_schema() -> None:
 
 
 def test_create_mcp_app_and_websocket_transport() -> None:
-    """Verifies creating Starlette app and executing JSON-RPC tool calls over WebSocket transport."""
+    """Verify creating Starlette app and executing JSON-RPC tool calls over WebSocket transport."""
     app = create_mcp_app(transport="websocket")
     client = TestClient(app)
 
@@ -190,7 +190,7 @@ def test_create_mcp_app_and_websocket_transport() -> None:
 
 
 def test_websocket_reconnect_failure_mode() -> None:
-    """Verifies WebSocket reconnect failure modes, malformed JSON error recovery, and session restoration."""
+    """Verify WebSocket reconnect failure modes, malformed JSON error recovery, and session restoration."""
     app = create_mcp_app(transport="websocket")
     client = TestClient(app)
 
@@ -215,7 +215,7 @@ def test_websocket_reconnect_failure_mode() -> None:
 
 
 def test_mcp_webtransport_datagram_handler() -> None:
-    """Verifies HTTP/3 WebTransport datagram packet ingestion and spatial memory mesh status."""
+    """Verify HTTP/3 WebTransport datagram packet ingestion and spatial memory mesh status."""
     app = create_mcp_app(transport="websocket")
     client = TestClient(app)
 
@@ -235,7 +235,7 @@ def test_mcp_webtransport_datagram_handler() -> None:
 
 
 def test_mcp_webrtc_p2p_mesh_transport() -> None:
-    """Verifies FastMCP WebRTC P2P agent mesh signaling, ICE candidate registration, and spatial memory sync."""
+    """Verify FastMCP WebRTC P2P agent mesh signaling, ICE candidate registration, and spatial memory sync."""
     app = create_mcp_app(transport="websocket")
     client = TestClient(app)
 
@@ -279,6 +279,6 @@ def test_mcp_webrtc_p2p_mesh_transport() -> None:
 
 
 def test_run_server_invalid_transport() -> None:
-    """Verifies that run_server raises ValueError for unsupported transport modes."""
+    """Verify that run_server raises ValueError for unsupported transport modes."""
     with pytest.raises(ValueError, match="Unsupported transport mode"):
         run_server(transport="invalid-transport-mode")

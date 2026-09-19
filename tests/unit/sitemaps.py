@@ -5,7 +5,7 @@ import os
 
 
 def test_sitemaps_consistency() -> None:
-    """Validates consistency between root sitemap.txt and public/sitemap.txt.
+    """Validate consistency between root sitemap.txt and public/sitemap.txt.
 
     Checks that both files exist, are identical in length and content,
     and only contain secure HTTPS URLs with no broken elements.
@@ -34,7 +34,7 @@ def test_sitemaps_consistency() -> None:
 
 
 def test_context7_configuration() -> None:
-    """Validates context7.json format and schema structure.
+    """Validate context7.json format and schema structure.
 
     Checks that the context7.json config exists, is valid JSON, and
     contains correct keys.
@@ -51,7 +51,7 @@ def test_context7_configuration() -> None:
 
 
 def test_pagefind_sri_manifest() -> None:
-    """Validates the structure and integrity of the Pagefind SRI manifest in dist/pagefind/pagefind-sri.json."""
+    """Validate the structure and integrity of the Pagefind SRI manifest in dist/pagefind/pagefind-sri.json."""
     manifest_path = os.path.join("dist", "pagefind", "pagefind-sri.json")
     if os.path.exists(manifest_path):
         with open(manifest_path, "r", encoding="utf-8") as f:
@@ -66,7 +66,7 @@ def test_pagefind_sri_manifest() -> None:
 
 
 def test_csp_manifest_and_nonce_injection() -> None:
-    """Validates the structure and integrity of the CSP manifest in dist/csp-manifest.json."""
+    """Validate the structure and integrity of the CSP manifest in dist/csp-manifest.json."""
     manifest_path = os.path.join("dist", "csp-manifest.json")
     if os.path.exists(manifest_path):
         with open(manifest_path, "r", encoding="utf-8") as f:

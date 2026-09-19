@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""llms_txt2ctx.py
+"""Parse llms.txt and generate XML context documents.
 
 A Python CLI and API utility to parse an llms.txt file and create an XML context document
 suitable for LLMs, in strict compliance with the llmstxt.org specification.
@@ -16,13 +16,14 @@ from typing import Any
 
 
 def parse_llms_txt(txt: str) -> dict[str, Any]:
-    """Parses an llms.txt file content into a structured dictionary.
+    """Parse an llms.txt file content into a structured dictionary.
 
     Args:
         txt (str): Content of the llms.txt file.
 
     Returns:
         dict: A dictionary containing 'title', 'summary', 'info', and 'sections'.
+
     """
     # Clean and split into sections
     txt = txt.strip()
@@ -85,7 +86,7 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
     }
 
 def create_ctx(txt: str, include_optional: bool = False) -> str:
-    """Creates an XML context document for an LLM from an llms.txt string.
+    """Create an XML context document for an LLM from an llms.txt string.
 
     Args:
         txt (str): Content of the llms.txt file.
@@ -93,6 +94,7 @@ def create_ctx(txt: str, include_optional: bool = False) -> str:
 
     Returns:
         str: XML structured string.
+
     """
     parsed = parse_llms_txt(txt)
 
@@ -119,8 +121,7 @@ def create_ctx(txt: str, include_optional: bool = False) -> str:
     return "\n".join(xml)
 
 def main() -> None:
-    """Main CLI entrypoint.
-    """
+    """Execute main CLI entrypoint for parsing llms.txt."""
     parser = argparse.ArgumentParser(description="Parse llms.txt and create an XML context document.")
     parser.add_argument("file", help="Path to the llms.txt file")
     parser.add_argument("--optional", action="store_true", help="Include optional sections")

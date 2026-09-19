@@ -6,10 +6,10 @@
 # ///
 """OKF v0.2 Migration and Refactoring Utility.
 
-Deeply scans all Markdown (.md) files across the project workspace, migrates legacy
-OKF v0.1 frontmatter to OKF v0.2 standard (`spec_version: "0.2"`), populates the five trust
-and freshness pillars (`status`, `stale_after`, `sources`, `generated`), wraps special character
-strings in double quotes, formats array parameters in compact single-line JSON format, and invokes markdownlint.
+Deeply scan all Markdown (.md) files across the project workspace, migrate legacy
+OKF v0.1 frontmatter to OKF v0.2 standard (`spec_version: "0.2"`), populate the five trust
+and freshness pillars (`status`, `stale_after`, `sources`, `generated`), wrap special character
+strings in double quotes, format array parameters in compact single-line JSON format, and invoke markdownlint.
 """
 
 import json
@@ -22,13 +22,14 @@ EXCLUDE_DIRS = {"node_modules", ".git", "dist", ".astro", ".pytest_cache"}
 
 
 def get_markdown_files(root_dir: Path) -> list[Path]:
-    """Finds all markdown files in the workspace excluding build and node directories.
+    """Find all markdown files in the workspace excluding build and node directories.
 
     Args:
         root_dir: The root directory path to recursively scan for Markdown files.
 
     Returns:
         A list of Path objects pointing to non-excluded Markdown files.
+
     """
     md_files: list[Path] = []
     for path in root_dir.rglob("*.md"):
@@ -38,26 +39,28 @@ def get_markdown_files(root_dir: Path) -> list[Path]:
 
 
 def format_array_single_line(lst: list[object]) -> str:
-    """Formats a list of strings as a compact JSON-style single-line list [\"a\", \"b\"].
+    r"""Format a list of strings as a compact JSON-style single-line list [\"a\", \"b\"].
 
     Args:
         lst: A list of objects or strings to be formatted.
 
     Returns:
         A single-line string representation in JSON array format.
+
     """
     items = [json.dumps(str(x)) for x in lst]
     return f"[{', '.join(items)}]"
 
 
 def migrate_file(filepath: Path) -> bool:
-    """Migrates a single markdown file to OKF v0.2 compliance.
+    """Migrate a single markdown file to OKF v0.2 compliance.
 
     Args:
         filepath: Path to the target Markdown file to inspect and migrate.
 
     Returns:
         True if the file content was modified and saved, False otherwise.
+
     """
     try:
         content = filepath.read_text(encoding="utf-8")
@@ -182,10 +185,11 @@ def migrate_file(filepath: Path) -> bool:
 
 
 def run_markdownlint(files: list[Path]) -> None:
-    """Invokes markdownlint-cli if available to enforce style formatting.
+    """Invoke markdownlint-cli if available to enforce style formatting.
 
     Args:
         files: A list of Path objects for Markdown files to lint.
+
     """
     print("Executing Workspace Quality Enforcement via markdownlint-cli...")
     file_args = [str(f) for f in files]
@@ -198,7 +202,7 @@ def run_markdownlint(files: list[Path]) -> None:
 
 
 def main() -> None:
-    """Main execution handler to discover markdown files, execute OKF v0.2 migration, and run linter."""
+    """Execute main migration handler to discover markdown files and run linter."""
     root = Path(".")
     md_files = get_markdown_files(root)
     print(f"Found {len(md_files)} markdown files in workspace.")

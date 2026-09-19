@@ -12,7 +12,7 @@ class LinkExtractor(HTMLParser):
     """HTML parser that extracts link targets while ignoring code, script, style, and pre blocks."""
 
     def __init__(self) -> None:
-        """Initialises the HTML parser with state tracking for ignored tags and extracted links."""
+        """Initialise the HTML parser with state tracking for ignored tags and extracted links."""
         super().__init__()
         self.ignored_tags = {"script", "style", "pre", "code"}
         self.stack: list[str] = []
@@ -20,11 +20,12 @@ class LinkExtractor(HTMLParser):
         self.text_chunks: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        """Handles the opening tag event to track ignored elements and capture link attributes.
+        """Handle the opening tag event to track ignored elements and capture link attributes.
 
         Args:
             tag: The HTML tag name in lower case.
             attrs: A list of (attribute_name, attribute_value) tuples.
+
         """
         tag_lower = tag.lower()
         if tag_lower in self.ignored_tags:
@@ -37,21 +38,23 @@ class LinkExtractor(HTMLParser):
                     self.extracted_links.append(value)
 
     def handle_endtag(self, tag: str) -> None:
-        """Handles the closing tag event to update element stack state.
+        """Handle the closing tag event to update element stack state.
 
         Args:
             tag: The HTML tag name in lower case.
+
         """
         tag_lower = tag.lower()
         if self.stack and self.stack[-1] == tag_lower:
             self.stack.pop()
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        """Handles self-closing tag events to extract attributes when not inside ignored blocks.
+        """Handle self-closing tag events to extract attributes when not inside ignored blocks.
 
         Args:
             tag: The HTML tag name in lower case.
             attrs: A list of (attribute_name, attribute_value) tuples.
+
         """
         tag_lower = tag.lower()
         if not self.stack and tag_lower not in self.ignored_tags:
@@ -60,23 +63,25 @@ class LinkExtractor(HTMLParser):
                     self.extracted_links.append(value)
 
     def handle_data(self, data: str) -> None:
-        """Handles text data chunks between tags when not enclosed in ignored blocks.
+        """Handle text data chunks between tags when not enclosed in ignored blocks.
 
         Args:
             data: Raw text content between tags.
+
         """
         if not self.stack:
             self.text_chunks.append(data)
 
 
 def parse_links_from_file(filepath: str) -> list[str]:
-    """Parses HTML/Astro/Markdown content and extracts all candidate href, src, action, and Markdown links.
+    """Parse HTML/Astro/Markdown content and extract all candidate href, src, action, and Markdown links.
 
     Args:
         filepath: Path to the template or content file.
 
     Returns:
         List of link target strings.
+
     """
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
         content = f.read()
@@ -102,7 +107,7 @@ class InternalBrokenLinksTest(unittest.TestCase):
     """Unit test suite for validating internal relative links across project files."""
 
     def test_internal_links_exist(self) -> None:
-        """Validates that all internal relative links in template and content files exist on disk."""
+        """Validate that all internal relative links in template and content files exist on disk."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
         excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv"}
 
@@ -183,7 +188,7 @@ class ExternalBrokenLinksTest(unittest.TestCase):
     """Unit test suite for validating external HTTP/HTTPS site references."""
 
     def test_external_links_accessible(self) -> None:
-        """Validates that external HTTP/HTTPS links in template files respond successfully and are not broken."""
+        """Validate that external HTTP/HTTPS links in template files respond successfully and are not broken."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
         excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv"}
 

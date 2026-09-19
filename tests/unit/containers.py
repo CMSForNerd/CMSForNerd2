@@ -7,7 +7,7 @@ import pytest
 
 @pytest.mark.parametrize("container_file", ["Dockerfile", "Containerfile"])
 def test_containerfile_security_and_structure(container_file: str) -> None:
-    """Validates Containerfile and Dockerfile for standard-compliant specifications.
+    """Validate Containerfile and Dockerfile for standard-compliant specifications.
 
     Verifies that:
     - Multi-stage builds are used (builder, runtime stages).
@@ -20,6 +20,7 @@ def test_containerfile_security_and_structure(container_file: str) -> None:
 
     Raises:
         AssertionError: If container specifications fail structure or security rules.
+
     """
     assert os.path.exists(container_file), f"{container_file} not found."
 
