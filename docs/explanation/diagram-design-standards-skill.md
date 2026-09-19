@@ -10,9 +10,12 @@ sources:
 - id: skill_definition
   title: Diagram Design Standards Skill Definition
   url: .agents/skills/diagram-design-standards/SKILL.md
+- id: workspace_file
+  title: diagram-design-standards-skill.md
+  url: docs/explanation/diagram-design-standards-skill.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-08T00:00:00Z'
+  at: '2026-09-08T00:00:00Z'
 tags: ["diagrams", "svg", "mermaid", "architecture", "design-system", "explanation", "ASCII trees"]
 ---
 

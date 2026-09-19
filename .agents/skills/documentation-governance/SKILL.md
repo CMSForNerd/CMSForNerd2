@@ -13,7 +13,7 @@ sources:
   url: .agents/skills/documentation-governance/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["documentation", "governance", "okf", "uk-english", "navigation"]
 ---
 
@@ -47,11 +47,11 @@ To prevent orphaned documentation:
 
 ### 3. Open Knowledge Format (OKF) Compliance & Automation
 
-All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.1:
+All repository documentation strictly adheres to the Open Knowledge Format (OKF) v0.2:
 
-- Every markdown file requires YAML frontmatter starting on line 1, column 1, containing `okf_version`, `type`, `title`, `timestamp`, and `topics`.
+- Every markdown file requires YAML frontmatter starting on line 1, column 1, containing `spec_version: "0.2"`, `type`, `title`, `status`, `stale_after`, `sources`, `generated`, and `topics`/`tags`.
 - All string values containing emojis, colons, brackets, or other special characters must be enclosed in double quotes to prevent GitHub web view parsing issues.
-- The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF fields where necessary) to ensure complete compliance with the OKF v0.1 schema.
+- The repository contains an automated Node.js utility at `tools/refactor-okf.cjs` (delegating to `tools/migrate_okf_v02.py`) that recursively crawls, parses, formats, and validates the YAML frontmatter of all Markdown (`.md`) files (including injecting missing OKF v0.2 trust signal fields where necessary) to ensure complete compliance with the OKF v0.2 schema.
 
 ### 4. Educational Preservation Layer
 

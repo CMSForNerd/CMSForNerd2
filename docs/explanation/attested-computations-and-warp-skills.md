@@ -18,9 +18,12 @@ sources:
 - id: openviking_skills_api
   title: OpenViking Skills API Reference
   url: https://docs.openviking.ai/en/api/04-skills
+- id: workspace_file
+  title: attested-computations-and-warp-skills.md
+  url: docs/explanation/attested-computations-and-warp-skills.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-17T00:00:00Z'
+  at: '2026-09-17T00:00:00Z'
 tags: ["okf", "attested-computations", "warp", "openviking", "agent-skills", "verification"]
 ---
 

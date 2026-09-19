@@ -21,7 +21,7 @@ sources:
   url: skills/warp-agent-skills/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-17T00:00:00Z'
+  at: '2026-09-17T00:00:00Z'
 tags: ["warp", "openviking", "agent-skills", "slash-commands", "skill-arguments", "okf"]
 ---
 

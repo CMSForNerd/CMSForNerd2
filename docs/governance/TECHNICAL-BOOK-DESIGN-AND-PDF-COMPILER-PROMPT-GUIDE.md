@@ -15,9 +15,12 @@ sources:
 - id: build_mcmc_ansible_book_script
   title: MCMC Ansible Book Compiler Implementation
   path: tools/build_mcmc_ansible_book.py
+- id: workspace_file
+  title: TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md
+  url: docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md
 generated:
   by: Antigravity Cognitive Digital Twin
-  timestamp: '2026-09-04T21:15:00Z'
+  at: '2026-09-04T21:15:00Z'
 verified:
   by: Harisfazillah Jamel (LinuxMalaysia)
   timestamp: '2026-09-04T21:15:00Z'

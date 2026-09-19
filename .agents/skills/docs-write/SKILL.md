@@ -16,6 +16,9 @@ sources:
 - id: google_developer_docs_style_guide
   title: Google Developer Documentation Style Guide
   url: https://developers.google.com/style
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/docs-write/SKILL.md
 inputs:
   reader_intent:
     type: string
@@ -31,7 +34,7 @@ outputs:
 stale_after: "2027-03-06"
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T00:00:00Z'
+  at: '2026-09-06T00:00:00Z'
 topics: ["documentation", "writing", "markdown", "diataxis", "user-focused"]
 ---
 

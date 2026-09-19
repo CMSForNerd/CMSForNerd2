@@ -13,7 +13,7 @@ sources:
   url: docs/context7-integration.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-07-31T07:15:00Z'
+  at: '2026-07-31T07:15:00Z'
 tags: ["context7", "integrations", "gitlab-ci", "github-actions", "api", "documentation"]
 ---
 

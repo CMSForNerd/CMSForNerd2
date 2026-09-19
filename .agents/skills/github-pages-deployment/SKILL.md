@@ -13,7 +13,7 @@ sources:
   url: .agents/skills/github-pages-deployment/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T12:00:00Z'
+  at: '2026-08-01T12:00:00Z'
 tags: ["github-pages", "deployment", "base-url", "subpath", "ssg"]
 ---
 

@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/palace_registry.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T15:05:00Z'
+  at: '2026-09-06T15:05:00Z'
 tags: ["palace-registry", "dsom-protocol", "spatial-memory"]
 ---
 

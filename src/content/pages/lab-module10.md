@@ -14,7 +14,7 @@ sources:
   url: src/content/pages/lab-module10.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T09:00:00Z'
+  at: '2026-08-01T09:00:00Z'
 tags: ["wasm", "vector-search", "fastmcp", "adr", "ai", "mcp", "architecture"]
 ---
 

@@ -13,7 +13,7 @@ sources:
   url: docs/SUMMARY.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-08-01T14:35:00Z'
+  at: '2026-08-01T14:35:00Z'
 tags: ["summary", "index", "gitbook", "diataxis"]
 ---
 

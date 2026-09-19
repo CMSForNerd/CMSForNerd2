@@ -9,9 +9,12 @@ sources:
   title: Google Deep Research & Search Specification
   author: Google Cloud / Agent Architecture Guild
   url: https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals
+- id: workspace_file
+  title: SKILL.md
+  url: .agents/skills/google-deep-research/SKILL.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  timestamp: '2026-09-06T23:00:00Z'
+  at: '2026-09-06T23:00:00Z'
 tags: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
 topics: ["deep-search", "okf-v02", "research", "learn-protocol", "token-optimisation"]
 ---
