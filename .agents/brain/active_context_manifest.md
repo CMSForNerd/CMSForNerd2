@@ -12,20 +12,20 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: "Repository Architect & OKF v0.2 Compliance Agent"
-  at: '2026-09-20T03:31:04Z'
+  at: '2026-09-20T05:15:13Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
 # DSOM Active Context Manifest
 
-*Last Synchronized:* `2026-09-20T03:31:04Z`
+*Last Synchronized:* `2026-09-20T05:15:13Z`
 
 ## Active Intent
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
 ```
-M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;A  docs/explanation/dsom-agentic-workflow-blueprint.md;A  docs/governance/AI-AGENT-CHARTER-TEMPLATE.md;
+M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;
 ```
 
 ## Latest Compacted JSON Payload
@@ -33,7 +33,7 @@ M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brai
 {
   "dsom_compaction_meta": {
     "protocol_version": "0.2",
-    "timestamp": "2026-09-20T03:31:04.782598+00:00"
+    "timestamp": "2026-09-20T05:15:13.179325+00:00"
   },
   "active_intent": "Synchronize active context manifest and episodic ledger",
   "operational_constraints": [
@@ -41,7 +41,7 @@ M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brai
     "DSOM OKF v0.2"
   ],
   "context_deltas": {
-    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;A  docs/explanation/dsom-agentic-workflow-blueprint.md;A  docs/governance/AI-AGENT-CHARTER-TEMPLATE.md;",
+    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;",
     "telemetry_vectors": "Pre-commit guardrail verification state nominal"
   },
   "episodic_memory_keys": [

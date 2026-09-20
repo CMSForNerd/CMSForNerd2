@@ -1,9 +1,9 @@
 ---
+spec_version: "0.2"
 type: "walkthrough"
 title: "CMSForNerd2 Active Walkthrough"
 description: "Active record of steps and decisions made during the modernisation of CMSForNerd2."
 topics: ["walkthrough", "history", "brain", "dsom"]
-spec_version: "0.2"
 status: "stable"
 stale_after: "2027-03-06"
 sources:
@@ -12,7 +12,7 @@ sources:
   url: .agents/brain/walkthrough.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  at: '2026-09-09T00:00:00Z'
+  at: '2026-09-17T00:00:00Z'
 tags: ["walkthrough", "history", "brain", "dsom"]
 ---
 
@@ -89,3 +89,10 @@ tags: ["walkthrough", "history", "brain", "dsom"]
     - **Attested Computations & Warp Skills**: Verified Attested Computations contract architecture and Warp parameterisation syntax (`$ARGUMENTS`, `$0`).
     - **Downstream Mandate & Prompts**: Adopted Downstream DSOM Compliance Mandate and START AI AGENTS Setup Prompt across `AGENTS.md`, `.agents/AGENTS.md`, `START-HERE.md`, and `docs/start-here.md`.
     - **End of Day (EOD) Palace Brain Sync**: Executed `tools/eod-palace.sh` and verified 100% pass rate across Ruff, Mypy --strict, and 73 Pytest tests.
+24. **Agent Skills Adoption (`mermaid-validation` & `reskill`), AI Agent Charter Template, and DSOM Agentic Workflow Blueprint**:
+    - **Agent Skills**: Installed, adopted, and improved `mermaid-validation` (`.agents/skills/mermaid-validation/SKILL.md` & `skills/mermaid-validation/SKILL.md`) and `reskill` (`.agents/skills/reskill/SKILL.md` & `skills/reskill/SKILL.md`).
+    - **Headless Mermaid Validation Tooling**: Built `tools/validate-mermaid.js` using Node.js, `jsdom`, and `dompurify` to parse and validate embedded Mermaid diagram blocks in workspace Markdown files without Chromium overhead.
+    - **Alignbase AI Agent Charter Template**: Authored `docs/governance/AI-AGENT-CHARTER-TEMPLATE.md` with explicit human ownership, bounded authority, fail-closed stop paths, and release binding. Registered in `AGENTS.md`, `.agents/AGENTS.md`, `docs/SUMMARY.md`, and `docs/README.md`.
+    - **DSOM Workflow Blueprint & Utilities**: Documented 5-step workflow blueprint in `docs/explanation/dsom-agentic-workflow-blueprint.md`. Implemented Step 2 Token Compaction Engine in `tools/dsom_compaction_engine.py` and Step 5 Git Hook in `tools/dsom-manifest-sync.sh`.
+    - **Unit Test Suite**: Added `tests/unit/skills_and_dsom.py` testing Mermaid validator, compaction JSON schema, manifest sync script, and skill OKF compliance, re-exported in `tests/test_unit.py`.
+    - **EOD Palace Sync & Verification**: Executed `tools/dsom-manifest-sync.sh` and `tools/eod-palace.sh`, achieving 100% test pass rate across 77 Pytest test cases, 0 Ruff errors, and 0 Mypy type issues.
