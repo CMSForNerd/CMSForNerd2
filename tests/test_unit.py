@@ -8,6 +8,7 @@ It imports and re-exports test functions across domain submodules:
 4. Sitemap consistency and JSON configurations (tests/unit/sitemaps.py).
 5. LLMs parsing and compilation tools (tests/unit/llms.py).
 6. Internal and external broken links validation (tests/unit/links.py).
+7. Agent Skills, Mermaid validation, and DSOM workflow tooling (tests/unit/skills_and_dsom.py).
 """
 
 from tests.unit.ansible import test_ansible_playbook_compliance
@@ -44,10 +45,17 @@ from tests.unit.sitemaps import (
     test_pagefind_sri_manifest,
     test_sitemaps_consistency,
 )
+from tests.unit.skills_and_dsom import (
+    test_agent_charter_and_skills_integrity,
+    test_dsom_compaction_engine_payload,
+    test_dsom_manifest_sync_script,
+    test_validate_mermaid_script_execution,
+)
 
 __all__ = [
     "ExternalBrokenLinksTest",
     "InternalBrokenLinksTest",
+    "test_agent_charter_and_skills_integrity",
     "test_ansible_playbook_compliance",
     "test_build_llms_full_compilation",
     "test_containerfile_security_and_structure",
@@ -55,6 +63,8 @@ __all__ = [
     "test_create_mcp_app_and_websocket_transport",
     "test_csp_manifest_and_nonce_injection",
     "test_dispatch_wasm_component_tool",
+    "test_dsom_compaction_engine_payload",
+    "test_dsom_manifest_sync_script",
     "test_get_openwiki_concept",
     "test_get_route_content",
     "test_get_sitemap_routes",
@@ -68,6 +78,7 @@ __all__ = [
     "test_search_ssg_routes",
     "test_sitemaps_consistency",
     "test_uk_english_documentation_spellings",
+    "test_validate_mermaid_script_execution",
     "test_validate_wasm_cm_wit_interface",
     "test_websocket_reconnect_failure_mode",
 ]

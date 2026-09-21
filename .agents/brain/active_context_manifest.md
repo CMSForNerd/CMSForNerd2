@@ -1,9 +1,9 @@
 ---
-type: "brain"
-title: "Active Context Manifest"
-description: "Live tracking manifest of active engineering scope files for CMSForNerd2."
-topics: ["context-manifest", "dsom-protocol", "active-scope"]
 spec_version: "0.2"
+type: "documentation"
+title: "DSOM Active Context Manifest"
+description: "Real-time spatial memory manifest tracking active session intent, system mutations, and operational state."
+topics: ["dsom", "manifest", "active-context", "spatial-memory"]
 status: "stable"
 stale_after: "2027-03-06"
 sources:
@@ -11,40 +11,46 @@ sources:
   title: active_context_manifest.md
   url: .agents/brain/active_context_manifest.md
 generated:
-  by: Repository Architect & OKF v0.2 Compliance Agent
-  at: '2026-09-19T00:00:00Z'
-tags: ["context-manifest", "dsom-protocol", "active-scope"]
+  by: "Repository Architect & OKF v0.2 Compliance Agent"
+  at: '2026-09-20T05:15:13Z'
+tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
-# 📑 Active Context Manifest
+# DSOM Active Context Manifest
 
-The following files constitute the active engineering context for this session:
+*Last Synchronized:* `2026-09-20T05:15:13Z`
 
-- `tools/migrate_okf_v02.py` (OKF v0.2 migration script with PEP-257 docstrings)
-- `tools/build_llms_full.py` (LLM full text generator with PEP-257 docstrings)
-- `tools/llms_txt2ctx.py` (LLM context parser with PEP-257 docstrings)
-- `tools/mcp/server.py` (FastMCP server with PEP-257 docstrings)
-- `tools/refactor-okf.cjs` (OKF refactoring facade with JSDoc comments)
-- `tools/verify-sitemaps.js` (Sitemap verification script with JSDoc comments)
-- `tools/eod-palace.sh` (EOD Palace script with headers, guidelines, and comments)
-- `tools/deploy-static.sh` (Static deployment script with headers and comments)
-- `tests/unit/ansible.py` (Ansible playbook FQCN & idempotency unit tests with PEP-257 docstrings)
-- `tests/unit/containers.py` (Podman & Containerfile security unit tests with PEP-257 docstrings)
-- `tests/unit/markdown.py` (OKF v0.2 & governance footer unit tests with PEP-257 docstrings)
-- `tests/unit/links.py` (Internal and external broken links unit tests with PEP-257 docstrings)
-- `tests/unit/llms.py` (LLM context parser unit tests with PEP-257 docstrings)
-- `tests/unit/mcp.py` (FastMCP tools unit tests with PEP-257 docstrings)
-- `tests/unit/sitemaps.py` (Sitemaps consistency unit tests with PEP-257 docstrings)
-- `tests/test_cms.py` (CMS integration tests with PEP-257 docstrings)
-- `tests/conftest.py` (Pytest preview server fixture with PEP-257 docstrings)
-- `tests/test_unit.py` (Top-level Pytest facade with PEP-257 docstrings)
-- `tests/test_e2e.py` (Playwright E2E browser test suite with PEP-257 docstrings)
-- `.agents/brain/task.md` (Active task list)
-- `.agents/brain/walkthrough.md` (Session history & milestones)
-- `.agents/brain/checkpoint_summary.txt` (Session mental anchor & summary)
-- `.agents/brain/active_context_manifest.md` (This file)
+## Active Intent
+Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
+
+## Active Workspace Mutations
+```
+M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;
+```
+
+## Latest Compacted JSON Payload
+```json
+{
+  "dsom_compaction_meta": {
+    "protocol_version": "0.2",
+    "timestamp": "2026-09-20T05:15:13.179325+00:00"
+  },
+  "active_intent": "Synchronize active context manifest and episodic ledger",
+  "operational_constraints": [
+    "Node22/Astro7.1",
+    "DSOM OKF v0.2"
+  ],
+  "context_deltas": {
+    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/mermaid-validation/SKILL.md;A  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/README.md;M  docs/SUMMARY.md;",
+    "telemetry_vectors": "Pre-commit guardrail verification state nominal"
+  },
+  "episodic_memory_keys": [
+    "DSOM_MANIFEST_SYNC",
+    "STATE_LEAF_UPDATED"
+  ]
+}
+```
 
 ---
-
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-19*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-17*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

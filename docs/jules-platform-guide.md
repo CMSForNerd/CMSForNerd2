@@ -307,7 +307,7 @@ graph LR
 
     A1 -->|"Proposes code edits"| G1
     G1 -->|"Records state in Git"| E1
-    E1 -.->"Verification Feedback Loop"| A1
+    E1 -.->|"Verification Feedback Loop"| A1
 ```
 
 #### 4. Summary Interface & Routing Table
