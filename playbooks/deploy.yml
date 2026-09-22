@@ -24,6 +24,7 @@
       ansible.builtin.command: npm run build
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: deploy
 

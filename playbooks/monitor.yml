@@ -14,6 +14,7 @@
       ansible.builtin.command: node tools/verify-sitemaps.js
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: monitor
 
@@ -21,6 +22,7 @@
       ansible.builtin.command: ruff check tests/ tools/
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: monitor
 
@@ -30,6 +32,7 @@
         chdir: "{{ src_dir }}"
       environment:
         PYTHONPATH: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: monitor
 
@@ -37,6 +40,7 @@
       ansible.builtin.command: python3 -m pytest tests/test_unit.py -v
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: monitor
 
@@ -57,4 +61,5 @@
           }
         dest: "{{ src_dir }}/dist/audit-ledger.json"
         mode: '0644'
+      run_once: true
       tags: monitor

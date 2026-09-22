@@ -27,6 +27,7 @@
       ansible.builtin.command: uv venv .venv --allow-existing
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: install
 
@@ -34,6 +35,7 @@
       ansible.builtin.command: uv pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests fastmcp
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: install
 
@@ -41,6 +43,7 @@
       ansible.builtin.command: npm ci --legacy-peer-deps
       args:
         chdir: "{{ src_dir }}"
+      run_once: true
       changed_when: false
       tags: install
 
