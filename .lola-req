@@ -1,0 +1,7 @@
+# .lola-req - AI context modules for this project
+
+# Modules from https://raw.githubusercontent.com/ansible-community/ai-forge/main/lola-market.yml
+@ansible-content/ai-forge/ansible-collection-standards
+@ansible-content/ai-forge/ansible-role
+@ansible-content/ai-forge/ansible-collection-sdlc
+@ansible-content/ai-forge/ansible-content-development

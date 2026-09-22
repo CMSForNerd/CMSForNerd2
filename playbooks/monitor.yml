@@ -1,0 +1,60 @@
+---
+# playbooks/monitor.yml
+# Ansible Automation Playbook: Phase 5 - Monitoring, Verification & Audit Reporting
+
+- name: Phase 5 - Monitoring, Verification and Audit Reporting
+  hosts: all
+  connection: local
+  gather_facts: true
+  vars:
+    src_dir: "{{ playbook_dir }}/.."
+
+  tasks:
+    - name: 🔍 Verify sitemaps and asset links
+      ansible.builtin.command: node tools/verify-sitemaps.js
+      args:
+        chdir: "{{ src_dir }}"
+      changed_when: false
+      tags: monitor
+
+    - name: 🔍 Execute Ruff static analysis checks
+      ansible.builtin.command: ruff check tests/ tools/
+      args:
+        chdir: "{{ src_dir }}"
+      changed_when: false
+      tags: monitor
+
+    - name: 🔍 Execute Mypy type checking suite
+      ansible.builtin.command: python3 -m mypy --explicit-package-bases --strict tests tools
+      args:
+        chdir: "{{ src_dir }}"
+      environment:
+        PYTHONPATH: "{{ src_dir }}"
+      changed_when: false
+      tags: monitor
+
+    - name: 🧪 Execute Python unit test suite
+      ansible.builtin.command: python3 -m pytest tests/test_unit.py -v
+      args:
+        chdir: "{{ src_dir }}"
+      changed_when: false
+      tags: monitor
+
+    - name: 📊 Generate summary execution audit ledger
+      ansible.builtin.copy:
+        content: |
+          {
+            "audit_timestamp": "{{ ansible_date_time.iso8601 }}",
+            "environment": "{% if is_limited_environment | default(true) %}sandbox{% else %}real_os{% endif %}",
+            "status": "SUCCESS",
+            "framework": "Ansible + uv + OpenTofu",
+            "checks_passed": [
+              "sitemaps_verification",
+              "ruff_linting",
+              "mypy_type_checking",
+              "unit_test_suite"
+            ]
+          }
+        dest: "{{ src_dir }}/dist/audit-ledger.json"
+        mode: '0644'
+      tags: monitor

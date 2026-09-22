@@ -27,6 +27,7 @@ Sovereign Markdown Palace
 │   └── Room: room_book_compiler (docs/governance/TECHNICAL-BOOK-DESIGN-AND-PDF-COMPILER-PROMPT-GUIDE.md)
 ├── Wing: Platform & Architecture
 │   ├── Room: room_jules_operations (docs/jules-platform-guide.md)
+│   ├── Room: room_ansible_opentofu_framework (docs/how-to/ansible-uv-opentofu-ai-forge-integration.md)
 │   ├── Room: room_clean_architecture (docs/explanation/modernisation-philosophy.md)
 │   └── Room: room_spatial_sandbox (docs/explanation/spatial-memory-and-sandbox.md)
 ├── Wing: Tooling & Utilities

@@ -1,0 +1,61 @@
+---
+# playbooks/opentofu.yml
+# Ansible Automation Playbook: Phase 2 - OpenTofu IaC Infrastructure Provisioning
+
+- name: Phase 2 - OpenTofu IaC Provisioning and Management
+  hosts: all
+  connection: local
+  gather_facts: true
+  vars:
+    src_dir: "{{ playbook_dir }}/.."
+    opentofu_dir: "{{ playbook_dir }}/../opentofu"
+
+  tasks:
+    - name: 🔍 Detect limited sandbox environment
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
+
+    - name: 🚀 Initialize OpenTofu backend
+      ansible.builtin.command: tofu init -reconfigure
+      args:
+        chdir: "{{ opentofu_dir }}"
+      run_once: true
+      changed_when: false
+      tags: opentofu
+
+    - name: 🎨 Format OpenTofu HCL code
+      ansible.builtin.command: tofu fmt
+      args:
+        chdir: "{{ opentofu_dir }}"
+      run_once: true
+      changed_when: false
+      tags: opentofu
+
+    - name: 🔍 Validate OpenTofu manifests
+      ansible.builtin.command: tofu validate
+      args:
+        chdir: "{{ opentofu_dir }}"
+      run_once: true
+      changed_when: false
+      tags: opentofu
+
+    - name: 📋 Generate OpenTofu execution plan
+      ansible.builtin.command: tofu plan -lock=false
+      args:
+        chdir: "{{ opentofu_dir }}"
+      run_once: true
+      register: tofu_plan_output
+      changed_when: false
+      tags: opentofu
+
+    - name: 🚀 Apply OpenTofu infrastructure plan
+      ansible.builtin.command: tofu apply -auto-approve -lock=false
+      args:
+        chdir: "{{ opentofu_dir }}"
+      run_once: true
+      changed_when: true
+      tags: opentofu

@@ -1,0 +1,19 @@
+---
+# playbooks/site.yml
+# Master Ansible Automation Orchestrator for CMSForNerd2
+# Orchestrates Phase 1 (Install), Phase 2 (OpenTofu IaC), Phase 3 (Configure), Phase 4 (Deploy), Phase 5 (Monitor)
+
+- name: Master Lifecycle Orchestration - Phase 1 (Installation & Environment)
+  ansible.builtin.import_playbook: install.yml
+
+- name: Master Lifecycle Orchestration - Phase 2 (OpenTofu IaC Infrastructure)
+  ansible.builtin.import_playbook: opentofu.yml
+
+- name: Master Lifecycle Orchestration - Phase 3 (Configuration & Administration)
+  ansible.builtin.import_playbook: configure.yml
+
+- name: Master Lifecycle Orchestration - Phase 4 (Build & Deployment)
+  ansible.builtin.import_playbook: deploy.yml
+
+- name: Master Lifecycle Orchestration - Phase 5 (Monitoring & Audit Reporting)
+  ansible.builtin.import_playbook: monitor.yml

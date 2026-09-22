@@ -109,7 +109,7 @@ class InternalBrokenLinksTest(unittest.TestCase):
     def test_internal_links_exist(self) -> None:
         """Validate that all internal relative links in template and content files exist on disk."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
-        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv"}
+        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv", ".terraform"}
 
         files: list[str] = []
         for root, dirs, fnames in os.walk("."):
@@ -190,7 +190,7 @@ class ExternalBrokenLinksTest(unittest.TestCase):
     def test_external_links_accessible(self) -> None:
         """Validate that external HTTP/HTTPS links in template files respond successfully and are not broken."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
-        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv"}
+        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv", ".terraform"}
 
         files: list[str] = []
         for root, dirs, fnames in os.walk("."):

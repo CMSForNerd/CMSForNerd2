@@ -1,0 +1,59 @@
+---
+# playbooks/configure.yml
+# Ansible Automation Playbook: Phase 3 - Administration & Configuration Management
+
+- name: Phase 3 - Administration and Web Node Configuration
+  hosts: all
+  connection: local
+  gather_facts: true
+  vars:
+    src_dir: "{{ playbook_dir }}/.."
+    nginx_web_root: "/var/www/cmsfornerd2"
+
+  tasks:
+    - name: 🔍 Detect limited sandbox environment
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
+
+    # Real OS Configuration Actions
+    - name: 🧱 [Real OS] Apply Nginx master security configuration
+      ansible.builtin.copy:
+        src: "{{ src_dir }}/nginx/nginx.conf"
+        dest: "/etc/nginx/nginx.conf"
+        owner: root
+        group: root
+        mode: '0644'
+      become: true
+      when: not is_limited_environment
+      tags: configure
+
+    - name: 🧱 [Real OS] Ensure web root directory exists with proper permissions
+      ansible.builtin.file:
+        path: "{{ nginx_web_root }}"
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: '0755'
+      become: true
+      when: not is_limited_environment
+      tags: configure
+
+    # Dual Pathway Actions
+    - name: 🔒 [Dual] Audit and enforce OKF v0.2 frontmatter compliance
+      ansible.builtin.command: node tools/refactor-okf.cjs
+      args:
+        chdir: "{{ src_dir }}"
+      changed_when: false
+      tags: configure
+
+    - name: 🔒 [Limited Sandbox] Log sandbox administration status
+      ansible.builtin.debug:
+        msg: >
+          Configuration and administration tasks applied cleanly.
+          System-level Nginx modifications bypassed for unprivileged sandbox.
+      when: is_limited_environment
+      tags: configure

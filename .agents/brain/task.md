@@ -29,3 +29,7 @@ tags: ["tasks", "track", "progress", "dsom"]
 - [x] Add unit tests in `tests/unit/skills_and_dsom.py` and export in `tests/test_unit.py`.
 - [x] Perform End-of-Day (EOD) Palace sync and pre-commit guardrail checks (`tools/eod-palace.sh`).
 - [x] Verify complete test pass rate across Ruff linter, Mypy strict type checking, validate-mermaid, Astro SSG build, and Pytest test suite (77 tests passing).
+- [x] Adopt, implement, and run Ansible Community AI Forge skills and `.lola-req` declarative module specification file.
+- [x] Produce OKF v0.2 documentation guide `docs/how-to/ansible-uv-opentofu-ai-forge-integration.md` answering 4W1H (Who, What, When, Where, How).
+- [x] Provision declarative OpenTofu IaC manifests in `opentofu/` (`main.tf`, `variables.tf`, `outputs.tf`).
+- [x] Build master Ansible orchestrator playbook suite in `playbooks/` (`site.yml`, `install.yml`, `opentofu.yml`, `configure.yml`, `deploy.yml`, `monitor.yml`) supporting installation, configuration, administration, deployment, monitoring, and reporting with dual-pathway sandbox/real-OS branching.

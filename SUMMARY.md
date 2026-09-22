@@ -34,6 +34,7 @@ tags: ["summary", "index", "navigation"]
 * [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
+* [Ansible, uv & OpenTofu Framework Guide](docs/how-to/ansible-uv-opentofu-ai-forge-integration.md)
 * [GitHub Pages Deployment Troubleshooting Guide](docs/how-to/github-pages-deployment-troubleshooting.md)
 * [Web Design Guidelines Skill Overview](docs/explanation/web-design-guidelines-skill.md)
 * [Diagram Design Standards Skill Overview](docs/explanation/diagram-design-standards-skill.md)
