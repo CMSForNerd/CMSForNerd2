@@ -11,21 +11,21 @@ sources:
   title: active_context_manifest.md
   url: .agents/brain/active_context_manifest.md
 generated:
-  by: "Repository Architect & OKF v0.2 Compliance Agent"
-  at: '2026-09-22T07:18:28Z'
+  by: Repository Architect & OKF v0.2 Compliance Agent
+  at: '2026-09-22T18:31:37Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
 # DSOM Active Context Manifest
 
-*Last Synchronized:* `2026-09-22T07:18:28Z`
+*Last Synchronized:* `2026-09-22T18:31:37Z`
 
 ## Active Intent
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
 ```
-MM .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/palace_registry.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;M  .gitignore;A  .lola-req;M  SUMMARY.md;M  ansible.cfg;
+M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/palace_registry.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;M  .gitignore;A  .lola-req;M  SUMMARY.md;M  ansible.cfg;
 ```
 
 ## Latest Compacted JSON Payload
@@ -33,7 +33,7 @@ MM .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.
 {
   "dsom_compaction_meta": {
     "protocol_version": "0.2",
-    "timestamp": "2026-09-22T07:18:28.589917+00:00"
+    "timestamp": "2026-09-22T18:31:37.509381+00:00"
   },
   "active_intent": "Synchronize active context manifest and episodic ledger",
   "operational_constraints": [
@@ -41,7 +41,7 @@ MM .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.
     "DSOM OKF v0.2"
   ],
   "context_deltas": {
-    "system_mutations": "MM .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/palace_registry.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;M  .gitignore;A  .lola-req;M  SUMMARY.md;M  ansible.cfg;",
+    "system_mutations": "M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/palace_registry.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;M  .gitignore;A  .lola-req;M  SUMMARY.md;M  ansible.cfg;",
     "telemetry_vectors": "Pre-commit guardrail verification state nominal"
   },
   "episodic_memory_keys": [
