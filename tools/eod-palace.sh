@@ -89,7 +89,7 @@ if command -v ruff >/dev/null 2>&1; then
 fi
 
 if command -v mypy >/dev/null 2>&1; then
-    PYTHONPATH=. mypy --explicit-package-bases --strict tests tools
+    PYTHONPATH=. python3 -m mypy --explicit-package-bases --strict tests tools
 fi
 
 # Log success notification upon completing all pre-commit guardrail steps

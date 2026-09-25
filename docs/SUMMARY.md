@@ -35,6 +35,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 * [OKF Frontmatter Refactoring](how-to/okf-refactoring.md)
 * [Sitemap Verification](how-to/sitemap-verification.md)
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)
+* [Ansible, uv & OpenTofu Framework Guide](how-to/ansible-uv-opentofu-ai-forge-integration.md)
 * [GitHub Pages Deployment & Troubleshooting](how-to/github-pages-deployment-troubleshooting.md)
 * [FastMCP Server & WebAssembly Tools Usage](how-to/how-to-use-fastmcp-and-wasm.md)
 * [Building WebGPU Applications](how-to/webgpu-application-development.md)

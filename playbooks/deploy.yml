@@ -1,0 +1,46 @@
+---
+# playbooks/deploy.yml
+# Ansible Automation Playbook: Phase 4 - Build & Deployment Orchestration
+
+- name: Phase 4 - Deployment and Static Site Compilation
+  hosts: all
+  connection: local
+  gather_facts: true
+  vars:
+    src_dir: "{{ playbook_dir }}/.."
+    build_dir: "{{ playbook_dir }}/../dist"
+    nginx_web_root: "/var/www/cmsfornerd2"
+
+  tasks:
+    - name: 🔍 Detect limited sandbox environment
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
+
+    - name: 🏗️ Compile Astro SSG static site and Pagefind search index
+      ansible.builtin.command: npm run build
+      args:
+        chdir: "{{ src_dir }}"
+      run_once: true
+      changed_when: false
+      tags: deploy
+
+    - name: 🚀 [Real OS] Synchronize compiled static assets to production web root
+      ansible.posix.synchronize:
+        src: "{{ build_dir }}/"
+        dest: "{{ nginx_web_root }}/"
+        delete: true
+      become: true
+      when: not is_limited_environment
+      tags: deploy
+
+    - name: 🚀 [Limited Sandbox] Confirm local build verification
+      ansible.builtin.debug:
+        msg: >
+          Build compilation verified in local 'dist/' folder.
+          Production web root synchronization bypassed in sandbox environment.
+      when: is_limited_environment
+      tags: deploy

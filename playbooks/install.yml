@@ -1,0 +1,69 @@
+---
+# playbooks/install.yml
+# Ansible Automation Playbook: Phase 1 - Installation & Environment Setup via Python uv
+
+- name: Phase 1 - Installation and Environment Bootstrap
+  hosts: all
+  connection: local
+  gather_facts: true
+  vars:
+    src_dir: "{{ playbook_dir }}/.."
+
+  tasks:
+    - name: 🔍 Detect limited or Google Jules sandbox environment
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
+
+    - name: 📋 Display detected environment status
+      ansible.builtin.debug:
+        msg: >
+          [Installation Phase] Running in {% if is_limited_environment %}LIMITED SANDBOX{% else %}REAL OS{% endif %} environment.
+
+    - name: 🐍 Create Python virtual environment via uv
+      ansible.builtin.command: uv venv .venv --allow-existing
+      args:
+        chdir: "{{ src_dir }}"
+      run_once: true
+      changed_when: false
+      tags: install
+
+    - name: 📦 Install Python workspace dependencies via uv
+      ansible.builtin.command: uv pip install pytest pyyaml requests ruff mypy types-PyYAML types-requests fastmcp
+      args:
+        chdir: "{{ src_dir }}"
+      run_once: true
+      changed_when: false
+      tags: install
+
+    - name: 📦 Install Node.js workspace dependencies
+      ansible.builtin.command: npm ci --legacy-peer-deps
+      args:
+        chdir: "{{ src_dir }}"
+      run_once: true
+      changed_when: false
+      tags: install
+
+    - name: 🤖 Verify Lola AI Package Manager availability
+      ansible.builtin.command: lola --version
+      register: lola_check
+      failed_when: false
+      changed_when: false
+      tags: install
+
+    - name: 🤖 Register Lola AI Forge marketplace if Lola is available
+      ansible.builtin.command: lola market add ansible-content https://raw.githubusercontent.com/ansible-community/ai-forge/main/lola-market.yml
+      when: lola_check.rc == 0
+      failed_when: false
+      changed_when: false
+      tags: install
+
+    - name: 🤖 Sync Lola declarative modules from .lola-req
+      ansible.builtin.command: lola sync
+      when: lola_check.rc == 0
+      failed_when: false
+      changed_when: false
+      tags: install

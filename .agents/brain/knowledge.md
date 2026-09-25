@@ -174,6 +174,9 @@ This document contains a comprehensive record of all 50 Google Jules operational
 50. **PHP Legacy References Cleanup & Educational Preservation**
     Active, non-historical references to PHP in style comments, routing code, and offline fallback messages are updated or removed to align fully with Astro 7.1. However, all legacy educational laboratory pages and guides in `src/content/pages/` are preserved unchanged to maintain the historical context of the project's origin from the database-free `cmsfornerd` PHP CMS.
 
+51. **Ansible, Python uv & OpenTofu Master Orchestration Framework**
+    The repository adopts Ansible Community AI Forge skills (`ansible-zen`, `write-content`, `write-module`, `write-content-tests`, `write-module-tests`, `python-virtual-env`, `ansible-markdown-docs`, `sonarcloud-remediation`), `.lola-req` declarative AI Forge module requirements, OpenTofu IaC manifests in `opentofu/` (`main.tf`, `variables.tf`, `outputs.tf`), and a master Ansible orchestrator suite in `playbooks/` (`site.yml`, `install.yml`, `opentofu.yml`, `configure.yml`, `deploy.yml`, `monitor.yml`). Ansible acts as the central orchestrator calling OpenTofu for IaC provisioning, `uv` for Python environment management, and Lola for AI skills, driving end-to-end installation, configuration, administration, deployment, monitoring, and audit reporting with dual-pathway sandbox/real-OS support and OKF v0.2 documentation (`docs/how-to/ansible-uv-opentofu-ai-forge-integration.md`).
+
 ---
-*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-16*
+*Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-22*
 *Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0*

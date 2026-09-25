@@ -6,3 +6,8 @@ dist/
 __pycache__/
 .pytest_cache/
 .mypy_cache/
+.venv/
+opentofu/.terraform/
+opentofu/build/
+*.tfstate
+*.tfstate.*
