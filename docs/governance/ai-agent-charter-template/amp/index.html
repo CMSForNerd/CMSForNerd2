@@ -1,0 +1,396 @@
+<!DOCTYPE html><html ⚡ lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>AI Agent Charter Template and Operating Governance Standard (AMP)</title><meta name="description" content="Comprehensive enterprise AI agent charter template adapted from Alignbase specification, defining explicit purpose, human ownership, bounded authority, context boundaries, fail-closed stop conditions, and release controls."><link rel="canonical" href="/CMSForNerd2docs/governance/ai-agent-charter-template"><link rel="dns-prefetch" href="https://cdn.ampproject.org"><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><!-- PWA Foundation --><link rel="manifest" href="/CMSForNerd2manifest.json"><meta name="theme-color" content="#0d6efd"><style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style><noscript><style amp-boilerplate>
+        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+      </style></noscript><style amp-custom>/* * CMSForNerd Laboratory - AMP Stylesheet
+ * Adopted for Astro 7.1 Static Site Environment
+ */
+
+:root {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+
+    /* -- PHASE 11: GLASSMORPISM TOKENS (v4.0 Concept) -- */
+    --lab-glass-bg: rgba(255, 255, 255, 0.1);
+    --lab-glass-border: rgba(255, 255, 255, 0.2);
+    --lab-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lab-purple: #a855f7;
+        --lab-bg: #121212;
+        --lab-text: #e0e0e0;
+        --lab-muted: #9e9e9e;
+        --lab-border: #333333;
+    }
+}
+
+body.theme-dark {
+    --lab-purple: #a855f7;
+    --lab-bg: #121212;
+    --lab-text: #e0e0e0;
+    --lab-muted: #9e9e9e;
+    --lab-border: #333333;
+}
+
+body.theme-light {
+    --lab-purple: #8e44ad;
+    --lab-bg: #ffffff;
+    --lab-text: #2c3e50;
+    --lab-muted: #7f8c8d;
+    --lab-border: #ecf0f1;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--lab-text);
+    background-color: var(--lab-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Header & Navigation */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.amp-header a {
+    color: var(--lab-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--lab-purple);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    border-left: 4px solid var(--lab-purple);
+    padding-left: 15px;
+    margin-top: 1.5em;
+}
+
+/* Content Fragments (Pair Logic Integration) */
+.error-box {
+    color: #c0392b;
+    border: 1px dashed #c0392b;
+    padding: 15px;
+    background: #fdf2f2;
+    font-family: monospace;
+}
+
+/* Images (AMP specific) */
+amp-img {
+    background-color: var(--lab-border);
+    border-radius: 4px;
+    margin: 1.5em 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lab-bg);
+    border-top: 1px solid var(--lab-border);
+    font-size: 0.85rem;
+    color: var(--lab-muted);
+}
+
+footer a {
+    color: var(--lab-purple);
+    text-decoration: underline;
+}
+
+/* Laboratory UI Elements (Buttons/Badges) */
+.btn, button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--lab-purple);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+/* Graduation Certificate AMP Styles */
+.certificate-container {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.certificate {
+    background: var(--lab-bg);
+    border: 10px double var(--lab-purple);
+    padding: 20px;
+    text-align: center;
+}
+.student-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.competency-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 20px 0;
+}
+.competency-table th, .competency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cert-seal {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Final Exam AMP Styles */
+.final-exam .code-block {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #f8f8f2;
+    font-family: monospace;
+}
+.final-exam .code-block.broken {
+    border-left: 5px solid #d9534f;
+}
+.scenario-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 5px solid #8e44ad;
+}
+.terminal-block {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+/* --- FIX: Header Layout for Sidebar Toggle --- */
+.amp-header {
+    background: var(--lab-bg);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--lab-purple);
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    gap: 15px;
+
+    /* Phase 11: Glass-Surface (v4.0) */
+    background: var(--lab-glass-bg);
+    backdrop-filter: blur(var(--lab-blur));
+    -webkit-backdrop-filter: blur(var(--lab-blur));
+    border-bottom: 2px solid var(--lab-glass-border);
+}
+
+/* Reset the button styles for the hamburger menu */
+.amp-header button {
+    display: inline-block;
+    width: auto;
+    background: none;
+    color: var(--lab-text);
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- NEW: Sidebar Specific Styles --- */
+amp-sidebar {
+    width: 280px;
+    background-color: var(--lab-bg);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Ensure it floats above content */
+}
+
+.sidebar-header {
+    background-color: var(--lab-purple);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Override the global button style inside the sidebar header */
+.sidebar-header button {
+    background: none;
+    color: white;
+    width: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--lab-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lab-border);
+    font-weight: 500;
+}
+
+.sidebar-nav a:active {
+    background-color: #f8f9fa;
+}
+
+/* Add this to themes/CmsForNerd/css/amp.css */
+
+amp-sidebar {
+    z-index: 2147483647 !important; /* Maximum possible z-index */
+    width: 280px;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    display: inline-block;
+    color: var(--lab-purple);
+}
+
+.close-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+</style>  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' 'sha256-pDyzJyKEA2Jvz2LOU1gJLqPpQ7uLfMZcmHG8MXlEaqk=' https://*; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://* wss://*; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
+</head><body [class]="themeState"><amp-state id="themeState"><script type="application/json">"theme-light"</script></amp-state><!-- AMP Sidebar --><amp-sidebar id="sidebar" layout="nodisplay" side="left"><div class="sidebar-header"><span>LABORATORY</span><button on="tap:sidebar.close" role="button" tabindex="0" class="close-btn">&times;</button></div><nav class="sidebar-nav"><ul><li><div style="padding: 10px 20px; border-bottom: 1px solid var(--lab-border);"><button class="btn" on="tap:AMP.setState({themeState: themeState == 'theme-dark' ? 'theme-light' : 'theme-dark'})" style="margin:0;">Dimmer Switch 🌓</button></div></li><li><a href="/CMSForNerd2amp" class>🏠 Home</a></li><li><a href="/CMSForNerd2docs/context7-integration/amp" class>Context7 Service Integration Guide</a></li><li><a href="/CMSForNerd2docs/engineering/amp" class>DevOps Implementation Runbook Portal</a></li><li><a href="/CMSForNerd2docs/engineering/ansible-asimp-hardening/amp" class>Ansible ASIMP Hardening Playbooks</a></li><li><a href="/CMSForNerd2docs/engineering/dns-systemd-troubleshooting/amp" class>DNS &amp; systemd-resolved Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/engineering/efs-mount-scripts/amp" class>Persistent EFS Storage &amp; Mount Scripts</a></li><li><a href="/CMSForNerd2docs/engineering/opentofu-manifests/amp" class>OpenTofu Module Manifests &amp; Simulation</a></li><li><a href="/CMSForNerd2docs/executive/amp" class>Executive &amp; Financial Blueprint Portal</a></li><li><a href="/CMSForNerd2docs/executive/regulatory-compliance/amp" class>Sovereignty &amp; Regulatory Compliance</a></li><li><a href="/CMSForNerd2docs/executive/tco-financial-blueprint/amp" class>36-Month TCO &amp; Financial Blueprint</a></li><li><a href="/CMSForNerd2docs/explanation/attested-computations-and-warp-skills/amp" class>Attested Computations and Warp Agent Skills Standard</a></li><li><a href="/CMSForNerd2docs/explanation/diagram-design-standards-skill/amp" class>Diagram Design Standards Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/dsom-agentic-workflow-blueprint/amp" class>Deep State of Mind (DSOM) Agentic Workflow Blueprint and Token Compaction Engine</a></li><li><a href="/CMSForNerd2docs/explanation/fastmcp-wasm-architecture/amp" class>FastMCP Protocol &amp; WebAssembly (Wasm) Architecture</a></li><li><a href="/CMSForNerd2docs/explanation/modernisation-philosophy/amp" class>PHP-to-Static Modernisation Philosophy</a></li><li><a href="/CMSForNerd2docs/explanation/spatial-memory-and-sandbox/amp" class>Spatial Memory &amp; Dual-Pathway Design</a></li><li><a href="/CMSForNerd2docs/explanation/web-design-guidelines-skill/amp" class>Web Design Guidelines Skill Overview</a></li><li><a href="/CMSForNerd2docs/explanation/web-interface-improvements/amp" class>Web Interface Improvements &amp; Design Review</a></li><li><a href="/CMSForNerd2docs/governance/ai-agent-charter-template/amp" class="active">AI Agent Charter Template and Operating Governance Standard</a></li><li><a href="/CMSForNerd2docs/governance/llm-wiki-adoption/amp" class>DSOM vs. LLM WIKI: Comparative Analysis &amp; Adoption Strategy</a></li><li><a href="/CMSForNerd2docs/governance/technical-book-design-and-pdf-compiler-prompt-guide/amp" class>Technical Book Design &amp; PDF Compilation Master Prompt Guide</a></li><li><a href="/CMSForNerd2docs/how-to/ansible-deployment/amp" class>Ansible Deployment How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/ansible-uv-opentofu-ai-forge-integration/amp" class>Ansible, Python uv &amp; OpenTofu Automation Framework Integration Guide</a></li><li><a href="/CMSForNerd2docs/how-to/github-pages-deployment-troubleshooting/amp" class>GitHub Pages Deployment and Troubleshooting Guide</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-produce-a-project-technical-handbook/amp" class>How to Produce a Project Technical Handbook: The AI Prompt Engineering &amp; Skill Adoption Blueprint</a></li><li><a href="/CMSForNerd2docs/how-to/how-to-use-fastmcp-and-wasm/amp" class>How to Use FastMCP Server &amp; WebAssembly (Wasm) Tools</a></li><li><a href="/CMSForNerd2docs/how-to/okf-refactoring/amp" class>OKF Frontmatter Refactoring How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/sitemap-verification/amp" class>Sitemap Verification How-To Guide</a></li><li><a href="/CMSForNerd2docs/how-to/webgpu-application-development/amp" class>Building WebGPU Applications on CMSForNerd2</a></li><li><a href="/CMSForNerd2docs/jules-platform-guide/amp" class>Autonomous AI Pair-Programming &amp; Multi-Agent Operations with Google Jules</a></li><li><a href="/CMSForNerd2docs/migration-guide/amp" class>CMSForNerd to CMSForNerd2 Static Migration Guide</a></li><li><a href="/CMSForNerd2docs/readme/amp" class>CMSForNerd2 Documentation System</a></li><li><a href="/CMSForNerd2docs/reference/deploy-static/amp" class>deploy-static.sh CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/llms-txt2ctx/amp" class>llms_txt2ctx.py CLI Reference</a></li><li><a href="/CMSForNerd2docs/reference/refactor-okf/amp" class>refactor-okf.cjs API Reference</a></li><li><a href="/CMSForNerd2docs/reference/verify-sitemaps/amp" class>verify-sitemaps.js API Reference</a></li><li><a href="/CMSForNerd2docs/start-here/amp" class>CMSForNerd2 Master Onboarding Map</a></li><li><a href="/CMSForNerd2docs/summary/amp" class>CMSForNerd2 Documentation SUMMARY</a></li><li><a href="/CMSForNerd2docs/tutorials/local-development/amp" class>Local Development Quickstart Tutorial</a></li><li><a href="/CMSForNerd2docs/tutorials/static-site-deployment/amp" class>Static Site Deployment Tutorial</a></li><li><a href="/CMSForNerd2about/amp" class>About CMSForNerd2</a></li><li><a href="/CMSForNerd2ai-dev/amp" class>AI-Assisted Development</a></li><li><a href="/CMSForNerd2ai-sop/amp" class>SOP: Ethical AI Integration</a></li><li><a href="/CMSForNerd2amp-acceleration/amp" class>AMP Acceleration</a></li><li><a href="/CMSForNerd2ansible-lab/amp" class>Ansible Static Orchestration</a></li><li><a href="/CMSForNerd2csp-nonce-guide/amp" class>Static CSP Implementation Guide</a></li><li><a href="/CMSForNerd2exam-answers/amp" class>Official Answer Key: Final Exam</a></li><li><a href="/CMSForNerd2final-exam/amp" class>Final Exam: Break-Fix Challenge - CMSForNerd2</a></li><li><a href="/CMSForNerd2graduation/amp" class>Graduation: Astro 7.1 Static Modernisation Mastery - CMSForNerd2</a></li><li><a href="/CMSForNerd2hall-of-fame/amp" class>Nerd Hall of Fame</a></li><li><a href="/CMSForNerd2history/amp" class>Modernisation History</a></li><li><a href="/CMSForNerd2installation/amp" class>Installation Guide</a></li><li><a href="/CMSForNerd2lab-manual/amp" class>The Lab Manual: Astro 7.1 Static Modernisation - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module1/amp" class>Lab Worksheet: Module 1 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module10/amp" class>Module 10 Worksheet</a></li><li><a href="/CMSForNerd2lab-module11/amp" class>Module 11 Worksheet</a></li><li><a href="/CMSForNerd2lab-module2/amp" class>Lab Worksheet: Module 2 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module3/amp" class>Lab Worksheet: Module 3 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module4/amp" class>Lab Worksheet: Module 4 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module5/amp" class>Lab Worksheet: Module 5 - CMSForNerd2</a></li><li><a href="/CMSForNerd2lab-module7/amp" class>Module 7 Worksheet</a></li><li><a href="/CMSForNerd2lab-module8/amp" class>Module 8 Worksheet</a></li><li><a href="/CMSForNerd2lab-module9/amp" class>Module 9 Worksheet</a></li><li><a href="/CMSForNerd2linux-setup/amp" class>Linux Setup Guide (Node.js &amp; Astro)</a></li><li><a href="/CMSForNerd2pwa-architecture/amp" class>PWA Architecture</a></li><li><a href="/CMSForNerd2security-policy/amp" class>Security Policy &amp; Disclosure</a></li><li><a href="/CMSForNerd2sitemap-page/amp" class>Sitemap For CMSForNerd2</a></li><li><a href="/CMSForNerd2template/amp" class>New Page Creation Guide</a></li><li><a href="/CMSForNerd2ui-kit/amp" class>UI Diagnostic Kit</a></li><li><a href="/CMSForNerd2welcome-kit/amp" class>Student Welcome Kit: Essential Cheat Sheet - CMSForNerd2</a></li><li><a href="/CMSForNerd2windows-setup/amp" class>Windows 11 Setup Guide: Node.js &amp; Astro 7.1</a></li></ul></nav></amp-sidebar><!-- AMP Header --><header class="amp-header" style="background:var(--lab-bg); padding:10px 15px; border-bottom:1px solid var(--lab-border); display: flex; align-items: center;"><button class="hamburger-btn" on="tap:sidebar.toggle" role="button" tabindex="0" aria-label="Open Navigation">☰</button><a href="/CMSForNerd2amp" style="text-decoration:none; color:var(--lab-purple); font-weight:bold; flex-grow: 1; margin-left: 10px;">🏠 Laboratory Home</a><span style="font-family:monospace; font-size:0.7rem; color:var(--lab-muted);">[ AMP ]</span></header><!-- Main Content --><main style="padding:20px;"><h1 id="ai-agent-charter-template--operating-governance-standard">AI Agent Charter Template &#x26; Operating Governance Standard</h1>
+<p>This document establishes the official <strong>AI Agent Charter Template</strong> for <code>CMSForNerd2</code>, derived from the enterprise Alignbase AI Agent Charter specification and aligned with the Deep State of Mind (DSOM) governance framework.</p>
+<p>An AI Agent Charter serves as the approved operating contract for a specific agent-workflow-environment combination. It transforms generic AI prompts into explicit, testable boundaries governing purpose, human ownership, action authority, tool access, context boundaries, human checkpoints, fail-closed stop paths, and retirement procedures.</p>
+<hr>
+<h2 id="ai-agent-charter-structural-sections">AI Agent Charter Structural Sections</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌────────────────────────────────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│                      AI AGENT CHARTER TEMPLATE                         │</span></span>
+<span class="line"><span>├────────────────────────────────────────────────────────────────────────┤</span></span>
+<span class="line"><span>│ 1. Record Metadata &#x26; Unique Identity (Agent ID, Workflow ID, Env)      │</span></span>
+<span class="line"><span>│ 2. Purpose &#x26; Intended Outcome (Bounded business task, affected users)  │</span></span>
+<span class="line"><span>│ 3. Named Human Ownership &#x26; Decision Rights (Business, Tech, Risk)      │</span></span>
+<span class="line"><span>│ 4. Bounded Authority &#x26; Prohibited Actions (Read, Draft, Write, Exec)   │</span></span>
+<span class="line"><span>│ 5. Identity, Tools &#x26; Credential Scope (Attributable non-secret tokens) │</span></span>
+<span class="line"><span>│ 6. Data &#x26; Context Boundaries (Knowledge, Skills, Working Memory)       │</span></span>
+<span class="line"><span>│ 7. Human Checkpoints &#x26; Review Gates (Triggers, decision expiry, diffs) │</span></span>
+<span class="line"><span>│ 8. Release Binding, Risk Tier &#x26; Test Evidence (Version-bound approvals)│</span></span>
+<span class="line"><span>│ 9. Continuous Monitoring &#x26; Audit Evidence (Logs, metrics, telemetry)   │</span></span>
+<span class="line"><span>│ 10. Fail-Closed Stop Path &#x26; Recovery (Revocation, queues, fallback)    │</span></span>
+<span class="line"><span>│ 11. Dependencies, Delegation &#x26; Change Control (CHILD agents, MCPs)     │</span></span>
+<span class="line"><span>│ 12. Periodic Review, Reconciliation &#x26; Retirement (Decommissioning)    │</span></span>
+<span class="line"><span>└────────────────────────────────────────────────────────────────────────┘</span></span></code></pre>
+<hr>
+<h2 id="standard-charter-specification-template">Standard Charter Specification Template</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># AI Agent Charter: [Agent Name] - [Workflow Name]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 1. Charter Record &#x26; Metadata</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Charter ID:**</span><span style="color:#E1E4E8"> CHARTER-2026-[</span><span style="color:#DBEDFF;text-decoration:underline">WORKFLOW-ID</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Agent Identity / ID:**</span><span style="color:#79B8FF"> `agent-[name]-[env]`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Target Environment:**</span><span style="color:#E1E4E8"> Development / Staging / Production</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Lifecycle Status:**</span><span style="color:#E1E4E8"> Draft / Conditional Approval / Active / Suspended / Retired</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Effective Date:**</span><span style="color:#E1E4E8"> [ISO 8601 Date]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Review Cadence:**</span><span style="color:#E1E4E8"> Quarterly / Event-Driven</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 2. Bounded Purpose &#x26; Intended Outcomes</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Approved Business Task:**</span><span style="color:#E1E4E8"> [Explicit description of the single business workflow]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Initiating Principals:**</span><span style="color:#E1E4E8"> [Allowed users, service accounts, or trigger webhooks]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Affected Stakeholders:**</span><span style="color:#E1E4E8"> [People or downstream systems impacted by actions]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Success Criteria &#x26; Volume Thresholds:**</span><span style="color:#E1E4E8"> [Max execution spend, rate limits, latency]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Out-of-Scope Uses:**</span><span style="color:#E1E4E8"> [Explicitly prohibited adjacent tasks]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 3. Named Human Ownership &#x26; Decision Rights</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Business Owner:**</span><span style="color:#E1E4E8"> [Named Person &#x26; Role]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Technical Lead:**</span><span style="color:#E1E4E8"> [Named Engineer &#x26; Role]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Security &#x26; Risk Approver:**</span><span style="color:#E1E4E8"> [Named Security Officer &#x26; Role]</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Decision Authority Matrix:**</span></span>
+<span class="line"><span style="color:#FFAB70">  -</span><span style="color:#E1E4E8;font-style:italic"> *Purpose / Charter Changes:*</span><span style="color:#E1E4E8"> Business Owner + Technical Lead</span></span>
+<span class="line"><span style="color:#FFAB70">  -</span><span style="color:#E1E4E8;font-style:italic"> *Emergency Suspension / Stop:*</span><span style="color:#E1E4E8"> Any Named Owner / Security Officer</span></span>
+<span class="line"><span style="color:#FFAB70">  -</span><span style="color:#E1E4E8;font-style:italic"> *Release Activation:*</span><span style="color:#E1E4E8"> Technical Lead + Security Approver</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 4. Enforceable Authority &#x26; Prohibited Actions</span></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">### Approved Actions</span></span>
+<span class="line"><span style="color:#E1E4E8">| System / Target | Action Type | Scope / Boundaries | Human Checkpoint Required? |</span></span>
+<span class="line"><span style="color:#E1E4E8">| :--- | :--- | :--- | :--- |</span></span>
+<span class="line"><span style="color:#E1E4E8">| </span><span style="color:#79B8FF">`src/content/`</span><span style="color:#E1E4E8"> | Create / Edit | Markdown content files | No (Automated PR diff review) |</span></span>
+<span class="line"><span style="color:#E1E4E8">| </span><span style="color:#79B8FF">`tools/`</span><span style="color:#E1E4E8"> | Execute Script | Unprivileged local Python/Node | No (Sandboxed execution) |</span></span>
+<span class="line"><span style="color:#E1E4E8">| </span><span style="color:#79B8FF">`/etc/`</span><span style="color:#E1E4E8"> | Write / Edit | System configuration | YES (Human approval required) |</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">### Prohibited Actions</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> The agent MUST NEVER modify root system configurations or systemd daemons in sandbox environments.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> The agent MUST NEVER expose credentials, tokens, or private keys in logs or git commits.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> The agent MUST NEVER self-grant extended permissions or bypass defined test suites.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 5. Identity, Tools &#x26; Credentials</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Authenticated Principal:**</span><span style="color:#79B8FF"> `service-account-jules`</span><span style="color:#E1E4E8"> / </span><span style="color:#79B8FF">`agent-antigravity`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Tool Adaptor Scope:**</span><span style="color:#E1E4E8"> Local CLI, FastMCP Gateway, Pytest Test Runner</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Credential Storage:**</span><span style="color:#E1E4E8"> Environment secrets manager (Never committed in code)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 6. Data &#x26; Context Boundaries</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Data Classification Limit:**</span><span style="color:#E1E4E8"> Public / Internal Engineering Documentation</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Knowledge Resources:**</span><span style="color:#79B8FF"> `.agents/brain/knowledge.md`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`docs/`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Skill Packages:**</span><span style="color:#79B8FF"> `.agents/skills/*`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Working Memory Baseline:**</span><span style="color:#79B8FF"> `.agents/brain/active_context_manifest.md`</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 7. Human Checkpoints &#x26; Review Gates</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Trigger Condition:**</span><span style="color:#E1E4E8"> Structural schema changes, system-level modifications, or test failures.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Reviewer Required:**</span><span style="color:#E1E4E8"> Technical Lead or Security Approver.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Diff Presentation:**</span><span style="color:#E1E4E8"> Single Git merge diff block or explicit PR comment.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Fail-Closed Rule:**</span><span style="color:#E1E4E8"> Expiry without response forces session rollback and halt.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 8. Release Binding, Risk &#x26; Testing Evidence</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Risk Tier:**</span><span style="color:#E1E4E8"> Low (SSG Documentation) / Medium (IaC Manifests) / High (Production Deployments)</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Test Suite References:**</span><span style="color:#79B8FF"> `python3 -m pytest tests/`</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">`tools/eod-palace.sh`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Release Verification ID:**</span><span style="color:#E1E4E8"> [Commit Hash or Build Artifact ID]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 9. Monitoring &#x26; Audit Trail</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Log Destination:**</span><span style="color:#79B8FF"> `.agents/brain/checkpoint_summary.txt`</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Tracked Telemetry:**</span><span style="color:#E1E4E8"> Token usage metrics, files mutated, test results.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 10. Fail-Closed Stop Path &#x26; Containment</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Stop Triggers:**</span><span style="color:#E1E4E8"> Unhandled test exceptions, unapproved system alteration attempts, security guardrail violations.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Containment Method:**</span><span style="color:#E1E4E8"> Revoke transient session token, terminate sub-processes, reset workspace via </span><span style="color:#79B8FF">`git reset --hard`</span><span style="color:#E1E4E8">.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 11. Dependencies, Delegation &#x26; Change Control</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Upstream Dependencies:**</span><span style="color:#E1E4E8"> Node.js v22, Python 3.12, FastMCP Server</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Delegated Child Agents:**</span><span style="color:#E1E4E8"> Hello World Agent, Sub-agents</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Material Change Trigger:**</span><span style="color:#E1E4E8"> Change in purpose, tool scope, or authorization boundaries requires full charter re-approval.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 12. Review, Reconciliation &#x26; Retirement</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Reconciliation Audit:**</span><span style="color:#E1E4E8"> Compare charter authorization against active Git commit logs and system evidence.</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8;font-weight:bold"> **Retirement Protocol:**</span><span style="color:#E1E4E8"> Revoke identity credentials, purge temporary cache, archive charter record with status </span><span style="color:#79B8FF">`Retired`</span><span style="color:#E1E4E8">.</span></span></code></pre>
+<hr>
+<p><em>Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-09-17</em>
+<em>Standard: UK English | DBP-standard Bahasa Melayu Malaysia (Piawai) | GNU General Public License v3.0</em></p></main><!-- AMP Footer --><footer style="text-align:center; padding:30px; border-top:1px solid var(--lab-border); font-size:0.8rem; color:var(--lab-muted);"><p>&copy; 2026 CmsForNerd2 Laboratory</p><p><a href="/CMSForNerd2docs/governance/ai-agent-charter-template" style="color:var(--lab-purple);">Switch to Standard Desktop View</a></p></footer></body></html>
