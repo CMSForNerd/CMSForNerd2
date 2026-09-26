@@ -33,3 +33,7 @@ tags: ["tasks", "track", "progress", "dsom"]
 - [x] Produce OKF v0.2 documentation guide `docs/how-to/ansible-uv-opentofu-ai-forge-integration.md` answering 4W1H (Who, What, When, Where, How).
 - [x] Provision declarative OpenTofu IaC manifests in `opentofu/` (`main.tf`, `variables.tf`, `outputs.tf`).
 - [x] Build master Ansible orchestrator playbook suite in `playbooks/` (`site.yml`, `install.yml`, `opentofu.yml`, `configure.yml`, `deploy.yml`, `monitor.yml`) supporting installation, configuration, administration, deployment, monitoring, and reporting with dual-pathway sandbox/real-OS branching.
+- [x] Adopt Rule 32.43 (Automated Ansible Playbook Validation Ladder & Idempotence Assertion Standard) in AGENTS.md, .agents/AGENTS.md, and docs/how-to/ansible-uv-opentofu-ai-forge-integration.md.
+- [x] Adopt Rule 32.44 (Ansible Community AI-Forge & Red Hat CoP Standard) in AGENTS.md, .agents/AGENTS.md, and docs/how-to/ansible-uv-opentofu-ai-forge-integration.md.
+- [x] Create Agent Skill `dsom-infrastructure-playbook-documenter` in .agents/skills/ and skills/ with OKF v0.2 frontmatter, 5-tier validation ladder, Red Hat CoP 14-point authoring rules, 14-category review rubric, and Lola usage assessment.
+- [x] Enhance Ansible unit tests in tests/unit/ansible.py to enforce Rule 32.43 & Rule 32.44 standards across workspace playbooks.

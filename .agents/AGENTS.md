@@ -103,6 +103,7 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Warp Agent Skills** | `.agents/skills/warp-agent-skills/` | Standardised specification for defining, parameterising, discovering, and executing Warp and OpenViking Agent Skills across project and user scopes. |
 | **Mermaid Diagram Validation** | `.agents/skills/mermaid-validation/` | Validates Mermaid diagram syntax across Markdown files in a headless Node.js environment using jsdom and official Mermaid parser. |
 | **Agent Charter Reskilling** | `.agents/skills/reskill/` | Audits agent charters, extracts procedural knowledge and checklists into reusable skills, and slims charters to core identity and authority boundaries. |
+| **DSOM Infrastructure Playbook Documenter** | `.agents/skills/dsom-infrastructure-playbook-documenter/` | Enforces Rule 32.43 & Rule 32.44 standards: 5-Tier Validation Ladder, two-pass idempotence assertions, Zen of Ansible principles, Red Hat CoP 14-point authoring rules, and 14-category review rubric. |
 
 ---
 
@@ -118,6 +119,8 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
 | **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
 | **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
+| **Rule 32.43 (Ansible Playbook Validation Ladder)** | Enforces 5-tier validation ladder (Static Lint -> Syntax Check -> Production Lint -> Check Mode -> Two-Pass Execution) and machine-checkable idempotency (`changed=0, failed=0` on 2nd pass) for all Ansible playbooks. |
+| **Rule 32.44 (Ansible CoP & AI-Forge Standard)** | Enforces Zen of Ansible declarative philosophy, Red Hat CoP 14-point style invariants (2-space indent, `.yml` extension, FQCN, bracket fact notation), and 14-category review checklist. |
 
 ---
 

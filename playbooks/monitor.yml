@@ -10,6 +10,14 @@
     src_dir: "{{ playbook_dir }}/.."
 
   tasks:
+    - name: 🔍 Detect limited sandbox environment
+      ansible.builtin.set_fact:
+        is_limited_environment: >-
+          {{ ansible_env.USER == 'jules' or
+             ansible_env.JULES_ENV is defined or
+             (ansible_virtualization_type is defined and
+              ansible_virtualization_type in ['docker', 'container', 'lxc']) }}
+
     - name: 🔍 Verify sitemaps and asset links
       ansible.builtin.command: node tools/verify-sitemaps.js
       args:

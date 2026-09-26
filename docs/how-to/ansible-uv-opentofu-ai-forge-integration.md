@@ -83,6 +83,27 @@ ansible-playbook -i inventory/hosts.staging.yml playbooks/site.yml --tags monito
 
 ---
 
+## 🛡️ Playbook Governance & Quality Standards
+
+### 1. Rule 32.43: Automated Playbook Validation Ladder & Idempotence Assertion
+All Ansible playbooks and tasks generated or modified by AI agents must strictly follow the **5-Tier Validation Ladder**:
+1. **Tier 1 (YAML Static Check):** Fast syntax and 2-space indentation parsing.
+2. **Tier 2 (Ansible Syntax Check):** `ansible-playbook <playbook.yml> --syntax-check`.
+3. **Tier 3 (Production Profile Static Lint):** `ansible-lint --profile production` enforcing FQCN (`ansible.builtin.*`), prohibiting bare shell/command tasks without guards, and ensuring `no_log: true` on secret handling.
+4. **Tier 4 (Check Mode Dry Run):** `ansible-playbook --check --diff` against staging inventory to detect missing variables or structural drift.
+5. **Tier 5 (Two-Pass Execution & Idempotence Assertion):** First pass executes (`converge`); second pass asserts `changed=0, failed=0`.
+
+### 2. Rule 32.44: Ansible Community AI-Forge & Red Hat CoP Standard
+- **Zen of Ansible:** Declarative specifications over imperative scripts. No complex Jinja2 Python abuse or deep YAML nesting.
+- **14-Point Red Hat CoP Invariants:** 2-space indent, `.yml` extension, structured YAML dictionary arguments, lowercase `true`/`false` booleans, FQCN, imperative task names, explicit `state:` parameters, `loop:`, `failed_when:` over `ignore_errors: true`, variable prefixes (`<role_name>_`), bracket fact notation (`ansible_facts['distribution']`), and `{{ ansible_managed | comment }}` in templates.
+- **14-Category Review Checklist:** Evaluating YAML style, naming, module usage, task structure, handlers, templates, variables, playbook structure, inventory, error handling, idempotency, argument specs, tags, and platform support with a 1–10 rubric.
+
+### 3. Lola AI Context Engine Usage Assessment (`https://getlola.dev/`)
+- **Role in CMSForNerd2:** Lola (`lola-ai`) is supported as an optional local CLI helper and declarative requirements specification (`.lola-req`). When `lola` is installed on control nodes, `playbooks/install.yml` executes `lola sync` to fetch declarative AI Forge modules.
+- **Air-Gapped Sovereignty:** AI agents do not hard-depend on external Lola SaaS endpoints. All core AI agent skills are stored natively in `.agents/skills/` to guarantee deterministic, air-gapped execution across enterprise and carrier networks.
+
+---
+
 ## 🏗️ Architecture & Orchestration Flow
 
 ```
