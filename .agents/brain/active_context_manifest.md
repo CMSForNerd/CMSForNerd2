@@ -21,14 +21,17 @@ tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 *Last Synchronized:* `2026-09-26T01:50:10Z`
 
 ## Active Intent
+
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
+
 ```
 M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  AGENTS.md;M  docs/how-to/ansible-uv-opentofu-ai-forge-integration.md;M  playbooks/monitor.yml;
 ```
 
 ## Latest Compacted JSON Payload
+
 ```json
 {
   "dsom_compaction_meta": {

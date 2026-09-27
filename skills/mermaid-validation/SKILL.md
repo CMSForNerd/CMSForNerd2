@@ -38,7 +38,7 @@ In complex documentation systems, invalid Mermaid syntax (such as syntax typos, 
 
 ## Key Capabilities & Execution Model
 
-1. **Headless Grammar Parsing:** Extract all ````mermaid ... ```` code blocks from `.md` files and validate them against `mermaid.parse()`.
+1. **Headless Grammar Parsing:** Extract all ````mermaid ...```` code blocks from `.md` files and validate them against `mermaid.parse()`.
 2. **Container-Friendly Execution:** Runs cleanly in CI/CD pipelines, pre-commit hooks, and restricted sandboxes (e.g., Google Jules container) without GUI dependencies.
 3. **Synergy with Diagram Design Standards:** Integrates seamlessly with `diagram-design-standards` (Cathryn Lavery principles), checking that the Git-native Mermaid block in 4-tier visual deliverables is syntactically valid.
 
