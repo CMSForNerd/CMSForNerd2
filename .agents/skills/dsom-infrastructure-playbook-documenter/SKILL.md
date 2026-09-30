@@ -33,6 +33,7 @@ tags: ["ansible", "playbook", "idempotency", "ai-forge", "redhat-cop", "validati
 The `dsom-infrastructure-playbook-documenter` skill establishes a machine-verifiable standard for writing, refactoring, validating, and reviewing Ansible playbooks, roles, and tasks across carrier, enterprise, and air-gapped environments.
 
 It enforces two foundational DSOM governance rules:
+
 1. **Rule 32.43:** Automated Ansible Playbook Validation Ladder & Idempotence Assertion Standard.
 2. **Rule 32.44:** Ansible Community AI-Forge & Red Hat CoP Automation Good Practices Standard.
 
@@ -77,7 +78,9 @@ Whenever the AI agent generates or modifies Ansible playbooks, it must execute c
 ```
 
 ### Machine-Checkable Idempotence Assertion
+
 Idempotency is an objective, deterministic requirement:
+
 - **Pass 1:** Converges node state.
 - **Pass 2:** Asserts zero changes (`changed=0, failed=0`). If `changed > 0` on Pass 2, the playbook contains a procedural regression that MUST be corrected before production promotion.
 
@@ -110,7 +113,7 @@ Playbooks are declarative state specifications, NOT procedural programs. The AI 
 When authoring or refactoring playbooks, roles, or task files, the AI agent must strictly follow the Red Hat Communities of Practice (CoP) 14-point authoring rules:
 
 | # | Rule Category | Specification |
-|---|---|---|
+| --- | --- | --- |
 | 1 | **YAML Indentation** | 2-space indentation throughout all `.yml` files. |
 | 2 | **File Extension** | Always use `.yml` (never `.yaml`). |
 | 3 | **Module Arguments** | Structured YAML dictionary mapping format (never inline `key=value` strings). |
@@ -152,9 +155,11 @@ When performing automated code reviews or sanity audits on Ansible playbooks, ev
 ## 6. Lola AI Package Manager Usage Analysis & Integration Boundary
 
 ### Identified Need & Assessment (`https://getlola.dev/`)
+
 **Question:** *Can Lola (`lola-ai`) be used in this project?*
 
 **Decision & Integration Boundary:**
+
 1. **Optional Local Helper CLI:** Lola can be used as an optional local helper CLI or declarative module spec via `.lola-req` and `playbooks/install.yml` (which executes `lola sync` when `lola` is present on a control node).
 2. **No SaaS / Hard External Dependencies for AI Agents:** DSOM does NOT depend on external Lola SaaS package registries or runtime wrappers for core AI agent execution. All AI agent skills (including Ansible AI Forge skills) are natively stored, versioned, and managed locally under `.agents/skills/`.
 3. **Air-Gapped Sovereignty:** Storing native skills in `.agents/skills/` ensures 100% operational sovereignty and air-gapped readiness across enterprise and telecommunication bastions where external SaaS endpoints are restricted.

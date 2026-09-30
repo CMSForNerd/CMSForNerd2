@@ -7,7 +7,7 @@ status: "stable"
 stale_after: "2027-09-04"
 sources:
 - id: dsom_agents_rulebook
-  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  title: The Core AI Rulebook (DSOM Rule 11, Rule 11.16 & Rule 22)
   path: .agents/AGENTS.md
 - id: dsom_technical_book_compiler_skill
   title: Technical Ebook & Handbook Compiler Skill
@@ -34,7 +34,7 @@ tags: ["pandoc", "pdf", "handbook", "prompt", "print-optimized", "mermaid", "ebo
 > **Document Type:** Governance Blueprint & Reusable AI Master Prompt
 > **Classification:** Private And Confidential (P&C)
 > **Attribution:** Compile by: Harisfazillah Jamel
-> **Standard:** Terminal & Cloud Technical Ebook & Handbook Standard (DSOM Rule 11 & Rule 22)
+> **Standard:** Terminal & Cloud Technical Ebook & Handbook Standard (DSOM Rule 11, Rule 11.16 & Rule 22)
 
 ---
 
@@ -263,16 +263,13 @@ Your task is to take an entire repository of Markdown (.md) documents and source
   4. If standard comments, render a **💡 blue note callout** (`callout-note`).
   5. Preserve the original `#` comments inside the code block intact.
 
-### Hurdle 10: Headless Browser Print Timeouts & Compositor Stalls
+### Hurdle 10: Headless Browser Print Timeouts & Windows Host Dependencies (Rule 11.16 Mandate)
 
-- **Failure Mode:** Headless Chrome/Edge can hang indefinitely if web fonts or ESM modules fail to trigger draw completion, stalling CI/CD pipelines.
-- **Solution:** Execute Chromium with strict flags:
-
-  ```bash
-  chromium-browser --headless=new --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=8000 --print-to-pdf=<out.pdf> <file_uri>
-  ```
-
-  Enforce a hard Python subprocess timeout (45–60s) to gracefully catch draw completion.
+- **Failure Mode:** Headless Chrome/Edge or Windows host subprocesses (`cmd.exe /c start /wait`, `/mnt/c/.../chrome.exe`) in WSL2/Linux environments can stall, hang on profile locks, fail on path translations (`wslpath -w`), or time out (code 124).
+- **Solution (Rule 11.16):** Mandate Linux-native headless PDF engines with Zero Windows Host Dependency.
+  - Primary compilation path: Native **WeasyPrint** executed via `uv` (`uv run --with weasyprint weasyprint <input.html> <output.pdf>`) or native Linux headless tools (`typst`, `xelatex`).
+  - Strict flags for Chromium fallback: `--headless=new --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=8000 --print-to-pdf=<out.pdf> <file_uri>` with a hard Python timeout (45–60s).
+  - Synchronously assert that output PDF exists on disk and has `size > 10 KB`.
 
 ---
 
@@ -289,7 +286,10 @@ pandoc build/book/master_book.md -o build/book/handbook.html \
   --metadata author="Compile by: Harisfazillah Jamel" \
   --metadata date="September 2026" -V lang=en
 
-# 2. Compile Publication-Grade PDF via Headless Chromium
+# 2. Compile Publication-Grade PDF via Linux-Native WeasyPrint (Rule 11.16 Preferred)
+uv run --with weasyprint weasyprint build/book/handbook.html build/book/handbook.pdf
+
+# 2b. Alternative Headless Chromium PDF Compilation
 chromium-browser --headless=new --disable-gpu \
   --run-all-compositor-stages-before-draw \
   --virtual-time-budget=8000 \
@@ -330,7 +330,7 @@ status: "stable"
 stale_after: "2027-09-03"
 sources:
   - id: "dsom_agents_rulebook"
-    title: "The Core AI Rulebook (DSOM Rule 11 & Rule 22)"
+    title: "The Core AI Rulebook (DSOM Rule 11, Rule 11.16 & Rule 22)"
     path: ".agents/AGENTS.md"
 name: "dsom-technical-book-compiler"
 ---

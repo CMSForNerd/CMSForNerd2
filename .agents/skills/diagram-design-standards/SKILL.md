@@ -67,29 +67,29 @@ Generate a clean, structured plain-text ASCII box or tree diagram representing t
 
 Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ...```` code fence matching these styling constraints:
 
-* **Canvas Hygiene:**
-  * Explicit `xmlns="http://www.w3.org/2000/svg"`.
-  * Explicit `viewBox` (e.g. `viewBox="0 0 800 500"`).
-  * `width="100%"` and `height="100%"`.
-* **Light & Print Mode Primary Palette (Cathryn Lavery Light/Printer-Friendly Standard):**
-  * **Canvas Background:** Pure White (`#FFFFFF`).
-  * **Container Cards:** Light Alabaster (`#F8FAFC` or `#F1F5F9`) with subtle slate stroke (`#CBD5E1`), rounded corners (`rx="8"`), and clear header bar (`#E2E8F0`).
-  * **Text & Glyph Hierarchy:** Dark Charcoal (`#0F172A`) for primary prose, Linux Blue (`#1E3A8A`) for titles, Deep Teal (`#0D9488`) for ports/IPs.
-  * **Adaptive Dark Mode Support:** Includes `@media (prefers-color-scheme: dark)` overrides for `#0F172A` background when viewed in dark interfaces, while guaranteeing `@media print` forces pure `#FFFFFF` white background and zero toner waste.
-* **Structural Precision:**
-  * Define explicit arrow markers (`<marker>`) inside `<defs>`.
-  * Group logical subnets, tiers, or security boundaries into distinct container rectangles with uppercase section headers.
-  * Every card must contain: entity title (bold), primary network/system identifier (IP, FQDN, or ID), and key functional metadata (ports, daemons, or roles).
-  * Direct all connection paths (`<path>` or `<line>`) with explicit coordinates and distinct port/protocol callout pill badges.
+- **Canvas Hygiene:**
+  - Explicit `xmlns="http://www.w3.org/2000/svg"`.
+  - Explicit `viewBox` (e.g. `viewBox="0 0 800 500"`).
+  - `width="100%"` and `height="100%"`.
+- **Light & Print Mode Primary Palette (Cathryn Lavery Light/Printer-Friendly Standard):**
+  - **Canvas Background:** Pure White (`#FFFFFF`).
+  - **Container Cards:** Light Alabaster (`#F8FAFC` or `#F1F5F9`) with subtle slate stroke (`#CBD5E1`), rounded corners (`rx="8"`), and clear header bar (`#E2E8F0`).
+  - **Text & Glyph Hierarchy:** Dark Charcoal (`#0F172A`) for primary prose, Linux Blue (`#1E3A8A`) for titles, Deep Teal (`#0D9488`) for ports/IPs.
+  - **Adaptive Dark Mode Support:** Includes `@media (prefers-color-scheme: dark)` overrides for `#0F172A` background when viewed in dark interfaces, while guaranteeing `@media print` forces pure `#FFFFFF` white background and zero toner waste.
+- **Structural Precision:**
+  - Define explicit arrow markers (`<marker>`) inside `<defs>`.
+  - Group logical subnets, tiers, or security boundaries into distinct container rectangles with uppercase section headers.
+  - Every card must contain: entity title (bold), primary network/system identifier (IP, FQDN, or ID), and key functional metadata (ports, daemons, or roles).
+  - Direct all connection paths (`<path>` or `<line>`) with explicit coordinates and distinct port/protocol callout pill badges.
 
 ### 3. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
 
 Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ...```` code fence:
 
-* **Orientation:** Choose the most readable layout (`graph TD`, `graph LR`, or `sequenceDiagram`).
-* **Grouping:** Enclose security tiers, VLANs, clusters, or operational domains inside explicit `subgraph` blocks.
-* **Label Precision:** Display clear port bindings, protocol indicators, and service actions along link connectors (e.g., `-->|"TCP 5432 / mTLS"|` or `-->|"SSH Port 22"|`).
-* **Readability:** Break long node labels across multiple lines using HTML break tags (`<br/>`).
+- **Orientation:** Choose the most readable layout (`graph TD`, `graph LR`, or `sequenceDiagram`).
+- **Grouping:** Enclose security tiers, VLANs, clusters, or operational domains inside explicit `subgraph` blocks.
+- **Label Precision:** Display clear port bindings, protocol indicators, and service actions along link connectors (e.g., `-->|"TCP 5432 / mTLS"|` or `-->|"SSH Port 22"|`).
+- **Readability:** Break long node labels across multiple lines using HTML break tags (`<br/>`).
 
 ### 4. Summary Interface & Routing Table
 

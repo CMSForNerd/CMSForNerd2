@@ -51,25 +51,35 @@ The **DSOM Agentic Workflow Blueprint** defines a continuous operational loop th
 ## Step-by-Step Workflow Implementation
 
 ### 1. Session Initialization & State Sync
+
 Before the AI processes incoming instructions, it establishes active context boundaries:
+
 * **Action:** Reads the current spatial memory state manifest (`.agents/brain/active_context_manifest.md`).
 * **Context Injection:** Injects ongoing priorities, active file paths, and governance boundaries into the system prompt.
 
 ### 2. Input Compaction (Token Efficiency Engine)
+
 To prevent context bloat and optimize prompt efficiency:
+
 * **Action:** Raw user instructions, error logs, or environment outputs are passed through `tools/dsom_compaction_engine.py`.
 * **Mechanism:** Strips conversational redundancies, compresses telemetry into key-value pairs, and formats the active delta into a structured JSON schema.
 
 ### 3. Execution & Autonomous Evaluation
+
 The core task is processed through defined architecture boundaries:
+
 * **Governance Gate:** Deterministic checks auto-execute. System-level alterations require explicit human approval or dual-pathway branching.
 
 ### 4. Episodic Ledger Backup
+
 Session changes are preserved cleanly:
+
 * **Action:** Appends structured session deltas, test outcomes, and state mutations to `.agents/brain/checkpoint_summary.txt`.
 
 ### 5. State File Update via Git Hooks
+
 Bridging session memory back into the repository:
+
 * **Action:** `tools/dsom-manifest-sync.sh` captures git status, executes compaction, and updates `.agents/brain/active_context_manifest.md` on commit.
 
 ---

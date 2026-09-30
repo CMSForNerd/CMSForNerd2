@@ -40,6 +40,7 @@ tags: ["okf", "attested-computations", "warp", "openviking", "agent-skills", "ve
 As AI agents operate within software repositories, answering complex analytical queries (such as calculating 36-month TCO, verifying SLA compliance, or computing vector embedding bounds) requires absolute mathematical precision. Agents must not improvise raw SQL queries or alter calculation formulas.
 
 This guide details two core capabilities adopted into the codebase:
+
 1. **Attested Computations in OKF v0.2:** Mechanically verifiable calculation contracts separating metric definitions from runtime execution.
 2. **Warp & OpenViking Agent Skills:** Reusable, parameterised instructions stored under `.agents/skills/` that agents discover and execute autonomously or via slash commands (`/{skill-name}`).
 
@@ -74,6 +75,7 @@ SELECT SUM(amount) AS revenue
 FROM finance.recognized_revenue
 WHERE fiscal_year = @fiscal_year
 ```
+
 ```
 
 ### The 6-Step Verification Lifecycle:
@@ -91,6 +93,7 @@ WHERE fiscal_year = @fiscal_year
 Warp and OpenViking Agent Skills enable reusable task instructions discovered automatically from `.agents/skills/{skill-name}/SKILL.md`.
 
 ```
+
 .agents/skills/
 ├── attested-computations/
 │   └── SKILL.md
@@ -98,6 +101,7 @@ Warp and OpenViking Agent Skills enable reusable task instructions discovered au
 │   └── SKILL.md
 └── warp-agent-skills/
     └── SKILL.md
+
 ```
 
 ### Skill Parameter Substitution Syntax:
