@@ -11,7 +11,7 @@ sources:
   title: active_context_manifest.md
   url: .agents/brain/active_context_manifest.md
 generated:
-  by: "Repository Architect & OKF v0.2 Compliance Agent"
+  by: Repository Architect & OKF v0.2 Compliance Agent
   at: '2026-09-29T22:59:06Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
@@ -21,14 +21,17 @@ tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 *Last Synchronized:* `2026-09-29T22:59:06Z`
 
 ## Active Intent
+
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
+
 ```
 M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/diagram-design-standards/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  .agents/skills/dsom-technical-book-compiler/SKILL.md;M  .agents/skills/mermaid-validation/SKILL.md;M  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/explanation/attested-computations-and-warp-skills.md;
 ```
 
 ## Latest Compacted JSON Payload
+
 ```json
 {
   "dsom_compaction_meta": {
