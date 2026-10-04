@@ -63,6 +63,26 @@ To prevent build failures and environment blocks, all automation scripts, Ansibl
   * *Limited Sandbox (e.g. Google Jules)*: Skip system-wide configurations (such as systemd daemon reloads, raw `ufw` firewall updates, `/etc` configuration overwrites, or APT package installations) and run unprivileged local builds (e.g., `npm install` and local static builds).
   * *Real OS*: Run the complete, unrestricted system-level orchestration, security hardening, and daemon configuration with full privileges and no limitations.
 
+### 3. Rule 11.16: Linux-Native PDF Compilation Mandate (WeasyPrint / Typst Engine)
+
+When compiling technical documentation suites, forensic audit reports, or executive handbooks into publication-grade PDFs in Linux and WSL2 environments:
+
+1. **Zero Windows Host Dependency:**
+   * The AI and compilation pipelines are strictly prohibited from depending on Windows host browser binaries (`chrome.exe`, `msedge.exe`) or Windows interop subprocesses (`cmd.exe /c start /wait`, `powershell.exe`) from within Linux/WSL2.
+   * Eliminates Windows profile lockouts, headless drawing stalls, interop command timeouts (code 124), and cross-filesystem path translation overhead.
+
+2. **Linux-Native Headless PDF Engines (WeasyPrint First):**
+   * The preferred, primary PDF compilation engine in Linux is native **WeasyPrint** executed via `uv` (`uv run --with weasyprint weasyprint <input.html> <output.pdf>`) or native headless Linux tools (`typst`, `xelatex`).
+   * The script must supply print-optimised CSS enforcing:
+     * Pure white background (`#FFFFFF !important`).
+     * Crisp, embedded standalone vector SVG diagrams (`<img src="*.svg">`).
+     * Continuous multi-page table flow with repeated table headers (`thead { display: table-header-group; }`, `tr { page-break-inside: avoid; }`).
+     * Standard A4 margins (`@page { size: A4 portrait; margin: 10mm 10mm 12mm 10mm; }`) and running footers (`Page X of Y`).
+
+3. **Deterministic Output & Disk Verification:**
+   * The compiler script must synchronously assert that the output PDF exists on disk and has a non-zero byte size (`size > 10 KB`).
+   * If visual inspection is needed, verify pages locally using native Linux tools (`pdftoppm -png -r 150 <output.pdf> build/page`) without touching Windows.
+
 ---
 
 ## Google Antigravity & AgentSkills.io Agent Skills
@@ -119,6 +139,7 @@ The DSOM framework operates on digital sovereignty, structured metacognition, an
 | **Atomic Git Commits** | Every logical action is committed granularly; blanket monolithic commits are strictly forbidden. |
 | **Omni-Documentation Sync** | New documents must be mapped to `SUMMARY.md`, `START-HERE.md`, `llms.txt`, and `README.md`. |
 | **UK English Dominance** | All files, logs, and messages use standard UK English (`-ise`, `-our`, `-re`). |
+| **Rule 11.16 (Linux-Native PDF Mandate)** | Enforces zero Windows host binary dependency, native Linux WeasyPrint/Typst execution, print-optimised CSS formatting, and deterministic disk size assertions (`> 10 KB`). |
 | **Rule 32.43 (Ansible Playbook Validation Ladder)** | Enforces 5-tier validation ladder (Static Lint -> Syntax Check -> Production Lint -> Check Mode -> Two-Pass Execution) and machine-checkable idempotency (`changed=0, failed=0` on 2nd pass) for all Ansible playbooks. |
 | **Rule 32.44 (Ansible CoP & AI-Forge Standard)** | Enforces Zen of Ansible declarative philosophy, Red Hat CoP 14-point style invariants (2-space indent, `.yml` extension, FQCN, bracket fact notation), and 14-category review checklist. |
 

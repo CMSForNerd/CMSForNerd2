@@ -74,6 +74,7 @@ WHERE fiscal_year = @year
 The computation binds only the declared `parameters`, per the recognition policy.[^rev-policy]
 
 [^rev-policy]: Revenue recognition policy
+
 ```
 
 ---

@@ -50,18 +50,23 @@ As agentic AI deployments scale across repositories, agent charters often suffer
 ## Step-by-Step Reskilling Workflow
 
 ### Step 1: Analyze Target Charters
+
 Identify charters or system prompts containing procedural instructions, such as:
+
 * Pull request formatting and git commit rules.
 * Test execution commands (`pytest`, `mypy`, `ruff`, `npm run build`).
 * Frontmatter validation or documentation formatting protocols.
 
 ### Step 2: Formulate the Reusable Skill Package
+
 Create a new directory `.agents/skills/<skill-name>/SKILL.md` and copy to `skills/<skill-name>/SKILL.md`:
+
 * Add OKF v0.2 YAML frontmatter.
 * Define input parameters, execution steps, and verification commands.
 * Append the standard Deep State of Mind (DSOM) governance footer.
 
 ### Step 3: Slim the Agent Charter
+
 Update the original charter file to reference the new skill in the Agent Skill Registry table. Strip out line-by-line procedural steps from the charter body.
 
 ---

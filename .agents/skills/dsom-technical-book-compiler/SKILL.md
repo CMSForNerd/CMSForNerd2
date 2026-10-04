@@ -7,7 +7,7 @@ status: "stable"
 stale_after: "2027-09-03"
 sources:
 - id: dsom_agents_rulebook
-  title: The Core AI Rulebook (DSOM Rule 11 & Rule 22)
+  title: The Core AI Rulebook (DSOM Rule 11, Rule 11.16 & Rule 22)
   path: .agents/AGENTS.md
 - id: workspace_file
   title: SKILL.md
@@ -41,7 +41,7 @@ tags: ["pandoc", "ebook", "pdf", "html", "epub", "terminal-theme"]
 3. **Mermaid HTML Unescaping Protocol:** Pandoc automatically escapes HTML entities inside `<pre class="mermaid"><code>` (`&quot;`, `&lt;br/&gt;`, `--&gt;`). The compilation pipeline must decode these entities before browser rendering to prevent Mermaid 10 syntax error bomb graphics.
 4. **Standalone Cover Body Inclusion:** Never embed raw HTML covers inside Markdown files. Generate a standalone `cover.html` passed via `--include-before-body=cover.html`. Enforce `.cover-title { break-before: avoid !important; }` and `#title-block-header { display: none !important; }` to prevent cover fragmentation.
 5. **Anti-Blank Page Discipline:** Never mix manual `<div class="page-break"></div>` tags with CSS `page-break-before: always;`.
-6. **Headless Browser PDF Timeout:** Headless Chromium/Edge (`--headless=new --print-to-pdf`) renders CSS `@page` layouts, vector SVGs, and web fonts. A process timeout guardrail (45–60s) must be enforced.
+6. **Headless Browser PDF Timeout & Linux-Native Mandate (Rule 11.16):** Mandate Zero Windows Host Dependency (`chrome.exe`, `msedge.exe`, `cmd.exe /c start /wait`). Prefer native Linux **WeasyPrint** executed via `uv` (`uv run --with weasyprint weasyprint <input.html> <output.pdf>`) or native headless Linux tools (`typst`, `xelatex`). When using Chromium fallback, enforce strict flags (`--headless=new --print-to-pdf`) with a process timeout guardrail (45–60s) and synchronously assert PDF byte size `> 10 KB`.
 7. **Mermaid Multi-Diagram Isolation Protocol:**
    - *Diagram-Scoped Namespace:* Prohibit reusing identical node IDs (e.g., `NODE1`, `CBE`, `PWP`) across diagrams. Prefix all node IDs with a unique diagram namespace (e.g., `TB_`, `PA_`, `PB_`, `PC_`) to prevent global symbol collisions.
    - *Sequential Headless DOM Replacement:* Headless Chromium renders in milliseconds, causing default `mermaid.run()` timestamp IDs (`Date.now()`) to collide and nest diagrams inside one container. Mandate sequential rendering via `mermaid.render(id, code)` with unique IDs (`diagram_svg_${i}`) replacing `<pre class="mermaid">` innerHTML sequentially.

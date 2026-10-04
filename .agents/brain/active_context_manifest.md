@@ -12,28 +12,31 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  at: '2026-09-26T01:50:10Z'
+  at: '2026-09-29T22:59:06Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
 # DSOM Active Context Manifest
 
-*Last Synchronized:* `2026-09-26T01:50:10Z`
+*Last Synchronized:* `2026-09-29T22:59:06Z`
 
 ## Active Intent
+
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
+
 ```
-M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  AGENTS.md;M  docs/how-to/ansible-uv-opentofu-ai-forge-integration.md;M  playbooks/monitor.yml;
+M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/diagram-design-standards/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  .agents/skills/dsom-technical-book-compiler/SKILL.md;M  .agents/skills/mermaid-validation/SKILL.md;M  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/explanation/attested-computations-and-warp-skills.md;
 ```
 
 ## Latest Compacted JSON Payload
+
 ```json
 {
   "dsom_compaction_meta": {
     "protocol_version": "0.2",
-    "timestamp": "2026-09-26T01:50:10.632739+00:00"
+    "timestamp": "2026-09-29T22:59:06.229308+00:00"
   },
   "active_intent": "Synchronize active context manifest and episodic ledger",
   "operational_constraints": [
@@ -41,7 +44,7 @@ M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brai
     "DSOM OKF v0.2"
   ],
   "context_deltas": {
-    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/knowledge.md;M  .agents/brain/task.md;M  .agents/brain/walkthrough.md;A  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  AGENTS.md;M  docs/how-to/ansible-uv-opentofu-ai-forge-integration.md;M  playbooks/monitor.yml;",
+    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/diagram-design-standards/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  .agents/skills/dsom-technical-book-compiler/SKILL.md;M  .agents/skills/mermaid-validation/SKILL.md;M  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/explanation/attested-computations-and-warp-skills.md;",
     "telemetry_vectors": "Pre-commit guardrail verification state nominal"
   },
   "episodic_memory_keys": [
