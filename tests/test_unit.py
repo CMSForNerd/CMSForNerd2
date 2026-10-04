@@ -9,6 +9,7 @@ It imports and re-exports test functions across domain submodules:
 5. LLMs parsing and compilation tools (tests/unit/llms.py).
 6. Internal and external broken links validation (tests/unit/links.py).
 7. Agent Skills, Mermaid validation, and DSOM workflow tooling (tests/unit/skills_and_dsom.py).
+8. Native Python OpenWiki emulator and compiler skill (tests/unit/openwiki.py).
 """
 
 from tests.unit.ansible import test_ansible_playbook_compliance
@@ -38,6 +39,13 @@ from tests.unit.mcp import (
     test_search_ssg_routes,
     test_validate_wasm_cm_wit_interface,
     test_websocket_reconnect_failure_mode,
+)
+from tests.unit.openwiki import (
+    test_openwiki_emulator_init,
+    test_openwiki_emulator_search_and_update,
+    test_openwiki_mermaid_validation_and_self_healing,
+    test_openwiki_skill_integrity,
+    test_openwiki_standalone_graph_export,
 )
 from tests.unit.sitemaps import (
     test_context7_configuration,
@@ -73,6 +81,11 @@ __all__ = [
     "test_markdown_governance_footers",
     "test_markdown_okf_compliance",
     "test_mcp_webrtc_p2p_mesh_transport",
+    "test_openwiki_emulator_init",
+    "test_openwiki_emulator_search_and_update",
+    "test_openwiki_mermaid_validation_and_self_healing",
+    "test_openwiki_skill_integrity",
+    "test_openwiki_standalone_graph_export",
     "test_pagefind_sri_manifest",
     "test_run_server_invalid_transport",
     "test_search_ssg_routes",

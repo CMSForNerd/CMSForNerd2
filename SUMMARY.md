@@ -32,6 +32,7 @@ tags: ["summary", "index", "navigation"]
 ## 📘 Migration Manuals & Platform Guides
 
 * [Google Jules & Multi-Agent Operations Guide](docs/jules-platform-guide.md)
+* [OpenWiki Python Compiler & QMD Guide](docs/how-to/openwiki-python-compiler-guide.md)
 * [Static Migration Guide](docs/migration-guide.md)
 * [Context7 Service Integration Guide](docs/context7-integration.md)
 * [Ansible, uv & OpenTofu Framework Guide](docs/how-to/ansible-uv-opentofu-ai-forge-integration.md)
@@ -66,6 +67,7 @@ tags: ["summary", "index", "navigation"]
 
 * [Sovereign AI Agent Knowledge Base](.agents/brain/knowledge.md)
 * [Google Deep Research & Search Skill](.agents/skills/google-deep-research/SKILL.md)
+* [OpenWiki Compiler Skill](skills/openwiki-compiler/SKILL.md)
 
 ---
 *Deep State of Mind (DSOM) For My AI Protocol | Harisfazillah Jamel (LinuxMalaysia) | 2026-08-01*

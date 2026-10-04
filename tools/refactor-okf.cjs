@@ -19,12 +19,20 @@ const { execSync } = require("child_process");
  */
 function main() {
   console.log("Delegating OKF v0.2 frontmatter refactoring to tools/migrate_okf_v02.py...");
+  const env = {
+    ...process.env,
+    PATH: `/home/jules/.local/bin:${process.env.PATH || ""}`,
+  };
+
   try {
-    execSync("uv run python tools/migrate_okf_v02.py", { stdio: "inherit" });
+    execSync("uv run --with pyyaml python tools/migrate_okf_v02.py", {
+      stdio: "inherit",
+      env,
+    });
   } catch (_err) {
     try {
       console.log("uv not found in PATH; falling back to python3 tools/migrate_okf_v02.py...");
-      execSync("python3 tools/migrate_okf_v02.py", { stdio: "inherit" });
+      execSync("python3 tools/migrate_okf_v02.py", { stdio: "inherit", env });
     } catch (fallbackErr) {
       console.error("Error executing OKF v0.2 migration script:", fallbackErr);
       process.exit(1);
