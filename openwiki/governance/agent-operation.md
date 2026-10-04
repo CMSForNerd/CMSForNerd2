@@ -12,7 +12,7 @@ sources:
   url: openwiki/governance/agent-operation.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-04T21:39:35Z"
+  at: "2026-10-04T22:07:16Z"
 ---
 # Dual Agent Registry & Sovereign Operational Laws
 
