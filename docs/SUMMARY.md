@@ -32,6 +32,7 @@ tags: ["summary", "index", "gitbook", "diataxis"]
 
 ## 📋 How-To Guides
 
+* [OpenWiki Python Compiler & QMD Guide](how-to/openwiki-python-compiler-guide.md)
 * [OKF Frontmatter Refactoring](how-to/okf-refactoring.md)
 * [Sitemap Verification](how-to/sitemap-verification.md)
 * [Ansible Static Security Hardening](how-to/ansible-deployment.md)

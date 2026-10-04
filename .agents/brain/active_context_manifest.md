@@ -12,31 +12,28 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: Repository Architect & OKF v0.2 Compliance Agent
-  at: '2026-09-29T22:59:06Z'
+  at: '2026-10-04T21:17:34Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
 # DSOM Active Context Manifest
 
-*Last Synchronized:* `2026-09-29T22:59:06Z`
+*Last Synchronized:* `2026-10-04T21:17:34Z`
 
 ## Active Intent
-
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
-
 ```
-M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/diagram-design-standards/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  .agents/skills/dsom-technical-book-compiler/SKILL.md;M  .agents/skills/mermaid-validation/SKILL.md;M  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/explanation/attested-computations-and-warp-skills.md;
+M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/openwiki-compiler/SKILL.md;M  SUMMARY.md;M  docs/SUMMARY.md;A  docs/how-to/openwiki-python-compiler-guide.md;AM openwiki/.last-update.json;AM openwiki/INSTRUCTIONS.md;AM openwiki/_skeleton.md;AM openwiki/architecture/overview.md;
 ```
 
 ## Latest Compacted JSON Payload
-
 ```json
 {
   "dsom_compaction_meta": {
     "protocol_version": "0.2",
-    "timestamp": "2026-09-29T22:59:06.229308+00:00"
+    "timestamp": "2026-10-04T21:17:34.367109+00:00"
   },
   "active_intent": "Synchronize active context manifest and episodic ledger",
   "operational_constraints": [
@@ -44,7 +41,7 @@ M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skil
     "DSOM OKF v0.2"
   ],
   "context_deltas": {
-    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/diagram-design-standards/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;M  .agents/skills/dsom-technical-book-compiler/SKILL.md;M  .agents/skills/mermaid-validation/SKILL.md;M  .agents/skills/reskill/SKILL.md;M  AGENTS.md;M  docs/explanation/attested-computations-and-warp-skills.md;",
+    "system_mutations": "M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/openwiki-compiler/SKILL.md;M  SUMMARY.md;M  docs/SUMMARY.md;A  docs/how-to/openwiki-python-compiler-guide.md;AM openwiki/.last-update.json;AM openwiki/INSTRUCTIONS.md;AM openwiki/_skeleton.md;AM openwiki/architecture/overview.md;",
     "telemetry_vectors": "Pre-commit guardrail verification state nominal"
   },
   "episodic_memory_keys": [
