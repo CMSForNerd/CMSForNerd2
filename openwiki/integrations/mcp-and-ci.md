@@ -12,8 +12,7 @@ sources:
   url: openwiki/integrations/mcp-and-ci.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: '2026-10-04T21:17:34Z'
-tags: ["openwiki", "integrations", "mcp", "ci-cd", "workflows"]
+  at: "2026-10-04T21:39:35Z"
 ---
 # FastMCP Server Integration & Continuous Integration Workflows
 

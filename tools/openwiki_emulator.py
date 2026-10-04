@@ -625,17 +625,30 @@ def validate_mermaid_diagram(code: str) -> tuple[bool, str]:
 
     if matched_type == "sequenceDiagram":
         for idx, line in enumerate(lines):
-            if line.startswith("%%") or line == "sequenceDiagram" or line.startswith("autonumber"):
+            if line.startswith(("%%", "autonumber")) or line == "sequenceDiagram":
                 continue
-            if "->" in line or "-->" in line or "-)" in line or "--)" in line:
+            if (
+                "->" in line
+                or "-->" in line
+                or "-)" in line
+                or "--)" in line
+                or line.startswith(
+                    (
+                        "participant ",
+                        "actor ",
+                        "Note ",
+                        "alt ",
+                        "else",
+                        "opt ",
+                        "loop ",
+                        "rect ",
+                        "end",
+                    )
+                )
+            ):
                 pass
-            elif line.startswith("participant ") or line.startswith("actor ") or line.startswith("Note "):
-                pass
-            elif line.startswith(("alt ", "else", "opt ", "loop ", "rect ", "end")):
-                pass
-            else:
-                if len(line.split()) < 2:
-                    return False, f"Line {idx+1} in sequence diagram has invalid syntax: '{line}'"
+            elif len(line.split()) < 2:
+                return False, f"Line {idx+1} in sequence diagram has invalid syntax: '{line}'"
 
     if matched_type == "erDiagram":
         has_rel_or_block = False
@@ -886,7 +899,7 @@ def cmd_init() -> None:
     for md_file in OPENWIKI_DIR.rglob("*.md"):
         try:
             process_markdown_file(md_file)
-        except Exception as e:
+        except (ValueError, KeyError, OSError) as e:
             print(f"[OpenWiki Emulator Warning] Could not process {md_file}: {e}")
 
     cmd_export_graph(state.timestamp)
@@ -899,7 +912,7 @@ def cmd_update() -> None:
     try:
         diff_output = subprocess.check_output(["git", "status", "--porcelain"], text=True)
         print(f"[Git Status]:\n{diff_output if diff_output.strip() else 'No uncommitted changes.'}")
-    except Exception as e:
+    except (subprocess.SubprocessError, OSError) as e:
         print(f"[Git Status Warning]: {e}")
     cmd_init()
 
@@ -929,8 +942,8 @@ def cmd_search(query: str) -> None:
                     searchable = f"{title} {desc} {topics_str}"
                     if query.lower() in searchable.lower():
                         results.append((md_file.relative_to(REPO_ROOT), title, desc))
-        except Exception:
-            pass
+        except (yaml.YAMLError, OSError):
+            continue
 
     if results:
         print(f"\nFound {len(results)} matching OpenWiki page(s):")

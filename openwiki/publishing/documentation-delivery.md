@@ -12,8 +12,7 @@ sources:
   url: openwiki/publishing/documentation-delivery.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: '2026-10-04T21:17:34Z'
-tags: ["openwiki", "publishing", "delivery", "seo", "astro"]
+  at: "2026-10-04T21:39:35Z"
 ---
 # Multi-Channel Documentation Delivery & SEO Engine
 

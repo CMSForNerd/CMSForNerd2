@@ -113,7 +113,11 @@ def test_openwiki_skill_integrity() -> None:
 
     root_content = skill_root.read_text(encoding="utf-8")
     agent_content = skill_agent.read_text(encoding="utf-8")
-    assert root_content == agent_content
+
+    # Body content (excluding frontmatter url) must match
+    root_body = root_content.split("---", 2)[2].strip()
+    agent_body = agent_content.split("---", 2)[2].strip()
+    assert root_body == agent_body
 
     meta = yaml.safe_load(root_content.split("---", 2)[1])
     assert meta["name"] == "openwiki-compiler"

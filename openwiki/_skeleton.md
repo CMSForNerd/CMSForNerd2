@@ -12,8 +12,7 @@ sources:
   url: openwiki/_skeleton.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: '2026-10-04T21:17:34Z'
-tags: ["openwiki", "skeleton", "dsom", "inventory"]
+  at: "2026-10-04T21:39:35Z"
 ---
 # OpenWiki documentation skeleton
 

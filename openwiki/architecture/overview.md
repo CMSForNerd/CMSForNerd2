@@ -12,8 +12,7 @@ sources:
   url: openwiki/architecture/overview.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: '2026-10-04T21:17:34Z'
-tags: ["openwiki", "architecture", "overview", "pillars"]
+  at: "2026-10-04T21:39:35Z"
 ---
 # DSOM Scope & Three-Pillar Operational Model
 
