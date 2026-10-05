@@ -262,8 +262,9 @@ HANDBOOK_EPUB = BUILD_DIR / "handbook.epub"
 
 WARNING_KEYWORDS = re.compile(
     r"\b(BUG|FIX|Confirmed|live|vendor|NEVER|destroy|destructive|ORA-\d+|crash|escalation|hard way|WARNING|CAUTION|CRITICAL)\b",
-    re.IGNORECASE
+    re.IGNORECASE,
 )
+
 
 def strip_frontmatter_and_footer(content: str) -> str:
     lines = content.splitlines()
@@ -274,16 +275,18 @@ def strip_frontmatter_and_footer(content: str) -> str:
                 end_idx = idx
                 break
         if end_idx != -1:
-            content = "\n".join(lines[end_idx+1:])
+            content = "\n".join(lines[end_idx + 1 :])
     content = re.sub(r"\n---\s*\n\*.*", "", content, flags=re.DOTALL)
     content = re.sub(r"\n---\n", "\n***\n", content)
     return content.strip()
 
+
 def convert_github_alerts(text: str) -> str:
     pattern = re.compile(
         r"^>\s*(?:\*\*)?\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION|SUCCESS)\](?:\*\*)?(?:[ \t]*(.*))?\n((?:^>.*$\n?)*)",
-        re.MULTILINE
+        re.MULTILINE,
     )
+
     def replacer(match):
         alert_type = match.group(1).upper()
         first_line = match.group(2) or ""
@@ -313,6 +316,7 @@ def convert_github_alerts(text: str) -> str:
 
     return pattern.sub(replacer, text)
 
+
 def scale_backticks(code_text: str) -> tuple[str, str]:
     max_ticks = 0
     matches = re.findall(r"(`{3,})", code_text)
@@ -321,6 +325,7 @@ def scale_backticks(code_text: str) -> tuple[str, str]:
             max_ticks = len(m)
     fence = "`" * max(3, max_ticks + 1)
     return fence, fence
+
 
 def extract_commentary(code_text: str, lang: str = "yaml"):
     lines = code_text.splitlines()
@@ -340,10 +345,15 @@ def extract_commentary(code_text: str, lang: str = "yaml"):
     comment_text = " ".join(comment_lines)
     is_warning = bool(WARNING_KEYWORDS.search(comment_text))
     callout_class = "callout callout-warning" if is_warning else "callout callout-note"
-    callout_title = "Developer Commentary — Read Before Executing" if is_warning else "Developer Operational Context"
+    callout_title = (
+        "Developer Commentary — Read Before Executing"
+        if is_warning
+        else "Developer Operational Context"
+    )
     callout_icon = "⚠️" if is_warning else "💡"
     body = "\n".join(f"> {cl}" for cl in comment_lines[:15])
     return f'<div class="{callout_class}">\n<strong>{callout_icon} {callout_title}</strong>\n\n{body}\n</div>\n'
+
 
 def ingest_code_file(file_path: Path, lang: str, title: str, anchor: str) -> str:
     if not file_path.exists():
@@ -351,14 +361,19 @@ def ingest_code_file(file_path: Path, lang: str, title: str, anchor: str) -> str
     content = file_path.read_text(encoding="utf-8", errors="replace")
     callout = extract_commentary(content, lang)
     fence_start, fence_end = scale_backticks(content)
-    md_parts = [f"\n<a id=\"{anchor}\"></a>\n### {title}\n"]
-    md_parts.append(f"**Source File:** `{file_path.relative_to(ROOT_DIR).as_posix()}`\n")
+    md_parts = [f'\n<a id="{anchor}"></a>\n### {title}\n']
+    md_parts.append(
+        f"**Source File:** `{file_path.relative_to(ROOT_DIR).as_posix()}`\n"
+    )
     if callout:
         md_parts.append(callout)
     md_parts.append(f"{fence_start}{lang}\n{content.strip()}\n{fence_end}\n")
     return "\n".join(md_parts)
 
-def ingest_doc_file(rel_path: str, heading_offset: int = 1, show_provenance: bool = True) -> str:
+
+def ingest_doc_file(
+    rel_path: str, heading_offset: int = 1, show_provenance: bool = True
+) -> str:
     file_path = ROOT_DIR / rel_path
     if not file_path.exists():
         return f"\n*Documentation file not found: {rel_path}*\n"
@@ -377,8 +392,13 @@ def ingest_doc_file(rel_path: str, heading_offset: int = 1, show_provenance: boo
         else:
             out.append(line)
 
-    header = f'\n<div class="doc-provenance"><strong>Operational Reference Guide:</strong> <code>{rel_path}</code></div>\n' if show_provenance else "\n"
+    header = (
+        f'\n<div class="doc-provenance"><strong>Operational Reference Guide:</strong> <code>{rel_path}</code></div>\n'
+        if show_provenance
+        else "\n"
+    )
     return header + "\n".join(out) + "\n"
+
 
 def build_master_book():
     print("Assembling master book markdown...")
@@ -394,11 +414,14 @@ def build_master_book():
     # 2. Prologue Story (Dynamically Ingested from Standalone File)
     story_path = "docs/explanation/THE-STORY-OF-PROJECT.md"
     if (ROOT_DIR / story_path).exists():
-        parts.append(ingest_doc_file(story_path, heading_offset=0, show_provenance=False))
+        parts.append(
+            ingest_doc_file(story_path, heading_offset=0, show_provenance=False)
+        )
 
     full_text = "\n\n".join(parts)
     MASTER_MD.write_text(full_text, encoding="utf-8")
     print(f"Master markdown written: {MASTER_MD} ({len(full_text):,} bytes)")
+
 
 if __name__ == "__main__":
     build_master_book()
@@ -471,7 +494,7 @@ pandoc build/book/master_book.md -o build/book/handbook.epub \
   --metadata title="Project Technical Handbook"
 ```
 
-```
+```text
 
 ---
 

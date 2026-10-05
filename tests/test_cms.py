@@ -15,6 +15,7 @@ import requests
 CONTENT_DIR = "src/content/pages"
 markdown_files = [f for f in os.listdir(CONTENT_DIR) if f.endswith(".md")]
 
+
 def test_sitemap_verification() -> None:
     """Run sitemap checks using the custom Node.js verification utility.
 
@@ -23,17 +24,31 @@ def test_sitemap_verification() -> None:
     well-formed, and compiled sitemap links have corresponding physical HTML assets
     inside the built 'dist/' directory.
     """
-    res = subprocess.run(["node", "tools/verify-sitemaps.js"], capture_output=True, text=True, check=False)
+    res = subprocess.run(
+        ["node", "tools/verify-sitemaps.js"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
     assert res.returncode == 0
     assert "Verification Script Completed Successfully" in res.stdout
 
+
 def test_pagefind_sri_hashing() -> None:
     """Run Pagefind SRI auto-hashing utility script and verify manifest generation."""
-    res = subprocess.run(["node", "tools/sri-hash-pagefind.js"], capture_output=True, text=True, check=False)
+    res = subprocess.run(
+        ["node", "tools/sri-hash-pagefind.js"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
     assert res.returncode == 0
     if os.path.exists("dist/pagefind"):
         manifest_path = os.path.join("dist", "pagefind", "pagefind-sri.json")
-        assert os.path.exists(manifest_path), "pagefind-sri.json must exist in dist/pagefind after SRI hashing."
+        assert os.path.exists(manifest_path), (
+            "pagefind-sri.json must exist in dist/pagefind after SRI hashing."
+        )
+
 
 def test_okf_compliance() -> None:
     """Run frontmatter compliance checks using the OKF refactoring utility.
@@ -41,9 +56,12 @@ def test_okf_compliance() -> None:
     This test executes 'tools/refactor-okf.cjs' to recursively crawl, parse, and
     validate the YAML frontmatter of all Markdown files against the strict OKF v0.1 schema.
     """
-    res = subprocess.run(["node", "tools/refactor-okf.cjs"], capture_output=True, text=True, check=False)
+    res = subprocess.run(
+        ["node", "tools/refactor-okf.cjs"], capture_output=True, text=True, check=False
+    )
     assert res.returncode == 0
     assert "OKF v0.2 migration complete" in res.stdout
+
 
 @pytest.mark.parametrize("md_file", markdown_files)
 def test_page_renders_correctly(md_file: str) -> None:

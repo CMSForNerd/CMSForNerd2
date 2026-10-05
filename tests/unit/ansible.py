@@ -32,13 +32,30 @@ def _validate_playbook_tasks(tasks: list[dict[str, Any]], playbook_name: str) ->
 
         # Check module FQCN
         for key in task:
-            if key in ["name", "become", "when", "tags", "vars", "args", "changed_when", "failed_when", "register", "run_once", "environment"]:
+            if key in [
+                "name",
+                "become",
+                "when",
+                "tags",
+                "vars",
+                "args",
+                "changed_when",
+                "failed_when",
+                "register",
+                "run_once",
+                "environment",
+            ]:
                 continue
-            assert "." in key, f"Task '{task.get('name')}' in '{playbook_name}' uses non-FQCN action/module: '{key}'"
+            assert "." in key, (
+                f"Task '{task.get('name')}' in '{playbook_name}' uses non-FQCN action/module: '{key}'"
+            )
 
         # Check for user-detection set_fact task
         set_fact_data = task.get("ansible.builtin.set_fact")
-        if isinstance(set_fact_data, dict) and "is_limited_environment" in set_fact_data:
+        if (
+            isinstance(set_fact_data, dict)
+            and "is_limited_environment" in set_fact_data
+        ):
             has_detection_task = True
 
         # Check command/shell task idempotency guard (Rule 32.43 Fast-Fail Gate)
@@ -49,7 +66,9 @@ def _validate_playbook_tasks(tasks: list[dict[str, Any]], playbook_name: str) ->
 
         # Check imperative task naming (Rule 32.44)
         task_name = task.get("name", "")
-        assert isinstance(task_name, str) and len(task_name) > 0, f"Task in '{playbook_name}' is missing a descriptive name."
+        assert isinstance(task_name, str) and len(task_name) > 0, (
+            f"Task in '{playbook_name}' is missing a descriptive name."
+        )
 
     return has_detection_task
 
@@ -78,25 +97,37 @@ def test_ansible_playbook_compliance() -> None:
     ]
 
     for playbook_path in playbooks_to_test:
-        assert os.path.exists(playbook_path), f"Ansible playbook '{playbook_path}' not found."
-        assert playbook_path.endswith(".yml"), f"Playbook '{playbook_path}' must use .yml extension (Rule 32.44)."
+        assert os.path.exists(playbook_path), (
+            f"Ansible playbook '{playbook_path}' not found."
+        )
+        assert playbook_path.endswith(".yml"), (
+            f"Playbook '{playbook_path}' must use .yml extension (Rule 32.44)."
+        )
 
         with open(playbook_path, "r", encoding="utf-8") as f:
             playbook_data = yaml.safe_load(f)
 
-        assert isinstance(playbook_data, list), f"Playbook '{playbook_path}' root must be a list."
+        assert isinstance(playbook_data, list), (
+            f"Playbook '{playbook_path}' root must be a list."
+        )
 
         # Handle master orchestrator playbooks importing other playbooks
         if playbook_path == "playbooks/site.yml":
             for play in playbook_data:
-                assert "ansible.builtin.import_playbook" in play, "Master site.yml must import playbooks via FQCN."
+                assert "ansible.builtin.import_playbook" in play, (
+                    "Master site.yml must import playbooks via FQCN."
+                )
             continue
 
         play = playbook_data[0]
-        assert play.get("gather_facts") is True, f"gather_facts should be true in '{playbook_path}'."
+        assert play.get("gather_facts") is True, (
+            f"gather_facts should be true in '{playbook_path}'."
+        )
 
         tasks = play.get("tasks", [])
         assert len(tasks) > 0, f"Playbook '{playbook_path}' has no tasks defined."
 
         has_detection_task = _validate_playbook_tasks(tasks, playbook_path)
-        assert has_detection_task, f"Playbook '{playbook_path}' does not define the dual-pathway user detection set_fact task."
+        assert has_detection_task, (
+            f"Playbook '{playbook_path}' does not define the dual-pathway user detection set_fact task."
+        )

@@ -27,9 +27,9 @@ Welcome to the **CMSForNerd2** documentation system. This repository utilizes th
 
 The Diátaxis Framework organizes documentation into four distinct quadrants, each serving a unique user need and operational context:
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                   PRACTICAL
                      ▲
                      │
@@ -46,7 +46,7 @@ The Diátaxis Framework organizes documentation into four distinct quadrants, ea
                 THEORETICAL
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
@@ -88,7 +88,7 @@ The Diátaxis Framework organizes documentation into four distinct quadrants, ea
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -103,7 +103,7 @@ graph TD
     end
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Quadrant | Directory Path | User Goal | Focus Area | Example Asset |
 | :--- | :--- | :--- | :--- | :--- |

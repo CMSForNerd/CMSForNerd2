@@ -12,7 +12,7 @@ sources:
   url: openwiki/quickstart.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-04T22:07:16Z"
+  at: "2026-10-05T16:29:09Z"
 ---
 # OpenWiki Quickstart & Repository Navigation Map
 

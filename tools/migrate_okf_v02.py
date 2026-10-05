@@ -82,7 +82,7 @@ def migrate_file(filepath: Path) -> bool:
         return False
 
     fm_raw = content[3:end_idx].strip()
-    body_text = content[end_idx + 3:]
+    body_text = content[end_idx + 3 :]
 
     try:
         fm_data = yaml.safe_load(fm_raw)
@@ -121,11 +121,9 @@ def migrate_file(filepath: Path) -> bool:
         fm_data["stale_after"] = "2027-03-06"
 
     if "sources" not in fm_data or not fm_data["sources"]:
-        fm_data["sources"] = [{
-            "id": "workspace_file",
-            "title": filepath.name,
-            "url": str(filepath)
-        }]
+        fm_data["sources"] = [
+            {"id": "workspace_file", "title": filepath.name, "url": str(filepath)}
+        ]
     elif isinstance(fm_data["sources"], list):
         for source in fm_data["sources"]:
             if isinstance(source, dict) and source.get("id") == "workspace_file":
@@ -172,7 +170,26 @@ def migrate_file(filepath: Path) -> bool:
         else:
             val_str = str(v)
             # Quote if contains special characters
-            if any(c in val_str for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", ":", "[", "]", "#", "@", "{", "}", "%"]):
+            if any(
+                c in val_str
+                for c in [
+                    "🎨",
+                    "🧠",
+                    "🚀",
+                    "🧪",
+                    "📋",
+                    "🏗️",
+                    "🧱",
+                    ":",
+                    "[",
+                    "]",
+                    "#",
+                    "@",
+                    "{",
+                    "}",
+                    "%",
+                ]
+            ):
                 escaped = val_str.replace('"', '\\"')
                 yaml_lines.append(f'{k}: "{escaped}"')
             else:

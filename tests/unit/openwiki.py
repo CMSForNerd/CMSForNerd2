@@ -30,14 +30,18 @@ def test_openwiki_emulator_init() -> None:
     assert (OPENWIKI_DIR / "quickstart.md").is_file()
 
     # Verify JSON tracking metadata
-    last_update_data = json.loads((OPENWIKI_DIR / ".last-update.json").read_text(encoding="utf-8"))
+    last_update_data = json.loads(
+        (OPENWIKI_DIR / ".last-update.json").read_text(encoding="utf-8")
+    )
     assert last_update_data["status"] == "success"
     assert "DSOM Python OpenWiki Emulator" in last_update_data["engine"]
 
     # Verify OKF frontmatter on generated markdown pages
     for md_file in OPENWIKI_DIR.rglob("*.md"):
         content = md_file.read_text(encoding="utf-8")
-        assert content.startswith("---"), f"{md_file} missing starting frontmatter delimiter"
+        assert content.startswith("---"), (
+            f"{md_file} missing starting frontmatter delimiter"
+        )
         parts = content.split("---", 2)
         assert len(parts) >= 3, f"{md_file} malformed frontmatter"
         meta = yaml.safe_load(parts[1])

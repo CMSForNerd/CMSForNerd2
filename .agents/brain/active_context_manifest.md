@@ -12,20 +12,20 @@ sources:
   url: .agents/brain/active_context_manifest.md
 generated:
   by: "Repository Architect & OKF v0.2 Compliance Agent"
-  at: '2026-10-04T22:07:16Z'
+  at: '2026-10-05T16:29:09Z'
 tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 ---
 
 # DSOM Active Context Manifest
 
-*Last Synchronized:* `2026-10-04T22:07:16Z`
+*Last Synchronized:* `2026-10-05T16:29:09Z`
 
 ## Active Intent
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
-```
-M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/openwiki-compiler/SKILL.md;M  SUMMARY.md;M  docs/SUMMARY.md;A  docs/how-to/openwiki-python-compiler-guide.md;AM openwiki/.last-update.json;AM openwiki/INSTRUCTIONS.md;AM openwiki/_skeleton.md;AM openwiki/architecture/overview.md;
+```text
+M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/palace_registry.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;A  .agents/skills/markdownlint-autofix/SKILL.md;A  .agents/skills/markdownlint-autofix/run.sh;A  .agents/skills/okf-v0-2-validator/SKILL.md;A  .agents/skills/okf-v0-2-validator/run.sh;
 ```
 
 ## Latest Compacted JSON Payload
@@ -33,7 +33,7 @@ M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.
 {
   "dsom_compaction_meta": {
     "protocol_version": "0.2",
-    "timestamp": "2026-10-04T22:07:16.808255+00:00"
+    "timestamp": "2026-10-05T16:29:09.601035+00:00"
   },
   "active_intent": "Synchronize active context manifest and episodic ledger",
   "operational_constraints": [
@@ -41,7 +41,7 @@ M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.
     "DSOM OKF v0.2"
   ],
   "context_deltas": {
-    "system_mutations": "M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;A  .agents/skills/openwiki-compiler/SKILL.md;M  SUMMARY.md;M  docs/SUMMARY.md;A  docs/how-to/openwiki-python-compiler-guide.md;AM openwiki/.last-update.json;AM openwiki/INSTRUCTIONS.md;AM openwiki/_skeleton.md;AM openwiki/architecture/overview.md;",
+    "system_mutations": "M  .agents/AGENTS.md;M  .agents/brain/active_context_manifest.md;M  .agents/brain/checkpoint_summary.txt;M  .agents/brain/palace_registry.md;M  .agents/skills/attested-computations/SKILL.md;M  .agents/skills/dsom-infrastructure-playbook-documenter/SKILL.md;A  .agents/skills/markdownlint-autofix/SKILL.md;A  .agents/skills/markdownlint-autofix/run.sh;A  .agents/skills/okf-v0-2-validator/SKILL.md;A  .agents/skills/okf-v0-2-validator/run.sh;",
     "telemetry_vectors": "Pre-commit guardrail verification state nominal"
   },
   "episodic_memory_keys": [

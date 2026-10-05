@@ -532,7 +532,13 @@ DSOM compiles and delivers documentation to multiple channels simultaneously, ca
             },
             "quality/verification.md": {
                 "title": "Quality Verification Framework & Regression Test Suites",
-                "topics": ["openwiki", "quality", "verification", "testing", "assertions"],
+                "topics": [
+                    "openwiki",
+                    "quality",
+                    "verification",
+                    "testing",
+                    "assertions",
+                ],
                 "description": "Python test-suite map, OKF/BOM/quoting/symlink assertions.",
                 "content": """
 # Quality Verification Framework & Regression Test Suites
@@ -607,7 +613,9 @@ def validate_mermaid_diagram(code: str) -> tuple[bool, str]:
         if line.startswith("%%"):
             continue
 
-        if matched_type == "erDiagram" and ("||" in line or "o{" in line or "}o" in line or "}|" in line or "|{" in line):
+        if matched_type == "erDiagram" and (
+            "||" in line or "o{" in line or "}o" in line or "}|" in line or "|{" in line
+        ):
             continue
 
         for char in line:
@@ -615,10 +623,20 @@ def validate_mermaid_diagram(code: str) -> tuple[bool, str]:
                 stack.append((char, idx + 1))
             elif char in ")]}":
                 if not stack:
-                    return False, f"Line {idx+1} has unmatched closing character '{char}': '{line}'"
+                    return (
+                        False,
+                        f"Line {idx + 1} has unmatched closing character '{char}': '{line}'",
+                    )
                 top, top_idx = stack.pop()
-                if (char == ")" and top != "(") or (char == "]" and top != "[") or (char == "}" and top != "{"):
-                    return False, f"Line {idx+1} has mismatched grouping characters: '{line}'"
+                if (
+                    (char == ")" and top != "(")
+                    or (char == "]" and top != "[")
+                    or (char == "}" and top != "{")
+                ):
+                    return (
+                        False,
+                        f"Line {idx + 1} has mismatched grouping characters: '{line}'",
+                    )
     if stack:
         top, top_idx = stack[0]
         return False, f"Line {top_idx} has unclosed grouping character '{top}'"
@@ -648,19 +666,31 @@ def validate_mermaid_diagram(code: str) -> tuple[bool, str]:
             ):
                 pass
             elif len(line.split()) < 2:
-                return False, f"Line {idx+1} in sequence diagram has invalid syntax: '{line}'"
+                return (
+                    False,
+                    f"Line {idx + 1} in sequence diagram has invalid syntax: '{line}'",
+                )
 
     if matched_type == "erDiagram":
         has_rel_or_block = False
         for line in lines:
             if line == "erDiagram" or line.startswith("%%"):
                 continue
-            if "||" in line or "o{" in line or "}o" in line or "}|" in line or "|{" in line:
+            if (
+                "||" in line
+                or "o{" in line
+                or "}o" in line
+                or "}|" in line
+                or "|{" in line
+            ):
                 has_rel_or_block = True
             if "{" in line or "}" in line:
                 has_rel_or_block = True
         if not has_rel_or_block and len(lines) > 1:
-            return False, "ER Diagram must specify relationships or entity attribute blocks"
+            return (
+                False,
+                "ER Diagram must specify relationships or entity attribute blocks",
+            )
 
     return True, ""
 
@@ -679,7 +709,11 @@ def process_markdown_file(filepath: pathlib.Path) -> None:
     modified = False
 
     while i < len(lines):
-        if lines[i].strip() == "```" and (i + 1 < len(lines)) and lines[i + 1].strip().startswith("%% openwiki-error:"):
+        if (
+            lines[i].strip() == "```"
+            and (i + 1 < len(lines))
+            and lines[i + 1].strip().startswith("%% openwiki-error:")
+        ):
             modified = True
             j = i + 2
             block_lines: list[str] = []
@@ -688,7 +722,9 @@ def process_markdown_file(filepath: pathlib.Path) -> None:
                 j += 1
 
             if j >= len(lines):
-                raise ValueError(f"Unterminated plain text fence starting at line {i+1}")
+                raise ValueError(
+                    f"Unterminated plain text fence starting at line {i + 1}"
+                )
 
             code_block = "\n".join(block_lines)
             is_valid, reason = validate_mermaid_diagram(code_block)
@@ -713,7 +749,7 @@ def process_markdown_file(filepath: pathlib.Path) -> None:
                 j += 1
 
             if j >= len(lines):
-                raise ValueError(f"Unterminated Mermaid fence starting at line {i+1}")
+                raise ValueError(f"Unterminated Mermaid fence starting at line {i + 1}")
 
             code_block = "\n".join(block_lines)
             is_valid, reason = validate_mermaid_diagram(code_block)
@@ -736,7 +772,9 @@ def process_markdown_file(filepath: pathlib.Path) -> None:
             i += 1
 
     if modified:
-        temp_fd, temp_path = tempfile.mkstemp(dir=str(filepath.parent), suffix=".tmp", text=True)
+        temp_fd, temp_path = tempfile.mkstemp(
+            dir=str(filepath.parent), suffix=".tmp", text=True
+        )
         try:
             with os.fdopen(temp_fd, "w", encoding="utf-8") as f:
                 f.write("\n".join(output_lines) + "\n")
@@ -785,7 +823,9 @@ def cmd_export_graph(timestamp: str | None = None) -> None:
     if timestamp is None:
         timestamp = get_timestamp()
     graph_path = OPENWIKI_DIR / "graph.html"
-    print(f"[OpenWiki Emulator] Generating offline standalone graph visualizer at {graph_path}...")
+    print(
+        f"[OpenWiki Emulator] Generating offline standalone graph visualizer at {graph_path}..."
+    )
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -876,11 +916,19 @@ def cmd_export_graph(timestamp: str | None = None) -> None:
 def cmd_init() -> None:
     """Initialize and materialize full OpenWiki documentation tree and pages."""
     state = OpenWikiState()
-    print(f"[OpenWiki Emulator] Generating native wiki under {OPENWIKI_DIR} with timestamp {state.timestamp}...")
+    print(
+        f"[OpenWiki Emulator] Generating native wiki under {OPENWIKI_DIR} with timestamp {state.timestamp}..."
+    )
     ensure_openwiki_dirs()
-    (OPENWIKI_DIR / "_skeleton.md").write_text(generate_skeleton(state.timestamp), encoding="utf-8")
-    (OPENWIKI_DIR / ".last-update.json").write_text(generate_last_update_json(state.timestamp), encoding="utf-8")
-    (OPENWIKI_DIR / "INSTRUCTIONS.md").write_text(generate_instructions_md(state.timestamp), encoding="utf-8")
+    (OPENWIKI_DIR / "_skeleton.md").write_text(
+        generate_skeleton(state.timestamp), encoding="utf-8"
+    )
+    (OPENWIKI_DIR / ".last-update.json").write_text(
+        generate_last_update_json(state.timestamp), encoding="utf-8"
+    )
+    (OPENWIKI_DIR / "INSTRUCTIONS.md").write_text(
+        generate_instructions_md(state.timestamp), encoding="utf-8"
+    )
 
     for relative_path, info in state.get_planned_pages().items():
         page_content = generate_page(
@@ -910,8 +958,12 @@ def cmd_update() -> None:
     """Compile recent Git diffs and status into evidence blocks and reinitialize wiki."""
     print("[OpenWiki Emulator] Compiling recent Git diffs into OKF evidence blocks...")
     try:
-        diff_output = subprocess.check_output(["git", "status", "--porcelain"], text=True)
-        print(f"[Git Status]:\n{diff_output if diff_output.strip() else 'No uncommitted changes.'}")
+        diff_output = subprocess.check_output(
+            ["git", "status", "--porcelain"], text=True
+        )
+        print(
+            f"[Git Status]:\n{diff_output if diff_output.strip() else 'No uncommitted changes.'}"
+        )
     except (subprocess.SubprocessError, OSError) as e:
         print(f"[Git Status Warning]: {e}")
     cmd_init()
@@ -958,9 +1010,15 @@ def main() -> None:
     """Parse CLI arguments and route to emulator command routines."""
     parser = argparse.ArgumentParser(description="DSOM Native Python OpenWiki Emulator")
     parser.add_argument("--init", action="store_true", help="Initialize full wiki")
-    parser.add_argument("--update", action="store_true", help="Compile recent Git diffs")
+    parser.add_argument(
+        "--update", action="store_true", help="Compile recent Git diffs"
+    )
     parser.add_argument("--search", type=str, help="Fast OKF metadata search query")
-    parser.add_argument("--export-graph", action="store_true", help="Generate standalone offline HTML graph")
+    parser.add_argument(
+        "--export-graph",
+        action="store_true",
+        help="Generate standalone offline HTML graph",
+    )
 
     args = parser.parse_args()
 

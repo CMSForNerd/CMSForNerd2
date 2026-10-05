@@ -27,7 +27,7 @@ This guide explains how to adopt the **OpenWiki** knowledge graph standard in yo
 
 The official OpenWiki Node.js implementation (`@langchain-ai/openwiki` / `openwiki`) introduces heavy binary dependencies, npm package bloat, and external API rate limit constraints that are unsuitable for lightweight, sovereign AI agent environments.
 
-### Key Rationale:
+### Key Rationale
 
 1. **Zero External Binaries:** Eliminates global npm binary installations and JavaScript dependency trees.
 2. **`uv` Single-Binary Management:** Executes via `uv run --with pyyaml python tools/openwiki_emulator.py`, ensuring instantaneous, reproducible execution across Linux, macOS, and Windows.
@@ -53,6 +53,7 @@ flowchart TD
 ### A. Karpathy's LLM Wiki Paradigm (Ingest, Query, Lint)
 
 Following Andrej Karpathy's LLM Wiki philosophy:
+
 - **Ingest:** Instead of raw RAG on every turn, incoming changes in code or Git commits are parsed, summarized, and filed into interlinked Markdown pages under `./openwiki/`.
 - **Query:** AI agents query the interlinked wiki rather than scanning raw code files repeatedly.
 - **Lint:** `tools/openwiki_emulator.py` validates frontmatter metadata, checks link integrity, and performs in-place self-healing on Mermaid diagram blocks.
@@ -62,13 +63,17 @@ Following Andrej Karpathy's LLM Wiki philosophy:
 [QMD](https://github.com/tobi/qmd) is an on-device search engine for Markdown notes and documentation combining BM25 keyword search, vector semantic search, and local LLM re-ranking.
 
 - **Indexing:**
+
   ```bash
   qmd index ./openwiki ./docs
   ```
+
 - **Querying:**
+
   ```bash
   qmd query "ansible inventory topology"
   ```
+
 - **Built-in Fallback:** When QMD is not present, `tools/openwiki_emulator.py --search "<query>"` provides instant, zero-dependency OKF frontmatter search.
 
 ---

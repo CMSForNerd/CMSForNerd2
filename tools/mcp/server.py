@@ -268,7 +268,12 @@ def validate_diagram_schema(diagram_code: str) -> dict[str, Any]:
             f"First non-empty line '{first_line}' does not match known Mermaid types ({', '.join(valid_types[:5])}...)."
         )
 
-    if "-->" not in code and "-.->" not in code and "==>" not in code and detected_type in ["graph", "flowchart"]:
+    if (
+        "-->" not in code
+        and "-.->" not in code
+        and "==>" not in code
+        and detected_type in ["graph", "flowchart"]
+    ):
         warnings.append("Flowchart diagram contains no connector arrows (e.g. '-->').")
 
     return {
@@ -294,7 +299,11 @@ def validate_wasm_cm_wit_interface(wit_definition: str) -> dict[str, Any]:
     if not code:
         return {"valid": False, "error": "WIT definition string is empty."}
 
-    lines = [line.strip() for line in code.splitlines() if line.strip() and not line.strip().startswith("//")]
+    lines = [
+        line.strip()
+        for line in code.splitlines()
+        if line.strip() and not line.strip().startswith("//")
+    ]
     package_name = ""
     interface_name = ""
     functions: list[str] = []
@@ -313,16 +322,24 @@ def validate_wasm_cm_wit_interface(wit_definition: str) -> dict[str, Any]:
         elif line.startswith("func ") or ": func(" in line or "->" in line:
             raw_func = line.replace("func ", "").strip()
             func_name = raw_func.split("(")[0].split(":")[0].strip()
-            if func_name and func_name not in functions and func_name not in ("package", "interface", "record"):
+            if (
+                func_name
+                and func_name not in functions
+                and func_name not in ("package", "interface", "record")
+            ):
                 functions.append(func_name)
         elif line.startswith(("type ", "record ", "variant ", "enum ")):
-            tname = line.split()[1].rstrip("{;") if len(line.split()) >= 2 else "anonymous"
+            tname = (
+                line.split()[1].rstrip("{;") if len(line.split()) >= 2 else "anonymous"
+            )
             type_defs.append(tname)
 
     final_name = package_name or interface_name or "unknown"
     is_valid = bool(functions or type_defs or final_name != "unknown")
     if not is_valid:
-        warnings.append("No valid WIT interface, function, or type definitions detected in payload.")
+        warnings.append(
+            "No valid WIT interface, function, or type definitions detected in payload."
+        )
 
     return {
         "valid": is_valid,
@@ -403,7 +420,7 @@ async def _mcp_webtransport_datagram_handler(request: Request) -> JSONResponse:
             "status": "datagram_received",
             "transport": transport_mode,
             "node_id": node_id,
-            "payload_bytes": len(body_bytes) if 'body_bytes' in locals() else 0,
+            "payload_bytes": len(body_bytes) if "body_bytes" in locals() else 0,
             "synced_concepts": concepts,
             "latency_ms": 1.2,
             "mesh_state": "active",
@@ -425,7 +442,9 @@ async def _mcp_webrtc_signaling_handler(websocket: WebSocket) -> None:
             try:
                 msg: dict[str, Any] = json.loads(raw_msg)
             except json.JSONDecodeError:
-                await websocket.send_json({"type": "error", "message": "Invalid WebRTC JSON payload"})
+                await websocket.send_json(
+                    {"type": "error", "message": "Invalid WebRTC JSON payload"}
+                )
                 continue
 
             msg_type = msg.get("type")
@@ -531,7 +550,9 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
             elif method == "notifications/initialized":
                 pass
             elif method == "ping":
-                await websocket.send_json({"jsonrpc": "2.0", "id": msg_id, "result": {}})
+                await websocket.send_json(
+                    {"jsonrpc": "2.0", "id": msg_id, "result": {}}
+                )
             elif method in ("tools/list", "list_tools"):
                 tools_list = [
                     {
@@ -567,12 +588,16 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
                         "description": "Dispatches FastMCP tools via WebAssembly Component Model multi-language interface types.",
                     },
                 ]
-                await websocket.send_json({"jsonrpc": "2.0", "id": msg_id, "result": {"tools": tools_list}})
+                await websocket.send_json(
+                    {"jsonrpc": "2.0", "id": msg_id, "result": {"tools": tools_list}}
+                )
             elif method in ("tools/call", "call_tool"):
                 params: dict[str, Any] = data.get("params") or {}
                 name = str(params.get("name") or data.get("name") or "")
                 raw_args = params.get("arguments") or data.get("arguments")
-                arguments: dict[str, Any] = raw_args if isinstance(raw_args, dict) else {}
+                arguments: dict[str, Any] = (
+                    raw_args if isinstance(raw_args, dict) else {}
+                )
 
                 if name in tool_map:
                     try:
@@ -584,7 +609,10 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
                                 "id": msg_id,
                                 "result": {
                                     "content": [
-                                        {"type": "text", "text": json.dumps(res, default=str)}
+                                        {
+                                            "type": "text",
+                                            "text": json.dumps(res, default=str),
+                                        }
                                     ]
                                 },
                             }
@@ -602,7 +630,10 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
                         {
                             "jsonrpc": "2.0",
                             "id": msg_id,
-                            "error": {"code": -32601, "message": f"Tool '{name}' not found"},
+                            "error": {
+                                "code": -32601,
+                                "message": f"Tool '{name}' not found",
+                            },
                         }
                     )
             else:
@@ -611,7 +642,10 @@ async def _mcp_websocket_handler(websocket: WebSocket) -> None:
                         {
                             "jsonrpc": "2.0",
                             "id": msg_id,
-                            "error": {"code": -32601, "message": f"Method '{method}' not implemented"},
+                            "error": {
+                                "code": -32601,
+                                "message": f"Method '{method}' not implemented",
+                            },
                         }
                     )
     except WebSocketDisconnect:
@@ -632,14 +666,20 @@ def create_mcp_app(transport: str = "sse") -> Starlette:
         "sse" if transport in ("sse", "websocket", "ws") else "http"
     )
     app = mcp.http_app(transport=selected_transport)
-    app.router.add_route("/webtransport/datagrams", _mcp_webtransport_datagram_handler, methods=["GET", "POST"])
+    app.router.add_route(
+        "/webtransport/datagrams",
+        _mcp_webtransport_datagram_handler,
+        methods=["GET", "POST"],
+    )
     app.router.add_websocket_route("/ws", _mcp_websocket_handler)
     app.router.add_websocket_route("/ws/mcp", _mcp_websocket_handler)
     app.router.add_websocket_route("/ws/webrtc", _mcp_webrtc_signaling_handler)
     return app
 
 
-def run_server(transport: str = "stdio", host: str = "127.0.0.1", port: int = 8000) -> None:
+def run_server(
+    transport: str = "stdio", host: str = "127.0.0.1", port: int = 8000
+) -> None:
     """Run the FastMCP gateway server using the requested transport mode.
 
     Args:
@@ -656,8 +696,10 @@ def run_server(transport: str = "stdio", host: str = "127.0.0.1", port: int = 80
         uvicorn.run(app, host=host, port=port)
     elif transport_mode in ("sse", "http", "streamable-http"):
         valid_mode: Literal["stdio", "http", "sse", "streamable-http"] = (
-            "sse" if transport_mode == "sse"
-            else "http" if transport_mode == "http"
+            "sse"
+            if transport_mode == "sse"
+            else "http"
+            if transport_mode == "http"
             else "streamable-http"
         )
         mcp.run(transport=valid_mode, host=host, port=port)

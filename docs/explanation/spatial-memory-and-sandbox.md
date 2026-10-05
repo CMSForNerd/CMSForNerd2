@@ -49,9 +49,9 @@ When executing inside the Google Jules workspace, automation tasks run under spe
 
 To prevent build failures and environment blocks under restricted sandboxes, all shell scripts, deployment tools, and Ansible orchestration playbooks follow the **Dual-Pathway Automation Principle**.
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                              ┌───────────────────────┐
                              │  AUTOMATION TRIGGER   │
                              │ deploy-static.sh      │
@@ -71,7 +71,7 @@ To prevent build failures and environment blocks under restricted sandboxes, all
                └─────────────────────┘       └─────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
@@ -119,7 +119,7 @@ To prevent build failures and environment blocks under restricted sandboxes, all
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -141,7 +141,7 @@ graph TD
     DET -->|"Persistent Linux Host"| B1
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |
