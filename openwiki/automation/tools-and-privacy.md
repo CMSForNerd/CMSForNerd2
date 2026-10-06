@@ -12,7 +12,8 @@ sources:
   url: openwiki/automation/tools-and-privacy.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-05T16:29:09Z"
+  at: '2026-10-05T16:29:09Z'
+tags: ["openwiki", "automation", "tools", "privacy", "guardian"]
 ---
 # Sovereign Automation Tools & Privacy Guardian Boundaries
 

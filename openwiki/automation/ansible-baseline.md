@@ -12,7 +12,8 @@ sources:
   url: openwiki/automation/ansible-baseline.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-05T16:29:09Z"
+  at: '2026-10-05T16:29:09Z'
+tags: ["openwiki", "automation", "ansible", "fabric", "wsl2"]
 ---
 # Ansible Baseline & Automation Fabric Specification
 

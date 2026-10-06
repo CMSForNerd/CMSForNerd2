@@ -12,7 +12,8 @@ sources:
   url: openwiki/quality/verification.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-05T16:29:09Z"
+  at: '2026-10-05T16:29:09Z'
+tags: ["openwiki", "quality", "verification", "testing", "assertions"]
 ---
 # Quality Verification Framework & Regression Test Suites
 
