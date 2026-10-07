@@ -29,9 +29,9 @@ Modern AI agents (e.g. Claude Desktop, Cursor, Google Jules) require fast, deter
 
 ### Architecture Overview
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                              ┌───────────────────────┐
                              │  AI Agent / Client    │
                              │ (Claude / Jules/ IDE) │
@@ -53,7 +53,7 @@ Modern AI agents (e.g. Claude Desktop, Cursor, Google Jules) require fast, deter
      └─────────────────────┘  └─────────────────────┘  └─────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
@@ -104,7 +104,7 @@ Modern AI agents (e.g. Claude Desktop, Cursor, Google Jules) require fast, deter
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -128,7 +128,7 @@ graph TD
     MCP --> M3
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -178,9 +178,9 @@ To align with modern Zero-Trust static security standards, CMSForNerd2 includes 
 
 To enable 100% offline, air-gapped intelligence inside static sites, CMSForNerd2 pairs Web Worker Float32 vector embeddings and IndexedDB persistence with local in-browser LLMs (WebLLM running quantized Llama/Qwen models over WebGPU).
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
  ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
  │  Web Worker Vector   │ ──▶ │ IndexedDB Vector     │ ──▶ │  FastMCP RAG Context │
  │  Embedding Thread    │     │ Store (WasmStudio)   │     │  Search Extractor    │
@@ -192,7 +192,7 @@ To enable 100% offline, air-gapped intelligence inside static sites, CMSForNerd2
  └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="100%" height="100%">
@@ -243,7 +243,7 @@ To enable 100% offline, air-gapped intelligence inside static sites, CMSForNerd2
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -261,7 +261,7 @@ graph TD
     end
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |

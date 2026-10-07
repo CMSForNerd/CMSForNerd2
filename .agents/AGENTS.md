@@ -124,6 +124,9 @@ Agents can discover, activate, and execute these skills on demand as per the ope
 | **Mermaid Diagram Validation** | `.agents/skills/mermaid-validation/` | Validates Mermaid diagram syntax across Markdown files in a headless Node.js environment using jsdom and official Mermaid parser. |
 | **Agent Charter Reskilling** | `.agents/skills/reskill/` | Audits agent charters, extracts procedural knowledge and checklists into reusable skills, and slims charters to core identity and authority boundaries. |
 | **DSOM Infrastructure Playbook Documenter** | `.agents/skills/dsom-infrastructure-playbook-documenter/` | Enforces Rule 32.43 & Rule 32.44 standards: 5-Tier Validation Ladder, two-pass idempotence assertions, Zen of Ansible principles, Red Hat CoP 14-point authoring rules, and 14-category review rubric. |
+| **OKF v0.2 Frontmatter Validator** | `.agents/skills/okf-v0-2-validator/` | Inspects, validates, and migrates workspace Markdown assets to Open Knowledge Format (OKF) v0.2 trust signal compliance. |
+| **Ansible Playbook Test Runner** | `.agents/skills/playbook-test-runner/` | Runs static linting, syntax-checks, and FQCN assertions across all Ansible playbooks. |
+| **Markdown Sanitation Autofix** | `.agents/skills/markdownlint-autofix/` | Auto-corrects Markdown style violations and formatting discrepancies using markdownlint-cli. |
 
 ---
 

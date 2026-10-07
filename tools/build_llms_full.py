@@ -29,13 +29,13 @@ def main() -> None:
         content = f.read()
 
     # Extract unique Markdown link targets in a single O(N) pass with set-based deduplication
-    link_pat = r'\[(?P<title>[^\]]+)\]\((?P<url>[^\)]+\.md)\)'
+    link_pat = r"\[(?P<title>[^\]]+)\]\((?P<url>[^\)]+\.md)\)"
     unique_urls = []
     seen = set()
 
     for line in content.splitlines():
         for m in re.finditer(link_pat, line):
-            target_url = m.group('url')
+            target_url = m.group("url")
             if target_url not in seen:
                 seen.add(target_url)
                 unique_urls.append(target_url)
@@ -44,7 +44,9 @@ def main() -> None:
 
     full_text = []
     full_text.append("# CMSForNerd2 Complete Documentation (llms-full.txt)")
-    full_text.append("\n> This single document consolidates the entire documentation suite for CMSForNerd2.")
+    full_text.append(
+        "\n> This single document consolidates the entire documentation suite for CMSForNerd2."
+    )
     full_text.append("\n---\n")
 
     for url in unique_urls:
@@ -76,6 +78,7 @@ def main() -> None:
         f.write("\n".join(full_text))
 
     print("Successfully compiled: llms-full.txt")
+
 
 if __name__ == "__main__":
     main()

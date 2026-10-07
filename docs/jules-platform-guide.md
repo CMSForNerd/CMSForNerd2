@@ -36,9 +36,9 @@ Modern software and cloud engineering require rapid iteration without sacrificin
 3. **Deep State of Mind (DSOM) Governance:** A metacognitive governance framework enforcing persistent spatial memory, zero context decay, and human-in-the-loop verification across all agent interactions.
 4. **Multi-Agent Pair-Programming Synergy:** An operational ecosystem where Google Jules acts as an autonomous senior co-engineer in the cloud, working side-by-side with human engineers on GitHub PRs, while Google Antigravity orchestrates local CLI operations and task delegations.
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                               ┌────────────────────────┐
                               │ HUMAN ENGINEER / ARCH  │
                               └───────────┬────────────┘
@@ -62,7 +62,7 @@ Modern software and cloud engineering require rapid iteration without sacrificin
                       └───────────────────────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
@@ -120,7 +120,7 @@ Modern software and cloud engineering require rapid iteration without sacrificin
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -148,7 +148,7 @@ graph TD
     JULES -->|"Git Commits & Test Verification"| REPO
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -202,7 +202,7 @@ This chronicle details the exact sequence of engineering milestones executed col
 
 The defining feature of Google Jules is its ability to engage in natural, iterative pair-programming directly within GitHub Pull Request review threads.
 
-```
+```text
 +-----------------------------------------------------------------+
 |                       GITHUB PULL REQUEST                       |
 +-----------------------------------------------------------------+
@@ -227,9 +227,9 @@ To guarantee that AI models produce deterministic, policy-compliant outputs with
 
 ### The Three Pillars of DSOM
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │                 DSOM OPERATING MODEL                │
 │                                                     │
@@ -245,7 +245,7 @@ To guarantee that AI models produce deterministic, policy-compliant outputs with
 └─────────────────────────────────────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%">
@@ -289,7 +289,7 @@ To guarantee that AI models produce deterministic, policy-compliant outputs with
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph LR
@@ -310,7 +310,7 @@ graph LR
     E1 -.->|"Verification Feedback Loop"| A1
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |

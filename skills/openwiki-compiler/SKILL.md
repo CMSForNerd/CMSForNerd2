@@ -46,25 +46,33 @@ uv run --with pyyaml python tools/openwiki_emulator.py --init
 ### 2. Standard Maintenance Procedures
 
 #### A. Initializing or Updating Knowledge Graph
+
 Run when initializing a new project or updating an existing wiki:
+
 ```bash
 uv run --with pyyaml python tools/openwiki_emulator.py --init
 ```
 
 #### B. Incremental State Update (EOD Ritual)
+
 Execute during EOD consolidation to compile session diffs into `./openwiki/`:
+
 ```bash
 uv run --with pyyaml python tools/openwiki_emulator.py --update
 ```
 
 #### C. Fast OKF Metadata Search
+
 Perform sub-millisecond search across openwiki frontmatter titles, topics, and descriptions:
+
 ```bash
 uv run --with pyyaml python tools/openwiki_emulator.py --search "ansible"
 ```
 
 #### D. Standalone Offline Visualizer Export
+
 Generate standalone `graph.html` interactive visualizer:
+
 ```bash
 uv run --with pyyaml python tools/openwiki_emulator.py --export-graph
 ```
@@ -76,13 +84,17 @@ uv run --with pyyaml python tools/openwiki_emulator.py --export-graph
 In addition to fast frontmatter search, agents can integrate QMD (on-device local search engine combining BM25, vector search, and LLM re-ranking) for deep concept retrieval:
 
 1. **Local QMD Indexing:**
+
    ```bash
    qmd index ./openwiki ./docs
    ```
+
 2. **QMD Querying:**
+
    ```bash
    qmd query "ansible inventory topology"
    ```
+
 3. **FastMCP Integration:**
    Use FastMCP tools `get_openwiki_concept` and `search_ssg_routes` directly via `tools/mcp/server.py`.
 
@@ -91,6 +103,7 @@ In addition to fast frontmatter search, agents can integrate QMD (on-device loca
 ### 4. AI Fallback Synthesis Protocol & OKF Compliance
 
 When drafting or updating `./openwiki/` documentation:
+
 1. **Skeleton Analysis:** Read `./openwiki/_skeleton.md` to inspect planned page tree, subsystem rankings, and evidence links.
 2. **OKF v0.2 Frontmatter Compliance:** Ensure all Markdown pages maintain valid OKF v0.2 YAML frontmatter headers (`type`, `title`, `description`, `topics`, `spec_version`, `status`, `sources`, `generated`).
 3. **Mermaid Validation & Self-Healing:** The emulator automatically validates Mermaid blocks and applies in-place degradation (`%% openwiki-error:`) or self-healing recovery.

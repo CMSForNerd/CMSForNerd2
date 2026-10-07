@@ -12,14 +12,15 @@ sources:
   url: openwiki/_skeleton.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-04T22:07:16Z"
+  at: '2026-10-05T16:29:09Z'
+tags: ["openwiki", "skeleton", "dsom", "inventory"]
 ---
 # OpenWiki documentation skeleton
 
 ## Inventory and ranking
 
 | Rank | System | Why it is substantial | Primary evidence |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | DSOM governance, agent startup, and brain | Repository’s primary public purpose and operational control plane; root agent entrypoints route here. | `README.md`, `AGENTS.md`, `.agents/AGENTS.md`, `.agents/brain/` |
 | 2 | Session lifecycle and Palace consolidation | Governs persistent state, SOD/EOD handoffs, Git-history-derived knowledge, and human/AI boundaries. | `tools/reanimate.sh`, `tools/eod-palace.sh`, `playbooks/` |
 | 3 | Documentation publication and delivery | Public-facing product surface delivered through Astro SSG, GitHub Pages, Render, and SEO files. | `astro.config.mjs`, `.github/workflows/deploy-gh-pages.yml`, `render.yaml`, `SUMMARY.md`, tests |
@@ -43,7 +44,7 @@ generated:
 ## Evidence briefs completed before drafting
 
 | Planned page | Entry/composition inspected | Implementation/data/config inspected | Upstream/downstream and tests inspected |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Architecture overview | `README.md`; root and full agent registries | `astro.config.mjs`, `ansible.cfg`, inventory, brain registry | Recent Git history; `tests/test_cms.py` |
 | Agent operation | `AGENTS.md`, `.agents/AGENTS.md` | active context manifest; skill/workflow directory inventory | `tools/eod-palace.sh`; OKF/signature tests |
 | Session and Palace | `tools/reanimate.sh`, `tools/eod-palace.sh` | `playbooks/`, brain registry/marker design | Root agent boot caller; Git log as input |

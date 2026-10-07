@@ -22,15 +22,23 @@ def test_sitemaps_consistency() -> None:
     with open(public_sitemap, "r", encoding="utf-8") as f:
         public_content = f.read().strip()
 
-    assert root_content == public_content, "sitemap.txt and public/sitemap.txt are not identical."
+    assert root_content == public_content, (
+        "sitemap.txt and public/sitemap.txt are not identical."
+    )
 
     urls = root_content.splitlines()
     assert len(urls) > 0, "Sitemaps are empty."
 
     for url in urls:
-        assert url.startswith("https://"), f"Sitemap URL '{url}' must use secure HTTPS protocol."
-        assert "undefined" not in url, f"Sitemap URL '{url}' contains 'undefined' pattern."
-        assert "[object" not in url, f"Sitemap URL '{url}' contains JavaScript object string serialization."
+        assert url.startswith("https://"), (
+            f"Sitemap URL '{url}' must use secure HTTPS protocol."
+        )
+        assert "undefined" not in url, (
+            f"Sitemap URL '{url}' contains 'undefined' pattern."
+        )
+        assert "[object" not in url, (
+            f"Sitemap URL '{url}' contains JavaScript object string serialization."
+        )
 
 
 def test_context7_configuration() -> None:
@@ -57,12 +65,16 @@ def test_pagefind_sri_manifest() -> None:
         with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = json.load(f)
 
-        assert manifest.get("algorithm") == "sha384", "SRI manifest algorithm must be 'sha384'."
+        assert manifest.get("algorithm") == "sha384", (
+            "SRI manifest algorithm must be 'sha384'."
+        )
         assert "files" in manifest, "SRI manifest missing 'files' map."
         files = manifest["files"]
         assert len(files) > 0, "SRI manifest 'files' map is empty."
         for file_path, sri_hash in files.items():
-            assert sri_hash.startswith("sha384-"), f"SRI hash for {file_path} must start with 'sha384-'."
+            assert sri_hash.startswith("sha384-"), (
+                f"SRI hash for {file_path} must start with 'sha384-'."
+            )
 
 
 def test_csp_manifest_and_nonce_injection() -> None:
@@ -77,5 +89,7 @@ def test_csp_manifest_and_nonce_injection() -> None:
         pages = manifest["pages"]
         assert len(pages) > 0, "CSP manifest 'pages' map is empty."
         for page_path, page_data in pages.items():
-            assert "inline_script_count" in page_data, f"Page {page_path} missing 'inline_script_count'."
+            assert "inline_script_count" in page_data, (
+                f"Page {page_path} missing 'inline_script_count'."
+            )
             assert "hashes" in page_data, f"Page {page_path} missing 'hashes' list."

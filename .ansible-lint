@@ -1,0 +1,6 @@
+---
+# .ansible-lint
+# Ansible Lint Configuration File
+
+skip_list:
+  - run-once

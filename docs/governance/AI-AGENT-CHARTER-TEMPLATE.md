@@ -26,7 +26,7 @@ An AI Agent Charter serves as the approved operating contract for a specific age
 
 ## AI Agent Charter Structural Sections
 
-```
+```text
 ┌────────────────────────────────────────────────────────────────────────┐
 │                      AI AGENT CHARTER TEMPLATE                         │
 ├────────────────────────────────────────────────────────────────────────┤

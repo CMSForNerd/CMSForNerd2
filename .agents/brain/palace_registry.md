@@ -20,7 +20,7 @@ tags: ["palace-registry", "dsom-protocol", "spatial-memory"]
 
 ## 🏛️ Spatial Architecture & Wings
 
-```
+```text
 Sovereign Markdown Palace
 ├── Wing: Governance & Standards
 │   ├── Room: room_dsom_protocol (docs/governance/LLM-WIKI-ADOPTION.md)

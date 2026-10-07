@@ -28,13 +28,21 @@ def test_containerfile_security_and_structure(container_file: str) -> None:
         content = f.read()
 
     # Verify Node version for builder
-    assert "node:22-alpine" in content, f"{container_file} should utilize Node 22 (node:22-alpine) in the builder stage."
+    assert "node:22-alpine" in content, (
+        f"{container_file} should utilize Node 22 (node:22-alpine) in the builder stage."
+    )
 
     # Verify runtime Alpine Nginx
-    assert "nginx:alpine-slim" in content or "nginx" in content, f"{container_file} should package the runtime using Nginx."
+    assert "nginx:alpine-slim" in content or "nginx" in content, (
+        f"{container_file} should package the runtime using Nginx."
+    )
 
     # Verify unprivileged USER execution
-    assert "USER nginx" in content, f"{container_file} must switch to unprivileged 'USER nginx' for production security."
+    assert "USER nginx" in content, (
+        f"{container_file} must switch to unprivileged 'USER nginx' for production security."
+    )
 
     # Verify exposed port
-    assert "EXPOSE 8080" in content, f"{container_file} must expose unprivileged port 8080."
+    assert "EXPOSE 8080" in content, (
+        f"{container_file} must expose unprivileged port 8080."
+    )

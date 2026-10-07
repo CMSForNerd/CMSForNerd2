@@ -29,9 +29,9 @@ CMSForNerd2 leverages WebGPU to deliver low-latency, 100% offline, privacy-prese
 
 ### Tri-Tiered Ensemble Pipeline Architecture
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                               ┌──────────────────────────┐
                               │    User Hardware Request  │
                               └────────────┬─────────────┘
@@ -46,7 +46,7 @@ CMSForNerd2 leverages WebGPU to deliver low-latency, 100% offline, privacy-prese
   └──────────────────────┘      └──────────────────────┘      └──────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
@@ -98,7 +98,7 @@ CMSForNerd2 leverages WebGPU to deliver low-latency, 100% offline, privacy-prese
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -117,7 +117,7 @@ graph TD
     T2 -->|"Model Loading Failed / Hardware Constraint"| T3
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Tier Layer | Runtime Engine | Primary Use Case | Hardware Requirement | Fallback Trigger |
 | :--- | :--- | :--- | :--- | :--- |

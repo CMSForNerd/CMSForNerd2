@@ -8,18 +8,15 @@
 # ==============================================================================
 # Script Name : dsom-manifest-sync.sh
 # Path        : tools/dsom-manifest-sync.sh
-# Description : Automated Git Hook & State Manifest Synchronization Script (Step 5).
+# Purpose     : Automated Git Hook & State Manifest Synchronization Script.
 #               Captures repository state deltas, invokes DSOM compaction,
 #               and updates active context manifests and episodic ledgers.
-#
-# Requirements:
+# Prerequisites:
 #   - Bash shell (version 4+)
 #   - Python 3 & tools/dsom_compaction_engine.py
 #   - Git (for workspace status inspection)
-#
-# Usage Instructions:
-#   - Execute on session completion or as post-commit Git hook:
-#         ./tools/dsom-manifest-sync.sh
+# Usage       : ./tools/dsom-manifest-sync.sh
+# Exit Codes  : 0 = Success, 1 = Error during execution
 # ==============================================================================
 
 set -e
@@ -27,7 +24,7 @@ set -e
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
-echo "🔄 [DSOM Manifest Sync] Synchronizing spatial memory state files..."
+echo "[INFO] [DSOM Manifest Sync] Synchronizing spatial memory state files..."
 
 # Capture current git status changes
 CHANGED_FILES="$(git status --porcelain | head -n 10 | tr '\n' '; ')"
@@ -72,7 +69,7 @@ tags: ["dsom", "manifest", "active-context", "spatial-memory"]
 Maintain 100% OKF v0.2 compliance, agent skill registry synchronization, and DSOM workflow blueprint integration.
 
 ## Active Workspace Mutations
-\`\`\`
+\`\`\`text
 $CHANGED_FILES
 \`\`\`
 
@@ -89,4 +86,4 @@ EOF
 # Append checkpoint entry to episodic ledger (.agents/brain/checkpoint_summary.txt)
 echo "[$TIMESTAMP] DSOM Manifest Sync | Mutations: $CHANGED_FILES" >> .agents/brain/checkpoint_summary.txt
 
-echo "✅ [DSOM Manifest Sync] Context manifest and episodic ledger synchronized successfully!"
+echo "[SUCCESS] [DSOM Manifest Sync] Context manifest and episodic ledger synchronized successfully!"

@@ -12,7 +12,8 @@ sources:
   url: openwiki/memory/session-and-palace.md
 generated:
   by: Native Python OpenWiki Emulator v1.1
-  at: "2026-10-04T22:07:16Z"
+  at: '2026-10-05T16:29:09Z'
+tags: ["openwiki", "memory", "session", "palace", "stratification"]
 ---
 # Session Memory Stratification & Palace Synchronisation
 
@@ -33,6 +34,7 @@ stateDiagram-v2
 ## 🧠 Spatial Memory & Brain Artifacts
 
 Active state tracking resides within the `.agents/brain/` directory:
+
 - `task.md` — Houses active, pending, and completed tasks.
 - `walkthrough.md` — Records session histories and dated Mental Anchors.
 - `active_context_manifest.md` — Specifies exact files in active scope.

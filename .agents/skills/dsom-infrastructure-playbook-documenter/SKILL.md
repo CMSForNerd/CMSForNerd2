@@ -43,7 +43,7 @@ It enforces two foundational DSOM governance rules:
 
 Whenever the AI agent generates or modifies Ansible playbooks, it must execute code through the 5-Tier Validation Ladder in ascending order of execution cost:
 
-```
+```text
 +-----------------------------------------------------------------------+
 | Tier 1: Static YAML Check                                             |
 |   Fast syntax & structural parse (YAML formatting, 2-space indent)   |

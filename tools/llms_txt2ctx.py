@@ -30,7 +30,7 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
 
     # 1. Parse H1 title and summary/info block
     # Start split at first H2 heading
-    parts = re.split(r'^##\s*(.*?)$', txt, flags=re.MULTILINE)
+    parts = re.split(r"^##\s*(.*?)$", txt, flags=re.MULTILINE)
     start = parts[0].strip()
 
     title = ""
@@ -38,12 +38,12 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
     info = ""
 
     # Extract Title (H1)
-    title_match = re.search(r'^#\s*(.+?)$', start, flags=re.MULTILINE)
+    title_match = re.search(r"^#\s*(.+?)$", start, flags=re.MULTILINE)
     if title_match:
         title = title_match.group(1).strip()
 
     # Extract Summary (blockquote under H1)
-    summary_match = re.search(r'^>\s*(.+?)$', start, flags=re.MULTILINE)
+    summary_match = re.search(r"^>\s*(.+?)$", start, flags=re.MULTILINE)
     if summary_match:
         summary = summary_match.group(1).strip()
 
@@ -52,7 +52,7 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
     info_lines = []
     for line in start.splitlines():
         trimmed = line.strip()
-        if trimmed.startswith(('#', '>')):
+        if trimmed.startswith(("#", ">")):
             continue
         info_lines.append(line)
     info = "\n".join(info_lines).strip()
@@ -64,11 +64,13 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
         # Group H2 titles and their content blocks in pairs
         for i in range(0, len(rest), 2):
             sec_title = rest[i].strip()
-            sec_content = rest[i+1].strip() if i+1 < len(rest) else ""
+            sec_content = rest[i + 1].strip() if i + 1 < len(rest) else ""
 
             # Parse links in lists
             links = []
-            link_pat = r'-\s*\[(?P<title>[^\]]+)\]\((?P<url>[^\)]+)\)(?::\s*(?P<desc>.*))?'
+            link_pat = (
+                r"-\s*\[(?P<title>[^\]]+)\]\((?P<url>[^\)]+)\)(?::\s*(?P<desc>.*))?"
+            )
             for line in sec_content.splitlines():
                 line_trimmed = line.strip()
                 if not line_trimmed:
@@ -78,12 +80,8 @@ def parse_llms_txt(txt: str) -> dict[str, Any]:
                     links.append(m.groupdict())
             sections[sec_title] = links
 
-    return {
-        'title': title,
-        'summary': summary,
-        'info': info,
-        'sections': sections
-    }
+    return {"title": title, "summary": summary, "info": info, "sections": sections}
+
 
 def create_ctx(txt: str, include_optional: bool = False) -> str:
     """Create an XML context document for an LLM from an llms.txt string.
@@ -102,29 +100,38 @@ def create_ctx(txt: str, include_optional: bool = False) -> str:
     xml.append(f'<project title="{parsed["title"]}" summary="{parsed["summary"]}">')
 
     if parsed["info"]:
-        xml.append('<notes>')
+        xml.append("<notes>")
         xml.append(parsed["info"])
-        xml.append('</notes>')
+        xml.append("</notes>")
 
     for sec_name, links in parsed["sections"].items():
         # Skip optional sections if include_optional is False
-        if sec_name.lower() == 'optional' and not include_optional:
+        if sec_name.lower() == "optional" and not include_optional:
             continue
 
         xml.append(f'<section name="{sec_name}">')
         for link in links:
-            desc_attr = f' description="{link["desc"].strip()}"' if link.get("desc") else ""
-            xml.append(f'  <link title="{link["title"]}" url="{link["url"]}"{desc_attr} />')
-        xml.append('</section>')
+            desc_attr = (
+                f' description="{link["desc"].strip()}"' if link.get("desc") else ""
+            )
+            xml.append(
+                f'  <link title="{link["title"]}" url="{link["url"]}"{desc_attr} />'
+            )
+        xml.append("</section>")
 
-    xml.append('</project>')
+    xml.append("</project>")
     return "\n".join(xml)
+
 
 def main() -> None:
     """Execute main CLI entrypoint for parsing llms.txt."""
-    parser = argparse.ArgumentParser(description="Parse llms.txt and create an XML context document.")
+    parser = argparse.ArgumentParser(
+        description="Parse llms.txt and create an XML context document."
+    )
     parser.add_argument("file", help="Path to the llms.txt file")
-    parser.add_argument("--optional", action="store_true", help="Include optional sections")
+    parser.add_argument(
+        "--optional", action="store_true", help="Include optional sections"
+    )
 
     args = parser.parse_args()
 
@@ -137,6 +144,7 @@ def main() -> None:
 
     xml_output = create_ctx(content, include_optional=args.optional)
     print(xml_output)
+
 
 if __name__ == "__main__":
     main()
