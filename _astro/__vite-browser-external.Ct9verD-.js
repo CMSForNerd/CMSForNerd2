@@ -1,0 +1,1 @@
+import{t as e}from"./WasmStudio.astro_astro_type_script_index_0_lang.CFTrClSs.js";var t=e(((e,t)=>{t.exports={}}));export default t();
