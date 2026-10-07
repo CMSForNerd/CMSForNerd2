@@ -18,7 +18,11 @@ def test_validate_mermaid_script_execution() -> None:
     assert script_path.exists(), "tools/validate-mermaid.js does not exist."
 
     node_bin = os.path.expanduser("~/.nvm/versions/node/v22.22.1/bin/node")
-    cmd = [node_bin, str(script_path)] if os.path.exists(node_bin) else ["node", str(script_path)]
+    cmd = (
+        [node_bin, str(script_path)]
+        if os.path.exists(node_bin)
+        else ["node", str(script_path)]
+    )
 
     env = os.environ.copy()
     if os.path.exists(node_bin):
@@ -26,8 +30,12 @@ def test_validate_mermaid_script_execution() -> None:
         env["PATH"] = f"{node_dir}:{env.get('PATH', '')}"
 
     result = subprocess.run(cmd, capture_output=True, text=True, env=env, check=False)
-    assert result.returncode == 0, f"validate-mermaid.js failed with error:\n{result.stderr}"
-    assert "All" in result.stdout and "passed syntax validation cleanly" in result.stdout
+    assert result.returncode == 0, (
+        f"validate-mermaid.js failed with error:\n{result.stderr}"
+    )
+    assert (
+        "All" in result.stdout and "passed syntax validation cleanly" in result.stdout
+    )
 
 
 def test_dsom_compaction_engine_payload() -> None:
@@ -50,11 +58,19 @@ def test_dsom_compaction_engine_payload() -> None:
     assert payload["dsom_compaction_meta"]["protocol_version"] == "0.2"
     assert payload["active_intent"] == "Unit test active intent validation"
     assert "pytest" in payload["operational_constraints"]
-    assert payload["context_deltas"]["system_mutations"] == "Added skills_and_dsom.py unit tests"
+    assert (
+        payload["context_deltas"]["system_mutations"]
+        == "Added skills_and_dsom.py unit tests"
+    )
     assert "UNIT_TEST_SYNC" in payload["episodic_memory_keys"]
 
     # 2. CLI Subprocess Verification
-    cmd = ["python3", "tools/dsom_compaction_engine.py", "--intent", "CLI Execution Test"]
+    cmd = [
+        "python3",
+        "tools/dsom_compaction_engine.py",
+        "--intent",
+        "CLI Execution Test",
+    ]
     res = subprocess.run(cmd, capture_output=True, text=True, check=False)
     assert res.returncode == 0, f"dsom_compaction_engine.py CLI failed: {res.stderr}"
     assert '"protocol_version": "0.2"' in res.stdout
@@ -71,18 +87,24 @@ def test_dsom_manifest_sync_script() -> None:
     script_path = Path("tools/dsom-manifest-sync.sh")
     assert script_path.exists(), "tools/dsom-manifest-sync.sh does not exist."
 
-    res = subprocess.run(["./tools/dsom-manifest-sync.sh"], capture_output=True, text=True, check=False)
+    res = subprocess.run(
+        ["./tools/dsom-manifest-sync.sh"], capture_output=True, text=True, check=False
+    )
     assert res.returncode == 0, f"dsom-manifest-sync.sh failed: {res.stderr}"
 
     manifest_path = Path(".agents/brain/active_context_manifest.md")
-    assert manifest_path.exists(), ".agents/brain/active_context_manifest.md missing after sync."
+    assert manifest_path.exists(), (
+        ".agents/brain/active_context_manifest.md missing after sync."
+    )
 
     content = manifest_path.read_text(encoding="utf-8")
     assert 'spec_version: "0.2"' in content
     assert "DSOM Active Context Manifest" in content
 
     checkpoint_path = Path(".agents/brain/checkpoint_summary.txt")
-    assert checkpoint_path.exists(), ".agents/brain/checkpoint_summary.txt missing after sync."
+    assert checkpoint_path.exists(), (
+        ".agents/brain/checkpoint_summary.txt missing after sync."
+    )
 
 
 def test_agent_charter_and_skills_integrity() -> None:
@@ -106,6 +128,12 @@ def test_agent_charter_and_skills_integrity() -> None:
         assert path.exists(), f"Target governance/skill file missing: {rel_path}"
 
         content = path.read_text(encoding="utf-8")
-        assert content.startswith("---"), f"File {rel_path} must start with OKF frontmatter '---'."
-        assert 'spec_version: "0.2"' in content, f"File {rel_path} missing required spec_version: \"0.2\"."
-        assert "Deep State of Mind" in content or "DSOM" in content, f"File {rel_path} missing DSOM signature."
+        assert content.startswith("---"), (
+            f"File {rel_path} must start with OKF frontmatter '---'."
+        )
+        assert 'spec_version: "0.2"' in content, (
+            f'File {rel_path} missing required spec_version: "0.2".'
+        )
+        assert "Deep State of Mind" in content or "DSOM" in content, (
+            f"File {rel_path} missing DSOM signature."
+        )

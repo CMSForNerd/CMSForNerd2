@@ -76,7 +76,7 @@ FROM finance.recognized_revenue
 WHERE fiscal_year = @fiscal_year
 ```
 
-```
+```text
 
 ### The 6-Step Verification Lifecycle:
 1. **Discover:** Agent locates `type: Attested Computation`.
@@ -92,7 +92,7 @@ WHERE fiscal_year = @fiscal_year
 
 Warp and OpenViking Agent Skills enable reusable task instructions discovered automatically from `.agents/skills/{skill-name}/SKILL.md`.
 
-```
+```text
 
 .agents/skills/
 ├── attested-computations/
@@ -104,7 +104,8 @@ Warp and OpenViking Agent Skills enable reusable task instructions discovered au
 
 ```
 
-### Skill Parameter Substitution Syntax:
+### Skill Parameter Substitution Syntax
+
 - `$ARGUMENTS`: Full raw argument string.
 - `$ARGUMENTS[N]` or `$N`: Nth whitespace-separated argument (e.g., `$0` = first argument).
 

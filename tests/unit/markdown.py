@@ -22,7 +22,10 @@ def test_markdown_okf_compliance() -> None:
     """
     markdown_files = []
     for root, _, files in os.walk("."):
-        if any(p in root for p in ["node_modules", ".git", ".astro", "dist", ".pytest_cache"]):
+        if any(
+            p in root
+            for p in ["node_modules", ".git", ".astro", "dist", ".pytest_cache"]
+        ):
             continue
         for file in files:
             if file.endswith(".md"):
@@ -35,11 +38,15 @@ def test_markdown_okf_compliance() -> None:
             content = f.read()
 
         # 1. Check OKF starting line
-        assert content.startswith("---"), f"Markdown file {filepath} must start with frontmatter '---' on line 1, column 1."
+        assert content.startswith("---"), (
+            f"Markdown file {filepath} must start with frontmatter '---' on line 1, column 1."
+        )
 
         # Find frontmatter boundary
         end_idx = content.find("---", 3)
-        assert end_idx != -1, f"Markdown file {filepath} has unclosed frontmatter block."
+        assert end_idx != -1, (
+            f"Markdown file {filepath} has unclosed frontmatter block."
+        )
 
         frontmatter_text = content[3:end_idx].strip()
 
@@ -50,16 +57,24 @@ def test_markdown_okf_compliance() -> None:
             pytest.fail(f"Markdown file {filepath} has invalid YAML frontmatter: {e}")
 
         spec_ver = fm_data.get("spec_version") or fm_data.get("okf_version")
-        assert spec_ver is not None, f"Markdown file {filepath} is missing required OKF version key ('spec_version')."
+        assert spec_ver is not None, (
+            f"Markdown file {filepath} is missing required OKF version key ('spec_version')."
+        )
 
         required_keys = ["type", "title", "status", "stale_after"]
         for key in required_keys:
-            assert key in fm_data, f"Markdown file {filepath} is missing required OKF v0.2 frontmatter key: '{key}'"
+            assert key in fm_data, (
+                f"Markdown file {filepath} is missing required OKF v0.2 frontmatter key: '{key}'"
+            )
 
         # Check array structure for topics or tags
         topics = fm_data.get("topics") or fm_data.get("tags")
-        assert topics is not None, f"Markdown file {filepath} must have a 'topics' or 'tags' array."
-        assert isinstance(topics, list), f"Markdown file {filepath} 'topics' or 'tags' attribute must be an array."
+        assert topics is not None, (
+            f"Markdown file {filepath} must have a 'topics' or 'tags' array."
+        )
+        assert isinstance(topics, list), (
+            f"Markdown file {filepath} 'topics' or 'tags' attribute must be an array."
+        )
 
         # Check special characters in frontmatter lines (Double Quoting Rule)
         lines = frontmatter_text.splitlines()
@@ -67,10 +82,17 @@ def test_markdown_okf_compliance() -> None:
             if ":" in line and not line.strip().startswith("-"):
                 parts = line.split(":", 1)
                 val = parts[1].strip()
-                if val and any(c in val for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]"]):
+                if val and any(
+                    c in val
+                    for c in ["🎨", "🧠", "🚀", "🧪", "📋", "🏗️", "🧱", "[", "]"]
+                ):
                     # If value contains emojis, brackets, or other special characters
-                    is_quoted = (val.startswith('"') and val.endswith('"')) or (val.startswith('[') and val.endswith(']'))
-                    assert is_quoted, f"Value '{val}' in frontmatter of {filepath} containing special characters must be double quoted."
+                    is_quoted = (val.startswith('"') and val.endswith('"')) or (
+                        val.startswith("[") and val.endswith("]")
+                    )
+                    assert is_quoted, (
+                        f"Value '{val}' in frontmatter of {filepath} containing special characters must be double quoted."
+                    )
 
 
 def test_markdown_governance_footers() -> None:
@@ -107,15 +129,27 @@ def test_markdown_governance_footers() -> None:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
 
-        non_empty_lines = [line.strip() for line in content.splitlines() if line.strip()]
-        assert len(non_empty_lines) >= 2, f"Governance file {filepath} is too short to have a footer."
+        non_empty_lines = [
+            line.strip() for line in content.splitlines() if line.strip()
+        ]
+        assert len(non_empty_lines) >= 2, (
+            f"Governance file {filepath} is too short to have a footer."
+        )
 
         footer_text = " ".join(non_empty_lines[-5:])
         has_dsom = "Deep State of Mind" in footer_text or "DSOM" in footer_text
-        has_uk = "UK English" in footer_text or "UK-English" in footer_text or "DBP-standard" in footer_text
+        has_uk = (
+            "UK English" in footer_text
+            or "UK-English" in footer_text
+            or "DBP-standard" in footer_text
+        )
 
-        assert has_dsom, f"Governance markdown file {filepath} is missing 'Deep State of Mind (DSOM)' standard footer declaration."
-        assert has_uk, f"Governance markdown file {filepath} is missing Standard/UK English declaration in the footer."
+        assert has_dsom, (
+            f"Governance markdown file {filepath} is missing 'Deep State of Mind (DSOM)' standard footer declaration."
+        )
+        assert has_uk, (
+            f"Governance markdown file {filepath} is missing Standard/UK English declaration in the footer."
+        )
 
 
 def test_uk_english_documentation_spellings() -> None:
@@ -128,7 +162,13 @@ def test_uk_english_documentation_spellings() -> None:
         AssertionError: If prohibited US English spellings are detected in target documents.
 
     """
-    target_docs = ["README.md", "START-HERE.md", "SUMMARY.md", "AGENTS.md", ".agents/AGENTS.md"]
+    target_docs = [
+        "README.md",
+        "START-HERE.md",
+        "SUMMARY.md",
+        "AGENTS.md",
+        ".agents/AGENTS.md",
+    ]
 
     # Prohibited US spellings (where UK equivalent is mandated)
     us_to_uk_patterns = {
@@ -154,4 +194,6 @@ def test_uk_english_documentation_spellings() -> None:
         # Check for forbidden patterns
         for pattern, replacement in us_to_uk_patterns.items():
             match = re.search(pattern, content)
-            assert not match, f"Prohibited US English spelling found in {doc}: '{match.group(0)}'. Use UK spelling '{replacement}' instead."
+            assert not match, (
+                f"Prohibited US English spelling found in {doc}: '{match.group(0)}'. Use UK spelling '{replacement}' instead."
+            )

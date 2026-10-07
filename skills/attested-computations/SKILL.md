@@ -75,7 +75,7 @@ The computation binds only the declared `parameters`, per the recognition policy
 
 [^rev-policy]: Revenue recognition policy
 
-```
+```text
 
 ---
 

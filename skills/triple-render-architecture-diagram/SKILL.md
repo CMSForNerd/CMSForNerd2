@@ -26,7 +26,7 @@ This skill enforces the **Triple-Render Architecture Diagram Specification (ASCI
 
 ---
 
-### SYSTEM DIRECTIVE: TRIPLE-RENDER ARCHITECTURE DIAGRAM SPECIFICATION (SVG + MERMAID)
+## SYSTEM DIRECTIVE: TRIPLE-RENDER ARCHITECTURE DIAGRAM SPECIFICATION (SVG + MERMAID)
 
 Translate the architecture, topology, sequence, or workflow established in the conversation or specification into a production-grade, multi-tier visual deliverable.
 
@@ -34,11 +34,11 @@ Generate the output strictly in the following sequence without introductory fluf
 
 ---
 
-#### 1. ASCII Trees Diagram
+### 1. ASCII Trees Diagram
 
 Generate a clean, structured plain-text ASCII box or tree diagram representing the component hierarchy, execution flow, or system topology using standard box-drawing characters (`┌`, `─`, `┐`, `│`, `└`, `┘`, `├`, `┤`, `┬`, `┴`, `┼`, `▶`, `▲`, `▼`, `◄`).
 
-#### 2. Standalone Production-Ready SVG Vector Graphic (`.svg`)
+### 2. Standalone Production-Ready SVG Vector Graphic (`.svg`)
 
 Generate a self-contained, fully compliant raw SVG vector block inside a single ````xml ...```` code fence matching these styling constraints:
 
@@ -57,7 +57,7 @@ Generate a self-contained, fully compliant raw SVG vector block inside a single 
   * Every card must contain: entity title (bold), primary network/system identifier (IP, FQDN, or ID), and key functional metadata (ports, daemons, or roles).
   * Direct all connection paths (`<path>` or `<line>`) with explicit coordinates and distinct port/protocol callout pill badges.
 
-#### 3. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
+### 3. Git-Native Mermaid Diagram (`.mmd` / Mermaid Block)
 
 Directly beneath the SVG block, generate an equivalent, character-exact Mermaid diagram inside a single ````mermaid ...```` code fence:
 
@@ -66,7 +66,7 @@ Directly beneath the SVG block, generate an equivalent, character-exact Mermaid 
 * **Label Precision:** Display clear port bindings, protocol indicators, and service actions along link connectors (e.g., `-->|"TCP 5432 / mTLS"|` or `-->|"SSH Port 22"|`).
 * **Readability:** Break long node labels across multiple lines using HTML break tags (`<br/>`).
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 Conclude with a clean Markdown comparison table summarizing:
 

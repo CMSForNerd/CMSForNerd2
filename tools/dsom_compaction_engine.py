@@ -33,7 +33,10 @@ def create_compacted_payload(
 
     """
     if constraints is None:
-        constraints = ["Python 3.12 / Node.js v22", "Google Jules Container Compatibility"]
+        constraints = [
+            "Python 3.12 / Node.js v22",
+            "Google Jules Container Compatibility",
+        ]
 
     if memory_keys is None:
         memory_keys = ["DSOM_STATE_SYNC_COMPLETE"]

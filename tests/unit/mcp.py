@@ -257,7 +257,9 @@ def test_mcp_webrtc_p2p_mesh_transport() -> None:
             {
                 "type": "ice_candidate",
                 "node_id": "agent-alpha",
-                "candidate": {"candidate": "candidate:1 1 UDP 2013266431 127.0.0.1 5000 typ host"},
+                "candidate": {
+                    "candidate": "candidate:1 1 UDP 2013266431 127.0.0.1 5000 typ host"
+                },
             }
         )
         ice_res = websocket.receive_json()

@@ -117,7 +117,7 @@ All Ansible playbooks and tasks generated or modified by AI agents must strictly
 
 ## 🏗️ Architecture & Orchestration Flow
 
-```
+```text
                       +----------------------------------+
                       |    Master Ansible Orchestrator   |
                       |       (playbooks/site.yml)       |

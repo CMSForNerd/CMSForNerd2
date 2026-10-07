@@ -109,7 +109,15 @@ class InternalBrokenLinksTest(unittest.TestCase):
     def test_internal_links_exist(self) -> None:
         """Validate that all internal relative links in template and content files exist on disk."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
-        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv", ".terraform"}
+        excluded_dirs = {
+            "node_modules",
+            ".git",
+            ".astro",
+            "dist",
+            ".pytest_cache",
+            ".venv",
+            ".terraform",
+        }
 
         files: list[str] = []
         for root, dirs, fnames in os.walk("."):
@@ -118,7 +126,10 @@ class InternalBrokenLinksTest(unittest.TestCase):
                 if fname.endswith(target_extensions):
                     files.append(os.path.join(root, fname))
 
-        self.assertTrue(len(files) > 0, "No template or content files found to scan for internal links.")
+        self.assertTrue(
+            len(files) > 0,
+            "No template or content files found to scan for internal links.",
+        )
 
         unresolved_links: list[tuple[str, str]] = []
 
@@ -179,7 +190,8 @@ class InternalBrokenLinksTest(unittest.TestCase):
                     unresolved_links.append((filepath, link))
 
         failure_msg = "Broken internal links detected:\n" + "\n".join(
-            f"  File: {src_f} -> Linked Target: {target}" for src_f, target in unresolved_links
+            f"  File: {src_f} -> Linked Target: {target}"
+            for src_f, target in unresolved_links
         )
         self.assertEqual(len(unresolved_links), 0, failure_msg)
 
@@ -190,7 +202,15 @@ class ExternalBrokenLinksTest(unittest.TestCase):
     def test_external_links_accessible(self) -> None:
         """Validate that external HTTP/HTTPS links in template files respond successfully and are not broken."""
         target_extensions = (".astro", ".html", ".md", ".mdx", ".ts", ".tsx", ".json")
-        excluded_dirs = {"node_modules", ".git", ".astro", "dist", ".pytest_cache", ".venv", ".terraform"}
+        excluded_dirs = {
+            "node_modules",
+            ".git",
+            ".astro",
+            "dist",
+            ".pytest_cache",
+            ".venv",
+            ".terraform",
+        }
 
         files: list[str] = []
         for root, dirs, fnames in os.walk("."):
@@ -199,7 +219,10 @@ class ExternalBrokenLinksTest(unittest.TestCase):
                 if fname.endswith(target_extensions):
                     files.append(os.path.join(root, fname))
 
-        self.assertTrue(len(files) > 0, "No template or content files found to scan for external links.")
+        self.assertTrue(
+            len(files) > 0,
+            "No template or content files found to scan for external links.",
+        )
 
         external_links: set[str] = set()
 
@@ -213,7 +236,13 @@ class ExternalBrokenLinksTest(unittest.TestCase):
                 if link.startswith(("http://", "https://")):
                     external_links.add(link)
 
-        security_payload_patterns = ["evil.com", "example.com", "example.org", "localhost", "127.0.0.1"]
+        security_payload_patterns = [
+            "evil.com",
+            "example.com",
+            "example.org",
+            "localhost",
+            "127.0.0.1",
+        ]
         headers = {"User-Agent": "Mozilla/5.0 (CMSForNerd2 Link Checker)"}
 
         broken_links: list[tuple[str, str]] = []
@@ -224,10 +253,18 @@ class ExternalBrokenLinksTest(unittest.TestCase):
 
             try:
                 # Attempt HTTP HEAD request first
-                res = requests.head(link, headers=headers, timeout=5, allow_redirects=True)
+                res = requests.head(
+                    link, headers=headers, timeout=5, allow_redirects=True
+                )
                 if res.status_code in (404, 405, 403):
                     # Fallback to streaming HTTP GET if HEAD is rejected or forbidden
-                    res = requests.get(link, headers=headers, timeout=5, allow_redirects=True, stream=True)
+                    res = requests.get(
+                        link,
+                        headers=headers,
+                        timeout=5,
+                        allow_redirects=True,
+                        stream=True,
+                    )
 
                 # Consider HTTP 404 or 410 as broken
                 if res.status_code in (404, 410):
@@ -240,10 +277,14 @@ class ExternalBrokenLinksTest(unittest.TestCase):
 
             except requests.Timeout:
                 # In restricted or sandboxed network environments, timeout does not imply 404
-                print(f"Notice: External link check timed out for {link}. Skipping network timeout in sandbox.")
+                print(
+                    f"Notice: External link check timed out for {link}. Skipping network timeout in sandbox."
+                )
             except requests.RequestException as e:
                 # Network unreachable or DNS block in sandbox
-                print(f"Notice: External link connection failed for {link} ({type(e).__name__}). Skipping in sandbox.")
+                print(
+                    f"Notice: External link connection failed for {link} ({type(e).__name__}). Skipping in sandbox."
+                )
 
         failure_msg = "Broken external links detected:\n" + "\n".join(
             f"  URL: {url} -> Reason: {reason}" for url, reason in broken_links

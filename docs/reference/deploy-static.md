@@ -37,9 +37,9 @@ The `deploy-static.sh` script is a POSIX-compliant Bash orchestrator that automa
 
 The script executes a dynamic environmental check to determine available system privileges across limited sandbox and production server runtimes.
 
-#### 1. ASCII Tree Diagram
+### 1. ASCII Tree Diagram
 
-```
+```text
                               ┌───────────────────┐
                               │    START RUN      │
                               │ deploy-static.sh  │
@@ -60,7 +60,7 @@ The script executes a dynamic environmental check to determine available system 
               └─────────────────────┘       └─────────────────────┘
 ```
 
-#### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
+### 2. Standalone Dark Slate Raw SVG Vector Graphic (`.svg`)
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
@@ -118,7 +118,7 @@ The script executes a dynamic environmental check to determine available system 
 </svg>
 ```
 
-#### 3. Git-Native Mermaid Diagram (`.mmd`)
+### 3. Git-Native Mermaid Diagram (`.mmd`)
 
 ```mermaid
 graph TD
@@ -142,7 +142,7 @@ graph TD
     CLI -->|"Persistent OS Environment"| P1
 ```
 
-#### 4. Summary Interface & Routing Table
+### 4. Summary Interface & Routing Table
 
 | Source Component | Target Component | Ingress / Protocol | Trust Zone / Security Boundary | Operational Significance / Flow Description |
 | :--- | :--- | :--- | :--- | :--- |

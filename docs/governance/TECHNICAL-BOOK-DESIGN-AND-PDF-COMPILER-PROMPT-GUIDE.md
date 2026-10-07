@@ -367,7 +367,7 @@ name: "dsom-technical-book-compiler"
 python3 .agents/skills/dsom-technical-book-compiler/scripts/compile-book.py
 ```
 
-```
+```text
 
 ---
 

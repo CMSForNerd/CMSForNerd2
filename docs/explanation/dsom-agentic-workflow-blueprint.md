@@ -24,7 +24,7 @@ The **DSOM Agentic Workflow Blueprint** defines a continuous operational loop th
 
 ## The 5-Step Operational Architecture
 
-```
+```text
  ┌────────────────────────────────────────────────────────┐
  │ 1. Session Init & State Sync (Load Git Hook state file)│
  └───────────────────────────┬────────────────────────────┘
@@ -86,7 +86,7 @@ Bridging session memory back into the repository:
 
 ## DSOM Core Compaction Engine System Prompt (Step 2)
 
-```
+```text
 # SYSTEM PROMPT: DSOM CORE COMPACTION ENGINE
 
 ## ROLE AND PURPOSE
